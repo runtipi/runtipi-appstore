@@ -1,0 +1,29 @@
+{
+  "name": "runtipi-appstore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "jest",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meienberger/runtipi-appstore.git"
+  },
+  "author": "",
+  "license": "GNU General Public License v3.0",
+  "bugs": {
+    "url": "https://github.com/meienberger/runtipi-appstore/issues"
+  },
+  "homepage": "https://github.com/meienberger/runtipi-appstore#readme",
+  "devDependencies": {
+    "@types/jest": "^28.1.6",
+    "@types/js-yaml": "^4.0.5",
+    "husky": "^8.0.1",
+    "jest": "^28.1.3",
+    "js-yaml": "^4.1.0",
+    "ts-jest": "^28.0.7",
+    "typescript": "^4.7.4"
+  }
+}
