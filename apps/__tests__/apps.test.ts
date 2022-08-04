@@ -10,8 +10,8 @@ interface AppConfig {
   };
   name: string;
   description: string;
-  version: string;
-  image: string;
+  version?: string;
+  tipi_version: number;
   short_desc: string;
   author: string;
   source: string;
@@ -24,7 +24,7 @@ const getAppConfigs = (): AppConfig[] => {
 
   const appsDir = fs.readdirSync("./apps");
 
-  appsDir.forEach((app) => {
+  appsDir.forEach((app: string) => {
     const path = `./apps/${app}/config.json`;
 
     if (fs.existsSync(path)) {
@@ -122,11 +122,36 @@ describe("App configs", () => {
     expect(new Set(ids).size).toBe(appConfigs.length);
   });
 
+  it("Each app should have a version", () => {
+    const apps = getAppConfigs();
+
+    apps.forEach((app) => {
+      expect(app.tipi_version).toBeDefined();
+      expect(app.tipi_version).toBeGreaterThan(0);
+    });
+  });
+
   it("Each app should have a docker-compose file beside it", () => {
     const apps = getAppConfigs();
 
     apps.forEach((app) => {
       expect(fs.existsSync(`./apps/${app.id}/docker-compose.yml`)).toBe(true);
+    });
+  });
+
+  it("Each app should have a metadata folder beside it", () => {
+    const apps = getAppConfigs();
+
+    apps.forEach((app) => {
+      expect(fs.existsSync(`./apps/${app.id}/metadata`)).toBe(true);
+    });
+  });
+
+  it("Each app should have a file named logo.jpg in the metadata folder", () => {
+    const apps = getAppConfigs();
+
+    apps.forEach((app) => {
+      expect(fs.existsSync(`./apps/${app.id}/metadata/logo.jpg`)).toBe(true);
     });
   });
 

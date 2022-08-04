@@ -3,11 +3,11 @@
   "available": true,
   "port": 8112,
   "id": "readarr",
+  "tipi_version": 1,
   "categories": ["books", "media"],
   "description": "",
   "short_desc": "Book Manager and Automation (Sonarr for Ebooks)",
   "author": "readarr.com",
   "source": "https://github.com/Readarr/Readarr",
-  "image": "/logos/apps/readarr.jpg",
   "form_fields": []
 }

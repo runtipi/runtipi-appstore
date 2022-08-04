@@ -3,12 +3,12 @@
   "available": true,
   "port": 8103,
   "id": "your-spotify",
+  "tipi_version": 1,
   "categories": ["music", "utilities"],
   "description": "Self hosted Spotify tracking dashboard.",
   "short_desc": "Self hosted Spotify tracking dashboard.",
   "author": "Yooooomi",
   "source": "https://github.com/Yooooomi/your_spotify",
-  "image": "/logos/apps/your-spotify.jpg",
   "form_fields": [
     {
       "type": "text",

@@ -1,6 +1,8 @@
 {
   "name": "Adguard",
   "available": true,
+  "tipi_version": 1,
+  "version": "0.107.7",
   "port": 8104,
   "id": "adguard",
   "categories": ["network", "security"],
@@ -8,7 +10,6 @@
   "short_desc": "World's most advanced adblocker!",
   "author": "AdguardTeam",
   "source": "https://github.com/AdguardTeam",
-  "image": "/logos/apps/adguard.jpg",
   "requirements": {
     "ports": [53]
   },

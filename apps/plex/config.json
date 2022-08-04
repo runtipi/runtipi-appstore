@@ -3,12 +3,13 @@
   "available": true,
   "port": 32400,
   "id": "plex",
+  "tipi_version": 1,
+  "version": "1.27.2",
   "url_suffix": "/web",
   "categories": ["media"],
   "description": "",
   "short_desc": "Stream Movies & TV Shows",
   "author": "plexinc",
   "source": "https://github.com/plexinc/pms-docker",
-  "image": "/logos/apps/plex.png",
   "form_fields": []
 }
