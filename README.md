@@ -43,4 +43,4 @@ This is the official repository for the Tipi App Store. It contains all the apps
 ## How to sumbit an app
 If you want to see new apps on Tipi you can either :
 - [Open an issue]() on this repository and some members of the community will add it
-- Fork this repo and create the necessary files for a Tipi app. Follow this [guide](https://github.com/meienberger/runtipi/wiki/Contributing-to-Tipi#adding-your-own-app)
+- Fork this repo and create the necessary files for a Tipi app. Follow this [guide](https://github.com/meienberger/runtipi/wiki/Adding-your-own-app)
