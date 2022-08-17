@@ -1,4 +1,4 @@
-# Tipi App Store
+# Tipi App Store ⛺️
 This is the official repository for the Tipi App Store. It contains all the apps that are available for download on [Tipi](https://github.com/meienberger/runtipi).
 
 ## Apps available
