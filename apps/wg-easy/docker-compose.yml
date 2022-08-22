@@ -13,7 +13,7 @@ services:
       WG_HOST: "${WIREGUARD_HOST}"
       PASSWORD: "${WIREGUARD_PASSWORD}"
       WG_DEFAULT_DNS: "${WIREGUARD_DNS:-8.8.8.8}"
-      WG_PERSISTENT_KEEPALIVE: 15
+      WG_ALLOWED_IPS: 0.0.0.0/0, ::/0
     cap_add:
       - NET_ADMIN
       - SYS_MODULE
@@ -22,10 +22,3 @@ services:
       - net.ipv4.ip_forward=1
     networks:
       - tipi_main_network
-    # labels:
-    #   traefik.enable: true
-    #   traefik.http.routers.wireguard.rule: Host(`wireguard.tipi.home`)
-    #   traefik.http.routers.wireguard.service: wireguard
-    #   traefik.http.routers.wireguard.tls: true
-    #   traefik.http.routers.wireguard.entrypoints: websecure
-    #   traefik.http.services.wireguard.loadbalancer.server.port: 51821
