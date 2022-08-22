@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.8"
 services:
   wg-easy:
     container_name: wg-easy
@@ -17,8 +17,6 @@ services:
     cap_add:
       - NET_ADMIN
       - SYS_MODULE
-    dns:
-      - "${WIREGUARD_DNS:-8.8.8.8}"
     sysctls:
       - net.ipv4.conf.all.src_valid_mark=1
       - net.ipv4.ip_forward=1
