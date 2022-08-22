@@ -8,6 +8,4 @@ services:
       - ${APP_DATA_DIR}/config:/config
     restart: unless-stopped
     privileged: true
-    ports:
-      - ${APP_PORT}:8123
     network_mode: host
