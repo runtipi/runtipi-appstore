@@ -39,3 +39,6 @@ jobs:
 
       - name: Run global tests
         run: pnpm test
+
+      - name: Run linter
+        run: pnpm run lint
