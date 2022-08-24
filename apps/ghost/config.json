@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema.json",
   "name": "Ghost",
   "port": 8117,
   "available": true,

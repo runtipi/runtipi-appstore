@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema.json",
   "name": "Node-RED",
   "port": 8111,
   "available": true,

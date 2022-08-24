@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema.json",
   "name": "Pi-hole",
   "available": true,
   "port": 8081,

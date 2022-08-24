@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema.json",
   "name": "Your Spotify",
   "available": true,
   "port": 8103,

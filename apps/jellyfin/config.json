@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema.json",
   "name": "Jellyfin",
   "available": true,
   "port": 8091,

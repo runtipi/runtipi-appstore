@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema.json",
   "name": "File Browser",
   "available": true,
   "port": 8096,

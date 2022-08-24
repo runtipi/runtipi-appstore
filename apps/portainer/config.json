@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema.json",
   "name": "Portainer",
   "port": 9443,
   "available": true,

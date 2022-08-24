@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema.json",
   "name": "Syncthing",
   "available": true,
   "port": 8090,

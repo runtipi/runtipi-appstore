@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema.json",
   "name": "Firefly III",
   "available": true,
   "port": 8115,

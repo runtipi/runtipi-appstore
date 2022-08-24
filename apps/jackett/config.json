@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema.json",
   "name": "Jackett",
   "available": true,
   "port": 8097,

@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema.json",
   "name": "PhotoPrism",
   "port": 8110,
   "available": true,

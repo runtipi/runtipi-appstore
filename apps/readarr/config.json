@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema.json",
   "name": "Readarr",
   "available": true,
   "port": 8112,

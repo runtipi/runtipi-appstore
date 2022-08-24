@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema.json",
   "name": "Plex",
   "available": true,
   "port": 32400,

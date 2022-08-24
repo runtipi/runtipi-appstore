@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema.json",
   "name": "Joplin Server",
   "available": true,
   "port": 8099,

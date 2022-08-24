@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema.json",
   "name": "Adguard",
   "available": true,
   "tipi_version": 1,
