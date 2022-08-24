@@ -4,6 +4,7 @@
   "available": true,
   "port": 8115,
   "tipi_version": 1,
+  "version": "latest",
   "id": "firefly-iii",
   "categories": ["finance"],
   "description": "",

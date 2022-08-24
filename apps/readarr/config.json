@@ -5,6 +5,7 @@
   "port": 8112,
   "id": "readarr",
   "tipi_version": 1,
+  "version": "develop",
   "categories": ["books", "media"],
   "description": "",
   "short_desc": "Book Manager and Automation (Sonarr for Ebooks)",

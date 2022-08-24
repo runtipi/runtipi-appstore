@@ -5,6 +5,7 @@
   "available": true,
   "id": "photoprism",
   "tipi_version": 1,
+  "version": "latest",
   "categories": ["photography"],
   "description": "PhotoPrism® is an AI-Powered Photos App for the Decentralized Web. It makes use of the latest technologies to tag and find pictures automatically without getting in your way. You can run it at home, on a private server, or in the cloud. Default username: admin",
   "short_desc": "AI-Powered Photos App for the Decentralized Web. We are on a mission to protect your freedom and privacy.",

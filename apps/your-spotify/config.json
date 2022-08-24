@@ -5,6 +5,7 @@
   "port": 8103,
   "id": "your-spotify",
   "tipi_version": 1,
+  "version": "latest",
   "categories": ["music", "utilities"],
   "description": "Self hosted Spotify tracking dashboard.",
   "short_desc": "Self hosted Spotify tracking dashboard.",
