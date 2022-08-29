@@ -4,6 +4,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 ## Apps available
 - [Adguard Home](https://github.com/AdguardTeam/AdGuardHome) - Adguard Home DNS adblocker
 - [Booksonic](https://github.com/popeen) - A server for streaming your audiobooks
+- [Bookstack](https://github.com/BookStackApp/BookStack) - Simple, easy-to-use platform for organising and storing information.
 - [Calibre-Web](https://github.com/janeczku/calibre-web) - Web Ebook Reader
 - [Code-Server](https://github.com/coder/code-server) - Web VS Code 
 - [Filebrowser](https://github.com/filebrowser/filebrowser) - Web File Browser
