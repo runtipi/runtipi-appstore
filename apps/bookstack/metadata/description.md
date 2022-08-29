@@ -3,3 +3,8 @@ BookStack is an opinionated wiki system that provides a pleasant and simple out-
 BookStack is not designed as an extensible platform to be used for purposes that differ to the statement above.
 
 In regard to development philosophy, BookStack has a relaxed, open & positive approach. At the end of the day this is free software developed and maintained by people donating their own free time.
+
+## Credentials
+
+Username: admin@admin.com
+Password: password
