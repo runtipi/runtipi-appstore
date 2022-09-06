@@ -12,6 +12,9 @@
     "available": {
       "type": "boolean"
     },
+    "exposable": {
+      "type": "boolean"
+    },
     "port": {
       "type": "integer",
       "minimum": 0,
