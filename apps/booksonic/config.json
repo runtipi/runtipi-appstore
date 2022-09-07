@@ -3,7 +3,7 @@
   "name": "Booksonic",
   "available": true,
   "port": 8040,
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "latest",
   "id": "booksonic",
   "categories": ["books", "media"],

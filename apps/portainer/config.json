@@ -4,7 +4,7 @@
   "port": 9443,
   "available": true,
   "id": "portainer",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "2.14.2",
   "categories": ["utilities"],
   "description": "",
