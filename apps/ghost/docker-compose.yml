@@ -22,6 +22,13 @@ services:
       - ${APP_DATA_DIR}/content:/var/lib/ghost/content
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.ghost.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.ghost.entrypoints: websecure
+      traefik.http.routers.ghost.service: ghost
+      traefik.http.routers.ghost.tls.certresolver: myresolver
+      traefik.http.services.ghost.loadbalancer.server.port: 2368
 
   ghostdb:
     container_name: ghostdb

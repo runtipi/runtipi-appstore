@@ -4,7 +4,7 @@
   "available": true,
   "port": 8112,
   "id": "readarr",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "develop",
   "categories": ["books", "media"],
   "description": "",

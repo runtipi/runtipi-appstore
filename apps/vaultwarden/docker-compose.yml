@@ -14,3 +14,10 @@ services:
       - ${APP_DATA_DIR}/data:/data
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.vaultwarden.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.vaultwarden.entrypoints: websecure
+      traefik.http.routers.vaultwarden.service: vaultwarden
+      traefik.http.routers.vaultwarden.tls.certresolver: myresolver
+      traefik.http.services.vaultwarden.loadbalancer.server.port: 80

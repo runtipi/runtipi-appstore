@@ -28,6 +28,13 @@ services:
       - invidious-db
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.invidious.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.invidious.entrypoints: websecure
+      traefik.http.routers.invidious.service: invidious
+      traefik.http.routers.invidious.tls.certresolver: myresolver
+      traefik.http.services.invidious.loadbalancer.server.port: 3000
 
   invidious-db:
     user: 1000:1000
