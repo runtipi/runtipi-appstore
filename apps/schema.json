@@ -20,6 +20,9 @@
       "minimum": 0,
       "maximum": 65535
     },
+    "https": {
+      "type": "boolean"
+    },
     "requirements": {
       "type": "object",
       "properties": {

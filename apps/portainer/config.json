@@ -3,6 +3,7 @@
   "name": "Portainer",
   "port": 9443,
   "available": true,
+  "https": true,
   "id": "portainer",
   "tipi_version": 2,
   "version": "2.14.2",
