@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+  monerod:
+    image: sethsimmons/simple-monerod:latest
+    dns:
+      - ${DNS_IP}
+    ports:
+      - ${APP_PORT}:18080
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    container_name: monerod
+    volumes:
+      - bitmonero:/home/monero/.bitmonero
+    command: >-
+      --rpc-restricted-bind-ip=0.0.0.0
+      --rpc-restricted-bind-port=18089
+      --public-node
+      --no-igd
+      --enable-dns-blocklist
+      --prune-blockchain
+      --zmq-pub=tcp://0.0.0.0:18083
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.libreddit.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.libreddit.entrypoints: websecure
+      traefik.http.routers.libreddit.service: libreddit
+      traefik.http.routers.libreddit.tls.certresolver: myresolver
+      traefik.http.services.libreddit.loadbalancer.server.port: 18089
