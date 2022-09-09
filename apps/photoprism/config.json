@@ -3,6 +3,7 @@
   "name": "PhotoPrism",
   "port": 8110,
   "available": true,
+  "exposable": true,
   "id": "photoprism",
   "tipi_version": 2,
   "version": "latest",
