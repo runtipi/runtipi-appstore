@@ -2,6 +2,7 @@
   "$schema": "../schema.json",
   "name": "Nitter",
   "available": true,
+  "exposable": true,
   "port": 8106,
   "id": "nitter",
   "tipi_version": 1,
