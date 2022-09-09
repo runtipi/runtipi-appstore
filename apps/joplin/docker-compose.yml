@@ -8,7 +8,7 @@ services:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
     restart: unless-stopped
     environment:
-      - POSTGRES_PASSWORD=tipi
+      - POSTGRES_PASSWORD=${JOPLIN_DB_PASSWORD}
       - POSTGRES_USER=tipi
       - POSTGRES_DB=joplin
     networks:
@@ -26,9 +26,9 @@ services:
       - ${DNS_IP}
     environment:
       - APP_PORT=22300
-      - APP_BASE_URL=http://${INTERNAL_IP}:${APP_PORT}
+      - APP_BASE_URL=https://${APP_DOMAIN}
       - DB_CLIENT=pg
-      - POSTGRES_PASSWORD=tipi
+      - POSTGRES_PASSWORD=${JOPLIN_DB_PASSWORD}
       - POSTGRES_USER=tipi
       - POSTGRES_DATABASE=joplin
       - POSTGRES_PORT=5432
@@ -36,3 +36,13 @@ services:
       - MAX_TIME_DRIFT=0
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.joplin.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.joplin.entrypoints: websecure
+      traefik.http.routers.joplin.service: joplin
+      traefik.http.routers.joplin.tls.certresolver: myresolver
+      traefik.http.services.joplin.loadbalancer.server.port: 22300
+      traefik.http.services.joplin.loadbalancer.passhostheader: true
+      traefik.http.middlewares.joplin-sslheader.headers.customrequestheaders.X-Forwarded-Proto: http
+      traefik.http.routers.joplin-sslheader.middlewares: joplin-sslheader@docker
