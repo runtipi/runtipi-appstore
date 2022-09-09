@@ -1,12 +1,11 @@
 version: "3.7"
 services:
   jellyfin:
-    image: jellyfin/jellyfin:latest
+    image: lscr.io/linuxserver/jellyfin:10.8.1
     container_name: jellyfin
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
-      - ${APP_DATA_DIR}/data/cache:/cache
-      - ${ROOT_FOLDER_HOST}/media/data:/movies:ro
+      - ${ROOT_FOLDER_HOST}/media/data:/media/data
     environment:
       - PUID=1000
       - PGID=1000
