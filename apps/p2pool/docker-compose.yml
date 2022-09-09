@@ -1,0 +1,26 @@
+version: "3.7"
+services:
+  p2pool:
+    image: sethsimmons/p2pool:latest
+    restart: unless-stopped
+    container_name: p2pool
+    tty: true
+    stdin_open: true
+    volumes:
+      - ${APP_DATA_DIR}/data:/home/p2pool
+      - /dev/hugepages:/dev/hugepages:rw
+    dns:
+      - ${DNS_IP}
+    networks:
+      - tipi_main_network
+    ports:
+      - ${APP_PORT}:3333
+      - 37889:37889
+    command: >-
+      --wallet "${WALLET_ADDRESS}"
+      --stratum 0.0.0.0:3333
+      --p2p 0.0.0.0:37889
+      --loglevel 0
+      --addpeers 65.21.227.114:37889,node.sethforprivacy.com:37889
+      --host monerod
+      --rpc-port 18089
