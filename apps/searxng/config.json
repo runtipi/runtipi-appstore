@@ -2,6 +2,7 @@
   "$schema": "../schema.json",
   "name": "SearXNG",
   "available": true,
+  "exposable": true,
   "port": 8107,
   "id": "searxng",
   "tipi_version": 1,
