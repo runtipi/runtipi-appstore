@@ -1,0 +1,33 @@
+version: "3.7"
+services:
+  cryptpad:
+    image: promasu/cryptpad:nginx
+    container_name: cryptpad
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    ports:
+      - ${APP_PORT}:80
+    environment:
+      - CPAD_MAIN_DOMAIN=${APP_DOMAIN}
+      - CPAD_SANDBOX_DOMAIN=${APP_DOMAIN}/sandbox
+      # Traefik can't use HTTP2 to communicate with cryptpat_websocket
+      # A workaroung is disabling HTTP2 in Nginx
+      - CPAD_HTTP2_DISABLE=true
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+    volumes:
+      - ${APP_DATA_DIR}/data/blob:/cryptpad/blob
+      - ${APP_DATA_DIR}/data/block:/cryptpad/block
+      - ${APP_DATA_DIR}/data/customize:/cryptpad/customize
+      - ${APP_DATA_DIR}/data/data:/cryptpad/data
+      - ${APP_DATA_DIR}/data/datastores:/cryptpad/datastore
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.cryptpad.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.cryptpad.entrypoints: websecure
+      traefik.http.routers.cryptpad.service: cryptpad
+      traefik.http.routers.cryptpad.tls.certresolver: myresolver
+      traefik.http.services.cryptpad.loadbalancer.server.port: 80

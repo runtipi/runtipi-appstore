@@ -1,0 +1,16 @@
+{
+  "$schema": "../schema.json",
+  "name": "CryptPad",
+  "available": true,
+  "exposable": true,
+  "port": 8108,
+  "id": "cryptpad",
+  "tipi_version": 1,
+  "version": "latest",
+  "categories": ["utilities"],
+  "description": "CryptPad is a collaboration suite that is end-to-end-encrypted and open-source. It is built to enable collaboration, synchronizing changes to documents in real time. Because all data is encrypted, the service and its administrators have no way of seeing the content being edited and stored.",
+  "short_desc": "Collaboration suite, end-to-end encrypted and open-source.",
+  "author": "xwiki-labs",
+  "source": "https://github.com/xwiki-labs/cryptpad",
+  "form_fields": []
+}
