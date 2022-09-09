@@ -1,5 +1,4 @@
 version: "3.7"
-
 services:
   photoprism:
     # TODO: Special image for arm/v7 is available
@@ -12,7 +11,7 @@ services:
       - "${APP_PORT}:2342"
     environment:
       PHOTOPRISM_ADMIN_PASSWORD: ${PHOTOPRISM_ADMIN_PASSWORD}
-      PHOTOPRISM_SITE_URL: "http://localhost:2342/"
+      PHOTOPRISM_SITE_URL: "https://${APP_DOMAIN}/"
       PHOTOPRISM_ORIGINALS_LIMIT: 5000
       PHOTOPRISM_HTTP_COMPRESSION: "gzip"
       PHOTOPRISM_LOG_LEVEL: "info"
@@ -34,7 +33,7 @@ services:
       PHOTOPRISM_DATABASE_SERVER: "photoprism-db:3306"
       PHOTOPRISM_DATABASE_NAME: "photoprism"
       PHOTOPRISM_DATABASE_USER: "photoprism"
-      PHOTOPRISM_DATABASE_PASSWORD: "photoprism"
+      PHOTOPRISM_DATABASE_PASSWORD: "${DB_PASSWORD}"
       PHOTOPRISM_SITE_CAPTION: "AI-Powered Photos App"
     working_dir: "/photoprism"
     volumes:
@@ -42,10 +41,17 @@ services:
       - "${APP_DATA_DIR}/data/photoprism/storage:/photoprism/storage"
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.photoprism.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.photoprism.entrypoints: websecure
+      traefik.http.routers.photoprism.service: photoprism
+      traefik.http.routers.photoprism.tls.certresolver: myresolver
+      traefik.http.services.photoprism.loadbalancer.server.port: 2342
 
   photoprism-db:
     restart: unless-stopped
-    image: mariadb:10.8.3
+    image: mariadb:10.8
     container_name: photoprism-db
     command: mysqld --innodb-buffer-pool-size=128M --transaction-isolation=READ-COMMITTED --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --max-connections=512 --innodb-rollback-on-timeout=OFF --innodb-lock-wait-timeout=120
     volumes:
@@ -53,7 +59,7 @@ services:
     environment:
       MARIADB_DATABASE: "photoprism"
       MARIADB_USER: "photoprism"
-      MARIADB_PASSWORD: "photoprism"
-      MARIADB_ROOT_PASSWORD: "photoprism"
+      MARIADB_PASSWORD: "${DB_PASSWORD}"
+      MARIADB_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
     networks:
       - tipi_main_network
