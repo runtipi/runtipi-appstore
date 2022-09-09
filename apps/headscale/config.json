@@ -1,0 +1,16 @@
+{
+  "$schema": "../schema.json",
+  "name": "Headscale",
+  "available": true,
+  "exposable": true,
+  "port": 8120,
+  "id": "headscale",
+  "tipi_version": 1,
+  "version": "latest",
+  "categories": ["network"],
+  "description": "headscale aims to implement a self-hosted, open source alternative to the Tailscale control server. headscale has a narrower scope and an instance of headscale implements a single Tailnet, which is typically what a single organisation, or home/personal setup would use.",
+  "short_desc": "An open source, self-hosted implementation of the Tailscale control server",
+  "author": "juanfont",
+  "source": "https://github.com/juanfont/headscale",
+  "form_fields": []
+}

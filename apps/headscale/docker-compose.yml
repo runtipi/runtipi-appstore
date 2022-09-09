@@ -1,0 +1,45 @@
+version: "3.7"
+services:
+  headscale:
+    image: headscale/headscale:latest
+    container_name: headscale
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/etc/headscale/
+      - ${APP_DATA_DIR}/data/headscale:/var/lib/headscale
+    dns:
+      - ${DNS_IP}
+    ports:
+      - ${APP_PORT}:8080
+    networks:
+      - tipi_main_network
+    command: headscale serve
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.headscale.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.headscale.entrypoints: websecure
+      traefik.http.routers.headscale.service: headscale
+      traefik.http.routers.headscale.tls.certresolver: myresolver
+      traefik.http.services.headscale.loadbalancer.server.port: 8080
+      traefik.http.routers.headscale-metrics.service: headscale-metrics-service
+      traefik.http.routers.headscale-metrics.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/metrics`)
+      traefik.http.routers.headscale-metrics.tls.certresolver: myresolver
+      traefik.http.routers.headscale-metrics.entrypoints: websecure
+      traefik.http.services.headscale-metrics-service.loadbalancer.server.port: 9090
+
+  headscale-ui:
+    image: ghcr.io/gurucomputing/headscale-ui:latest
+    restart: unless-stopped
+    container_name: headscale-ui
+    networks:
+      - tipi_main_network
+    volumes:
+      - ${APP_DATA_DIR}/data/headscale-ui:/data
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.libreddit.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/web`)
+      traefik.http.routers.libreddit.entrypoints: websecure
+      traefik.http.routers.libreddit.service: libreddit
+      traefik.http.routers.libreddit.tls.certresolver: myresolver
+      traefik.http.services.libreddit.loadbalancer.server.port: 443
+      traefik.http.services.headscale-ui.loadbalancer.server.scheme: https
