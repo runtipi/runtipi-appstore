@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  send:
+    image: registry.gitlab.com/timvisee/send:latest
+    container_name: send
+    restart: unless-stopped
+    dns:
+      - ${DNS_IP}
+    ports:
+      - ${APP_PORT}:1443
+    networks:
+      - tipi_main_network
+    environment:
+      - BASE_URL=${APP_DOMAIN}
+    volumes:
+      - ${APP_DATA_DIR}/data:/uploads
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.send.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.send.entrypoints: websecure
+      traefik.http.routers.send.service: send
+      traefik.http.routers.send.tls.certresolver: myresolver
+      traefik.http.services.send.loadbalancer.server.port: 1443
