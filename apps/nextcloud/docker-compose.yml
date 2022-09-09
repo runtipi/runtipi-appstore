@@ -53,6 +53,9 @@ services:
       - NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_ADMIN_USER}
       - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}
       - NEXTCLOUD_TRUSTED_DOMAINS=${INTERNAL_IP}:${APP_PORT} ${APP_DOMAIN}
+      - TRUSTED_PROXIES=172.16.0.0/12
+      - OVERWRITEHOST=${APP_DOMAIN}
+      - OVERWRITEPROTOCOL=https
     depends_on:
       - db-nextcloud
       - redis-nextcloud
@@ -65,4 +68,15 @@ services:
       traefik.http.routers.nextcloud.service: nextcloud
       traefik.http.routers.nextcloud.tls.certresolver: myresolver
       traefik.http.services.nextcloud.loadbalancer.server.port: 80
-
+      traefik.http.middlewares.nextcloud.headers.browserXSSFilter: true
+      traefik.http.middlewares.nextcloud.headers.contentTypeNosniff: true
+      traefik.http.middlewares.nextcloud.headers.stsIncludeSubdomains: true
+      traefik.http.middlewares.nextcloud.headers.stsPreload: true
+      traefik.http.middlewares.nextcloud.headers.stsSeconds: 155520011
+      traefik.http.middlewares.nextcloud_redirect.redirectregex.permanent: true
+      traefik.http.middlewares.nextcloud_redirect.redirectregex.regex: https://(.*)/.well-known/(card|cal)dav
+      traefik.http.middlewares.nextcloud_redirect.redirectregex.replacement: https://$${1}/remote.php/dav/
+      traefik.http.routers.nextcloud.middlewares: nextcloud,nextcloud_redirect,nextcloud-https
+      traefik.http.middlewares.nextcloud.headers.customRequestHeaders.X-Forwarded-Proto: https
+      traefik.http.middlewares.nextcloud-https.redirectscheme.scheme: https
+      traefik.http.routers.nextcloud-http.middlewares: nextcloud-https@docker
