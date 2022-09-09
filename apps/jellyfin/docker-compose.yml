@@ -10,7 +10,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${TZ}
-      - JELLYFIN_PublishedServerUrl=https://${APP_DOMAIN}
+      - JELLYFIN_PublishedServerUrl=${APP_PROTOCOL:-http}://${APP_DOMAIN}/
     restart: "unless-stopped"
     ports:
       - ${APP_PORT}:8096
