@@ -6,7 +6,7 @@
   "port": 32400,
   "id": "plex",
   "tipi_version": 4,
-  "version": "1.28.1",
+  "version": "1.28.2",
   "url_suffix": "/web",
   "categories": ["media"],
   "description": "",
