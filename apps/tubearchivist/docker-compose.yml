@@ -13,7 +13,7 @@ services:
       - REDIS_HOST=archivist-redis
       - TA_USERNAME=${TA_USER}
       - TA_PASSWORD=${TA_PASSWORD}
-      - TA_HOST=archivist.privacy.family
+      - TA_HOST=${APP_DOMAIN}
       - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
     depends_on:
       - tubearchivist-es
