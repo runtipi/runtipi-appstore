@@ -55,7 +55,7 @@ services:
       - NEXTCLOUD_TRUSTED_DOMAINS=${INTERNAL_IP}:${APP_PORT} ${APP_DOMAIN}
       - TRUSTED_PROXIES=172.16.0.0/12
       - OVERWRITEHOST=${APP_DOMAIN}
-      - OVERWRITEPROTOCOL=https
+      - OVERWRITEPROTOCOL=${APP_PROTOCOL:-http}
     depends_on:
       - db-nextcloud
       - redis-nextcloud
