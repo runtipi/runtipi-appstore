@@ -10,10 +10,18 @@ services:
       - ${APP_PORT}:1443
     networks:
       - tipi_main_network
-    environment:
-      - BASE_URL=${APP_DOMAIN}
     volumes:
       - ${APP_DATA_DIR}/data:/uploads
+    environment:
+      - NODE_ENV=production
+      # Networking
+      - VIRTUAL_HOST=${APP_DOMAIN}
+      - VIRTUAL_PORT=443
+      - BASE_URL=https://${APP_DOMAIN}
+      # Redis
+      - REDIS_HOST=send-redis
+      # Storage Limit
+      - MAX_FILE_SIZE=2147483648
     labels:
       traefik.enable: ${APP_EXPOSED}
       traefik.http.routers.send.rule: Host(`${APP_DOMAIN}`)
@@ -21,3 +29,14 @@ services:
       traefik.http.routers.send.service: send
       traefik.http.routers.send.tls.certresolver: myresolver
       traefik.http.services.send.loadbalancer.server.port: 1443
+  send-redis:
+    image: redis:alpine
+    container_name: send-redis
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 1s
+      timeout: 3s
+      retries: 30
