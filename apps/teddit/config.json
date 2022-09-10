@@ -3,7 +3,7 @@
   "name": "teddit",
   "available": true,
   "exposable": true,
-  "port": 8110,
+  "port": 8124,
   "id": "teddit",
   "tipi_version": 1,
   "version": "latest",

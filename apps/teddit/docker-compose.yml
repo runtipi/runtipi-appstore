@@ -41,3 +41,5 @@ services:
       interval: 1s
       timeout: 3s
       retries: 30
+    networks:
+      - tipi_main_network
