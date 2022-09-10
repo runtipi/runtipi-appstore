@@ -22,8 +22,8 @@ services:
       --zmq-pub=tcp://0.0.0.0:18083
     labels:
       traefik.enable: ${APP_EXPOSED}
-      traefik.http.routers.libreddit.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.libreddit.entrypoints: websecure
-      traefik.http.routers.libreddit.service: libreddit
-      traefik.http.routers.libreddit.tls.certresolver: myresolver
-      traefik.http.services.libreddit.loadbalancer.server.port: 18089
+      traefik.http.routers.monerod.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.monerod.entrypoints: websecure
+      traefik.http.routers.monerod.service: monerod
+      traefik.http.routers.monerod.tls.certresolver: myresolver
+      traefik.http.services.monerod.loadbalancer.server.port: 18089
