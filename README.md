@@ -42,6 +42,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Tautulli](https://github.com/Tautulli/Tautulli) - A Python based monitoring and tracking tool for Plex Media Server
 - [Teddit](https://codeberg.org/teddit/teddit) - Alternative Reddit front-end focused on privacy https://teddit.net
 - [Transmission](https://github.com/transmission/transmission) - Fast, easy, and free BitTorrent client
+- [Uptime Kuma](https://github.com/louislam/uptime-kuma) - A fancy self-hosted monitoring tool.
 - [Wireguard Easy](https://github.com/WeeJeWel/wg-easy) - WireGuard VPN + Web-based Admin UI
 - [Vaultwarden](https://github.com/dani-garcia/vaultwarden) - Unofficial Bitwarden compatible server
 

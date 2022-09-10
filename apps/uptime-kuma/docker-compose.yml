@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: uptime-kuma
+    volumes:
+      - ${APP_DATA_DIR}/data:/app/data
+    dns:
+      - ${DNS_IP}
+    ports:
+      - ${APP_PORT}:3001
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.uptime-kuma.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.uptime-kuma.entrypoints: websecure
+      traefik.http.routers.uptime-kuma.service: uptime-kuma
+      traefik.http.routers.uptime-kuma.tls.certresolver: myresolver
+      traefik.http.services.uptime-kuma.loadbalancer.server.port: 3001
