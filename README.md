@@ -19,6 +19,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Jellyfin](https://github.com/jellyfin/jellyfin) - A media server for your home collection
 - [Joplin](https://github.com/laurent22/joplin) - Privacy focused note-taking app
 - [Libreddit](https://github.com/spikecodes/libreddit) - Private front-end for Reddit
+- [LibreTranslate](https://github.com/LibreTranslate/LibreTranslate) - Free and Open Source Machine Translation API. 100% self-hosted, offline capable and easy to setup
 - [Mealie](https://github.com/hay-kot/mealie) - Self-hosted recipe manager and meal planner.
 - [n8n](https://github.com/n8n-io/n8n) - Workflow Automation Tool
 - [Nextcloud](https://github.com/nextcloud/server) - A safe home for all your data
