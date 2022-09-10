@@ -30,6 +30,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Pihole](https://github.com/pi-hole/pi-hole) - A black hole for Internet advertisements
 - [Plex](https://github.com/plexinc/pms-docker) - Stream Movies & TV Shows
 - [Portainer](https://github.com/portainer/portainer) - Making Docker and Kubernetes management easy.
+- [PrivateBin](https://github.com/PrivateBin/PrivateBin) - A minimalist, open source online pastebin
 - [Prowlarr](https://github.com/Prowlarr/Prowlarr/) - A torrent/usenet indexer manager/proxy
 - [Proxitok](https://github.com/pablouser1/ProxiTok) - Open source alternative frontend for TikTok made using PHP
 - [Radarr](https://github.com/Radarr/Radarr) - Movie collection manager for Usenet and BitTorrent users
