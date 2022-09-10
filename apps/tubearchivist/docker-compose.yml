@@ -26,11 +26,11 @@ services:
       - ${APP_PORT}:8000
     labels:
       traefik.enable: ${APP_EXPOSED}
-      traefik.http.routers.libreddit.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.libreddit.entrypoints: websecure
-      traefik.http.routers.libreddit.service: libreddit
-      traefik.http.routers.libreddit.tls.certresolver: myresolver
-      traefik.http.services.libreddit.loadbalancer.server.port: 8000
+      traefik.http.routers.tubearchivist.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.tubearchivist.entrypoints: websecure
+      traefik.http.routers.tubearchivist.service: tubearchivist
+      traefik.http.routers.tubearchivist.tls.certresolver: myresolver
+      traefik.http.services.tubearchivist.loadbalancer.server.port: 8000
 
   tubearchivist-redis:
     image: redislabs/rejson:latest
