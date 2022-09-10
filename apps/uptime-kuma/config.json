@@ -3,7 +3,7 @@
   "name": "Uptime Kuma",
   "available": true,
   "exposable": true,
-  "port": 8111,
+  "port": 8125,
   "id": "uptime-kuma",
   "tipi_version": 1,
   "version": "1",
