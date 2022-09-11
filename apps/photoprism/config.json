@@ -24,17 +24,11 @@
     {
       "type": "random",
       "label": "Photoprism DB password",
-      "max": 50,
-      "min": 8,
-      "required": true,
       "env_variable": "DB_PASSWORD"
     },
     {
       "type": "random",
       "label": "Photoprism root DB password",
-      "max": 50,
-      "min": 8,
-      "required": true,
       "env_variable": "DB_ROOT_PASSWORD"
     }
   ]
