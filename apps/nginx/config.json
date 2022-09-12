@@ -1,0 +1,16 @@
+{
+  "$schema": "../schema.json",
+  "name": "Nginx",
+  "port": 80,
+  "available": true,
+  "https": true,
+  "id": "nginx",
+  "tipi_version": 3,
+  "version": "latest",
+  "categories": ["network"],
+  "description": "",
+  "short_desc": "Nginx (pronounced "engine-x") is an open source reverse proxy server.",
+  "author": "https://nginx.org/",
+  "source": "https://github.com/nginx/nginx",
+  "form_fields": []
+}
