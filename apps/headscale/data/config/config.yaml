@@ -10,7 +10,7 @@
 #
 # https://myheadscale.example.com:443
 #
-server_url: https://${APP_DOMAIN}:443
+server_url: ${APP_PROTOCOL:-http}://${APP_DOMAIN}/
 
 # Address to listen to / bind to on the server
 #
