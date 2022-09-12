@@ -20,6 +20,8 @@ services:
       - REDIS_HOST=send-redis
       # Storage Limit
       - MAX_FILE_SIZE=2147483648
+    depends_on:
+      - send-redis
     labels:
       traefik.enable: ${APP_EXPOSED}
       traefik.http.routers.send.rule: Host(`${APP_DOMAIN}`)
