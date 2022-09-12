@@ -24,3 +24,5 @@ services:
       --addpeers 65.21.227.114:37889,node.sethforprivacy.com:37889
       --host monerod
       --rpc-port 18089
+    depends_on:
+      - monerod
