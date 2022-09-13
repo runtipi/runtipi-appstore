@@ -14,6 +14,7 @@ services:
     environment:
       - BIND_ADDRESS=0.0.0.0:8080
       - BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}/
+      - SECRET_KEY=${SEARXNG_SECRET_KEY}
     labels:
       traefik.enable: ${APP_EXPOSED}
       traefik.http.routers.searxng.rule: Host(`${APP_DOMAIN}`)
