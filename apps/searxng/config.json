@@ -12,5 +12,14 @@
   "short_desc": "Privacy-respecting, hackable metasearch engine",
   "author": "searxng",
   "source": "https://github.com/searxng/searxng",
-  "form_fields": []
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "SearXNG Secret Key",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "SEARXNG_SECRET_KEY"
+    }
+  ]
 }
