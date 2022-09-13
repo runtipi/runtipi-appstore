@@ -45,6 +45,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Uptime Kuma](https://github.com/louislam/uptime-kuma) - A fancy self-hosted monitoring tool.
 - [Wireguard Easy](https://github.com/WeeJeWel/wg-easy) - WireGuard VPN + Web-based Admin UI
 - [Vaultwarden](https://github.com/dani-garcia/vaultwarden) - Unofficial Bitwarden compatible server
+- [ZeroTier](https://github.com/zerotier/ZeroTierOne) -  Easy to use zero configuration VPN.
 
 ## How to sumbit an app
 If you want to see new apps on Tipi you can either :
