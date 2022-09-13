@@ -4,7 +4,13 @@ CryptPad is a collaboration suite that is end-to-end-encrypted and open-source. 
 
 ![CryptPad screenshot](https://github.com/xwiki-labs/cryptpad/blob/main/screenshot.png?raw=true "Private real-time collaboration on a Rich Text document.")
 
-# Installation
+## Installation
+
+***NOTE: In order to properly function, you must correct permissions on the app-data directory for Cryptpad by running the following command from the runtipi folder:***
+
+`sudo chown -R 4001:4001 app-data/cryptpad`
+
+After running the above command, restart the app.
 
 ## Current version
 
