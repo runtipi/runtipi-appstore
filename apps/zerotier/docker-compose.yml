@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  zerotier:
+    container_name: zerotier
+    image: zerotier/zerotier:latest
+    restart: on-failure
+    command: "zerotier-cli join ${NETWORK_ID}"
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+    volumes:
+      - /dev/net/tun
+    healthcheck:
+      test: ['CMD','true']
+    network_mode: host
+# TO DO: Pass host data to retain zerotier id
+#    networks:
+#      - tipi_main_network
+#    mac_address: ${MAC_ADDRESS}
