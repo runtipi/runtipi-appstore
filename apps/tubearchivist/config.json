@@ -3,7 +3,7 @@
   "name": "Tube Archivist",
   "available": true,
   "exposable": true,
-  "port": 8112,
+  "port": 8120,
   "id": "tubearchivist",
   "tipi_version": 1,
   "version": "latest",
