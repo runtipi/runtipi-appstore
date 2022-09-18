@@ -6,7 +6,7 @@
   "https": true,
   "id": "portainer",
   "tipi_version": 3,
-  "version": "2.14.2",
+  "version": "2.15.1",
   "categories": ["utilities"],
   "description": "",
   "short_desc": "Making Docker and Kubernetes management easy.",
