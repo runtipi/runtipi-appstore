@@ -13,8 +13,20 @@ services:
     depends_on:
       - nitter-redis
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget" ,"--no-verbose", "--tries=1", "--spider", "http://localhost:8080"]
+      interval: 1m
+      timeout: 3s
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.nitter.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nitter.entrypoints: websecure
+      traefik.http.routers.nitter.service: nitter
+      traefik.http.routers.nitter.tls.certresolver: myresolver
+      traefik.http.services.nitter.loadbalancer.server.port: 8080
+
   nitter-redis:
-    image: redis:6-alpine
+    image: redis:alpine
     container_name: nitter-redis
     networks:
       - tipi_main_network

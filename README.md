@@ -48,7 +48,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Syncthing](https://github.com/syncthing/syncthing) - Continuous File Synchronization
 - [Tailscale](https://github.com/tailscale/tailscale) - The easiest, most secure way to use WireGuard and 2FA
 - [Tautulli](https://github.com/Tautulli/Tautulli) - A Python based monitoring and tracking tool for Plex Media Server
-- [teddit](https://codeberg.org/teddit/teddit) - alternative Reddit front-end focused on privacy
+- [Teddit](https://codeberg.org/teddit/teddit) - Alternative Reddit front-end focused on privacy https://teddit.net
 - [Transmission](https://github.com/transmission/transmission) - Fast, easy, and free BitTorrent client
 - [Tube Archivist](https://github.com/tubearchivist/tubearchivist) - Your self-hosted YouTube media server
 - [Uptime Kuma](https://github.com/louislam/uptime-kuma) - A fancy self-hosted monitoring tool

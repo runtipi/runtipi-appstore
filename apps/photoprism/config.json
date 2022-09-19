@@ -3,8 +3,9 @@
   "name": "PhotoPrism",
   "port": 8110,
   "available": true,
+  "exposable": true,
   "id": "photoprism",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "latest",
   "categories": ["photography"],
   "description": "PhotoPrism® is an AI-Powered Photos App for the Decentralized Web. It makes use of the latest technologies to tag and find pictures automatically without getting in your way. You can run it at home, on a private server, or in the cloud. Default username: admin",
@@ -19,6 +20,16 @@
       "min": 8,
       "required": true,
       "env_variable": "PHOTOPRISM_ADMIN_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Photoprism DB password",
+      "env_variable": "DB_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Photoprism root DB password",
+      "env_variable": "DB_ROOT_PASSWORD"
     }
   ]
 }
