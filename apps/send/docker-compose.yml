@@ -1,0 +1,46 @@
+version: "3.7"
+services:
+  send:
+    image: registry.gitlab.com/timvisee/send:latest
+    container_name: send
+    restart: unless-stopped
+    dns:
+      - ${DNS_IP}
+    ports:
+      - ${APP_PORT}:1443
+    networks:
+      - tipi_main_network
+    volumes:
+      - ${APP_DATA_DIR}/data/uploads:/uploads
+    environment:
+      - NODE_ENV=production
+      # Networking
+      - BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      # Redis
+      - REDIS_HOST=send-redis
+      # Storage Limit
+      - MAX_FILE_SIZE=2147483648
+      - DETECT_BASE_URL=true
+    depends_on:
+      - send-redis
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.send.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.send.entrypoints: websecure
+      traefik.http.routers.send.service: send
+      traefik.http.routers.send.tls.certresolver: myresolver
+      traefik.http.services.send.loadbalancer.server.port: 1443
+  
+  send-redis:
+    image: redis:alpine
+    container_name: send-redis
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 1s
+      timeout: 3s
+      retries: 30
+    networks:
+      - tipi_main_network
