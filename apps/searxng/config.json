@@ -3,7 +3,7 @@
   "name": "SearXNG",
   "available": true,
   "exposable": true,
-  "port": 8107,
+  "port": 8127,
   "id": "searxng",
   "tipi_version": 1,
   "version": "latest",
@@ -16,9 +16,7 @@
     {
       "type": "random",
       "label": "SearXNG Secret Key",
-      "max": 50,
-      "min": 3,
-      "required": true,
+      "min": 32,
       "env_variable": "SEARXNG_SECRET_KEY"
     }
   ]
