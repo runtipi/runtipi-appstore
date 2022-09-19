@@ -1,0 +1,55 @@
+{
+    "name": "Golem Provider",
+    "available": true,
+    "port": 12100,
+    "id": "golem-provider",
+    "description": "Golem is a decentralized network for renting out your idle compute resources. Earn GLM tokens for the work you compute for the requestors on the network. It's fully automatic and doesn't require any user input.", 
+    "tipi_version": 1, 
+    "version": "0.10.1", 
+    "categories": ["data", "finance", "utilities"], 
+    "short_desc": "Run a provider and earn GLM tokens without any user input.", 
+    "author": "Phillip Jensen",
+    "source": "https://github.com/cryptobench/golem-provider-docker", 
+    "form_fields": [
+        {
+            "type": "text",
+            "label": "Provider Node Name",
+            "max": 30,
+            "min": 3,
+            "required": true,
+            "env_variable": "NODE_NAME"
+        },
+        {
+            "type": "text",
+            "label": "Ethereum Wallet Address payments go through to (0x...)",
+            "max": 42,
+            "min": 42,
+            "required": true,
+            "env_variable": "YA_ACCOUNT"
+        },
+        {
+            "type": "number",
+            "label": "Amount of CPU threads to rent out on the network",
+            "required": true,
+            "env_variable": "NODE_CPU_THREADS"
+        },
+        {
+            "type": "number",
+            "label": "Amount of RAM to rent out on the network (GB)",
+            "required": true,
+            "env_variable": "NODE_MEM_GIB"
+        },
+        {
+            "type": "number",
+            "label": "Amount of storage to rent out on the network (GB)",
+            "required": true,
+            "env_variable": "NODE_STORAGE_GIB"
+        },
+        {
+            "type": "number",
+            "label": "How many GLM per hour per CPU thread rented (CPU/h)?  Earnings example math: (CORES RENTED * THIS VALUE * SECONDS RENTED) ---> Please specify this value in GLM (it's a good idea to follow median market pricing https://api.stats.golem.network/v1/network/pricing/median) or lower",
+            "required": true,
+            "env_variable": "NODE_PRICE_PER_HOUR"
+        }
+      ]
+  }
