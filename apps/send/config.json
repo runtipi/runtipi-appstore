@@ -3,7 +3,7 @@
   "name": "Send",
   "available": true,
   "exposable": true,
-  "port": 8108,
+  "port": 8126,
   "id": "send",
   "tipi_version": 1,
   "version": "latest",

@@ -11,7 +11,7 @@ services:
     networks:
       - tipi_main_network
     volumes:
-      - ${APP_DATA_DIR}/data:/uploads
+      - ${APP_DATA_DIR}/data/uploads:/uploads
     environment:
       - NODE_ENV=production
       # Networking
@@ -20,6 +20,7 @@ services:
       - REDIS_HOST=send-redis
       # Storage Limit
       - MAX_FILE_SIZE=2147483648
+      - DETECT_BASE_URL=true
     depends_on:
       - send-redis
     labels:
@@ -41,3 +42,5 @@ services:
       interval: 1s
       timeout: 3s
       retries: 30
+    networks:
+      - tipi_main_network

@@ -1,5 +1,3 @@
-# [![Send](https://gitlab.com/timvisee/send/-/raw/master/assets/icon.svg)](https://gitlab.com/timvisee/send/) Send
-
 A fork of Mozilla's [Firefox Send][mozilla-send].
 Mozilla discontinued Send, this fork is a community effort to keep the project
 up-to-date and alive.
