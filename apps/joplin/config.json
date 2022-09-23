@@ -19,7 +19,6 @@
       "label": "Joplin DB password",
       "max": 50,
       "min": 8,
-      "required": true,
       "env_variable": "JOPLIN_DB_PASSWORD"
     }
   ]
