@@ -11,6 +11,6 @@ services:
     networks:
       - tipi_main_network
     ports:
-      - ${NW_INTERFACE}:53:53/tcp
-      - ${NW_INTERFACE}:53:53/udp
+      - ${NETWORK_INTERFACE:-0.0.0.0}:53:53/tcp
+      - ${NETWORK_INTERFACE:-0.0.0.0}:53:53/udp
       - ${APP_PORT}:80

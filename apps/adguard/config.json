@@ -17,9 +17,9 @@
   "form_fields": [
     {
       "type": "ip",
-      "label": "Network Interface (use 0.0.0.0 for all)",
-      "required": true,
-      "env_variable": "NW_INTERFACE"
+      "label": "Network Interface (default: 0.0.0.0)",
+      "required": false,
+      "env_variable": "NETWORK_INTERFACE"
     }
   ]
 }
