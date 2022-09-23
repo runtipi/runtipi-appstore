@@ -22,6 +22,12 @@
       "min": 3,
       "required": true,
       "env_variable": "APP_PASSWORD"
+    }, 
+    {
+      "type": "ip",
+      "label": "Network Interface (use 0.0.0.0 for all)",
+      "required": true,
+      "env_variable": "NW_INTERFACE"
     }
   ]
 }
