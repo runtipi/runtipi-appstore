@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  golem-provider: # Should be exact same name as "id" field in config.json
+    container_name: golem-provider  # Should be exact same name as "id" field in config.json
+    image: phillipjensen/golem-provider:0.10.1 # Try to avoid "latest" tag. As it may break configs in the future.
+    environment:
+      - NODE_NAME=${NODE_NAME}
+      - YA_ACCOUNT=${YA_ACCOUNT}
+      - NODE_CPU_THREADS=${NODE_CPU_THREADS}
+      - NODE_MEM_GIB=${NODE_MEM_GIB}
+      - NODE_STORAGE_GIB=${NODE_STORAGE_GIB}
+      - NODE_PRICE_PER_HOUR=${NODE_PRICE_PER_HOUR}
+    ports:
+      - ${APP_PORT}:12100
+    restart: unless-stopped
+    devices:
+      - /dev/kvm:/dev/kvm
+    networks:
+      - tipi_main_network
