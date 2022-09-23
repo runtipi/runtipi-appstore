@@ -7,8 +7,8 @@
     "ports": [53]
   },
   "id": "pihole",
-  "tipi_version": 1,
-  "version": "2022.07.1",
+  "tipi_version": 2,
+  "version": "2022.09.4",
   "categories": ["network", "security"],
   "description": "The Pi-hole® is a DNS sinkhole that protects your devices from unwanted content without installing any client-side software.",
   "short_desc": "A black hole for Internet advertisements",
@@ -22,7 +22,7 @@
       "min": 3,
       "required": true,
       "env_variable": "APP_PASSWORD"
-    }, 
+    },
     {
       "type": "ip",
       "label": "Network Interface (default: 0.0.0.0)",
