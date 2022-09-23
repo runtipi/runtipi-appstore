@@ -1,0 +1,14 @@
+{
+  "name": "Navidrome",
+  "available": true,
+  "port": 4533,
+  "id": "navidrome", # This should be the same name as the folder
+  "description": "Modern Music Server and Streamer compatible with Subsonic/Airsonic", # Long description of the app
+  "tipi_version": 1, # Always 1 if you are adding a new app
+  "version": "0.47.5", # The actual version of the app (not the tipi version)
+  "categories": ["media", "music"], # One or more categories for the app
+  "short_desc": "A selfhosted music server", # Short description of the app
+  "author": "https://github.com/Bvoxl", # Link or name of the author 
+  "source": "https://github.com/navidrome/navidrome/", # Link for git repo
+  "form_fields": [] # Used to ask for more info to the user before installing. Will be explained further
+}
