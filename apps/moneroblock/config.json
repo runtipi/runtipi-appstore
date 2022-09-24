@@ -1,0 +1,25 @@
+{
+  "$schema": "../schema.json",
+  "name": "moneroblock",
+  "available": true,
+  "exposable": true,
+  "port": 31312,
+  "id": "moneroblock",
+  "tipi_version": 1,
+  "version": "v0.1.1",
+  "categories": ["utilities"],
+  "description": "MoneroBlock is a trustless block explorer for the Monero payment network.",
+  "short_desc": "Decentralized and trustless Monero block explorer",
+  "author": "duggavo",
+  "source": "https://github.com/duggavo/MoneroBlock",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Monero Daemon Address in format node.host.name:port, i.e. node.sethforprivacy.com:18089",
+      "max": 100,
+      "min": 10,
+      "required": false,
+      "env_variable": "DAEMON_ADDRESS"
+    }
+  ]
+}
