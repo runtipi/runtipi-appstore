@@ -23,5 +23,5 @@ services:
       traefik.http.routers.navidrome.entrypoints: websecure
       traefik.http.routers.navidrome.service: navidrome
       traefik.http.routers.navidrome.tls.certresolver: myresolver
-      traefik.http.services.navidrome.loadbalancer.server.port: 32400
+      traefik.http.services.navidrome.loadbalancer.server.port: 4533
 
