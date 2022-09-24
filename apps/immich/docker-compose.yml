@@ -6,7 +6,7 @@ services:
     image: altran1502/immich-server:release
     entrypoint: ["/bin/sh", "./start-server.sh"]
     volumes:
-      - ${ROOT_FOLDER_HOST}/media/data/images:/usr/src/app/upload
+      - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
     environment:
       - NODE_ENV=production
       - DB_HOSTNAME=immich-db
@@ -28,7 +28,7 @@ services:
     image: altran1502/immich-server:release
     entrypoint: ["/bin/sh", "./start-microservices.sh"]
     volumes:
-      - ${ROOT_FOLDER_HOST}/media/data/images:/usr/src/app/upload
+      - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
     environment:
       - NODE_ENV=production
       - DB_HOSTNAME=immich-db
@@ -50,7 +50,7 @@ services:
     image: altran1502/immich-machine-learning:release
     entrypoint: ["/bin/sh", "./entrypoint.sh"]
     volumes:
-      - ${ROOT_FOLDER_HOST}/media/data/images:/usr/src/app/upload
+      - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
     environment:
       - NODE_ENV=production
       - DB_HOSTNAME=immich-db
