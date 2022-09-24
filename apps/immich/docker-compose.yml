@@ -1,0 +1,115 @@
+version: "3.7"
+
+services:
+  immich-server:
+    container_name: immich-server
+    image: altran1502/immich-server:release
+    entrypoint: ["/bin/sh", "./start-server.sh"]
+    volumes:
+      - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
+    environment:
+      - NODE_ENV=production
+      - DB_HOSTNAME=immich-db
+      - DB_USERNAME=tipi
+      - DB_PASSWORD=${DB_PASSWORD}
+      - ENABLE_MAPBOX=false
+      - DB_DATABASE_NAME=immich
+      - REDIS_HOSTNAME=immich-redis
+      - JWT_SECRET=${JWT_SECRET}
+    depends_on:
+      - immich-redis
+      - immich-db
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+
+  immich-microservices:
+    container_name: immich-microservices
+    image: altran1502/immich-server:release
+    entrypoint: ["/bin/sh", "./start-microservices.sh"]
+    volumes:
+      - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
+    environment:
+      - NODE_ENV=production
+      - DB_HOSTNAME=immich-db
+      - DB_USERNAME=tipi
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_DATABASE_NAME=immich
+      - REDIS_HOSTNAME=immich-redis
+      - JWT_SECRET=${JWT_SECRET}
+      - ENABLE_MAPBOX=false
+    depends_on:
+      - immich-redis
+      - immich-db
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+
+  immich-machine-learning:
+    container_name: immich-machine-learning
+    image: altran1502/immich-machine-learning:release
+    entrypoint: ["/bin/sh", "./entrypoint.sh"]
+    volumes:
+      - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
+    environment:
+      - NODE_ENV=production
+      - DB_HOSTNAME=immich-db
+      - DB_USERNAME=tipi
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=immich
+      - DB_DATABASE_NAME=immich
+    depends_on:
+      - immich-db
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+
+  immich-web:
+    container_name: immich-web
+    image: altran1502/immich-web:release
+    entrypoint: ["/bin/sh", "./entrypoint.sh"]
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+
+  immich-redis:
+    container_name: immich-redis
+    image: redis:6.2
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+
+  immich-db:
+    container_name: immich-db
+    image: postgres:14
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: tipi
+      POSTGRES_DB: immich
+      PG_DATA: /var/lib/postgresql/data
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+
+  immich:
+    container_name: immich
+    image: altran1502/immich-proxy:release
+    ports:
+      - ${APP_PORT}:8080
+    depends_on:
+      - immich-web
+      - immich-server
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.immich.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.immich.entrypoints: websecure
+      traefik.http.routers.immich.service: immich
+      traefik.http.routers.immich.tls.certresolver: myresolver
+      traefik.http.services.immich.loadbalancer.server.port: 8080
+    
+
