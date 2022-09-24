@@ -5,7 +5,7 @@
   "available": true,
   "https": true,
   "id": "portainer",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "2.15.1",
   "categories": ["utilities"],
   "description": "",
