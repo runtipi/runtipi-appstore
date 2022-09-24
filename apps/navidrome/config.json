@@ -2,7 +2,8 @@
   "name": "Navidrome",
   "available": true,
   "port": 4533,
-  "id": "navidrome"
+  "exposable": true,
+  "id": "navidrome",
   "description": "Modern Music Server and Streamer compatible with Subsonic/Airsonic",
   "tipi_version": 1,
   "version": "0.47.5",
