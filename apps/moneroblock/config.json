@@ -1,6 +1,6 @@
 {
   "$schema": "../schema.json",
-  "name": "moneroblock",
+  "name": "Moneroblock",
   "available": true,
   "exposable": true,
   "port": 31312,

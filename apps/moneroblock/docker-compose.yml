@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   moneroblock:
-    image: sethsimmons/moneroblock:latest
+    image: sethsimmons/moneroblock:v0.1.1
     restart: unless-stopped
     container_name: moneroblock
     ports:
@@ -9,8 +9,6 @@ services:
     command:
       - "--daemon"
       - "${DAEMON_ADDRESS:-node.sethforprivacy.com:18089}"
-    dns:
-      - ${DNS_IP}
     networks:
       - tipi_main_network
     labels:
