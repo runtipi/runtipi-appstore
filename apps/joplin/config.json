@@ -2,9 +2,10 @@
   "$schema": "../schema.json",
   "name": "Joplin Server",
   "available": true,
+  "exposable": true,
   "port": 8099,
   "id": "joplin",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "2.7.4",
   "categories": ["utilities"],
   "description": "Default credentials: admin@localhost / admin",
@@ -12,5 +13,13 @@
   "author": "https://github.com/laurent22",
   "source": "https://github.com/laurent22/joplin",
   "website": "https://joplinapp.org",
-  "form_fields": []
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Joplin DB password",
+      "max": 50,
+      "min": 8,
+      "env_variable": "JOPLIN_DB_PASSWORD"
+    }
+  ]
 }

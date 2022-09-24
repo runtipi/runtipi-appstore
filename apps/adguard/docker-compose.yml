@@ -2,7 +2,7 @@
 version: "3.7"
 services:
   adguard:
-    image: adguard/adguardhome:v0.107.7
+    image: adguard/adguardhome:v0.107.13
     container_name: adguard
     volumes:
       - "${APP_DATA_DIR}/data/work:/opt/adguardhome/work"
@@ -11,6 +11,6 @@ services:
     networks:
       - tipi_main_network
     ports:
-      - 53:53/tcp
-      - 53:53/udp
+      - ${NETWORK_INTERFACE:-0.0.0.0}:53:53/tcp
+      - ${NETWORK_INTERFACE:-0.0.0.0}:53:53/udp
       - ${APP_PORT}:80

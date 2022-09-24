@@ -1,8 +1,7 @@
 version: "3.7"
-
 services:
   jellyfin:
-    image: lscr.io/linuxserver/jellyfin:10.8.1
+    image: lscr.io/linuxserver/jellyfin:10.8.4
     container_name: jellyfin
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
@@ -11,8 +10,32 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${TZ}
+      - JELLYFIN_PublishedServerUrl=${APP_PROTOCOL:-http}://${APP_DOMAIN}/
     restart: "unless-stopped"
     ports:
       - ${APP_PORT}:8096
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.middlewares.jellyfin-mw.headers.SSLForceHost: true
+      traefik.http.middlewares.jellyfin-mw.headers.SSLHost: ${APP_DOMAIN}
+      traefik.http.middlewares.jellyfin-mw.headers.SSLRedirect: true
+      traefik.http.middlewares.jellyfin-mw.headers.STSIncludeSubdomains: true
+      traefik.http.middlewares.jellyfin-mw.headers.STSPreload: true
+      traefik.http.middlewares.jellyfin-mw.headers.STSSeconds: 315360000
+      traefik.http.middlewares.jellyfin-mw.headers.browserXSSFilter: true
+      traefik.http.middlewares.jellyfin-mw.headers.contentTypeNosniff: true
+      traefik.http.middlewares.jellyfin-mw.headers.customFrameOptionsValue: 'allow-from https://${DOMAIN}'
+      traefik.http.middlewares.jellyfin-mw.headers.customResponseHeaders.X-Robots-Tag: noindex,nofollow,nosnippet,noarchive,notranslate,noimageindex
+      traefik.http.middlewares.jellyfin-mw.headers.forceSTSHeader: true
+      traefik.http.middlewares.jellyfin-mw.headers.frameDeny: true
+      traefik.http.routers.jellyfin.entryPoints: websecure
+      traefik.http.routers.jellyfin.middlewares: jellyfin-mw
+      traefik.http.routers.jellyfin.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.jellyfin.service: jellyfin-svc
+      traefik.http.routers.jellyfin.tls: true
+      traefik.http.routers.jellyfin.tls.certresolver: myresolver
+      traefik.http.routers.jellyfin.tls.domains: ${APP_DOMAIN}
+      traefik.http.services.jellyfin-svc.loadBalancer.passHostHeader: true
+      traefik.http.services.jellyfin-svc.loadBalancer.server.port: 8096
