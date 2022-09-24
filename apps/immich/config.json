@@ -3,7 +3,7 @@
   "name": "Immich",
   "available": true,
   "exposable": true,
-  "port": 8120,
+  "port": 8128,
   "id": "immich",
   "tipi_version": 1,
   "version": "1.28.0",
