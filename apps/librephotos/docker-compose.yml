@@ -1,0 +1,84 @@
+version: "3.7"
+services:
+  librephotos:
+    image: reallibrephotos/librephotos-proxy:2022w36
+    container_name: librephotos
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/scan:/data
+      - ${ROOT_FOLDER_HOST}/media/data/images:/protected_media
+    ports:
+      - ${APP_PORT}:80
+    depends_on:
+      - librephotos-backend
+      - librephotos-frontend
+    networks:
+      - tipi_main_network
+
+  librephotos-db:
+    image: postgres:13
+    container_name: librephotos-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=tipi
+      - POSTGRES_PASSWORD=${LIBREPHOTOS_DB_PASSWORD}
+      - POSTGRES_DB=librephotos
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    command: postgres -c fsync=off -c synchronous_commit=off -c full_page_writes=off -c random_page_cost=1.0
+    #Checking health of Postgres db
+    healthcheck:
+      test: psql -U tipi -d librephotos -c "SELECT 1;"
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - tipi_main_network
+      
+  librephotos-frontend:
+    image: reallibrephotos/librephotos-frontend:2022w36
+    container_name: librephotos-frontend
+    restart: unless-stopped
+    depends_on:
+      - librephotos-backend
+    networks:
+      - tipi_main_network
+
+  librephotos-backend:
+    image: reallibrephotos/librephotos:2022w36
+    container_name: librephotos-backend
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/scan:/data
+      - ${ROOT_FOLDER_HOST}/media/data/images:/protected_media
+      - ${APP_DATA_DIR}/data/logs:/logs
+      - ${APP_DATA_DIR}/data/cache:/root/.cache
+    environment:
+      - SECRET_KEY=${LIBREPHOTOS_SECRET_KEY}
+      - BACKEND_HOST=backend
+      - ADMIN_EMAIL=${LIBREPHOTOS_EMAIL}
+      - ADMIN_USERNAME=${LIBREPHOTOS_USERNAME}
+      - ADMIN_PASSWORD=${LIBREPHOTOS_PASSWORD}
+      - DB_BACKEND=postgresql
+      - DB_NAME=librephotos
+      - DB_USER=tipi
+      - DB_PASS=${LIBREPHOTOS_DB_PASSWORD}
+      - DB_HOST=
+      - DB_PORT=5432
+      - REDIS_HOST=librephotos-redis
+      - REDIS_PORT=6379
+      - ALLOW_UPLOAD=true
+      - DEBUG=0
+    # Wait for Postgres
+    depends_on:
+      librephotos-db:
+        condition: service_healthy
+    networks:
+      - tipi_main_network
+
+  librephotos-redis:
+    image: redis:6
+    container_name: librephotos-redis
+    restart: unless-stopped
+    networks:
+        - tipi_main_network
