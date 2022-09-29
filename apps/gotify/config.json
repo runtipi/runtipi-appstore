@@ -4,7 +4,8 @@
   "available": true,
   "port": 8129,
   "id": "gotify",
-  "tipi_version": 2,
+  "exposable": true,
+  "tipi_version": 1,
   "version": "2.1.7",
   "categories": ["utilities"],
   "description": "Simple server for sending and receiving notification messages.",
@@ -15,19 +16,19 @@
   "form_fields": [
     {
       "type": "text",
-        "label": "Traefik Domain",
-        "max": 50,
-        "min": 3,
-        "required": false,
-        "env_variable": "TRAEFIK_GOTIFY"
-    }, 
-    {
-      "type": "password",
-      "label": "Password",
+      "label": "Gotify username",
       "max": 50,
       "min": 3,
       "required": true,
+      "env_variable": "GOTIFY_DEFAULTUSER_NAME"
+    },
+    {
+      "type": "password",
+      "label": "Gotify password",
+      "max": 50,
+      "min": 8,
+      "required": true,
       "env_variable": "GOTIFY_DEFAULTUSER_PASS"
-  }
+    }
   ]
 }
