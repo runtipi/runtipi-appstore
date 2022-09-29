@@ -1,0 +1,49 @@
+version: '3.7'
+services:
+  haven:
+    image: ghcr.io/havenweb/haven:a0280ce
+    container_name: haven
+    depends_on:
+      - haven-db
+    ports:
+      - ${APP_PORT}:3000
+    volumes:
+      - ${APP_DATA_DIR}/data/storage:/storage
+    environment:
+      - RAILS_ENV=production
+      - HAVEN_DB_HOST=haven-db
+      - HAVEN_DB_NAME=haven
+      - HAVEN_DB_ROLE=haven
+      - HAVEN_DB_PASSWORD=${HAVEN_DB_PASSWORD}
+      - HAVEN_USER_EMAIL=${HAVEN_USER_EMAIL}
+      - HAVEN_USER_PASS=${HAVEN_USER_PASSWORD}
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.haven.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.haven.entrypoints: websecure
+      traefik.http.routers.haven.service: haven
+      traefik.http.routers.haven.tls.certresolver: myresolver
+      traefik.http.services.haven.loadbalancer.server.port: 3000
+
+  haven-db:
+    image: postgres:13.2-alpine
+    container_name: haven-db
+    command: [
+      "postgres",
+      "-c", "max_connections=1000",
+      "-c", "synchronous_commit=off",
+      "-c", "fsync=off",
+      "-c", "full_page_writes=off",
+      "-c", "max_wal_size=4GB",
+      "-c", "checkpoint_timeout=30min",
+      "-c", "wal_level=logical"
+    ]
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_USER: haven
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    networks:
+      - tipi_main_network
