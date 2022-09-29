@@ -1,0 +1,33 @@
+{
+  "$schema": "../schema.json",
+  "name": "Gotify",
+  "available": true,
+  "port": 8129,
+  "id": "gotify",
+  "tipi_version": 2,
+  "version": "2.1.7",
+  "categories": ["utilities"],
+  "description": "Simple server for sending and receiving notification messages.",
+  "short_desc": "Gotify, a simple server for sending and receiving notification messages.",
+  "author": "gotigy",
+  "source": "https://github.com/gotify/server",
+  "website": "https://gotify.net",
+  "form_fields": [
+    {
+      "type": "text",
+        "label": "Traefik Domain",
+        "max": 50,
+        "min": 3,
+        "required": false,
+        "env_variable": "TRAEFIK_GOTIFY"
+    }, 
+    {
+      "type": "password",
+      "label": "Password",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "GOTIFY_DEFAULTUSER_PASS"
+  }
+  ]
+}
