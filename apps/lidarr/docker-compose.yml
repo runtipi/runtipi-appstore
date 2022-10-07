@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  sonarr:
+    image: lscr.io/linuxserver/lidarr:1.0.2
+    container_name: lidarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${APP_DATA_DIR}/data:/config
+      - ${ROOT_FOLDER_HOST}/media:/media
+    ports:
+      - ${APP_PORT}:8686
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
