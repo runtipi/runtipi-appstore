@@ -2,6 +2,7 @@
   "$schema": "../schema.json",
   "name": "Lidarr",
   "available": true,
+  "exposable": true,
   "port": 8131,
   "id": "lidarr",
   "tipi_version": 1,
