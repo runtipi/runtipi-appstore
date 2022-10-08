@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:1.0.2
+    container_name: lidarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${APP_DATA_DIR}/data:/config
+      - ${ROOT_FOLDER_HOST}/media:/media
+    ports:
+      - ${APP_PORT}:8686
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.lidarr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.lidarr.entrypoints: websecure
+      traefik.http.routers.lidarr.service: lidarr
+      traefik.http.routers.lidarr.tls.certresolver: myresolver
+      traefik.http.services.lidarr.loadbalancer.server.port: 8686
