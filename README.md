@@ -25,6 +25,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Joplin](https://github.com/laurent22/joplin) - Privacy focused note-taking app
 - [Libreddit](https://github.com/spikecodes/libreddit) - Private front-end for Reddit
 - [LibreTranslate](https://github.com/LibreTranslate/LibreTranslate) - Free and Open Source Machine Translation API. 100% self-hosted, offline capable and easy to setup
+- [Lidarr](https://github.com/Lidarr/Lidarr) - Looks and smells like Sonarr but made for music.
 - [Mealie](https://github.com/hay-kot/mealie) - Self-hosted recipe manager and meal planner.
 - [Monero Daemon](https://github.com/monero-project/monero/) - A network daemon for Monero: the secure, private, untraceable cryptocurrency
 - [Monero p2pool Daemon](https://github.com/SChernykh/p2pool) - Decentralized pool for Monero mining
