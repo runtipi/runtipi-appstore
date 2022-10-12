@@ -26,10 +26,8 @@ services:
       POSTGRES_DB: librephotos
     volumes:
       - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
-    command: postgres -c fsync=off -c synchronous_commit=off -c full_page_writes=off -c random_page_cost=1.0
     #Checking health of Postgres db
     healthcheck:
-      # test: psql -U tipi -d librephotos -c "SELECT 1;"
       test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
       interval: 5s
       timeout: 5s
