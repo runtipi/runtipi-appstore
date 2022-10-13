@@ -21,7 +21,7 @@ jobs:
       - name: Get list of updated files by the last commit in this branch separated by space
         id: updated-files
         run: |
-          echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r HEAD~1 HEAD | tr '\n' ' ')"
+          echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | tr '\n' ' ')"
 
       - name: Run renovate-app-version.sh on updated files
         run: |
