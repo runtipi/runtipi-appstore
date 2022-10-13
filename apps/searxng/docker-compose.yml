@@ -3,7 +3,7 @@ version: "3.7"
 services:
   searxng:
     container_name: searxng
-    image: searxng/searxng:latest
+    image: searxng/searxng:2022.10.11-a7337612
     restart: unless-stopped
     networks:
       - tipi_main_network

@@ -1,41 +1,6 @@
 version: "3.7"
 
 services:
-  db-nextcloud:
-    container_name: db-nextcloud
-    image: postgres:14.2
-    restart: on-failure
-    volumes:
-      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_PASSWORD=tipi
-      - POSTGRES_USER=tipi
-      - POSTGRES_DB=nextcloud
-    networks:
-      - tipi_main_network
-
-  redis-nextcloud:
-    container_name: redis-nextcloud
-    user: "1000:1000"
-    image: redis:6.2.6
-    restart: on-failure
-    volumes:
-      - "${APP_DATA_DIR}/data/redis:/data"
-    networks:
-      - tipi_main_network
-
-  cron:
-    image: nextcloud:24.0.4-apache
-    restart: on-failure
-    volumes:
-      - ${APP_DATA_DIR}/data/nextcloud:/var/www/html
-    entrypoint: /cron.sh
-    depends_on:
-      - db-nextcloud
-      - redis-nextcloud
-    networks:
-      - tipi_main_network
-
   nextcloud:
     container_name: nextcloud
     image: nextcloud:24.0.4-apache
@@ -80,3 +45,40 @@ services:
       traefik.http.middlewares.nextcloud.headers.customRequestHeaders.X-Forwarded-Proto: https
       traefik.http.middlewares.nextcloud-https.redirectscheme.scheme: https
       traefik.http.routers.nextcloud-http.middlewares: nextcloud-https@docker
+      
+  db-nextcloud:
+    container_name: db-nextcloud
+    image: postgres:14.2
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=tipi
+      - POSTGRES_USER=tipi
+      - POSTGRES_DB=nextcloud
+    networks:
+      - tipi_main_network
+
+  redis-nextcloud:
+    container_name: redis-nextcloud
+    user: "1000:1000"
+    image: redis:6.2.6
+    restart: on-failure
+    volumes:
+      - "${APP_DATA_DIR}/data/redis:/data"
+    networks:
+      - tipi_main_network
+
+  cron:
+    image: nextcloud:24.0.4-apache
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/data/nextcloud:/var/www/html
+    entrypoint: /cron.sh
+    depends_on:
+      - db-nextcloud
+      - redis-nextcloud
+    networks:
+      - tipi_main_network
+
+  

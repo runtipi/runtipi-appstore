@@ -1,0 +1,30 @@
+version: "3.7"
+services:
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:4.4.5
+    container_name: qbittorrent
+    dns:
+      - ${DNS_IP}
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+      - WEBUI_PORT=${APP_PORT}
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${ROOT_FOLDER_HOST}/media/torrents:/downloads
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+      - 6881:6881
+      - 6881:6881/udp
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.qbittorrent.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.qbittorrent.entrypoints: websecure
+      traefik.http.routers.qbittorrent.service: qbittorrent
+      traefik.http.routers.qbittorrent.tls.certresolver: myresolver
+      traefik.http.services.qbittorrent.loadbalancer.server.port: ${APP_PORT}
+
