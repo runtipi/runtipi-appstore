@@ -1,8 +1,10 @@
 #!/bin/bash
 # This script copies the version from docker-compose.yml to config.json.
 
-# find all docker-compose files
-docker_compose_files=$(find apps -name docker-compose.yml)
+app_name=$1
+
+# find all docker-compose files under apps/$app_name (there should be only one)
+docker_compose_files=$(find apps/$app_name -name docker-compose.yml)
 
 for docker_compose_file in $docker_compose_files
 do
