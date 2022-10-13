@@ -16,11 +16,10 @@ jobs:
           git config --local user.email "githubaction@githubaction.com"
           git config --local user.name "github-action update-app-version"
 
-      - name: Get list of updated files by the last commit seperated by space
+      - name: Get list of updated files by the last commit in this branch separated by space
         id: updated-files
         run: |
-          echo ${{github.sha}}
-          echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | tr '\n' ' ')"
+          echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r HEAD~1 HEAD | tr '\n' ' ')"
 
       - name: Run renovate-app-version.sh on updated files
         run: |
@@ -35,4 +34,4 @@ jobs:
       
       - name: Commit & Push Changes
         run: |
-          git add "apps/*/config.json" && git commit -m "Update app version" && git push || true
+          git add "apps/*/config.json" && git commit -m "Update app version" --no-verify && git push || true
