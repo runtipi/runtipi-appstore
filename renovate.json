@@ -3,6 +3,10 @@
   "extends": [
     "config:base"
   ],
+  // Ignore commits produced by github actions workflows
+  "gitIgnoredAuthors": [
+    "githubaction@githubaction.com"
+  ],
   "dependencyDashboard": true,
   "enabledManagers": ["docker-compose", "dockerfile"]
 }
