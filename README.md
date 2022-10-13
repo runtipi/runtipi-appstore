@@ -42,6 +42,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [PrivateBin](https://github.com/PrivateBin/PrivateBin) - A minimalist, open source online pastebin where the server has zero knowledge of pasted data
 - [Prowlarr](https://github.com/Prowlarr/Prowlarr/) - A torrent/usenet indexer manager/proxy
 - [Proxitok](https://github.com/pablouser1/ProxiTok) - Open source alternative frontend for TikTok made using PHP
+- [qBittorrent](https://github.com/qbittorrent/qBittorrent) - BitTorrent client 
 - [Radarr](https://github.com/Radarr/Radarr) - Movie collection manager for Usenet and BitTorrent users
 - [Readarr](https://github.com/Readarr/Readarr) - Book Manager and Automation (Sonarr for Ebooks)
 - [Resilio Sync](https://github.com/bt-sync) - Fast, reliable, and simple file sync and share solution
