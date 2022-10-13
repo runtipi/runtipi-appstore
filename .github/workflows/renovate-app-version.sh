@@ -21,8 +21,17 @@ do
 	  # Find config file
 	  config_file=${docker_compose_file/docker-compose.yml/config.json}
 
-	  # Update the version in config.json
-	  contents="$(jq --arg trimmed_version "$trimmed_version" '.version=$trimmed_version' $config_file)" &&
-	  echo "${contents}" > $config_file
+	  current_config_version=$(jq -r '.version' $config_file)
+
+	  # Update the version in config.json, but only if there's a change
+	  if [[ "$current_config_version" != "$trimmed_version" ]]; then
+	    contents="$(jq --arg trimmed_version "$trimmed_version" '.version=$trimmed_version' $config_file)"
+	    echo "${contents}" > $config_file
+
+	    tipi_version=$(jq -r '.tipi_version' $config_file)
+	    tipi_version=$((tipi_version + 1))
+	    contents="$(jq --argjson tipi_version $tipi_version '.tipi_version=$tipi_version' $config_file)"
+	    echo "${contents}" > $config_file
+	  fi
 	fi
 done
