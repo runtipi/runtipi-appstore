@@ -1,12 +1,10 @@
 #!/bin/bash
 # This script copies the version from docker-compose.yml to config.json.
+# This script will run as part of the renovate github action.
 
-app_name=$1
+app_docker_compose_files=$1
 
-# find all docker-compose files under apps/$app_name (there should be only one)
-docker_compose_files=$(find apps/$app_name -name docker-compose.yml)
-
-for docker_compose_file in $docker_compose_files
+for docker_compose_file in $app_docker_compose_files
 do
 	# Assuming that the app version will be from the first docker image
 	first_service=$(yq '.services | keys | .[0]' $docker_compose_file)
