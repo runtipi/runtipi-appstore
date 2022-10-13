@@ -3,7 +3,5 @@
   "extends": [
     "config:base"
   ],
-  {
-    "enabledManagers": ["docker-compose", "dockerfile"]
-  }
+  "enabledManagers": ["docker-compose", "dockerfile"]
 }
