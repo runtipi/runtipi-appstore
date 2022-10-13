@@ -3,7 +3,6 @@
   "extends": [
     "config:base"
   ],
-  // Ignore commits produced by github actions workflows
   "gitIgnoredAuthors": [
     "githubaction@githubaction.com"
   ],
