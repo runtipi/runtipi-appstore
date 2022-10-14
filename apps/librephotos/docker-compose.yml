@@ -36,7 +36,7 @@ services:
       - tipi_main_network
       
   librephotos-frontend:
-    image: reallibrephotos/librephotos-frontend:2022w36
+    image: reallibrephotos/librephotos-frontend:2022w39
     container_name: librephotos-frontend
     restart: unless-stopped
     depends_on:
