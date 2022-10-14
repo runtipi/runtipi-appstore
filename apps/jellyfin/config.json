@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8091,
   "id": "jellyfin",
-  "tipi_version": 3,
-  "version": "10.8.5",
+  "tipi_version": 4,
+  "version": "2021.12.16",
   "categories": [
     "media"
   ],
