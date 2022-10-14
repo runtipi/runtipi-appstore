@@ -3,8 +3,8 @@
   "name": "Calibre-Web - EBook Reader",
   "available": true,
   "port": 8100,
-  "tipi_version": 2,
-  "version": "0.6.19",
+  "tipi_version": 3,
+  "version": "2021.12.16",
   "id": "calibre-web",
   "categories": [
     "books"
