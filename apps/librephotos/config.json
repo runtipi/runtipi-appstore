@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "librephotos",
-  "tipi_version": 1,
-  "version": "2022w36",
-  "categories": ["photography"],
+  "tipi_version": 2,
+  "version": "2022w39",
+  "categories": [
+    "photography"
+  ],
   "description": "",
   "short_desc": "",
   "author": "Niaz Faridani-Rad",
