@@ -1,6 +1,6 @@
 {
   "$schema": "../schema.json",
-  "name": "Zerotier",
+  "name": "ZeroTier",
   "available": true,
   "port": 9993,
   "id": "zerotier",
@@ -11,7 +11,7 @@
   "short_desc": "Easy to use zero configuration VPN.",
   "author": "© ZeroTier Inc.",
   "source": "https://github.com/zerotier/ZeroTierOne",
-  "website": "hhttps://www.zerotier.com",
+  "website": "https://www.zerotier.com",
   "form_fields": [
     {
       "type": "text",
