@@ -24,7 +24,7 @@ services:
       
   db-n8n:
     container_name: db-n8n
-    image: postgres:14.2
+    image: postgres:14.5
     restart: on-failure
     volumes:
       - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
