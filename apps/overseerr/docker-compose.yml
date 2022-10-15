@@ -2,7 +2,7 @@ version: "3"
 services:
   overseerr:
     container_name: overseerr
-    image: sctx/overseerr:1.29.0
+    image: sctx/overseerr:1.30.1
     environment:
       - TZ=${TZ}
     volumes:
