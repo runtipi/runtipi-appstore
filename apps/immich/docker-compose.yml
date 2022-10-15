@@ -93,7 +93,7 @@ services:
 
   immich-redis:
     container_name: immich-redis
-    image: redis:6.2
+    image: redis:7.0
     restart: unless-stopped
     networks:
       - tipi_main_network

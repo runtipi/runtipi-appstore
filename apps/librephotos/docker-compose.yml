@@ -77,7 +77,7 @@ services:
       - tipi_main_network
 
   librephotos-redis:
-    image: redis:6
+    image: redis:7
     container_name: librephotos-redis
     restart: unless-stopped
     networks:
