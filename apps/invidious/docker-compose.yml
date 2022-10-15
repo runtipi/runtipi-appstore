@@ -39,7 +39,7 @@ services:
   invidious-db:
     user: 1000:1000
     container_name: invidious-db
-    image: docker.io/library/postgres:14
+    image: docker.io/library/postgres:15
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
