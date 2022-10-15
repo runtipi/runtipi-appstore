@@ -25,7 +25,7 @@ services:
 
   gitea-db:
     container_name: gitea-db
-    image: postgres:14
+    image: postgres:15
     restart: unless-stopped
     environment:
       - POSTGRES_USER=gitea

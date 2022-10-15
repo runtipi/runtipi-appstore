@@ -17,7 +17,7 @@ services:
       - tipi_main_network
 
   librephotos-db:
-    image: postgres:14
+    image: postgres:15
     container_name: librephotos-db
     restart: unless-stopped
     environment:

@@ -100,7 +100,7 @@ services:
 
   immich-db:
     container_name: immich-db
-    image: postgres:14
+    image: postgres:15
     environment:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_USER: tipi

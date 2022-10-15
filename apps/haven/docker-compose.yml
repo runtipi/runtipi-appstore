@@ -28,7 +28,7 @@ services:
       traefik.http.services.haven.loadbalancer.server.port: 3000
 
   haven-db:
-    image: postgres:13.2-alpine
+    image: postgres:15.0-alpine
     container_name: haven-db
     command: [
       "postgres",
