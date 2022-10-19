@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8083,
   "id": "nextcloud",
-  "tipi_version": 5,
-  "version": "24.0.6-apache",
+  "tipi_version": 6,
+  "version": "25.0.0-apache",
   "categories": [
     "data"
   ],
