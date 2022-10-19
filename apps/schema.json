@@ -36,6 +36,14 @@
         }
       }
     },
+    "supported_architectures": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
     "id": {
       "type": "string",
       "pattern": "^[a-z0-9-_]+$"

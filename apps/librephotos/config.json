@@ -7,9 +7,8 @@
   "id": "librephotos",
   "tipi_version": 2,
   "version": "2022w39",
-  "categories": [
-    "photography"
-  ],
+  "supported_architectures": ["amd64", "arm64"],
+  "categories": ["photography"],
   "description": "",
   "short_desc": "",
   "author": "Niaz Faridani-Rad",

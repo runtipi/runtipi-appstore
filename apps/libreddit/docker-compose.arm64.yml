@@ -2,7 +2,7 @@ version: "3.7"
 services:
   libreddit:
     container_name: libreddit
-    image: spikecodes/libreddit:latest
+    image: spikecodes/libreddit:arm
     dns:
       - ${DNS_IP}
     ports:
@@ -17,4 +17,3 @@ services:
       traefik.http.routers.libreddit.service: libreddit
       traefik.http.routers.libreddit.tls.certresolver: myresolver
       traefik.http.services.libreddit.loadbalancer.server.port: 8080
-
