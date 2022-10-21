@@ -5,10 +5,15 @@
   "available": true,
   "exposable": true,
   "id": "librephotos",
-  "tipi_version": 2,
-  "version": "2022w39",
-  "supported_architectures": ["amd64", "arm64"],
-  "categories": ["photography"],
+  "tipi_version": 3,
+  "version": "2022w41",
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "categories": [
+    "photography"
+  ],
   "description": "",
   "short_desc": "",
   "author": "Niaz Faridani-Rad",
