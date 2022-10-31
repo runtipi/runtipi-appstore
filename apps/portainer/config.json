@@ -5,9 +5,11 @@
   "available": true,
   "https": true,
   "id": "portainer",
-  "tipi_version": 4,
-  "version": "2.15.1",
-  "categories": ["utilities"],
+  "tipi_version": 5,
+  "version": "2.16.0-alpine",
+  "categories": [
+    "utilities"
+  ],
   "description": "",
   "short_desc": "Making Docker and Kubernetes management easy.",
   "author": "portainer.io",
