@@ -23,6 +23,12 @@
     "https": {
       "type": "boolean"
     },
+    "uid": {
+      "type": "integer"
+    },
+    "gid": {
+      "type": "integer"
+    },
     "requirements": {
       "type": "object",
       "properties": {

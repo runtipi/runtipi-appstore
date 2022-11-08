@@ -12,5 +12,7 @@
   "short_desc": "Monero is a private, decentralized cryptocurrency that keeps your finances confidential and secure.",
   "author": "sethforprivacy",
   "source": "https://github.com/sethforprivacy/simple-monerod-docker",
-  "form_fields": []
+  "form_fields": [],
+  "uid": 1000,
+  "gid": 1000
 }
