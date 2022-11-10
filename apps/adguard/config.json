@@ -2,8 +2,8 @@
   "$schema": "../schema.json",
   "name": "Adguard",
   "available": true,
-  "tipi_version": 3,
-  "version": "0.107.16",
+  "tipi_version": 4,
+  "version": "0.107.18",
   "port": 8104,
   "id": "adguard",
   "categories": [
