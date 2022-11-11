@@ -4,8 +4,8 @@
   "port": 8108,
   "available": true,
   "id": "gitea",
-  "tipi_version": 2,
-  "version": "1.17.2",
+  "tipi_version": 3,
+  "version": "1.17.3",
   "categories": [
     "development"
   ],
