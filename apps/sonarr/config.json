@@ -2,14 +2,12 @@
   "$schema": "../schema.json",
   "name": "Sonarr",
   "available": true,
+  "exposable": true,
   "port": 8098,
   "id": "sonarr",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "3.0.9",
-  "categories": [
-    "media",
-    "utilities"
-  ],
+  "categories": ["media", "utilities"],
   "description": "Sonarr is a PVR for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.",
   "short_desc": "TV show manager for Usenet and BitTorrent",
   "author": "sonarr.tv",

@@ -1,6 +1,26 @@
 version: "3"
 
 services:
+  your-spotify:
+    container_name: your-spotify
+    image: yooooomi/your_spotify_client
+    depends_on:
+      - your-spotify-server
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:3000
+    environment:
+      - API_ENDPOINT=http://${INTERNAL_IP}:32500
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.your-spotify.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.your-spotify.entrypoints: websecure
+      traefik.http.routers.your-spotify.service: your-spotify
+      traefik.http.routers.your-spotify.tls.certresolver: myresolver
+      traefik.http.services.your-spotify.loadbalancer.server.port: 3000
+      
   your-spotify-server:
     container_name: your-spotify-server
     image: yooooomi/your_spotify_server
@@ -32,15 +52,3 @@ services:
     networks:
       - tipi_main_network
 
-  your-spotify:
-    container_name: your-spotify
-    image: yooooomi/your_spotify_client
-    depends_on:
-      - your-spotify-server
-    restart: unless-stopped
-    ports:
-      - ${APP_PORT}:3000
-    environment:
-      - API_ENDPOINT=http://${INTERNAL_IP}:32500
-    networks:
-      - tipi_main_network

@@ -15,6 +15,13 @@ services:
       - librephotos-frontend
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.librephotos.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.librephotos.entrypoints: websecure
+      traefik.http.routers.librephotos.service: librephotos
+      traefik.http.routers.librephotos.tls.certresolver: myresolver
+      traefik.http.services.librephotos.loadbalancer.server.port: 80
 
   librephotos-db:
     image: postgres:14

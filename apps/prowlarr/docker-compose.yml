@@ -14,3 +14,10 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.prowlarr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.prowlarr.entrypoints: websecure
+      traefik.http.routers.prowlarr.service: prowlarr
+      traefik.http.routers.prowlarr.tls.certresolver: myresolver
+      traefik.http.services.prowlarr.loadbalancer.server.port: 9696

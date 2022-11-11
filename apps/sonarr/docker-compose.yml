@@ -18,3 +18,10 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.sonarr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.sonarr.entrypoints: websecure
+      traefik.http.routers.sonarr.service: sonarr
+      traefik.http.routers.sonarr.tls.certresolver: myresolver
+      traefik.http.services.sonarr.loadbalancer.server.port: 8989

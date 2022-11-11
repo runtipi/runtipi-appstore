@@ -11,3 +11,10 @@ services:
       - ${APP_DATA_DIR}/data:/data
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.nodered.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nodered.entrypoints: websecure
+      traefik.http.routers.nodered.service: nodered
+      traefik.http.routers.nodered.tls.certresolver: myresolver
+      traefik.http.services.nodered.loadbalancer.server.port: 1880

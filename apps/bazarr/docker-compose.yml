@@ -18,3 +18,10 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.bazarr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.bazarr.entrypoints: websecure
+      traefik.http.routers.bazarr.service: bazarr
+      traefik.http.routers.bazarr.tls.certresolver: myresolver
+      traefik.http.services.bazarr.loadbalancer.server.port: 6767

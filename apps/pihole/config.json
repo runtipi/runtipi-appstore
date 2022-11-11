@@ -2,12 +2,13 @@
   "$schema": "../schema.json",
   "name": "Pi-hole",
   "available": true,
+  "exposable": true,
   "port": 8081,
   "requirements": {
     "ports": [53]
   },
   "id": "pihole",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "2022.09.4",
   "categories": ["network", "security"],
   "description": "The Pi-hole® is a DNS sinkhole that protects your devices from unwanted content without installing any client-side software.",
@@ -22,7 +23,7 @@
       "min": 3,
       "required": true,
       "env_variable": "APP_PASSWORD"
-    }, 
+    },
     {
       "type": "ip",
       "label": "Network Interface (default: 0.0.0.0)",

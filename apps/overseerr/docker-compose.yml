@@ -14,3 +14,10 @@ services:
       - ${DNS_IP}
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.overseerr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.overseerr.entrypoints: websecure
+      traefik.http.routers.overseerr.service: overseerr
+      traefik.http.routers.overseerr.tls.certresolver: myresolver
+      traefik.http.services.overseerr.loadbalancer.server.port: 5055

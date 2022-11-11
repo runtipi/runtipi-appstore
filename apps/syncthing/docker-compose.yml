@@ -19,3 +19,10 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.syncthing.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.syncthing.entrypoints: websecure
+      traefik.http.routers.syncthing.service: syncthing
+      traefik.http.routers.syncthing.tls.certresolver: myresolver
+      traefik.http.services.syncthing.loadbalancer.server.port: 8384
