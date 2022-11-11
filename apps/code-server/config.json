@@ -5,9 +5,11 @@
   "exposable": true,
   "port": 8101,
   "id": "code-server",
-  "tipi_version": 4,
-  "version": "4.8.0",
-  "categories": ["development"],
+  "tipi_version": 5,
+  "version": "4.8.3",
+  "categories": [
+    "development"
+  ],
   "description": "",
   "short_desc": "Code-server is VS Code running on a remote server, accessible through the browser.",
   "author": "https://github.com/coder",
