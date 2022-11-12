@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  minecraft-server:
+    container_name: minecraft-server
+    image: itzg/minecraft-server
+    ports:
+      - ${APP_PORT}:25565
+    environment:
+      EULA: "TRUE"
+      VERSION: ${MC_VERSION:-LATEST}
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/minecraft-data:/data
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.minecraft-server.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.minecraft-server.entrypoints: websecure
+      traefik.http.routers.minecraft-server.service: minecraft-server
+      traefik.http.routers.minecraft-server.tls.certresolver: myresolver
+      traefik.http.services.minecraft-server.loadbalancer.server.port: 25565

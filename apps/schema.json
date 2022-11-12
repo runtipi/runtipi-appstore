@@ -15,6 +15,9 @@
     "exposable": {
       "type": "boolean"
     },
+    "no_gui": {
+      "type": "boolean"
+    },
     "port": {
       "type": "integer",
       "minimum": 0,
