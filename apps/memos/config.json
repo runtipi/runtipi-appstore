@@ -1,0 +1,16 @@
+{
+  "$schema": "../schema.json",
+  "name": "Memos",
+  "available": true,
+  "exposable": true,
+  "port": 5230,
+  "id": "memos",
+  "tipi_version": 1,
+  "version": "0.7.2",
+  "categories": ["utilities"],
+  "description": "Memo hub for knowledge management and collaboration.",
+  "short_desc": "Memo hub for knowledge management and collaboration.",
+  "author": "boojack",
+  "website": "https://usememos.com/",
+  "source": "https://github.com/usememos/memos"
+}
