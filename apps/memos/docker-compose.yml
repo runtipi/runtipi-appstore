@@ -1,0 +1,19 @@
+version: "3.0"
+services:
+  memos:
+    image: neosmemo/memos:latest
+    container_name: memos
+    volumes:
+        - ${APP_DATA_DIR}/memos:/var/opt/memos
+    ports:
+        - ${APP_PORT}:5230
+    restart: unless-stopped
+    networks:
+        - tipi_main_network
+    labels:
+        traefik.enable: ${APP_EXPOSED}
+        traefik.http.routers.memos.rule: Host(`${APP_DOMAIN}`)
+        traefik.http.routers.memos.entrypoints: websecure
+        traefik.http.routers.memos.service: memos
+        traefik.http.routers.memos.tls.certresolver: myresolver
+        traefik.http.services.memos.loadbalancer.server.port: 5230
