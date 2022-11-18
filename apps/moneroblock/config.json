@@ -15,7 +15,8 @@
   "form_fields": [
     {
       "type": "text",
-      "label": "Monero Daemon Address in format node.host.name:port, i.e. node.sethforprivacy.com:18089",
+      "label": "Monero Daemon",
+      "hint": "Address in format node.host.name:port, i.e. node.sethforprivacy.com:18089",
       "max": 100,
       "min": 10,
       "required": false,
