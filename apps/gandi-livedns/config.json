@@ -4,6 +4,7 @@
   "available": true,
   "exposable": false,
   "id": "gandi-livedns",
+  "port": 8134,
   "tipi_version": 1,
   "version": "latest",
   "categories": ["network"],
