@@ -25,3 +25,10 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.transmission.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.transmission.entrypoints: websecure
+      traefik.http.routers.transmission.service: transmission
+      traefik.http.routers.transmission.tls.certresolver: myresolver
+      traefik.http.services.transmission.loadbalancer.server.port: 9091

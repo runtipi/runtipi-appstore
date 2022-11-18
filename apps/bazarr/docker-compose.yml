@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:1.1.2
+    container_name: bazarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+    dns:
+      - ${DNS_IP}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${APP_DATA_DIR}/data:/config
+      - ${ROOT_FOLDER_HOST}/media:/media
+    ports:
+      - ${APP_PORT}:6767
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.bazarr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.bazarr.entrypoints: websecure
+      traefik.http.routers.bazarr.service: bazarr
+      traefik.http.routers.bazarr.tls.certresolver: myresolver
+      traefik.http.services.bazarr.loadbalancer.server.port: 6767

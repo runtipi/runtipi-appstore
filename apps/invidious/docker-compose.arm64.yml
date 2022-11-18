@@ -1,7 +1,6 @@
 version: "3.7"
 services:
   invidious:
-    user: 1000:1000
     container_name: invidious
     image: quay.io/invidious/invidious:latest-arm64
     restart: unless-stopped
@@ -24,7 +23,8 @@ services:
       timeout: 5s
       retries: 2
     depends_on:
-      - invidious-db
+      invidious-db:
+        condition: service_healthy
     networks:
       - tipi_main_network
     labels:
@@ -36,9 +36,8 @@ services:
       traefik.http.services.invidious.loadbalancer.server.port: 3000
 
   invidious-db:
-    user: 1000:1000
     container_name: invidious-db
-    image: docker.io/library/postgres:14
+    image: postgres:14
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data

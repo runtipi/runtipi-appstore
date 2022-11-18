@@ -22,3 +22,10 @@ services:
       - net.ipv4.ip_forward=1
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.wg-easy.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wg-easy.entrypoints: websecure
+      traefik.http.routers.wg-easy.service: wg-easy
+      traefik.http.routers.wg-easy.tls.certresolver: myresolver
+      traefik.http.services.wg-easy.loadbalancer.server.port: 51821

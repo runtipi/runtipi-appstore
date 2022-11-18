@@ -6,7 +6,7 @@ services:
     image: ghcr.io/pablouser1/proxitok:master
     restart: unless-stopped
     ports:
-      - "${APP_PORT}:80"
+      - ${APP_PORT}:80
     environment:
       - "LATTE_CACHE=/cache"
       - "API_CACHE=redis"
@@ -20,6 +20,13 @@ services:
       - proxitok-signer
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.proxitok.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.proxitok.entrypoints: websecure
+      traefik.http.routers.proxitok.service: proxitok
+      traefik.http.routers.proxitok.tls.certresolver: myresolver
+      traefik.http.services.proxitok.loadbalancer.server.port: 80
 
   proxitok-redis:
     container_name: proxitok-redis

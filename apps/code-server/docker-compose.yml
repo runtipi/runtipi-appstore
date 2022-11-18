@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   code-server:
-    image: lscr.io/linuxserver/code-server:4.5.1
+    image: lscr.io/linuxserver/code-server:4.8.3
     container_name: code-server
     environment:
       - PUID=1000
@@ -17,3 +17,10 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.code-server.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.code-server.entrypoints: websecure
+      traefik.http.routers.code-server.service: code-server
+      traefik.http.routers.code-server.tls.certresolver: myresolver
+      traefik.http.services.code-server.loadbalancer.server.port: 8443

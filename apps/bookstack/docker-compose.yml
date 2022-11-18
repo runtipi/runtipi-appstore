@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   bookstack:
-    image: lscr.io/linuxserver/bookstack:22.07.3
+    image: lscr.io/linuxserver/bookstack:22.10.20221021
     container_name: bookstack
     environment:
       - APP_URL=http://${INTERNAL_IP}:${APP_PORT}
@@ -20,6 +20,13 @@ services:
       - bookstack-db
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.bookstack.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.bookstack.entrypoints: websecure
+      traefik.http.routers.bookstack.service: bookstack
+      traefik.http.routers.bookstack.tls.certresolver: myresolver
+      traefik.http.services.bookstack.loadbalancer.server.port: 80
 
   bookstack-db:
     image: lscr.io/linuxserver/mariadb

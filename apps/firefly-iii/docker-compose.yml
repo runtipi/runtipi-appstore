@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   firefly-iii:
-    image: fireflyiii/core:latest
+    image: fireflyiii/core:version-5.7.11
     container_name: firefly-iii
     restart: unless-stopped
     volumes:
@@ -42,6 +42,13 @@ services:
       - APP_URL=http://localhost:${APP_PORT}
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.firefly-iii.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.firefly-iii.entrypoints: websecure
+      traefik.http.routers.firefly-iii.service: firefly-iii
+      traefik.http.routers.firefly-iii.tls.certresolver: myresolver
+      traefik.http.services.firefly-iii.loadbalancer.server.port: 8080
     
   firefly-iii-db:
     container_name: firefly-iii-db

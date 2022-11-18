@@ -1,25 +1,13 @@
 version: "3.7"
 
 services:
-  # unbound:
-  #   image: "klutchell/unbound"
-  #   container_name: unbound
-  #   restart: unless-stopped
-  #   volumes:
-  #     - "${APP_DATA_DIR}/data/unbound:/etc/unbound"
-  #   networks:
-  #     tipi_main_network:
-  #       ipv4_address: 10.21.21.200
-
   pihole:
-    # depends_on: [unbound]
     container_name: pihole
     image: pihole/pihole:2022.09.4
     restart: unless-stopped
     hostname: pihole
     dns:
       - 127.0.0.1
-      # - 10.21.21.200 # Points to unbound
     ports:
       - ${NETWORK_INTERFACE:-0.0.0.0}:53:53/tcp
       - ${NETWORK_INTERFACE:-0.0.0.0}:53:53/udp
@@ -30,10 +18,16 @@ services:
     environment:
       TZ: ${TZ}
       WEBPASSWORD: ${APP_PASSWORD}
-      # PIHOLE_DNS_: 10.21.21.200 # Points to unbound
       FTLCONF_REPLY_ADDR4: 10.21.21.201
     cap_add:
       - NET_ADMIN
     networks:
       tipi_main_network:
         ipv4_address: 10.21.21.201
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.pihole.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.pihole.entrypoints: websecure
+      traefik.http.routers.pihole.service: pihole
+      traefik.http.routers.pihole.tls.certresolver: myresolver
+      traefik.http.services.pihole.loadbalancer.server.port: 80

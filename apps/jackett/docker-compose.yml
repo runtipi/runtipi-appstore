@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   jackett:
-    image: lscr.io/linuxserver/jackett:0.20.1342
+    image: lscr.io/linuxserver/jackett:0.20.2236
     container_name: jackett
     environment:
       - PUID=1000
@@ -18,3 +18,10 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.jackett.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.jackett.entrypoints: websecure
+      traefik.http.routers.jackett.service: jackett
+      traefik.http.routers.jackett.tls.certresolver: myresolver
+      traefik.http.services.jackett.loadbalancer.server.port: 9117

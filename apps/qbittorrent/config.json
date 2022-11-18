@@ -1,0 +1,16 @@
+{
+  "$schema": "../schema.json",
+  "name": "qBittorrent",
+  "available": true,
+  "exposable": true,
+  "port": 8133,
+  "id": "qbittorrent",
+  "tipi_version": 2,
+  "version": "4.4.5",
+  "categories": ["utilities"],
+  "description": "qBittorrent is a fast, easy, and free BitTorrent client.",
+  "short_desc": "Fast, easy, and free BitTorrent client",
+  "author": "qBittorrent project",
+  "source": "https://github.com/qbittorrent/qBittorrent",
+  "form_fields": []
+}

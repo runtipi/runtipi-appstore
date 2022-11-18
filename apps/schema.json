@@ -15,6 +15,9 @@
     "exposable": {
       "type": "boolean"
     },
+    "no_gui": {
+      "type": "boolean"
+    },
     "port": {
       "type": "integer",
       "minimum": 0,
@@ -22,6 +25,12 @@
     },
     "https": {
       "type": "boolean"
+    },
+    "uid": {
+      "type": "integer"
+    },
+    "gid": {
+      "type": "integer"
     },
     "requirements": {
       "type": "object",
@@ -35,6 +44,14 @@
           ]
         }
       }
+    },
+    "supported_architectures": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
     },
     "id": {
       "type": "string",

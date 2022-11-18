@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   calibre-web:
-    image: lscr.io/linuxserver/calibre-web:0.6.18
+    image: lscr.io/linuxserver/calibre-web:0.6.19
     container_name: calibre-web
     environment:
       - PUID=1000
@@ -15,3 +15,10 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.calibre-web.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.calibre-web.entrypoints: websecure
+      traefik.http.routers.calibre-web.service: calibre-web
+      traefik.http.routers.calibre-web.tls.certresolver: myresolver
+      traefik.http.services.calibre-web.loadbalancer.server.port: 8083
