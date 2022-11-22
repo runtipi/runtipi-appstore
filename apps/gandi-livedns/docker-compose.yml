@@ -4,8 +4,6 @@ services:
     image: jbbodart/gandi-livedns:latest
     container_name: gandi-livedns
     restart: unless-stopped
-    ports:
-      - ${APP_PORT}:80
     environment:
       APIKEY: ${GANDI_LIVEDNS_APIKEY}
       RECORD_LIST: ${GANDI_LIVEDNS_RECORD_LIST}
