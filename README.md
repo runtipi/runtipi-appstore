@@ -9,9 +9,9 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Booksonic](https://github.com/popeen) - A server for streaming your audiobooks
 - [Bookstack](https://github.com/BookStackApp/BookStack) - Simple, easy-to-use platform for organising and storing information.
 - [Calibre-Web](https://github.com/janeczku/calibre-web) - Web Ebook Reader
-- [Code-Server](https://github.com/coder/code-server) - Web VS Code 
+- [Code-Server](https://github.com/coder/code-server) - Web VS Code
 - [Filebrowser](https://github.com/filebrowser/filebrowser) - Web File Browser
-- [Firefly III](https://github.com/firefly-iii/firefly-iii) - A personal finances manager 
+- [Firefly III](https://github.com/firefly-iii/firefly-iii) - A personal finances manager
 - [Freshrss](https://github.com/FreshRSS/FreshRSS) - A free, self-hostable RSS aggregator
 - [gandi-livedns](https://github.com/jbbodart/gandi-livedns) - Update your Gandi DNS zone records with your WAN IP
 - [Ghost](https://github.com/TryGhost/Ghost) - Ghost - Turn your audience into a business
@@ -49,7 +49,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [PrivateBin](https://github.com/PrivateBin/PrivateBin) - A minimalist, open source online pastebin where the server has zero knowledge of pasted data
 - [Prowlarr](https://github.com/Prowlarr/Prowlarr/) - A torrent/usenet indexer manager/proxy
 - [Proxitok](https://github.com/pablouser1/ProxiTok) - Open source alternative frontend for TikTok made using PHP
-- [qBittorrent](https://github.com/qbittorrent/qBittorrent) - BitTorrent client 
+- [qBittorrent](https://github.com/qbittorrent/qBittorrent) - BitTorrent client
 - [Radarr](https://github.com/Radarr/Radarr) - Movie collection manager for Usenet and BitTorrent users
 - [Readarr](https://github.com/Readarr/Readarr) - Book Manager and Automation (Sonarr for Ebooks)
 - [Resilio Sync](https://github.com/bt-sync) - Fast, reliable, and simple file sync and share solution
@@ -64,9 +64,10 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Tube Archivist](https://github.com/tubearchivist/tubearchivist) - Your self-hosted YouTube media server
 - [Uptime Kuma](https://github.com/louislam/uptime-kuma) - A fancy self-hosted monitoring tool
 - [Vaultwarden](https://github.com/dani-garcia/vaultwarden) - Unofficial Bitwarden compatible server
+- [Vikunja](https://kolaente.dev/vikunja/) - The open-source, self-hostable to-do app. Organize everything, on all platforms.
 - [Wireguard Easy](https://github.com/WeeJeWel/wg-easy) - WireGuard VPN + Web-based Admin UI
 - [Your Spotify](https://github.com/Yooooomi/your_spotify) - Self hosted Spotify tracking dashboard
-- [ZeroTier](https://github.com/zerotier/ZeroTierOne) -  Easy to use zero configuration VPN.
+- [ZeroTier](https://github.com/zerotier/ZeroTierOne) - Easy to use zero configuration VPN.
 
 ## How to sumbit an app
 

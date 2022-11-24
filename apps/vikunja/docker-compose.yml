@@ -1,0 +1,68 @@
+version: '3.7'
+
+services:
+  vikunja-frontend:
+    depends_on:
+      - vikunja-api
+    container_name: vikunja-frontend
+    image: vikunja/frontend:0.20.1
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+
+  vikunja-api:
+    container_name: vikunja-api
+    image: vikunja/api:0.20.1
+    environment:
+      VIKUNJA_DATABASE_HOST: vikunja-db
+      VIKUNJA_DATABASE_PASSWORD: ${VIKUNJA_DB_PASSWORD}
+      VIKUNJA_DATABASE_TYPE: postgres
+      VIKUNJA_DATABASE_USER: tipi
+      VIKUNJA_SERVICE_JWTSECRET: ${VIKUNJA_SERVICE_JWTSECRET}
+      VIKUNJA_SERVICE_FRONTENDURL: ${APP_PROTOCOL:-http}://${APP_DOMAIN}/
+    volumes:
+      - ${APP_DATA_DIR}/data/files:/app/vikunja/files
+    restart: unless-stopped
+    depends_on:
+      vikunja-db:
+        condition: service_healthy
+    networks:
+      - tipi_main_network
+
+  vikunja-db:
+    container_name: vikunja-db
+    image: postgres:14
+    environment:
+      POSTGRES_PASSWORD: ${VIKUNJA_DB_PASSWORD}
+      POSTGRES_USER: tipi
+      POSTGRES_DB: vikunja
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - tipi_main_network
+  
+  vikunja:
+    container_name: vikunja
+    image: nginx
+    ports:
+      - ${APP_PORT}:80
+    volumes:
+      - ${APP_DATA_DIR}/data/proxy/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - vikunja-api
+      - vikunja-frontend
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.vikunja.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.vikunja.entrypoints: websecure
+      traefik.http.routers.vikunja.service: vikunja
+      traefik.http.routers.vikunja.tls.certresolver: myresolver
+      traefik.http.services.vikunja.loadbalancer.server.port: 80
