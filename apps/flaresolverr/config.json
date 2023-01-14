@@ -1,0 +1,14 @@
+{
+  "name": "Flaresolverr",
+  "available": true,
+  "port": 8278,
+  "id": "flaresolverr",
+  "description": "FlareSolverr is a proxy server to bypass Cloudflare and DDoS-GUARD protection.",
+  "tipi_version": 3,
+  "version": "3.0.2",
+  "categories": ["utilities"],
+  "short_desc": "A Cloudflare solver for Prowlarr and Jackett",
+  "author": "FlareSolverr",
+  "source": "https://github.com/FlareSolverr/FlareSolverr",
+  "form_fields": []
+}

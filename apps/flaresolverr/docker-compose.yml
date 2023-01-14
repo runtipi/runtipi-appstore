@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  flaresolverr: # Should be exact same name as "id" field in config.json
+    container_name: flaresolverr  # Should be exact same name as "id" field in config.json
+    image: ghcr.io/flaresolverr/flaresolverr:v3.0.2 # Try to avoid "latest" tag. As it may break configs in the future.
+    environment:
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - LOG_HTML=${LOG_HTML:-false}
+      - CAPTCHA_SOLVER=${CAPTCHA_SOLVER:-none}
+      - TZ=${TZ} # Can use any env variable. List in runtipi/templates/env-sample
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config # Always start the path with ${APP_DATA_DIR}. This will put all data inside app-data/my-app/data
+      - ${APP_DATA_DIR}/data/projects:/projects
+    ports:
+      - ${APP_PORT}:8191
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
