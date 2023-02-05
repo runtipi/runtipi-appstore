@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema.json",
   "name": "Monica",
   "available": true,
   "exposable": true,
@@ -10,12 +11,14 @@
     "data",
     "social"
   ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ]
   "description": "Monica is an open-source web application to organize and record your interactions with your loved ones. We call it a PRM, or Personal Relationship Management. Think of it as a CRM (a popular tool used by sales teams in the corporate world) for your friends or family.",
   "short_desc": "A Personal Relationship Management tool to help you document your social life.",
   "author": "monicahq",
   "source": "https://github.com/monicahq/monica",
-  "uid": 1000,
-  "gid": 1000,
   "form_fields": [
     {
       "type": "random",
@@ -24,6 +27,14 @@
       "min": 30,
       "max": 30,
       "env_variable": "MONICA_DB_PASS"
+    },
+    {
+      "type": "random",
+      "label": "Application key",
+      "required": false,
+      "min": 32,
+      "max": 32,
+      "env_variable": "MONICA_APP_KEY"
     }
   ]
 }

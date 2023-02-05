@@ -1,13 +1,14 @@
 version: "3.7"
 services:
   monica:
-    image: monica
+    image: monica:4.0.0
+    container_name: monica
     depends_on:
       - monica-db
     ports:
       - ${APP_PORT}:80
     environment:
-      - APP_KEY=f38f25083b2e64e2a673ade27d682359
+      - APP_KEY=${MONICA_APP_KEY}
       - DB_HOST=monica-db
       - DB_USERNAME=usermonica
       - DB_PASSWORD=${MONICA_DB_PASS}
@@ -25,13 +26,14 @@ services:
       traefik.http.services.monica.loadbalancer.server.port: 80
 
   monica-db:
-    image: mysql:5.7
+    image: mariadb:10.6.11
+    container_name: monica-db
     environment:
       - TZ=${TZ}
-      - MYSQL_RANDOM_ROOT_PASSWORD=true
-      - MYSQL_DATABASE=monica
-      - MYSQL_USER=usermonica
-      - MYSQL_PASSWORD=${MONICA_DB_PASS}
+      - MARIADB_RANDOM_ROOT_PASSWORD=true
+      - MARIADB_DATABASE=monica
+      - MARIADB_USER=usermonica
+      - MARIADB_PASSWORD=${MONICA_DB_PASS}
     volumes:
       - ${APP_DATA_DIR}/mysql:/var/lib/mysql
     restart: unless-stopped
