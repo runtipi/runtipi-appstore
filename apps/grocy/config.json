@@ -3,11 +3,14 @@
   "name": "Grocy",
   "available": true,
   "exposable": true,
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "3.3.2",
   "port": 8136,
   "id": "grocy",
-  "categories": ["automation", "finance"],
+  "categories": [
+    "automation",
+    "finance"
+  ],
   "description": "grocy is a web-based self-hosted groceries & household management solution for your home",
   "short_desc": "ERP beyond your fridge",
   "author": "berrnd",

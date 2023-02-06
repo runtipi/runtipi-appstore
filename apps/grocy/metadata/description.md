@@ -1,3 +1,5 @@
+Default login is user **admin** with password **admin**, please change the password immediately (user menu at the top right corner)
+
 ## ERP beyond your fridge
 
 grocy is a web-based self-hosted groceries & household management solution for your home

@@ -17,6 +17,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Ghost](https://github.com/TryGhost/Ghost) - Ghost - Turn your audience into a business
 - [Gitea](https://github.com/go-gitea/gitea) - Gitea - A painless self-hosted Git service
 - [Gotify](https://github.com/gotify/server) - Gotify - Simple server for sending and receiving notification messages
+- [Grocy](https://github.com/grocy/grocy) - Grocy - ERP beyond your fridge
 - [Haven](https://github.com/havenweb/haven) - Haven is a self-hosted private blog and feedreader you can use instead of Facebook
 - [Headscale](https://github.com/juanfont/headscale) - An open source, self-hosted implementation of the Tailscale control server
 - [Homarr](https://github.com/ajnart/homarr) - A homepage for your server
@@ -36,6 +37,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Moneroblock](https://github.com/duggavo/MoneroBlock) - Decentralized and trustless Monero block explorer
 - [Monero Daemon](https://github.com/monero-project/monero/) - A network daemon for Monero: the secure, private, untraceable cryptocurrency
 - [Monero p2pool Daemon](https://github.com/SChernykh/p2pool) - Decentralized pool for Monero mining
+- [Monica](https://github.com/monicahq/monica) - A Personal Relationship Management tool to help you document your social life
 - [n8n](https://github.com/n8n-io/n8n) - Workflow Automation Tool
 - [Navidrome](https://github.com/navidrome/navidrome) - A selfhosted music server
 - [Nextcloud](https://github.com/nextcloud/server) - A safe home for all your data
