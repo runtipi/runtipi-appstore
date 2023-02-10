@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   transmission:
-    image: lscr.io/linuxserver/transmission:latest
+    image: lscr.io/linuxserver/transmission:4.0.0
     container_name: transmission
     dns:
       - ${DNS_IP}
@@ -11,7 +11,7 @@ services:
       - TZ=${TZ}
       - USER=${TRANSMISSION_USERNAME}
       - PASS=${TRANSMISSION_PASSWORD}
-      - TRANSMISSION_WEB_HOME=/transmission-web-control/
+      # - TRANSMISSION_WEB_HOME=/transmission-web-control/
       # - WHITELIST=iplist #optional
       # - PEERPORT=peerport #optional
       # - HOST_WHITELIST=dnsnane list #optional
