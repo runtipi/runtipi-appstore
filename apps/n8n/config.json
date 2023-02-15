@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8094,
   "id": "n8n",
-  "tipi_version": 9,
-  "version": "0.202.1",
+  "tipi_version": 10,
+  "version": "0.215.2",
   "categories": [
     "automation"
   ],
