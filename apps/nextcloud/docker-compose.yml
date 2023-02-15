@@ -3,7 +3,7 @@ version: "3.7"
 services:
   nextcloud:
     container_name: nextcloud
-    image: nextcloud:25.0.2-apache
+    image: nextcloud:25.0.3-apache
     restart: unless-stopped
     ports:
       - ${APP_PORT}:80
@@ -70,7 +70,7 @@ services:
       - tipi_main_network
 
   cron:
-    image: nextcloud:25.0.2-apache
+    image: nextcloud:25.0.3-apache
     restart: on-failure
     volumes:
       - ${APP_DATA_DIR}/data/nextcloud:/var/www/html
