@@ -1,12 +1,17 @@
-version: "3.7"
+version: '3.7'
 services:
   homarr:
     container_name: homarr
-    image: ghcr.io/ajnart/homarr:0.10.7
+    image: ghcr.io/ajnart/homarr:0.11.4
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/config:/app/data/configs
+      - ${APP_DATA_DIR}/data/icons:/app/public/icons
       - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - PASSWORD=${HOMARR_PASSWORD}
+      - PGID=1000
+      - TZ=${TZ}
     ports:
       - ${APP_PORT}:7575
     networks:

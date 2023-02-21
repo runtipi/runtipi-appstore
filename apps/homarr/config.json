@@ -5,15 +5,22 @@
   "exposable": true,
   "port": 8102,
   "id": "homarr",
-  "tipi_version": 6,
-  "version": "0.10.7",
-  "categories": [
-    "utilities"
-  ],
+  "tipi_version": 7,
+  "version": "0.11.4",
+  "categories": ["utilities"],
   "description": "A homepage for your server.",
   "short_desc": "Homarr is a simple and lightweight homepage for your server, that helps you easily access all of your services in one place.",
   "author": "ajnart",
   "source": "https://github.com/ajnart/homarr",
   "website": "https://discord.gg/C2WTXkzkwK",
-  "form_fields": []
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "Password",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "HOMARR_PASSWORD"
+    }
+  ]
 }
