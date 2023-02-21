@@ -10,6 +10,7 @@
   "id": "pihole",
   "tipi_version": 3,
   "version": "2022.09.4",
+  "url_suffix": "/admin",
   "categories": ["network", "security"],
   "description": "The Pi-hole® is a DNS sinkhole that protects your devices from unwanted content without installing any client-side software.",
   "short_desc": "A black hole for Internet advertisements",
