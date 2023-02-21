@@ -1,4 +1,4 @@
-version: "3.7"
+version: '3.7'
 services:
   homarr:
     container_name: homarr
@@ -9,7 +9,7 @@ services:
       - ${APP_DATA_DIR}/data/icons:/app/public/icons
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - PASSWORD=${PASSWORD}
+      - PASSWORD=${HOMARR_PASSWORD}
       - PGID=1000
       - TZ=${TZ}
     ports:
