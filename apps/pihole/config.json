@@ -5,13 +5,18 @@
   "exposable": true,
   "port": 8081,
   "requirements": {
-    "ports": [53]
+    "ports": [
+      53
+    ]
   },
   "id": "pihole",
-  "tipi_version": 3,
-  "version": "2022.09.4",
+  "tipi_version": 4,
+  "version": "2023.02.2",
   "url_suffix": "/admin",
-  "categories": ["network", "security"],
+  "categories": [
+    "network",
+    "security"
+  ],
   "description": "The Pi-hole® is a DNS sinkhole that protects your devices from unwanted content without installing any client-side software.",
   "short_desc": "A black hole for Internet advertisements",
   "author": "pi-hole.net",
