@@ -3,7 +3,7 @@ version: "3.7"
 services:
   nextcloud:
     container_name: nextcloud
-    image: nextcloud:25.0.3-apache
+    image: nextcloud:25.0.4-apache
     restart: unless-stopped
     ports:
       - ${APP_PORT}:80
@@ -19,7 +19,6 @@ services:
       - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}
       - NEXTCLOUD_TRUSTED_DOMAINS=${APP_DOMAIN}
       - TRUSTED_PROXIES=172.16.0.0/12
-      - OVERWRITEHOST=${APP_DOMAIN}
       - OVERWRITEPROTOCOL=${APP_PROTOCOL:-http}
     depends_on:
       - db-nextcloud
@@ -45,7 +44,7 @@ services:
       traefik.http.middlewares.nextcloud.headers.customRequestHeaders.X-Forwarded-Proto: https
       traefik.http.middlewares.nextcloud-https.redirectscheme.scheme: https
       traefik.http.routers.nextcloud-http.middlewares: nextcloud-https@docker
-      
+
   db-nextcloud:
     container_name: db-nextcloud
     image: postgres:14.2
@@ -80,5 +79,3 @@ services:
       - redis-nextcloud
     networks:
       - tipi_main_network
-
-  
