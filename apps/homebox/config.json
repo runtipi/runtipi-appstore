@@ -7,7 +7,7 @@
   "id": "homebox",
   "tipi_version": 1,
   "version": "v0.8.2",
-  "categories": ["development"],
+  "categories": ["utilities"],
   "description": "Homebox is the inventory and organization system built for the Home User",
   "short_desc": "Homebox is the inventory and organization system built for the Home User",
   "author": "https://github.com/hay-kot",
