@@ -23,7 +23,7 @@ services:
       traefik.http.routers.codex-docs.entrypoints: websecure
       traefik.http.routers.codex-docs.service: codex-docs
       traefik.http.routers.codex-docs.tls.certresolver: myresolver
-      traefik.http.services.codex-docs.loadbalancer.server.port: 80
+      traefik.http.services.codex-docs.loadbalancer.server.port: 3000
   codex-mongo:
     image: mongo
     restart: always
