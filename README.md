@@ -10,6 +10,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Bookstack](https://github.com/BookStackApp/BookStack) - Simple, easy-to-use platform for organising and storing information.
 - [Calibre-Web](https://github.com/janeczku/calibre-web) - Web Ebook Reader
 - [Code-Server](https://github.com/coder/code-server) - Web VS Code
+- [Deluge](https://github.com/linuxserver/docker-deluge) - Deluge is a lightweight, Free Software, cross-platform BitTorrent client
 - [Filebrowser](https://github.com/filebrowser/filebrowser) - Web File Browser
 - [Firefly III](https://github.com/firefly-iii/firefly-iii) - A personal finances manager
 - [Flatnotes](https://github.com/Dullage/flatnotes) - A self-hosted, database-less note taking web app
