@@ -1,0 +1,25 @@
+version: "3.4"
+
+services:
+  homebox:
+    image: ghcr.io/hay-kot/homebox:v0.8.2
+    container_name: homebox
+    restart: always
+    environment:
+    - HBOX_LOG_LEVEL=info
+    - HBOX_LOG_FORMAT=text
+    - HBOX_WEB_MAX_UPLOAD_SIZE=10
+    - HBOX_OPTIONS_ALLOW_REGISTRATION=${HBOX_OPTIONS_ALLOW_REGISTRATION}
+    volumes:
+      - ${APP_DATA_DIR}/data/homebox-data:/data/
+    ports:
+      - ${APP_PORT}:7745
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.homebox.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.homebox.entrypoints: websecure
+      traefik.http.routers.homebox.service: homebox
+      traefik.http.routers.homebox.tls.certresolver: myresolver
+      traefik.http.services.homebox.loadbalancer.server.port: 7745

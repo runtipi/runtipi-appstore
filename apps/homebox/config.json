@@ -1,0 +1,25 @@
+{
+  "$schema": "../schema.json",
+  "name": "HomeBox",
+  "port": 8150,
+  "available": true,
+  "exposable": true,
+  "id": "homebox",
+  "tipi_version": 1,
+  "version": "v0.8.2",
+  "categories": ["development"],
+  "description": "Homebox is the inventory and organization system built for the Home User",
+  "short_desc": "Homebox is the inventory and organization system built for the Home User",
+  "author": "https://github.com/hay-kot",
+  "source": "https://github.com/hay-kot/homebox",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Allow Users Registration",
+      "hint": "True or False if you want to allow self registration.",
+      "placeholder": "false",
+      "required": true,
+      "env_variable": "HBOX_OPTIONS_ALLOW_REGISTRATION"
+    }
+  ]
+}
