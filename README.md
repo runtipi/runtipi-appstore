@@ -21,6 +21,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Grocy](https://github.com/grocy/grocy) - Grocy - ERP beyond your fridge
 - [Haven](https://github.com/havenweb/haven) - Haven is a self-hosted private blog and feedreader you can use instead of Facebook
 - [Headscale](https://github.com/juanfont/headscale) - An open source, self-hosted implementation of the Tailscale control server
+- [HedgeDoc](https://github.com/hedgedoc/hedgedoc) - A Collaborative Markdown and Note Taking App
 - [Homarr](https://github.com/ajnart/homarr) - A homepage for your server
 - [Home Assistant](https://github.com/home-assistant/core) - Open source home automation that puts local control and privacy first
 - [Immich](https://github.com/immich-app/immich) - Photo and video backup solution directly from your mobile phone
