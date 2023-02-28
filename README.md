@@ -12,6 +12,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Code-Server](https://github.com/coder/code-server) - Web VS Code
 - [Filebrowser](https://github.com/filebrowser/filebrowser) - Web File Browser
 - [Firefly III](https://github.com/firefly-iii/firefly-iii) - A personal finances manager
+- [Fireshare](https://github.com/ShaneIsrael/fireshare) - Self host your media and share with unique links
 - [Flatnotes](https://github.com/Dullage/flatnotes) - A self-hosted, database-less note taking web app
 - [Freshrss](https://github.com/FreshRSS/FreshRSS) - A free, self-hostable RSS aggregator
 - [gandi-livedns](https://github.com/jbbodart/gandi-livedns) - Update your Gandi DNS zone records with your WAN IP
