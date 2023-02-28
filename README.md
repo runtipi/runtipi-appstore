@@ -69,6 +69,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Vaultwarden](https://github.com/dani-garcia/vaultwarden) - Unofficial Bitwarden compatible server
 - [Vikunja](https://kolaente.dev/vikunja/) - The open-source, self-hostable to-do app. Organize everything, on all platforms.
 - [Wireguard Easy](https://github.com/WeeJeWel/wg-easy) - WireGuard VPN + Web-based Admin UI
+- [WikiJS](https://github.com/requarks/wiki) - A modern and powerful wiki app built on Node.js
 - [Your Spotify](https://github.com/Yooooomi/your_spotify) - Self hosted Spotify tracking dashboard
 - [ZeroTier](https://github.com/zerotier/ZeroTierOne) - Easy to use zero configuration VPN.
 
