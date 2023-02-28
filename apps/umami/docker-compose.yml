@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  umami:
+    image: ghcr.io/umami-software/umami:postgresql-v1.40.0
+    ports:
+      - "${APP_PORT}:3000"
+    environment:
+      DATABASE_URL: postgresql://umami:${DB_PASSWORD}@db:5432/umami
+      DATABASE_TYPE: postgresql
+      HASH_SALT: ${HASH_SALT}
+    depends_on:
+      - umami-db
+    restart: always
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.umami.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.umami.entrypoints: websecure
+      traefik.http.routers.umami.service: umami
+      traefik.http.routers.umami.tls.certresolver: myresolver
+      traefik.http.services.umami.loadbalancer.server.port: 3000
+  umami-db:
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_DB: umami
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - tipi_main_network
