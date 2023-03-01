@@ -32,6 +32,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [LibrePhotos](https://github.com/LibrePhotos/librephotos) - Complete photo management service
 - [LibreTranslate](https://github.com/LibreTranslate/LibreTranslate) - Free and Open Source Machine Translation API. 100% self-hosted, offline capable and easy to setup
 - [Lidarr](https://github.com/Lidarr/Lidarr) - Looks and smells like Sonarr but made for music.
+- [Littlelink Custom](https://github.com/JulianPrieber/littlelink-custom) - LittleLink Custom - the ultimate solution for creating a personalized & professional profile page.
 - [Mealie](https://github.com/hay-kot/mealie) - Self-hosted recipe manager and meal planner.
 - [Memos](https://github.com/usememos/memos) - Memo hub for knowledge management and collaboration.
 - [Minecraft server](https://github.com/itzg/docker-minecraft-server) - Run a minecraft server in one click

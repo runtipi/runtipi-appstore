@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+
+  littlelink-custom:
+    hostname: 'littlelink-custom'
+    image: 'julianprieber/littlelink-custom:latest'
+    environment:
+      - TZ=${TZ}
+      - SERVER_ADMIN=${EMAIL}
+      - HTTP_SERVER_NAME=${APP_DOMAIN}
+      - HTTPS_SERVER_NAME=${APP_DOMAIN}
+      - LOG_LEVEL=info
+      - PHP_MEMORY_LIMIT=256M
+      - UPLOAD_MAX_FILESIZE=8M
+    volumes:
+      - '${APP_DATA_DIR}/data/littlelink/htdocs:/htdocs'
+    ports:
+      - '${APP_PORT}:443'
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.littlelink-custom.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.littlelink-custom.entrypoints: websecure
+      traefik.http.routers.littlelink-custom.service: littlelink-custom
+      traefik.http.routers.littlelink-custom.tls.certresolver: myresolver
+      traefik.http.services.littlelink-custom.loadbalancer.server.port: 443
