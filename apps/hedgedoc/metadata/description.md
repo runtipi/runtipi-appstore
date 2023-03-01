@@ -1,25 +1,15 @@
-![HedgeDoc Logo](docs/content/images/hedgedoc_logo_black.svg)
-
-[![#HedgeDoc on matrix.org][matrix.org-image]][matrix.org-url]
-[![version][github-version-badge]][github-release-page]
-[![POEditor][poeditor-image]][poeditor-url]
-[![Mastodon][social-mastodon-image]][social-mastodon]
-[![Twitter][social-twitter-image]][social-twitter]
-![REUSE Compliance Check][reuse-workflow-badge]
-![Nest.JS CI][nestjs-workflow-badge]
-[![codecov][codecov-badge]][codecov-url]
-
-HedgeDoc lets you create real-time collaborative markdown notes. 
+HedgeDoc lets you create real-time collaborative markdown notes.
 
 ## Getting Started
+
 - ℹ️ Read all about HedgeDoc and the history of the project on [our website](https://hedgedoc.org)
 - 🧪 Try out HedgeDoc with the [demo instance][hedgedoc-demo]. Check out the [features page][hedgedoc-demo-features]!
 - 💽 Install HedgeDoc yourself using the [install guide](https://docs.hedgedoc.org/setup/getting-started/)
 - ❓ Questions? Join our [Matrix chat][matrix.org-url] or the [community forums][hedgedoc-community]
 - 💬 Stay up to date by subscribing to the [release feed][github-release-feed]
 
-
 ## State of the project
+
 HedgeDoc 1.x is stable and used around the world, but the codebase has [grown over time](https://hedgedoc.org/history/),
 making it hard to add new features.  
 We are currently working on HedgeDoc 2, a complete rewrite of HedgeDoc. Please note the following:

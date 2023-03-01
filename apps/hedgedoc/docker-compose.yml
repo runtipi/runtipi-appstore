@@ -1,13 +1,13 @@
-version: "3.7"
+version: '3.7'
 
 services:
   hedgedoc:
-    # Make sure to use the latest release from https://hedgedoc.org/latest-release
+    container_name: hedgedoc
     image: quay.io/hedgedoc/hedgedoc:1.9.7
     environment:
-      - CMD_DB_URL=postgres://hedgedoc:${DB_PASSWORD}@hedgedoc-db:5432/hedgedoc
+      - CMD_DB_URL=postgres://hedgedoc:${HEDGEDOC_DB_PASSWORD}@hedgedoc-db:5432/hedgedoc
       - CMD_DOMAIN=${APP_DOMAIN}
-      - CMD_URL_ADDPORT=${CMD_URL_ADDPORT}
+      - CMD_URL_ADDPORT=${HEDGEDOC_ADDPORT}
     volumes:
       - ${APP_DATA_DIR}/data/hedgedoc-uploads:/hedgedoc/public/uploads
     ports:
@@ -15,6 +15,8 @@ services:
     restart: always
     depends_on:
       - hedgedoc-db
+    networks:
+      - tipi_main_network
     labels:
       traefik.enable: ${APP_EXPOSED}
       traefik.http.routers.hedgedoc.rule: Host(`${APP_DOMAIN}`)
@@ -22,13 +24,14 @@ services:
       traefik.http.routers.hedgedoc.service: hedgedoc
       traefik.http.routers.hedgedoc.tls.certresolver: myresolver
       traefik.http.services.hedgedoc.loadbalancer.server.port: 3000
+
   hedgedoc-db:
     container_name: hedgedoc-db
     image: postgres:13.4-alpine
     restart: unless-stopped
     environment:
       - POSTGRES_USER=hedgedoc
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_PASSWORD=${HEDGEDOC_DB_PASSWORD}
       - POSTGRES_DB=hedgedoc
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
