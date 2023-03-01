@@ -1,0 +1,27 @@
+version: "2.1"
+services:
+  deluge:
+    image: lscr.io/linuxserver/deluge:2.1.1
+    container_name: deluge
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+      - DELUGE_LOGLEVEL=error #optional
+    volumes:
+      - ${APP_DATA_DIR}/data/deluge/config:/config
+      - ${ROOT_FOLDER_HOST}/media/torrents/deluge:/downloads
+    ports:
+      - ${APP_PORT}:8112
+      - 6881:6881
+      - 6881:6881/udp
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.deluge.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.deluge.entrypoints: websecure
+      traefik.http.routers.deluge.service: deluge
+      traefik.http.routers.deluge.tls.certresolver: myresolver
+      traefik.http.services.deluge.loadbalancer.server.port: 8112
