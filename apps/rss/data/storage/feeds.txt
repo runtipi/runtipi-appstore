@@ -1,0 +1,3 @@
+https://noted.lol/rss Noted⭐[#9233B1] #self-hosting
+https://www.linuxserver.io/blog.rss Linux-Server[#0078b9] #self-hosting
+https://blog.networkprofile.org/rss Network-Profile[#D48D27] #self-hosting
