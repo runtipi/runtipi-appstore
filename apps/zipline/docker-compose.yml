@@ -1,17 +1,18 @@
-version: "3.7"
+version: '3.7'
 
 services:
   zipline:
+    container_name: zipline
     image: ghcr.io/diced/zipline:3.6.4
     ports:
       - '${APP_PORT}:3000'
     restart: unless-stopped
     environment:
       - CORE_RETURN_HTTPS=false
-      - CORE_SECRET=${CORE_SECRET}
+      - CORE_SECRET=${ZIPLINE_CORE_SECRET}
       - CORE_HOST=0.0.0.0
       - CORE_PORT=3000
-      - CORE_DATABASE_URL=postgres://tipi:${DB_PASSWORD}@zipline-db/zipline
+      - CORE_DATABASE_URL=postgres://tipi:${ZIPLINE_DB_PASSWORD}@zipline-db/zipline
       - CORE_LOGGER=true
     volumes:
       - '${APP_DATA_DIR}/data/uploads:/zipline/uploads'
@@ -34,7 +35,7 @@ services:
     restart: unless-stopped
     environment:
       - POSTGRES_USER=tipi
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_PASSWORD=${ZIPLINE_DB_PASSWORD}
       - POSTGRES_DB=zipline
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
