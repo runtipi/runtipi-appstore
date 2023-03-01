@@ -16,25 +16,25 @@
   "form_fields": [
     {
       "type": "random",
-      "label": "MYSQL_PASSWORD",
+      "label": "OWNCLOUD_DB_PASSWORD",
       "min": 32,
-      "env_variable": "MYSQL_PASSWORD"
+      "env_variable": "OWNCLOUD_DB_PASSWORD"
     },
     {
       "type": "text",
-      "label": "Owncloud Admin Username",
+      "label": "Owncloud username",
       "max": 50,
       "min": 3,
       "required": true,
-      "env_variable": "ADMIN_USERNAME"
+      "env_variable": "OWNCLOUD_USERNAME"
     },
     {
       "type": "password",
-      "label": "Owncloud Admin Password",
+      "label": "Owncloud password",
       "max": 50,
-      "min": 3,
+      "min": 8,
       "required": true,
-      "env_variable": "OWNCLOUD_ADMIN_PASSWORD"
+      "env_variable": "OWNCLOUD_PASSWORD"
     }
   ]
 }

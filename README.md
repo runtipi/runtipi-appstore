@@ -51,8 +51,8 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [NocoDB](https://github.com/nocodb/nocodb) - Open Source Airtable Alternative
 - [Node-RED](https://github.com/node-red/node-red) - Low-code programming for event-driven applications
 - [OneDev](https://code.onedev.io/onedev/server) - Self-hosted Git Server with Kanban and CI/CD
-- [Owncloud](https://github.com/owncloud/core) - A personal cloud which runs on your own server.
 - [Overseerr](https://github.com/sct/overseerr) - Request management and media discovery tool for the Plex ecosystem
+- [Owncloud](https://github.com/owncloud/core) - A personal cloud which runs on your own server.
 - [Photoprism](https://github.com/photoprism/photoprism) - AI-Powered Photos App for the Decentralized Web. We are on a mission to protect your freedom and privacy.
 - [Pihole](https://github.com/pi-hole/pi-hole) - A black hole for Internet advertisements
 - [Plex](https://github.com/plexinc/pms-docker) - Stream Movies & TV Shows
