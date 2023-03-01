@@ -17,19 +17,19 @@
       "type": "random",
       "label": "DB_PASSWORD",
       "min": 32,
-      "env_variable": "DB_PASSWORD"
+      "env_variable": "NOCODB_DB_PASSWORD"
     },
     {
       "type": "random",
       "label": "JWT_SECRET",
       "min": 32,
-      "env_variable": "JWT_SECRET"
+      "env_variable": "NOCODB_JWT_SECRET"
     },
     {
       "type": "random",
       "label": "REDIS_PASSWORD",
       "min": 32,
-      "env_variable": "REDIS_PASSWORD"
+      "env_variable": "NOCODB_REDIS_PASSWORD"
     }
   ]
 }

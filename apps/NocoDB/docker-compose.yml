@@ -1,21 +1,22 @@
 version: '2.1'
 
-services: 
-  nocodb: 
-    depends_on: 
-      nocodb_db: 
+services:
+  nocodb:
+    container_name: nocodb
+    depends_on:
+      nocodb-db:
         condition: service_healthy
-    environment: 
-      - NC_DB="pg://nocodb_db:5432?u=postgres&p=${DB_PASSWORD}&d=nocodb_db"
+    environment:
+      - NC_DB=pg://nocodb-db:5432?u=postgres&p=${NOCODB_DB_PASSWORD}&d=nocodb
       - NC_PUBLIC_URL=https://${APP_DOMAIN}
-      - NC_AUTH_JWT_SECRET=${JWT_SECRET}
-      - NC_REDIS_URL=redis://default:${REDIS_PASSWORD}@nocodb_redis:637
-    image: "nocodb/nocodb:0.105.3"
-    ports: 
-      - "${APP_PORT}:8080"
+      - NC_AUTH_JWT_SECRET=${NOCODB_JWT_SECRET}
+      - NC_REDIS_URL=redis://default:${NOCODB_REDIS_PASSWORD}@nocodb-redis:6379
+    image: 'nocodb/nocodb:0.105.3'
+    ports:
+      - '${APP_PORT}:8080'
     restart: always
-    volumes: 
-      - "${APP_DATA_DIR}/data/nocode-data:/usr/app/data"
+    volumes:
+      - '${APP_DATA_DIR}/data/nocode-data:/usr/app/data'
     networks:
       - tipi_main_network
     labels:
@@ -25,31 +26,34 @@ services:
       traefik.http.routers.nocodb.service: nocodb
       traefik.http.routers.nocodb.tls.certresolver: myresolver
       traefik.http.services.nocodb.loadbalancer.server.port: 8080
-  nocodb_db: 
-    environment: 
-      POSTGRES_DB: nocodb_db
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
+
+  nocodb-db:
+    container_name: nocodb-db
+    environment:
+      POSTGRES_DB: nocodb
+      POSTGRES_PASSWORD: ${NOCODB_DB_PASSWORD}
       POSTGRES_USER: postgres
-    healthcheck: 
+    healthcheck:
       interval: 10s
       retries: 10
-      test: "pg_isready -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\""
+      test: 'pg_isready -U "$$POSTGRES_USER" -d "$$POSTGRES_DB"'
       timeout: 2s
     image: postgres
     restart: always
-    volumes: 
+    volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
     networks:
       - tipi_main_network
-  nocodb_redis:
+
+  nocodb-redis:
     image: redis:alpine
-    container_name: nocodb_redis
+    container_name: nocodb-redis
     restart: unless-stopped
-    command: "redis-server --requirepass ${REDIS_PASSWORD}"
+    command: 'redis-server --requirepass ${NOCODB_REDIS_PASSWORD}'
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test: ['CMD', 'redis-cli', 'ping']
       interval: 1s
       timeout: 3s
       retries: 30
