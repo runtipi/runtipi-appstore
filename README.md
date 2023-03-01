@@ -59,6 +59,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Radarr](https://github.com/Radarr/Radarr) - Movie collection manager for Usenet and BitTorrent users
 - [Readarr](https://github.com/Readarr/Readarr) - Book Manager and Automation (Sonarr for Ebooks)
 - [Resilio Sync](https://github.com/bt-sync) - Fast, reliable, and simple file sync and share solution
+- [RSS](https://github.com/ssddanbrown/rss) - A simple, opinionated, RSS feed aggregator
 - [SearXNG](https://github.com/searxng/searxng) - SearXNG is a free internet metasearch engine which aggregates results from various search services and databases. Users are neither tracked nor profiled
 - [Send](https://gitlab.com/timvisee/send) - Simple, private file sharing
 - [Sonarr](https://github.com/Sonarr/Sonarr) - TV show manager for Usenet and BitTorrent
