@@ -7,7 +7,7 @@
   "id": "nocodb",
   "tipi_version": 1,
   "version": "0.105.3",
-  "categories": ["development"],
+  "categories": ["utilities"],
   "description": "The Open Source Airtable Alternative. Turns any MySQL, PostgreSQL, SQL Server, SQLite & MariaDB into a smart-spreadsheet.",
   "short_desc": "Open Source Airtable Alternative",
   "author": "https://github.com/nocodb",
@@ -15,13 +15,13 @@
   "form_fields": [
     {
       "type": "random",
-      "label": "DB_PASSWORD",
+      "label": "NOCODB_DB_PASSWORD",
       "min": 32,
       "env_variable": "NOCODB_DB_PASSWORD"
     },
     {
       "type": "random",
-      "label": "JWT_SECRET",
+      "label": "NOCODB_JWT_SECRET",
       "min": 32,
       "env_variable": "NOCODB_JWT_SECRET"
     },
