@@ -3,10 +3,10 @@
   "name": "CodeX.docs",
   "available": true,
   "exposable": true,
-  "port": 8086,
+  "port": 8101,
   "id": "codex-docs",
   "tipi_version": 1,
-  "version": "v2",
+  "version": "v2.1",
   "categories": ["media"],
   "description": "CodeX Docs is a free docs application. It's based on Editor.js ecosystem which gives all modern opportunities for working with content. You can use it for product documentation, for internal team docs, for personal notes or any other need.  ",
   "short_desc": "Free Docs app powered by Editor.js ecosystem.",
@@ -19,19 +19,19 @@
       "max": 50,
       "min": 3,
       "required": true,
-      "env_variable": "APP_CONFIG_auth_password"
+      "env_variable": "CODEX_AUTH_PASSWORD"
     },
     {
       "type": "random",
-      "label": "MONGO_INITDB_ROOT_PASSWORD",
+      "label": "CODEX_DB_PASSWORD",
       "min": 32,
-      "env_variable": "MONGO_INITDB_ROOT_PASSWORD"
+      "env_variable": "CODEX_DB_PASSWORD"
     },
     {
       "type": "random",
-      "label": "APP_CONFIG_auth_secret",
+      "label": "CODEX_AUTH_SECRET",
       "min": 32,
-      "env_variable": "APP_CONFIG_auth_secret"
+      "env_variable": "CODEX_AUTH_SECRET"
     }
   ]
 }
