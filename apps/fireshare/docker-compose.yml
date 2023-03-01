@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 
 services:
   fireshare:
@@ -11,9 +11,9 @@ services:
       - ${APP_DATA_DIR}/data/fireshare_processed:/processed
       - ${ROOT_FOLDER_HOST}/media/data/videos/fireshare_videos:/videos
     environment:
-      - ADMIN_USERNAME=${ADMIN_USERNAME}
-      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
-      - SECRET_KEY=${SECRET_KEY}
+      - ADMIN_USERNAME=${FIRESHARE_USERNAME}
+      - ADMIN_PASSWORD=${FIRESHARE_PASSWORD}
+      - SECRET_KEY=${FIRESHARE_SECRET_KEY}
       - MINUTES_BETWEEN_VIDEO_SCANS=5
       - PUID=1000
       - PGID=1000

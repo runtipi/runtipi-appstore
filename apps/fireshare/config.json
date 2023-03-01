@@ -15,25 +15,25 @@
   "form_fields": [
     {
       "type": "random",
-      "label": "SECRET_KEY",
+      "label": "FIRESHARE_SECRET_KEY",
       "min": 32,
-      "env_variable": "SECRET_KEY"
+      "env_variable": "FIRESHARE_SECRET_KEY"
     },
     {
       "type": "text",
-      "label": "ADMIN_USERNAME",
+      "label": "Fireshare username",
       "max": 50,
       "min": 3,
       "required": true,
-      "env_variable": "ADMIN_USERNAME"
+      "env_variable": "FIRESHARE_USERNAME"
     },
     {
       "type": "password",
-      "label": "ADMIN_PASSWORD",
+      "label": "Fireshare password",
       "max": 50,
-      "min": 3,
+      "min": 8,
       "required": true,
-      "env_variable": "ADMIN_PASSWORD"
+      "env_variable": "FIRESHARE_PASSWORD"
     }
   ]
 }

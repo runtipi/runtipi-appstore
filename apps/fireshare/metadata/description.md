@@ -1,18 +1,16 @@
-[![Logo](https://github.com/ShaneIsrael/fireshare/raw/main/app/client/src/assets/logo.png)](https://github.com/ShaneIsrael/fireshare)
-
 ## Fireshare
 
 Table of Contents
 
 1.  [About The Project](https://github.com/ShaneIsrael/fireshare#about-the-project)
-    -   [Built With](https://github.com/ShaneIsrael/fireshare#built-with)
+    - [Built With](https://github.com/ShaneIsrael/fireshare#built-with)
 2.  [Installation](https://github.com/ShaneIsrael/fireshare#installation)
-    -   [Configurable Settings](https://github.com/ShaneIsrael/fireshare#configurable-settings)
+    - [Configurable Settings](https://github.com/ShaneIsrael/fireshare#configurable-settings)
 3.  [Local Development](https://github.com/ShaneIsrael/fireshare#local-development)
-    -   [Setup](https://github.com/ShaneIsrael/fireshare#setup)
+    - [Setup](https://github.com/ShaneIsrael/fireshare#setup)
 4.  [Contributing](https://github.com/ShaneIsrael/fireshare#contributing)
 5.  [FAQ / Troubleshooting](https://github.com/ShaneIsrael/fireshare#frequently-asked-questions)
-    -   [Playback Issues](https://github.com/ShaneIsrael/fireshare#playback-issues)
+    - [Playback Issues](https://github.com/ShaneIsrael/fireshare#playback-issues)
 
 ## About The Project
 
@@ -82,9 +80,9 @@ Connect Fireshare to a central user directory and keep user access organised.
 
 ### Built With
 
--   [React](https://reactjs.org/)
--   [Python](https://www.python.org/)
--   [Material UI](https://mui.com/)
+- [React](https://reactjs.org/)
+- [Python](https://www.python.org/)
+- [Material UI](https://mui.com/)
 
 ## Installation
 
@@ -96,7 +94,7 @@ Fireshare needs 3 volume mounts.
 2.  **/processed** - The directory used to hold metadata created by fireshare in relation to your videos (posters, metadata info)
 3.  **/videos** - The directory fireshare will watch and scan for any videos.
 
-If you have all of your game clips stored in a folder **my\_game\_clips** then in your docker compose file (or docker run command) you will need to volume mount that folder to the **/videos** folder that fireshare watches.
+If you have all of your game clips stored in a folder **my_game_clips** then in your docker compose file (or docker run command) you will need to volume mount that folder to the **/videos** folder that fireshare watches.
 
 ### Docker Compose
 
@@ -125,11 +123,11 @@ If you would like to run Fireshare via the source code in order to contribute yo
 
 1.  Have Python3, NodeJS and NPM installed.
 2.  Clone the repo
-    
+
     ```shell
     $ git clone https://github.com/ShaneIsrael/fireshare.git
     ```
-    
+
 3.  At the project root
 4.  In a new terminal, navigate to `app/client` and run the following commands.
 5.  In your browser, navigate to `localhost:3000` and login with admin/admin
@@ -162,28 +160,28 @@ If you need to update the database or add a new table / column first make your c
 If you are experiencing playback issues there could be a number of reasons as to why. These are the most common causes.
 
 1.  **File Size**
-    
+
     Fireshare serves your videos as they are. If your videos are very large anybody trying to watch will need to have a fast enough download speed to play them back. This also means you will need to have an upload speed fast enough to serve your large files. Consider using a tool like Handbrake to compress your videos down to a smaller size.
-    
+
 2.  **Upload Speed**
-    
+
     You're upload speed matters. If you have a slow upload speed, depending the file sizes that you are trying to serve it may not be possible for people to stream your videos. Consider compressing your videos with Handbrake.
-    
+
 3.  **Browsers**
-    
+
     In my testing I have noticed that Firefox struggles to playback very large files, however Chome and Edge do not seem to have the same problem.
-    
+
 4.  **Unsupported File Type**
-    
+
     At the moment, Fireshare only support MP4, MOV and WEBM files. It's reccommended to use MP4 where possible, while MOV is supported we have noticed that some MOV files play just fine while others do not. If your MOV file does not play, consider transcoding it to an MP4 file with a tool like Handbrake.
-    
+
 5.  **Upload Issues**
-    
+
     Uploading issues are often caused by putting fireshare behind some sort of reverse proxy like nginx. By default nginx has limits on how large your uploads can be. Often the issue is that your trying to upload a file larger than nginx allows. You'll need to update your reverse proxies settings to increase these limits and timeouts. If you are using nginx, you most likely just need to add these two lines.
-    
+
     ```
     client_max_body_size 0;
     proxy_read_timeout 999999s;
     ```
-    
+
     These settings will only work on Nginx. With `client_max_body_size` set to `0` we are allowing any size upload. We are also increasing the timeout limit so that the connection isn't timedout. If you are not using nginx you'll need to do some research.
