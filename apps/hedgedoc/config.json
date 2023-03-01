@@ -1,0 +1,32 @@
+{
+  "$schema": "../schema.json",
+  "name": "HedgeDoc",
+  "port": 8142,
+  "available": true,
+  "exposable": true,
+  "id": "hedgedoc",
+  "tipi_version": 1,
+  "version": "1.9.7",
+  "categories": ["media"],
+  "description": "HedgeDoc (formerly known as CodiMD) is an open-source, web-based, self-hosted, collaborative markdown editor. You can use it to easily collaborate on notes, graphs and even presentations in real-time. All you need to do is to share your note-link to your co-workers and they’re ready to go.",
+  "short_desc": "A Collaborative Markdown and Note Taking App",
+  "website": "https://hedgedoc.org/",
+  "author": "https://github.com/hedgedoc",
+  "source": "https://github.com/hedgedoc/hedgedoc",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "DB_PASSWORD",
+      "min": 32,
+      "env_variable": "DB_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Add port to URL",
+      "hint": "Set as False if using domain, true with an IP",
+      "placeholder": "false",
+      "required": true,
+      "env_variable": "CMD_URL_ADDPORT"
+    }
+  ]
+}
