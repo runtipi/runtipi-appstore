@@ -3,7 +3,7 @@
   "name": "CodeX.docs",
   "available": true,
   "exposable": true,
-  "port": 8101,
+  "port": 8138,
   "id": "codex-docs",
   "tipi_version": 1,
   "version": "v2.1",
