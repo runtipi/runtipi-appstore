@@ -47,6 +47,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Navidrome](https://github.com/navidrome/navidrome) - A selfhosted music server
 - [Nextcloud](https://github.com/nextcloud/server) - A safe home for all your data
 - [Nitter](https://github.com/zedeus/nitter) - Alternative Twitter front-end
+- [NocoDB](https://github.com/nocodb/nocodb) - Open Source Airtable Alternative
 - [Node-RED](https://github.com/node-red/node-red) - Low-code programming for event-driven applications
 - [OneDev](https://code.onedev.io/onedev/server) - Self-hosted Git Server with Kanban and CI/CD
 - [Overseerr](https://github.com/sct/overseerr) - Request management and media discovery tool for the Plex ecosystem
