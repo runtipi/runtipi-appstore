@@ -1,0 +1,16 @@
+{
+  "$schema": "../schema.json",
+  "name": "openbooks",
+  "port": 8152,
+  "available": true,
+  "exposable": true,
+  "id": "openbooks",
+  "tipi_version": 1,
+  "version": "v4.5.0",
+  "categories": ["media", "books", "utilities"],
+  "description": "Openbooks allows you to download ebooks from irc.irchighway.net quickly and easily.  ",
+  "short_desc": "Search and Download eBooks",
+  "author": "https://github.com/evan-buss",
+  "source": "https://github.com/evan-buss/openbooks",
+  "form_fields": []
+}
