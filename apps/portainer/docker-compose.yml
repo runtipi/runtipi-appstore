@@ -7,6 +7,7 @@ services:
     restart: unless-stopped
     ports:
       - ${APP_PORT}:9443
+      - 9000:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - "${APP_DATA_DIR}/data:/data"
@@ -18,4 +19,4 @@ services:
       traefik.http.routers.portainer.entrypoints: websecure
       traefik.http.routers.portainer.service: portainer
       traefik.http.routers.portainer.tls.certresolver: myresolver
-      traefik.http.services.portainer.loadbalancer.server.port: 9443
+      traefik.http.services.portainer.loadbalancer.server.port: 9000
