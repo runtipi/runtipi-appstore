@@ -38,6 +38,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Mealie](https://github.com/hay-kot/mealie) - Self-hosted recipe manager and meal planner.
 - [Memos](https://github.com/usememos/memos) - Memo hub for knowledge management and collaboration.
 - [Minecraft server](https://github.com/itzg/docker-minecraft-server) - Run a minecraft server in one click
+- [Mind](https://github.com/Casvt/MIND) - A simple self hosted reminder platform that uses push to send notifications to your device.
 - [Moneroblock](https://github.com/duggavo/MoneroBlock) - Decentralized and trustless Monero block explorer
 - [Monero Daemon](https://github.com/monero-project/monero/) - A network daemon for Monero: the secure, private, untraceable cryptocurrency
 - [Monero p2pool Daemon](https://github.com/SChernykh/p2pool) - Decentralized pool for Monero mining
