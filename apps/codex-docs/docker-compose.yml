@@ -1,0 +1,37 @@
+version: '3.2'
+
+services:
+  codex-docs:
+    container_name: codex-docs
+    image: ghcr.io/codex-team/codex.docs:v2.1
+    ports:
+      - ${APP_PORT}:3000
+    restart: unless-stopped
+    environment:
+      - APP_CONFIG_auth_password=${CODEX_AUTH_PASSWORD}
+      - APP_CONFIG_auth_secret=${CODEX_AUTH_SECRET}
+      - APP_CONFIG_database_driver=mongodb
+      - APP_CONFIG_database_mongodb_uri=mongodb://tipi:${CODEX_DB_PASSWORD}@codex-db:27017
+    volumes:
+      - ${APP_DATA_DIR}/data/uploads:/usr/src/app/uploads
+      - ${APP_DATA_DIR}/data/db:/usr/src/app/db
+      - ${APP_DATA_DIR}/data/docs-config.yaml:/usr/src/app/docs-config.yaml
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.codex-docs.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.codex-docs.entrypoints: websecure
+      traefik.http.routers.codex-docs.service: codex-docs
+      traefik.http.routers.codex-docs.tls.certresolver: myresolver
+      traefik.http.services.codex-docs.loadbalancer.server.port: 3000
+
+  codex-db:
+    container_name: codex-db
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: tipi
+      MONGO_INITDB_ROOT_PASSWORD: ${CODEX_DB_PASSWORD}
+    networks:
+      - tipi_main_network

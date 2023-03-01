@@ -3,7 +3,7 @@
   "name": "Code-Server - Web VS Code",
   "available": true,
   "exposable": true,
-  "port": 8101,
+  "port": 8138,
   "id": "code-server",
   "tipi_version": 5,
   "version": "4.8.3",
