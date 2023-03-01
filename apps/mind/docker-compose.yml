@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+  mind:
+    container_name: mind
+    image: mrcas/mind:v1.2.0
+    volumes:
+      - ${APP_DATA_DIR}/data/mind-db:/app/db
+    environment:
+      - TZ=${TZ}
+    ports:
+      - ${APP_PORT}:8080
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.mind.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mind.entrypoints: websecure
+      traefik.http.routers.mind.service: mind
+      traefik.http.routers.mind.tls.certresolver: myresolver
+      traefik.http.services.mind.loadbalancer.server.port: 8080
