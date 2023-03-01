@@ -1,6 +1,7 @@
-# Default Login
-##Username: admin
-##Password: deluge
+# Default credentials
+
+Username: admin
+Password: deluge
 
 ---
 
@@ -8,12 +9,10 @@
 
 [Deluge](http://deluge-torrent.org/) is a lightweight, Free Software, cross-platform BitTorrent client.
 
--   Full Encryption
--   WebUI
--   Plugin System
--   Much more...
-
-[![deluge](https://avatars2.githubusercontent.com/u/6733935?v=3&s=200)](http://deluge-torrent.org/)
+- Full Encryption
+- WebUI
+- Plugin System
+- Much more...
 
 ## [](https://github.com/linuxserver/docker-deluge#supported-architectures)Supported Architectures
 
