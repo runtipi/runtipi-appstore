@@ -17,31 +17,31 @@
       "type": "random",
       "label": "DB_PASSWORD",
       "min": 32,
-      "env_variable": "DB_PASSWORD"
+      "env_variable": "ONEDEV_DB_PASSWORD"
     },
     {
       "type": "text",
-      "label": "Onedev Inital Username",
+      "label": "Onedev username",
       "max": 50,
       "min": 3,
       "required": true,
-      "env_variable": "initial_user"
+      "env_variable": "ONEDEV_USERNAME"
     },
     {
-      "type": "text",
-      "label": "Onedev Inital Email",
+      "type": "email",
+      "label": "Onedev email",
       "max": 50,
       "min": 3,
       "required": true,
-      "env_variable": "initial_email"
+      "env_variable": "ONEDEV_EMAIL"
     },
     {
       "type": "password",
-      "label": "Onedev Inital Password",
+      "label": "Onedev password",
       "max": 50,
-      "min": 3,
+      "min": 8,
       "required": true,
-      "env_variable": "initial_password"
+      "env_variable": "ONEDEV_PASSWORD"
     }
   ]
 }
