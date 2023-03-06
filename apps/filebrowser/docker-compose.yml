@@ -13,6 +13,7 @@ services:
       - ${ROOT_FOLDER_HOST}/media:/srv/media
       - ${APP_DATA_DIR}/data/db:/database
       - ${APP_DATA_DIR}/data/config:/config
+      - /home:/srv/home
     networks:
       - tipi_main_network
     labels:
