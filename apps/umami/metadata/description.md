@@ -1,6 +1,7 @@
-# Defualt Login
-### Username: admin
-### Password: umami
+## Default credentials
+
+Username: admin
+Password: umami
 
 # umami
 

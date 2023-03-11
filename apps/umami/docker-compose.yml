@@ -1,12 +1,13 @@
-version: "3"
+version: '3.7'
 
 services:
   umami:
+    container_name: umami
     image: ghcr.io/umami-software/umami:postgresql-v1.40.0
     ports:
-      - "${APP_PORT}:3000"
+      - '${APP_PORT}:3000'
     environment:
-      DATABASE_URL: postgresql://umami:${DB_PASSWORD}@db:5432/umami
+      DATABASE_URL: postgresql://umami:${DB_PASSWORD}@umami-db:5432/umami
       DATABASE_TYPE: postgresql
       HASH_SALT: ${HASH_SALT}
     depends_on:
@@ -21,7 +22,9 @@ services:
       traefik.http.routers.umami.service: umami
       traefik.http.routers.umami.tls.certresolver: myresolver
       traefik.http.services.umami.loadbalancer.server.port: 3000
+
   umami-db:
+    container_name: umami-db
     image: postgres:12-alpine
     environment:
       POSTGRES_DB: umami
