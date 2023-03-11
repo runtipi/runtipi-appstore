@@ -1,0 +1,38 @@
+version: "3"
+services:
+
+  wikijs-db:
+    image: postgres:11-alpine
+    environment:
+      POSTGRES_DB: wiki
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_USER: wikijs
+    logging:
+      driver: "none"
+    restart: unless-stopped
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  wikijs:
+    image: ghcr.io/requarks/wiki:2.5.297
+    depends_on:
+      - wikijs-db
+    environment:
+      DB_TYPE: postgres
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: wikijs
+      DB_PASS: ${DB_PASS}
+      DB_NAME: wiki
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:3000
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.wikijs.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wikijs.entrypoints: websecure
+      traefik.http.routers.wikijs.service: wikijs
+      traefik.http.routers.wikijs.tls.certresolver: myresolver
+      traefik.http.services.wikijs.loadbalancer.server.port: 3000
