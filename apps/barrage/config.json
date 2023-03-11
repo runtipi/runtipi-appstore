@@ -21,19 +21,20 @@
     },
     {
       "type": "text",
-      "label": "DELUGE_URL",
+      "label": "Deluge URL",
+      "hint": "URL of your deluge client",
       "required": true,
       "env_variable": "DELUGE_URL"
     },
     {
       "type": "text",
-      "label": "DELUGE_PASSWORD",
+      "label": "Deluge password",
       "required": true,
       "env_variable": "DELUGE_PASSWORD"
     },
     {
       "type": "password",
-      "label": "BARRAGE_PASSWORD",
+      "label": "Barrage password",
       "max": 50,
       "min": 3,
       "required": true,
