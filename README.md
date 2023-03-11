@@ -28,6 +28,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [HedgeDoc](https://github.com/hedgedoc/hedgedoc) - A Collaborative Markdown and Note Taking App
 - [Homarr](https://github.com/ajnart/homarr) - A homepage for your server
 - [Home Assistant](https://github.com/home-assistant/core) - Open source home automation that puts local control and privacy first
+- [HomeBox](https://github.com/hay-kot/homebox) - Homebox is the inventory and organization system built for the Home User
 - [Immich](https://github.com/immich-app/immich) - Photo and video backup solution directly from your mobile phone
 - [Invidious](https://github.com/iv-org/invidious) - An alternative front-end to YouTube
 - [Jackett](https://github.com/Jackett/Jackett) - API Support for your favorite torrent trackers
