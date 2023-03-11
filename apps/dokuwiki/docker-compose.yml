@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 
 services:
   dokuwiki:
@@ -9,8 +9,6 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=${TZ}
     networks:
       - tipi_main_network

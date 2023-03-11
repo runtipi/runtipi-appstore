@@ -12,6 +12,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Code-Server](https://github.com/coder/code-server) - Web VS Code
 - [Codex.Docs](https://github.com/codex-team/codex.docst) - Free Docs app powered by Editor.js ecosystem.
 - [Deluge](https://github.com/linuxserver/docker-deluge) - Deluge is a lightweight, Free Software, cross-platform BitTorrent client
+- [DokuWiki](https://github.com/dokuwiki/dokuwiki) - DokuWiki is a simple to use and highly versatile Open Source wiki software
 - [Filebrowser](https://github.com/filebrowser/filebrowser) - Web File Browser
 - [Firefly III](https://github.com/firefly-iii/firefly-iii) - A personal finances manager
 - [Fireshare](https://github.com/ShaneIsrael/fireshare) - Self host your media and share with unique links
