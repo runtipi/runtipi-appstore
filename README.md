@@ -47,6 +47,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Monero Daemon](https://github.com/monero-project/monero/) - A network daemon for Monero: the secure, private, untraceable cryptocurrency
 - [Monero p2pool Daemon](https://github.com/SChernykh/p2pool) - Decentralized pool for Monero mining
 - [Monica](https://github.com/monicahq/monica) - A Personal Relationship Management tool to help you document your social life
+- [Movary](https://github.com/leepeuker/movary - ) Track and rate your watched movies
 - [n8n](https://github.com/n8n-io/n8n) - Workflow Automation Tool
 - [Navidrome](https://github.com/navidrome/navidrome) - A selfhosted music server
 - [Nextcloud](https://github.com/nextcloud/server) - A safe home for all your data
