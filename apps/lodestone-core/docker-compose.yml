@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  lodestone-core:
+    container_name: lodestone-core
+    image: ghcr.io/lodestone-team/lodestone_core:0.4.3
+    ports:
+      - ${APP_PORT}:16662
+      - 25565-25575:25565-25575
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/lodestone-data:/root/.lodestone
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.lodestone-core.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.lodestone-core.entrypoints: websecure
+      traefik.http.routers.lodestone-core.service: lodestone-core
+      traefik.http.routers.lodestone-core.tls.certresolver: myresolver
+      traefik.http.services.lodestone-core.loadbalancer.server.port: 16662
