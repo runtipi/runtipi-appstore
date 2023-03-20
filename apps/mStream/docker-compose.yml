@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  mstream:
+    container_name: mstream
+    image: lscr.io/linuxserver/mstream:v5.11.4-ls101
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:3000
+    volumes:
+      - ${APP_DATA_DIR}/data/mstream-config:/data
+      - ${ROOT_FOLDER_HOST}/media/data/music:/music
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.mstream.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mstream.entrypoints: websecure
+      traefik.http.routers.mstream.service: mstream
+      traefik.http.routers.mstream.tls.certresolver: myresolver
+      traefik.http.services.mstream.loadbalancer.server.port: 3000
+
