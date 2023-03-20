@@ -4,7 +4,7 @@
   "available": true,
   "exposable": true,
   "port": 8100,
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "0.6.19",
   "id": "calibre-web",
   "categories": ["books"],
