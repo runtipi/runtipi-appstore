@@ -14,12 +14,12 @@
   "source": "https://github.com/JulianPrieber/littlelink-custom",
   "form_fields": [
     {
-      "type": "text",
-      "label": "Admin Email",
+      "type": "email",
+      "label": "Admin email",
       "max": 50,
       "min": 3,
       "required": true,
-      "env_variable": "EMAIL"
+      "env_variable": "LITTLELINK_CUSTOM_EMAIL"
     }
   ]
 }
