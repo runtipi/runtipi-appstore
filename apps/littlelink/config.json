@@ -1,0 +1,25 @@
+{
+  "$schema": "../schema.json",
+  "name": "Littlelink Custom",
+  "port": 8154,
+  "available": true,
+  "exposable": true,
+  "id": "littlelink-custom",
+  "tipi_version": 1,
+  "version": "latest",
+  "categories": ["media"],
+  "description": "LittleLink Custom - the ultimate solution for creating a personalized & professional profile page. Showcase all your important links in one place, forget the limitation of one link on social media. Set up your personal site on your own server with just a few clicks.",
+  "short_desc": "LittleLink Custom - the ultimate solution for creating a personalized & professional profile page.",
+  "author": "https://github.com/JulianPrieber",
+  "source": "https://github.com/JulianPrieber/littlelink-custom",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Admin Email",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "EMAIL"
+    }
+  ]
+}
