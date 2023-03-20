@@ -2,18 +2,16 @@
 
 A self-hosted file based task management board that supports Markdown syntax.
 
- [![Demonstration](https://github.com/BaldissaraMatheus/Tasks.md/raw/main/public/example.gif)](https://github.com/BaldissaraMatheus/Tasks.md/blob/main/public/example.gif) [![Demonstration](https://github.com/BaldissaraMatheus/Tasks.md/raw/main/public/example.gif)
-
-](https://github.com/BaldissaraMatheus/Tasks.md/blob/main/public/example.gif)[](https://github.com/BaldissaraMatheus/Tasks.md/blob/main/public/example.gif)
+![Demonstration](https://github.com/BaldissaraMatheus/Tasks.md/raw/main/public/demonstration.gif)
 
 ## ⭐ Features
 
--   Create cards, lists and tags in a modern and responsive interface;
--   Write cards as Markdown files;
--   Easy to install with a single Docker image;
--   Light and dark themes synced with operating system settings;
--   Heavy customizable with 3 default color themes ([Adwaita](https://gnome.pages.gitlab.gnome.org/libadwaita/doc/main/named-colors.html), [Nord](https://www.nordtheme.com/) and [Catppuccin](https://github.com/catppuccin/catppuccin));
--   Support for subpath based reverse-proxy with an environment variable for base path;
+- Create cards, lists and tags in a modern and responsive interface;
+- Write cards as Markdown files;
+- Easy to install with a single Docker image;
+- Light and dark themes synced with operating system settings;
+- Heavy customizable with 3 default color themes ([Adwaita](https://gnome.pages.gitlab.gnome.org/libadwaita/doc/main/named-colors.html), [Nord](https://www.nordtheme.com/) and [Catppuccin](https://github.com/catppuccin/catppuccin));
+- Support for subpath based reverse-proxy with an environment variable for base path;
 
 ## 🎨 Customize
 
