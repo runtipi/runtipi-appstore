@@ -1,4 +1,4 @@
-version: "3"
+version: '3.7'
 
 services:
   duplicati:
@@ -23,4 +23,3 @@ services:
       traefik.http.routers.duplicati.service: duplicati
       traefik.http.routers.duplicati.tls.certresolver: myresolver
       traefik.http.services.duplicati.loadbalancer.server.port: 8200
-
