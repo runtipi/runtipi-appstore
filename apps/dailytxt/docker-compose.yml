@@ -1,10 +1,10 @@
-version: "3"
+version: '3.7'
 
 services:
   dailytxt:
     image: phitux/dailytxt:1.0.12
     container_name: dailytxt
-    restart: 
+    restart: unless-stopped
     environment:
       - PORT=8765
       - SECRET_KEY=${DAILYTXT_SECRET_KEY}
@@ -13,9 +13,9 @@ services:
       - JWT_EXP_DAYS=60
       - ENABLE_UPDATE_CHECK=True
     ports:
-      - ${APP_PORT}:8765"
+      - ${APP_PORT}:8765
     volumes:
-      - "${APP_DATA_DIR}/data/dailytxt:/app/data/"
+      - '${APP_DATA_DIR}/data/dailytxt:/app/data/'
     networks:
       - tipi_main_network
     labels:
@@ -25,4 +25,3 @@ services:
       traefik.http.routers.dailytxt.service: dailytxt
       traefik.http.routers.dailytxt.tls.certresolver: myresolver
       traefik.http.services.dailytxt.loadbalancer.server.port: 8765
-
