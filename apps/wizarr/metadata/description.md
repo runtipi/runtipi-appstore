@@ -1,24 +1,18 @@
 # Wizarr
 
-[![](https://github.com/Wizarrrr/wizarr/raw/master/screenshots/wizard.png)](https://github.com/Wizarrrr/wizarr/blob/master/screenshots/wizard.png)
-
-[![](https://github.com/Wizarrrr/wizarr/actions/workflows/docker-build.yml/badge.svg)](https://github.com/Wizarrrr/wizarr/actions/workflows/docker-build.yml/badge.svg)
-
-[![](https://camo.githubusercontent.com/1f8298cd673492585f580ed2caef0d91d1ee83f4ee90359b3891a386ccacc692/68747470733a2f2f686f737465642e7765626c6174652e6f72672f776964676574732f77697a6172722f2d2f7376672d62616467652e737667)](https://camo.githubusercontent.com/1f8298cd673492585f580ed2caef0d91d1ee83f4ee90359b3891a386ccacc692/68747470733a2f2f686f737465642e7765626c6174652e6f72672f776964676574732f77697a6172722f2d2f7376672d62616467652e737667)
-
 Wizarr is a automatic user invitation system for Plex, Jellyfin and Emby. Create a unique link and share it to a user and they will automatically be invited to your Media Server! They will even be guided to download the clients and instructions on how to use your requests software!
 
 ## [](https://github.com/Wizarrrr/wizarr/blob/master/README.md#major-features-include)Major Features Include
 
--   Automatic Invitation to your Media Server (Plex, Jellyfin, Emby...)
--   Secured invitation environment
--   Plug and Play SSO Support\*
--   Multi-tiered Invitations
--   Duration for membership
--   Guide user on how to download Plex client
--   Requests Integration: Guide users on how to request Movies (Overseerr, Ombi...)
--   Discord Server Integration: Invite users to your Discord Server
--   Customizable: Add any Custom HTML
+- Automatic Invitation to your Media Server (Plex, Jellyfin, Emby...)
+- Secured invitation environment
+- Plug and Play SSO Support\*
+- Multi-tiered Invitations
+- Duration for membership
+- Guide user on how to download Plex client
+- Requests Integration: Guide users on how to request Movies (Overseerr, Ombi...)
+- Discord Server Integration: Invite users to your Discord Server
+- Customizable: Add any Custom HTML
 
 ## [](https://github.com/Wizarrrr/wizarr/blob/master/README.md#getting-started)Getting Started
 
