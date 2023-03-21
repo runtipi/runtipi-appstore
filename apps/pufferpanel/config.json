@@ -1,0 +1,17 @@
+{
+  "$schema": "../schema.json",
+  "name": "PufferPanel",
+  "port": 8166,
+  "available": true,
+  "exposable": true,
+  "id": "pufferpanel",
+  "tipi_version": 1,
+  "version": "2.6.6",
+  "categories": ["gaming"],
+  "description": "PufferPanel is a web-based Game Server Management System. PufferPanel allows you to manage multiple different game servers all from one central location. You can give other users their own servers or allow them to access to your servers.",
+  "short_desc": "PufferPanel is an open source game server management panel, designed for both small networks and game server providers.",
+  "author": "PufferPanel",
+  "source": "https://github.com/PufferPanel/PufferPanel",
+  "website": "https://pufferpanel.com/",
+  "form_fields": []
+}

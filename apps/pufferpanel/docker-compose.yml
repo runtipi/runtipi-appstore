@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  appname:
+    container_name: pufferpanel
+    image: pufferpanel/pufferpanel:2.6.6
+    ports:
+      - ${APP_PORT}:8080
+      - 5657:5657
+    volumes:
+      - ${APP_DATA_DIR}/data/pufferpanel-config:/etc/pufferpanel
+      - ${APP_DATA_DIR}/data/pufferpanel-lib:/var/lib/pufferpanel
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.pufferpanel.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.pufferpanel.entrypoints: websecure
+      traefik.http.routers.pufferpanel.service: pufferpanel
+      traefik.http.routers.pufferpanel.tls.certresolver: myresolver
+      traefik.http.services.pufferpanel.loadbalancer.server.port: 8080
