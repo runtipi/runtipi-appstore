@@ -1,0 +1,16 @@
+{
+  "$schema": "../schema.json",
+  "name": "Emulatorjs",
+  "port": 8164,
+  "available": true,
+  "exposable": true,
+  "id": "emulatorjs",
+  "tipi_version": 1,
+  "version": "1.7.2",
+  "categories": ["development"],
+  "description": "Self-hosted Javascript emulation for various system.",
+  "short_desc": "Self-hosted Javascript emulation for various system.",
+  "author": "EmulatorJS",
+  "source": "https://github.com/EmulatorJS/EmulatorJS",
+  "form_fields": []
+}
