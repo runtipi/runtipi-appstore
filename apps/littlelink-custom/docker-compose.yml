@@ -61,10 +61,8 @@ services:
       traefik.http.routers.littlelink-custom.tls.certresolver: myresolver
       traefik.http.routers.littlelink-custom.tls: "true"
       traefik.http.services.littlelink-custom.loadbalancer.server.port: 80
-      #traefik.http.middlewares.littlelink-custom.headers.customRequestHeaders.X-Forwarded-Proto: https
-      #traefik.http.middlewares.littlelink-custom.redirectscheme.scheme: https
-      #traefik.http.middlewares.littlelink-custom.headers.contentSecurityPolicy: upgrade-insecure-requests
-      #traefik.http.routers.littlelink-custom.middlewares: redirect-to-https
-      # traefik.http.routers.littlelink-custom.middlewares: default@file,passtls@file
+      #traefik.http.services.littlelink-custom.loadbalancer.server.scheme: https
+      traefik.http.routers.littlelink-custom.middlewares: littlelink-custom-https-header
+      traefik.http.middlewares.littlelink-custom-https-header.headers.customrequestheaders.X-Forwarded-Proto: https
 
 
