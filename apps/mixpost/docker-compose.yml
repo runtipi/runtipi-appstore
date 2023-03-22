@@ -21,7 +21,8 @@ services:
     ports:
       - ${APP_PORT}:80
     depends_on:
-      - mixpost-db
+      - mixpost-mysql
+      - mixpost-redis
     networks:
       - tipi_main_network
     labels:
