@@ -1,8 +1,13 @@
 ## Inital Setup
 
-An admin user will be created automatically. SSH into your Tipi server and check mixpost container logs to find out the password.
+An admin user will be created automatically. SSH into your Tipi server and run `docker logs mixpost 2>&1 | grep "Your password" ` to find out the password.
 
 You can log in to Mixpost at /mixpost using the admin user account created.
+
+## Inital User
+
+Username: admin@admin.com
+Password: SSH into your Tipi server and run `docker logs mixpost 2>&1 | grep "Your password" ` 
 
 ## Introduction
 
