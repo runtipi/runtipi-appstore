@@ -8,11 +8,11 @@ services:
       - APP_NAME='Mixpost'
       - APP_KEY=${MIXPOST_APP_KEY} 
       - APP_URL=https://${APP_DOMAIN}
-      - DB_HOST=mixpost_mysql
+      - DB_HOST=mixpost-mysql
       - DB_DATABASE=mixpost
       - DB_USERNAME=tipi
       - DB_PASSWORD=${MIXPOST_MYSQL_PASSWORD}
-      - REDIS_HOST=mixpost_redis
+      - REDIS_HOST=mixpost-redis
       - REDIS_PASSWORD=${MIXPOST_REDIS_PASSWORD}
     restart: unless-stopped
     volumes:
@@ -33,7 +33,7 @@ services:
       traefik.http.routers.mixpost.tls.certresolver: myresolver
       traefik.http.services.mixpost.loadbalancer.server.port: 80
 
-  mixpost_mysql:
+  mixpost-mysql:
     image: mysql/mysql-server:8.0
     container_name: mixpost_mysql
     restart: unless-stopped
@@ -51,7 +51,7 @@ services:
     networks:
       - tipi_main_network
 
-  mixpost_redis:
+  mixpost-redis:
     image: 'redis:latest'
     command: redis-server --appendonly yes --replica-read-only no --requirepass "${MIXPOST_REDIS_PASSWORD}"
     volumes:
