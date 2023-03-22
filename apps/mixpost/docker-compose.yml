@@ -6,8 +6,8 @@ services:
     container_name: mixpost
     environment:
       - APP_NAME='Mixpost'
-      - APP_KEY=${MIXPOST_APP_KEY} 
-      - APP_URL=https://${APP_DOMAIN}
+      - APP_KEY='${MIXPOST_APP_KEY}''
+      - APP_URL='https://${APP_DOMAIN}'
       - DB_HOST=mixpost-mysql
       - DB_DATABASE=mixpost
       - DB_USERNAME=tipi
