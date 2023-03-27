@@ -7,7 +7,7 @@
   "id": "duplicati_dashboard_frontend",
   "tipi_version": 1,
   "version": "v23.2.3",
-  "categories": ["utilites"],
+  "categories": ["utilities"],
   "description": "A simple DASHBOARD for monitoring you Duplicati instances",
   "short_desc": "A simple DASHBOARD for monitoring you Duplicati instances",
   "author": "MarcOrfilaCarreras",
