@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  duplicati-dashboard:
+  duplicati_dashboard_frontend:
     image: ghcr.io/marcorfilacarreras/duplicati-dashboard:frontend
     container_name: duplicati_dashboard_frontend
     ports:
