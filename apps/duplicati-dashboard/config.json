@@ -1,0 +1,23 @@
+{
+  "$schema": "../schema.json",
+  "name": "Duplicati Dashboard",
+  "port": 8170,
+  "available": true,
+  "exposable": true,
+  "id": "duplicati-dashboard",
+  "tipi_version": 1,
+  "version": "v23.2.3",
+  "categories": ["utilites"],
+  "description": "A simple DASHBOARD for monitoring you Duplicati instances",
+  "short_desc": "A simple DASHBOARD for monitoring you Duplicati instances",
+  "author": "MarcOrfilaCarreras",
+  "source": "https://github.com/MarcOrfilaCarreras/duplicati-dashboard",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "DUPLICATI_DASHBOARD_MYSQL_PASSWORD",
+      "min": 32,
+      "env_variable": "DUPLICATI_DASHBOARD_MYSQL_PASSWORD"
+    }
+  ]
+}

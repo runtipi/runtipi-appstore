@@ -1,0 +1,48 @@
+version: "3"
+
+services:
+  duplicati_dashboard_backend:
+    image: ghcr.io/marcorfilacarreras/duplicati-dashboard:backend
+    container_name: duplicati_dashboard_backend
+    ports:
+      - "8169:80"
+    depends_on:
+      - database
+  
+  duplicati_dashboard_frontend:
+    image: ghcr.io/marcorfilacarreras/duplicati-dashboard:frontend
+    container_name: duplicati_dashboard_frontend
+    ports:
+      - "${APP_PORT}:80"
+    depends_on:
+      - backend
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.duplicati_dashboard_frontend.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.duplicati_dashboard_frontend.entrypoints: websecure
+      traefik.http.routers.duplicati_dashboard_frontend.service: duplicati_dashboard_frontend
+      traefik.http.routers.duplicati_dashboard_frontend.tls.certresolver: myresolver
+      traefik.http.services.duplicati_dashboard_frontend.loadbalancer.server.port: 80
+
+  duplicati_dashboard_database:
+    image: mariadb:10.6 
+    container_name: duplicati_dashboard_database
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=dashboard
+      - MYSQL_PASSWORD=dashboard
+      - MYSQL_DATABASE=dashboard
+    command: ["--max-allowed-packet=128M", "--innodb-log-file-size=64M"]
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-u", "root", "--password=dashboard"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - ${APP_DATA_DIR}/data/mysql:/var/lib/mysql
+    networks:
+      - tipi_main_network
+

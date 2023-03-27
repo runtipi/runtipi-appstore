@@ -16,6 +16,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Deluge](https://github.com/linuxserver/docker-deluge) - Deluge is a lightweight, Free Software, cross-platform BitTorrent client
 - [DokuWiki](https://github.com/dokuwiki/dokuwiki) - DokuWiki is a simple to use and highly versatile Open Source wiki software
 - [Duplicati](https://github.com/linuxserver/docker-duplicati) - Store securely encrypted backups in the cloud!
+- [Duplicati Dashboard](https://github.com/MarcOrfilaCarreras/duplicati-dashboard) - A simple DASHBOARD for monitoring you Duplicati instances
 - [Emulatorjs](https://github.com/EmulatorJS/EmulatorJS) - Self-hosted Javascript emulation for various system.
 - [Filebrowser](https://github.com/filebrowser/filebrowser) - Web File Browser
 - [Firefly III](https://github.com/firefly-iii/firefly-iii) - A personal finances manager
