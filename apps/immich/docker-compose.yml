@@ -7,9 +7,12 @@ services:
     ports:
       - ${APP_PORT}:8080
     depends_on:
-      - immich-web
       - immich-server
     restart: unless-stopped
+    environment:
+      - IMMICH_WEB_URL=http://immich-web:3000
+      - IMMICH_SERVER_URL=http://immich-server:3001
+     # - IMMICH_MACHINE_LEARNING_URL="http://immich-machine-learning:3003"
     networks:
       - tipi_main_network
     labels:
@@ -35,6 +38,7 @@ services:
       - DB_DATABASE_NAME=immich
       - REDIS_HOSTNAME=immich-redis
       - JWT_SECRET=${JWT_SECRET}
+      - TYPESENSE_HOST=immich-typesense
       - TYPESENSE_API_KEY=${IMMICH_TYPESENSE_API_KEY}
     depends_on:
       - immich-redis
@@ -59,11 +63,12 @@ services:
       - REDIS_HOSTNAME=immich-redis
       - JWT_SECRET=${JWT_SECRET}
       - ENABLE_MAPBOX=false
+      - TYPESENSE_HOST=immich-typesense
       - TYPESENSE_API_KEY=${IMMICH_TYPESENSE_API_KEY}
     depends_on:
       - immich-redis
       - immich-db
-      - typesense
+      - immich-typesense
     restart: unless-stopped
     networks:
       - tipi_main_network
@@ -71,9 +76,9 @@ services:
   immich-machine-learning:
     container_name: immich-machine-learning
     image: altran1502/immich-machine-learning:v1.51.2
-    entrypoint: ["/bin/sh", "./entrypoint.sh"]
     volumes:
       - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
+      - ${APP_DATA_DIR}/data/immich-ml-cache:/cache
     environment:
       - NODE_ENV=production
       - DB_HOSTNAME=immich-db
@@ -81,6 +86,7 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=immich
       - DB_DATABASE_NAME=immich
+      - TYPESENSE_HOST=immich-typesense
       - TYPESENSE_API_KEY=${IMMICH_TYPESENSE_API_KEY}
     depends_on:
       - immich-db
@@ -121,14 +127,12 @@ services:
     container_name: immich-typesense
     image: typesense/typesense:0.24.0
     environment:
-      - TYPESENSE_API_KEY=${TYPESENSE_API_KEY}
+      - TYPESENSE_API_KEY=${IMMICH_TYPESENSE_API_KEY}
       - TYPESENSE_DATA_DIR=/data
     logging:
       driver: none
     volumes:
       - ${APP_DATA_DIR}/data/typesense:/data
     restart: always
-
-  
-    
-
+    networks:
+      - tipi_main_network
