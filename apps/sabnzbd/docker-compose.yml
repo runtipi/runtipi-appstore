@@ -10,6 +10,7 @@ services:
       - ${APP_DATA_DIR}/data/config:/config
       - ${ROOT_FOLDER_HOST}/media/torrents/sabnzbd/downloads:/downloads 
       - ${ROOT_FOLDER_HOST}/media/torrents/sabnzbd/incomplete-downloads:/incomplete-downloads
+      - ${ROOT_FOLDER_HOST}/media:/media
     environment:
       - PUID=1000
       - PGID=1000
