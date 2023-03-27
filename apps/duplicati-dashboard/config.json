@@ -4,7 +4,7 @@
   "port": 8170,
   "available": true,
   "exposable": true,
-  "id": "duplicati-dashboard",
+  "id": "duplicati_dashboard_frontend",
   "tipi_version": 1,
   "version": "v23.2.3",
   "categories": ["utilites"],
