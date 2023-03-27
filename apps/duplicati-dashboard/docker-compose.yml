@@ -1,16 +1,6 @@
 version: "3"
 
 services:
-  duplicati_dashboard_backend:
-    image: ghcr.io/marcorfilacarreras/duplicati-dashboard:backend
-    container_name: duplicati_dashboard_backend
-    ports:
-      - "8169:80"
-    depends_on:
-      - duplicati_dashboard_database
-    networks:
-      - tipi_main_network
-  
   duplicati-dashboard:
     image: ghcr.io/marcorfilacarreras/duplicati-dashboard:frontend
     container_name: duplicati_dashboard_frontend
@@ -27,6 +17,16 @@ services:
       traefik.http.routers.duplicati_dashboard_frontend.service: duplicati_dashboard_frontend
       traefik.http.routers.duplicati_dashboard_frontend.tls.certresolver: myresolver
       traefik.http.services.duplicati_dashboard_frontend.loadbalancer.server.port: 80
+  
+  duplicati_dashboard_backend:
+    image: ghcr.io/marcorfilacarreras/duplicati-dashboard:backend
+    container_name: duplicati_dashboard_backend
+    ports:
+      - "8169:80"
+    depends_on:
+      - duplicati_dashboard_database
+    networks:
+      - tipi_main_network
 
   duplicati_dashboard_database:
     image: mariadb:10.6 
