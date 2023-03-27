@@ -11,7 +11,7 @@ services:
     networks:
       - tipi_main_network
   
-  duplicati_dashboard_frontend:
+  duplicati-dashboard:
     image: ghcr.io/marcorfilacarreras/duplicati-dashboard:frontend
     container_name: duplicati_dashboard_frontend
     ports:
