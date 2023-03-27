@@ -8,6 +8,8 @@ services:
       - "8169:80"
     depends_on:
       - database
+    networks:
+      - tipi_main_network
   
   duplicati_dashboard_frontend:
     image: ghcr.io/marcorfilacarreras/duplicati-dashboard:frontend
