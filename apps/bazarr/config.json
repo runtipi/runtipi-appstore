@@ -5,9 +5,12 @@
   "exposable": true,
   "port": 6767,
   "id": "bazarr",
-  "tipi_version": 3,
-  "version": "1.1.2",
-  "categories": ["media", "utilities"],
+  "tipi_version": 4,
+  "version": "1.2.0",
+  "categories": [
+    "media",
+    "utilities"
+  ],
   "description": "Bazarr is a companion application to Sonarr and Radarr that manages and downloads subtitles based on your requirements.",
   "short_desc": "A companion application to Sonarr and Radarr that manages and downloads subtitles",
   "author": "morpheus65535",
