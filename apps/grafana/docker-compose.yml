@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  grafana:
+    container_name: grafana
+    image: grafana/grafana-oss:9.4.3
+    ports:
+      - ${APP_PORT}:3000
+    volumes:
+      - ${APP_DATA_DIR}/data/grafana:/var/lib/grafana
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.grafana.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.grafana.entrypoints: websecure
+      traefik.http.routers.grafana.service: grafana
+      traefik.http.routers.grafana.tls.certresolver: myresolver
+      traefik.http.services.grafana.loadbalancer.server.port: 3000
