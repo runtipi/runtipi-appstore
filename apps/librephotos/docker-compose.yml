@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   librephotos:
-    image: reallibrephotos/librephotos-proxy:2022w41
+    image: reallibrephotos/librephotos-proxy:2022w50
     container_name: librephotos
     restart: unless-stopped
     volumes:
