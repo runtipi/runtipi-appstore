@@ -1,4 +1,4 @@
-version: "3.1"
+version: '3.7'
 
 services:
   mixpost:
@@ -44,9 +44,9 @@ services:
       - MYSQL_PASSWORD=${MIXPOST_MYSQL_PASSWORD}
       - MYSQL_DATABASE=mixpost
     healthcheck:
-        test: ["CMD", "mysqladmin", "ping", "-p ${MIXPOST_MYSQL_PASSWORD}"]
-        retries: 3
-        timeout: 5s
+      test: ['CMD', 'mysqladmin', 'ping', '-p ${MIXPOST_MYSQL_PASSWORD}']
+      retries: 3
+      timeout: 5s
     volumes:
       - ${APP_DATA_DIR}/data/mysql:/var/lib/mysql
     networks:
@@ -58,9 +58,8 @@ services:
     volumes:
       - '${APP_DATA_DIR}/data/redis:/data'
     healthcheck:
-        test: ["CMD", "redis-cli", "ping"]
-        retries: 3
-        timeout: 5s
+      test: ['CMD', 'redis-cli', 'ping']
+      retries: 3
+      timeout: 5s
     networks:
       - tipi_main_network
-
