@@ -5,9 +5,11 @@
   "exposable": true,
   "port": 8133,
   "id": "qbittorrent",
-  "tipi_version": 2,
-  "version": "4.4.5",
-  "categories": ["utilities"],
+  "tipi_version": 3,
+  "version": "4.5.2",
+  "categories": [
+    "utilities"
+  ],
   "description": "qBittorrent is a fast, easy, and free BitTorrent client.",
   "short_desc": "Fast, easy, and free BitTorrent client",
   "author": "qBittorrent project",
