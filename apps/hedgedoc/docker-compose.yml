@@ -27,7 +27,7 @@ services:
 
   hedgedoc-db:
     container_name: hedgedoc-db
-    image: postgres:13.4-alpine
+    image: postgres:13.10-alpine
     restart: unless-stopped
     environment:
       - POSTGRES_USER=hedgedoc
