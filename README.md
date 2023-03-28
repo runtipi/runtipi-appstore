@@ -28,6 +28,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Ghost](https://github.com/TryGhost/Ghost) - Ghost - Turn your audience into a business
 - [Gitea](https://github.com/go-gitea/gitea) - Gitea - A painless self-hosted Git service
 - [Gotify](https://github.com/gotify/server) - Gotify - Simple server for sending and receiving notification messages
+- [Grafana](https://github.com/grafana/grafana) - The open and composable observability and data visualization platform
 - [Grocy](https://github.com/grocy/grocy) - Grocy - ERP beyond your fridge
 - [Haven](https://github.com/havenweb/haven) - Haven is a self-hosted private blog and feedreader you can use instead of Facebook
 - [Headscale](https://github.com/juanfont/headscale) - An open source, self-hosted implementation of the Tailscale control server
