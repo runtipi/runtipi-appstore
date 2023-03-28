@@ -14,6 +14,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Codex.Docs](https://github.com/codex-team/codex.docst) - Free Docs app powered by Editor.js ecosystem.
 - [DailyTXT](https://github.com/PhiTux/DailyTxT) - Encrypted Diary Web-App
 - [Deluge](https://github.com/linuxserver/docker-deluge) - Deluge is a lightweight, Free Software, cross-platform BitTorrent client
+- [Deemix](https://gitlab.com/Bockiii/deemix-docker) - deemix is a barebone deezer downloader library built from the ashes of Deezloader Remix.
 - [DokuWiki](https://github.com/dokuwiki/dokuwiki) - DokuWiki is a simple to use and highly versatile Open Source wiki software
 - [Duplicati](https://github.com/linuxserver/docker-duplicati) - Store securely encrypted backups in the cloud!
 - [Emulatorjs](https://github.com/EmulatorJS/EmulatorJS) - Self-hosted Javascript emulation for various system.
