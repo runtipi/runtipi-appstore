@@ -1,9 +1,9 @@
-version: "3.7"
+version: '3.7'
 
 services:
   n8n:
     container_name: n8n
-    image: n8nio/n8n:0.215.2
+    image: n8nio/n8n:0.221.2
     restart: unless-stopped
     ports:
       - ${APP_PORT}:5678
@@ -28,7 +28,7 @@ services:
       traefik.http.routers.n8n.service: n8n
       traefik.http.routers.n8n.tls.certresolver: myresolver
       traefik.http.services.n8n.loadbalancer.server.port: 5678
-      
+
   db-n8n:
     container_name: db-n8n
     image: postgres:14.2
@@ -41,5 +41,3 @@ services:
       - POSTGRES_DB=n8n
     networks:
       - tipi_main_network
-
-  
