@@ -41,7 +41,7 @@ services:
       traefik.http.services.owncloud.loadbalancer.server.port: 8080
 
   owncloud-db:
-    image: mariadb:10.6 # minimum required ownCloud version is 10.9
+    image: mariadb:10.11 # minimum required ownCloud version is 10.9
     container_name: owncloud-db
     restart: unless-stopped
     environment:
