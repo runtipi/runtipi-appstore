@@ -15,3 +15,10 @@ Lidarr is a music collection manager for Usenet and BitTorrent users. It can mon
 - Full integration with Kodi, Plex (notification, library update, metadata)
 - Full support for specials and multi-album releases
 - And a beautiful UI
+
+## Folder Info
+
+| Root Folder                   | Container Folder |
+|-------------------------------|------------------|
+| /runtipi/app-data/lidarr/data | /config          |
+| /runtipi/media                | /media           |

@@ -19,3 +19,10 @@ https://github.com/tubearchivist/tubearchivist#potential-pitfalls
 If they do not, please open an app here and tag @sethforprivacy:
 
 https://github.com/meienberger/runtipi-appstore/issues
+
+## Folder Info 
+
+| Root Folder                                | Container Folder |
+|--------------------------------------------|------------------|
+| /runtipi/app-data/tubearchivist/data/cache | /cache           |
+| /runtipi/media/data/youtube                | /youtube         |

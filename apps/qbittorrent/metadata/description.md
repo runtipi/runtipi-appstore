@@ -6,3 +6,10 @@ The [Qbittorrent](https://www.qbittorrent.org/) project aims to provide an open-
 
 Username: admin
 Password: adminadmin
+
+## Folder Info 
+
+| Root Folder                               | Container Folder |
+|-------------------------------------------|------------------|
+| /runtipi/app-data/qbittorrent/data/config | /config          |
+| /runtipi/media/torrents                   | /downloads       |
