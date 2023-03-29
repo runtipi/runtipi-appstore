@@ -10,7 +10,7 @@ services:
       - DELUGE_PASSWORD=${DELUGE_PASSWORD}
       - BARRAGE_PASSWORD=${BARRAGE_PASSWORD}
     ports:
-      - ${APP_PORT}:80
+      - ${APP_PORT}:3000
     restart: unless-stopped
     networks:
       - tipi_main_network
@@ -20,4 +20,4 @@ services:
       traefik.http.routers.barrage.entrypoints: websecure
       traefik.http.routers.barrage.service: barrage
       traefik.http.routers.barrage.tls.certresolver: myresolver
-      traefik.http.services.barrage.loadbalancer.server.port: 80
+      traefik.http.services.barrage.loadbalancer.server.port: 3000
