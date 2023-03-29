@@ -9,7 +9,7 @@ services:
     ports:
       - "8173:80"
     volumes:
-      - ${APP_DATA_DIR}/data/Caddyfile:/etc/caddy/Caddyfile
+      - ${APP_DATA_DIR}/data/Caddyfile.txt:/etc/caddy/Caddyfile
       - ${APP_DATA_DIR}/data/caddy-data:/data
       - ${APP_DATA_DIR}/data/caddy-config:/config
     labels:
@@ -271,7 +271,7 @@ services:
     entrypoint: >
       /bin/sh -c "
       while ! curl -s --output /dev/null --connect-timeout 1 http://revolt-minio:9000; do echo 'Waiting minio...' && sleep 0.1; done;
-      /usr/bin/mc alias set minio http://revolt-minio:9000 $MINIO_ROOT_USER $MINIO_ROOT_PASSWORD;
+      /usr/bin/mc alias set minio http://revolt-minio:9000 minioautumn ${REVOLT_MINIO_ROOT_PASSWORD};
       /usr/bin/mc mb minio/attachments;
       /usr/bin/mc mb minio/avatars;
       /usr/bin/mc mb minio/backgrounds;
