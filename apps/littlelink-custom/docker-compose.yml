@@ -60,7 +60,7 @@ services:
       traefik.http.routers.littlelink-custom.service: littlelink-custom
       traefik.http.routers.littlelink-custom.tls.certresolver: myresolver
       traefik.http.routers.littlelink-custom.tls: "true"
-      traefik.http.services.littlelink-custom.loadbalancer.server.port: 443
+      traefik.http.services.littlelink-custom.loadbalancer.server.port: 80
       traefik.http.routers.littlelink-custom.middlewares: "littlelink-custom-security-headers,littlelink-custom-forwarded-headers"
       traefik.http.middlewares.littlelink-custom-security-headers.headers.contentSecurityPolicy: "upgrade-insecure-requests"
       traefik.http.middlewares.littlelink-custom-forwarded-headers.headers.customrequestheaders.X-Real-IP: "$remote_addr"
