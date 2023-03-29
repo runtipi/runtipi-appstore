@@ -1,3 +1,11 @@
+
+# Important
+
+Please use your local IP to setup Little Link Custom
+
+Afterwords, your exposed domain is good to go!
+
+There is an issue with the [installer](https://github.com/JulianPrieber/littlelink-custom/issues/354)!
 # Default Login
 
 Email: admin@admin.com
