@@ -32,7 +32,7 @@ services:
     environment:
       - MONGODB=mongodb://revolt-database
       - REDIS_URI=redis://revolt-redis/
-      - HOSTNAME=:80
+      - HOSTNAME=https://${APP_DOMAIN}
       - REVOLT_APP_URL=https://${APP_DOMAIN}
       - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
       - VITE_API_URL=https://${APP_DOMAIN}/api
@@ -64,7 +64,7 @@ services:
     environment:
       - MONGODB=mongodb://revolt-database
       - REDIS_URI=redis://revolt-redis/
-      - HOSTNAME=:80
+      - HOSTNAME=https://${APP_DOMAIN}
       - REVOLT_APP_URL=https://${APP_DOMAIN}
       - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
       - VITE_API_URL=https://${APP_DOMAIN}/api
@@ -76,7 +76,7 @@ services:
       - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
       - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
       - REVOLT_SMTP_FROM=`${REVOLT_SMTP_FROM}`
-      #- REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+      - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
       - REVOLT_MAX_GROUP_SIZE=150
       - REVOLT_VAPID_PUBLIC_KEY=${REVOLT_VAPID_PUBLIC_KEY}
       - REVOLT_VAPID_PRIVATE_KEY=${REVOLT_VAPID_PRIVATE_KEY}
@@ -108,7 +108,7 @@ services:
     environment:
       - MONGODB=mongodb://revolt-database
       - REDIS_URI=redis://revolt-redis/
-      - HOSTNAME=:80
+      - HOSTNAME=https://${APP_DOMAIN}
       - REVOLT_APP_URL=https://${APP_DOMAIN}
       - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
       - VITE_API_URL=https://${APP_DOMAIN}/api
@@ -154,7 +154,7 @@ services:
     environment:
       - MONGODB=mongodb://revolt-database
       - REDIS_URI=redis://revolt-redis/
-      - HOSTNAME=:80
+      - HOSTNAME=https://${APP_DOMAIN}
       - REVOLT_APP_URL=https://${APP_DOMAIN}
       - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
       - VITE_API_URL=https://${APP_DOMAIN}/api
@@ -202,7 +202,7 @@ services:
       # Below is Standard Config
       - MONGODB=mongodb://revolt-database
       - REDIS_URI=redis://revolt-redis/
-      - HOSTNAME=:80
+      - HOSTNAME=https://${APP_DOMAIN}
       - REVOLT_APP_URL=https://${APP_DOMAIN}
       - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
       - VITE_API_URL=https://${APP_DOMAIN}/api
@@ -273,7 +273,7 @@ services:
     environment:
       - MONGODB=mongodb://revolt-database
       - REDIS_URI=redis://revolt-redis/
-      - HOSTNAME=:80
+      - HOSTNAME=https://${APP_DOMAIN}
       - REVOLT_APP_URL=https://${APP_DOMAIN}
       - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
       - VITE_API_URL=https://${APP_DOMAIN}/api
@@ -285,7 +285,7 @@ services:
       - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
       - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
       - REVOLT_SMTP_FROM=`${REVOLT_SMTP_FROM}`
-      #- REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+      ##- REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
       - REVOLT_MAX_GROUP_SIZE=150
       - REVOLT_VAPID_PUBLIC_KEY=${REVOLT_VAPID_PUBLIC_KEY}
       - REVOLT_VAPID_PRIVATE_KEY=${REVOLT_VAPID_PRIVATE_KEY}
