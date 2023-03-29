@@ -58,8 +58,6 @@ services:
   revolt:
     image: ghcr.io/revoltchat/client:master
     container_name: revolt
-    depends_on:
-      - revolt
     restart: always
     networks:
       - tipi_main_network
