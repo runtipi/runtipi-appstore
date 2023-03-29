@@ -7,7 +7,7 @@
   "id": "it-tools",
   "tipi_version": 1,
   "version": "latest",
-  "categories": ["utilities"],
+  "categories": ["development"],
   "description": "Useful tools for developer and people working in IT. ",
   "short_desc": "Collection of handy online tools for developers, with great UX.",
   "author": "CorentinTh",
