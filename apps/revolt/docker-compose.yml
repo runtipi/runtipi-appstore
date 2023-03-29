@@ -9,7 +9,7 @@ services:
     ports:
       - "8173:80"
     volumes:
-      - ${APP_DATA_DIR}/data/Caddyfile:/etc/caddy/Caddyfile
+      - ./${APP_DATA_DIR}/data/Caddyfile:/etc/caddy/Caddyfile
       - ${APP_DATA_DIR}/data/caddy-data:/data
       - ${APP_DATA_DIR}/data/caddy-config:/config
     labels:
