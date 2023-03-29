@@ -133,7 +133,6 @@ services:
       - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
     labels:
-      traefik.enable: ${APP_EXPOSED}
       traefik.http.routers.revolt-api.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/api`)
       traefik.http.routers.revolt-api.entrypoints: websecure
       traefik.http.routers.revolt-api.service: revolt-api
@@ -179,7 +178,6 @@ services:
       - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
     labels:
-      traefik.enable: ${APP_EXPOSED}
       traefik.http.routers.revolt-events.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/ws`) && Headers(`Connection`, `Upgrade`) && Headers(`Upgrade`, `websocket`)
       traefik.http.routers.revolt-events.entrypoints: websecure
       traefik.http.routers.revolt-events.service: revolt-events
@@ -227,7 +225,6 @@ services:
       - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
     labels:
-      traefik.enable: ${APP_EXPOSED}
       traefik.http.routers.revolt-autumn.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/autumn`)
       traefik.http.routers.revolt-autumn.entrypoints: websecure
       traefik.http.routers.revolt-autumn.service: revolt-autumn
@@ -245,7 +242,6 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
       traefik.http.routers.revolt-january.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/january`)
       traefik.http.routers.revolt-january.entrypoints: websecure
       traefik.http.routers.revolt-january.service: revolt-january
