@@ -1,4 +1,4 @@
-{$HOSTNAME} {
+{:80} {
 	route /api* {
 		uri strip_prefix /api
 		reverse_proxy http://revolt-api:8000
