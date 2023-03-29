@@ -37,6 +37,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Home Assistant](https://github.com/home-assistant/core) - Open source home automation that puts local control and privacy first
 - [HomeBox](https://github.com/hay-kot/homebox) - Homebox is the inventory and organization system built for the Home User
 - [Immich](https://github.com/immich-app/immich) - Photo and video backup solution directly from your mobile phone
+- [IT-Tools](https://github.com/CorentinTh/it-tools) - Collection of handy online tools for developers, with great UX.
 - [Invidious](https://github.com/iv-org/invidious) - An alternative front-end to YouTube
 - [Jackett](https://github.com/Jackett/Jackett) - API Support for your favorite torrent trackers
 - [Jellyfin](https://github.com/jellyfin/jellyfin) - A media server for your home collection
