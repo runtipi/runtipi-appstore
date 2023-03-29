@@ -185,7 +185,7 @@ services:
       traefik.http.routers.revolt-events.service: revolt-events
       traefik.http.routers.revolt-events.middlewares: strip-ws-prefix
       traefik.http.middlewares.strip-ws-prefix.stripprefix.prefixes: /ws
-      traefik.http.services.revolt-api.loadbalancer.server.port: 9000
+      traefik.http.services.revolt-events.loadbalancer.server.port: 9000
 
   # File server (autumn)
   revolt-autumn:
@@ -246,12 +246,12 @@ services:
       - tipi_main_network
     labels:
       traefik.enable: ${APP_EXPOSED}
-      traefik.http.routers.revolt-autumn.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/january`)
-      traefik.http.routers.revolt-autumn.entrypoints: websecure
-      traefik.http.routers.revolt-autumn.service: revolt-autumn
+      traefik.http.routers.revolt-january.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/january`)
+      traefik.http.routers.revolt-january.entrypoints: websecure
+      traefik.http.routers.revolt-january.service: revolt-january
       traefik.http.routers.revolt-january.middlewares: strip-january-prefix
       traefik.http.middlewares.strip-january-prefix.stripprefix.prefixes: /january
-      traefik.http.services.revolt-autumn.loadbalancer.server.port: 7000
+      traefik.http.services.revolt-january.loadbalancer.server.port: 7000
 
   # Create buckets for minio.
   revolt-createbuckets:
