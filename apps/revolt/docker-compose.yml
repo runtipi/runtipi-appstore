@@ -8,6 +8,7 @@ services:
     restart: always
     ports:
       - "8173:80"
+      - "8174:443"
     volumes:
       - ${APP_DATA_DIR}/data/CaddyFiles:/etc/caddy/
       - ${APP_DATA_DIR}/data/caddy-data:/data
@@ -18,7 +19,7 @@ services:
       traefik.http.routers.revolt.entrypoints: websecure
       traefik.http.routers.revolt.service: revolt
       traefik.http.routers.revolt.tls.certresolver: myresolver
-      traefik.http.services.revolt.loadbalancer.server.port: 80
+      traefik.http.services.revolt.loadbalancer.server.port: 443
     networks:
       - tipi_main_network
     environment:
