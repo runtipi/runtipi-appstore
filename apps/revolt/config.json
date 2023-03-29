@@ -65,7 +65,6 @@
     {
       "type": "text",
       "label": "SMTP From Address",
-      "hint": "Your SMTP From Address for Emails.",
       "placeholder": "Revolt <noreply@example.com>",
       "required": true,
       "env_variable": "REVOLT_SMTP_FROM"
@@ -73,7 +72,7 @@
     {
       "type": "text",
       "label": "Revolt Invite Only",
-      "hint": "Set to 1 if you want to make your instance Invite Only",
+      "hint": "Set to 1 if you want to make your instance Invite Only. If not set 0",
       "placeholder": "0",
       "required": true,
       "env_variable": "REVOLT_INVITE_ONLY"
