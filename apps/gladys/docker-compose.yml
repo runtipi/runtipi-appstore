@@ -3,9 +3,9 @@ version: "3"
 services:
   gladys:
     container_name: gladys
-    image: gladysassistant/gladys:v4
+    image: gladysassistant/gladys:v4.18.0
     restart: unless-stopped
-    privileged: true
+    privileged: false
     network_mode: host
     environment:
         - NODE_ENV=production
