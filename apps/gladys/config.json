@@ -6,7 +6,7 @@
   "exposable": false,
   "id": "gladys",
   "tipi_version": 1,
-  "version": "v4",
+  "version": "v4.19.0",
   "categories": ["automation"],
   "description": "A privacy-first, open-source home assistant",
   "short_desc": "A privacy-first, open-source home assistant",
