@@ -3,7 +3,7 @@
   "name": "Gladys Assistant",
   "port": 8270,
   "available": true,
-  "exposable": true,
+  "exposable": false,
   "id": "gladys",
   "tipi_version": 1,
   "version": "v4",
