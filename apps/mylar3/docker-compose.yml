@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  mylar3:
+    container_name: mylar3
+    image: lscr.io/linuxserver/mylar3:v0.7.1-ls84
+    ports:
+      - ${APP_PORT}:8090
+    volumes:
+      - ${APP_DATA_DIR}/data/mylar3-config:/config
+      - ${ROOT_FOLDER_HOST}/media/data/comics:/comics
+      - ${ROOT_FOLDER_HOST}/media/downloads/mylar3:/downloads 
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.appname.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.appname.entrypoints: websecure
+      traefik.http.routers.appname.service: appname
+      traefik.http.routers.appname.tls.certresolver: myresolver
+      traefik.http.services.appname.loadbalancer.server.port: 80
