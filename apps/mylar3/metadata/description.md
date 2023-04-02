@@ -2,6 +2,13 @@ Mylar is an automated Comic Book (cbr/cbz) downloader program for use with NZB a
 
 Mylar allows you to create a watchlist of series that it monitors for various things (new issues, updated information, etc). It will grab, sort, and rename downloaded issues. It will also allow you to monitor weekly pull-lists for items belonging to said watchlisted series to download, as well as being able to monitor and maintain story-arcs.
 
+## Folders
+| Root Folder                                 | Container Folder |
+|---------------------------------------------|------------------|
+| /runtipi/app-data/mylar3/data/mylar3-config | /config          |
+| /runtipi/media/data/comics                  | /comics          |
+| /runtipi/media/downloads/mylar3             | /downloads       |
+
 ## [](https://github.com/mylar3/mylar3#getting-started)Getting Started
 
 -   [Installation](https://github.com/mylar3/mylar3/wiki/Installation-Instructions)
