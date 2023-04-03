@@ -1,0 +1,17 @@
+{
+  "$schema": "../schema.json",
+  "name": "Gladys Assistant",
+  "port": 8270,
+  "available": true,
+  "exposable": false,
+  "id": "gladys",
+  "tipi_version": 1,
+  "version": "v4.19.0",
+  "categories": ["automation"],
+  "description": "A privacy-first, open-source home assistant",
+  "short_desc": "A privacy-first, open-source home assistant",
+  "author": "Gladys Assistant",
+  "source": "https://github.com/gladysassistant/gladys",
+  "website": "https://gladysassistant.com/",
+  "form_fields": []
+}
