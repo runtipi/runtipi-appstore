@@ -1,15 +1,15 @@
-version: "3"
+version: '3'
 
 services:
   autobrr:
     container_name: autobrr
-    image: ghcr.io/autobrr/autobrr:v1.19.0
+    image: ghcr.io/autobrr/autobrr:v1.23.0
     restart: unless-stopped
     ports:
       - ${APP_PORT}:7474
     volumes:
       - ${APP_DATA_DIR}/data/autobrr:/config
-    user: "1000:1000"
+    user: '1000:1000'
     environment:
       - TZ=${TZ}
     networks:
