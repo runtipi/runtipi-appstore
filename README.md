@@ -28,6 +28,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [gandi-livedns](https://github.com/jbbodart/gandi-livedns) - Update your Gandi DNS zone records with your WAN IP
 - [Ghost](https://github.com/TryGhost/Ghost) - Ghost - Turn your audience into a business
 - [Gitea](https://github.com/go-gitea/gitea) - Gitea - A painless self-hosted Git service
+- [Gladys Assistant](https://github.com/gladysassistant/gladys) - A privacy-first, open-source home assistant
 - [Gotify](https://github.com/gotify/server) - Gotify - Simple server for sending and receiving notification messages
 - [Grafana](https://github.com/grafana/grafana) - The open and composable observability and data visualization platform
 - [Grav](https://github.com/getgrav/grav) - Fast, Simple, and Flexible, file-based Web-platform.
