@@ -9,7 +9,7 @@ services:
       - DB_USERNAME=tipi
       - DB_PASSWORD=${PEPPERMINT_DB_PASSWORD}
       - DB_HOST=peppermint-db
-      - BASE_URL="https://${APP_DOMAIN}"
+      - BASE_URL=https://${APP_DOMAIN}
     restart: unless-stopped
     ports:
       - ${APP_PORT}:5000
