@@ -30,6 +30,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Gitea](https://github.com/go-gitea/gitea) - Gitea - A painless self-hosted Git service
 - [Gotify](https://github.com/gotify/server) - Gotify - Simple server for sending and receiving notification messages
 - [Grafana](https://github.com/grafana/grafana) - The open and composable observability and data visualization platform
+- [Grav](https://github.com/getgrav/grav) - Fast, Simple, and Flexible, file-based Web-platform.
 - [Grocy](https://github.com/grocy/grocy) - Grocy - ERP beyond your fridge
 - [Haven](https://github.com/havenweb/haven) - Haven is a self-hosted private blog and feedreader you can use instead of Facebook
 - [Headscale](https://github.com/juanfont/headscale) - An open source, self-hosted implementation of the Tailscale control server
@@ -57,7 +58,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Monero Daemon](https://github.com/monero-project/monero/) - A network daemon for Monero: the secure, private, untraceable cryptocurrency
 - [Monero p2pool Daemon](https://github.com/SChernykh/p2pool) - Decentralized pool for Monero mining
 - [Monica](https://github.com/monicahq/monica) - A Personal Relationship Management tool to help you document your social life
-- [Mixpost](https://github.com/inovector/mixpost) - Self-hosted social media management. Schedule and organize your social content. 
+- [Mixpost](https://github.com/inovector/mixpost) - Self-hosted social media management. Schedule and organize your social content.
 - [n8n](https://github.com/n8n-io/n8n) - Workflow Automation Tool
 - [Navidrome](https://github.com/navidrome/navidrome) - A selfhosted music server
 - [Nextcloud](https://github.com/nextcloud/server) - A safe home for all your data
@@ -80,7 +81,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Readarr](https://github.com/Readarr/Readarr) - Book Manager and Automation (Sonarr for Ebooks)
 - [Resilio Sync](https://github.com/bt-sync) - Fast, reliable, and simple file sync and share solution
 - [RSS](https://github.com/ssddanbrown/rss) - A simple, opinionated, RSS feed aggregator
- - [Sabnzbd](https://github.com/sabnzbd/sabnzbd) - Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can"
+- [Sabnzbd](https://github.com/sabnzbd/sabnzbd) - Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can"
 - [SearXNG](https://github.com/searxng/searxng) - SearXNG is a free internet metasearch engine which aggregates results from various search services and databases. Users are neither tracked nor profiled
 - [Send](https://gitlab.com/timvisee/send) - Simple, private file sharing
 - [Sonarr](https://github.com/Sonarr/Sonarr) - TV show manager for Usenet and BitTorrent
@@ -107,4 +108,4 @@ If you want to see new apps on Tipi you can either:
 
 - [Open an issue](https://github.com/meienberger/runtipi-appstore/issues) on this repository and members of the community will add it
 - [Join the Discord](https://discord.gg/Bu9qEPnHsc) members of the community will add it.
-- Fork this repo and create the necessary files for a Tipi app. Follow this [guide]([https://github.com/meienberger/runtipi/wiki/Adding-your-own-app](https://www.runtipi.io/docs/contributing/adding-a-new-app))
+- Fork this repo and create the necessary files for a Tipi app. Follow this [guide](<[https://github.com/meienberger/runtipi/wiki/Adding-your-own-app](https://www.runtipi.io/docs/contributing/adding-a-new-app)>)
