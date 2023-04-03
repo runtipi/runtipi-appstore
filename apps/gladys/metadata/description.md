@@ -1,4 +1,3 @@
-# [![](https://camo.githubusercontent.com/b344c2958123d48c50b994207ea6ed266b77c01646437bf3b607f14787cbedb8/68747470733a2f2f676c61647973617373697374616e742e636f6d2f656e2f696d672f65787465726e616c2f6769746875622d676c616479732d6c6f676f2e706e67)](https://camo.githubusercontent.com/b344c2958123d48c50b994207ea6ed266b77c01646437bf3b607f14787cbedb8/68747470733a2f2f676c61647973617373697374616e742e636f6d2f656e2f696d672f65787465726e616c2f6769746875622d676c616479732d6c6f676f2e706e67)  
 Gladys Assistant
 
 ## [Read the Docs](https://gladysassistant.com/docs/)
@@ -17,6 +16,6 @@ To get started and install Gladys Assistant, you'll find everything on [our webs
 
 ## [](https://github.com/gladysassistant/gladys#articles)Articles
 
--   [EN: Interview in Console #107](https://console.substack.com/p/console-104)
--   [EN: Hackster.io - Gladys Assistant Is a Privacy-First Smart Home Platform — and Now Installable in Raspberry Pi Imager](https://www.hackster.io/news/gladys-assistant-is-a-privacy-first-smart-home-platform-and-now-installable-in-raspberry-pi-imager-4a84d5559c63)
--   [FR: Framboise 314 - Plus de 500 installations pour l’assistant domotique Gladys !](https://www.framboise314.fr/plus-de-500-installation-pour-lassistant-domotique-gladys/)
+- [EN: Interview in Console #107](https://console.substack.com/p/console-104)
+- [EN: Hackster.io - Gladys Assistant Is a Privacy-First Smart Home Platform — and Now Installable in Raspberry Pi Imager](https://www.hackster.io/news/gladys-assistant-is-a-privacy-first-smart-home-platform-and-now-installable-in-raspberry-pi-imager-4a84d5559c63)
+- [FR: Framboise 314 - Plus de 500 installations pour l’assistant domotique Gladys !](https://www.framboise314.fr/plus-de-500-installation-pour-lassistant-domotique-gladys/)
