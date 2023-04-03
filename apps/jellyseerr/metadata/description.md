@@ -1,36 +1,22 @@
-[![Jellyseerr](https://github.com/Fallenbagel/jellyseerr/raw/develop/public/logo_full.svg)](https://github.com/Fallenbagel/jellyseerr/blob/develop/public/logo_full.svg)
-
-
 **Jellyseerr** is a free and open source software application for managing requests for your media library. It is a a fork of Overseerr built to bring support for Jellyfin & Emby media servers!
 
 _The original Overseerr team have been busy and Jellyfin/Emby support aren't on their roadmap, so we started this project as we wanted to bring the Overseerr experience to the Jellyfin/Emby Community!_
 
 ## [](https://github.com/Fallenbagel/jellyseerr#current-features)Current Features
 
--   Full Jellyfin/Emby/Plex integration. Authenticate and manage user access with Jellyfin/Emby/Plex!
-    
--   Supports Movies, Shows, Mixed Libraries!
-    
--   Ability to change email addresses for smtp purposes
-    
--   Ability to import all jellyfin/emby users
-    
--   Easy integration with your existing services. Currently, Jellyseerr supports Sonarr and Radarr. More to come!
-    
--   Jellyfin/Emby/Plex library scan, to keep track of the titles which are already available.
-    
--   Customizable request system, which allows users to request individual seasons or movies in a friendly, easy-to-use interface.
-    
--   Incredibly simple request management UI. Don't dig through the app to simply approve recent requests!
-    
--   Granular permission system.
-    
--   Support for various notification agents.
-    
--   Mobile-friendly design, for when you need to approve requests on the go!
-    
-    (Upcoming Features include: Multiple Server Instances, Music Support, and much more!)
-    
+- Full Jellyfin/Emby/Plex integration. Authenticate and manage user access with Jellyfin/Emby/Plex!
+- Supports Movies, Shows, Mixed Libraries!
+- Ability to change email addresses for smtp purposes
+- Ability to import all jellyfin/emby users
+- Easy integration with your existing services. Currently, Jellyseerr supports Sonarr and Radarr. More to come!
+- Jellyfin/Emby/Plex library scan, to keep track of the titles which are already available.
+- Customizable request system, which allows users to request individual seasons or movies in a friendly, easy-to-use interface.
+- Incredibly simple request management UI. Don't dig through the app to simply approve recent requests!
+- Granular permission system.
+- Support for various notification agents.
+- Mobile-friendly design, for when you need to approve requests on the go!
+
+  (Upcoming Features include: Multiple Server Instances, Music Support, and much more!)
 
 With more features on the way! Check out our [issue tracker](https://github.com/fallenbagel/jellyseerr/issues) to see the features which have already been requested.
 
@@ -40,9 +26,9 @@ With more features on the way! Check out our [issue tracker](https://github.com/
 
 ## [](https://github.com/Fallenbagel/jellyseerr#support)Support
 
--   You can get support on [Discord](https://discord.gg/ckbvBtDJgC).
--   You can ask questions in the Help category of our [GitHub Discussions](https://github.com/fallenbagel/jellyseerr/discussions).
--   Bug reports and feature requests can be submitted via [GitHub Issues](https://github.com/fallenbagel/jellyseerr/issues).
+- You can get support on [Discord](https://discord.gg/ckbvBtDJgC).
+- You can ask questions in the Help category of our [GitHub Discussions](https://github.com/fallenbagel/jellyseerr/discussions).
+- Bug reports and feature requests can be submitted via [GitHub Issues](https://github.com/fallenbagel/jellyseerr/issues).
 
 ## [](https://github.com/Fallenbagel/jellyseerr#api-documentation)API Documentation
 
