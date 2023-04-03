@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  autobrr:
+    container_name: autobrr
+    image: ghcr.io/autobrr/autobrr:v1.19.0
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:7474
+    volumes:
+      - ${APP_DATA_DIR}/data/autobrr:/config
+    user: "1000:1000"
+    environment:
+      - TZ=${TZ}
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.autobrr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.autobrr.entrypoints: websecure
+      traefik.http.routers.autobrr.service: autobrr
+      traefik.http.routers.autobrr.tls.certresolver: myresolver
+      traefik.http.services.autobrr.loadbalancer.server.port: 7474
