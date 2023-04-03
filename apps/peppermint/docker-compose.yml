@@ -5,11 +5,11 @@ services:
     image: pepperlabs/peppermint:latest
     container_name: peppermint
     environment:
-      - PORT: 5000
-      - DB_USERNAME: tipi
-      - DB_PASSWORD: '${DB_PASSWORD}'
-      - DB_HOST: 'peppermint-db'
-      - BASE_URL: "${APP_DOMAIN}"
+      - PORT=5000
+      - DB_USERNAME=tipi
+      - DB_PASSWORD='${DB_PASSWORD}'
+      - DB_HOST='peppermint-db'
+      - BASE_URL='${APP_DOMAIN}'
     restart: unless-stopped
     ports:
       - ${APP_PORT}:5000
