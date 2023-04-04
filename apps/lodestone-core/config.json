@@ -1,0 +1,17 @@
+{
+  "$schema": "../schema.json",
+  "name": "Lodestone Core",
+  "available": true,
+  "exposable": true,
+  "no_gui": true,
+  "port": 16662,
+  "id": "lodestone-core",
+  "tipi_version": 1,
+  "version": "0.4.3",
+  "categories": ["gaming"],
+  "description": "A free, open source server hosting tool for Minecraft and other multiplayers",
+  "short_desc": "Server hosting tool for Minecraft and other multiplayers",
+  "author": "Lodestone-Team",
+  "source": "https://github.com/Lodestone-Team/lodestone_core",
+  "form_fields": []
+}

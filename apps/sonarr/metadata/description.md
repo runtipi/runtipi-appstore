@@ -15,3 +15,10 @@ Sonarr is a PVR for Usenet and BitTorrent users. It can monitor multiple RSS fee
 - Full integration with Kodi, Plex (notification, library update, metadata)
 - Full support for specials and multi-episode releases
 - And a beautiful UI
+
+## Folder Info
+
+| Root Folder                   | Container Folder |
+|-------------------------------|------------------|
+| /runtipi/app-data/sonarr/data | /config          |
+| /runtipi/media                | /downloads       |

@@ -93,7 +93,7 @@
     },
     "url_suffix": {
       "type": "string",
-      "pattern": "^/[a-z0-9-_]+$"
+      "pattern": "^/[a-z0-9-_/]+$"
     },
     "form_fields": {
       "type": "array",
@@ -125,18 +125,5 @@
       ]
     }
   },
-  "required": [
-    "name",
-    "available",
-    "port",
-    "id",
-    "tipi_version",
-    "version",
-    "categories",
-    "description",
-    "short_desc",
-    "author",
-    "source",
-    "form_fields"
-  ]
+  "required": ["name", "available", "port", "id", "tipi_version", "version", "categories", "description", "short_desc", "author", "source", "form_fields"]
 }

@@ -2,7 +2,7 @@ version: "3.4"
 
 services:
   homebox:
-    image: ghcr.io/hay-kot/homebox:v0.8.2
+    image: ghcr.io/hay-kot/homebox:v0.9.0
     container_name: homebox
     restart: always
     environment:
