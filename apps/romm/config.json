@@ -1,6 +1,6 @@
 {
   "$schema": "../schema.json",
-  "name": "Romm",
+  "name": "RomM",
   "port": 8178,
   "available": true,
   "exposable": true,
