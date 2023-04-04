@@ -5,14 +5,14 @@ services:
     image: zurdi15/romm:1.6.2
     container_name: romm
     environment:
-      - ROMM_DB_DRIVER="mariadb" # This variable can be set as: mariadb | sqlite. If it is not defined, sqlite will be the database by default
+      - ROMM_DB_DRIVER=mariadb # This variable can be set as: mariadb | sqlite. If it is not defined, sqlite will be the database by default
       - DB_HOST=romm-db # Only if ROMM_DB_DRIVER='mariadb'
       - DB_PORT=3306 # Only if ROMM_DB_DRIVER='mariadb'
       - DB_USER=tipi # Only if ROMM_DB_DRIVER='mariadb'
       - DB_NAME=romm # Only if ROMM_DB_DRIVER='mariadb'. Can be optionally changed, and should match the MYSQL_DATABASE value in the mariadb container.
       - DB_PASSWD=${ROMM_MYSQL_PASSWORD} # Only if ROMM_DB_DRIVER='mariadb'
-      - CLIENT_ID="${ROMM_IGDB_CLIENT_ID}"
-      - CLIENT_SECRET="${ROMM_IGDB_CLIENT_SECRET}"
+      - CLIENT_ID=${ROMM_IGDB_CLIENT_ID}
+      - CLIENT_SECRET=${ROMM_IGDB_CLIENT_SECRET}
       - STEAMGRIDDB_API_KEY="${ROMM_STEAMGRIDDB_API_KEY}"
     restart: unless-stopped
     volumes:
