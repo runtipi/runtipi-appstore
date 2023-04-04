@@ -3,18 +3,52 @@ version: '3.7'
 services:
   littlelink-custom:
     container_name: littlelink-custom
-    hostname: 'littlelink-custom'
+    hostname: littlelink-custom
+    entrypoint: "/bin/sh"
+    command:
+      - -c
+      - |
+        cp -n -r /htdocs/database/ /data/database
+        cp -n /htdocs/.env /data/.env
+        cp -n -r /htdocs/littlelink/images /data/images
+        cp -n -r /htdocs/themes /data/themes
+        cp -n -r /htdocs/img /data/img
+        chown -R apache:apache /data
+        rm -rf /htdocs/database/
+        rm /htdocs/.env
+        rm -rf /htdocs/littlelink/images
+        rm -rf /htdocs/themes
+        rm -rf /htdocs/img
+
+        sed -i 's/FORCE_HTTPS=false/FORCE_HTTPS=true/g' /data/.env
+        
+        # uncomment this after first start
+        # to prevent the installing dialog coming up
+        # if the container is recreated
+        # rm /htdocs/INSTALLING
+        ln -s /data/database /htdocs/database
+        ln -s /data/.env /htdocs/.env
+        ln -s /data/images /htdocs/littlelink/images
+        ln -s /data/themes /htdocs/themes
+        ln -s /data/img/ /htdocs/img
+        cd /htdocs
+        php artisan migrate --force
+        exec /usr/local/bin/docker-entrypoint.sh server
     image: 'julianprieber/littlelink-custom:latest'
     environment:
       - TZ=${TZ}
       - SERVER_ADMIN=${LITTLELINK_CUSTOM_EMAIL}
       - HTTP_SERVER_NAME=${APP_DOMAIN}
+      - HTTPS_SERVER_NAME=${APP_DOMAIN}
       - LOG_LEVEL=info
       - PHP_MEMORY_LIMIT=256M
       - UPLOAD_MAX_FILESIZE=8M
+      - DB_CONNECTION=sqlite
+      - FORCE_HTTPS=true
     volumes:
-      - '${APP_DATA_DIR}/data/littlelink/htdocs:/htdocs'
+      -  '${APP_DATA_DIR}/data/littlelink/data:/data'
     ports:
+      - 8184:80
       - '${APP_PORT}:443'
     restart: unless-stopped
     networks:
@@ -25,4 +59,14 @@ services:
       traefik.http.routers.littlelink-custom.entrypoints: websecure
       traefik.http.routers.littlelink-custom.service: littlelink-custom
       traefik.http.routers.littlelink-custom.tls.certresolver: myresolver
-      traefik.http.services.littlelink-custom.loadbalancer.server.port: 443
+      traefik.http.routers.littlelink-custom.tls: "true"
+      traefik.http.services.littlelink-custom.loadbalancer.server.port: 80
+      traefik.http.routers.littlelink-custom.middlewares: "littlelink-custom-security-headers,littlelink-custom-forwarded-headers"
+      traefik.http.middlewares.littlelink-custom-security-headers.headers.contentSecurityPolicy: "upgrade-insecure-requests"
+      traefik.http.middlewares.littlelink-custom-forwarded-headers.headers.customrequestheaders.X-Real-IP: "$remote_addr"
+      traefik.http.middlewares.littlelink-custom-forwarded-headers.headers.customrequestheaders.X-Forwarded-For: "$proxy_add_x_forwarded_for"
+      traefik.http.middlewares.littlelink-custom-forwarded-headers.headers.customrequestheaders.X-Forwarded-Proto: "https"
+      traefik.http.middlewares.littlelink-custom-forwarded-headers.headers.customrequestheaders.X-VerifiedViaNginx: "yes"
+      traefik.http.middlewares.littlelink-custom-forwarded-headers.headers.customrequestheaders.Upgrade: "$http_upgrade"
+      traefik.http.middlewares.littlelink-custom-forwarded-headers.headers.customrequestheaders.Connection: "upgrade"
+

@@ -1,0 +1,40 @@
+version: "3.7"
+
+services:
+  peppermint:
+    image: pepperlabs/peppermint:latest
+    container_name: peppermint
+    environment:
+      - PORT=5000
+      - DB_USERNAME=tipi
+      - DB_PASSWORD=${PEPPERMINT_DB_PASSWORD}
+      - DB_HOST=peppermint-db
+      - BASE_URL=https://${APP_DOMAIN}
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:5000
+    depends_on:
+      - peppermint-db
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.peppermint.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.peppermint.entrypoints: websecure
+      traefik.http.routers.peppermint.service: peppermint
+      traefik.http.routers.peppermint.tls.certresolver: myresolver
+      traefik.http.services.peppermint.loadbalancer.server.port: 5000
+
+  peppermint-db:
+    container_name: peppermint-db
+    image: postgres:latest
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=tipi
+      - POSTGRES_PASSWORD=${PEPPERMINT_DB_PASSWORD}
+      - POSTGRES_DB=peppermint
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    networks:
+      - tipi_main_network
+

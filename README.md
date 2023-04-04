@@ -5,6 +5,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 ## Apps available
 
 - [Adguard Home](https://github.com/AdguardTeam/AdGuardHome) - Adguard Home DNS adblocker
+- [autobrr](https://github.com/autobrr/autobrr) - Automation for downloads.
 - [Barrage](https://github.com/maulik9898/barrage) - Minimal Deluge WebUI with full mobile support
 - [Bazarr](https://github.com/morpheus65535/bazarr) - A companion application to Sonarr and Radarr that manages and downloads subtitles
 - [Booksonic](https://github.com/popeen) - A server for streaming your audiobooks
@@ -13,6 +14,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Code-Server](https://github.com/coder/code-server) - Web VS Code
 - [Codex.Docs](https://github.com/codex-team/codex.docst) - Free Docs app powered by Editor.js ecosystem.
 - [DailyTXT](https://github.com/PhiTux/DailyTxT) - Encrypted Diary Web-App
+- [Dash.](https://github.com/MauriceNino/dashdot) - A simple, modern server dashboard, primarily used by smaller private server
 - [Deluge](https://github.com/linuxserver/docker-deluge) - Deluge is a lightweight, Free Software, cross-platform BitTorrent client
 - [Deemix](https://gitlab.com/Bockiii/deemix-docker) - deemix is a barebone deezer downloader library built from the ashes of Deezloader Remix.
 - [DokuWiki](https://github.com/dokuwiki/dokuwiki) - DokuWiki is a simple to use and highly versatile Open Source wiki software
@@ -27,8 +29,10 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [gandi-livedns](https://github.com/jbbodart/gandi-livedns) - Update your Gandi DNS zone records with your WAN IP
 - [Ghost](https://github.com/TryGhost/Ghost) - Ghost - Turn your audience into a business
 - [Gitea](https://github.com/go-gitea/gitea) - Gitea - A painless self-hosted Git service
+- [Gladys Assistant](https://github.com/gladysassistant/gladys) - A privacy-first, open-source home assistant
 - [Gotify](https://github.com/gotify/server) - Gotify - Simple server for sending and receiving notification messages
 - [Grafana](https://github.com/grafana/grafana) - The open and composable observability and data visualization platform
+- [Grav](https://github.com/getgrav/grav) - Fast, Simple, and Flexible, file-based Web-platform.
 - [Grocy](https://github.com/grocy/grocy) - Grocy - ERP beyond your fridge
 - [Haven](https://github.com/havenweb/haven) - Haven is a self-hosted private blog and feedreader you can use instead of Facebook
 - [Headscale](https://github.com/juanfont/headscale) - An open source, self-hosted implementation of the Tailscale control server
@@ -41,6 +45,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Invidious](https://github.com/iv-org/invidious) - An alternative front-end to YouTube
 - [Jackett](https://github.com/Jackett/Jackett) - API Support for your favorite torrent trackers
 - [Jellyfin](https://github.com/jellyfin/jellyfin) - A media server for your home collection
+- [Jellyseerr](https://github.com/Fallenbagel/jellyseerr) - Fork of overseerr for Jellyfin support
 - [Joplin](https://github.com/laurent22/joplin) - Privacy focused note-taking app
 - [Libreddit](https://github.com/spikecodes/libreddit) - Private front-end for Reddit
 - [LibrePhotos](https://github.com/LibrePhotos/librephotos) - Complete photo management service
@@ -68,6 +73,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Openbooks](https://github.com/evan-buss/openbooks) - Search and Download eBooks
 - [Overseerr](https://github.com/sct/overseerr) - Request management and media discovery tool for the Plex ecosystem
 - [Owncloud](https://github.com/owncloud/core) - A personal cloud which runs on your own server.
+- [Peppermint](https://github.com/Peppermint-Lab/peppermint) - An open source ticket management & help desk solution.
 - [Photoprism](https://github.com/photoprism/photoprism) - AI-Powered Photos App for the Decentralized Web. We are on a mission to protect your freedom and privacy.
 - [Pihole](https://github.com/pi-hole/pi-hole) - A black hole for Internet advertisements
 - [Plex](https://github.com/plexinc/pms-docker) - Stream Movies & TV Shows
@@ -80,7 +86,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Readarr](https://github.com/Readarr/Readarr) - Book Manager and Automation (Sonarr for Ebooks)
 - [Resilio Sync](https://github.com/bt-sync) - Fast, reliable, and simple file sync and share solution
 - [RSS](https://github.com/ssddanbrown/rss) - A simple, opinionated, RSS feed aggregator
- - [Sabnzbd](https://github.com/sabnzbd/sabnzbd) - Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can"
+- [Sabnzbd](https://github.com/sabnzbd/sabnzbd) - Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can"
 - [SearXNG](https://github.com/searxng/searxng) - SearXNG is a free internet metasearch engine which aggregates results from various search services and databases. Users are neither tracked nor profiled
 - [Send](https://gitlab.com/timvisee/send) - Simple, private file sharing
 - [Sonarr](https://github.com/Sonarr/Sonarr) - TV show manager for Usenet and BitTorrent
@@ -107,4 +113,4 @@ If you want to see new apps on Tipi you can either:
 
 - [Open an issue](https://github.com/meienberger/runtipi-appstore/issues) on this repository and members of the community will add it
 - [Join the Discord](https://discord.gg/Bu9qEPnHsc) members of the community will add it.
-- Fork this repo and create the necessary files for a Tipi app. Follow this [guide]([https://github.com/meienberger/runtipi/wiki/Adding-your-own-app](https://www.runtipi.io/docs/contributing/adding-a-new-app))
+- Fork this repo and create the necessary files for a Tipi app. Follow this [guide](<[https://github.com/meienberger/runtipi/wiki/Adding-your-own-app](https://www.runtipi.io/docs/contributing/adding-a-new-app)>)
