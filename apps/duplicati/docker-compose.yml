@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  duplicati:
+    container_name: duplicati
+    image: lscr.io/linuxserver/duplicati:2.0.6
+    ports:
+      - ${APP_PORT}:8200
+    volumes:
+      - ${APP_DATA_DIR}/data/duplicati-config:/config
+      - ${ROOT_FOLDER_HOST}:/backups/runtipi-folder
+      - /home:/source
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.duplicati.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.duplicati.entrypoints: websecure
+      traefik.http.routers.duplicati.service: duplicati
+      traefik.http.routers.duplicati.tls.certresolver: myresolver
+      traefik.http.services.duplicati.loadbalancer.server.port: 8200

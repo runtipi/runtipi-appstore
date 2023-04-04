@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   moneroblock:
-    image: sethsimmons/moneroblock:v0.1.1
+    image: sethsimmons/moneroblock:v0.1.2
     restart: unless-stopped
     container_name: moneroblock
     ports:

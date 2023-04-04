@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  kavita:
+    container_name: kavita
+    image: kizaing/kavita:nightly-0.7.1.4 
+    ports:
+      - ${APP_PORT}:5000
+    volumes:
+      - ${APP_DATA_DIR}/data/kavita-config:/kavita/config
+      - ${ROOT_FOLDER_HOST}/media/data/books:/books
+      - ${ROOT_FOLDER_HOST}/media/data/comics:/comics
+      - ${ROOT_FOLDER_HOST}/media/data/manga:/manga
+    environment:
+      - TZ=${TZ}
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.kavita.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.kavita.entrypoints: websecure
+      traefik.http.routers.kavita.service: kavita
+      traefik.http.routers.kavita.tls.certresolver: myresolver
+      traefik.http.services.kavita.loadbalancer.server.port: 5000

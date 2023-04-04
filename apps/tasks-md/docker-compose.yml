@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  tasks-md:
+    container_name: tasks-md
+    image: baldissaramatheus/tasks.md:1.5.0
+    ports:
+      - ${APP_PORT}:8080
+    volumes:
+      - ${APP_DATA_DIR}/data/files:/api/files/
+      - ${APP_DATA_DIR}/data/stylesheets:/usr/share/nginx/html/stylesheets/
+    environment:
+      - TITLE="${TASKS_MD_TITLE}"
+    networks:
+      - tipi_main_network
+    restart: unless-stopped
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.tasks-md.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.tasks-md.entrypoints: websecure
+      traefik.http.routers.tasks-md.service: tasks-md
+      traefik.http.routers.tasks-md.tls.certresolver: myresolver
+      traefik.http.services.tasks-md.loadbalancer.server.port: 8080

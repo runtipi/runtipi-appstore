@@ -5,7 +5,7 @@
   "exposable": true,
   "port": 8120,
   "id": "tubearchivist",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "latest",
   "supported_architectures": ["amd64", "arm64"],
   "categories": ["media"],

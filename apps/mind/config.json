@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "mind",
-  "tipi_version": 1,
-  "version": "V1.2.0",
-  "categories": ["utilities"],
+  "tipi_version": 2,
+  "version": "1.2.1",
+  "categories": [
+    "utilities"
+  ],
   "description": "A simple self hosted reminder platform that uses push to send notifications to your device. Set the reminder and forget about it!",
   "short_desc": "A simple self hosted reminder platform that uses push to send notifications to your device.",
   "author": "https://github.com/Casvt",

@@ -1,7 +1,7 @@
-version: "3.7"
+version: '3.7'
 services:
   librephotos:
-    image: reallibrephotos/librephotos-proxy:2022w41
+    image: reallibrephotos/librephotos-proxy:2023w12
     container_name: librephotos
     restart: unless-stopped
     volumes:
@@ -35,15 +35,15 @@ services:
       - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
     #Checking health of Postgres db
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      test: ['CMD-SHELL', 'pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB']
       interval: 5s
       timeout: 5s
       retries: 5
     networks:
       - tipi_main_network
-      
+
   librephotos-frontend:
-    image: reallibrephotos/librephotos-frontend:2022w41
+    image: reallibrephotos/librephotos-frontend:2023w12
     container_name: librephotos-frontend
     restart: unless-stopped
     depends_on:
@@ -52,7 +52,7 @@ services:
       - tipi_main_network
 
   librephotos-backend:
-    image: reallibrephotos/librephotos:2022w41
+    image: reallibrephotos/librephotos:2023w12
     container_name: librephotos-backend
     restart: unless-stopped
     volumes:
@@ -88,4 +88,4 @@ services:
     container_name: librephotos-redis
     restart: unless-stopped
     networks:
-        - tipi_main_network
+      - tipi_main_network
