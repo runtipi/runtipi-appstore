@@ -71,6 +71,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Openbooks](https://github.com/evan-buss/openbooks) - Search and Download eBooks
 - [Overseerr](https://github.com/sct/overseerr) - Request management and media discovery tool for the Plex ecosystem
 - [Owncloud](https://github.com/owncloud/core) - A personal cloud which runs on your own server.
+- [Peppermint](https://github.com/Peppermint-Lab/peppermint) - An open source ticket management & help desk solution.
 - [Photoprism](https://github.com/photoprism/photoprism) - AI-Powered Photos App for the Decentralized Web. We are on a mission to protect your freedom and privacy.
 - [Pihole](https://github.com/pi-hole/pi-hole) - A black hole for Internet advertisements
 - [Plex](https://github.com/plexinc/pms-docker) - Stream Movies & TV Shows
