@@ -25,7 +25,7 @@
       "type": "password",
       "label": "PodFetch Password",
       "max": 50,
-      "min": 3,
+      "min": 8,
       "required": true,
       "env_variable": "PODFETCH_PASSWORD"
     },
