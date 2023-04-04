@@ -2,6 +2,10 @@ Podfetch is a self-hosted podcast manager. It is a web app that lets you downloa
 
 Every time a new commit is pushed to the main branch, a new docker image is built and pushed to docker hub. So it is best to use something like [watchtower](https://github.com/containrrr/watchtower) to automatically update the docker image.
 
+
+# API Info
+
+Sign up for an [Podcast Index](https://api.podcastindex.org/signup) account to get an API key.
 ---
 
 ## Folder Info

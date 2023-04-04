@@ -15,8 +15,8 @@ services:
       - PASSWORD=${PODFETCH_PASSWORD}
       - POLLING_INTERVAL=60
       - SERVER_URL=https://${APP_DOMAIN}
-      - PODINDEX_API_KEY=${PODFETCH_PODINDEX_API_KEY}
-      - PODINDEX_API_SECRET=${PODFETCH_PODINDEX_API_SECRET}
+      - PODINDEX_API_KEY="${PODFETCH_PODINDEX_API_KEY}"
+      - PODINDEX_API_SECRET="${PODFETCH_PODINDEX_API_SECRET}"
     restart: unless-stopped
     networks:
       - tipi_main_network
