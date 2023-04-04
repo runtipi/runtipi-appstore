@@ -32,13 +32,13 @@ services:
       traefik.http.services.movary.loadbalancer.server.port: 80
 
   movary-mysql:
-    image: mysql:8.0
+    image: linuxserver/mariadb:latest
     environment:
       MYSQL_DATABASE: "movary"
       MYSQL_USER: "tipi"
       MYSQL_PASSWORD: ${MOVARY_MYSQL_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MOVARY_MYSQL_PASSWORD}
     volumes:
-      - ${APP_DATA_DIR}/data/mysql:/var/lib/mysql
+      - ${APP_DATA_DIR}/data/mysql:/config
     networks:
       - tipi_main_network
