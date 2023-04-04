@@ -61,7 +61,8 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Monero Daemon](https://github.com/monero-project/monero/) - A network daemon for Monero: the secure, private, untraceable cryptocurrency
 - [Monero p2pool Daemon](https://github.com/SChernykh/p2pool) - Decentralized pool for Monero mining
 - [Monica](https://github.com/monicahq/monica) - A Personal Relationship Management tool to help you document your social life
-- [Mixpost](https://github.com/inovector/mixpost) - Self-hosted social media management. Schedule and organize your social content.
+- [Mixpost](https://github.com/inovector/mixpost) - Self-hosted social media management. Schedule and organize your social content. 
+- [Mylar3](https://github.com/mylar3/mylar3) - Mylar3 is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python.
 - [n8n](https://github.com/n8n-io/n8n) - Workflow Automation Tool
 - [Navidrome](https://github.com/navidrome/navidrome) - A selfhosted music server
 - [Nextcloud](https://github.com/nextcloud/server) - A safe home for all your data
