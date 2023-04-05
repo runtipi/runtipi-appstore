@@ -1,5 +1,15 @@
 ## Fireshare
 
+### Folder Info
+
+| Root Folder                                          | Container Folder |
+|------------------------------------------------------|------------------|
+| /runtipi/app-data/fireshare/data/fireshare_data      | /data            |
+| /runtipi/app-data/fireshare/data/fireshare_processed | /processed       |
+| /runtipi/media/data/videos/fireshare_videos          | /videos          |
+
+---
+
 Table of Contents
 
 1.  [About The Project](https://github.com/ShaneIsrael/fireshare#about-the-project)

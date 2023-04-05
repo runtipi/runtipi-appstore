@@ -1,12 +1,12 @@
-version: "3.7"
+version: '3.7'
 
 services:
   gotify:
-    image: gotify/server-arm64:2.1.7
+    image: gotify/server-arm64:2.2.4
     container_name: gotify
     restart: unless-stopped
     volumes:
-      - "${APP_DATA_DIR}/data:/app/data"
+      - '${APP_DATA_DIR}/data:/app/data'
     environment:
       - GOTIFY_DEFAULTUSER_PASS=${GOTIFY_DEFAULTUSER_PASS}
     ports:

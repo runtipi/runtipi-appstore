@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8128,
   "id": "immich",
-  "tipi_version": 1,
-  "version": "1.28.0",
+  "tipi_version": 3,
+  "version": "v1.51.2",
   "categories": ["data", "photography"],
   "description": "Photo and video backup solution directly from your mobile phone.",
   "short_desc": "Photo and video backup solution directly from your mobile phone.",
@@ -25,6 +25,12 @@
       "label": "JWT_SECRET",
       "min": 32,
       "env_variable": "JWT_SECRET"
+    },
+    {
+      "type": "random",
+      "label": "IMMICH_TYPESENSE_API_KEY",
+      "min": 32,
+      "env_variable": "IMMICH_TYPESENSE_API_KEY"
     }
   ]
 }

@@ -5,6 +5,15 @@ Password: deluge
 
 ---
 
+# Folder Info
+
+| Root Folder                                  | Container Folder |
+|----------------------------------------------|------------------|
+| /runtipi/app-data/deluge/data/deluge/config	 | /config          |
+| /runtipi/media/torrents                 | /downloads       |
+
+---
+
 # [linuxserver/deluge](https://github.com/linuxserver/docker-deluge)
 
 [Deluge](http://deluge-torrent.org/) is a lightweight, Free Software, cross-platform BitTorrent client.

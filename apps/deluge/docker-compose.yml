@@ -1,4 +1,4 @@
-version: "2.1"
+version: '2.1'
 services:
   deluge:
     image: lscr.io/linuxserver/deluge:2.1.1
@@ -10,7 +10,7 @@ services:
       - DELUGE_LOGLEVEL=error #optional
     volumes:
       - ${APP_DATA_DIR}/data/deluge/config:/config
-      - ${ROOT_FOLDER_HOST}/media/torrents/deluge:/downloads
+      - ${ROOT_FOLDER_HOST}/media/torrents:/downloads
     ports:
       - ${APP_PORT}:8112
       - 6881:6881

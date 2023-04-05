@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "onedev",
-  "tipi_version": 1,
-  "version": "8.0.4",
-  "categories": ["development"],
+  "tipi_version": 2,
+  "version": "8.0.14",
+  "categories": [
+    "development"
+  ],
   "description": "Self-hosted Git Server with Kanban and CI/CD",
   "short_desc": "Self-hosted Git Server with Kanban and CI/CD",
   "author": "https://code.onedev.io/",
