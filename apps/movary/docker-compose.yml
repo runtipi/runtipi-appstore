@@ -7,11 +7,11 @@ services:
     environment:
       - TMDB_API_KEY=${MOVARY_TMDB_API_KEY}
       - TIMEZONE=${TZ}
-      - DATABASE_MODE=${USERNAME}
-      - DATABASE_MYSQL_HOST=movary-mysql
+      - DATABASE_MODE=mysql
+      - DATABASE_MYSQL_HOST=movary-db
       - DATABASE_MYSQL_NAME=movary
       - DATABASE_MYSQL_USER=tipi
-      - DATABASE_MYSQL_PASSWORD=${APP_DOMAIN}
+      - DATABASE_MYSQL_PASSWORD=${MOVARY_MYSQL_PASSWORD}
       - TMDB_ENABLE_IMAGE_CACHING=1
     restart: unless-stopped
     command: "php bin/console.php database:migration:migrate"
@@ -20,7 +20,7 @@ services:
     ports:
       - ${APP_PORT}:80
     depends_on:
-      - movary-mysql
+      - movary-db
     networks:
       - tipi_main_network
     labels:
@@ -31,7 +31,7 @@ services:
       traefik.http.routers.movary.tls.certresolver: myresolver
       traefik.http.services.movary.loadbalancer.server.port: 80
 
-  movary-mysql:
+  movary-db:
     image: linuxserver/mariadb:latest
     environment:
       MYSQL_DATABASE: "movary"
