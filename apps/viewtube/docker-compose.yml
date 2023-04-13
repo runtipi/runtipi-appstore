@@ -3,6 +3,7 @@ version: '3'
 services:
   viewtube:
     restart: unless-stopped
+    container_name: viewtube
     image: mauriceo/viewtube:0.10
     depends_on:
       - viewtube-mongodb
@@ -12,8 +13,8 @@ services:
     environment:
       - VIEWTUBE_DATABASE_HOST=viewtube-mongodb
       - VIEWTUBE_REDIS_HOST=viewtube-redis
-      #- VIEWTUBE_YOUTUBE_COOKIE=${VIEWTUBE_YOUTUBE_COOKIE}
-      #- VIEWTUBE_YOUTUBE_IDENTIFIER=${VIEWTUBE_YOUTUBE_IDENTIFIER}
+      # - VIEWTUBE_YOUTUBE_COOKIE=${VIEWTUBE_YOUTUBE_COOKIE}
+      # - VIEWTUBE_YOUTUBE_IDENTIFIER=${VIEWTUBE_YOUTUBE_IDENTIFIER}
     ports:
       - ${APP_PORT}:8066
     networks:
@@ -27,6 +28,7 @@ services:
       traefik.http.services.viewtube.loadbalancer.server.port: 8066
   
   viewtube-mongodb:
+    container_name: viewtube-mongodb
     restart: unless-stopped
     image: mongo:5
     networks:
@@ -35,6 +37,7 @@ services:
       - ${APP_DATA_DIR}/data/db:/data/db
   
   viewtube-redis:
+    container_name: viewtube-redis
     restart: unless-stopped
     image: redis:7
     networks:
