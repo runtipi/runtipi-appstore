@@ -1,0 +1,31 @@
+{
+  "$schema": "../schema.json",
+  "name": "ViewTube",
+  "port": 8180,
+  "available": true,
+  "exposable": true,
+  "id": "viewtube",
+  "tipi_version": 1,
+  "version": "0.10",
+  "categories": ["media"],
+  "description": "The open source, privacy-conscious way to enjoy your favorite YouTube content.",
+  "short_desc": "The open source, privacy-conscious way to enjoy your favorite YouTube content.",
+  "author": "ViewTube",
+  "source": "https://github.com/ViewTube/viewtube",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Youtube Cookie",
+      "hint": "Optional, Read below",
+      "required": false,
+      "env_variable": "VIEWTUBE_YOUTUBE_COOKIE"
+    },
+    {
+      "type": "text",
+      "label": "Youtube Identifier",
+      "hint": "Optional, Read below",
+      "required": false,
+      "env_variable": "VIEWTUBE_YOUTUBE_IDENTIFIER"
+    }
+  ]
+}

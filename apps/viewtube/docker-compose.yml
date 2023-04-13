@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  viewtube:
+    restart: unless-stopped
+    image: mauriceo/viewtube:0.10
+    depends_on:
+      - viewtube-mongodb
+      - viewtube-redis
+    volumes:
+      - ${APP_DATA_DIR}/data/viewtube:/data
+    environment:
+      - VIEWTUBE_DATABASE_HOST=viewtube-mongodb
+      - VIEWTUBE_REDIS_HOST=viewtube-redis
+      - VIEWTUBE_YOUTUBE_COOKIE=${VIEWTUBE_YOUTUBE_COOKIE}
+      - VIEWTUBE_YOUTUBE_IDENTIFIER=${VIEWTUBE_YOUTUBE_IDENTIFIER}
+    ports:
+      - ${APP_PORT}:8066
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.viewtube.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.viewtube.entrypoints: websecure
+      traefik.http.routers.viewtube.service: viewtube
+      traefik.http.routers.viewtube.tls.certresolver: myresolver
+      traefik.http.services.viewtube.loadbalancer.server.port: 8066
+  
+  viewtube-mongodb:
+    restart: unless-stopped
+    image: mongo:5
+    networks:
+      - tipi_main_network
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/data/db
+  
+  viewtube-redis:
+    restart: unless-stopped
+    image: redis:7
+    networks:
+      - tipi_main_network
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data
