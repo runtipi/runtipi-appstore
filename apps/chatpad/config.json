@@ -1,6 +1,6 @@
 {
   "$schema": "../schema.json",
-  "name": "Chatpad.ai",
+  "name": "Chatpad AI",
   "available": true,
   "exposable": true,
   "port": 8179,

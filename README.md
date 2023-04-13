@@ -11,6 +11,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Booksonic](https://github.com/popeen) - A server for streaming your audiobooks
 - [Bookstack](https://github.com/BookStackApp/BookStack) - Simple, easy-to-use platform for organising and storing information.
 - [Calibre-Web](https://github.com/janeczku/calibre-web) - Web Ebook Reader
+- [Chatpad AI](https://github.com/deiucanta/chatpad) - Not just another ChatGPT user-interface!
 - [Code-Server](https://github.com/coder/code-server) - Web VS Code
 - [Codex.Docs](https://github.com/codex-team/codex.docst) - Free Docs app powered by Editor.js ecosystem.
 - [DailyTXT](https://github.com/PhiTux/DailyTxT) - Encrypted Diary Web-App
@@ -62,7 +63,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Monero Daemon](https://github.com/monero-project/monero/) - A network daemon for Monero: the secure, private, untraceable cryptocurrency
 - [Monero p2pool Daemon](https://github.com/SChernykh/p2pool) - Decentralized pool for Monero mining
 - [Monica](https://github.com/monicahq/monica) - A Personal Relationship Management tool to help you document your social life
-- [Mixpost](https://github.com/inovector/mixpost) - Self-hosted social media management. Schedule and organize your social content. 
+- [Mixpost](https://github.com/inovector/mixpost) - Self-hosted social media management. Schedule and organize your social content.
 - [Movary](https://github.com/leepeuker/movary - ) Track and rate your watched movies
 - [mStream](https://github.com/IrosTheBeggar/mStream) - The easiest music streaming server available
 - [Mylar3](https://github.com/mylar3/mylar3) - Mylar3 is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python.
