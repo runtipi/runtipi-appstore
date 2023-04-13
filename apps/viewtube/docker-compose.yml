@@ -15,8 +15,13 @@ services:
       - VIEWTUBE_REDIS_HOST=viewtube-redis
       - VIEWTUBE_SECURE=true
       - VIEWTUBE_CORS_ORIGIN=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+<<<<<<< HEAD
       - VIEWTUBE_YOUTUBE_COOKIE=${VIEWTUBE_YOUTUBE_COOKIE}
       - VIEWTUBE_YOUTUBE_IDENTIFIER=${VIEWTUBE_YOUTUBE_IDENTIFIER}
+=======
+      # - VIEWTUBE_YOUTUBE_COOKIE=${VIEWTUBE_YOUTUBE_COOKIE}
+      # - VIEWTUBE_YOUTUBE_IDENTIFIER=${VIEWTUBE_YOUTUBE_IDENTIFIER}
+>>>>>>> parent of f15597e (Update docker-compose.yml)
     ports:
       - ${APP_PORT}:8066
     networks:
