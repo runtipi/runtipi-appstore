@@ -12,7 +12,7 @@ services:
 
   vikunja-api:
     container_name: vikunja-api
-    image: vikunja/api:0.20.1
+    image: vikunja/api:0.20.4
     environment:
       VIKUNJA_DATABASE_HOST: vikunja-db
       VIKUNJA_DATABASE_PASSWORD: ${VIKUNJA_DB_PASSWORD}
