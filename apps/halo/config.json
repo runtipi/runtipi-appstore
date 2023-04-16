@@ -25,7 +25,7 @@
       "env_variable": "HALO_ADMIN_USERNAME"
     },
     {
-      "type": "random",
+      "type": "text",
       "label": "Initial admin password",
       "min": 8,
       "env_variable": "HALO_ADMIN_PASSWORD"
