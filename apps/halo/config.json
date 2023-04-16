@@ -1,0 +1,39 @@
+{
+  "$schema": "../schema.json",
+  "name": "Halo",
+  "available": true,
+  "port": 8092,
+  "id": "halo",
+  "description": "",
+  "tipi_version": 1,
+  "version": "2.4.2",
+  "categories": ["social", "media"],
+  "short_desc": "",
+  "author": "halo-dev",
+  "source": "https://github.com/halo-dev/halo",
+  "website": "https://halo.run",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Database password",
+      "min": 20,
+      "env_variable": "HALO_DATABASE_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Initial admin username",
+      "env_variable": "HALO_ADMIN_USERNAME"
+    },
+    {
+      "type": "random",
+      "label": "Initial admin password",
+      "min": 8,
+      "env_variable": "HALO_ADMIN_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "External url",
+      "env_variable": "HALO_EXTERNAL_URL"
+    }
+  ]
+}
