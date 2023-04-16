@@ -6,8 +6,8 @@
   "no_gui": true,
   "port": 18080,
   "id": "monerod",
-  "tipi_version": 5,
-  "version": "0.18.2.0",
+  "tipi_version": 6,
+  "version": "0.18.2.2",
   "categories": [
     "finance"
   ],
