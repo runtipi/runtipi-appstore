@@ -7,7 +7,9 @@
 
 ## Error Notice
 
-If the backend gives you a 502 error, stop and restart the app!
+Sometimes on the Inital Install, the backend may give you a 500 or 502 error code.
+
+If the backend gives you a 500/502 error, stop and restart the app!
 
 # ChatGPT UI
 
