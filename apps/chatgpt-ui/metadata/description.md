@@ -5,6 +5,10 @@
 | ChatGPT UI Front End | IP:8200    | example.com         |
 | ChatGPT UI Backend   | IP:8201/admin    | Not Exposed Via Domain|
 
+## Error Notice
+
+If the backend gives you a 502 error, stop and restart the app!
+
 # ChatGPT UI
 
 A ChatGPT web client that supports multiple users, multiple languages, and multiple database connections for persistent data storage.
