@@ -28,7 +28,7 @@ services:
     image: wongsaang/chatgpt-ui-wsgi-server:v2.4.2
     container_name: chatgpt-ui-wsgi-server
     environment:
-      - APP_DOMAIN=${APP_DOMAIN}:8201
+      - APP_DOMAIN=${INTERNAL_IP}:8201
       - SERVER_WORKERS=3 
       - WORKER_TIMEOUT=180
       - DB_URL=mysql://tipi:${CHATGPT_UI_DB_PASSWORD}@chatgpt-ui-db:3306/chatgptdb
@@ -52,7 +52,7 @@ services:
     image: wongsaang/chatgpt-ui-web-server:v2.4.2
     container_name: chatgpt-ui-web-server
     environment:
-      - BACKEND_URL=http://chatgpt-ui-wsgi-server
+      - BACKEND_URL=http://chatgpt-ui-wsgi-server:8000
     ports:
       - '8201:80'
     depends_on:
