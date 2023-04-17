@@ -33,7 +33,13 @@
       "max": 50,
       "min": 3,
       "required": true,
-      "env_variable": "CHATGPT-UI_SUPERUSER_PASSWORD}"
+      "env_variable": "CHATGPT-UI_SUPERUSER_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Superuser Email",
+      "required": true,
+      "env_variable": "CHATGPT-UI_SUPERUSER_EMAIL"
     }
   ]
 }
