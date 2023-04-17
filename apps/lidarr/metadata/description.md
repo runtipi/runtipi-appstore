@@ -22,3 +22,5 @@ Lidarr is a music collection manager for Usenet and BitTorrent users. It can mon
 |-------------------------------|------------------|
 | /runtipi/app-data/lidarr/data | /config          |
 | /runtipi/media                | /media           |
+| /runtipi/media/usenet/completed            | /downloads/completed/        |
+

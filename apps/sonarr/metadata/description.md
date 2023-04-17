@@ -22,3 +22,4 @@ Sonarr is a PVR for Usenet and BitTorrent users. It can monitor multiple RSS fee
 |-------------------------------|------------------|
 | /runtipi/app-data/sonarr/data | /config          |
 | /runtipi/media                | /downloads       |
+| /runtipi/media/usenet/completed            | /downloads/completed/        |

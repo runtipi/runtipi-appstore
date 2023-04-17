@@ -28,3 +28,4 @@ Radarr is a movie collection manager for Usenet and BitTorrent users. It can mon
 |-------------------------------|------------------|
 | /runtipi/app-data/radarr/data | /config          |
 | /runtipi/media                | /media           |
+| /runtipi/media/usenet/completed            | /downloads/completed/        |

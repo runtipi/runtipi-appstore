@@ -13,6 +13,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ${APP_DATA_DIR}/data:/config
       - ${ROOT_FOLDER_HOST}/media:/media
+      - ${ROOT_FOLDER_HOST}/media/usenet/completed/:/downloads/completed #Adds SabNZB Path
     ports:
       - ${APP_PORT}:8787
     restart: unless-stopped

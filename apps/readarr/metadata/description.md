@@ -26,3 +26,4 @@ Note that only one type of a given book is supported. If you want both an audiob
 |-------------------------------|------------------|
 | /runtipi/app-data/readarr/data | /config          |
 | /runtipi/media                | /media           |
+| /runtipi/media/usenet/completed            | /downloads/completed/        |
