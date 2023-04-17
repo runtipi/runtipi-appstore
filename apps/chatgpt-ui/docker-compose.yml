@@ -1,0 +1,83 @@
+version: '3'
+services:
+  chatgpt-ui:
+    image: wongsaang/chatgpt-ui-client:v2.4.5
+    container_name: chatgpt-ui
+    environment:
+      - SERVER_DOMAIN=http://chatgpt-ui-web-server
+      - DEFAULT_LOCALE=en
+      #- NUXT_PUBLIC_APP_NAME='ChatGPT UI' # The name of the application
+      #- NUXT_PUBLIC_TYPEWRITER=true # Whether to enable the typewriter effect, default false
+      #- NUXT_PUBLIC_TYPEWRITER_DELAY=50 # The delay time of the typewriter effect, default 50ms
+    depends_on:
+      - chatgpt-backend
+    ports:
+      - '8200:80'
+    restart: always
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.chatgpt-ui.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.chatgpt-ui.entrypoints: websecure
+      traefik.http.routers.chatgpt-ui.service: chatgpt-ui
+      traefik.http.routers.chatgpt-ui.tls.certresolver: myresolver
+      traefik.http.services.chatgpt-ui.loadbalancer.server.port: 80
+  
+  chatgpt-ui-wsgi-server:
+    image: wongsaang/chatgpt-ui-wsgi-server:v2.4.2
+    container_name: chatgpt-ui-wsgi-server
+    environment:
+      - APP_DOMAIN=${APP_DOMAIN}/backend
+      - SERVER_WORKERS=3 
+      - WORKER_TIMEOUT=180
+      - DB_URL=postgres://tipi:${CHATGPT-UI_DB_PASSWORD}@chatgpt-ui-db:5432/chatgpt-ui
+      - DJANGO_SUPERUSER_USERNAME=${CHATGPT-UI_SUPERUSER_USERNAME} # default superuser name
+      - DJANGO_SUPERUSER_PASSWORD=${CHATGPT-UI_SUPERUSER_PASSWORD} # default superuser password
+      - DJANGO_SUPERUSER_EMAIL=${CHATGPT-UI_SUPERUSER_EMAIL} # default superuser email
+      - ACCOUNT_EMAIL_VERIFICATION=none
+      #- EMAIL_HOST=SMTP server address
+      #- EMAIL_PORT=SMTP server port
+      #- EMAIL_HOST_USER=
+      #- EMAIL_HOST_PASSWORD=
+      #- EMAIL_USE_TLS=True
+      #- EMAIL_FROM=no-reply@example.com  #Default sender email address
+    networks:
+      - tipi_main_network
+    depends_on:
+      - chatgpt-ui-db
+    restart: always
+  
+  chatgpt-ui-web-server:
+    image: wongsaang/chatgpt-ui-web-server:v2.4.2
+    container_name: chatgpt-ui-web-server
+    environment:
+      - BACKEND_URL=http://chatgpt-ui-wsgi-server
+    ports:
+      - '8201:80'
+    depends_on:
+      - chatgpt-ui-wsgi-server
+    networks:
+      - tipi_main_network
+    restart: always
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.chatgpt-ui-web-server.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/backend`)
+      traefik.http.routers.chatgpt-ui-web-server.entrypoints: websecure
+      traefik.http.routers.chatgpt-ui-web-server.service: chatgpt-ui-web-server
+      traefik.http.routers.chatgpt-ui-web-server.tls.certresolver: myresolver
+      traefik.http.services.chatgpt-ui-web-server.loadbalancer.server.port: 80
+
+  chatgpt-ui-db:
+    container_name: chatgpt-ui-db
+    image: postgres:14
+    environment:
+      POSTGRES_PASSWORD: ${CHATGPT-UI_DB_PASSWORD}
+      POSTGRES_USER: tipi
+      POSTGRES_DB: immich
+      PG_DATA: /var/lib/postgresql/data
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
