@@ -28,13 +28,13 @@ services:
     image: wongsaang/chatgpt-ui-wsgi-server:v2.4.2
     container_name: chatgpt-ui-wsgi-server
     environment:
-      - APP_DOMAIN=${APP_DOMAIN}/backend
+      - APP_DOMAIN=${APP_DOMAIN}:8201
       - SERVER_WORKERS=3 
       - WORKER_TIMEOUT=180
-      - DB_URL=postgres://tipi:${CHATGPT-UI_DB_PASSWORD}@chatgpt-ui-db:5432/chatgpt-ui
-      - DJANGO_SUPERUSER_USERNAME=${CHATGPT-UI_SUPERUSER_USERNAME} # default superuser name
-      - DJANGO_SUPERUSER_PASSWORD=${CHATGPT-UI_SUPERUSER_PASSWORD} # default superuser password
-      - DJANGO_SUPERUSER_EMAIL=${CHATGPT-UI_SUPERUSER_EMAIL} # default superuser email
+      - DB_URL=postgres://tipi:${CHATGPT_UI_DB_PASSWORD}@chatgpt-ui-db:5432/chatgptdb
+      - DJANGO_SUPERUSER_USERNAME=${CHATGPT_UI_SUPERUSER_USERNAME} # default superuser name
+      - DJANGO_SUPERUSER_PASSWORD=${CHATGPT_UI_SUPERUSER_PASSWORD} # default superuser password
+      - DJANGO_SUPERUSER_EMAIL=${CHATGPT_UI_SUPERUSER_EMAIL} # default superuser email
       - ACCOUNT_EMAIL_VERIFICATION=none
       #- EMAIL_HOST=SMTP server address
       #- EMAIL_PORT=SMTP server port
@@ -57,6 +57,7 @@ services:
       - '8201:80'
     depends_on:
       - chatgpt-ui-wsgi-server
+      - chatgpt-ui-db
     networks:
       - tipi_main_network
     restart: always
@@ -72,9 +73,9 @@ services:
     container_name: chatgpt-ui-db
     image: postgres:14
     environment:
-      POSTGRES_PASSWORD: ${CHATGPT-UI_DB_PASSWORD}
+      POSTGRES_PASSWORD: ${CHATGPT_UI_DB_PASSWORD}
       POSTGRES_USER: tipi
-      POSTGRES_DB: chatgpt-ui
+      POSTGRES_DB: chatgptdb
       PG_DATA: /var/lib/postgresql/data
     volumes:
       - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data

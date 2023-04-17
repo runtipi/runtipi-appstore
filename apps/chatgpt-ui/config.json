@@ -15,9 +15,9 @@
   "form_fields": [
     {
       "type": "random",
-      "label": "CHATGPT-UI_DB_PASSWORD",
+      "label": "CHATGPT_UI_DB_PASSWORD",
       "min": 32,
-      "env_variable": "CHATGPT-UI_DB_PASSWORD"
+      "env_variable": "CHATGPT_UI_DB_PASSWORD"
     },
     {
       "type": "text",
@@ -25,7 +25,7 @@
       "max": 50,
       "min": 3,
       "required": true,
-      "env_variable": "CHATGPT-UI_SUPERUSER_USERNAME"
+      "env_variable": "CHATGPT_UI_SUPERUSER_USERNAME"
     },
     {
       "type": "password",
@@ -33,13 +33,13 @@
       "max": 50,
       "min": 3,
       "required": true,
-      "env_variable": "CHATGPT-UI_SUPERUSER_PASSWORD"
+      "env_variable": "CHATGPT_UI_SUPERUSER_PASSWORD"
     },
     {
       "type": "text",
       "label": "Superuser Email",
       "required": true,
-      "env_variable": "CHATGPT-UI_SUPERUSER_EMAIL"
+      "env_variable": "CHATGPT_UI_SUPERUSER_EMAIL"
     }
   ]
 }
