@@ -3,7 +3,7 @@
   "name": "ChatGPT UI",
   "port": 8200,
   "available": true,
-  "exposable": false,
+  "exposable": true,
   "id": "chatgpt-ui",
   "tipi_version": 1,
   "version": "v2.4.5",

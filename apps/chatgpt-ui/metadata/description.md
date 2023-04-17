@@ -3,7 +3,7 @@
 | Exposed Service      | Local Port | Exposed Domain      |
 |----------------------|------------|---------------------|
 | ChatGPT UI Front End | IP:8200    | example.com         |
-| ChatGPT UI Backend   | IP:8201    | example.com/backend |
+| ChatGPT UI Backend   | IP:8201    | Not Exposed Via Domain|
 
 # ChatGPT UI
 

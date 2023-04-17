@@ -61,13 +61,6 @@ services:
     networks:
       - tipi_main_network
     restart: always
-    labels:
-      traefik.enable: ${APP_EXPOSED}
-      traefik.http.routers.chatgpt-ui-web-server.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/backend`)
-      traefik.http.routers.chatgpt-ui-web-server.entrypoints: websecure
-      traefik.http.routers.chatgpt-ui-web-server.service: chatgpt-ui-web-server
-      traefik.http.routers.chatgpt-ui-web-server.tls.certresolver: myresolver
-      traefik.http.services.chatgpt-ui-web-server.loadbalancer.server.port: 80
 
   chatgpt-ui-db:
     container_name: chatgpt-ui-db
