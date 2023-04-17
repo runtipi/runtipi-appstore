@@ -1,0 +1,16 @@
+{
+  "$schema": "../schema.json",
+  "name": "Hammond",
+  "port": 8185,
+  "available": true,
+  "exposable": true,
+  "id": "hammond",
+  "tipi_version": 1,
+  "version": "1.0.0",
+  "categories": ["utilities"],
+  "description": "Self hosted vehicle and expense management system. Like Clarkson, but better",
+  "short_desc": "Self hosted vehicle and expense management system. Like Clarkson, but better",
+  "author": "Akhilrex",
+  "source": "https://github.com/akhilrex/hammond",
+  "form_fields": []
+}
