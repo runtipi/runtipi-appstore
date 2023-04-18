@@ -5,14 +5,18 @@
   "available": true,
   "exposable": true,
   "id": "chatgpt-ui",
-  "tipi_version": 1,
-  "version": "v2.4.5",
-  "categories": ["utilities"],
+  "tipi_version": 2,
+  "version": "2.4.6",
+  "categories": [
+    "utilities"
+  ],
   "description": "A ChatGPT web client that supports multiple users, multiple languages, and multiple database connections for persistent data storage",
   "short_desc": "A ChatGPT web client that supports multiple users, multiple languages, and multiple database connections for persistent data storage",
   "author": "https://github.com/WongSaang",
   "source": "https://github.com/WongSaang/chatgpt-ui",
-  "supported_architectures": ["amd64"],
+  "supported_architectures": [
+    "amd64"
+  ],
   "form_fields": [
     {
       "type": "random",
