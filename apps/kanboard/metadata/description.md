@@ -2,6 +2,10 @@
 
 Kanboard is a free and open source Kanban project management software.
 
+## Default credentials
+Username: admin
+Password: admin
+
 - Kanban Board
 - Visualize your work
 - Limit your work in progress to focus on your goal
