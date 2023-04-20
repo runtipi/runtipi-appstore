@@ -12,13 +12,5 @@
   "author": "Frédéric Guillot",
   "source": "https://github.com/kanboard/kanboard",
   "form_fields": [
-	  {
-		"type": "text",
-		"label": "Enable Plugin Installer (TRUE or FALSE)",
-		"max": 5,
-		"min": 4,
-		"required": true,
-		"env_variable": "PLUGIN_INSTALLER"
-	  }
 	]
 }
