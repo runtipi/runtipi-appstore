@@ -14,7 +14,7 @@
   "form_fields": [
 	  {
 		"type": "text",
-		"label": "Enable Plugin Installer",
+		"label": "Enable Plugin Installer (TRUE or FALSE)",
 		"max": 5,
 		"min": 4,
 		"required": true,
