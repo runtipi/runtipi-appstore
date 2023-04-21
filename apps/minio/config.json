@@ -28,6 +28,6 @@
       "min": 5,
       "required": true,
       "env_variable": "MINIO_ROOT_PASSWORD"
-    },
+    }
   ]
 }
