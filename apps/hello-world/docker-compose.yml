@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  hello-world:
+    container_name: hello-world
+    image: crccheck/hello-world
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:8000
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.hello-world.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.hello-world.entrypoints: websecure
+      traefik.http.routers.hello-world.service: hello-world
+      traefik.http.routers.hello-world.tls.certresolver: myresolver
+      traefik.http.services.hello-world.loadbalancer.server.port: 7575
