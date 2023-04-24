@@ -1,3 +1,16 @@
+## Install Notice
+
+- To Finish the AutoConfig, Please login to your Deezer Account in the Deemix UI. After logging in, the container will run
+
+```
+-   /music root folder if no other root folder is configured
+-   Delay profile allowing Deemix to be used by automatic search
+-   Deemix as an indexer
+-   Deemix as a download client
+-   Flac2Custom script connection if `FLAC2CUSTOM_ARGS` is set
+-   clean-downloads script connection to keep your downloads folder _clean_ after each imports
+```
+
 ### Port Info
 
 | Exposed Service      | Local Port | Exposed Domain      |
