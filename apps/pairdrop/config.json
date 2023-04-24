@@ -7,7 +7,7 @@
   "force_expose": true,
   "id": "pairdrop",
   "tipi_version": 1,
-  "version": "1.5.3",
+  "version": "1.6.2",
   "categories": ["media", "data", "utilities"],
   "description": "Local file sharing in your browser. Inspired by Apple's AirDrop",
   "short_desc": "Local file sharing in your browser. Inspired by Apple's AirDrop",
