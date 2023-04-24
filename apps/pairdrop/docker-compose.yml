@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+ pairdrop:
+    image: lscr.io/linuxserver/pairdrop:1.6.2
+    container_name: pairdrop
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+      - RATE_LIMIT=false]
+      - WS_FALLBACK=false 
+    ports:
+      - ${APP_PORT}:3000
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.pairdrop.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.pairdrop.entrypoints: websecure
+      traefik.http.routers.pairdrop.service: pairdrop
+      traefik.http.routers.pairdrop.tls.certresolver: myresolver
+      traefik.http.services.pairdrop.loadbalancer.server.port: 3000
