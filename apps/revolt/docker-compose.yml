@@ -1,0 +1,373 @@
+version: "3.8"
+
+services:
+
+  revolt-database:
+    image: mongo
+    container_name: revolt-database
+    restart: always
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/data/db
+    networks:
+      - tipi_main_network
+    environment:
+      - MONGODB=mongodb://revolt-database
+      - REDIS_URI=redis://revolt-redis/
+      - HOSTNAME=https://${APP_DOMAIN}
+      - REVOLT_APP_URL=https://${APP_DOMAIN}
+      - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+      - VITE_API_URL=https://${APP_DOMAIN}/api
+      - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+      - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+      - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+      - REVOLT_UNSAFE_NO_CAPTCHA=1
+      - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+      - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+      - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+      - REVOLT_SMTP_FROM=`${REVOLT_SMTP_FROM}`
+      - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+      - REVOLT_MAX_GROUP_SIZE=150
+      - REVOLT_VAPID_PUBLIC_KEY=${REVOLT_VAPID_PUBLIC_KEY}
+      - REVOLT_VAPID_PRIVATE_KEY=${REVOLT_VAPID_PRIVATE_KEY}
+      - AUTUMN_S3_REGION=minio
+      - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+      - MINIO_ROOT_USER=minioautumn
+      - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+      - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+
+  # Redis server
+  revolt-redis:
+    image: eqalpha/keydb
+    container_name: revolt-redis
+    restart: always
+    networks:
+      - tipi_main_network
+    environment:
+      - MONGODB=mongodb://revolt-database
+      - REDIS_URI=redis://revolt-redis/
+      - HOSTNAME=https://${APP_DOMAIN}
+      - REVOLT_APP_URL=https://${APP_DOMAIN}
+      - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+      - VITE_API_URL=https://${APP_DOMAIN}/api
+      - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+      - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+      - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+      - REVOLT_UNSAFE_NO_CAPTCHA=1
+      - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+      - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+      - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+      - REVOLT_SMTP_FROM=`${REVOLT_SMTP_FROM}`
+      - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+      - REVOLT_MAX_GROUP_SIZE=150
+      - REVOLT_VAPID_PUBLIC_KEY=${REVOLT_VAPID_PUBLIC_KEY}
+      - REVOLT_VAPID_PRIVATE_KEY=${REVOLT_VAPID_PRIVATE_KEY}
+      - AUTUMN_S3_REGION=minio
+      - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+      - MINIO_ROOT_USER=minioautumn
+      - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+      - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+
+  # S3-compatible storage server
+  revolt-minio:
+    image: minio/minio
+    container_name: revolt-minio
+    command: server /data
+    volumes:
+      - ${APP_DATA_DIR}/data/minio:/data
+    restart: always
+    networks:
+      - tipi_main_network
+    environment:
+      - MONGODB=mongodb://revolt-database
+      - REDIS_URI=redis://revolt-redis/
+      - HOSTNAME=https://${APP_DOMAIN}
+      - REVOLT_APP_URL=https://${APP_DOMAIN}
+      - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+      - VITE_API_URL=https://${APP_DOMAIN}/api
+      - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+      - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+      - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+      - REVOLT_UNSAFE_NO_CAPTCHA=1
+      - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+      - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+      - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+      - REVOLT_SMTP_FROM=`${REVOLT_SMTP_FROM}`
+      - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+      - REVOLT_MAX_GROUP_SIZE=150
+      - REVOLT_VAPID_PUBLIC_KEY=${REVOLT_VAPID_PUBLIC_KEY}
+      - REVOLT_VAPID_PRIVATE_KEY=${REVOLT_VAPID_PRIVATE_KEY}
+      - AUTUMN_S3_REGION=minio
+      - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+      - MINIO_ROOT_USER=minioautumn
+      - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+      - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+  # Web App (revite)
+  revolt:
+    image: ghcr.io/revoltchat/client:master
+    container_name: revolt
+    restart: always
+    networks:
+      - tipi_main_network
+    environment:
+      - MONGODB=mongodb://revolt-database
+      - REDIS_URI=redis://revolt-redis/
+      - HOSTNAME=https://${APP_DOMAIN}
+      - REVOLT_APP_URL=https://${APP_DOMAIN}
+      - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+      - VITE_API_URL=https://${APP_DOMAIN}/api
+      - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+      - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+      - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+      - REVOLT_UNSAFE_NO_CAPTCHA=1
+      - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+      - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+      - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+      - REVOLT_SMTP_FROM=`${REVOLT_SMTP_FROM}`
+      - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+      - REVOLT_MAX_GROUP_SIZE=150
+      - REVOLT_VAPID_PUBLIC_KEY=${REVOLT_VAPID_PUBLIC_KEY}
+      - REVOLT_VAPID_PRIVATE_KEY=${REVOLT_VAPID_PRIVATE_KEY}
+      - AUTUMN_S3_REGION=minio
+      - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+      - MINIO_ROOT_USER=minioautumn
+      - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+      - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.revolt.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.revolt.entrypoints: websecure
+      traefik.http.routers.revolt.service: revolt
+      traefik.http.routers.revolt.tls.certresolver: myresolver
+      traefik.http.services.revolt.loadbalancer.server.port: 5000
+
+  # API server (delta)
+  revolt-api:
+    image: ghcr.io/revoltchat/server:20230421-3
+    container_name: revolt-api
+    depends_on:
+      - revolt-database
+      - revolt-redis
+      - revolt
+    restart: always
+    networks:
+      - tipi_main_network
+    environment:
+      - MONGODB=mongodb://revolt-database
+      - REDIS_URI=redis://revolt-redis/
+      - HOSTNAME=https://${APP_DOMAIN}
+      - REVOLT_APP_URL=https://${APP_DOMAIN}
+      - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+      - VITE_API_URL=https://${APP_DOMAIN}/api
+      - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+      - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+      - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+      - REVOLT_UNSAFE_NO_CAPTCHA=1
+      - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+      - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+      - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+      - REVOLT_SMTP_FROM=`${REVOLT_SMTP_FROM}`
+      - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+      - REVOLT_MAX_GROUP_SIZE=150
+      - REVOLT_VAPID_PUBLIC_KEY=${REVOLT_VAPID_PUBLIC_KEY}
+      - REVOLT_VAPID_PRIVATE_KEY=${REVOLT_VAPID_PRIVATE_KEY}
+      - AUTUMN_S3_REGION=minio
+      - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+      - MINIO_ROOT_USER=minioautumn
+      - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+      - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.revolt-api.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/api`)
+      traefik.http.routers.revolt-api.entrypoints: websecure
+      traefik.http.routers.revolt-api.service: revolt-api
+      traefik.http.routers.revolt-api.middlewares: strip-api-prefix
+      traefik.http.middlewares.strip-api-prefix.stripprefix.prefixes: /api
+      traefik.http.services.revolt-api.loadbalancer.server.port: 8000
+
+
+  # Events service (quark)
+  revolt-events:
+    image: ghcr.io/revoltchat/bonfire:20230421-3
+    container_name: revolt-events
+    depends_on:
+      - revolt-database
+      - revolt-redis
+      - revolt
+    restart: always
+    networks:
+      - tipi_main_network
+    environment:
+      - MONGODB=mongodb://revolt-database
+      - REDIS_URI=redis://revolt-redis/
+      - HOSTNAME=https://${APP_DOMAIN}
+      - REVOLT_APP_URL=https://${APP_DOMAIN}
+      - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+      - VITE_API_URL=https://${APP_DOMAIN}/api
+      - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+      - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+      - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+      - REVOLT_UNSAFE_NO_CAPTCHA=1
+      - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+      - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+      - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+      - REVOLT_SMTP_FROM=`${REVOLT_SMTP_FROM}`
+      - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+      - REVOLT_MAX_GROUP_SIZE=150
+      - REVOLT_VAPID_PUBLIC_KEY=${REVOLT_VAPID_PUBLIC_KEY}
+      - REVOLT_VAPID_PRIVATE_KEY=${REVOLT_VAPID_PRIVATE_KEY}
+      - AUTUMN_S3_REGION=minio
+      - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+      - MINIO_ROOT_USER=minioautumn
+      - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+      - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.revolt-events.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/ws`) && Headers(`Connection`, `Upgrade`) && Headers(`Upgrade`, `websocket`)
+      traefik.http.routers.revolt-events.entrypoints: websecure
+      traefik.http.routers.revolt-events.service: revolt-events
+      traefik.http.routers.revolt-events.middlewares: strip-ws-prefix
+      traefik.http.middlewares.strip-ws-prefix.stripprefix.prefixes: /ws
+      traefik.http.services.revolt-events.loadbalancer.server.port: 9000
+
+  # File server (autumn)
+  revolt-autumn:
+    image: ghcr.io/revoltchat/autumn:1.1.8
+    container_name: revolt-autumn
+    depends_on:
+      - revolt-database
+      - revolt-createbuckets
+      - revolt
+    restart: always
+    networks:
+      - tipi_main_network
+    environment:
+      # Container Specific 
+      - AUTUMN_MONGO_URI=mongodb://revolt-database
+      # Below is Standard Config
+      - MONGODB=mongodb://revolt-database
+      - REDIS_URI=redis://revolt-redis/
+      - HOSTNAME=https://${APP_DOMAIN}
+      - REVOLT_APP_URL=https://${APP_DOMAIN}
+      - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+      - VITE_API_URL=https://${APP_DOMAIN}/api
+      - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+      - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+      - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+      - REVOLT_UNSAFE_NO_CAPTCHA=1
+      - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+      - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+      - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+      - REVOLT_SMTP_FROM=`${REVOLT_SMTP_FROM}`
+      - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+      - REVOLT_MAX_GROUP_SIZE=150
+      - REVOLT_VAPID_PUBLIC_KEY=${REVOLT_VAPID_PUBLIC_KEY}
+      - REVOLT_VAPID_PRIVATE_KEY=${REVOLT_VAPID_PRIVATE_KEY}
+      - AUTUMN_S3_REGION=minio
+      - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+      - MINIO_ROOT_USER=minioautumn
+      - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+      - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.revolt-autumn.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/autumn`)
+      traefik.http.routers.revolt-autumn.entrypoints: websecure
+      traefik.http.routers.revolt-autumn.service: revolt-autumn
+      traefik.http.routers.revolt-autumn.middlewares: strip-autumn-prefix
+      traefik.http.middlewares.strip-autumn-prefix.stripprefix.prefixes: /autumn
+      traefik.http.services.revolt-autumn.loadbalancer.server.port: 3000
+
+  # Metadata and image proxy (january)
+  revolt-january:
+    image: ghcr.io/revoltchat/january:master
+    container_name: revolt-january
+    depends_on:
+      - revolt
+    restart: always
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.http.routers.revolt-january.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/january`)
+      traefik.http.routers.revolt-january.entrypoints: websecure
+      traefik.http.routers.revolt-january.service: revolt-january
+      traefik.http.routers.revolt-january.middlewares: strip-january-prefix
+      traefik.http.middlewares.strip-january-prefix.stripprefix.prefixes: /january
+      traefik.http.services.revolt-january.loadbalancer.server.port: 7000
+    environment:
+      - MONGODB=mongodb://revolt-database
+      - REDIS_URI=redis://revolt-redis/
+      - HOSTNAME=https://${APP_DOMAIN}
+      - REVOLT_APP_URL=https://${APP_DOMAIN}
+      - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+      - VITE_API_URL=https://${APP_DOMAIN}/api
+      - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+      - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+      - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+      - REVOLT_UNSAFE_NO_CAPTCHA=1
+      - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+      - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+      - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+      - REVOLT_SMTP_FROM=`${REVOLT_SMTP_FROM}`
+      - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+      - REVOLT_MAX_GROUP_SIZE=150
+      - REVOLT_VAPID_PUBLIC_KEY=${REVOLT_VAPID_PUBLIC_KEY}
+      - REVOLT_VAPID_PRIVATE_KEY=${REVOLT_VAPID_PRIVATE_KEY}
+      - AUTUMN_S3_REGION=minio
+      - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+      - MINIO_ROOT_USER=minioautumn
+      - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+      - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+
+  # Create buckets for minio.
+  revolt-createbuckets:
+    image: minio/mc
+    container_name: revolt-createbuckets
+    depends_on:
+      - revolt-minio
+    entrypoint: >
+      /bin/sh -c "
+      while ! curl -s --output /dev/null --connect-timeout 1 http://revolt-minio:9000; do echo 'Waiting minio...' && sleep 0.1; done;
+      /usr/bin/mc alias set minio http://revolt-minio:9000 minioautumn ${REVOLT_MINIO_ROOT_PASSWORD};
+      /usr/bin/mc mb minio/attachments;
+      /usr/bin/mc mb minio/avatars;
+      /usr/bin/mc mb minio/backgrounds;
+      /usr/bin/mc mb minio/icons;
+      /usr/bin/mc mb minio/banners;
+      /usr/bin/mc mb minio/emojis;
+      exit 0;
+      "
+    networks:
+      - tipi_main_network
+    environment:
+      - MONGODB=mongodb://revolt-database
+      - REDIS_URI=redis://revolt-redis/
+      - HOSTNAME=https://${APP_DOMAIN}
+      - REVOLT_APP_URL=https://${APP_DOMAIN}
+      - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+      - VITE_API_URL=https://${APP_DOMAIN}/api
+      - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+      - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+      - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+      - REVOLT_UNSAFE_NO_CAPTCHA=1
+      - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+      - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+      - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+      - REVOLT_SMTP_FROM=`${REVOLT_SMTP_FROM}`
+      - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+      - REVOLT_MAX_GROUP_SIZE=150
+      - REVOLT_VAPID_PUBLIC_KEY=${REVOLT_VAPID_PUBLIC_KEY}
+      - REVOLT_VAPID_PRIVATE_KEY=${REVOLT_VAPID_PRIVATE_KEY}
+      - AUTUMN_S3_REGION=minio
+      - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+      - MINIO_ROOT_USER=minioautumn
+      - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+      - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+
