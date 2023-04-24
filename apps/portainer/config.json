@@ -6,9 +6,11 @@
   "exposable": true,
   "https": true,
   "id": "portainer",
-  "tipi_version": 7,
-  "version": "2.17.1-alpine",
-  "categories": ["utilities"],
+  "tipi_version": 8,
+  "version": "2.18.1-alpine",
+  "categories": [
+    "utilities"
+  ],
   "description": "",
   "short_desc": "Making Docker and Kubernetes management easy.",
   "author": "portainer.io",

@@ -32,6 +32,12 @@
     "gid": {
       "type": "integer"
     },
+    "force_expose": {
+      "type": "boolean"
+    },
+    "generate_vapid_keys": {
+      "type": "boolean"
+    },
     "requirements": {
       "type": "object",
       "properties": {
