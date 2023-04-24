@@ -5,7 +5,7 @@
   "available": true,
   "exposable": true,
   "id": "grafana",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "9.4.7",
   "categories": [
     "data"
