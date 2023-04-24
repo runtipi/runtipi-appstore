@@ -1,7 +1,7 @@
 version: '3'
 services:
   chatgpt-ui:
-    image: wongsaang/chatgpt-ui-client:v2.4.7
+    image: wongsaang/chatgpt-ui-client:v2.5.3
     container_name: chatgpt-ui
     environment:
       - SERVER_DOMAIN=http://chatgpt-ui-web-server
@@ -25,7 +25,7 @@ services:
       traefik.http.services.chatgpt-ui.loadbalancer.server.port: 80
   
   chatgpt-ui-wsgi-server:
-    image: wongsaang/chatgpt-ui-wsgi-server:v2.4.3
+    image: wongsaang/chatgpt-ui-wsgi-server:v2.4.4
     container_name: chatgpt-ui-wsgi-server
     environment:
       - APP_DOMAIN=${INTERNAL_IP}:8201
@@ -49,7 +49,7 @@ services:
     restart: always
   
   chatgpt-ui-web-server:
-    image: wongsaang/chatgpt-ui-web-server:v2.4.3
+    image: wongsaang/chatgpt-ui-web-server:v2.4.4
     container_name: chatgpt-ui-web-server
     environment:
       - BACKEND_URL=http://chatgpt-ui-wsgi-server:8000
