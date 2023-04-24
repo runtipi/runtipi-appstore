@@ -3,7 +3,6 @@
 - To Finish the AutoConfig, Please login to your Deezer Account in the Deemix UI. After logging in, the container will run
 
 ``` 
-
 -   /music root folder if no other root folder is configured
 -   Delay profile allowing Deemix to be used by automatic search
 -   Deemix as an indexer
