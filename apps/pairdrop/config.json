@@ -3,7 +3,6 @@
   "name": "PairDrop",
   "port": 8182,
   "available": true,
-  "exposable": true,
   "force_expose": true,
   "id": "pairdrop",
   "tipi_version": 1,
