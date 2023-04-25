@@ -74,13 +74,10 @@
       "env_variable": "REVOLT_SMTP_FROM"
     },
     {
-      "type": "select",
+      "type": "text",
       "label": "Revolt Invite Only",
       "hint": "Set to 1 if you want to make your instance Invite Only. If not set 0",
-      "options": [
-        "{ label: 'Public (0)', value: '0' }",
-        "{ label: 'Invite Only (1)', value: '1' }"
-      ],
+      "placeholder": "0",
       "required": true,
       "env_variable": "REVOLT_INVITE_ONLY"
     }
