@@ -27,4 +27,6 @@ use revolt
 db.invites.insertOne({ _id: "enter_an_invite_code_here" })
 ```
 
+### Voice Server Information
+ Revolts self hosted setup currently does not have a working voice server. Thier Voice Server, [Vortex](https://github.com/revoltchat/vortex), [devlopemnt is paused.](https://github.com/revoltchat/self-hosted/pull/28#issuecomment-1522325342)
 
