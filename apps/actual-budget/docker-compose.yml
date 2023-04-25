@@ -1,7 +1,7 @@
 version: '3.9'
 services:
-  actual-server:
-    container_name: actual-server
+  actual-buget:
+    container_name: actual-budget
     image: actualbudget/actual-server:23.4.2
     restart: unless-stopped
     ports:
@@ -9,11 +9,11 @@ services:
     networks:
       - tipi_main_network
     volumes:
-    - ${APP_DATA_DIR}/data:/data
+      - ${APP_DATA_DIR}/data:/data
     labels:
       traefik.enable: ${APP_EXPOSED}
-      traefik.http.routers.actual-server.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.actual-server.entrypoints: websecure
-      traefik.http.routers.actual-server.service: actual-server
-      traefik.http.routers.actual-server.tls.certresolver: myresolver
-      traefik.http.services.actual-server.loadbalancer.server.port: 5006
+      traefik.http.routers.actual-buget.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.actual-buget.entrypoints: websecure
+      traefik.http.routers.actual-buget.service: actual-buget
+      traefik.http.routers.actual-buget.tls.certresolver: myresolver
+      traefik.http.services.actual-buget.loadbalancer.server.port: 5006
