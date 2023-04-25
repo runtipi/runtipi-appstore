@@ -5,6 +5,7 @@
   "available": true,
   "exposable": true,
   "force_expose": true,
+  "generate_vapid_keys": true,
   "id": "revolt",
   "tipi_version": 3,
   "version": "1.1.8/20230421-3",
