@@ -4,6 +4,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 
 ## Apps available
 
+- [Actual Budget](https://github.com/actualbudget/actual-server) - Local-first OpenSource Budget tool
 - [Adguard Home](https://github.com/AdguardTeam/AdGuardHome) - Adguard Home DNS adblocker
 - [autobrr](https://github.com/autobrr/autobrr) - Automation for downloads.
 - [Barrage](https://github.com/maulik9898/barrage) - Minimal Deluge WebUI with full mobile support
@@ -54,6 +55,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [LibrePhotos](https://github.com/LibrePhotos/librephotos) - Complete photo management service
 - [LibreTranslate](https://github.com/LibreTranslate/LibreTranslate) - Free and Open Source Machine Translation API. 100% self-hosted, offline capable and easy to setup
 - [Lidarr](https://github.com/Lidarr/Lidarr) - Looks and smells like Sonarr but made for music.
+- [Lidarr On Steroids](https://github.com/youegraillot/lidarr-on-steroids) - Lidarr with some muscles thanks to deemix
 - [Littlelink Custom](https://github.com/JulianPrieber/littlelink-custom) - LittleLink Custom - the ultimate solution for creating a personalized & professional profile page.
 - [Lodestone Core](https://github.com/Lodestone-Team/lodestone_core) - Server hosting tool for Minecraft and other multiplayers
 - [Mealie](https://github.com/hay-kot/mealie) - Self-hosted recipe manager and meal planner.
@@ -78,6 +80,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Openbooks](https://github.com/evan-buss/openbooks) - Search and Download eBooks
 - [Overseerr](https://github.com/sct/overseerr) - Request management and media discovery tool for the Plex ecosystem
 - [Owncloud](https://github.com/owncloud/core) - A personal cloud which runs on your own server.
+- [PairDrop](https://github.com/schlagmichdoch/PairDrop) - Local file sharing in your browser. Inspired by Apple's AirDrop.
 - [Peppermint](https://github.com/Peppermint-Lab/peppermint) - An open source ticket management & help desk solution.
 - [Photoprism](https://github.com/photoprism/photoprism) - AI-Powered Photos App for the Decentralized Web. We are on a mission to protect your freedom and privacy.
 - [Pihole](https://github.com/pi-hole/pi-hole) - A black hole for Internet advertisements
