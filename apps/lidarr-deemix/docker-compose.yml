@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  lidarr-deemix:
+    image: youegraillot/lidarr-on-steroids:1.2.8
+    container_name: lidarr-deemix
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${APP_DATA_DIR}/data/config-deemix:/config_deemix
+      - ${ROOT_FOLDER_HOST}/media/downloads/deemix:/downloads
+      - ${ROOT_FOLDER_HOST}/media/data/music:/music
+      - ${ROOT_FOLDER_HOST}/media/usenet/completed/:/downloads/completed
+    ports:
+      - ${APP_PORT}:8686 # Lidarr web UI
+      - 8187:6595 # Deemix web UI
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.lidarr-deemix.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.lidarr-deemix.entrypoints: websecure
+      traefik.http.routers.lidarr-deemix.service: lidarr-deemix
+      traefik.http.routers.lidarr-deemix.tls.certresolver: myresolver
+      traefik.http.services.lidarr-deemix.loadbalancer.server.port: 8686
