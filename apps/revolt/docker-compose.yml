@@ -105,9 +105,9 @@ services:
       - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
   # Web App (revite)
-  revolt:
+  revolt-web:
     image: ghcr.io/revoltchat/client:master
-    container_name: revolt
+    container_name: revolt-web
     restart: always
     networks:
       - tipi_main_network
@@ -136,13 +136,6 @@ services:
       - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
       - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
-    labels:
-      traefik.enable: ${APP_EXPOSED}
-      traefik.http.routers.revolt.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.revolt.entrypoints: websecure
-      traefik.http.routers.revolt.service: revolt
-      traefik.http.routers.revolt.tls.certresolver: myresolver
-      traefik.http.services.revolt.loadbalancer.server.port: 5000
 
   # API server (delta)
   revolt-api:
@@ -180,15 +173,6 @@ services:
       - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
       - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
-    labels:
-      traefik.enable: ${APP_EXPOSED}
-      traefik.http.routers.revolt-api.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/api`)
-      traefik.http.routers.revolt-api.entrypoints: websecure
-      traefik.http.routers.revolt-api.service: revolt-api
-      traefik.http.routers.revolt-api.middlewares: strip-api-prefix
-      traefik.http.middlewares.strip-api-prefix.stripprefix.prefixes: /api
-      traefik.http.services.revolt-api.loadbalancer.server.port: 8000
-
 
   # Events service (quark)
   revolt-events:
@@ -226,14 +210,6 @@ services:
       - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
       - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
-    labels:
-      traefik.enable: ${APP_EXPOSED}
-      traefik.http.routers.revolt-events.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/ws`) && Headers(`Connection`, `Upgrade`) && Headers(`Upgrade`, `websocket`)
-      traefik.http.routers.revolt-events.entrypoints: websecure
-      traefik.http.routers.revolt-events.service: revolt-events
-      traefik.http.routers.revolt-events.middlewares: strip-ws-prefix
-      traefik.http.middlewares.strip-ws-prefix.stripprefix.prefixes: /ws
-      traefik.http.services.revolt-events.loadbalancer.server.port: 9000
 
   # File server (autumn)
   revolt-autumn:
@@ -274,14 +250,6 @@ services:
       - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
       - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
-    labels:
-      traefik.enable: ${APP_EXPOSED}
-      traefik.http.routers.revolt-autumn.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/autumn`)
-      traefik.http.routers.revolt-autumn.entrypoints: websecure
-      traefik.http.routers.revolt-autumn.service: revolt-autumn
-      traefik.http.routers.revolt-autumn.middlewares: strip-autumn-prefix
-      traefik.http.middlewares.strip-autumn-prefix.stripprefix.prefixes: /autumn
-      traefik.http.services.revolt-autumn.loadbalancer.server.port: 3000
 
   # Metadata and image proxy (january)
   revolt-january:
@@ -292,13 +260,6 @@ services:
     restart: always
     networks:
       - tipi_main_network
-    labels:
-      traefik.http.routers.revolt-january.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/january`)
-      traefik.http.routers.revolt-january.entrypoints: websecure
-      traefik.http.routers.revolt-january.service: revolt-january
-      traefik.http.routers.revolt-january.middlewares: strip-january-prefix
-      traefik.http.middlewares.strip-january-prefix.stripprefix.prefixes: /january
-      traefik.http.services.revolt-january.loadbalancer.server.port: 7000
     environment:
       - MONGODB=mongodb://revolt-database
       - REDIS_URI=redis://revolt-redis/
@@ -370,4 +331,40 @@ services:
       - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
       - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+
+  revolt:
+    image: caddy
+    restart: always
+    environment:
+      - MONGODB=mongodb://revolt-database
+      - REDIS_URI=redis://revolt-redis/
+      - HOSTNAME=https://${APP_DOMAIN}
+      - REVOLT_APP_URL=https://${APP_DOMAIN}
+      - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+      - VITE_API_URL=https://${APP_DOMAIN}/api
+      - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+      - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+      - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+      - REVOLT_UNSAFE_NO_CAPTCHA=1
+      - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+      - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+      - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+      - REVOLT_SMTP_FROM=`${REVOLT_SMTP_FROM}`
+      - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+      - REVOLT_MAX_GROUP_SIZE=150
+      - REVOLT_VAPID_PUBLIC_KEY=${REVOLT_VAPID_PUBLIC_KEY}
+      - REVOLT_VAPID_PRIVATE_KEY=${REVOLT_VAPID_PRIVATE_KEY}
+      - AUTUMN_S3_REGION=minio
+      - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+      - MINIO_ROOT_USER=minioautumn
+      - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+      - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+    ports:
+      - "8272:80"
+      - "8273:443"
+    volumes:
+      - ${APP_DATA_DIR}/data/CaddyFiles:/etc/caddy/
+      - ${APP_DATA_DIR}/data/caddy-data:/data
+      - ${APP_DATA_DIR}/data/caddy-config:/config
 
