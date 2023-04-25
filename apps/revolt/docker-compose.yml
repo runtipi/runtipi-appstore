@@ -13,7 +13,7 @@ services:
     environment:
       - MONGODB=mongodb://revolt-database
       - REDIS_URI=redis://revolt-redis/
-      - HOSTNAME=https://${APP_DOMAIN}
+      - HOSTNAME=:80
       - REVOLT_APP_URL=https://${APP_DOMAIN}
       - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
       - VITE_API_URL=https://${APP_DOMAIN}/api
@@ -46,7 +46,7 @@ services:
     environment:
       - MONGODB=mongodb://revolt-database
       - REDIS_URI=redis://revolt-redis/
-      - HOSTNAME=https://${APP_DOMAIN}
+      - HOSTNAME=:80
       - REVOLT_APP_URL=https://${APP_DOMAIN}
       - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
       - VITE_API_URL=https://${APP_DOMAIN}/api
@@ -82,7 +82,7 @@ services:
     environment:
       - MONGODB=mongodb://revolt-database
       - REDIS_URI=redis://revolt-redis/
-      - HOSTNAME=https://${APP_DOMAIN}
+      - HOSTNAME=:80
       - REVOLT_APP_URL=https://${APP_DOMAIN}
       - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
       - VITE_API_URL=https://${APP_DOMAIN}/api
@@ -114,7 +114,7 @@ services:
     environment:
       - MONGODB=mongodb://revolt-database
       - REDIS_URI=redis://revolt-redis/
-      - HOSTNAME=https://${APP_DOMAIN}
+      - HOSTNAME=:80
       - REVOLT_APP_URL=https://${APP_DOMAIN}
       - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
       - VITE_API_URL=https://${APP_DOMAIN}/api
@@ -151,7 +151,7 @@ services:
     environment:
       - MONGODB=mongodb://revolt-database
       - REDIS_URI=redis://revolt-redis/
-      - HOSTNAME=https://${APP_DOMAIN}
+      - HOSTNAME=:80
       - REVOLT_APP_URL=https://${APP_DOMAIN}
       - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
       - VITE_API_URL=https://${APP_DOMAIN}/api
@@ -188,7 +188,7 @@ services:
     environment:
       - MONGODB=mongodb://revolt-database
       - REDIS_URI=redis://revolt-redis/
-      - HOSTNAME=https://${APP_DOMAIN}
+      - HOSTNAME=:80
       - REVOLT_APP_URL=https://${APP_DOMAIN}
       - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
       - VITE_API_URL=https://${APP_DOMAIN}/api
@@ -228,7 +228,7 @@ services:
       # Below is Standard Config
       - MONGODB=mongodb://revolt-database
       - REDIS_URI=redis://revolt-redis/
-      - HOSTNAME=https://${APP_DOMAIN}
+      - HOSTNAME=:80
       - REVOLT_APP_URL=https://${APP_DOMAIN}
       - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
       - VITE_API_URL=https://${APP_DOMAIN}/api
@@ -263,7 +263,7 @@ services:
     environment:
       - MONGODB=mongodb://revolt-database
       - REDIS_URI=redis://revolt-redis/
-      - HOSTNAME=https://${APP_DOMAIN}
+      - HOSTNAME=:80
       - REVOLT_APP_URL=https://${APP_DOMAIN}
       - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
       - VITE_API_URL=https://${APP_DOMAIN}/api
@@ -309,7 +309,7 @@ services:
     environment:
       - MONGODB=mongodb://revolt-database
       - REDIS_URI=redis://revolt-redis/
-      - HOSTNAME=https://${APP_DOMAIN}
+      - HOSTNAME=:80
       - REVOLT_APP_URL=https://${APP_DOMAIN}
       - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
       - VITE_API_URL=https://${APP_DOMAIN}/api
@@ -339,7 +339,7 @@ services:
     environment:
       - MONGODB=mongodb://revolt-database
       - REDIS_URI=redis://revolt-redis/
-      - HOSTNAME=https://${APP_DOMAIN}
+      - HOSTNAME=:80
       - REVOLT_APP_URL=https://${APP_DOMAIN}
       - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
       - VITE_API_URL=https://${APP_DOMAIN}/api
