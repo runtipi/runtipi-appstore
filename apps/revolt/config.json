@@ -6,6 +6,7 @@
   "exposable": true,
   "force_expose": true,
   "generate_vapid_keys": true,
+  "supported_architectures": ["amd64"],
   "id": "revolt",
   "tipi_version": 3,
   "version": "1.1.8/20230421-3",
@@ -67,6 +68,7 @@
     {
       "type": "text",
       "label": "SMTP From Address",
+      "hint": "Make sure the Format is like Revolt <noreply@example.com>",
       "placeholder": "Revolt <noreply@example.com>",
       "required": true,
       "env_variable": "REVOLT_SMTP_FROM"
