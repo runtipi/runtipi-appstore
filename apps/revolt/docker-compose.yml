@@ -334,6 +334,7 @@ services:
 
   revolt:
     image: caddy
+    container_name: revolt
     restart: always
     environment:
       - MONGODB=mongodb://revolt-database
@@ -367,4 +368,11 @@ services:
       - ${APP_DATA_DIR}/data/CaddyFiles:/etc/caddy/
       - ${APP_DATA_DIR}/data/caddy-data:/data
       - ${APP_DATA_DIR}/data/caddy-config:/config
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.revolt.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.revolt.entrypoints: websecure
+      traefik.http.routers.revolt.service: revolt
+      traefik.http.routers.revolt.tls.certresolver: myresolver
+      traefik.http.services.revolt.loadbalancer.server.port: 80
 
