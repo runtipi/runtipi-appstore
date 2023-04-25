@@ -78,20 +78,6 @@
       "placeholder": "0",
       "required": true,
       "env_variable": "REVOLT_INVITE_ONLY"
-    },
-    {
-      "type": "text",
-      "label": "Revolt Vapid Public Key",
-      "hint": "Vapid Public Key (Check Install Documents)",
-      "required": true,
-      "env_variable": "REVOLT_VAPID_PUBLIC_KEY"
-    },
-    {
-      "type": "text",
-      "label": "Revolt Vapid Private Key",
-      "hint": "Vapid Private Key (Check Install Documents)",
-      "required": true,
-      "env_variable": "REVOLT_VAPID_PRIVATE_KEY"
     }
   ]
 }
