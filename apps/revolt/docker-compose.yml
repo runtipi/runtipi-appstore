@@ -368,6 +368,8 @@ services:
       - ${APP_DATA_DIR}/data/CaddyFiles:/etc/caddy/
       - ${APP_DATA_DIR}/data/caddy-data:/data
       - ${APP_DATA_DIR}/data/caddy-config:/config
+    networks:
+      - tipi_main_network
     labels:
       traefik.enable: ${APP_EXPOSED}
       traefik.http.routers.revolt.rule: Host(`${APP_DOMAIN}`)
