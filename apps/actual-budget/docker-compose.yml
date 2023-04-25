@@ -1,6 +1,6 @@
 version: '3.9'
 services:
-  actual-buget:
+  actual-budget:
     container_name: actual-budget
     image: actualbudget/actual-server:23.4.2
     restart: unless-stopped
@@ -12,8 +12,8 @@ services:
       - ${APP_DATA_DIR}/data:/data
     labels:
       traefik.enable: ${APP_EXPOSED}
-      traefik.http.routers.actual-buget.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.actual-buget.entrypoints: websecure
-      traefik.http.routers.actual-buget.service: actual-buget
-      traefik.http.routers.actual-buget.tls.certresolver: myresolver
-      traefik.http.services.actual-buget.loadbalancer.server.port: 5006
+      traefik.http.routers.actual-budget.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.actual-budget.entrypoints: websecure
+      traefik.http.routers.actual-budget.service: actual-budget
+      traefik.http.routers.actual-budget.tls.certresolver: myresolver
+      traefik.http.services.actual-budget.loadbalancer.server.port: 5006
