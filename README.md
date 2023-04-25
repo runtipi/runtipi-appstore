@@ -4,6 +4,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 
 ## Apps available
 
+- [Actual Budget](https://github.com/actualbudget/actual-server) - Local-first OpenSource Budget tool
 - [Adguard Home](https://github.com/AdguardTeam/AdGuardHome) - Adguard Home DNS adblocker
 - [autobrr](https://github.com/autobrr/autobrr) - Automation for downloads.
 - [Barrage](https://github.com/maulik9898/barrage) - Minimal Deluge WebUI with full mobile support
