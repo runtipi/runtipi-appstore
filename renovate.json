@@ -7,5 +7,12 @@
     "githubaction@githubaction.com"
   ],
   "dependencyDashboard": true,
-  "enabledManagers": ["docker-compose", "dockerfile"]
+  "enabledManagers": ["docker-compose", "dockerfile"],
+  "packageRules": [
+    {
+      "managers": ["docker-compose", "dockerfile"],
+      "packagePatterns": ["^([^\\/]+\\/)?(mysql|mariadb|mongodb|postgres|redis)(:|$)"],
+      "enabled": false
+    }
+  ]
 }
