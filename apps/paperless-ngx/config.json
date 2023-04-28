@@ -42,7 +42,7 @@
           { "label": "Yes", "value": "1" },
           { "label": "No", "value": "2" }
         ],
-        "env_variable": "REVOLT_INVITE_ONLY"
+        "env_variable": "PAPERLESS_TIKA_ENABLED"
       }
     ]
   }
