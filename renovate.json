@@ -11,7 +11,7 @@
   "packageRules": [
     {
       "managers": ["docker-compose", "dockerfile"],
-      "packagePatterns": ["^([^\\/]+\\/)?(mysql|mariadb|mongodb|postgres|redis)(:|$)"],
+      "packagePatterns": ["^([^\\/]+\\/)?(mysql|mariadb|mongodb|mongo|postgres|redis)(:|$)"],
       "enabled": false
     }
   ]
