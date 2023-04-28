@@ -10,6 +10,7 @@ services:
       - ${ROOT_FOLDER_HOST}/media/downloads/deemix:/downloads
       - ${ROOT_FOLDER_HOST}/media/data/music:/music
       - ${ROOT_FOLDER_HOST}/media/usenet/completed/:/downloads/completed
+      - ${ROOT_FOLDER_HOST}/media:/media
     ports:
       - ${APP_PORT}:8686 # Lidarr web UI
       - 8187:6595 # Deemix web UI

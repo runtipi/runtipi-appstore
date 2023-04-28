@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   jackett:
-    image: lscr.io/linuxserver/jackett:0.20.3996
+    image: lscr.io/linuxserver/jackett:0.20.4013
     container_name: jackett
     environment:
       - PUID=1000
