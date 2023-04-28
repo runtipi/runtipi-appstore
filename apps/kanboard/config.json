@@ -14,11 +14,9 @@
   "website": "https://kanboard.org/",
   "form_fields": [
     {
-      "type": "text",
-      "label": "Enable Plugin Installer (true or false)",
-      "max": 5,
-      "min": 4,
-      "required": true,
+      "type": "boolean",
+      "label": "Enable Plugin Installer",
+      "required": false,
       "env_variable": "PLUGIN_INSTALLER"
     }
   ]
