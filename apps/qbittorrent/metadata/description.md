@@ -12,4 +12,4 @@ Password: adminadmin
 | Root Folder                               | Container Folder |
 |-------------------------------------------|------------------|
 | /runtipi/app-data/qbittorrent/data/config | /config          |
-| /runtipi/media/torrents                   | /downloads       |
+| /runtipi/media/torrents                   | /media/torrents  |
