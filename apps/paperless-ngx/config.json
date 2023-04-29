@@ -34,12 +34,14 @@
         "env_variable": "PAPERLESS_ADMIN_PASSWORD"
       },
       {
+        "label": "Enable Tika",
         "type": "text",
-        "label": "Enable Tika (1 or 0)",
+        "hint": "Do you want to enable a Tika server for parsing and converting 'Office' documents (such as '.doc', '.xlsx' and '.odt')",
         "required": true,
-        "min": 1,
-        "max": 1,
-        "hint": "1 = yes, 2= no",
+        "options": [
+          { "label": "Yes", "value": "1" },
+          { "label": "No", "value": "2" }
+        ],
         "env_variable": "PAPERLESS_TIKA_ENABLED"
       }
     ]
