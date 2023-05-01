@@ -11,7 +11,7 @@ services:
       - ${APP_DATA_DIR}/data/gotosocial:/gotosocial/storage
     environment:
       - GTS_HOST=${APP_DOMAIN}
-      - GTS_LETSENCRYPT_ENABLED="false"
+      - GTS_LETSENCRYPT_ENABLED=false
       - GTS_DB_TYPE=postgres
       - GTS_DB_ADDRESS=gotosocial-db
       - GTS_DB_PORT=5432
