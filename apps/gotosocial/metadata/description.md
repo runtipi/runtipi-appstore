@@ -1,8 +1,16 @@
-# Inital User Account
+# Inital User Account & Admin
 
 To Create your user 
 1. SSH Into your Tipi Server
 2. Fill in your Creditnals (some_username,someone@example.org, some_very_good_password), then run the command! `docker exec -it gotosocial /gotosocial/gotosocial admin account create --username some_username --email someone@example.org --password 'some_very_good_password' `
+
+To Promote the Intial User or any user to admin
+
+1. SSH Into your Tipi Server
+2. Fill in your Creditnals (some_username), then run the command! `docker exec -it gotosocial /gotosocial/gotosocial admin account promote --username some_username`
+3. Go Back To your WebUI, Stop and Start your instance.
+4. go to yourdomain.com/settings and you will be able to see personal and instance settings!
+
 
 ---
 
