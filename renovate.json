@@ -10,6 +10,11 @@
   "enabledManagers": ["docker-compose", "dockerfile"],
   "hostRules": [
     {
+      "hostType": "docker",
+      "username": "{{ secrets.DOCKERHUB_USERNAME }}",
+      "password": "{{ secrets.DOCKERHUB_PASSWORD }}"
+    },
+    {
       "matchHost": "docker.io",
       "concurrentRequestLimit": 2
     }
