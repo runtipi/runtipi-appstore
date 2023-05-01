@@ -1,0 +1,53 @@
+version: "3"
+
+services:
+  gotosocial:
+    container_name: gotosocial
+    image: superseriousbusiness/gotosocial:0.8.1
+    user: 1000:1000
+    ports:
+      - ${APP_PORT}:8080
+    volumes:
+      - ${APP_DATA_DIR}/data/gotosocial:/gotosocial/storage
+    environment:
+      - GTS_HOST=${APP_DOMAIN}
+      - GTS_LETSENCRYPT_ENABLED="false"
+      - GTS_DB_TYPE=postgres
+      - GTS_DB_ADDRESS=gotosocial-db
+      - GTS_DB_PORT=5432
+      - GTS_DB_USER=tipi
+      - GTS_DB_PASSWORD=${GTS_DB_PASSWORD}
+      - GTS_DB_DATABASE=gotosocial-db
+      - GTS_ACCOUNTS_REGISTRATION_OPEN=${GTS_ACCOUNTS_REGISTRATION_OPEN}
+      - GTS_SMTP_HOST=${}
+      - GTS_SMTP_PORT=${}
+      - GTS_SMTP_USERNAME=${}
+      - GTS_SMTP_PASSWORD=${}
+      - GTS_SMTP_FROM=${}
+
+
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.gotosocial.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.gotosocial.entrypoints: websecure
+      traefik.http.routers.gotosocial.service: gotosocial
+      traefik.http.routers.gotosocial.tls.certresolver: myresolver
+      traefik.http.services.gotosocial.loadbalancer.server.port: 8080
+  gotosocial-db:
+    container_name: gotosocial-db
+    image: postgres:14
+    environment:
+      POSTGRES_PASSWORD: ${GTS_DB_PASSWORD}
+      POSTGRES_USER: tipi
+      POSTGRES_DB: gotosocial-db
+      PG_DATA: /var/lib/postgresql/data
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+
+
