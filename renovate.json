@@ -8,6 +8,12 @@
   ],
   "dependencyDashboard": true,
   "enabledManagers": ["docker-compose", "dockerfile"],
+  "hostRules": [
+    {
+      "matchHost": "docker.io",
+      "concurrentRequestLimit": 2
+    }
+  ],
   "packageRules": [
     {
       "managers": ["docker-compose", "dockerfile"],
