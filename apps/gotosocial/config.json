@@ -27,7 +27,7 @@
         { "label": "Open Sign Up", "value": "true" },
         { "label": "Invite Only", "value": "false" }
       ],
-      "env_variable": "fruits"
+      "env_variable": "GTS_ACCOUNTS_REGISTRATION_OPE"
     },
     {
       "type": "text",
