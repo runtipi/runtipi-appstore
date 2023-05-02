@@ -9,7 +9,8 @@
 ### To promote the initial user (or any user) to admin:
 1. SSH into your Tipi Server
 2. Fill in your credentials (some_username), then run the command: 
-    ```docker exec -it gotosocial /gotosocial/gotosocial admin account promote --username some_username 
+    ```
+    docker exec -it gotosocial /gotosocial/gotosocial admin account promote --username some_username 
     ```
 3. Go Back To your WebUI, Stop and Start your instance.
 4. Go to yourdomain.com/settings and you will be able to see personal and instance settings!
