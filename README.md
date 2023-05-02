@@ -33,6 +33,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Gitea](https://github.com/go-gitea/gitea) - Gitea - A painless self-hosted Git service
 - [Gladys Assistant](https://github.com/gladysassistant/gladys) - A privacy-first, open-source home assistant
 - [Gotify](https://github.com/gotify/server) - Gotify - Simple server for sending and receiving notification messages
+-[GoToSocial](https://github.com/superseriousbusiness/gotosocial) - Fast, fun, ActivityPub server, powered by Go.
 - [Grafana](https://github.com/grafana/grafana) - The open and composable observability and data visualization platform
 - [Grav](https://github.com/getgrav/grav) - Fast, Simple, and Flexible, file-based Web-platform.
 - [Grocy](https://github.com/grocy/grocy) - Grocy - ERP beyond your fridge
@@ -50,6 +51,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Jellyfin](https://github.com/jellyfin/jellyfin) - A media server for your home collection
 - [Jellyseerr](https://github.com/Fallenbagel/jellyseerr) - Fork of overseerr for Jellyfin support
 - [Joplin](https://github.com/laurent22/joplin) - Privacy focused note-taking app
+- [Kanboard](https://github.com/kanboard/kanboard) - Kanboard is a free and open source Kanban project management software.
 - [Kavita](https://github.com/Kareadita/Kavita) - Kavita is a fast, feature rich, cross platform reading server
 - [Libreddit](https://github.com/spikecodes/libreddit) - Private front-end for Reddit
 - [LibrePhotos](https://github.com/LibrePhotos/librephotos) - Complete photo management service
