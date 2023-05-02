@@ -12,7 +12,7 @@
     {
       "hostType": "docker",
       "username": "{{ secrets.DOCKERHUB_USERNAME }}",
-      "password": "{{ secrets.DOCKERHUB_PASSWORD }}"
+      "password": "{{ secrets.DOCKERHUB_TOKEN }}"
     },
     {
       "matchHost": "docker.io",
