@@ -52,7 +52,7 @@ services:
       - tipi_main_network
 
   librephotos-backend:
-    image: reallibrephotos/librephotos:2023w12
+    image: reallibrephotos/librephotos:2023w18
     container_name: librephotos-backend
     restart: unless-stopped
     volumes:
