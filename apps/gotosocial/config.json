@@ -9,8 +9,8 @@
   "tipi_version": 1,
   "version": "0.8.1",
   "categories": ["social"],
-  "description": "Fast, fun, ActivityPub server, powered by Go. ",
-  "short_desc": "Fast, fun, ActivityPub server, powered by Go. ",
+  "description": "Fast, fun, ActivityPub server, powered by Go.",
+  "short_desc": "Fast, fun, ActivityPub server, powered by Go.",
   "author": "superseriousbusiness",
   "source": "https://github.com/superseriousbusiness/gotosocial",
   "form_fields": [

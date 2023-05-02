@@ -1,19 +1,38 @@
 # Inital User Account & Admin
 
 To Create your user 
-1. SSH Into your Tipi Server
-2. Fill in your Creditnals (some_username,someone@example.org, some_very_good_password), then run the command! `docker exec -it gotosocial /gotosocial/gotosocial admin account create --username some_username --email someone@example.org --password 'some_very_good_password' `
+1. SSH into your Tipi Server
+2. Fill in your credentials (some_username,someone@example.org, some_very_good_password), then run the command: `docker exec -it gotosocial /gotosocial/gotosocial admin account create --username some_username --email someone@example.org --password 'some_very_good_password' `
 
-To Promote the Intial User or any user to admin
-
-1. SSH Into your Tipi Server
-2. Fill in your Creditnals (some_username), then run the command! `docker exec -it gotosocial /gotosocial/gotosocial admin account promote --username some_username`
+To promote the initial user (or any user) to admin:
+1. SSH into your Tipi Server
+2. Fill in your credentials (some_username), then run the command: `docker exec -it gotosocial /gotosocial/gotosocial admin account promote --username some_username`
 3. Go Back To your WebUI, Stop and Start your instance.
-4. go to yourdomain.com/settings and you will be able to see personal and instance settings!
-
+4. Go to yourdomain.com/settings and you will be able to see personal and instance settings!
 
 ---
 
+# S3 Bucket
+1. Follow the [App User Config Guide](https://www.runtipi.io/docs/guides/customize-app-config) to make a folder and app.env.
+2. In the docker-compose.yml you can set the S3 Config Like
+
+```
+version: "3"
+services:
+  gotosocial:
+    environment:
+      - GTS_STORAGE_BACKEND=s3
+      - GTS_STORAGE_S3_ENDPOINT=your_endpoint
+      - GTS_STORAGE_S3_USE_SSL=true
+      - GTS_STORAGE_S3_ACCESS_KEY=your_access_key
+      - GTS_STORAGE_S3_SECRET_KEY=your_secret_key
+      - GTS_STORAGE_S3_BUCKET=your_bucket
+```
+3. Restart your app, and your good to go!
+
+4. For More Info [Read the Docs!](https://docs.gotosocial.org/en/latest/configuration/storage/)
+
+---
 # GoToSocial
 
 GoToSocial is an [ActivityPub](https://activitypub.rocks/) social network server, written in Golang.

@@ -9,6 +9,8 @@ services:
       - ${APP_PORT}:8080
     volumes:
       - ${APP_DATA_DIR}/data/gotosocial:/gotosocial/storage
+    depends_on:
+      - gotosocial-db
     environment:
       - GTS_HOST=${APP_DOMAIN}
       - GTS_LETSENCRYPT_ENABLED=false
@@ -24,8 +26,6 @@ services:
       - GTS_SMTP_USERNAME=${GTS_SMTP_USERNAME}
       - GTS_SMTP_PASSWORD=${GTS_SMTP_PASSWORD}
       - GTS_SMTP_FROM=${GTS_SMTP_FROM}
-
-
     restart: unless-stopped
     networks:
       - tipi_main_network
@@ -36,6 +36,7 @@ services:
       traefik.http.routers.gotosocial.service: gotosocial
       traefik.http.routers.gotosocial.tls.certresolver: myresolver
       traefik.http.services.gotosocial.loadbalancer.server.port: 8080
+ 
   gotosocial-db:
     container_name: gotosocial-db
     image: postgres:14
@@ -49,5 +50,3 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
-
-
