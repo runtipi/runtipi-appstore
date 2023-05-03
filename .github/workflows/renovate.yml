@@ -30,4 +30,4 @@ jobs:
           token: ${{ secrets.RENOVATE_TOKEN }}
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN}}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
