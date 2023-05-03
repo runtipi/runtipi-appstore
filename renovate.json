@@ -10,14 +10,6 @@
   "enabledManagers": ["docker-compose", "dockerfile"],
   "hostRules": [
     {
-      "matchHost": "index.docker.io",
-      "hostType": "docker",
-      "encrypted": {
-          "username": "wcFMA/xDdHCJBTolAQ/6AkgXGzF68vsK04v/GQazotnuotalSmW92pqHJm+HcP0NlhfSX3jv0xa/cw+PVXIKplteLhTCpdD1JGm21lBsVbUW7ht7Lj7c8Jkqvn3CPPY20l6Zxv3voAF/G+O9RdoR6UDQdELvrZL0GTnmap/jFtmFT/5NOASmMTbK207B7+/OIcBkyk02juaHvcllp3ximvaUFXRLr/Z+kULwBo/zdDrzd6uxX17viq7HuRkXGVHFzDFbun+SmBzdQRFUrel3ChZudlliud6lfMjDcgAL1bDLORkIHRclVF1IKyL/4fzhZ7VWX/BBhFZnW34ibD7ua5pbeXc6lcsOYT+91UcKVPvrNS+aAPER4svCbppm+JTccIvw/hG3FuqVqvtLV9Ate/+s/YRteFI5mYJmhapwiV3Kwy1/ILsJrhrA+S17E9h3DdTj4hqSW7DwEwXX7+GFGDJ7VHNNAUVdjNnKC0dWW+mZiJDt6KJ9aOc9hhgdEZhaIubk2S4uz4i+SCrpDgFASdcSuPsfL/rxFDt3uw7RDYR3LkJRAvqxSlTfqOdFL/Z/F1ud2PGn3slFRsdpjTuuGtR9GbTIixhPu3SxJ2YGr8KNsUE7mLlmr/t6GrPrAJNKC5DKg9Y70hvZ2YCl0toXuWGheGMGCU2AjXp2K/H864/a6c/BXNEiPJoSG4xDJNPSZgEwBj7KGZLfnX0U8hYS/tO93MvX79POjKrjBmq91WPtbGcCrmQx/5QuSczfsbAuRVZaKK6VqU14YIdeGz2NAVC5jWoDnlvEkL5sV0+PceFV9cc7mS/V+fzXCJSokFzP1VdbQ3PpBgE",
-          "password": "wcFMA/xDdHCJBTolAQ/9GRBMmOIIYT7vGWpjMD4UJN1zHR8O4xrmbwDFl/VXO26SoYcv34QpJsNr748f2zPVwQ77+Z22Tv9QMY1aA0sgT3t69NN1KVt9ErWa6Hctm5fFxhichrvgfb7mmjDcHr2mG2YGGHF5btZHlfxZXdEeLyBLwVXuS4tOb+9JAlyi6zvpdSqdSviPYFv2HSccMyuQxGHoQ02JT8v65K86E6BtvxCPVovs6RsBOF5SIZ4QHU4gaa0X2pDHefM61/b41QJLRNVNbR6NjROOG8Tt5JSgFxwvmO2HzT2LHzHlIXm936ElHRHkM7kaE3GMbT1tpLl2yGmQPDNHsUyAs9B8E86/I6Jatadq40jwLUWeCy2FAx4XwrBMFSNp9D+DmdFk6PcOUT4Wjyxg1gUWY67DTd6anWjivmbkDmlBqIpbIiJMIel4JlquQF1wnfqf46BKVOFSlBxIb8YZGpB2U0PdM8i4we6nInK4bwK/Ib2Ux4O+GLCEsoUHqD0gUff2+7rdE8Yi4ctui1RWRInE3WA9ix9CawZcVJImcQxKJzNRk1ZzoCe30+uN69o4bFGa/6kRFO6yAmPaOwp781CWX42fZQGZhp8gQzhRUjeDW2Wr2ygJclo9vzJ0eQPh0amdOXL1FazIa6jCtMY6VGMlfwG6Ip9t+NEBcb73GraOboPQMxXUxcTShgGiV+YzkBuH7tKGTSOhbAwhlV3OJs3PFAlvrJ4Vx40LNEinMsSAcVNxoDERi3E1JnjGNe1JlCHqLZEkNhwr9dDrr2OwSuC3RNm3r+hyl0twh97MHQonF/T6jX57aEHojASpml8rapCYUn/CUtXJRdA8zp9eV7P8BN8VpTWLgizd+fJ+Vylj"
-      }            
-    },
-    {
       "matchHost": "docker.io",
       "concurrentRequestLimit": 2
     }
