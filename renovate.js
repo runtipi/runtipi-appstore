@@ -1,5 +1,7 @@
 module.exports = {
   extends: ["config:base"],
+  onboarding: false,
+  requireConfig: false,
   gitIgnoredAuthors: ["githubaction@githubaction.com"],
   dependencyDashboard: true,
   enabledManagers: ["docker-compose", "dockerfile"],
