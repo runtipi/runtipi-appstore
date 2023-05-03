@@ -5,10 +5,15 @@
   "available": true,
   "exposable": true,
   "id": "librephotos",
-  "tipi_version": 5,
-  "version": "2023w12",
-  "supported_architectures": ["amd64", "arm64"],
-  "categories": ["photography"],
+  "tipi_version": 6,
+  "version": "2023w18",
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "categories": [
+    "photography"
+  ],
   "description": "Complete photo management service",
   "short_desc": "Complete photo management service",
   "author": "Niaz Faridani-Rad",
