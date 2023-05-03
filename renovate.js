@@ -1,30 +1,27 @@
 module.exports = {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
-  ],
-  "gitIgnoredAuthors": [
-    "githubaction@githubaction.com"
-  ],
-  "dependencyDashboard": true,
-  "enabledManagers": ["docker-compose", "dockerfile"],
-  "hostRules": [
+  extends: ["config:base"],
+  gitIgnoredAuthors: ["githubaction@githubaction.com"],
+  dependencyDashboard: true,
+  enabledManagers: ["docker-compose", "dockerfile"],
+  hostRules: [
     {
-      "matchHost": "index.docker.io",
-      "hostType": "docker",
-      "username": process.env.DOCKERHUB_USERNAME,
-      "password": process.env.DOCKERHUB_TOKEN
+      matchHost: "index.docker.io",
+      hostType: "docker",
+      username: process.env.DOCKERHUB_USERNAME,
+      password: process.env.DOCKERHUB_TOKEN,
     },
     {
-      "matchHost": "docker.io",
-      "concurrentRequestLimit": 2
-    }
+      matchHost: "docker.io",
+      concurrentRequestLimit: 2,
+    },
   ],
-  "packageRules": [
+  packageRules: [
     {
-      "managers": ["docker-compose", "dockerfile"],
-      "packagePatterns": ["^([^\\/]+\\/)?(mysql|mariadb|mongodb|mongo|postgres|redis)(:|$)"],
-      "enabled": false
-    }
-  ]
+      managers: ["docker-compose", "dockerfile"],
+      packagePatterns: [
+        "^([^\\/]+\\/)?(mysql|mariadb|mongodb|mongo|postgres|redis)(:|$)",
+      ],
+      enabled: false,
+    },
+  ],
 };
