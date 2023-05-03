@@ -28,7 +28,7 @@ jobs:
         uses: renovatebot/github-action@v32.118.0
         with:
           token: ${{ secrets.RENOVATE_TOKEN }}
-          configFile: renovate.js
+          configurationFile: renovate.js
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
