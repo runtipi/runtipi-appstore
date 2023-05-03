@@ -76,7 +76,7 @@ services:
       - REDIS_PORT=6379
       - ALLOW_UPLOAD=true
       - DEBUG=0
-      - CSRF_TRUSTED_ORIGINS=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - CSRF_TRUSTED_ORIGINS=${APP_PROTOCOL:-http}://${APP_DOMAIN},http://${INTERNAL_IP}:${APP_PORT}
     # Wait for Postgres
     depends_on:
       librephotos-db:
