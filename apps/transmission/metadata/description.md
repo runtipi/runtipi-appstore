@@ -13,4 +13,4 @@ Visit [https://transmissionbt.com/](https://transmissionbt.com/) for more inform
 | Root Folder                   | Container Folder |
 |-------------------------------|------------------|
 | /runtipi/app-data/transmission/data/config | /config          |
-| /runtipi/media/torrents                | /downloads       |
+| /runtipi/media/torrents                | /media/torrents       |

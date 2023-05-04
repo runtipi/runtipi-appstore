@@ -5,9 +5,12 @@
   "available": true,
   "exposable": true,
   "id": "sabnzbd",
-  "tipi_version": 2,
-  "version": "3.7.2",
-  "categories": ["media", "utilities"],
+  "tipi_version": 4,
+  "version": "4.0.1",
+  "categories": [
+    "media",
+    "utilities"
+  ],
   "description": "Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can. All you have to do is add an .nzb. SABnzbd takes over from there, where it will be automatically downloaded, verified, repaired, extracted and filed away with zero human interaction.",
   "short_desc": "Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can",
   "author": "Sabnzbd",
