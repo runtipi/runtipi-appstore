@@ -1,0 +1,22 @@
+{
+  "$schema": "../schema.json",
+  "name": "PairDrop",
+  "port": 8182,
+  "available": true,
+  "exposable": true,
+  "force_expose": true,
+  "id": "pairdrop",
+  "tipi_version": 2,
+  "version": "1.6.3",
+  "categories": [
+    "media",
+    "data",
+    "utilities"
+  ],
+  "description": "Local file sharing in your browser. Inspired by Apple's AirDrop",
+  "short_desc": "Local file sharing in your browser. Inspired by Apple's AirDrop",
+  "author": "schlagmichdoch",
+  "source": "https://github.com/schlagmichdoch/PairDrop",
+  "website": "https://pairdrop.net/",
+  "form_fields": []
+}
