@@ -7,7 +7,8 @@ services:
     environment:
       - MINIO_ROOT_USER=${MINIO_ROOT_USER}
       - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD}
-      - MINIO_BROWSER_REDIRECT_URL=Host(`${APP_DOMAIN}`)
+      - MINIO_BROWSER_REDIRECT_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - MINIO_DOMAIN=Host(`${APP_DOMAIN}`)
     ports:
       - ${APP_PORT}:9001
     restart: unless-stopped
