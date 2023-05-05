@@ -15,7 +15,6 @@ services:
       - ${APP_DATA_DIR}/data/minio/data:/data
     networks:
       - tipi_main_network
-    entrypoint: /bin/bash
     command: "server --console-address :9001 /data"
     labels:
       traefik.enable: ${APP_EXPOSED}
