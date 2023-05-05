@@ -15,7 +15,8 @@ services:
       - ${APP_DATA_DIR}/data/minio/data:/data
     networks:
       - tipi_main_network
-    command: server /data -—console-address ":9001“
+    command: 
+      - server /data -—console-address ":9001“
     labels:
       traefik.enable: ${APP_EXPOSED}
       traefik.http.routers.minio.rule: Host(`${APP_DOMAIN}`)
