@@ -1,4 +1,4 @@
-version: "3.3"
+version: "3.7"
 services:
   plausible-db:
     # supported versions are 12, 13, and 14
