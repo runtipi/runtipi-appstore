@@ -7,7 +7,7 @@
   "id": "filestash",
   "tipi_version": 1,
   "version": "397fd8b",
-  "categories": ["development"],
+  "categories": ["utilities"],
   "description": "A modern web client for SFTP, S3, FTP, WebDAV, Git, Minio, LDAP, CalDAV, CardDAV, Mysql, Backblaze",
   "short_desc": "A modern web client for SFTP, S3, FTP, WebDAV, Git, Minio, LDAP, CalDAV, CardDAV, Mysql, Backblaze",
   "author": "mickael-kerjean",
