@@ -16,7 +16,7 @@
     {
       "type": "random",
       "label": "Plausible Secret Key",
-      "min": 32,
+      "min": 64,
       "env_variable": "PLAUSIBLE_SECRET_KEY_BASE"
     },
     {

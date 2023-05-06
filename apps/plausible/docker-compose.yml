@@ -46,7 +46,7 @@ services:
       - BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN} 
       - SECRET_KEY_BASE=${PLAUSIBLE_SECRET_KEY_BASE} 
       - DATABASE_URL=postgres://tipi:${PLAUSIBLE_DB_PASSWORD}@plausible-db:5432/plausible-db
-      - CLICKHOUSE_DATABASE_URL=http://plausible-events-db:8123/plausible-events-db
+      - CLICKHOUSE_DATABASE_URL=http://plausible-events-db:8123/plausible_events_db
       - DISABLE_REGISTRATION=${PLAUSIBLE_DISABLE_REGISTRATION}
     networks:
       - tipi_main_network
