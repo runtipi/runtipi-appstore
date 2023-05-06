@@ -1,0 +1,61 @@
+{
+  "$schema": "../schema.json",
+  "name": "Plausible",
+  "port": 8141,
+  "available": true,
+  "exposable": true,
+  "id": "plausible",
+  "tipi_version": 1,
+  "version": "v1.5.1",
+  "categories": ["development"],
+  "description": "Simple, open-source, lightweight (< 1 KB) and privacy-friendly web analytics alternative to Google Analytics.",
+  "short_desc": "Simple, open-source, lightweight (< 1 KB) and privacy-friendly web analytics alternative to Google Analytics.",
+  "author": "Plausible",
+  "source": "https://github.com/plausible/analytics",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Plausible Secret Key",
+      "min": 32,
+      "env_variable": "PLAUSIBLE_SECRET_KEY_BASE"
+    },
+    {
+      "type": "random",
+      "label": "Plausible DB Key",
+      "min": 32,
+      "env_variable": "PLAUSIBLE_DB_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Plausible Admin Username",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "PLAUSIBLE_ADMIN_USER_NAME"
+    },
+    {
+      "type": "text",
+      "label": "Plausible Admin Email",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "PLAUSIBLE_ADMIN_USER_EMAIL"
+    },
+    {
+      "type": "password",
+      "label": "Plausible Admin Password",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "PLAUSIBLE_ADMIN_USER_PWD"
+    },
+    {
+      "type": "boolean",
+      "label": "Disable User Registration",
+      "hint": "Check to enable Registration",
+      "placeholder": "true",
+      "required": true,
+      "env_variable": "PLAUSIBLE_DISABLE_REGISTRATION"
+    }
+  ]
+}
