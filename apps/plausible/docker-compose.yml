@@ -54,7 +54,3 @@ services:
       traefik.http.routers.plausible.service: plausible
       traefik.http.routers.plausible.tls.certresolver: myresolver
       traefik.http.services.plausible.loadbalancer.server.port: 8000
-
-#networks:
-#  proxy:
-#    external: true
