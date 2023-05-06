@@ -41,10 +41,10 @@ services:
       - ${APP_PORT}:8000 
     environment:
       - ADMIN_USER_EMAIL=${PLAUSIBLE_ADMIN_USER_EMAIL}# this is your admin user for login
-      - ADMIN_USER_NAME=${PLAUSIBLE_ADMIN_USER_NAME} # this is your admin username
-      - ADMIN_USER_PWD=${PLAUSIBLE_ADMIN_USER_PWD} # change this
-      - BASE_URL=${APP_DOMAIN} # change this
-      - SECRET_KEY_BASE=${PLAUSIBLE_SECRET_KEY_BASE} # change this to a secure random secret
+      - ADMIN_USER_NAME=${PLAUSIBLE_ADMIN_USER_NAME}
+      - ADMIN_USER_PWD=${PLAUSIBLE_ADMIN_USER_PWD} 
+      - BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN} 
+      - SECRET_KEY_BASE=${PLAUSIBLE_SECRET_KEY_BASE} 
       - DATABASE_URL=postgres://tipi:${PLAUSIBLE_DB_PASSWORD}@plausible-db:5432/plausible-db
       - CLICKHOUSE_DATABASE_URL=http://plausible-events-db:8123/plausible-events-db
       - DISABLE_REGISTRATION=${PLAUSIBLE_DISABLE_REGISTRATION}
