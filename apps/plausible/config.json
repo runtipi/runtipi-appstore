@@ -26,30 +26,6 @@
       "env_variable": "PLAUSIBLE_DB_PASSWORD"
     },
     {
-      "type": "text",
-      "label": "Plausible Admin Username",
-      "max": 50,
-      "min": 3,
-      "required": true,
-      "env_variable": "PLAUSIBLE_ADMIN_USER_NAME"
-    },
-    {
-      "type": "text",
-      "label": "Plausible Admin Email",
-      "max": 50,
-      "min": 3,
-      "required": true,
-      "env_variable": "PLAUSIBLE_ADMIN_USER_EMAIL"
-    },
-    {
-      "type": "password",
-      "label": "Plausible Admin Password",
-      "max": 50,
-      "min": 3,
-      "required": true,
-      "env_variable": "PLAUSIBLE_ADMIN_USER_PWD"
-    },
-    {
       "type": "boolean",
       "label": "Disable User Registration",
       "hint": "Check to enable Registration",

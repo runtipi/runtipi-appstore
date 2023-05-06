@@ -40,9 +40,6 @@ services:
     ports:
       - ${APP_PORT}:8000 
     environment:
-      - ADMIN_USER_EMAIL=${PLAUSIBLE_ADMIN_USER_EMAIL}# this is your admin user for login
-      - ADMIN_USER_NAME=${PLAUSIBLE_ADMIN_USER_NAME}
-      - ADMIN_USER_PWD=${PLAUSIBLE_ADMIN_USER_PWD} 
       - BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN} 
       - SECRET_KEY_BASE=${PLAUSIBLE_SECRET_KEY_BASE} 
       - DATABASE_URL=postgres://tipi:${PLAUSIBLE_DB_PASSWORD}@plausible-db:5432/plausible-db
