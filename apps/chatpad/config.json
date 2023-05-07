@@ -5,9 +5,11 @@
   "exposable": true,
   "port": 8179,
   "id": "chatpad",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "latest",
-  "categories": ["utilities"],
+  "categories": [
+    "ai"
+  ],
   "description": "Not just another ChatGPT user-interface!",
   "short_desc": "Not just another ChatGPT user-interface!",
   "author": "Andrei Canta",
