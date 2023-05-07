@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 
 services:
   halo:
@@ -44,8 +44,6 @@ services:
       - tipi_main_network
     volumes:
       - ${APP_DATA_DIR}/db:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
     healthcheck:
       test: [ "CMD", "pg_isready" ]
       interval: 10s
