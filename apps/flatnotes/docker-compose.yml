@@ -3,7 +3,7 @@ version: "3"
 services:
   flatnotes:
     container_name: flatnotes
-    image: dullage/flatnotes:v2.2.0
+    image: dullage/flatnotes:v3.0.1
     environment:
       FLATNOTES_AUTH_TYPE: ${FLATNOTES_AUTH_TYPE}
       FLATNOTES_USERNAME: ${FLATNOTES_USERNAME}
@@ -11,11 +11,11 @@ services:
       FLATNOTES_SECRET_KEY: ${FLATNOTES_SECRET_KEY}
       FLATNOTES_TOTP_KEY: ${FLATNOTES_TOTP_KEY}
     volumes:
-      - "${APP_DATA_DIR}/data:/app/data"
+      - "${APP_DATA_DIR}/data:/data"
       # - "./index:/app/data/.flatnotes"
       # Optional. Allows you to save the search index in a different location. 
     ports:
-      - ${APP_PORT}:80
+      - ${APP_PORT}:8080
     restart: unless-stopped
     networks:
       - tipi_main_network
@@ -25,4 +25,4 @@ services:
       traefik.http.routers.flatnotes.entrypoints: websecure
       traefik.http.routers.flatnotes.service: flatnotes
       traefik.http.routers.flatnotes.tls.certresolver: myresolver
-      traefik.http.services.flatnotes.loadbalancer.server.port: 80  
+      traefik.http.services.flatnotes.loadbalancer.server.port: 8080  

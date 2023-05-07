@@ -4,6 +4,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 
 ## Apps available
 
+- [Actual Budget](https://github.com/actualbudget/actual-server) - Local-first OpenSource Budget tool
 - [Adguard Home](https://github.com/AdguardTeam/AdGuardHome) - Adguard Home DNS adblocker
 - [autobrr](https://github.com/autobrr/autobrr) - Automation for downloads.
 - [Barrage](https://github.com/maulik9898/barrage) - Minimal Deluge WebUI with full mobile support
@@ -32,9 +33,11 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Gitea](https://github.com/go-gitea/gitea) - Gitea - A painless self-hosted Git service
 - [Gladys Assistant](https://github.com/gladysassistant/gladys) - A privacy-first, open-source home assistant
 - [Gotify](https://github.com/gotify/server) - Gotify - Simple server for sending and receiving notification messages
+-[GoToSocial](https://github.com/superseriousbusiness/gotosocial) - Fast, fun, ActivityPub server, powered by Go.
 - [Grafana](https://github.com/grafana/grafana) - The open and composable observability and data visualization platform
 - [Grav](https://github.com/getgrav/grav) - Fast, Simple, and Flexible, file-based Web-platform.
 - [Grocy](https://github.com/grocy/grocy) - Grocy - ERP beyond your fridge
+- [Hammond](https://github.com/akhilrex/hammond) - Self hosted vehicle and expense management system.
 - [Haven](https://github.com/havenweb/haven) - Haven is a self-hosted private blog and feedreader you can use instead of Facebook
 - [Headscale](https://github.com/juanfont/headscale) - An open source, self-hosted implementation of the Tailscale control server
 - [HedgeDoc](https://github.com/hedgedoc/hedgedoc) - A Collaborative Markdown and Note Taking App
@@ -48,11 +51,13 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Jellyfin](https://github.com/jellyfin/jellyfin) - A media server for your home collection
 - [Jellyseerr](https://github.com/Fallenbagel/jellyseerr) - Fork of overseerr for Jellyfin support
 - [Joplin](https://github.com/laurent22/joplin) - Privacy focused note-taking app
+- [Kanboard](https://github.com/kanboard/kanboard) - Kanboard is a free and open source Kanban project management software.
 - [Kavita](https://github.com/Kareadita/Kavita) - Kavita is a fast, feature rich, cross platform reading server
 - [Libreddit](https://github.com/spikecodes/libreddit) - Private front-end for Reddit
 - [LibrePhotos](https://github.com/LibrePhotos/librephotos) - Complete photo management service
 - [LibreTranslate](https://github.com/LibreTranslate/LibreTranslate) - Free and Open Source Machine Translation API. 100% self-hosted, offline capable and easy to setup
 - [Lidarr](https://github.com/Lidarr/Lidarr) - Looks and smells like Sonarr but made for music.
+- [Lidarr On Steroids](https://github.com/youegraillot/lidarr-on-steroids) - Lidarr with some muscles thanks to deemix
 - [Littlelink Custom](https://github.com/JulianPrieber/littlelink-custom) - LittleLink Custom - the ultimate solution for creating a personalized & professional profile page.
 - [Lodestone Core](https://github.com/Lodestone-Team/lodestone_core) - Server hosting tool for Minecraft and other multiplayers
 - [Mealie](https://github.com/hay-kot/mealie) - Self-hosted recipe manager and meal planner.
@@ -77,6 +82,8 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Openbooks](https://github.com/evan-buss/openbooks) - Search and Download eBooks
 - [Overseerr](https://github.com/sct/overseerr) - Request management and media discovery tool for the Plex ecosystem
 - [Owncloud](https://github.com/owncloud/core) - A personal cloud which runs on your own server.
+- [PairDrop](https://github.com/schlagmichdoch/PairDrop) - Local file sharing in your browser. Inspired by Apple's AirDrop.
+- [Paperless-ngx](https://github.com/paperless-ngx/paperless-ngx) - Document Management System (DMS)
 - [Peppermint](https://github.com/Peppermint-Lab/peppermint) - An open source ticket management & help desk solution.
 - [Photoprism](https://github.com/photoprism/photoprism) - AI-Powered Photos App for the Decentralized Web. We are on a mission to protect your freedom and privacy.
 - [Pihole](https://github.com/pi-hole/pi-hole) - A black hole for Internet advertisements

@@ -5,9 +5,11 @@
   "available": true,
   "exposable": false,
   "id": "gladys",
-  "tipi_version": 2,
-  "version": "v4.20.0",
-  "categories": ["automation"],
+  "tipi_version": 6,
+  "version": "4.22.0",
+  "categories": [
+    "automation"
+  ],
   "description": "A privacy-first, open-source home assistant",
   "short_desc": "A privacy-first, open-source home assistant",
   "author": "Gladys Assistant",

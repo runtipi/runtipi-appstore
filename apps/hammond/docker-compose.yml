@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  hammond:
+    container_name: hammond
+    image: akhilrex/hammond:1.0.0
+    ports:
+      - ${APP_PORT}:3000
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${APP_DATA_DIR}/data/assets:/assets
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.hammond.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.hammond.entrypoints: websecure
+      traefik.http.routers.hammond.service: hammond
+      traefik.http.routers.hammond.tls.certresolver: myresolver
+      traefik.http.services.hammond.loadbalancer.server.port: 3000

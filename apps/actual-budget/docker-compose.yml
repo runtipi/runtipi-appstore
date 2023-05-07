@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  actual-budget:
+    container_name: actual-budget
+    image: actualbudget/actual-server:23.5.0
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:5006
+    networks:
+      - tipi_main_network
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.actual-budget.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.actual-budget.entrypoints: websecure
+      traefik.http.routers.actual-budget.service: actual-budget
+      traefik.http.routers.actual-budget.tls.certresolver: myresolver
+      traefik.http.services.actual-budget.loadbalancer.server.port: 5006

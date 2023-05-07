@@ -11,4 +11,4 @@ If you want to know more you can head over to our website: [https://sabnzbd.org]
 | Root Folder                           | Container Folder |
 |---------------------------------------|------------------|
 | /runtipi/app-data/sabnzbd/data/config | /config          |
-| /runtipi/media/usenet                 | /downloads       |
+| /runtipi/media/usenet                 | /media/usenet    |

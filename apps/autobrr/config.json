@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "autobrr",
-  "tipi_version": 1,
-  "version": "v1.23.0",
-  "categories": ["media"],
+  "tipi_version": 4,
+  "version": "1.25.0",
+  "categories": [
+    "media"
+  ],
   "description": "autobrr is the modern download automation tool for torrents. With inspiration and ideas from tools like trackarr, autodl-irssi and flexget we built one tool that can do it all, and then some.",
   "short_desc": "Automation for downloads.",
   "author": "autobrr",
