@@ -29,7 +29,7 @@
       "type": "boolean",
       "label": "Disable User Registration",
       "hint": "Check to enable Registration",
-      "placeholder": "true",
+      "default": "true",
       "required": true,
       "env_variable": "PLAUSIBLE_DISABLE_REGISTRATION"
     }
