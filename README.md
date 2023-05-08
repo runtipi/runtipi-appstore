@@ -15,6 +15,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Chatpad AI](https://github.com/deiucanta/chatpad) - Not just another ChatGPT user-interface!
 - [Code-Server](https://github.com/coder/code-server) - Web VS Code
 - [Codex.Docs](https://github.com/codex-team/codex.docst) - Free Docs app powered by Editor.js ecosystem.
+- [Conduit](https://gitlab.com/famedly/conduit) - Conduit is a simple, fast and reliable chat server written in Rust
 - [DailyTXT](https://github.com/PhiTux/DailyTxT) - Encrypted Diary Web-App
 - [Dash.](https://github.com/MauriceNino/dashdot) - A simple, modern server dashboard, primarily used by smaller private server
 - [Deluge](https://github.com/linuxserver/docker-deluge) - Deluge is a lightweight, Free Software, cross-platform BitTorrent client
