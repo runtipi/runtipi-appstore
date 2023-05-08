@@ -1,6 +1,8 @@
 # Minio - Open Source Object Storage
+Host your own Amazon S3 compatible Object Storage!
 
-## PLEASE READ !!
+
+## !! PLEASE READ !!
 
 This MinIO setup requires two exposed URLS
 - The console URL
