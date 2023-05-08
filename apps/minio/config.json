@@ -28,6 +28,12 @@
       "min": 5,
       "required": true,
       "env_variable": "MINIO_ROOT_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Minio S3 API URL (when exposed)",
+      "required": false,
+      "env_variable": "MINIO_API_URL"
     }
   ]
 }
