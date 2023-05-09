@@ -7,32 +7,31 @@
   "id": "dozzle",
   "tipi_version": 1,
   "version": "latest",
-  "categories": [
-    "development"
-  ],
+  "categories": ["development"],
   "description": "Dozzle is a small web based app to monitor Docker logs.",
   "short_desc": "Dozzle is a small web based app to monitor Docker logs",
   "author": "Amir Raminfar",
   "source": "https://github.com/amir20/dozzle",
-    "form_fields": [
+  "form_fields": [
     {
       "type": "text",
-      "label": "(Optional) Username",
+      "label": "Username (optional)",
       "required": false,
+      "placeholder": "Username",
       "env_variable": "DOZZLE_USERNAME"
-    },    
+    },
     {
       "type": "password",
-      "label": "(Optional) Password",
+      "label": "Password (optional)",
+      "placeholder": "Password",
       "required": false,
       "env_variable": "DOZZLE_PASSWORD"
-		},
-		{
+    },
+    {
       "type": "boolean",
       "label": "Disable Google Analytics",
       "required": false,
       "env_variable": "DOZZLE_NO_ANALYTICS"
-		}
+    }
   ]
-
 }
