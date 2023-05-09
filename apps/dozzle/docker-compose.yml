@@ -10,10 +10,10 @@ services:
       - ${APP_PORT}:8080
     networks:
       - tipi_main_network
-		environment:
-			- DOZZLE_NO_ANALYTICS=${DOZZLE_NO_ANALYTICS}
-			- DOZZLE_USERNAME={DOZZLE_USERNAME}
-			- DOZZLE_PASSWORD={DOZZLE_PASSWORD}
+    environment:
+      - DOZZLE_NO_ANALYTICS=${DOZZLE_NO_ANALYTICS}
+      - DOZZLE_USERNAME=${DOZZLE_USERNAME}
+      - DOZZLE_PASSWORD=${DOZZLE_PASSWORD}
     labels:
       traefik.enable: ${APP_EXPOSED}
       traefik.http.routers.dozzle.rule: Host(`${APP_DOMAIN}`)
