@@ -24,6 +24,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Emulatorjs](https://github.com/EmulatorJS/EmulatorJS) - Self-hosted Javascript emulation for various system.
 - [Excalidraw](https://github.com/excalidraw/excalidraw) - Online whiteboard collaboration made easy
 - [Filebrowser](https://github.com/filebrowser/filebrowser) - Web File Browser
+- [Filestash](https://github.com/mickael-kerjean/filestash) - A modern web client for SFTP, S3, FTP, WebDAV, Git, Minio, LDAP, CalDAV, CardDAV, Mysql, Backblaze
 - [Firefly III](https://github.com/firefly-iii/firefly-iii) - A personal finances manager
 - [Fireshare](https://github.com/ShaneIsrael/fireshare) - Self host your media and share with unique links
 - [Flatnotes](https://github.com/Dullage/flatnotes) - A self-hosted, database-less note taking web app
@@ -33,6 +34,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Gitea](https://github.com/go-gitea/gitea) - Gitea - A painless self-hosted Git service
 - [Gladys Assistant](https://github.com/gladysassistant/gladys) - A privacy-first, open-source home assistant
 - [Gotify](https://github.com/gotify/server) - Gotify - Simple server for sending and receiving notification messages
+-[GoToSocial](https://github.com/superseriousbusiness/gotosocial) - Fast, fun, ActivityPub server, powered by Go.
 - [Grafana](https://github.com/grafana/grafana) - The open and composable observability and data visualization platform
 - [Grav](https://github.com/getgrav/grav) - Fast, Simple, and Flexible, file-based Web-platform.
 - [Grocy](https://github.com/grocy/grocy) - Grocy - ERP beyond your fridge
@@ -43,6 +45,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Homarr](https://github.com/ajnart/homarr) - A homepage for your server
 - [Home Assistant](https://github.com/home-assistant/core) - Open source home automation that puts local control and privacy first
 - [HomeBox](https://github.com/hay-kot/homebox) - Homebox is the inventory and organization system built for the Home User
+- [Halo](https://github.com/halo-dev/halo) - Halo is a powerful and easy-to-use open source website building tool.
 - [Immich](https://github.com/immich-app/immich) - Photo and video backup solution directly from your mobile phone
 - [IT-Tools](https://github.com/CorentinTh/it-tools) - Collection of handy online tools for developers, with great UX.
 - [Invidious](https://github.com/iv-org/invidious) - An alternative front-end to YouTube
@@ -50,6 +53,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Jellyfin](https://github.com/jellyfin/jellyfin) - A media server for your home collection
 - [Jellyseerr](https://github.com/Fallenbagel/jellyseerr) - Fork of overseerr for Jellyfin support
 - [Joplin](https://github.com/laurent22/joplin) - Privacy focused note-taking app
+- [Kanboard](https://github.com/kanboard/kanboard) - Kanboard is a free and open source Kanban project management software.
 - [Kavita](https://github.com/Kareadita/Kavita) - Kavita is a fast, feature rich, cross platform reading server
 - [Libreddit](https://github.com/spikecodes/libreddit) - Private front-end for Reddit
 - [LibrePhotos](https://github.com/LibrePhotos/librephotos) - Complete photo management service
@@ -85,6 +89,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Peppermint](https://github.com/Peppermint-Lab/peppermint) - An open source ticket management & help desk solution.
 - [Photoprism](https://github.com/photoprism/photoprism) - AI-Powered Photos App for the Decentralized Web. We are on a mission to protect your freedom and privacy.
 - [Pihole](https://github.com/pi-hole/pi-hole) - A black hole for Internet advertisements
+- [Plausible](https://github.com/plausible/analytics) - Simple, open-source, lightweight (< 1 KB) and privacy-friendly web analytics alternative to Google Analytics.
 - [Plex](https://github.com/plexinc/pms-docker) - Stream Movies & TV Shows
 - [PodFetch](https://github.com/SamTV12345/PodFetch) - A sleek and efficient podcast downloader.
 - [Portainer](https://github.com/portainer/portainer) - Making Docker and Kubernetes management easy.

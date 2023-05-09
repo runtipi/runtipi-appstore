@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "dailytxt",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "1.0.12",
-  "categories": ["utilities"],
+  "categories": [
+    "utilities"
+  ],
   "description": "DailyTxT is an encrypted Diary Web-App to write down your stories of the day and to find them again easily.",
   "short_desc": "Encrypted Diary Web-App",
   "author": "PhiTux",
@@ -20,11 +22,12 @@
       "env_variable": "DAILYTXT_SECRET_KEY"
     },
     {
-      "type": "text",
+      "type": "boolean",
       "label": "Allow User Registrastion",
-      "hint": "Set it to false to disallow registration of new users.",
+      "hint": "Set it to true intially to create the first user.",
       "placeholder": "true",
       "required": true,
+      "default": true,
       "env_variable": "DAILYTXT_ALLOW_REGISTRATION"
     }
   ]

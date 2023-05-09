@@ -1,0 +1,43 @@
+{
+  "$schema": "../schema.json",
+  "name": "Halo",
+  "available": true,
+  "exposable": true,
+  "port": 8092,
+  "id": "halo",
+  "tipi_version": 1,
+  "version": "2.5.2",
+  "description": "Halo is a powerful and easy-to-use open source website building tool.",
+  "short_desc": "Halo - Open source website building tool.",
+  "categories": [
+    "social",
+    "media"
+  ],
+  "author": "halo-dev",
+  "source": "https://github.com/halo-dev/halo",
+  "website": "https://halo.run",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Database password",
+      "min": 20,
+      "env_variable": "HALO_DATABASE_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Initial admin username",
+      "env_variable": "HALO_ADMIN_USERNAME"
+    },
+    {
+      "type": "text",
+      "label": "Initial admin password",
+      "min": 8,
+      "env_variable": "HALO_ADMIN_PASSWORD"
+    },
+    {
+      "type": "url",
+      "label": "External url",
+      "env_variable": "HALO_EXTERNAL_URL"
+    }
+  ]
+}
