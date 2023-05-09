@@ -32,6 +32,8 @@
       "type": "array",
       "label": "Trusted Servers",
       "hint": "[\"matrix.org\"]",
+      "regex": "^\\[((\"[^\"]*\")(, ?(\"[^\"]*\"))*)?\\]$",
+      "pattern_error": "Must be in list of domain names format",
       "required": false,
       "env_variable": "TRUSTED_SERVERS"
     },
