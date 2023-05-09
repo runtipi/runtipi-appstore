@@ -5,10 +5,10 @@
   "available": true,
   "exposable": true,
   "id": "chatgpt-ui",
-  "tipi_version": 5,
-  "version": "2.5.3",
+  "tipi_version": 7,
+  "version": "2.5.4",
   "categories": [
-    "utilities"
+    "ai"
   ],
   "description": "A ChatGPT web client that supports multiple users, multiple languages, and multiple database connections for persistent data storage",
   "short_desc": "A ChatGPT web client that supports multiple users, multiple languages, and multiple database connections for persistent data storage",
