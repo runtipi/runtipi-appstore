@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "tasks-md",
-  "tipi_version": 2,
-  "version": "1.8.0",
+  "tipi_version": 3,
+  "version": "1.9.0",
   "categories": [
     "development"
   ],
