@@ -1,0 +1,19 @@
+version: "3"
+services:
+  dozzle:
+    container_name: dozzle
+    image: amir20/dozzle:latest
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - ${APP_PORT}:8080
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.hdozzle.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.dozzle.entrypoints: websecure
+      traefik.http.routers.dozzle.service: dozzle
+      traefik.http.routers.dozzle.tls.certresolver: myresolver
+      traefik.http.services.dozzle.loadbalancer.server.port: 8080
