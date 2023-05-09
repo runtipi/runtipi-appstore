@@ -12,7 +12,7 @@ services:
       - tipi_main_network
     labels:
       traefik.enable: ${APP_EXPOSED}
-      traefik.http.routers.hdozzle.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.dozzle.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.dozzle.entrypoints: websecure
       traefik.http.routers.dozzle.service: dozzle
       traefik.http.routers.dozzle.tls.certresolver: myresolver
