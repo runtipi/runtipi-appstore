@@ -4,8 +4,6 @@ services:
   matrix-conduit:
     container_name: matrix-conduit
     image: matrixconduit/matrix-conduit:v0.5.0
-    ports:
-      - ${APP_PORT}:6167
     environment:
       CONDUIT_SERVER_NAME: ${APP_DOMAIN}
       CONDUIT_DATABASE_PATH: /var/lib/matrix-conduit/
@@ -17,7 +15,7 @@ services:
       CONDUIT_TRUSTED_SERVERS: ${TRUSTED_SERVERS:-[]}
       CONDUIT_LOG: ${LOG:-warn,rocket=off,_=off,sled=off}
       CONDUIT_ADDRESS: 0.0.0.0
-      CONDUIT_CONFIG: '' # Ignore this
+      CONDUIT_CONFIG: "" # Ignore this
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data:/var/lib/matrix-conduit/
@@ -32,16 +30,16 @@ services:
       traefik.http.services.matrix.loadbalancer.server.port: 6167
 
   matrix-conduit-well-known:
-   container_name: matrix-conduit-well-known
-   build:
-     context: nginx
-     dockerfile: Dockerfile
-   environment:
-     APP_DOMAIN: ${APP_DOMAIN}
-   restart: unless-stopped
-   networks:
-     - tipi_main_network
-   labels:
+    container_name: matrix-conduit-well-known
+    build:
+      context: nginx
+      dockerfile: Dockerfile
+    environment:
+      APP_DOMAIN: ${APP_DOMAIN}
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
       traefik.enable: ${APP_EXPOSED}
       traefik.http.routers.matrix-well-knows.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/.well-known/matrix`)
       traefik.http.routers.matrix-well-knows.entrypoints: websecure
