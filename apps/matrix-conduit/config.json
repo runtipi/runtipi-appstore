@@ -4,6 +4,7 @@
   "port": 6167,
   "available": true,
   "exposable": true,
+  "force_expose": true,
   "no_gui": true,
   "id": "matrix-conduit",
   "tipi_version": 1,
