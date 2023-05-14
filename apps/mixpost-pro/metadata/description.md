@@ -4,6 +4,8 @@ An admin user will be created automatically. SSH into your Tipi server and run `
 
 You can log in to Mixpost at /mixpost using the admin user account created.
 
+Read the docs here https://docs.inovector.com/books/mixpost-pro-team
+
 ## Inital User
 
 Username: admin@admin.com
