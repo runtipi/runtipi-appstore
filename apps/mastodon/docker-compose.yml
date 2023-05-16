@@ -70,7 +70,7 @@ services:
       PG_DATA: /var/lib/postgresql/data
       POSTGRES_HOST_AUTH_METHODL: trust
     networks:
-      - internal_network
+      - tipi_main_network
     healthcheck:
       test: ['CMD', 'pg_isready', '-U', 'postgres']
     volumes:
@@ -82,7 +82,7 @@ services:
     command: redis-server --appendonly yes --replica-read-only no --requirepass "${MASTODON_REDIS_PASSWORD}"
     container_name: mastodon-redis
     networks:
-      - internal_network
+      - tipi_main_network
     healthcheck:
       test: ['CMD', 'redis-cli', 'ping']
     volumes:
