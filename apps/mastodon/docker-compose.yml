@@ -145,9 +145,7 @@ services:
   mastodon-sidekiq:
     container_name: mastodon-sidekiq
     image: ghcr.io/mastodon/mastodon:v4.1
-    command: 'bundle exec sidekiq'
-    ports:
-      - ${APP_PORT}:3000
+    command: bundle exec sidekiq
     volumes:
       - ${APP_DATA_DIR}/data/mastodon-public:/mastodon/public
     environment:
