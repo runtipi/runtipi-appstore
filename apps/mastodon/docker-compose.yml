@@ -4,7 +4,7 @@ services:
   mastodon:
     container_name: mastodon
     image: ghcr.io/mastodon/mastodon:v4.1
-    command: bash -c "bundle exec rake db:migrate; bundle exec rake db:seed; rm -f /mastodon/tmp/pids/server.pid; bundle exec rake s -p 3000"
+    command: bash -c "bundle exec rails db:migrate; bundle exec rails db:seed; rm -f /mastodon/tmp/pids/server.pid; bundle exec rails s -p 3000"
     ports:
       - ${APP_PORT}:3000
     volumes:
