@@ -1,9 +1,14 @@
-### To Create your user 
+## Notice
+
+*Mastodon is a heavy app, and may take a bit longer to fully start up.*
+
+## Initial User Setip
 1. SSH into your Tipi Server
 2. Fill in your credentials (some_username,someone@example.org, some_very_good_password), then run the command: 
     ``` 
     docker exec -it mastodon tootctl accounts create some_username --email someone@example.org--confirmed --role Owner' 
     ```
+
 
 ---
 Mastodon is a **free, open-source social network server** based on ActivityPub where users can follow friends and discover new ones. On Mastodon, users can publish anything they want: links, pictures, text, video. All Mastodon servers are interoperable as a federated network (users on one server can seamlessly communicate with users from another one, including non-Mastodon software that implements ActivityPub!)
