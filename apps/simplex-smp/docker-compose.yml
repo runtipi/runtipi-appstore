@@ -1,0 +1,22 @@
+version: '3.9'
+services:
+  simplex-smp:
+    image: simplexchat/smp-server:v5.1.0
+    container_name: simplex-smp
+    volumes:
+      - ${APP_DATA_DIR}/data/simplex/logs:/var/opt/simplex:z
+      - ${APP_DATA_DIR}/data/simplex/config:/etc/opt/simplex:z
+    ports:
+      - ${APP_PORT}:5223
+    environment:
+      - PASS=${SIMPLEX_SMP_PASSWORD}
+      - ADDR=${APP_DOMAIN}
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.simplex.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.simplex.entrypoints: websecure
+      traefik.http.routers.simplex.service: simplex
+      traefik.http.routers.simplex.tls.certresolver: myresolver
+      traefik.http.services.simplex.loadbalancer.server.port: 5223
