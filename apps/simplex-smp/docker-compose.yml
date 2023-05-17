@@ -2,6 +2,7 @@ version: '3.9'
 services:
   simplex-smp:
     image: simplexchat/smp-server:v5.1.0
+    container_name: simplex-smp
     volumes:
       - ${APP_DATA_DIR}/data/simplex/logs:/var/opt/simplex:z
       - ${APP_DATA_DIR}/data/simplex/config:/etc/opt/simplex:z
