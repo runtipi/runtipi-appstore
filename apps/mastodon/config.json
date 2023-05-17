@@ -7,7 +7,7 @@
   "force_expose": true,
   "generate_vapid_keys": true,
   "id": "mastodon",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "v4.1",
   "categories": ["social"],
   "description": "Your self-hosted, globally interconnected microblogging community",
@@ -81,13 +81,6 @@
       "placeholder": "noreply@example.com",
       "required": true,
       "env_variable": "MASTODON_SMTP_FROM_ADDRESS"
-    },
-    {
-      "type": "text",
-      "label": "Mastodon Streaming URL",
-      "hint": "Example: streaming.example.com",
-      "required": true,
-      "env_variable": "MASTODON_STREAMING_URL"
     }
   ]
 }
