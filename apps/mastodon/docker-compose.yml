@@ -6,9 +6,10 @@ services:
     image: lscr.io/linuxserver/mastodon:latest
     command: "bash -c 'bundle exec rails db:migrate; bundle exec rails db:seed; rm -f /mastodon/tmp/pids/server.pid; bundle exec rails s -p 3000'"
     ports:
+      - 8209:80
       - ${APP_PORT}:443
     volumes:
-      - ${APP_DATA_DIR}/data/mastodon-public:/mastodon/public
+      - ${APP_DATA_DIR}/data/mastodon-config:/config
     environment:
       - PUID=1000
       - PGID=1000
