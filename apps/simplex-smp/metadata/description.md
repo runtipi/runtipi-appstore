@@ -3,7 +3,7 @@
 To get the SMP Server Address 
 
 1. SSH into your Tipi Server
-2 Run `sudo docker logs simplex-smp 2>&1 | grep "Server address:" ` to find out the SMP Server Address.
+2. Run `sudo docker logs simplex-smp 2>&1 | grep "Server address:" ` to find out the SMP Server Address.
 
 ---
 
