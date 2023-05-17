@@ -9,8 +9,8 @@ services:
     ports:
       - ${APP_PORT}:5223
     environment:
-      - pass=${SIMPLEX_SMP_PASSWORD}
-      - addr=${APP_DOMAIN}
+      - PASS=${SIMPLEX_SMP_PASSWORD}
+      - ADDR=${APP_DOMAIN}
     networks:
       - tipi_main_network
     labels:

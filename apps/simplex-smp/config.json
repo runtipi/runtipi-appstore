@@ -4,6 +4,7 @@
   "port": 5223,
   "available": true,
   "exposable": true,
+  "no_gui": true,
   "id": "simplex-smp",
   "tipi_version": 1,
   "version": "v5.1.0",

@@ -1,3 +1,12 @@
+## Initial Setup
+
+To get the SMP Server Address 
+
+1. SSH into your Tipi Server
+2 Run `sudo docker logs simplex-smp 2>&1 | grep "Server address:" ` to find out the SMP Server Address.
+
+---
+
 📢 SimpleXMQ v1 is released - with many security, privacy and efficiency improvements, new functionality - see [release notes](https://github.com/simplex-chat/simplexmq/releases/tag/v1.0.0).
 
 **Please note**: v1 is not backwards compatible, but it has the version negotiation built into all protocol layers for forwards compatibility of this version and backwards compatibility of the future versions, that will be backwards compatible for at least two versions back.
