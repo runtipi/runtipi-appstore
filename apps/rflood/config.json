@@ -1,0 +1,16 @@
+{
+  "$schema": "../schema.json",
+  "name": "rFlood",
+  "port": 8192,
+  "available": true,
+  "exposable": true,
+  "id": "rflood",
+  "tipi_version": 1,
+  "version": "release-c90b365",
+  "categories": ["utilities"],
+  "description": "rFlood docker image with rTorrent and the Flood UI.",
+  "short_desc": "rFlood docker image with rTorrent and the Flood UI.",
+  "author": "jesec",
+  "source": "https://github.com/jesec/flood",
+  "form_fields": []
+}

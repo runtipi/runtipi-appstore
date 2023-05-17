@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  rflood:
+    container_name: rflood
+    image: cr.hotio.dev/hotio/rflood:release-c90b365
+    ports:
+      - ${APP_PORT}:3000
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=${TZ}
+      - FLOOD_AUTH=false
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${ROOT_FOLDER_HOST}/media/torrents:/media/torrents
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.rflood.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.rflood.entrypoints: websecure
+      traefik.http.routers.rflood.service: rflood
+      traefik.http.routers.rflood.tls.certresolver: myresolver
+      traefik.http.services.rflood.loadbalancer.server.port: 3000
