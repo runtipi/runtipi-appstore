@@ -4,7 +4,6 @@ services:
   mastodon:
     container_name: mastodon
     image: lscr.io/linuxserver/mastodon:latest
-    command: "bash -c 'bundle exec rails db:migrate; bundle exec rails db:seed; rm -f /mastodon/tmp/pids/server.pid; bundle exec rails s -p 3000'"
     ports:
       - 8209:80
       - ${APP_PORT}:443
