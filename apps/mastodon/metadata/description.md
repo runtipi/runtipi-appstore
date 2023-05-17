@@ -2,7 +2,7 @@
 
 *Mastodon is a heavy app, and may take a bit longer to fully start up.*
 
-## Initial User Setip
+## Initial User Setup
 1. SSH into your Tipi Server
 2. Fill in your credentials (some_username,someone@example.org, some_very_good_password), then run the command: 
     ``` 

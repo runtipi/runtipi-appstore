@@ -3,15 +3,17 @@ version: "3"
 services:
   mastodon:
     container_name: mastodon
-    image: ghcr.io/mastodon/mastodon:v4.1
-    command: bash -c "bundle exec rails db:migrate; bundle exec rails db:seed; rm -f /mastodon/tmp/pids/server.pid; bundle exec rails s -p 3000"
+    image: lscr.io/linuxserver/mastodon:latest
+    command: "bash -c 'bundle exec rails db:migrate; bundle exec rails db:seed; rm -f /mastodon/tmp/pids/server.pid; bundle exec rails s -p 3000'"
     ports:
       - ${APP_PORT}:3000
     volumes:
       - ${APP_DATA_DIR}/data/mastodon-public:/mastodon/public
     environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
       - LOCAL_DOMAIN=${APP_DOMAIN}
-      - WEB_DOMAIN=${APP_DOMAIN}
       - VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
       - VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
       - REDIS_HOST=mastodon-redis
@@ -137,54 +139,6 @@ services:
       traefik.http.routers.mastodon-streaming.service: mastodon-streaming
       traefik.http.routers.mastodon-streaming.tls.certresolver: myresolver
       traefik.http.services.mastodon-streaming.loadbalancer.server.port: 4000
-    depends_on:
-      mastodon-db:
-        condition: service_healthy
-      mastodon-redis:
-        condition: service_healthy
-
-  mastodon-sidekiq:
-    container_name: mastodon-sidekiq
-    image: ghcr.io/mastodon/mastodon:v4.1
-    command: bundle exec sidekiq
-    volumes:
-      - ${APP_DATA_DIR}/data/mastodon-public:/mastodon/public
-    environment:
-      - LOCAL_DOMAIN=${APP_DOMAIN}
-      - WEB_DOMAIN=${APP_DOMAIN}
-      - VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
-      - VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
-      - REDIS_HOST=mastodon-redis
-      - REDIS_PASSWORD=${MASTODON_REDIS_PASSWORD}
-      - REDIS_PORT=6379
-      - DB_HOST=mastodon-db
-      - DB_USER=tipi
-      - DB_NAME=mastodon
-      - DB_PASS=${MASTODON_POSTGRES_PASSWORD}
-      - DB_PORT=5432
-      - ES_ENABLED=false
-      - ES_HOST=mastodon-es
-      - ES_PORT=9200
-      - ES_USER=elastic
-      - ES_PASS=password
-      - SECRET_KEY_BASE=${MASTODON_SECRET_KEY_BASE}
-      - OTP_SECRET=${MASTODON_OTP_SECRET}
-      - SMTP_SERVER=${MASTODON_SMTP_SERVER}
-      - SMTP_PORT=${MASTODON_SMTP_PORT}
-      - SMTP_LOGIN=${MASTODON_SMTP_LOGIN}
-      - SMTP_PASSWORD=${MASTODON_SMTP_PASSWORD}
-      - SMTP_FROM_ADDRESS=${MASTODON_SMTP_FROM_ADDRESS}
-      - S3_ENABLED=false
-      - S3_BUCKET=files.example.com
-      - AWS_ACCESS_KEY_ID=
-      - AWS_SECRET_ACCESS_KEY=
-      - S3_ALIAS_HOST=files.example.com
-      - IP_RETENTION_PERIOD=31556952
-      - SESSION_RETENTION_PERIOD=31556952
-      - STREAMING_API_BASE_URL=https://${MASTODON_STREAMING_URL}
-    restart: unless-stopped
-    networks:
-      - tipi_main_network
     depends_on:
       mastodon-db:
         condition: service_healthy
