@@ -6,7 +6,7 @@ services:
     image: lscr.io/linuxserver/mastodon:latest
     command: "bash -c 'bundle exec rails db:migrate; bundle exec rails db:seed; rm -f /mastodon/tmp/pids/server.pid; bundle exec rails s -p 3000'"
     ports:
-      - ${APP_PORT}:3000
+      - ${APP_PORT}:443
     volumes:
       - ${APP_DATA_DIR}/data/mastodon-public:/mastodon/public
     environment:
@@ -53,7 +53,7 @@ services:
       traefik.http.routers.mastodon.entrypoints: websecure
       traefik.http.routers.mastodon.service: mastodon
       traefik.http.routers.mastodon.tls.certresolver: myresolver
-      traefik.http.services.mastodon.loadbalancer.server.port: 3000
+      traefik.http.services.mastodon.loadbalancer.server.port: 443
     depends_on:
       mastodon-db:
         condition: service_healthy
