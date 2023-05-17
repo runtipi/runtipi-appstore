@@ -6,6 +6,9 @@ services:
     image: cr.hotio.dev/hotio/rflood:release-c90b365
     ports:
       - ${APP_PORT}:3000
+      - 50000:50000
+      - 6881:6881
+      - 6881:6881/udp
     environment:
       - PUID=1000
       - PGID=1000
