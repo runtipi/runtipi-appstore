@@ -51,11 +51,11 @@ services:
     labels:
       traefik.enable: ${APP_EXPOSED}
       traefik.http.routers.mastodon.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.mastodon.entrypoints: websecure
+      traefik.http.routers.mastodon.entrypoints: web
       traefik.http.routers.mastodon.service: mastodon
       traefik.http.routers.mastodon.tls.certresolver: myresolver
       traefik.http.services.mastodon.loadbalancer.server.port: 443
-      traefik.http.services.mastodon.loadbalancer.serversTransport: ignorecert
+      traefik.http.services.mastodon.loadbalancer.serverstransport: ignorecert@file
       traefik.http.services.mastodon.loadbalancer.server.scheme: https
     depends_on:
       mastodon-db:
