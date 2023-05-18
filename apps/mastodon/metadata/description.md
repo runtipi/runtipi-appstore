@@ -6,7 +6,7 @@
 1. SSH into your Tipi Server
 2. Fill in your credentials (some_username,someone@example.org, some_very_good_password), then run the command: 
     ``` 
-    sudo docker exec -it -w /app/www mastodon bin/tootctl accounts create some_username --email someone@example.org --confirmed --role Owner' 
+    sudo docker exec -it -w /app/www mastodon bin/tootctl accounts create some_username --email someone@example.org --confirmed --role Owner 
     ```
 
 

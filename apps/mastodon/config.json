@@ -7,7 +7,7 @@
   "force_expose": true,
   "generate_vapid_keys": true,
   "id": "mastodon",
-  "tipi_version": 6,
+  "tipi_version": 1,
   "version": "v4.1",
   "categories": ["social"],
   "description": "Your self-hosted, globally interconnected microblogging community",
