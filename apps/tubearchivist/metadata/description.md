@@ -26,3 +26,13 @@ https://github.com/meienberger/runtipi-appstore/issues
 |--------------------------------------------|------------------|
 | /runtipi/app-data/tubearchivist/data/cache | /cache           |
 | /runtipi/media/data/youtube                | /youtube         |
+
+If your /runtipi/media folder is remote mounted with NFS, follow the app
+customization instructions to set the environment variables for HOST_UID and
+HOST_GID to the owner of your media folder.
+
+Customization documentation:
+https://www.runtipi.io/docs/guides/customize-app-config
+
+TubeArchivist installation documentation:
+https://github.com/tubearchivist/tubearchivist#installing
