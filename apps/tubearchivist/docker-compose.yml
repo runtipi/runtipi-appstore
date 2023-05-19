@@ -11,8 +11,6 @@ services:
     environment:
       - ES_URL=http://tubearchivist-es:9200
       - REDIS_HOST=tubearchivist-redis
-      - HOST_UID=${UID}
-      - HOST_GID=${GID}
       - TA_USERNAME=${TA_USER}
       - TA_PASSWORD=${TA_PASSWORD}
       - TA_HOST=${APP_DOMAIN}
@@ -54,6 +52,7 @@ services:
       - "ELASTIC_PASSWORD=${ELASTIC_PASSWORD}"
       - "discovery.type=single-node"
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "path.repo=/usr/share/elasticsearch/data/snapshot"
     networks:
       - tipi_main_network
     ulimits:
