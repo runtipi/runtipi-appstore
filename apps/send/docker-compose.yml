@@ -20,7 +20,8 @@ services:
       - REDIS_HOST=send-redis
       # Storage Limit
       - MAX_FILE_SIZE=2147483648
-      - DETECT_BASE_URL=true
+      # Storage path
+      - FILE_DIR=/uploads
     depends_on:
       - send-redis
     labels:
@@ -39,7 +40,7 @@ services:
       - ${APP_DATA_DIR}/data/redis:/data
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
-      interval: 1s
+      interval: 5s
       timeout: 3s
       retries: 30
     networks:
