@@ -25,11 +25,11 @@ services:
       - DB_NAME=mastodon
       - DB_PASS=${MASTODON_POSTGRES_PASSWORD}
       - DB_PORT=5432
-      - ES_ENABLED=true
-      - ES_HOST=mastodon-es
-      - ES_PORT=9200
-      - ES_USER=elastic
-      - ES_PASS=${MASTODON_ELASTIC_PASSWORD}
+      - ES_ENABLED=false
+      #- ES_HOST=mastodon-es
+      #- ES_PORT=9200
+      #- ES_USER=elastic
+      #- ES_PASS=${MASTODON_ELASTIC_PASSWORD}
       - SECRET_KEY_BASE=${MASTODON_SECRET_KEY_BASE}
       - OTP_SECRET=${MASTODON_OTP_SECRET}
       - SMTP_SERVER=${MASTODON_SMTP_SERVER}
@@ -39,7 +39,7 @@ services:
       - SMTP_FROM_ADDRESS=${MASTODON_SMTP_FROM_ADDRESS}
       - S3_ENABLED=false
       #- S3_BUCKET=files.example.com
-     # - AWS_ACCESS_KEY_ID=
+      # - AWS_ACCESS_KEY_ID=
       #- AWS_SECRET_ACCESS_KEY=
       #- S3_ALIAS_HOST=files.example.com
       - SIDEKIQ_ONLY=false 
@@ -94,31 +94,3 @@ services:
       test: ['CMD', 'redis-cli', 'ping']
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
-
-  mastodon-es:
-    restart: always
-    container_name: mastodon-es
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.4
-    environment:
-      - ES_JAVA_OPTS=-Xms512m -Xmx512m -Des.enforce.bootstrap.checks=true
-      - xpack.license.self_generated.type=basic
-      - xpack.security.enabled=false
-      - xpack.watcher.enabled=false
-      - xpack.graph.enabled=false
-      - xpack.ml.enabled=false
-      - bootstrap.memory_lock=true
-      - cluster.name=mastodon-es
-      - discovery.type=single-node
-      - thread_pool.write.queue_size=1000
-      - ELASTIC_PASSWORD=${MASTODON_ELASTIC_PASSWORD}
-    networks:
-      - tipi_main_network
-    volumes:
-      - ${APP_DATA_DIR}/data/elasticsearch:/usr/share/elasticsearch/data
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-      nofile:
-        soft: 65536
-        hard: 65536
