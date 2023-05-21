@@ -8,7 +8,7 @@
   "generate_vapid_keys": true,
   "id": "mastodon",
   "tipi_version": 1,
-  "version": "v4.1",
+  "version": "4.1.2",
   "categories": ["social"],
   "description": "Your self-hosted, globally interconnected microblogging community",
   "short_desc": "Your self-hosted, globally interconnected microblogging community",
