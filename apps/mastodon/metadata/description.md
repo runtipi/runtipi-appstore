@@ -1,6 +1,7 @@
 ## Notice
 
-*Mastodon is a heavy app, and may take a bit longer to fully start up.*
+- *Mastodon is a heavy app, and may take a bit longer to fully start up.*
+- Must be on Tipi Version **1.4.0** for the expose app to work!
 
 ## Initial User Setup
 1. SSH into your Tipi Server
