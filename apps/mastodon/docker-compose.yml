@@ -13,7 +13,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${TZ}
-      - LOCAL_DOMAIN=${APP_DOMAIN}
+      - LOCAL_DOMAIN=${MASTODON_LOCAL_DOMAIN}
+      - WEB_DOMAIN=${APP_DOMAIN}
       - VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
       - VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
       - REDIS_HOST=mastodon-redis

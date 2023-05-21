@@ -1,7 +1,10 @@
-## Notice
+## Installation Notice
 
 - *Mastodon is a heavy app, and may take a bit longer to fully start up.*
 - Must be on Tipi Version **1.4.0** for the expose app to work!
+
+#### Local Domain Varibale 
+- The local domain variable ca be the same as the exposed domain (Ex: social.example.com). But you could have the exposed domain as social.example.com and the username url as example.com.
 
 ## Initial User Setup
 1. SSH into your Tipi Server

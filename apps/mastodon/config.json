@@ -81,6 +81,14 @@
       "placeholder": "noreply@example.com",
       "required": true,
       "env_variable": "MASTODON_SMTP_FROM_ADDRESS"
+    },
+    {
+      "type": "text",
+      "label": "Mastodon Local domain",
+      "hint": "Could be the same of the Exposed Domain. Ex: social.example.com",
+      "placeholder": "${APP_DOMAIN}",
+      "required": true,
+      "env_variable": "MASTODON_LOCAL_DOMAIN"
     }
   ]
 }
