@@ -113,10 +113,8 @@ services:
       - ELASTIC_PASSWORD=${MASTODON_ELASTIC_PASSWORD}
     networks:
       - tipi_main_network
-    healthcheck:
-      test: ["CMD-SHELL", "curl --silent --fail localhost:9200/_cluster/health || exit 1"]
     volumes:
-      - ./elasticsearch:/usr/share/elasticsearch/data
+      - ${APP_DATA_DIR}/data/elasticsearch:/usr/share/elasticsearch/data
     ulimits:
       memlock:
         soft: -1
