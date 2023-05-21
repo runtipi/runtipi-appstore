@@ -5,7 +5,7 @@
   "exposable": true,
   "port": 8126,
   "id": "send",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "latest",
   "categories": ["utilities"],
   "description": "A file sharing experiment which allows you to send encrypted files to other users.",
