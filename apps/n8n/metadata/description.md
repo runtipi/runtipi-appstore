@@ -1,6 +1,6 @@
 ## Installation Notes ##
 
-For integrations which authorize with OAUTH you will need to enable "expose app" and a URL when setting n8n up. This setting can be changed after installation if you find an integration you would like to use.
+To enable OAUTH integrations you will need to enable the "expose app" option and configure a URL in Tipi. This setting can be changed at a later date if an integration is identified that needs it.
 
 ## Easily automate tasks across different services. 
 
