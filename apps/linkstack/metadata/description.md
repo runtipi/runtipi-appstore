@@ -1,7 +1,3 @@
-[![](https://raw.githubusercontent.com/LinkStackOrg/branding/main/logo/svg/logo_animated.svg)](https://raw.githubusercontent.com/LinkStackOrg/branding/main/logo/svg/logo_animated.svg)  
-  
- ![](https://raw.githubusercontent.com/LinkStackOrg/branding/main/logo/png/wordmark_dark.png)
-
 ### **Open-Source Linktree Alternative**
 
 ### LinkStack is a highly customizable link sharing platform  
