@@ -26,7 +26,6 @@
       "label": "Allow User Registrastion",
       "hint": "Set it to true intially to create the first user.",
       "placeholder": "true",
-      "required": true,
       "default": true,
       "env_variable": "DAILYTXT_ALLOW_REGISTRATION"
     }
