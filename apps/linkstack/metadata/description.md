@@ -1,15 +1,11 @@
+[![](https://raw.githubusercontent.com/LinkStackOrg/branding/main/logo/svg/logo_animated.svg)](https://raw.githubusercontent.com/LinkStackOrg/branding/main/logo/svg/logo_animated.svg)  
+  
+ ![](https://raw.githubusercontent.com/LinkStackOrg/branding/main/logo/png/wordmark_dark.png)
 
-# Important
+### **Open-Source Linktree Alternative**
 
-Please use your local IP to setup Little Link Custom
-
-After Install, enable Force HTTPS in the Admin Panel
-
-Afterwords, your exposed domain is good to go!
-
-There is an issue with the [installer](https://github.com/LinkStackOrg/LinkStack/issues/354)!
-
----
+### LinkStack is a highly customizable link sharing platform  
+with an intuitive, easy to use user interface.
 
 ## Function
 
