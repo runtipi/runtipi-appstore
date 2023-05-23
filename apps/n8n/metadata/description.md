@@ -1,3 +1,7 @@
+## Installation Notes ##
+
+For integrations which authorize with OAUTH you will need to enable "expose app" and a URL when setting n8n up. This setting can be changed after installation if you find an integration you would like to use.
+
 ## Easily automate tasks across different services. 
 
 n8n is an extendable workflow automation tool. With a fair-code distribution model, n8n will always have visible source code, be available to self-host, and allow you to add your own custom functions, logic and apps. n8n's node-based approach makes it highly 
