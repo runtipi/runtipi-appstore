@@ -3,7 +3,7 @@ version: '3.7'
 services:
   n8n:
     container_name: n8n
-    image: n8nio/n8n:0.224.1
+    image: n8nio/n8n:0.229.0
     restart: unless-stopped
     ports:
       - ${APP_PORT}:5678
@@ -17,6 +17,7 @@ services:
       - DB_POSTGRESDB_PORT=5432
       - DB_POSTGRESDB_USER=tipi
       - DB_POSTGRESDB_PASSWORD=tipi
+      - N8N_EDITOR_BASE_URL=${APP_DOMAIN}
     depends_on:
       - db-n8n
     networks:
