@@ -6,11 +6,13 @@
   "exposable": true,
   "force_expose": true,
   "id": "gotosocial",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "uid": 1000,
   "gid": 1000,
-  "version": "0.8.1",
-  "categories": ["social"],
+  "version": "0.9.0",
+  "categories": [
+    "social"
+  ],
   "description": "Fast, fun, ActivityPub server, powered by Go.",
   "short_desc": "Fast, fun, ActivityPub server, powered by Go.",
   "author": "superseriousbusiness",
@@ -27,8 +29,14 @@
       "type": "text",
       "required": true,
       "options": [
-        { "label": "Open Sign Up", "value": "true" },
-        { "label": "Invite Only", "value": "false" }
+        {
+          "label": "Open Sign Up",
+          "value": "true"
+        },
+        {
+          "label": "Invite Only",
+          "value": "false"
+        }
       ],
       "env_variable": "GTS_ACCOUNTS_REGISTRATION_OPE"
     },
