@@ -1,0 +1,101 @@
+{
+  "$schema": "../schema.json",
+  "name": "Plane",
+  "port": 8193,
+  "available": true,
+  "exposable": true,
+  "id": "plane",
+  "tipi_version": 1,
+  "version": "0.6",
+  "categories": ["development"],
+  "description": "Plane helps you track your issues, epics, and product roadmaps in the simplest way possible.",
+  "short_desc": "Plane helps you track your issues, epics, and product roadmaps in the simplest way possible.",
+  "author": "MakePlane",
+  "source": "https://github.com/makeplane/plane",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Plane Postgres Passowrd",
+      "min": 32,
+      "env_variable": "PLANE_DB_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Plane Postgres Passowrd",
+      "min": 64,
+      "env_variable": "PLANE_SECRET_KEY"
+    },
+    {
+      "type": "text",
+      "label": "SMTP Host",
+      "hint": "Your SMTP Server",
+      "required": true,
+      "env_variable": "PLANE_EMAIL_HOST"
+    },
+    {
+      "type": "text",
+      "label": "SMTP Username",
+      "hint": "Your SMTP Server User/Username",
+      "required": true,
+      "env_variable": "PLANE_EMAIL_HOST_USER"
+    },
+    {
+      "type": "text",
+      "label": "SMTP Password",
+      "hint": "Your SMTP Server Password",
+      "required": true,
+      "env_variable": "PLANE_EMAIL_HOST_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "AWS Region",
+      "hint": "Use us-east-1 if using Minio ",
+      "required": true,
+      "env_variable": "PLANE_AWS_REGION"
+    },
+    {
+      "type": "text",
+      "label": "AWS Access Key",
+      "required": true,
+      "env_variable": "PLANE_AWS_ACCESS_KEY_ID"
+    },
+    {
+      "type": "text",
+      "label": "AWS Secret Access Key",
+      "required": true,
+      "env_variable": "PLANE_AWS_SECRET_ACCESS_KEY"
+    },
+    {
+      "type": "text",
+      "label": "AWS Endpoint URL",
+      "required": true,
+      "env_variable": "PLANE_AWS_S3_ENDPOINT_URL"
+    },
+    {
+      "type": "text",
+      "label": "AWS Bucket Name",
+      "required": true,
+      "env_variable": "PLANE_AWS_S3_BUCKET_NAME"
+    },
+    {
+      "type": "text",
+      "label": "Github Client Secret",
+      "hint": "Connect Github Repos",
+      "required": true,
+      "env_variable": "PLANE_GITHUB_CLIENT_SECRET"
+    },
+    {
+      "type": "text",
+      "label": "OpenAPI Key",
+      "required": false,
+      "env_variable": "PLANE_OPENAI_API_KEY"
+    },
+    {
+      "type": "text",
+      "label": "GPT Engine",
+      "placeholder": "text-davinci-003",
+      "required": false,
+      "env_variable": "PLANE_OPENAI_API_KEY"
+    }
+  ]
+}
