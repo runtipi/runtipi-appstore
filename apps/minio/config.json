@@ -25,7 +25,7 @@
       "type": "password",
       "label": "Minio ROOT Password",
       "max": 50,
-      "min": 5,
+      "min": 8,
       "required": true,
       "env_variable": "MINIO_ROOT_PASSWORD"
     },

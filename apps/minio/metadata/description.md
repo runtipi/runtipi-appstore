@@ -2,7 +2,7 @@
 Host your own Amazon S3 compatible Object Storage!
 
 
-## !! PLEASE READ !!
+## !! Installation Info !!
 
 This MinIO setup requires two exposed URLS
 - The console URL
@@ -14,6 +14,11 @@ While the console URL is defined by the tipi's default expose URL you need to de
 
 - API: Minio S3 API URL: s3.mydomain.com
 - Console: Exposed URL: minio.mydomain.com
+
+| Exposed Service      | Local Port | Exposed Domain      |
+|----------------------|------------|---------------------|
+| Minio API | IP:8000    | s3.mydomain.com         |
+| Minio Admin Console  | IP:8001  | minio.mydomain.com |
 
 
 ## About
