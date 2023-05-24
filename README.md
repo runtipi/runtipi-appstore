@@ -68,6 +68,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Memos](https://github.com/usememos/memos) - Memo hub for knowledge management and collaboration.
 - [Minecraft server](https://github.com/itzg/docker-minecraft-server) - Run a minecraft server in one click
 - [Mind](https://github.com/Casvt/MIND) - A simple self hosted reminder platform that uses push to send notifications to your device.
+- [MinIO](https://github.com/minio/minio) - MinIO is a High Performance Object Storage released under GNU Affero General Public License v3.0
 - [Moneroblock](https://github.com/duggavo/MoneroBlock) - Decentralized and trustless Monero block explorer
 - [Monero Daemon](https://github.com/monero-project/monero/) - A network daemon for Monero: the secure, private, untraceable cryptocurrency
 - [Monero p2pool Daemon](https://github.com/SChernykh/p2pool) - Decentralized pool for Monero mining
