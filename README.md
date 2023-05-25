@@ -36,7 +36,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Gitea](https://github.com/go-gitea/gitea) - Gitea - A painless self-hosted Git service
 - [Gladys Assistant](https://github.com/gladysassistant/gladys) - A privacy-first, open-source home assistant
 - [Gotify](https://github.com/gotify/server) - Gotify - Simple server for sending and receiving notification messages
--[GoToSocial](https://github.com/superseriousbusiness/gotosocial) - Fast, fun, ActivityPub server, powered by Go.
+- [GoToSocial](https://github.com/superseriousbusiness/gotosocial) - Fast, fun, ActivityPub server, powered by Go.
 - [Grafana](https://github.com/grafana/grafana) - The open and composable observability and data visualization platform
 - [Grav](https://github.com/getgrav/grav) - Fast, Simple, and Flexible, file-based Web-platform.
 - [Grocy](https://github.com/grocy/grocy) - Grocy - ERP beyond your fridge
