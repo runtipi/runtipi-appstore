@@ -36,7 +36,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Gitea](https://github.com/go-gitea/gitea) - Gitea - A painless self-hosted Git service
 - [Gladys Assistant](https://github.com/gladysassistant/gladys) - A privacy-first, open-source home assistant
 - [Gotify](https://github.com/gotify/server) - Gotify - Simple server for sending and receiving notification messages
--[GoToSocial](https://github.com/superseriousbusiness/gotosocial) - Fast, fun, ActivityPub server, powered by Go.
+- [GoToSocial](https://github.com/superseriousbusiness/gotosocial) - Fast, fun, ActivityPub server, powered by Go.
 - [Grafana](https://github.com/grafana/grafana) - The open and composable observability and data visualization platform
 - [Grav](https://github.com/getgrav/grav) - Fast, Simple, and Flexible, file-based Web-platform.
 - [Grocy](https://github.com/grocy/grocy) - Grocy - ERP beyond your fridge
@@ -62,8 +62,11 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [LibreTranslate](https://github.com/LibreTranslate/LibreTranslate) - Free and Open Source Machine Translation API. 100% self-hosted, offline capable and easy to setup
 - [Lidarr](https://github.com/Lidarr/Lidarr) - Looks and smells like Sonarr but made for music.
 - [Lidarr On Steroids](https://github.com/youegraillot/lidarr-on-steroids) - Lidarr with some muscles thanks to deemix
-- [Littlelink Custom](https://github.com/JulianPrieber/littlelink-custom) - LittleLink Custom - the ultimate solution for creating a personalized & professional profile page.
+- [LinkStack](https://github.com/LinkStackOrg/LinkStack) - LAbout
+LinkStack - the ultimate solution for creating a personalized & professional profile page.
 - [Lodestone Core](https://github.com/Lodestone-Team/lodestone_core) - Server hosting tool for Minecraft and other multiplayers
+- [Logto](https://github.com/logto-io/logto) - Logto is a cost-effective open-source alternative to Auth0.
+- [Mastodon](https://github.com/mastodon/mastodon) - Your self-hosted, globally interconnected microblogging community
 - [Mealie](https://github.com/hay-kot/mealie) - Self-hosted recipe manager and meal planner.
 - [Memos](https://github.com/usememos/memos) - Memo hub for knowledge management and collaboration.
 - [Minecraft server](https://github.com/itzg/docker-minecraft-server) - Run a minecraft server in one click
@@ -74,6 +77,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Monero p2pool Daemon](https://github.com/SChernykh/p2pool) - Decentralized pool for Monero mining
 - [Monica](https://github.com/monicahq/monica) - A Personal Relationship Management tool to help you document your social life
 - [Mixpost](https://github.com/inovector/mixpost) - Self-hosted social media management. Schedule and organize your social content.
+- [Mixpost Pro](https://mixpost.app/pricing) - Self-hosted social media management. Schedule and organize your social content.
 - [Movary](https://github.com/leepeuker/movary - ) Track and rate your watched movies
 - [mStream](https://github.com/IrosTheBeggar/mStream) - The easiest music streaming server available
 - [Mylar3](https://github.com/mylar3/mylar3) - Mylar3 is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python.
@@ -107,6 +111,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Sabnzbd](https://github.com/sabnzbd/sabnzbd) - Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can"
 - [SearXNG](https://github.com/searxng/searxng) - SearXNG is a free internet metasearch engine which aggregates results from various search services and databases. Users are neither tracked nor profiled
 - [Send](https://gitlab.com/timvisee/send) - Simple, private file sharing
+- [SimpleX SMP](https://github.com/simplex-chat/simplexmq) - A reference implementation of the SimpleX Messaging Protocol for simplex queues over public networks.
 - [Sonarr](https://github.com/Sonarr/Sonarr) - TV show manager for Usenet and BitTorrent
 - [Syncthing](https://github.com/syncthing/syncthing) - Continuous File Synchronization
 - [Tailscale](https://github.com/tailscale/tailscale) - The easiest, most secure way to use WireGuard and 2FA
