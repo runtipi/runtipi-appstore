@@ -1,8 +1,10 @@
 
 
-## Notice 
+## Install Notice 
 
  *Additonal Docs are Below!*
+
+ Set Root folder too `/media/data/comics`
 
 ---
 Kapowarr is a software to build and manage a comic book library, fitting in the \*arr suite of software.
@@ -67,7 +69,7 @@ On the documentation page about rate limiting, information can be found about th
 
 Root folders are the base folders that Kapowarr works in. All content is put in these folders. When adding a volume (or when editing one), you choose in which root folder all content for that volume is put. Kapowarr will never touch any files outside the root folders (except in the download folder). You might have multiple root folders because you store your comics on multiple drives or want different access rights to certain volumes, to name a few reasons.
 
-Root folders can be added at Settings -> Media Management -> Root Folders. Note: If you use docker to run Kapowarr and have followed the example given in the installation instructions), this is where you would enter `/media`
+Root folders can be added at Settings -> Media Management -> Root Folders. Note: If you use docker to run Kapowarr and have followed the example given in the installation instructions), this is where you would enter `/media/data/comics`
 
 ## Downloading
 
