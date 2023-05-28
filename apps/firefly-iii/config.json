@@ -4,7 +4,7 @@
   "available": true,
   "exposable": true,
   "port": 8115,
-  "tipi_version": 4,
+  "tipi_version": 5,
   "version": "version-6.0.10",
   "id": "firefly-iii",
   "categories": ["finance"],
@@ -33,6 +33,13 @@
       "max": 32,
       "label": "Database password",
       "env_variable": "MYSQL_PASSWORD"
+    },
+    {
+      "type": "random",
+      "min": 32,
+      "max": 32,
+      "label": "Random key",
+      "env_variable": "STATIC_CRON_TOKEN"
     }
   ]
 }

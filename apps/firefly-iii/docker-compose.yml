@@ -16,6 +16,7 @@ services:
       - APP_DEBUG=false
       - SITE_OWNER=${EMAIL}
       - APP_KEY=${APP_KEY}
+      - STATIC_CRON_TOKEN=${STATIC_CRON_TOKEN}
       - TZ=${TZ}
       - TRUSTED_PROXIES=**
 
@@ -80,5 +81,12 @@ services:
       - MYSQL_DATABASE=firefly
     volumes:
       - ${APP_DATA_DIR}/data/db:/var/lib/mysql
+    networks:
+      - tipi_main_network
+
+  firefly-iii-cron:
+    container_name: firefly-iii-cron
+    image: alpine
+    command: sh -c "echo \"0 3 * * * wget -qO- http://${APP_DOMAIN}/api/v1/cron/${STATIC_CRON_TOKEN}\" | crontab - && crond -f -L /dev/stdout"
     networks:
       - tipi_main_network
