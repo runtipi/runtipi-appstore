@@ -1,0 +1,24 @@
+{
+  "$schema": "../schema.json",
+  "name": "Spider",
+  "port": 8195,
+  "available": true,
+  "exposable": true,
+  "id": "spider",
+  "tipi_version": 1,
+  "version": "v2.3.0",
+  "categories": ["development"],
+  "description": "On-Premises Email Archiving Software",
+  "short_desc": "On-Premises Email Archiving Software",
+  "author": "https://spiderd.io/",
+  "source": "https://spiderd.io/",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Spider Secret Key",
+      "min": 64,
+      "max": 64,
+      "env_variable": "SPIDER_SECRET_KEY"
+    }
+  ]
+}
