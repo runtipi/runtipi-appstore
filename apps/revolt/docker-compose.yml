@@ -139,7 +139,7 @@ services:
 
   # API server (delta)
   revolt-api:
-    image: ghcr.io/revoltchat/server:20230421-3
+    image: ghcr.io/revoltchat/server:20230531-3
     container_name: revolt-api
     depends_on:
       - revolt-database
