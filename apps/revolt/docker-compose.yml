@@ -213,7 +213,7 @@ services:
 
   # File server (autumn)
   revolt-autumn:
-    image: ghcr.io/revoltchat/autumn:1.1.8
+    image: ghcr.io/revoltchat/autumn:1.1.9
     container_name: revolt-autumn
     depends_on:
       - revolt-database
