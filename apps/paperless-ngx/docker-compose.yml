@@ -42,7 +42,7 @@ services:
       
   paperless-ngx:
     container_name: paperless-ngx
-    image: ghcr.io/paperless-ngx/paperless-ngx:1.14
+    image: ghcr.io/paperless-ngx/paperless-ngx:1.15
     restart: unless-stopped
     depends_on:
       - db
