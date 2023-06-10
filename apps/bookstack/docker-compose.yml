@@ -1,4 +1,4 @@
-version: '3.7'
+version: "3.7"
 services:
   bookstack:
     image: lscr.io/linuxserver/bookstack:23.05.20230503
@@ -21,12 +21,30 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.bookstack-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.bookstack.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.bookstack-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.bookstack-insecure.entrypoints: web
+      traefik.http.routers.bookstack-insecure.service: bookstack
+      traefik.http.routers.bookstack-insecure.middlewares: bookstack-web-redirect
+      # Websecure
       traefik.http.routers.bookstack.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.bookstack.entrypoints: websecure
       traefik.http.routers.bookstack.service: bookstack
       traefik.http.routers.bookstack.tls.certresolver: myresolver
-      traefik.http.services.bookstack.loadbalancer.server.port: 80
+      # Local domain
+      traefik.http.routers.bookstack-local-insecure.rule: Host(`bookstack.${LOCAL_DOMAIN}`)
+      traefik.http.routers.bookstack-local-insecure.entrypoints: web
+      traefik.http.routers.bookstack-local-insecure.service: bookstack
+      traefik.http.routers.bookstack-local-insecure.middlewares: bookstack-web-redirect
+      # Local domain secure
+      traefik.http.routers.bookstack-local.rule: Host(`bookstack.${LOCAL_DOMAIN}`)
+      traefik.http.routers.bookstack-local.entrypoints: websecure
+      traefik.http.routers.bookstack-local.service: bookstack
+      traefik.http.routers.bookstack-local.tls: true
 
   bookstack-db:
     image: lscr.io/linuxserver/mariadb
