@@ -1,4 +1,4 @@
-version: '3.9'
+version: "3.9"
 
 services:
   firefly-iii:
@@ -43,16 +43,34 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.firefly-iii-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.firefly-iii.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.firefly-iii-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.firefly-iii-insecure.entrypoints: web
+      traefik.http.routers.firefly-iii-insecure.service: firefly-iii
+      traefik.http.routers.firefly-iii-insecure.middlewares: firefly-iii-web-redirect
+      # Websecure
       traefik.http.routers.firefly-iii.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.firefly-iii.entrypoints: websecure
       traefik.http.routers.firefly-iii.service: firefly-iii
       traefik.http.routers.firefly-iii.tls.certresolver: myresolver
-      traefik.http.services.firefly-iii.loadbalancer.server.port: 8080
-    
+      # Local domain
+      traefik.http.routers.firefly-iii-local-insecure.rule: Host(`firefly-iii.${LOCAL_DOMAIN}`)
+      traefik.http.routers.firefly-iii-local-insecure.entrypoints: web
+      traefik.http.routers.firefly-iii-local-insecure.service: firefly-iii
+      traefik.http.routers.firefly-iii-local-insecure.middlewares: firefly-iii-web-redirect
+      # Local domain secure
+      traefik.http.routers.firefly-iii-local.rule: Host(`firefly-iii.${LOCAL_DOMAIN}`)
+      traefik.http.routers.firefly-iii-local.entrypoints: websecure
+      traefik.http.routers.firefly-iii-local.service: firefly-iii
+      traefik.http.routers.firefly-iii-local.tls: true
+
   firefly-iii-db:
     container_name: firefly-iii-db
-    image: mariadb    
+    image: mariadb
     hostname: fireflyiii-db
     restart: unless-stopped
     environment:

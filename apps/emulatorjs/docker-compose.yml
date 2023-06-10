@@ -1,4 +1,4 @@
-version: '3.7'
+version: "3.7"
 
 services:
   emulatorjs:
@@ -16,9 +16,27 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.emulatorjs-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.emulatorjs.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.emulatorjs-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.emulatorjs-insecure.entrypoints: web
+      traefik.http.routers.emulatorjs-insecure.service: emulatorjs
+      traefik.http.routers.emulatorjs-insecure.middlewares: emulatorjs-web-redirect
+      # Websecure
       traefik.http.routers.emulatorjs.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.appname.entrypoints: websecure
+      traefik.http.routers.emulatorjs.entrypoints: websecure
       traefik.http.routers.emulatorjs.service: emulatorjs
       traefik.http.routers.emulatorjs.tls.certresolver: myresolver
-      traefik.http.services.emulatorjs.loadbalancer.server.port: 80
+      # Local domain
+      traefik.http.routers.emulatorjs-local-insecure.rule: Host(`emulatorjs.${LOCAL_DOMAIN}`)
+      traefik.http.routers.emulatorjs-local-insecure.entrypoints: web
+      traefik.http.routers.emulatorjs-local-insecure.service: emulatorjs
+      traefik.http.routers.emulatorjs-local-insecure.middlewares: emulatorjs-web-redirect
+      # Local domain secure
+      traefik.http.routers.emulatorjs-local.rule: Host(`emulatorjs.${LOCAL_DOMAIN}`)
+      traefik.http.routers.emulatorjs-local.entrypoints: websecure
+      traefik.http.routers.emulatorjs-local.service: emulatorjs
+      traefik.http.routers.emulatorjs-local.tls: true

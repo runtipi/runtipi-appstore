@@ -15,9 +15,27 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.grocy-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.grocy.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.grocy-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.grocy-insecure.entrypoints: web
+      traefik.http.routers.grocy-insecure.service: grocy
+      traefik.http.routers.grocy-insecure.middlewares: grocy-web-redirect
+      # Websecure
       traefik.http.routers.grocy.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.grocy.entrypoints: websecure
       traefik.http.routers.grocy.service: grocy
       traefik.http.routers.grocy.tls.certresolver: myresolver
-      traefik.http.services.grocy.loadbalancer.server.port: 80
+      # Local domain
+      traefik.http.routers.grocy-local-insecure.rule: Host(`grocy.${LOCAL_DOMAIN}`)
+      traefik.http.routers.grocy-local-insecure.entrypoints: web
+      traefik.http.routers.grocy-local-insecure.service: grocy
+      traefik.http.routers.grocy-local-insecure.middlewares: grocy-web-redirect
+      # Local domain secure
+      traefik.http.routers.grocy-local.rule: Host(`grocy.${LOCAL_DOMAIN}`)
+      traefik.http.routers.grocy-local.entrypoints: websecure
+      traefik.http.routers.grocy-local.service: grocy
+      traefik.http.routers.grocy-local.tls: true
