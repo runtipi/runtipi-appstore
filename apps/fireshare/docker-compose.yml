@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   fireshare:
@@ -20,9 +20,27 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.fireshare-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.fireshare.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.fireshare-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.fireshare-insecure.entrypoints: web
+      traefik.http.routers.fireshare-insecure.service: fireshare
+      traefik.http.routers.fireshare-insecure.middlewares: fireshare-web-redirect
+      # Websecure
       traefik.http.routers.fireshare.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.fireshare.entrypoints: websecure
       traefik.http.routers.fireshare.service: fireshare
       traefik.http.routers.fireshare.tls.certresolver: myresolver
-      traefik.http.services.fireshare.loadbalancer.server.port: 80
+      # Local domain
+      traefik.http.routers.fireshare-local-insecure.rule: Host(`fireshare.${LOCAL_DOMAIN}`)
+      traefik.http.routers.fireshare-local-insecure.entrypoints: web
+      traefik.http.routers.fireshare-local-insecure.service: fireshare
+      traefik.http.routers.fireshare-local-insecure.middlewares: fireshare-web-redirect
+      # Local domain secure
+      traefik.http.routers.fireshare-local.rule: Host(`fireshare.${LOCAL_DOMAIN}`)
+      traefik.http.routers.fireshare-local.entrypoints: websecure
+      traefik.http.routers.fireshare-local.service: fireshare
+      traefik.http.routers.fireshare-local.tls: true
