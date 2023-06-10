@@ -5,7 +5,7 @@
   "exposable": true,
   "port": 8130,
   "id": "haven",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "a0280ce",
   "categories": ["social"],
   "description": "Self-hostable private blogging",

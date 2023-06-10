@@ -5,11 +5,9 @@
   "exposable": true,
   "port": 8099,
   "id": "joplin",
-  "tipi_version": 5,
+  "tipi_version": 6,
   "version": "2.10.11",
-  "categories": [
-    "utilities"
-  ],
+  "categories": ["utilities"],
   "description": "Default credentials: admin@localhost / admin",
   "short_desc": "Note taking and to-do application with synchronisation",
   "author": "https://github.com/laurent22",

@@ -1,4 +1,4 @@
-version: '3.7'
+version: "3.7"
 services:
   librephotos:
     image: reallibrephotos/librephotos-proxy:2023w20
@@ -16,12 +16,30 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.librephotos-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.librephotos.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.librephotos-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.librephotos-insecure.entrypoints: web
+      traefik.http.routers.librephotos-insecure.service: librephotos
+      traefik.http.routers.librephotos-insecure.middlewares: librephotos-web-redirect
+      # Websecure
       traefik.http.routers.librephotos.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.librephotos.entrypoints: websecure
       traefik.http.routers.librephotos.service: librephotos
       traefik.http.routers.librephotos.tls.certresolver: myresolver
-      traefik.http.services.librephotos.loadbalancer.server.port: 80
+      # Local domain
+      traefik.http.routers.librephotos-local-insecure.rule: Host(`librephotos.${LOCAL_DOMAIN}`)
+      traefik.http.routers.librephotos-local-insecure.entrypoints: web
+      traefik.http.routers.librephotos-local-insecure.service: librephotos
+      traefik.http.routers.librephotos-local-insecure.middlewares: librephotos-web-redirect
+      # Local domain secure
+      traefik.http.routers.librephotos-local.rule: Host(`librephotos.${LOCAL_DOMAIN}`)
+      traefik.http.routers.librephotos-local.entrypoints: websecure
+      traefik.http.routers.librephotos-local.service: librephotos
+      traefik.http.routers.librephotos-local.tls: true
 
   librephotos-db:
     image: postgres:14
@@ -35,7 +53,7 @@ services:
       - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
     #Checking health of Postgres db
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB']
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
       interval: 5s
       timeout: 5s
       retries: 5

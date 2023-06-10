@@ -12,16 +12,34 @@ services:
     environment:
       - IMMICH_WEB_URL=http://immich-web:3000
       - IMMICH_SERVER_URL=http://immich-server:3001
-     # - IMMICH_MACHINE_LEARNING_URL="http://immich-machine-learning:3003"
+      # - IMMICH_MACHINE_LEARNING_URL="http://immich-machine-learning:3003"
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.immich-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.immich.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.immich-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.immich-insecure.entrypoints: web
+      traefik.http.routers.immich-insecure.service: immich
+      traefik.http.routers.immich-insecure.middlewares: immich-web-redirect
+      # Websecure
       traefik.http.routers.immich.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.immich.entrypoints: websecure
       traefik.http.routers.immich.service: immich
       traefik.http.routers.immich.tls.certresolver: myresolver
-      traefik.http.services.immich.loadbalancer.server.port: 8080
+      # Local domain
+      traefik.http.routers.immich-local-insecure.rule: Host(`immich.${LOCAL_DOMAIN}`)
+      traefik.http.routers.immich-local-insecure.entrypoints: web
+      traefik.http.routers.immich-local-insecure.service: immich
+      traefik.http.routers.immich-local-insecure.middlewares: immich-web-redirect
+      # Local domain secure
+      traefik.http.routers.immich-local.rule: Host(`immich.${LOCAL_DOMAIN}`)
+      traefik.http.routers.immich-local.entrypoints: websecure
+      traefik.http.routers.immich-local.service: immich
+      traefik.http.routers.immich-local.tls: true
 
   immich-server:
     container_name: immich-server
@@ -121,7 +139,7 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
-  
+
   immich-typesense:
     container_name: immich-typesense
     image: typesense/typesense:0.24.0
