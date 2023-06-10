@@ -5,7 +5,7 @@
   "available": true,
   "exposable": true,
   "id": "filestash",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "397fd8b",
   "categories": ["utilities"],
   "description": "A modern web client for SFTP, S3, FTP, WebDAV, Git, Minio, LDAP, CalDAV, CardDAV, Mysql, Backblaze",
@@ -18,7 +18,7 @@
       "label": "(Optional) Google Drive Client ID",
       "required": false,
       "env_variable": "FILESTASH_GDRIVE_CLIENT_ID"
-    },    
+    },
     {
       "type": "text",
       "label": "(Optional) Google Drive Client Secret",
