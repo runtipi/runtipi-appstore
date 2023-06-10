@@ -15,9 +15,27 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.grav-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.grav.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.grav-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.grav-insecure.entrypoints: web
+      traefik.http.routers.grav-insecure.service: grav
+      traefik.http.routers.grav-insecure.middlewares: grav-web-redirect
+      # Websecure
       traefik.http.routers.grav.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.grav.entrypoints: websecure
       traefik.http.routers.grav.service: grav
       traefik.http.routers.grav.tls.certresolver: myresolver
-      traefik.http.services.grav.loadbalancer.server.port: 80
+      # Local domain
+      traefik.http.routers.grav-local-insecure.rule: Host(`grav.${LOCAL_DOMAIN}`)
+      traefik.http.routers.grav-local-insecure.entrypoints: web
+      traefik.http.routers.grav-local-insecure.service: grav
+      traefik.http.routers.grav-local-insecure.middlewares: grav-web-redirect
+      # Local domain secure
+      traefik.http.routers.grav-local.rule: Host(`grav.${LOCAL_DOMAIN}`)
+      traefik.http.routers.grav-local.entrypoints: websecure
+      traefik.http.routers.grav-local.service: grav
+      traefik.http.routers.grav-local.tls: true

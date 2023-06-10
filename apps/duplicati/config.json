@@ -5,11 +5,9 @@
   "available": true,
   "exposable": true,
   "id": "duplicati",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "2.0.7",
-  "categories": [
-    "data"
-  ],
+  "categories": ["data"],
   "description": "Duplicati is a free, open source, backup client that securely stores encrypted, incremental, compressed backups on cloud storage services and remote file servers.",
   "short_desc": "Store securely encrypted backups in the cloud!",
   "author": "https://github.com/duplicati",
