@@ -18,9 +18,27 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.lidarr-deemix-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.lidarr-deemix.loadbalancer.server.port: 8686
+      # Web
+      traefik.http.routers.lidarr-deemix-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.lidarr-deemix-insecure.entrypoints: web
+      traefik.http.routers.lidarr-deemix-insecure.service: lidarr-deemix
+      traefik.http.routers.lidarr-deemix-insecure.middlewares: lidarr-deemix-web-redirect
+      # Websecure
       traefik.http.routers.lidarr-deemix.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.lidarr-deemix.entrypoints: websecure
       traefik.http.routers.lidarr-deemix.service: lidarr-deemix
       traefik.http.routers.lidarr-deemix.tls.certresolver: myresolver
-      traefik.http.services.lidarr-deemix.loadbalancer.server.port: 8686
+      # Local domain
+      traefik.http.routers.lidarr-deemix-local-insecure.rule: Host(`lidarr-deemix.${LOCAL_DOMAIN}`)
+      traefik.http.routers.lidarr-deemix-local-insecure.entrypoints: web
+      traefik.http.routers.lidarr-deemix-local-insecure.service: lidarr-deemix
+      traefik.http.routers.lidarr-deemix-local-insecure.middlewares: lidarr-deemix-web-redirect
+      # Local domain secure
+      traefik.http.routers.lidarr-deemix-local.rule: Host(`lidarr-deemix.${LOCAL_DOMAIN}`)
+      traefik.http.routers.lidarr-deemix-local.entrypoints: websecure
+      traefik.http.routers.lidarr-deemix-local.service: lidarr-deemix
+      traefik.http.routers.lidarr-deemix-local.tls: true
