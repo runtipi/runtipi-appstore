@@ -24,16 +24,32 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.joplin-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.joplin.loadbalancer.passhostheader: true
+      traefik.http.services.joplin.loadbalancer.server.port: 22300
+      # Web
+      traefik.http.routers.joplin-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.joplin-insecure.entrypoints: web
+      traefik.http.routers.joplin-insecure.service: joplin
+      traefik.http.routers.joplin-insecure.middlewares: joplin-web-redirect
+      # Websecure
       traefik.http.routers.joplin.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.joplin.entrypoints: websecure
       traefik.http.routers.joplin.service: joplin
       traefik.http.routers.joplin.tls.certresolver: myresolver
-      traefik.http.services.joplin.loadbalancer.server.port: 22300
-      traefik.http.services.joplin.loadbalancer.passhostheader: true
-      traefik.http.middlewares.joplin-sslheader.headers.customrequestheaders.X-Forwarded-Proto: http
-      traefik.http.routers.joplin-sslheader.middlewares: joplin-sslheader@docker
-      
+      # Local domain
+      traefik.http.routers.joplin-local-insecure.rule: Host(`joplin.${LOCAL_DOMAIN}`)
+      traefik.http.routers.joplin-local-insecure.entrypoints: web
+      traefik.http.routers.joplin-local-insecure.service: joplin
+      traefik.http.routers.joplin-local-insecure.middlewares: joplin-web-redirect
+      # Local domain secure
+      traefik.http.routers.joplin-local.rule: Host(`joplin.${LOCAL_DOMAIN}`)
+      traefik.http.routers.joplin-local.entrypoints: websecure
+      traefik.http.routers.joplin-local.service: joplin
+      traefik.http.routers.joplin-local.tls: true
+
   db-joplin:
     container_name: db-joplin
     image: postgres:14.2
