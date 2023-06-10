@@ -5,7 +5,7 @@
   "available": true,
   "exposable": true,
   "id": "emulatorjs",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "1.7.2",
   "categories": ["gaming"],
   "description": "Self-hosted Javascript emulation for various system.",
