@@ -5,11 +5,9 @@
   "available": true,
   "exposable": true,
   "id": "homebox",
-  "tipi_version": 4,
+  "tipi_version": 5,
   "version": "0.9.2",
-  "categories": [
-    "utilities"
-  ],
+  "categories": ["utilities"],
   "description": "Homebox is the inventory and organization system built for the Home User",
   "short_desc": "Homebox is the inventory and organization system built for the Home User",
   "author": "hay-kot",
