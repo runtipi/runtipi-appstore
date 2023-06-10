@@ -15,11 +15,12 @@ services:
     ports:
       - ${APP_PORT}:8090
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8090/actuator/health/readiness"]
+      test:
+        ["CMD", "curl", "-f", "http://localhost:8090/actuator/health/readiness"]
       interval: 30s
       timeout: 5s
       retries: 5
-      start_period: 30s          
+      start_period: 30s
     command:
       - --spring.r2dbc.url=r2dbc:pool:postgresql://halodb/halo
       - --spring.r2dbc.username=halo
@@ -29,12 +30,30 @@ services:
       - --halo.security.initializer.superadminusername=${HALO_ADMIN_USERNAME}
       - --halo.security.initializer.superadminpassword=${HALO_ADMIN_PASSWORD}
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.halo-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.halo.loadbalancer.server.port: 8090
+      # Web
+      traefik.http.routers.halo-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.halo-insecure.entrypoints: web
+      traefik.http.routers.halo-insecure.service: halo
+      traefik.http.routers.halo-insecure.middlewares: halo-web-redirect
+      # Websecure
       traefik.http.routers.halo.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.halo.entrypoints: websecure
       traefik.http.routers.halo.service: halo
       traefik.http.routers.halo.tls.certresolver: myresolver
-      traefik.http.services.halo.loadbalancer.server.port: 8090
+      # Local domain
+      traefik.http.routers.halo-local-insecure.rule: Host(`halo.${LOCAL_DOMAIN}`)
+      traefik.http.routers.halo-local-insecure.entrypoints: web
+      traefik.http.routers.halo-local-insecure.service: halo
+      traefik.http.routers.halo-local-insecure.middlewares: halo-web-redirect
+      # Local domain secure
+      traefik.http.routers.halo-local.rule: Host(`halo.${LOCAL_DOMAIN}`)
+      traefik.http.routers.halo-local.entrypoints: websecure
+      traefik.http.routers.halo-local.service: halo
+      traefik.http.routers.halo-local.tls: true
 
   halodb:
     image: postgres:latest
@@ -45,7 +64,7 @@ services:
     volumes:
       - ${APP_DATA_DIR}/db:/var/lib/postgresql/data
     healthcheck:
-      test: [ "CMD", "pg_isready" ]
+      test: ["CMD", "pg_isready"]
       interval: 10s
       timeout: 5s
       retries: 5
