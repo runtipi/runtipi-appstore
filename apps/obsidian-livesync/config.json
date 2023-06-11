@@ -6,9 +6,11 @@
   "exposable": true,
   "no_gui": true,
   "id": "obsidian-livesync",
-  "tipi_version": 1,
-  "version": "3.1.2",
-  "categories": ["utilities"],
+  "tipi_version": 2,
+  "version": "3.3.2",
+  "categories": [
+    "utilities"
+  ],
   "description": "LiveSync couchdb backend for Obsidian",
   "short_desc": "LiveSync couchdb backend for Obsidian",
   "author": "vorotamoroz",
