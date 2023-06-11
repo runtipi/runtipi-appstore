@@ -4,7 +4,7 @@
   "available": true,
   "exposable": true,
   "port": 8116,
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "version-1.2.2",
   "id": "firefly-iii-data-importer",
   "categories": ["finance"],
