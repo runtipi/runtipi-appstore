@@ -1,4 +1,4 @@
-version: '3.7'
+version: "3.7"
 
 services:
   mixpost:
@@ -27,12 +27,30 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.mixpost-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.mixpost.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.mixpost-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mixpost-insecure.entrypoints: web
+      traefik.http.routers.mixpost-insecure.service: mixpost
+      traefik.http.routers.mixpost-insecure.middlewares: mixpost-web-redirect
+      # Websecure
       traefik.http.routers.mixpost.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.mixpost.entrypoints: websecure
       traefik.http.routers.mixpost.service: mixpost
       traefik.http.routers.mixpost.tls.certresolver: myresolver
-      traefik.http.services.mixpost.loadbalancer.server.port: 80
+      # Local domain
+      traefik.http.routers.mixpost-local-insecure.rule: Host(`mixpost.${LOCAL_DOMAIN}`)
+      traefik.http.routers.mixpost-local-insecure.entrypoints: web
+      traefik.http.routers.mixpost-local-insecure.service: mixpost
+      traefik.http.routers.mixpost-local-insecure.middlewares: mixpost-web-redirect
+      # Local domain secure
+      traefik.http.routers.mixpost-local.rule: Host(`mixpost.${LOCAL_DOMAIN}`)
+      traefik.http.routers.mixpost-local.entrypoints: websecure
+      traefik.http.routers.mixpost-local.service: mixpost
+      traefik.http.routers.mixpost-local.tls: true
 
   mixpost-mysql:
     image: mysql/mysql-server:8.0
@@ -44,7 +62,7 @@ services:
       - MYSQL_PASSWORD=${MIXPOST_MYSQL_PASSWORD}
       - MYSQL_DATABASE=mixpost
     healthcheck:
-      test: ['CMD', 'mysqladmin', 'ping', '-p ${MIXPOST_MYSQL_PASSWORD}']
+      test: ["CMD", "mysqladmin", "ping", "-p ${MIXPOST_MYSQL_PASSWORD}"]
       retries: 3
       timeout: 5s
     volumes:
@@ -53,12 +71,12 @@ services:
       - tipi_main_network
 
   mixpost-redis:
-    image: 'redis:latest'
+    image: "redis:latest"
     command: redis-server --appendonly yes --replica-read-only no --requirepass "${MIXPOST_REDIS_PASSWORD}"
     volumes:
-      - '${APP_DATA_DIR}/data/redis:/data'
+      - "${APP_DATA_DIR}/data/redis:/data"
     healthcheck:
-      test: ['CMD', 'redis-cli', 'ping']
+      test: ["CMD", "redis-cli", "ping"]
       retries: 3
       timeout: 5s
     networks:
