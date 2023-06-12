@@ -5,11 +5,9 @@
   "available": true,
   "exposable": true,
   "id": "owncloud",
-  "tipi_version": 4,
+  "tipi_version": 5,
   "version": "10.12.2",
-  "categories": [
-    "data"
-  ],
+  "categories": ["data"],
   "description": "ownCloud gives you freedom and control over your own data. A personal cloud which runs on your own server.  ",
   "short_desc": "A personal cloud which runs on your own server. ",
   "author": "https://github.com/owncloud",
