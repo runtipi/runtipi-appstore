@@ -1,0 +1,47 @@
+version: '3.9'
+
+services:
+  ff-iii-importer:
+    image: fireflyiii/data-importer:version-1.2.2
+    container_name: firefly-iii-importer
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:8080
+    environment:
+      - FIREFLY_III_URL=${FIREFLY_III_URL}
+      - FIREFLY_III_ACCESS_TOKEN=${FIREFLY_III_ACCESS_TOKEN}
+      - FIREFLY_III_CLIENT_ID=${FIREFLY_III_CLIENT_ID}
+      - TZ=${TZ}
+      - TRUSTED_PROXIES=**
+      - VERIFY_TLS_SECURITY=false
+      - APP_ENV=local
+      - APP_DEBUG=false
+      - LOG_CHANNEL=stack
+      - LOG_LEVEL=info
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.ff-iii-importer-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.ff-iii-importer.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.ff-iii-importer-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.ff-iii-importer-insecure.entrypoints: web
+      traefik.http.routers.ff-iii-importer-insecure.service: ff-iii-importer
+      traefik.http.routers.ff-iii-importer-insecure.middlewares: ff-iii-importer-web-redirect
+      # Websecure
+      traefik.http.routers.ff-iii-importer.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.ff-iii-importer.entrypoints: websecure
+      traefik.http.routers.ff-iii-importer.service: ff-iii-importer
+      traefik.http.routers.ff-iii-importer.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.ff-iii-importer-local-insecure.rule: Host(`firefly-iii-data-importer.${LOCAL_DOMAIN}`)
+      traefik.http.routers.ff-iii-importer-local-insecure.entrypoints: web
+      traefik.http.routers.ff-iii-importer-local-insecure.service: ff-iii-importer
+      traefik.http.routers.ff-iii-importer-local-insecure.middlewares: ff-iii-importer-web-redirect
+      # Local domain secure
+      traefik.http.routers.ff-iii-importer-local.rule: Host(`firefly-iii-data-importer.${LOCAL_DOMAIN}`)
+      traefik.http.routers.ff-iii-importer-local.entrypoints: websecure
+      traefik.http.routers.ff-iii-importer-local.service: ff-iii-importer
+      traefik.http.routers.ff-iii-importer-local.tls: true
