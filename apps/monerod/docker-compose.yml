@@ -21,9 +21,27 @@ services:
       --prune-blockchain
       --zmq-pub=tcp://0.0.0.0:18083
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.monerod-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.monerod.loadbalancer.server.port: 18089
+      # Web
+      traefik.http.routers.monerod-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.monerod-insecure.entrypoints: web
+      traefik.http.routers.monerod-insecure.service: monerod
+      traefik.http.routers.monerod-insecure.middlewares: monerod-web-redirect
+      # Websecure
       traefik.http.routers.monerod.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.monerod.entrypoints: websecure
       traefik.http.routers.monerod.service: monerod
       traefik.http.routers.monerod.tls.certresolver: myresolver
-      traefik.http.services.monerod.loadbalancer.server.port: 18089
+      # Local domain
+      traefik.http.routers.monerod-local-insecure.rule: Host(`monerod.${LOCAL_DOMAIN}`)
+      traefik.http.routers.monerod-local-insecure.entrypoints: web
+      traefik.http.routers.monerod-local-insecure.service: monerod
+      traefik.http.routers.monerod-local-insecure.middlewares: monerod-web-redirect
+      # Local domain secure
+      traefik.http.routers.monerod-local.rule: Host(`monerod.${LOCAL_DOMAIN}`)
+      traefik.http.routers.monerod-local.entrypoints: websecure
+      traefik.http.routers.monerod-local.service: monerod
+      traefik.http.routers.monerod-local.tls: true
