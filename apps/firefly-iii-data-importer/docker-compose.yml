@@ -1,9 +1,9 @@
-version: '3.9'
+version: "3.9"
 
 services:
-  ff-iii-importer:
+  firefly-iii-data-importer:
     image: fireflyiii/data-importer:version-1.2.2
-    container_name: firefly-iii-importer
+    container_name: firefly-iii-data-importer
     restart: unless-stopped
     ports:
       - ${APP_PORT}:8080
@@ -23,25 +23,25 @@ services:
     labels:
       # Main
       traefik.enable: true
-      traefik.http.middlewares.ff-iii-importer-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.ff-iii-importer.loadbalancer.server.port: 8080
+      traefik.http.middlewares.firefly-iii-importer-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.firefly-iii-importer.loadbalancer.server.port: 8080
       # Web
-      traefik.http.routers.ff-iii-importer-insecure.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.ff-iii-importer-insecure.entrypoints: web
-      traefik.http.routers.ff-iii-importer-insecure.service: ff-iii-importer
-      traefik.http.routers.ff-iii-importer-insecure.middlewares: ff-iii-importer-web-redirect
+      traefik.http.routers.firefly-iii-importer-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.firefly-iii-importer-insecure.entrypoints: web
+      traefik.http.routers.firefly-iii-importer-insecure.service: firefly-iii-importer
+      traefik.http.routers.firefly-iii-importer-insecure.middlewares: firefly-iii-importer-web-redirect
       # Websecure
-      traefik.http.routers.ff-iii-importer.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.ff-iii-importer.entrypoints: websecure
-      traefik.http.routers.ff-iii-importer.service: ff-iii-importer
-      traefik.http.routers.ff-iii-importer.tls.certresolver: myresolver
+      traefik.http.routers.firefly-iii-importer.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.firefly-iii-importer.entrypoints: websecure
+      traefik.http.routers.firefly-iii-importer.service: firefly-iii-importer
+      traefik.http.routers.firefly-iii-importer.tls.certresolver: myresolver
       # Local domain
-      traefik.http.routers.ff-iii-importer-local-insecure.rule: Host(`firefly-iii-data-importer.${LOCAL_DOMAIN}`)
-      traefik.http.routers.ff-iii-importer-local-insecure.entrypoints: web
-      traefik.http.routers.ff-iii-importer-local-insecure.service: ff-iii-importer
-      traefik.http.routers.ff-iii-importer-local-insecure.middlewares: ff-iii-importer-web-redirect
+      traefik.http.routers.firefly-iii-importer-local-insecure.rule: Host(`firefly-iii-data-importer.${LOCAL_DOMAIN}`)
+      traefik.http.routers.firefly-iii-importer-local-insecure.entrypoints: web
+      traefik.http.routers.firefly-iii-importer-local-insecure.service: firefly-iii-importer
+      traefik.http.routers.firefly-iii-importer-local-insecure.middlewares: firefly-iii-importer-web-redirect
       # Local domain secure
-      traefik.http.routers.ff-iii-importer-local.rule: Host(`firefly-iii-data-importer.${LOCAL_DOMAIN}`)
-      traefik.http.routers.ff-iii-importer-local.entrypoints: websecure
-      traefik.http.routers.ff-iii-importer-local.service: ff-iii-importer
-      traefik.http.routers.ff-iii-importer-local.tls: true
+      traefik.http.routers.firefly-iii-importer-local.rule: Host(`firefly-iii-data-importer.${LOCAL_DOMAIN}`)
+      traefik.http.routers.firefly-iii-importer-local.entrypoints: websecure
+      traefik.http.routers.firefly-iii-importer-local.service: firefly-iii-importer
+      traefik.http.routers.firefly-iii-importer-local.tls: true
