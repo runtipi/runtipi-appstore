@@ -24,12 +24,30 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.movary-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.movary.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.movary-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.movary-insecure.entrypoints: web
+      traefik.http.routers.movary-insecure.service: movary
+      traefik.http.routers.movary-insecure.middlewares: movary-web-redirect
+      # Websecure
       traefik.http.routers.movary.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.movary.entrypoints: websecure
       traefik.http.routers.movary.service: movary
       traefik.http.routers.movary.tls.certresolver: myresolver
-      traefik.http.services.movary.loadbalancer.server.port: 80
+      # Local domain
+      traefik.http.routers.movary-local-insecure.rule: Host(`movary.${LOCAL_DOMAIN}`)
+      traefik.http.routers.movary-local-insecure.entrypoints: web
+      traefik.http.routers.movary-local-insecure.service: movary
+      traefik.http.routers.movary-local-insecure.middlewares: movary-web-redirect
+      # Local domain secure
+      traefik.http.routers.movary-local.rule: Host(`movary.${LOCAL_DOMAIN}`)
+      traefik.http.routers.movary-local.entrypoints: websecure
+      traefik.http.routers.movary-local.service: movary
+      traefik.http.routers.movary-local.tls: true
 
   movary-db:
     image: linuxserver/mariadb:latest
