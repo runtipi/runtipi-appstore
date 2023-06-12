@@ -29,16 +29,34 @@ services:
       timeout: 10s
       retries: 5
     volumes:
-      -  ${APP_DATA_DIR}/data/owncloud:/mnt/data
+      - ${APP_DATA_DIR}/data/owncloud:/mnt/data
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.owncloud-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.owncloud.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.owncloud-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.owncloud-insecure.entrypoints: web
+      traefik.http.routers.owncloud-insecure.service: owncloud
+      traefik.http.routers.owncloud-insecure.middlewares: owncloud-web-redirect
+      # Websecure
       traefik.http.routers.owncloud.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.owncloud.entrypoints: websecure
       traefik.http.routers.owncloud.service: owncloud
       traefik.http.routers.owncloud.tls.certresolver: myresolver
-      traefik.http.services.owncloud.loadbalancer.server.port: 8080
+      # Local domain
+      traefik.http.routers.owncloud-local-insecure.rule: Host(`owncloud.${LOCAL_DOMAIN}`)
+      traefik.http.routers.owncloud-local-insecure.entrypoints: web
+      traefik.http.routers.owncloud-local-insecure.service: owncloud
+      traefik.http.routers.owncloud-local-insecure.middlewares: owncloud-web-redirect
+      # Local domain secure
+      traefik.http.routers.owncloud-local.rule: Host(`owncloud.${LOCAL_DOMAIN}`)
+      traefik.http.routers.owncloud-local.entrypoints: websecure
+      traefik.http.routers.owncloud-local.service: owncloud
+      traefik.http.routers.owncloud-local.tls: true
 
   owncloud-db:
     image: mariadb:10.6 # minimum required ownCloud version is 10.9
@@ -51,7 +69,15 @@ services:
       - MYSQL_DATABASE=owncloud
     command: ["--max-allowed-packet=128M", "--innodb-log-file-size=64M"]
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-u", "root", "--password=${OWNCLOUD_DB_PASSWORD}"]
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-u",
+          "root",
+          "--password=${OWNCLOUD_DB_PASSWORD}",
+        ]
       interval: 10s
       timeout: 5s
       retries: 5

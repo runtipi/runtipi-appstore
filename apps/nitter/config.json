@@ -5,7 +5,7 @@
   "exposable": true,
   "port": 8106,
   "id": "nitter",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "latest",
   "categories": ["social"],
   "description": "A free and open source alternative Twitter front-end focused on privacy and performance.",
