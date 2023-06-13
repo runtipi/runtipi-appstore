@@ -1,0 +1,19 @@
+{
+  "$schema": "../schema.json",
+  "name": "Wizarr",
+  "port": 5690,
+  "available": true,
+  "exposable": true,
+  "id": "wizarr",
+  "tipi_version": 4,
+  "version": "2.2.0",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Wizarr is a automatic user invitation system for Plex, Jellyfin and Emby. Create a unique link and share it to a user and they will automatically be invited to your Media Server! They will even be guided to download the clients and instructions on how to use your requests software!",
+  "short_desc": "Wizarr is an advanced user invitation and management system for Jellyfin, Plex, Emby etc.",
+  "author": "https://github.com/Wizarrrr",
+  "source": "https://github.com/Wizarrrr/wizarr",
+  "website": "https://docs.wizarr.dev/",
+  "form_fields": []
+}

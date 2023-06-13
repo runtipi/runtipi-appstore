@@ -1,0 +1,44 @@
+version: "3"
+
+services:
+  mylar3:
+    container_name: mylar3
+    image: lscr.io/linuxserver/mylar3:v0.7.1-ls84
+    ports:
+      - ${APP_PORT}:8090
+    volumes:
+      - ${APP_DATA_DIR}/data/mylar3-config:/config
+      - ${ROOT_FOLDER_HOST}/media/data/comics:/comics
+      - ${ROOT_FOLDER_HOST}/media/downloads/mylar3:/downloads
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.mylar3-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.mylar3.loadbalancer.server.port: 8090
+      # Web
+      traefik.http.routers.mylar3-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mylar3-insecure.entrypoints: web
+      traefik.http.routers.mylar3-insecure.service: mylar3
+      traefik.http.routers.mylar3-insecure.middlewares: mylar3-web-redirect
+      # Websecure
+      traefik.http.routers.mylar3.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mylar3.entrypoints: websecure
+      traefik.http.routers.mylar3.service: mylar3
+      traefik.http.routers.mylar3.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.mylar3-local-insecure.rule: Host(`mylar3.${LOCAL_DOMAIN}`)
+      traefik.http.routers.mylar3-local-insecure.entrypoints: web
+      traefik.http.routers.mylar3-local-insecure.service: mylar3
+      traefik.http.routers.mylar3-local-insecure.middlewares: mylar3-web-redirect
+      # Local domain secure
+      traefik.http.routers.mylar3-local.rule: Host(`mylar3.${LOCAL_DOMAIN}`)
+      traefik.http.routers.mylar3-local.entrypoints: websecure
+      traefik.http.routers.mylar3-local.service: mylar3
+      traefik.http.routers.mylar3-local.tls: true

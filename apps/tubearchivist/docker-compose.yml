@@ -1,0 +1,65 @@
+version: "3.7"
+
+services:
+  tubearchivist:
+    container_name: tubearchivist
+    restart: unless-stopped
+    image: bbilly1/tubearchivist:latest
+    volumes:
+      - ${ROOT_FOLDER_HOST}/media/data/youtube:/youtube 
+      - ${APP_DATA_DIR}/data/cache:/cache
+    environment:
+      - ES_URL=http://tubearchivist-es:9200
+      - REDIS_HOST=tubearchivist-redis
+      - TA_USERNAME=${TA_USER}
+      - TA_PASSWORD=${TA_PASSWORD}
+      - TA_HOST=${APP_DOMAIN}
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+    depends_on:
+      - tubearchivist-es
+      - tubearchivist-redis
+    networks:
+      - tipi_main_network
+    dns:
+      - ${DNS_IP}
+    ports:
+      - ${APP_PORT}:8000
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.tubearchivist.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.tubearchivist.entrypoints: websecure
+      traefik.http.routers.tubearchivist.service: tubearchivist
+      traefik.http.routers.tubearchivist.tls.certresolver: myresolver
+      traefik.http.services.tubearchivist.loadbalancer.server.port: 8000
+
+  tubearchivist-redis:
+    image: redislabs/rejson:latest
+    container_name: tubearchivist-redis
+    restart: always
+    networks:
+      - tipi_main_network
+    volumes:
+      - ${APP_DATA_DIR}/data/redis-data:/data
+    depends_on:
+      - tubearchivist-es
+
+  tubearchivist-es:
+    image: bbilly1/tubearchivist-es:latest
+    container_name: tubearchivist-es
+    restart: always
+    environment:
+      - "xpack.security.enabled=true"
+      - "ELASTIC_PASSWORD=${ELASTIC_PASSWORD}"
+      - "discovery.type=single-node"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "path.repo=/usr/share/elasticsearch/data/snapshot"
+    networks:
+      - tipi_main_network
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ${APP_DATA_DIR}/data/es:/usr/share/elasticsearch/data
+    expose:
+      - "9200"

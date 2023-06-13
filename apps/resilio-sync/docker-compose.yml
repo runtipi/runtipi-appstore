@@ -16,3 +16,10 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.resilio-sync.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.resilio-sync.entrypoints: websecure
+      traefik.http.routers.resilio-sync.service: resilio-sync
+      traefik.http.routers.resilio-sync.tls.certresolver: myresolver
+      traefik.http.services.resilio-sync.loadbalancer.server.port: 8888

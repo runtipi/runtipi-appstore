@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   transmission:
-    image: lscr.io/linuxserver/transmission:latest
+    image: lscr.io/linuxserver/transmission:4.0.3
     container_name: transmission
     dns:
       - ${DNS_IP}
@@ -11,13 +11,13 @@ services:
       - TZ=${TZ}
       - USER=${TRANSMISSION_USERNAME}
       - PASS=${TRANSMISSION_PASSWORD}
-      - TRANSMISSION_WEB_HOME=/transmission-web-control/
+      # - TRANSMISSION_WEB_HOME=/transmission-web-control/
       # - WHITELIST=iplist #optional
       # - PEERPORT=peerport #optional
       # - HOST_WHITELIST=dnsnane list #optional
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
-      - ${ROOT_FOLDER_HOST}/media/torrents:/downloads
+      - ${ROOT_FOLDER_HOST}/media/torrents:/media/torrents
     ports:
       - ${APP_PORT}:9091
       - 51413:51413
@@ -25,3 +25,10 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.transmission.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.transmission.entrypoints: websecure
+      traefik.http.routers.transmission.service: transmission
+      traefik.http.routers.transmission.tls.certresolver: myresolver
+      traefik.http.services.transmission.loadbalancer.server.port: 9091

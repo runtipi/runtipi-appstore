@@ -3,7 +3,7 @@ version: "3.7"
 services:
   syncthing:
     container_name: syncthing
-    image: syncthing/syncthing:1.20
+    image: syncthing/syncthing:1.23
     stop_grace_period: 1m
     hostname: tipi
     environment:
@@ -19,3 +19,10 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.syncthing.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.syncthing.entrypoints: websecure
+      traefik.http.routers.syncthing.service: syncthing
+      traefik.http.routers.syncthing.tls.certresolver: myresolver
+      traefik.http.services.syncthing.loadbalancer.server.port: 8384

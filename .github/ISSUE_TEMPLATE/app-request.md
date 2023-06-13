@@ -7,6 +7,8 @@ assignees: meienberger
 
 ---
 
+Have you considered adding the app yourself? 
+
 **Describe app**
 A clear and concise description of what the app consists of and how it would benefit the users of Tipi.
 

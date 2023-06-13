@@ -1,0 +1,19 @@
+{
+  "$schema": "../schema.json",
+  "name": "RSS",
+  "port": 8141,
+  "available": true,
+  "exposable": true,
+  "id": "rss",
+  "tipi_version": 2,
+  "version": "1.3.0",
+  "categories": [
+    "utilities",
+    "media"
+  ],
+  "description": "A simple twitter-feed-style RSS aggregator written in PHP, Laravel, Inertia.js, Tailwind and Vue.js",
+  "short_desc": "A simple, opinionated, RSS feed aggregator.",
+  "author": "https://github.com/ssddanbrown",
+  "source": "https://github.com/ssddanbrown/rss",
+  "form_fields": []
+}

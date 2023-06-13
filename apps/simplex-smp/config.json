@@ -1,0 +1,28 @@
+{
+  "$schema": "../schema.json",
+  "name": "SimpleX SMP",
+  "port": 5223,
+  "available": true,
+  "exposable": true,
+  "no_gui": true,
+  "id": "simplex-smp",
+  "tipi_version": 2,
+  "version": "5.1.1",
+  "categories": [
+    "social"
+  ],
+  "description": "A reference implementation of the SimpleX Messaging Protocol for simplex queues over public networks.",
+  "short_desc": "A reference implementation of the SimpleX Messaging Protocol for simplex queues over public networks.",
+  "author": "Simplex Team",
+  "source": "https://github.com/simplex-chat/simplexmq",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "SMP Password",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "SIMPLEX_SMP_PASSWORD"
+    }
+  ]
+}

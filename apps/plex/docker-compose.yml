@@ -2,15 +2,17 @@ version: "3.7"
 
 services:
   plex:
-    image: lscr.io/linuxserver/plex:1.28.1
+    image: lscr.io/linuxserver/plex:1.32.3
     container_name: plex
     network_mode: host
     environment:
       - PUID=1000
       - PGID=1000
       - VERSION=docker
+      - ADVERTISE_IP=${APP_PROTOCOL:-http}://${APP_DOMAIN}/
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
+      - ${APP_DATA_DIR}/data/transcode:/transcode
       - ${ROOT_FOLDER_HOST}/media/data:/media
     restart: unless-stopped
     labels:

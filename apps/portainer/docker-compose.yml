@@ -2,13 +2,21 @@ version: "3.7"
 
 services:
   portainer:
-    image: portainer/portainer-ce:2.14.2-alpine
+    image: portainer/portainer-ce:2.18.3-alpine
     container_name: portainer
     restart: unless-stopped
     ports:
-      - "${APP_PORT}:9443"
+      - ${APP_PORT}:9443
+      - 9000:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - "${APP_DATA_DIR}/data:/data"
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.portainer.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.portainer.entrypoints: websecure
+      traefik.http.routers.portainer.service: portainer
+      traefik.http.routers.portainer.tls.certresolver: myresolver
+      traefik.http.services.portainer.loadbalancer.server.port: 9000

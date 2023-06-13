@@ -1,0 +1,55 @@
+version: "3.2"
+
+services:
+  codex-docs:
+    container_name: codex-docs
+    image: ghcr.io/codex-team/codex.docs:v2.1
+    ports:
+      - ${APP_PORT}:3000
+    restart: unless-stopped
+    environment:
+      - APP_CONFIG_auth_password=${CODEX_AUTH_PASSWORD}
+      - APP_CONFIG_auth_secret=${CODEX_AUTH_SECRET}
+      - APP_CONFIG_database_driver=mongodb
+      - APP_CONFIG_database_mongodb_uri=mongodb://tipi:${CODEX_DB_PASSWORD}@codex-db:27017
+    volumes:
+      - ${APP_DATA_DIR}/data/uploads:/usr/src/app/uploads
+      - ${APP_DATA_DIR}/data/db:/usr/src/app/db
+      - ${APP_DATA_DIR}/data/docs-config.yaml:/usr/src/app/docs-config.yaml
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.codex-docs-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.codex-docs.loadbalancer.server.port: 3000
+      # Web
+      traefik.http.routers.codex-docs-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.codex-docs-insecure.entrypoints: web
+      traefik.http.routers.codex-docs-insecure.service: codex-docs
+      traefik.http.routers.codex-docs-insecure.middlewares: codex-docs-web-redirect
+      # Websecure
+      traefik.http.routers.codex-docs.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.codex-docs.entrypoints: websecure
+      traefik.http.routers.codex-docs.service: codex-docs
+      traefik.http.routers.codex-docs.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.codex-docs-local-insecure.rule: Host(`codex-docs.${LOCAL_DOMAIN}`)
+      traefik.http.routers.codex-docs-local-insecure.entrypoints: web
+      traefik.http.routers.codex-docs-local-insecure.service: codex-docs
+      traefik.http.routers.codex-docs-local-insecure.middlewares: codex-docs-web-redirect
+      # Local domain secure
+      traefik.http.routers.codex-docs-local.rule: Host(`codex-docs.${LOCAL_DOMAIN}`)
+      traefik.http.routers.codex-docs-local.entrypoints: websecure
+      traefik.http.routers.codex-docs-local.service: codex-docs
+      traefik.http.routers.codex-docs-local.tls: true
+
+  codex-db:
+    container_name: codex-db
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: tipi
+      MONGO_INITDB_ROOT_PASSWORD: ${CODEX_DB_PASSWORD}
+    networks:
+      - tipi_main_network

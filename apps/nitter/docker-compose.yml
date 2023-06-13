@@ -13,8 +13,46 @@ services:
     depends_on:
       - nitter-redis
     restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost:8080",
+        ]
+      interval: 1m
+      timeout: 3s
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.nitter-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.nitter.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.nitter-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nitter-insecure.entrypoints: web
+      traefik.http.routers.nitter-insecure.service: nitter
+      traefik.http.routers.nitter-insecure.middlewares: nitter-web-redirect
+      # Websecure
+      traefik.http.routers.nitter.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nitter.entrypoints: websecure
+      traefik.http.routers.nitter.service: nitter
+      traefik.http.routers.nitter.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.nitter-local-insecure.rule: Host(`nitter.${LOCAL_DOMAIN}`)
+      traefik.http.routers.nitter-local-insecure.entrypoints: web
+      traefik.http.routers.nitter-local-insecure.service: nitter
+      traefik.http.routers.nitter-local-insecure.middlewares: nitter-web-redirect
+      # Local domain secure
+      traefik.http.routers.nitter-local.rule: Host(`nitter.${LOCAL_DOMAIN}`)
+      traefik.http.routers.nitter-local.entrypoints: websecure
+      traefik.http.routers.nitter-local.service: nitter
+      traefik.http.routers.nitter-local.tls: true
+
   nitter-redis:
-    image: redis:6-alpine
+    image: redis:alpine
     container_name: nitter-redis
     networks:
       - tipi_main_network

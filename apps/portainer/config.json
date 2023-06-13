@@ -3,11 +3,14 @@
   "name": "Portainer",
   "port": 9443,
   "available": true,
+  "exposable": true,
   "https": true,
   "id": "portainer",
-  "tipi_version": 3,
-  "version": "2.14.2",
-  "categories": ["utilities"],
+  "tipi_version": 10,
+  "version": "2.18.3-alpine",
+  "categories": [
+    "utilities"
+  ],
   "description": "",
   "short_desc": "Making Docker and Kubernetes management easy.",
   "author": "portainer.io",

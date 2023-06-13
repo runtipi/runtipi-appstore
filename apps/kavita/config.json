@@ -1,0 +1,16 @@
+{
+  "$schema": "../schema.json",
+  "name": "Kavita",
+  "port": 8175,
+  "available": true,
+  "exposable": true,
+  "id": "kavita",
+  "tipi_version": 2,
+  "version": "nightly-0.7.1.4",
+  "categories": ["media"],
+  "description": "Kavita is a fast, feature rich, cross platform reading server",
+  "short_desc": "Kavita is a fast, feature rich, cross platform reading server",
+  "author": "Kareadita",
+  "source": "https://github.com/Kareadita/Kavita",
+  "form_fields": []
+}

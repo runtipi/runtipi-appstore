@@ -1,0 +1,26 @@
+{
+  "$schema": "../schema.json",
+  "name": "Tasks.md",
+  "port": 8157,
+  "available": true,
+  "exposable": true,
+  "id": "tasks-md",
+  "tipi_version": 4,
+  "version": "1.10.0",
+  "categories": [
+    "development"
+  ],
+  "description": "A self-hosted, file based task management board that supports Markdown syntax",
+  "short_desc": "A self-hosted, file based task management board.",
+  "author": "BaldissaraMatheus",
+  "source": "https://github.com/BaldissaraMatheus/Tasks.md",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Board Title",
+      "placeholder": "My tasks board",
+      "required": true,
+      "env_variable": "TASKS_MD_TITLE"
+    }
+  ]
+}

@@ -18,3 +18,10 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.readarr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.readarr.entrypoints: websecure
+      traefik.http.routers.readarr.service: readarr
+      traefik.http.routers.readarr.tls.certresolver: myresolver
+      traefik.http.services.readarr.loadbalancer.server.port: 8787

@@ -15,12 +15,27 @@
     "exposable": {
       "type": "boolean"
     },
+    "no_gui": {
+      "type": "boolean"
+    },
     "port": {
       "type": "integer",
       "minimum": 0,
       "maximum": 65535
     },
     "https": {
+      "type": "boolean"
+    },
+    "uid": {
+      "type": "integer"
+    },
+    "gid": {
+      "type": "integer"
+    },
+    "force_expose": {
+      "type": "boolean"
+    },
+    "generate_vapid_keys": {
       "type": "boolean"
     },
     "requirements": {
@@ -35,6 +50,14 @@
           ]
         }
       }
+    },
+    "supported_architectures": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
     },
     "id": {
       "type": "string",
@@ -76,7 +99,7 @@
     },
     "url_suffix": {
       "type": "string",
-      "pattern": "^/[a-z0-9-_]+$"
+      "pattern": "^/[a-z0-9-_/]+$"
     },
     "form_fields": {
       "type": "array",
@@ -108,18 +131,5 @@
       ]
     }
   },
-  "required": [
-    "name",
-    "available",
-    "port",
-    "id",
-    "tipi_version",
-    "version",
-    "categories",
-    "description",
-    "short_desc",
-    "author",
-    "source",
-    "form_fields"
-  ]
+  "required": ["name", "available", "port", "id", "tipi_version", "version", "categories", "description", "short_desc", "author", "source", "form_fields"]
 }

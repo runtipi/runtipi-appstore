@@ -1,5 +1,5 @@
-import fs from "fs";
-import jsyaml from "js-yaml";
+import fs from 'fs';
+import jsyaml from 'js-yaml';
 
 interface AppConfig {
   id: string;
@@ -18,11 +18,11 @@ interface AppConfig {
   available: boolean;
 }
 
-const networkExceptions = ["pihole", "tailscale", "homeassistant", "plex"];
+const networkExceptions = ['pihole', 'tailscale', 'homeassistant', 'plex', 'zerotier', 'gladys'];
 const getAppConfigs = (): AppConfig[] => {
   const apps: AppConfig[] = [];
 
-  const appsDir = fs.readdirSync("./apps");
+  const appsDir = fs.readdirSync('./apps');
 
   appsDir.forEach((app: string) => {
     const path = `./apps/${app}/config.json`;
@@ -36,7 +36,7 @@ const getAppConfigs = (): AppConfig[] => {
           apps.push(config);
         }
       } catch (e) {
-        console.error("Error parsing config file", app);
+        console.error('Error parsing config file', app);
       }
     }
   });
@@ -44,14 +44,14 @@ const getAppConfigs = (): AppConfig[] => {
   return apps;
 };
 
-describe("App configs", () => {
-  it("Get app config should return at least one app", () => {
+describe('App configs', () => {
+  it('Get app config should return at least one app', () => {
     const apps = getAppConfigs();
 
     expect(apps.length).toBeGreaterThan(0);
   });
 
-  it("Each app should have an id", () => {
+  it('Each app should have an id', () => {
     const apps = getAppConfigs();
 
     apps.forEach((app) => {
@@ -59,7 +59,7 @@ describe("App configs", () => {
     });
   });
 
-  it("Each app should have a md description", () => {
+  it('Each app should have a md description', () => {
     const apps = getAppConfigs();
 
     apps.forEach((app) => {
@@ -75,7 +75,7 @@ describe("App configs", () => {
     });
   });
 
-  it("Each app should have categories defined as an array", () => {
+  it('Each app should have categories defined as an array', () => {
     const apps = getAppConfigs();
 
     apps.forEach((app) => {
@@ -84,7 +84,7 @@ describe("App configs", () => {
     });
   });
 
-  it("Each app should have a name", () => {
+  it('Each app should have a name', () => {
     const apps = getAppConfigs();
 
     apps.forEach((app) => {
@@ -92,7 +92,7 @@ describe("App configs", () => {
     });
   });
 
-  it("Each app should have a description", () => {
+  it('Each app should have a description', () => {
     const apps = getAppConfigs();
 
     apps.forEach((app) => {
@@ -100,7 +100,7 @@ describe("App configs", () => {
     });
   });
 
-  it("Each app should have a port", () => {
+  it('Each app should have a port', () => {
     const apps = getAppConfigs();
 
     apps.forEach((app) => {
@@ -110,19 +110,19 @@ describe("App configs", () => {
     });
   });
 
-  it("Each app should have a different port", () => {
+  it('Each app should have a different port', () => {
     const appConfigs = getAppConfigs();
     const ports = appConfigs.map((app) => app.port);
     expect(new Set(ports).size).toBe(appConfigs.length);
   });
 
-  it("Each app should have a unique id", () => {
+  it('Each app should have a unique id', () => {
     const appConfigs = getAppConfigs();
     const ids = appConfigs.map((app) => app.id);
     expect(new Set(ids).size).toBe(appConfigs.length);
   });
 
-  it("Each app should have a version", () => {
+  it('Each app should have a version', () => {
     const apps = getAppConfigs();
 
     apps.forEach((app) => {
@@ -131,7 +131,7 @@ describe("App configs", () => {
     });
   });
 
-  it("Each app should have a docker-compose file beside it", () => {
+  it('Each app should have a docker-compose file beside it', () => {
     const apps = getAppConfigs();
 
     apps.forEach((app) => {
@@ -139,7 +139,7 @@ describe("App configs", () => {
     });
   });
 
-  it("Each app should have a metadata folder beside it", () => {
+  it('Each app should have a metadata folder beside it', () => {
     const apps = getAppConfigs();
 
     apps.forEach((app) => {
@@ -147,7 +147,7 @@ describe("App configs", () => {
     });
   });
 
-  it("Each app should have a file named logo.jpg in the metadata folder", () => {
+  it('Each app should have a file named logo.jpg in the metadata folder', () => {
     const apps = getAppConfigs();
 
     apps.forEach((app) => {
@@ -155,13 +155,11 @@ describe("App configs", () => {
     });
   });
 
-  it("Each app should have a container name equals to its id", () => {
+  it('Each app should have a container name equals to its id', () => {
     const apps = getAppConfigs();
 
     apps.forEach((app) => {
-      const dockerComposeFile = fs
-        .readFileSync(`./apps/${app.id}/docker-compose.yml`)
-        .toString();
+      const dockerComposeFile = fs.readFileSync(`./apps/${app.id}/docker-compose.yml`).toString();
 
       const dockerCompose: any = jsyaml.load(dockerComposeFile);
 
@@ -174,14 +172,12 @@ describe("App configs", () => {
     });
   });
 
-  it("Each app should have network tipi_main_network", () => {
+  it('Each app should have network tipi_main_network', () => {
     const apps = getAppConfigs();
 
     apps.forEach((app) => {
       if (!networkExceptions.includes(app.id)) {
-        const dockerComposeFile = fs
-          .readFileSync(`./apps/${app.id}/docker-compose.yml`)
-          .toString();
+        const dockerComposeFile = fs.readFileSync(`./apps/${app.id}/docker-compose.yml`).toString();
 
         const dockerCompose: any = jsyaml.load(dockerComposeFile);
 
@@ -192,9 +188,7 @@ describe("App configs", () => {
         }
 
         expect(dockerCompose.services[app.id].networks).toBeDefined();
-        expect(dockerCompose.services[app.id].networks).toStrictEqual([
-          "tipi_main_network",
-        ]);
+        expect(dockerCompose.services[app.id].networks).toStrictEqual(['tipi_main_network']);
       }
     });
   });

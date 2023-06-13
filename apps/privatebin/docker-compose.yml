@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  privatebin:
+    image: privatebin/nginx-fpm-alpine:1.5.1
+    container_name: privatebin
+    dns:
+      - ${DNS_IP}
+    ports:
+      - ${APP_PORT}:8080
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    volumes:
+      - ${APP_DATA_DIR}/data:/srv/data
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.privatebin.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.privatebin.entrypoints: websecure
+      traefik.http.routers.privatebin.service: privatebin
+      traefik.http.routers.privatebin.tls.certresolver: myresolver
+      traefik.http.services.privatebin.loadbalancer.server.port: 8080

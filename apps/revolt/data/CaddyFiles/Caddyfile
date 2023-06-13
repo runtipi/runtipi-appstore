@@ -1,0 +1,28 @@
+{$HOSTNAME} {
+	route /api* {
+		uri strip_prefix /api
+		reverse_proxy http://revolt-api:8000
+	}
+
+	route /ws {
+		@upgrade {
+			header Connection *Upgrade*
+			header Upgrade websocket
+		}
+
+		uri strip_prefix /ws
+		reverse_proxy @upgrade http://revolt-events:9000
+	}
+
+	route /autumn* {
+		uri strip_prefix /autumn
+		reverse_proxy http://revolt-autumn:3000
+	}
+
+	route /january* {
+		uri strip_prefix /january
+		reverse_proxy http://revolt-january:7000
+	}
+
+	reverse_proxy http://revolt-web:5000
+}
