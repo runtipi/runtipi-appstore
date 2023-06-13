@@ -41,12 +41,30 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.photoprism-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.photoprism.loadbalancer.server.port: 2342
+      # Web
+      traefik.http.routers.photoprism-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.photoprism-insecure.entrypoints: web
+      traefik.http.routers.photoprism-insecure.service: photoprism
+      traefik.http.routers.photoprism-insecure.middlewares: photoprism-web-redirect
+      # Websecure
       traefik.http.routers.photoprism.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.photoprism.entrypoints: websecure
       traefik.http.routers.photoprism.service: photoprism
       traefik.http.routers.photoprism.tls.certresolver: myresolver
-      traefik.http.services.photoprism.loadbalancer.server.port: 2342
+      # Local domain
+      traefik.http.routers.photoprism-local-insecure.rule: Host(`photoprism.${LOCAL_DOMAIN}`)
+      traefik.http.routers.photoprism-local-insecure.entrypoints: web
+      traefik.http.routers.photoprism-local-insecure.service: photoprism
+      traefik.http.routers.photoprism-local-insecure.middlewares: photoprism-web-redirect
+      # Local domain secure
+      traefik.http.routers.photoprism-local.rule: Host(`photoprism.${LOCAL_DOMAIN}`)
+      traefik.http.routers.photoprism-local.entrypoints: websecure
+      traefik.http.routers.photoprism-local.service: photoprism
+      traefik.http.routers.photoprism-local.tls: true
 
   photoprism-db:
     restart: unless-stopped
