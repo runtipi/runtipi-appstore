@@ -14,9 +14,27 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.portainer-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.portainer.loadbalancer.server.port: 9000
+      # Web
+      traefik.http.routers.portainer-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.portainer-insecure.entrypoints: web
+      traefik.http.routers.portainer-insecure.service: portainer
+      traefik.http.routers.portainer-insecure.middlewares: portainer-web-redirect
+      # Websecure
       traefik.http.routers.portainer.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.portainer.entrypoints: websecure
       traefik.http.routers.portainer.service: portainer
       traefik.http.routers.portainer.tls.certresolver: myresolver
-      traefik.http.services.portainer.loadbalancer.server.port: 9000
+      # Local domain
+      traefik.http.routers.portainer-local-insecure.rule: Host(`portainer.${LOCAL_DOMAIN}`)
+      traefik.http.routers.portainer-local-insecure.entrypoints: web
+      traefik.http.routers.portainer-local-insecure.service: portainer
+      traefik.http.routers.portainer-local-insecure.middlewares: portainer-web-redirect
+      # Local domain secure
+      traefik.http.routers.portainer-local.rule: Host(`portainer.${LOCAL_DOMAIN}`)
+      traefik.http.routers.portainer-local.entrypoints: websecure
+      traefik.http.routers.portainer-local.service: portainer
+      traefik.http.routers.portainer-local.tls: true
