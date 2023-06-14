@@ -4,7 +4,7 @@ A free, open source server hosting tool for Minecraft and other multiplayers
 
 - **Important Connection**: Connect to your remote hosted lodestone instance at the [Lodestone Web Gui](https://www.lodestone.cc/login/core/new?address=localhost&port=16662&protocol=http&apiVersion=v1) or with the [Desktop Apps Here](https://github.com/Lodestone-Team/lodestone#download)
 
-- **First User Setup**: After connecting to the panel, it will ask you to setup your inital user. To find the secret key, you can find it in your logs with `docker lodestone-core logs`
+- **First User Setup**: After connecting to the panel, it will ask you to setup your inital user. To find the secret key, you can find it in your logs with `docker logs lodestone-core`
 
 
 # Ports 
