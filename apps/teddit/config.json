@@ -5,9 +5,11 @@
   "exposable": true,
   "port": 8124,
   "id": "teddit",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "latest",
-  "categories": ["social"],
+  "categories": [
+    "social"
+  ],
   "description": "A free and open source alternative Reddit front-end focused on privacy. Inspired by the Nitter project.",
   "short_desc": "Alternative Reddit front-end focused on privacy https://teddit.net",
   "author": "teddit",
