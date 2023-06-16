@@ -25,12 +25,30 @@ services:
     depends_on:
       - send-redis
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.send-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.send.loadbalancer.server.port: 1443
+      # Web
+      traefik.http.routers.send-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.send-insecure.entrypoints: web
+      traefik.http.routers.send-insecure.service: send
+      traefik.http.routers.send-insecure.middlewares: send-web-redirect
+      # Websecure
       traefik.http.routers.send.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.send.entrypoints: websecure
       traefik.http.routers.send.service: send
       traefik.http.routers.send.tls.certresolver: myresolver
-      traefik.http.services.send.loadbalancer.server.port: 1443
+      # Local domain
+      traefik.http.routers.send-local-insecure.rule: Host(`send.${LOCAL_DOMAIN}`)
+      traefik.http.routers.send-local-insecure.entrypoints: web
+      traefik.http.routers.send-local-insecure.service: send
+      traefik.http.routers.send-local-insecure.middlewares: send-web-redirect
+      # Local domain secure
+      traefik.http.routers.send-local.rule: Host(`send.${LOCAL_DOMAIN}`)
+      traefik.http.routers.send-local.entrypoints: websecure
+      traefik.http.routers.send-local.service: send
+      traefik.http.routers.send-local.tls: true
   
   send-redis:
     image: redis:alpine
