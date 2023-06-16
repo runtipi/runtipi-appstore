@@ -5,9 +5,11 @@
   "exposable": true,
   "port": 8127,
   "id": "searxng",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "2022.11.11-3a765113",
-  "categories": ["social"],
+  "categories": [
+    "social"
+  ],
   "description": "SearXNG is a free internet metasearch engine which aggregates results from various search services and databases. Users are neither tracked nor profiled.",
   "short_desc": "Privacy-respecting, hackable metasearch engine",
   "author": "searxng",
