@@ -26,9 +26,27 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.transmission-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.transmission.loadbalancer.server.port: 9091
+      # Web
+      traefik.http.routers.transmission-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.transmission-insecure.entrypoints: web
+      traefik.http.routers.transmission-insecure.service: transmission
+      traefik.http.routers.transmission-insecure.middlewares: transmission-web-redirect
+      # Websecure
       traefik.http.routers.transmission.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.transmission.entrypoints: websecure
       traefik.http.routers.transmission.service: transmission
       traefik.http.routers.transmission.tls.certresolver: myresolver
-      traefik.http.services.transmission.loadbalancer.server.port: 9091
+      # Local domain
+      traefik.http.routers.transmission-local-insecure.rule: Host(`transmission.${LOCAL_DOMAIN}`)
+      traefik.http.routers.transmission-local-insecure.entrypoints: web
+      traefik.http.routers.transmission-local-insecure.service: transmission
+      traefik.http.routers.transmission-local-insecure.middlewares: transmission-web-redirect
+      # Local domain secure
+      traefik.http.routers.transmission-local.rule: Host(`transmission.${LOCAL_DOMAIN}`)
+      traefik.http.routers.transmission-local.entrypoints: websecure
+      traefik.http.routers.transmission-local.service: transmission
+      traefik.http.routers.transmission-local.tls: true
