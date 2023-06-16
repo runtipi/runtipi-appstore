@@ -19,12 +19,30 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.wikijs-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.wikijs.loadbalancer.server.port: 3000
+      # Web
+      traefik.http.routers.wikijs-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wikijs-insecure.entrypoints: web
+      traefik.http.routers.wikijs-insecure.service: wikijs
+      traefik.http.routers.wikijs-insecure.middlewares: wikijs-web-redirect
+      # Websecure
       traefik.http.routers.wikijs.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.wikijs.entrypoints: websecure
       traefik.http.routers.wikijs.service: wikijs
       traefik.http.routers.wikijs.tls.certresolver: myresolver
-      traefik.http.services.wikijs.loadbalancer.server.port: 3000
+      # Local domain
+      traefik.http.routers.wikijs-local-insecure.rule: Host(`wikijs.${LOCAL_DOMAIN}`)
+      traefik.http.routers.wikijs-local-insecure.entrypoints: web
+      traefik.http.routers.wikijs-local-insecure.service: wikijs
+      traefik.http.routers.wikijs-local-insecure.middlewares: wikijs-web-redirect
+      # Local domain secure
+      traefik.http.routers.wikijs-local.rule: Host(`wikijs.${LOCAL_DOMAIN}`)
+      traefik.http.routers.wikijs-local.entrypoints: websecure
+      traefik.http.routers.wikijs-local.service: wikijs
+      traefik.http.routers.wikijs-local.tls: true
 
   wikijs-db:
     container_name: wikijs-db
