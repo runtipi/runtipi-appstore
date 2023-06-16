@@ -26,12 +26,30 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.romm-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.romm.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.romm-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.romm-insecure.entrypoints: web
+      traefik.http.routers.romm-insecure.service: romm
+      traefik.http.routers.romm-insecure.middlewares: romm-web-redirect
+      # Websecure
       traefik.http.routers.romm.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.romm.entrypoints: websecure
       traefik.http.routers.romm.service: romm
       traefik.http.routers.romm.tls.certresolver: myresolver
-      traefik.http.services.romm.loadbalancer.server.port: 80
+      # Local domain
+      traefik.http.routers.romm-local-insecure.rule: Host(`romm.${LOCAL_DOMAIN}`)
+      traefik.http.routers.romm-local-insecure.entrypoints: web
+      traefik.http.routers.romm-local-insecure.service: romm
+      traefik.http.routers.romm-local-insecure.middlewares: romm-web-redirect
+      # Local domain secure
+      traefik.http.routers.romm-local.rule: Host(`romm.${LOCAL_DOMAIN}`)
+      traefik.http.routers.romm-local.entrypoints: websecure
+      traefik.http.routers.romm-local.service: romm
+      traefik.http.routers.romm-local.tls: true
 
   romm-db:
     image: lscr.io/linuxserver/mariadb:latest
