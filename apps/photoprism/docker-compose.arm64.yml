@@ -44,7 +44,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.photoprism-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.photoprism.loadbalancer.server.port: 80
+      traefik.http.services.photoprism.loadbalancer.server.port: 2342
       # Web
       traefik.http.routers.photoprism-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.photoprism-insecure.entrypoints: web
