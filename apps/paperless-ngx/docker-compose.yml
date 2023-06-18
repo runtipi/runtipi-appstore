@@ -2,7 +2,7 @@ version: '3.7'
 services:
   paperless-ngx:
     container_name: paperless-ngx
-    image: ghcr.io/paperless-ngx/paperless-ngx:1.15
+    image: ghcr.io/paperless-ngx/paperless-ngx:1.16
     restart: unless-stopped
     depends_on:
       - db
