@@ -17,7 +17,7 @@ services:
     networks:
       - tipi_main_network
     labels:
-            # Main
+      # Main
       traefik.enable: true
       traefik.http.middlewares.sabnzbd-web-redirect.redirectscheme.scheme: https
       traefik.http.services.sabnzbd.loadbalancer.server.port: 8080

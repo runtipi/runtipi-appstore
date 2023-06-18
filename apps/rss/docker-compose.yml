@@ -16,7 +16,7 @@ services:
     networks:
       - tipi_main_network
     labels:
-            # Main
+      # Main
       traefik.enable: true
       traefik.http.middlewares.rss-web-redirect.redirectscheme.scheme: https
       traefik.http.services.rss.loadbalancer.server.port: 80

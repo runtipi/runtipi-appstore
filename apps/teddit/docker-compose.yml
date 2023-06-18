@@ -23,7 +23,7 @@ services:
       interval: 1m
       timeout: 3s
     labels:
-    # Main
+      # Main
       traefik.enable: true
       traefik.http.middlewares.teddit-web-redirect.redirectscheme.scheme: https
       traefik.http.services.teddit.loadbalancer.server.port: 8080
