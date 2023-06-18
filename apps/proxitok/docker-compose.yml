@@ -21,12 +21,30 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.proxitok-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.proxitok.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.proxitok-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.proxitok-insecure.entrypoints: web
+      traefik.http.routers.proxitok-insecure.service: proxitok
+      traefik.http.routers.proxitok-insecure.middlewares: proxitok-web-redirect
+      # Websecure
       traefik.http.routers.proxitok.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.proxitok.entrypoints: websecure
       traefik.http.routers.proxitok.service: proxitok
       traefik.http.routers.proxitok.tls.certresolver: myresolver
-      traefik.http.services.proxitok.loadbalancer.server.port: 80
+      # Local domain
+      traefik.http.routers.proxitok-local-insecure.rule: Host(`proxitok.${LOCAL_DOMAIN}`)
+      traefik.http.routers.proxitok-local-insecure.entrypoints: web
+      traefik.http.routers.proxitok-local-insecure.service: proxitok
+      traefik.http.routers.proxitok-local-insecure.middlewares: proxitok-web-redirect
+      # Local domain secure
+      traefik.http.routers.proxitok-local.rule: Host(`proxitok.${LOCAL_DOMAIN}`)
+      traefik.http.routers.proxitok-local.entrypoints: websecure
+      traefik.http.routers.proxitok-local.service: proxitok
+      traefik.http.routers.proxitok-local.tls: true
 
   proxitok-redis:
     container_name: proxitok-redis

@@ -5,10 +5,15 @@
   "exposable": true,
   "port": 8120,
   "id": "tubearchivist",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "latest",
-  "supported_architectures": ["amd64", "arm64"],
-  "categories": ["media"],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "categories": [
+    "media"
+  ],
   "description": "Once your YouTube video collection grows, it becomes hard to search and find a specific video. That's where Tube Archivist comes in: By indexing your video collection with metadata from YouTube, you can organize, search and enjoy your archived YouTube videos without hassle offline through a convenient web interface.",
   "short_desc": "Your self-hosted YouTube media server",
   "author": "bbilly1",

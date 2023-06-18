@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "peppermint",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "latest",
-  "categories": ["utilities"],
+  "categories": [
+    "utilities"
+  ],
   "description": "An open source ticket management & help desk solution.",
   "short_desc": "An open source ticket management & help desk solution.",
   "author": "Peppermint-Lab",

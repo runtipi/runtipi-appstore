@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "umami",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "v1.40.0",
-  "categories": ["utilities"],
+  "categories": [
+    "utilities"
+  ],
   "description": "Umami is a simple, fast, privacy-focused alternative to Google Analytics.",
   "short_desc": "Umami is a simple, fast, privacy-focused alternative to Google Analytics.",
   "author": "umami-software",

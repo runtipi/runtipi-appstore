@@ -15,9 +15,27 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.prowlarr-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.prowlarr.loadbalancer.server.port: 9696
+      # Web
+      traefik.http.routers.prowlarr-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.prowlarr-insecure.entrypoints: web
+      traefik.http.routers.prowlarr-insecure.service: prowlarr
+      traefik.http.routers.prowlarr-insecure.middlewares: prowlarr-web-redirect
+      # Websecure
       traefik.http.routers.prowlarr.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.prowlarr.entrypoints: websecure
       traefik.http.routers.prowlarr.service: prowlarr
       traefik.http.routers.prowlarr.tls.certresolver: myresolver
-      traefik.http.services.prowlarr.loadbalancer.server.port: 9696
+      # Local domain
+      traefik.http.routers.prowlarr-local-insecure.rule: Host(`prowlarr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.prowlarr-local-insecure.entrypoints: web
+      traefik.http.routers.prowlarr-local-insecure.service: prowlarr
+      traefik.http.routers.prowlarr-local-insecure.middlewares: prowlarr-web-redirect
+      # Local domain secure
+      traefik.http.routers.prowlarr-local.rule: Host(`prowlarr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.prowlarr-local.entrypoints: websecure
+      traefik.http.routers.prowlarr-local.service: prowlarr
+      traefik.http.routers.prowlarr-local.tls: true

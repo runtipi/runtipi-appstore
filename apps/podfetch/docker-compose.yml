@@ -21,10 +21,27 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.podfetch-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.podfetch.loadbalancer.server.port: 8000
+      # Web
+      traefik.http.routers.podfetch-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.podfetch-insecure.entrypoints: web
+      traefik.http.routers.podfetch-insecure.service: podfetch
+      traefik.http.routers.podfetch-insecure.middlewares: podfetch-web-redirect
+      # Websecure
       traefik.http.routers.podfetch.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.podfetch.entrypoints: websecure
       traefik.http.routers.podfetch.service: podfetch
       traefik.http.routers.podfetch.tls.certresolver: myresolver
-      traefik.http.services.podfetch.loadbalancer.server.port: 8000
-
+      # Local domain
+      traefik.http.routers.podfetch-local-insecure.rule: Host(`podfetch.${LOCAL_DOMAIN}`)
+      traefik.http.routers.podfetch-local-insecure.entrypoints: web
+      traefik.http.routers.podfetch-local-insecure.service: podfetch
+      traefik.http.routers.podfetch-local-insecure.middlewares: podfetch-web-redirect
+      # Local domain secure
+      traefik.http.routers.podfetch-local.rule: Host(`podfetch.${LOCAL_DOMAIN}`)
+      traefik.http.routers.podfetch-local.entrypoints: websecure
+      traefik.http.routers.podfetch-local.service: podfetch
+      traefik.http.routers.podfetch-local.tls: true

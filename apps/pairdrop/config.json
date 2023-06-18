@@ -6,7 +6,7 @@
   "exposable": true,
   "force_expose": true,
   "id": "pairdrop",
-  "tipi_version": 7,
+  "tipi_version": 8,
   "version": "1.7.6",
   "categories": [
     "media",

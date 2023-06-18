@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "podfetch",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "latest",
-  "categories": ["media"],
+  "categories": [
+    "media"
+  ],
   "description": "A sleek and efficient podcast downloader.",
   "short_desc": "A sleek and efficient podcast downloader.",
   "author": "SamTV12345",

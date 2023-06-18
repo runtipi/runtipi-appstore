@@ -23,12 +23,30 @@ services:
       interval: 1m
       timeout: 3s
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.teddit-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.teddit.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.teddit-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.teddit-insecure.entrypoints: web
+      traefik.http.routers.teddit-insecure.service: teddit
+      traefik.http.routers.teddit-insecure.middlewares: teddit-web-redirect
+      # Websecure
       traefik.http.routers.teddit.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.teddit.entrypoints: websecure
       traefik.http.routers.teddit.service: teddit
       traefik.http.routers.teddit.tls.certresolver: myresolver
-      traefik.http.services.teddit.loadbalancer.server.port: 8080
+      # Local domain
+      traefik.http.routers.teddit-local-insecure.rule: Host(`teddit.${LOCAL_DOMAIN}`)
+      traefik.http.routers.teddit-local-insecure.entrypoints: web
+      traefik.http.routers.teddit-local-insecure.service: teddit
+      traefik.http.routers.teddit-local-insecure.middlewares: teddit-web-redirect
+      # Local domain secure
+      traefik.http.routers.teddit-local.rule: Host(`teddit.${LOCAL_DOMAIN}`)
+      traefik.http.routers.teddit-local.entrypoints: websecure
+      traefik.http.routers.teddit-local.service: teddit
+      traefik.http.routers.teddit-local.tls: true
   
   teddit-redis:
     image: redis:alpine

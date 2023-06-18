@@ -5,7 +5,7 @@
   "exposable": true,
   "port": 8107,
   "id": "vaultwarden",
-  "tipi_version": 5,
+  "tipi_version": 6,
   "version": "1.28.1",
   "categories": [
     "utilities"
