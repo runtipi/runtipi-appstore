@@ -2,7 +2,6 @@ name: Update app version in Renovate Branches
 
 on:
   pull_request:
-    branches: ["renovate/*"]
     types:
       - labeled
       - opened
@@ -15,6 +14,7 @@ on:
 
 jobs:
   update-app-version:
+    if: github.event_name == 'pull_request' && contains(github.event.pull_request.head.ref, 'renovate')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

@@ -6,6 +6,7 @@ on:
 
 jobs:
   ci:
+    if: github.event_name == 'push' && !contains(github.ref_name, 'renovate') || contains(github.event.pull_request.labels.*.name, 'ready') || (github.event_name == 'pull_request' && !contains(github.event.pull_request.head.ref, 'renovate'))
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
