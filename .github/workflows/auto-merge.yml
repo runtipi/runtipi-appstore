@@ -19,6 +19,9 @@ on:
   status: {}
 jobs:
   automerge:
+    env:
+      MERGE_METHOD: "squash"
+      GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
     runs-on: ubuntu-latest
     steps:
       - id: automerge
