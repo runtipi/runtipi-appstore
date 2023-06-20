@@ -6,8 +6,10 @@
   "port": 8000,
   "id": "hello-world",
   "tipi_version": 2,
-  "version": "1.0.0",
-  "categories": ["utilities"],
+  "version": "latest",
+  "categories": [
+    "utilities"
+  ],
   "description": "Hello World web server in under 2 MB",
   "short_desc": "Hello World web server in under 2 MB",
   "author": "crccheck",
