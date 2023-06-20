@@ -2,7 +2,7 @@ version: "3.7"
 services:
   hello-world:
     container_name: hello-world
-    image: crccheck/hello-world
+    image: crccheck/hello-world:latest
     restart: unless-stopped
     ports:
       - ${APP_PORT}:8000

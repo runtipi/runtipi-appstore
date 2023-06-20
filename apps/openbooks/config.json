@@ -7,8 +7,11 @@
   "id": "openbooks",
   "tipi_version": 3,
   "url_suffix": "/openbooks/",
-  "version": "v4.5.0",
-  "categories": ["media", "books"],
+  "version": "4.5.0",
+  "categories": [
+    "media",
+    "books"
+  ],
   "description": "Openbooks allows you to download ebooks from irc.irchighway.net quickly and easily.  ",
   "short_desc": "Search and Download eBooks",
   "author": "https://github.com/evan-buss",

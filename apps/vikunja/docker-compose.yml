@@ -1,10 +1,10 @@
 version: '3.7'
 
 services:
-  vikunja-frontend:
+  vikunja:
     depends_on:
       - vikunja-api
-    container_name: vikunja-frontend
+    container_name: vikunja
     image: vikunja/frontend:0.20.5
     restart: unless-stopped
     networks:
@@ -46,7 +46,7 @@ services:
     networks:
       - tipi_main_network
   
-  vikunja:
+  vikunja-proxy:
     container_name: vikunja
     image: nginx
     ports:

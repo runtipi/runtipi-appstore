@@ -3,7 +3,7 @@ version: "3.7"
 services:
   minecraft-server:
     container_name: minecraft-server
-    image: itzg/minecraft-server
+    image: itzg/minecraft-server:latest
     ports:
       - ${APP_PORT}:25565
     environment:

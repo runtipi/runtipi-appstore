@@ -3,7 +3,7 @@ version: "3"
 services:
   deemix:
     container_name: deemix
-    image: registry.gitlab.com/bockiii/deemix-docker
+    image: registry.gitlab.com/bockiii/deemix-docker:latest
     ports:
       - ${APP_PORT}:6595
     volumes:

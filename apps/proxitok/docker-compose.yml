@@ -3,7 +3,7 @@ services:
 
   proxitok:
     container_name: proxitok
-    image: ghcr.io/pablouser1/proxitok:master
+    image: ghcr.io/pablouser1/proxitok:v2.4.9.2
     restart: unless-stopped
     ports:
       - ${APP_PORT}:80
