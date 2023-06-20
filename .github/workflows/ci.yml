@@ -4,8 +4,20 @@ on:
     types: [opened, synchronize, reopened, ready_for_review, labeled]
 
 jobs:
+  get-last-commit-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Get last commit message
+        id: get-last-commit-message
+        run: |
+          echo "last_commit_message=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
+
   ci:
-    if: contains(github.event.pull_request.head.commit.message, '[ready]') || !contains(github.head_ref, 'renovate')
+    needs: get-last-commit-message
+    if: contains(${{ needs.get-last-commit-message.outputs.last_commit_message }}, '[ready]') == true || !contains(github.ref_name, 'renovate')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
