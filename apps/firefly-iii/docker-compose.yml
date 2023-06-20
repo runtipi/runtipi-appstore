@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   firefly-iii:
-    image: fireflyiii/core:version-6.0.10
+    image: fireflyiii/core:version-6
     container_name: firefly-iii
     restart: unless-stopped
     volumes:
