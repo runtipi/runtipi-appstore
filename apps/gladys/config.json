@@ -5,8 +5,8 @@
   "available": true,
   "exposable": false,
   "id": "gladys",
-  "tipi_version": 11,
-  "version": "4.24.0",
+  "tipi_version": 12,
+  "version": "4.25.0",
   "categories": [
     "automation"
   ],
