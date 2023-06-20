@@ -36,4 +36,4 @@ jobs:
 
       - name: Commit & Push Changes
         run: |
-          git add "apps/*/config.json" && git commit --amend --no-verify && git push || true
+          git add "apps/*/config.json" && git commit --amend --no-edit --no-verify && git push --force-with-lease || true
