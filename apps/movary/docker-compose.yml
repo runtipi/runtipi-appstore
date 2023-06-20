@@ -2,7 +2,7 @@ version: "3"
 
 services:
   movary:
-    image: leepeuker/movary:0.54.0
+    image: leepeuker/movary:0.55.0
     container_name: movary
     environment:
       - TMDB_API_KEY=${MOVARY_TMDB_API_KEY}
