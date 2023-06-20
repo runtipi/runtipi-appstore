@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Configure repo
         run: |
@@ -36,4 +36,4 @@ jobs:
 
       - name: Commit & Push Changes
         run: |
-          git add "apps/*/config.json" && git commit -m "chore: update config.json version [ready]" --no-edit --no-verify && git push || true
+          git add "apps/*/config.json" && git commit -m "chore: update config.json version [ready]" --no-verify && git push || true
