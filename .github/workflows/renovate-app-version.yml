@@ -1,9 +1,9 @@
 name: Update app version in Renovate Branches
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
-    branches: ["renovate/*"]
+  push:
+    branches:
+      - renovate/*
 
 jobs:
   update-app-version:
