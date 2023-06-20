@@ -1,6 +1,7 @@
 name: automerge
 on:
   pull_request:
+    branches: ["renovate/*"]
     types:
       - labeled
       - unlabeled
@@ -10,7 +11,6 @@ on:
       - ready_for_review
       - reopened
       - unlocked
-    branches: ["renovate/*"]
   pull_request_review:
     types:
       - submitted

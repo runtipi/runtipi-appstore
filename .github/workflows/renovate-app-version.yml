@@ -1,9 +1,17 @@
 name: Update app version in Renovate Branches
 
 on:
-  push:
-    branches:
-      - renovate/*
+  pull_request:
+    branches: ["renovate/*"]
+    types:
+      - labeled
+      - opened
+      - edited
+      - assigned
+      - synchronize
+      - reopened
+      - unlocked
+      - ready_for_review
 
 jobs:
   update-app-version:
@@ -37,7 +45,7 @@ jobs:
 
       - name: Commit & Push Changes
         run: |
-          git add "apps/*/config.json" && git commit --amend --no-edit --no-verify && git push --force-with-lease || true
+          git add "apps/*/config.json" && git commit -m "chore: update config.json version" --no-edit --no-verify && git push || true
 
       - name: Label this PR as "ready"
         if: github.event_name == 'pull_request'

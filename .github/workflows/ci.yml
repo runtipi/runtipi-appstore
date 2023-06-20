@@ -1,11 +1,11 @@
 name: Tipi CI
 on:
+  push:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review, labeled]
 
 jobs:
   ci:
-    if: github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'ready') || !startsWith(github.event.pull_request.head.ref, 'renovate/')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -47,6 +47,7 @@ jobs:
 
       - name: Check bumped version
         id: check-bumped-version
+        if: github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'ready')
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
