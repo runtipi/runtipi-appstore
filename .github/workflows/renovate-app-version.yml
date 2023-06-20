@@ -2,8 +2,8 @@ name: Update app version in Renovate Branches
 
 on:
   push:
-    branches: [ 'renovate/*' ]
-    
+    branches: ["renovate/*"]
+
 jobs:
   update-app-version:
     runs-on: ubuntu-latest
@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-        
+
       - name: Configure repo
         run: |
           git config --local user.email "githubaction@githubaction.com"
@@ -33,7 +33,7 @@ jobs:
               ./.github/workflows/renovate-app-version.sh $app_name
             fi
           done
-      
+
       - name: Commit & Push Changes
         run: |
-          git add "apps/*/config.json" && git commit -m "Update app version" --no-verify && git push || true
+          git add "apps/*/config.json" && git commit --amend --no-verify && git push || true
