@@ -1,20 +1,11 @@
 name: Update app version in Renovate Branches
 
 on:
-  pull_request:
-    types:
-      - labeled
-      - opened
-      - edited
-      - assigned
-      - synchronize
-      - reopened
-      - unlocked
-      - ready_for_review
+  push:
+    branches: ["renovate/*"]
 
 jobs:
   update-app-version:
-    if: github.event_name == 'pull_request' && contains(github.event.pull_request.head.ref, 'renovate')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -45,17 +36,4 @@ jobs:
 
       - name: Commit & Push Changes
         run: |
-          git add "apps/*/config.json" && git commit -m "chore: update config.json version" --no-edit --no-verify && git push || true
-
-      - name: Label this PR as "ready"
-        if: github.event_name == 'pull_request'
-        uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            github.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ["ready"]
-            })
+          git add "apps/*/config.json" && git commit -m "chore: update config.json version [ready]" --no-edit --no-verify && git push || true
