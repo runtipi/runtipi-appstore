@@ -1,7 +1,8 @@
 name: Update app version in Renovate Branches
 
 on:
-  push:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
     branches: ["renovate/*"]
 
 jobs:
@@ -37,3 +38,16 @@ jobs:
       - name: Commit & Push Changes
         run: |
           git add "apps/*/config.json" && git commit --amend --no-edit --no-verify && git push --force-with-lease || true
+
+      - name: Label this PR as "ready"
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ["ready"]
+            })
