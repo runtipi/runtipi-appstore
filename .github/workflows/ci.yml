@@ -41,10 +41,12 @@ jobs:
           done
 
       - name: Commit and push changes
-        run: |
-          git config --local user.email "github-actions@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add . && git commit -m "Update app version [ready]" --no-verify && git push || echo "No changes to commit"
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: Tipi CI
+          author_email: ci@runtipi.io
+          message: "Update app version [ready]"
+          commit: --no-verify
 
   ci:
     needs: update-config
