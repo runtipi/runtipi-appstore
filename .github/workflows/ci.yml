@@ -51,8 +51,10 @@ jobs:
           push: origin HEAD:${{ github.head_ref }}
 
   ci:
-    needs: update-config
-    if: contains(${{ needs.get-last-commit-message.outputs.last_commit_message }}, '[ready]') && !contains(github.ref_name, 'renovate')
+    needs:
+      - update-config
+      - get-last-commit-message
+    if: contains(${{ needs.get-last-commit-message.outputs.last_commit_message }}, '[ready]') || !contains(github.ref_name, 'renovate')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
