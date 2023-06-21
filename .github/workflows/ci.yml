@@ -24,6 +24,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          token: ${{ secrets.PERSONAL_TOKEN }}
 
       - name: Get changed files
         uses: jitterbit/get-changed-files@v1
@@ -51,6 +52,7 @@ jobs:
 
   ci:
     needs: update-config
+    if: contains(${{ needs.get-last-commit-message.outputs.last_commit_message }}, '[ready]') && !contains(github.ref_name, 'renovate')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
