@@ -1,7 +1,6 @@
 name: automerge
 on:
   pull_request:
-    branches: ["renovate/*"]
     types:
       - labeled
       - unlabeled
