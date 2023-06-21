@@ -1,5 +1,6 @@
 name: Tipi CI
 on:
+  push:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
 
@@ -17,7 +18,7 @@ jobs:
 
   update-config:
     needs: get-last-commit-message
-    if: github.event_name == 'pull_request' && contains(${{ needs.get-last-commit-message.outputs.last_commit_message }}, '[ready]') == false && contains(github.ref_name, 'renovate')
+    if: github.event_name == 'pull_request' && !contains(${{ needs.get-last-commit-message.outputs.last_commit_message }}, '[ready]') && contains(github.ref_name, 'renovate')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,7 +29,7 @@ jobs:
       - name: Get list of updated files by the last commit in this branch separated by space
         id: updated-files
         run: |
-          echo "files=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | tr '\n' ' ')" >> $GITHUB_OUTPUT
+          echo "files=$(git diff-tree --no-commit-id --name-only -r $(git rev-parse HEAD) | tr '\n' ' ')" >> $GITHUB_OUTPUT
 
       - name: Run renovate-app-version.sh on updated files
         run: |
@@ -41,8 +42,14 @@ jobs:
             fi
           done
 
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add apps/*/config.json && git commit -m "Update app version [ready]" --no-verify && git push || echo "No changes to commit"
+
   ci:
-    needs: get-last-commit-message
+    needs: update-config
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
