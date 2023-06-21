@@ -1,7 +1,7 @@
 name: Tipi CI
 on:
   pull_request:
-    types: [opened, synchronize, reopened, ready_for_review, labeled]
+    types: [opened, synchronize, reopened, ready_for_review]
 
 jobs:
   get-last-commit-message:
@@ -15,9 +15,34 @@ jobs:
         run: |
           echo "last_commit_message=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
 
+  update-config:
+    needs: get-last-commit-message
+    if: github.event_name == 'pull_request' && contains(${{ needs.get-last-commit-message.outputs.last_commit_message }}, '[ready]') == false && contains(github.ref_name, 'renovate')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get list of updated files by the last commit in this branch separated by space
+        id: updated-files
+        run: |
+          echo "files=$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | tr '\n' ' ')" >> $GITHUB_OUTPUT
+
+      - name: Run renovate-app-version.sh on updated files
+        run: |
+          IFS=' ' read -ra files <<< "${{ steps.updated-files.outputs.files }}"
+
+          for file in "${files[@]}"; do
+            if [[ $file == *"docker-compose.yml"* ]]; then
+              app_name=$(echo $file | cut -d'/' -f 2)
+              ./.github/workflows/renovate-app-version.sh $app_name
+            fi
+          done
+
   ci:
     needs: get-last-commit-message
-    if: contains(${{ needs.get-last-commit-message.outputs.last_commit_message }}, '[ready]') == true || !contains(github.ref_name, 'renovate')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,13 +51,13 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - uses: pnpm/action-setup@v2.0.1
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 7
+          version: 8
           run_install: false
 
       - name: Get pnpm store directory
