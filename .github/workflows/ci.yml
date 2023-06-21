@@ -35,9 +35,14 @@ jobs:
             echo "Changed file: $changed_file"
             if [[ $file == *"docker-compose.yml"* ]]; then
               app_name=$(echo $file | cut -d'/' -f 2)
+              echo "App name: $app_name"
               ./.github/workflows/renovate-app-version.sh $app_name
             fi
           done
+          git diff
+
+      - name: Debug
+        run: git diff
 
       - name: Commit and push changes
         run: |
