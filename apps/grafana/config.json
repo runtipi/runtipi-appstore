@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "grafana",
-  "tipi_version": 7,
-  "version": "9.5.3",
-  "categories": ["data"],
+  "tipi_version": 8,
+  "version": "9.5.5",
+  "categories": [
+    "data"
+  ],
   "description": "The open and composable observability and data visualization platform",
   "short_desc": "The open and composable observability and data visualization platform",
   "author": "Grafana Labs",
