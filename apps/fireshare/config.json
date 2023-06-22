@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "fireshare",
-  "tipi_version": 4,
-  "version": "1.2.11",
-  "categories": ["development"],
+  "tipi_version": 5,
+  "version": "1.2.12",
+  "categories": [
+    "development"
+  ],
   "description": "Self host your media and share with unique links. Share your game clips, videos, or other media via unique links.",
   "short_desc": "Self host your media and share with unique links",
   "author": "https://github.com/ShaneIsrael",
