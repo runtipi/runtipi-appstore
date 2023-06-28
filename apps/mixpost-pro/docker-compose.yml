@@ -6,7 +6,7 @@ services:
     container_name: mixpost-pro
     environment:
       - APP_NAME=Mixpost
-      - MIXPOST_VERSION=^0.7
+      - MIXPOST_VERSION=^0.8
       - LICENSE_KEY=${MIXPOST_LICENSE_KEY}
       - APP_KEY=${MIXPOST_APP_KEY}
       - APP_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
