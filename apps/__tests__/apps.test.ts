@@ -1,5 +1,4 @@
 import fs from "fs";
-import semver from "semver";
 import jsyaml from "js-yaml";
 
 interface AppConfig {

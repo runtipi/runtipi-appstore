@@ -1,3 +1,7 @@
+## Mixpost Pro
+
+Version: ^0.8
+
 ## Inital Setup
 
 An admin user will be created automatically. SSH into your Tipi server and run `docker logs mixpost 2>&1 | grep "Your password" ` to find out the password.
@@ -9,7 +13,7 @@ Read the docs here https://docs.inovector.com/books/mixpost-pro-team
 ## Inital User
 
 Username: admin@admin.com
-Password: SSH into your Tipi server and run `docker logs mixpost 2>&1 | grep "Your password" ` 
+Password: SSH into your Tipi server and run `docker logs mixpost 2>&1 | grep "Your password" `
 
 ## Introduction
 
@@ -23,7 +27,7 @@ It's the perfect social media management solution for bloggers, crafters and ent
 
 Join our community:
 
--   [Discord](https://discord.gg/5YdseZnK2Z)
--   [Facebook Private Group](https://www.facebook.com/groups/inovector)
+- [Discord](https://discord.gg/5YdseZnK2Z)
+- [Facebook Private Group](https://www.facebook.com/groups/inovector)
 
 [![](https://github.com/inovector/mixpost/raw/main/art/cover.png?v=3)](https://mixpost.app)
