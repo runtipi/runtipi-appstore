@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+ databag:
+   container_name: databag
+   image: balzack/databag:latest
+   ports:
+     - ${APP_PORT}:7000
+   volumes:
+     - ${APP_DATA_DIR}/data/databag:/var/lib/databag
