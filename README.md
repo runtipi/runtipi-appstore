@@ -18,6 +18,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Conduit](https://gitlab.com/famedly/conduit) - Conduit is a simple, fast and reliable chat server written in Rust
 - [DailyTXT](https://github.com/PhiTux/DailyTxT) - Encrypted Diary Web-App
 - [Dash.](https://github.com/MauriceNino/dashdot) - A simple, modern server dashboard, primarily used by smaller private server
+- [Databag](https://github.com/balzack/databag) - Databag is a federated chat app with clients for iOS, Android, and browser.
 - [Deluge](https://github.com/linuxserver/docker-deluge) - Deluge is a lightweight, Free Software, cross-platform BitTorrent client
 - [Deemix](https://gitlab.com/Bockiii/deemix-docker) - deemix is a barebone deezer downloader library built from the ashes of Deezloader Remix.
 - [DokuWiki](https://github.com/dokuwiki/dokuwiki) - DokuWiki is a simple to use and highly versatile Open Source wiki software
