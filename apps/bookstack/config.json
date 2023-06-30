@@ -5,12 +5,14 @@
   "exposable": true,
   "port": 8119,
   "id": "bookstack",
-  "tipi_version": 9,
-  "version": "23.05.20230503",
+  "tipi_version": 10,
+  "version": "23.06.20230630",
   "description": "BookStack is a simple, self-hosted, easy-to-use platform for organising and storing information. Default login: admin@admin.com password: password",
   "short_desc": "BookStack is a self-hosted platform for organising and storing information.",
   "author": "Dan Brown",
-  "categories": ["data"],
+  "categories": [
+    "data"
+  ],
   "website": "https://www.bookstackapp.com/",
   "source": "https://github.com/BookStackApp/BookStack",
   "form_fields": [
