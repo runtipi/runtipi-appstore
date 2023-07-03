@@ -3,8 +3,8 @@
   "name": "Adguard",
   "available": true,
   "exposable": true,
-  "tipi_version": 11,
-  "version": "v0.107.32",
+  "tipi_version": 12,
+  "version": "0.107.33",
   "port": 8104,
   "id": "adguard",
   "categories": [
