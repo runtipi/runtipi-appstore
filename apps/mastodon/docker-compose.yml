@@ -79,7 +79,7 @@ services:
     networks:
       - tipi_main_network
     healthcheck:
-      test: ['CMD', 'pg_isready', '-U', 'postgres']
+      test: ['CMD', 'pg_isready', '-U', 'tipi']
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
 
