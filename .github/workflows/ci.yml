@@ -1,12 +1,13 @@
 name: Tipi CI
 on:
   pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
-    branches-ignore:
-      - "renovate/**"
+  push:
+    branches:
+      - master
 
 jobs:
   ci:
+    if: "!contains(github.head_ref, 'renovate/')"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

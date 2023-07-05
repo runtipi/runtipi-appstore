@@ -1,12 +1,10 @@
 name: Renovate CI
 on:
   pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
-    branches:
-      - "renovate/**"
 
 jobs:
   get-last-commit-message:
+    if: contains(github.head_ref, 'renovate/')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,7 +17,7 @@ jobs:
 
   update-config:
     needs: get-last-commit-message
-    if: github.event_name == 'pull_request' && !contains(${{ needs.get-last-commit-message.outputs.last_commit_message }}, '[ready]')
+    if: "!contains(${{ needs.get-last-commit-message.outputs.last_commit_message }}, '[ready]')"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
