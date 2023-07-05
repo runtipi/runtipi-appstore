@@ -1,11 +1,13 @@
 name: Tipi CI
 on:
+  pull_request:
   push:
-    branches-ignore:
-      - "renovate/*"
+    branches:
+      - master
 
 jobs:
   ci:
+    if: "!contains(github.head_ref, 'renovate/')"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

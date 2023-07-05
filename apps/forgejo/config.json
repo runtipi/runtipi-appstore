@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "forgejo",
-  "tipi_version": 1,
-  "version": "1.19.3-0",
-  "categories": ["development"],
+  "tipi_version": 2,
+  "version": "1.19.4-0",
+  "categories": [
+    "development"
+  ],
   "description": "Forgejo is a self-hosted lightweight software forge. Easy to install and low maintenance, it just does the job.",
   "short_desc": "Beyond coding. We forge. · Lightweight and performant · Guaranteed 100% Free Software",
   "author": "forgejo",
