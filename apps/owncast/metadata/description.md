@@ -1,3 +1,4 @@
+
 <br />
 <p align="center">
   <a href="https://github.com/owncast/owncast" alt="Owncast">
@@ -25,7 +26,7 @@
 <!-- TABLE OF CONTENTS -->
 
 ## Table of Contents
-
+- [Initial Setup Notice](#initial-setup-notice)
 - [About the Project](#about-the-project)
 - [Getting Started](#getting-started)
 - [Use with your broadcasting software](#use-with-your-existing-broadcasting-software)
@@ -33,6 +34,41 @@
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
+
+<!-- INITIAL SETUP NOTICE -->
+
+## Initial Setup Notice
+
+### Owncast Ports
+
+The Application Port (for accessing the site) is set to `8198`.
+The RTMP port (for sending stream input) is set to `8199`.
+
+### RTMP Server URL
+
+For normal Owncast deployments, the RTMP port is usually set to be `1935`. 
+
+To connect to this Owncast instance, you'll need to use the `8199` port such as in the following example:
+
+```
+rtmp://owncast.tipi.lan:8199/live
+```
+
+### Admin Dashboard Access
+
+To access the admin dashboard, simply visit `/admin` in your browser.
+The login username is set to `admin`.
+The password to login is initially set to the stream key, which is `abc123` by default.
+
+### Security Recommendations
+
+For security reasons, we highly encourage you to change both the stream key and your admin password immediately after installation. You can do this by visiting `/admin/config/server/` and following the provided instructions.
+
+
+### Additional Configuration
+
+For more detailed configuration options, please refer to the documentation available at https://owncast.online/docs/configuration/.
+
 
 <!-- ABOUT THE PROJECT -->
 
