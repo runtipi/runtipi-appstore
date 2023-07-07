@@ -1,7 +1,0 @@
-time="2023-07-07T00:08:44Z" level=info msg="Owncast vv0.1.0-linux-64bit (ee799e76234079712a840d500aeeadd290ff3fee)"
-time="2023-07-07T00:08:44Z" level=info msg="Video transcoder started using x264 with 1 stream variants."
-time="2023-07-07T00:08:44Z" level=info msg="RTMP is accepting inbound streams on port 1935."
-time="2023-07-07T00:08:45Z" level=info msg="Web server is listening on IP 0.0.0.0 port 8080."
-time="2023-07-07T00:08:45Z" level=info msg="The web admin interface is available at /admin."
-time="2023-07-07T00:12:44Z" level=warning msg="The disk utilization of 90.546556% could cause problems with video generation and delivery. Visit the documentation at http://owncast.online/docs/troubleshooting/ if you are experiencing issues."
-time="2023-07-07T00:18:44Z" level=warning msg="The disk utilization of 90.545951% could cause problems with video generation and delivery. Visit the documentation at http://owncast.online/docs/troubleshooting/ if you are experiencing issues."
