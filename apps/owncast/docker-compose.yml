@@ -7,8 +7,10 @@ services:
       - ./data:/app/data
     ports:
       - ${APP_PORT}:8080
-      - ${RTMP_PORT}:1935
+      - 1935:1935
     restart: unless-stopped
+    networks:
+      - tipi_main_network
     labels:
       # Main
       traefik.enable: true
@@ -20,13 +22,13 @@ services:
       traefik.http.routers.owncast-insecure.entrypoints: web
       traefik.http.routers.owncast-insecure.service: owncast
       traefik.http.routers.owncast-insecure.middlewares: owncast-web-redirect
-      traefik.tcp.routers.owncast-rtmp-insecure.rule: HostSNI(`${LOCAL_DOMAIN}`)
+      traefik.tcp.routers.owncast-rtmp-insecure.rule: HostSNI(`${APP_DOMAIN}`)
       # Websecure
       traefik.http.routers.owncast.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.owncast.entrypoints: websecure
       traefik.http.routers.owncast.service: owncast
       traefik.http.routers.owncast.tls.certresolver: myresolver
-      traefik.tcp.routers.owncast-rtmp.rule: HostSNI(`${LOCAL_DOMAIN}`)
+      traefik.tcp.routers.owncast-rtmp.rule: HostSNI(`${APP_DOMAIN}`)
       # Local domain
       traefik.http.routers.owncast-local-insecure.rule: Host(`owncast.${LOCAL_DOMAIN}`)
       traefik.http.routers.owncast-local-insecure.entrypoints: web
