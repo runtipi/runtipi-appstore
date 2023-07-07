@@ -13,5 +13,5 @@
   "author": "Owncast",
   "source": "https://github.com/owncast/owncast",
   "website": "https://owncast.online/",
-  "form_fields": [] # Used to ask for more info to the user before installing. Will be explained further
+  "form_fields": []
 }
