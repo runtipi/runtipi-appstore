@@ -2,21 +2,6 @@
 
 ## Initial Setup Notice
 
-### Owncast Ports
-
-The Application Port (for accessing the site) is set to `8198`.
-The RTMP port (for sending stream input) is set to `8199`.
-
-### RTMP Server URL
-
-For normal Owncast deployments, the RTMP port is usually set to be `1935`. 
-
-To connect to this Owncast instance, you'll need to use the `8199` port such as in the following example:
-
-```
-rtmp://owncast.tipi.lan:8199/live
-```
-
 ### Admin Dashboard Access
 
 To access the admin dashboard, simply visit `/admin` in your browser.
