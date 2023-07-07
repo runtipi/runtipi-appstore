@@ -6,8 +6,8 @@ services:
     volumes:
       - ./data:/app/data
     ports:
-      - 8080:8080
-      - 1935:1935
+      - ${APP_PORT}:8080
+      - ${RTMP_PORT}:1935
     restart: unless-stopped
     labels:
       # Main
