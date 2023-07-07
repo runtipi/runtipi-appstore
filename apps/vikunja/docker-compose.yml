@@ -5,7 +5,7 @@ services:
     depends_on:
       - vikunja-api
     container_name: vikunja
-    image: vikunja/frontend:0.20.5
+    image: vikunja/frontend:0.21.0
     restart: unless-stopped
     networks:
       - tipi_main_network
