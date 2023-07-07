@@ -1,17 +1,10 @@
 
 
 ## Initial Setup Notice
-### Exposed Port Configuration
-As Owncast uses the RTMP protocol for ingesting incoming streams, the typical Cloudflare Zero Access configuration will not work as it does not have RTMP as option for routing. 
+### Setting Up an Exposed Instance with SSL Certs
+As Owncast uses the RTMP protocol for ingesting incoming streams, the typical Cloudflare Zero Access configuration will not work as it does not have RTMP as an option for routing. 
 
-Instead you will have to create a CNAME pointing to your exposed app, allowing Traefik to route users to the following exposed ports. 
-
-| Port | Description            | Protocol |
-|------|------------------------|----------|
-| 80   | HTTP                   | TCP      |
-| 443  | HTTPS                  | TCP      |
-| 1935 | RTMP (Incoming Stream) | TCP      |
-
+You can optionally follow [this guide](https://gist.github.com/HeyOsco/6e8102d7d82ffaeaae16f41bef98b739) for setting up an exposed Owncast server with your RunTipi instance. 
 
 ### Admin Dashboard Access
 
