@@ -32,10 +32,10 @@ services:
       traefik.http.routers.owncast-local-insecure.entrypoints: web
       traefik.http.routers.owncast-local-insecure.service: owncast
       traefik.http.routers.owncast-local-insecure.middlewares: owncast-web-redirect
-      traefik.tcp.routers.owncast-rtmp-local.rule: HostSNI(`${LOCAL_DOMAIN}`) 
+      traefik.tcp.routers.owncast-rtmp-local-insecure.rule: HostSNI(`owncast.${LOCAL_DOMAIN}`) 
       # Local domain secure
       traefik.http.routers.owncast-local.rule: Host(`owncast.${LOCAL_DOMAIN}`)
       traefik.http.routers.owncast-local.entrypoints: websecure
       traefik.http.routers.owncast-local.service: owncast
       traefik.http.routers.owncast-local.tls: true
-      traefik.tcp.routers.owncast-rtmp-local.rule: HostSNI(`${LOCAL_DOMAIN}`) 
+      traefik.tcp.routers.owncast-rtmp-local.rule: HostSNI(`owncast.${LOCAL_DOMAIN}`) 
