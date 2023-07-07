@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8135,
   "id": "vikunja",
-  "tipi_version": 3,
-  "version": "0.20.5",
+  "tipi_version": 4,
+  "version": "0.21.0",
   "categories": [
     "utilities"
   ],
