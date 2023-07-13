@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "dailytxt",
-  "tipi_version": 4,
-  "version": "1.0.12",
-  "categories": ["utilities"],
+  "tipi_version": 5,
+  "version": "1.0.13",
+  "categories": [
+    "utilities"
+  ],
   "description": "DailyTxT is an encrypted Diary Web-App to write down your stories of the day and to find them again easily.",
   "short_desc": "Encrypted Diary Web-App",
   "author": "PhiTux",
