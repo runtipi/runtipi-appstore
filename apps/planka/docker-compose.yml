@@ -20,10 +20,10 @@ services:
     ports:
       - ${APP_PORT}:1337
     environment:
-      BASE_URL: "${APP_PROTOCOL:-http}://${APP_DOMAIN}/"
+      BASE_URL: ${APP_PROTOCOL:-http}://${APP_DOMAIN}/
       TRUST_PROXY: 0
-      DATABASE_URL: "postgresql://postgres@postgres/planka"
-      SECRET_KEY: "notsecretkey"
+      DATABASE_URL: postgresql://postgres@postgres/planka
+      SECRET_KEY: notsecretkey
     networks:
       - tipi_main_network
     labels:
