@@ -3,6 +3,7 @@ version: '3'
 services:
   planka:
     image: ghcr.io/plankanban/planka:1.12.0
+    container_name: planka
     command: >
       bash -c
         "for i in `seq 1 30`; do
@@ -19,9 +20,11 @@ services:
     ports:
       - ${APP_PORT}:1337
     environment:
+      - BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}:8016/
       - TRUST_PROXY=0
       - DATABASE_URL=postgresql://postgres@postgres/planka
-    labels:
+      - SECRET_KEY=notsecretkey
+    labels:s
       # Main
       traefik.enable: true
       traefik.http.middlewares.planka-web-redirect.redirectscheme.scheme: https
@@ -51,6 +54,7 @@ services:
 
   postgres:
     image: postgres:14-alpine
+    container_name: planka-db
     restart: unless-stopped
     volumes:
       - db-data:/var/lib/postgresql/data
