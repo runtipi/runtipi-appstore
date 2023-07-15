@@ -24,6 +24,8 @@ services:
       TRUST_PROXY: 0
       DATABASE_URL: "postgresql://postgres@postgres/planka"
       SECRET_KEY: "notsecretkey"
+    networks:
+      - tipi_main_network
     labels:
       # Main
       traefik.enable: true

@@ -22,6 +22,9 @@
 - Sails.js, Knex.js
 - PostgreSQL
 
-## License
+## Username and Password
 
-Planka is [AGPL-3.0 licensed](https://github.com/plankanban/planka/blob/master/LICENSE).
+After installing login with these credentials:
+
+- Username: demo@demo.demo
+- Password: demo
