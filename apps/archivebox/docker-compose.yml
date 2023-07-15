@@ -1,0 +1,53 @@
+# Usage:
+#     docker compose run archivebox init --setup
+#     docker compose up
+#     echo "https://example.com" | docker compose run archivebox archivebox add
+#     docker compose run archivebox add --depth=1 https://example.com/some/feed.rss
+#     docker compose run archivebox config --set MEDIA_MAX_SIZE=750m
+#     docker compose run archivebox help
+# Documentation:
+#     https://github.com/ArchiveBox/ArchiveBox/wiki/Docker#docker-compose
+
+version: '3.9'
+
+services:
+    archivebox:
+        image: ghcr.io/archivebox/archivebox/archivebox:0.4.20
+        container_name: archivebox
+        command: server --quick-init 0.0.0.0:8000
+        ports:
+            - ${APP_PORT}:8000
+        volumes:
+            - ${APP_DATA_DIR}/data:/data
+        environment:
+            ALLOWED_HOSTS: "*"                   # restrict this to only accept incoming traffic via specific domain name
+            PUID: 1000                       # set to your host user's UID & GID if you encounter permissions issues
+            PGID: 1000
+        restart: unless-stopped
+        networks:
+          - tipi_main_network
+        labels:
+          # Main
+          traefik.enable: true
+          traefik.http.middlewares.archivebox-web-redirect.redirectscheme.scheme: https
+          traefik.http.services.archivebox.loadbalancer.server.port: 8437
+          # Web
+          traefik.http.routers.archivebox-insecure.rule: Host(`${APP_DOMAIN}`)
+          traefik.http.routers.archivebox-insecure.entrypoints: web
+          traefik.http.routers.archivebox-insecure.service: archivebox
+          traefik.http.routers.archivebox-insecure.middlewares: archivebox-web-redirect
+          # Websecure
+          traefik.http.routers.archivebox.rule: Host(`${APP_DOMAIN}`)
+          traefik.http.routers.archivebox.entrypoints: websecure
+          traefik.http.routers.archivebox.service: archivebox
+          traefik.http.routers.archivebox.tls.certresolver: myresolver
+          # Local domain
+          traefik.http.routers.archivebox-local-insecure.rule: Host(`archivebox.${LOCAL_DOMAIN}`)
+          traefik.http.routers.archivebox-local-insecure.entrypoints: web
+          traefik.http.routers.archivebox-local-insecure.service: archivebox
+          traefik.http.routers.archivebox-local-insecure.middlewares: archivebox-web-redirect
+          # Local domain secure
+          traefik.http.routers.archivebox-local.rule: Host(`archivebox.${LOCAL_DOMAIN}`)
+          traefik.http.routers.archivebox-local.entrypoints: websecure
+          traefik.http.routers.archivebox-local.service: archivebox
+          traefik.http.routers.archivebox-local.tls: true
