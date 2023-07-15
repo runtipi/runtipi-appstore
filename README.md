@@ -98,6 +98,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Peppermint](https://github.com/Peppermint-Lab/peppermint) - An open source ticket management & help desk solution.
 - [Photoprism](https://github.com/photoprism/photoprism) - AI-Powered Photos App for the Decentralized Web. We are on a mission to protect your freedom and privacy.
 - [Pihole](https://github.com/pi-hole/pi-hole) - A black hole for Internet advertisements
+- [Planka](https://github.com/plankanban/planka) - Free open source kanban board for workgroups.
 - [Plausible](https://github.com/plausible/analytics) - Simple, open-source, lightweight (< 1 KB) and privacy-friendly web analytics alternative to Google Analytics.
 - [Plex](https://github.com/plexinc/pms-docker) - Stream Movies & TV Shows
 - [PodFetch](https://github.com/SamTV12345/PodFetch) - A sleek and efficient podcast downloader.
