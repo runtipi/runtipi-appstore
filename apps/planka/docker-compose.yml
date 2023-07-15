@@ -24,7 +24,7 @@ services:
       - TRUST_PROXY=0
       - DATABASE_URL=postgresql://postgres@postgres/planka
       - SECRET_KEY=notsecretkey
-    labels:s
+    labels:
       # Main
       traefik.enable: true
       traefik.http.middlewares.planka-web-redirect.redirectscheme.scheme: https
