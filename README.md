@@ -116,6 +116,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Send](https://gitlab.com/timvisee/send) - Simple, private file sharing
 - [SimpleX SMP](https://github.com/simplex-chat/simplexmq) - A reference implementation of the SimpleX Messaging Protocol for simplex queues over public networks.
 - [Sonarr](https://github.com/Sonarr/Sonarr) - TV show manager for Usenet and BitTorrent
+- [Sshwifty](https://github.com/nirui/sshwifty/) - Web SSH & Telnet (WebSSH & WebTelnet client)
 - [Syncthing](https://github.com/syncthing/syncthing) - Continuous File Synchronization
 - [Tailscale](https://github.com/tailscale/tailscale) - The easiest, most secure way to use WireGuard and 2FA
 - [Tautulli](https://github.com/Tautulli/Tautulli) - A Python based monitoring and tracking tool for Plex Media Server
