@@ -63,6 +63,8 @@ services:
     environment:
       - POSTGRES_DB=planka
       - POSTGRES_HOST_AUTH_METHOD=trust
+    networks:
+      - tipi_main_network
 
 volumes:
   db-data:
