@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8181,
   "id": "tautulli",
-  "tipi_version": 8,
-  "version": "2.12.4",
+  "tipi_version": 9,
+  "version": "2.12.5",
   "categories": [
     "media",
     "utilities"
