@@ -15,7 +15,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.owncast-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.owncast.loadbalancer.server.port: 80
+      traefik.http.services.owncast.loadbalancer.server.port: 8080
       traefik.tcp.services.owncast-rtmp.loadbalancer.server.port: 1935
       # Web
       traefik.http.routers.owncast-insecure.rule: Host(`${APP_DOMAIN}`)
