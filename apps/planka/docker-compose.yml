@@ -66,5 +66,6 @@ services:
       POSTGRES_DB: "planka"
       POSTGRES_USER: "tipi"
       POSTGRES_PASSWORD: "${PLANKA_DB_PASSWORD}"
+      POSTGRES_HOST_AUTH_METHOD: "password"
     networks:
       - tipi_main_network
