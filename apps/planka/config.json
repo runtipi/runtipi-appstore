@@ -19,12 +19,6 @@
       "label": "Planka Secret Key",
       "min": 32,
       "env_variable": "PLANKA_SECRET_KEY"
-    },
-    {
-      "type": "random",
-      "label": "Planka DB Password",
-      "min": 32,
-      "env_variable": "PLANKA_DB_PASSWORD"
     }
   ]
 }

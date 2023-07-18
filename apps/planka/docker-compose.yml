@@ -24,8 +24,6 @@ services:
       TRUST_PROXY: 1
       DATABASE_URL: "postgresql://postgres@postgres/planka"
       SECRET_KEY: "${PLANKA_SECRET_KEY}"
-      DB_USERNAME: "tipi"
-      DB_PASSWORD: "${PLANKA_DB_PASSWORD}"
     networks:
       - tipi_main_network
     labels:
@@ -64,8 +62,6 @@ services:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: "planka"
-      POSTGRES_USER: "tipi"
-      POSTGRES_PASSWORD: "${PLANKA_DB_PASSWORD}"
-      POSTGRES_HOST_AUTH_METHOD: "password"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
     networks:
       - tipi_main_network
