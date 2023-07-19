@@ -98,6 +98,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Peppermint](https://github.com/Peppermint-Lab/peppermint) - An open source ticket management & help desk solution.
 - [Photoprism](https://github.com/photoprism/photoprism) - AI-Powered Photos App for the Decentralized Web. We are on a mission to protect your freedom and privacy.
 - [Pihole](https://github.com/pi-hole/pi-hole) - A black hole for Internet advertisements
+- [Planka](https://github.com/plankanban/planka) - Free open source kanban board for workgroups.
 - [Plausible](https://github.com/plausible/analytics) - Simple, open-source, lightweight (< 1 KB) and privacy-friendly web analytics alternative to Google Analytics.
 - [Plex](https://github.com/plexinc/pms-docker) - Stream Movies & TV Shows
 - [PodFetch](https://github.com/SamTV12345/PodFetch) - A sleek and efficient podcast downloader.
@@ -115,6 +116,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Send](https://gitlab.com/timvisee/send) - Simple, private file sharing
 - [SimpleX SMP](https://github.com/simplex-chat/simplexmq) - A reference implementation of the SimpleX Messaging Protocol for simplex queues over public networks.
 - [Sonarr](https://github.com/Sonarr/Sonarr) - TV show manager for Usenet and BitTorrent
+- [Sshwifty](https://github.com/nirui/sshwifty/) - Web SSH & Telnet (WebSSH & WebTelnet client)
 - [Syncthing](https://github.com/syncthing/syncthing) - Continuous File Synchronization
 - [Tailscale](https://github.com/tailscale/tailscale) - The easiest, most secure way to use WireGuard and 2FA
 - [Tautulli](https://github.com/Tautulli/Tautulli) - A Python based monitoring and tracking tool for Plex Media Server
