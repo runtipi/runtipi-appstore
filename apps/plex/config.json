@@ -5,10 +5,12 @@
   "exposable": true,
   "port": 32400,
   "id": "plex",
-  "tipi_version": 19,
-  "version": "1.32.4",
+  "tipi_version": 20,
+  "version": "1.32.5",
   "url_suffix": "/web",
-  "categories": ["media"],
+  "categories": [
+    "media"
+  ],
   "description": "",
   "short_desc": "Stream Movies & TV Shows",
   "author": "plexinc",
