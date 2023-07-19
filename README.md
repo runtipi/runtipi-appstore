@@ -92,6 +92,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [OneDev](https://code.onedev.io/onedev/server) - Self-hosted Git Server with Kanban and CI/CD
 - [Openbooks](https://github.com/evan-buss/openbooks) - Search and Download eBooks
 - [Overseerr](https://github.com/sct/overseerr) - Request management and media discovery tool for the Plex ecosystem
+- [Owncast](https://github.com/owncast/owncast) - Take control over your live stream video by running it yourself. Streaming + chat out of the box.
 - [Owncloud](https://github.com/owncloud/core) - A personal cloud which runs on your own server.
 - [PairDrop](https://github.com/schlagmichdoch/PairDrop) - Local file sharing in your browser. Inspired by Apple's AirDrop.
 - [Paperless-ngx](https://github.com/paperless-ngx/paperless-ngx) - Document Management System (DMS)
