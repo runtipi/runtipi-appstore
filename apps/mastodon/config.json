@@ -7,8 +7,8 @@
   "force_expose": true,
   "generate_vapid_keys": true,
   "id": "mastodon",
-  "tipi_version": 5,
-  "version": "4.1.5",
+  "tipi_version": 6,
+  "version": "4.1.6",
   "categories": [
     "social"
   ],
