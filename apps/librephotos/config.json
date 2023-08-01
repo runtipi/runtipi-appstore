@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "librephotos",
-  "tipi_version": 9,
-  "version": "2023w26",
+  "tipi_version": 10,
+  "version": "2023w31",
   "supported_architectures": [
     "amd64",
     "arm64"
