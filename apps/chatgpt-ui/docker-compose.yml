@@ -43,7 +43,7 @@ services:
       traefik.http.routers.chatgpt-ui-local.tls: true
 
   chatgpt-ui-wsgi-server:
-    image: wongsaang/chatgpt-ui-wsgi-server:v2.5.1
+    image: wongsaang/chatgpt-ui-wsgi-server:v2.5.2
     container_name: chatgpt-ui-wsgi-server
     environment:
       - APP_DOMAIN=${INTERNAL_IP}:8201
