@@ -67,7 +67,7 @@ services:
     restart: always
 
   chatgpt-ui-web-server:
-    image: wongsaang/chatgpt-ui-web-server:v2.5.1
+    image: wongsaang/chatgpt-ui-web-server:v2.5.2
     container_name: chatgpt-ui-web-server
     environment:
       - BACKEND_URL=http://chatgpt-ui-wsgi-server:8000
