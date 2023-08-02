@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "nocodb",
-  "tipi_version": 16,
-  "version": "0.109.5",
+  "tipi_version": 17,
+  "version": "0.109.6",
   "categories": [
     "utilities"
   ],
