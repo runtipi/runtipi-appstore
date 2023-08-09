@@ -1,4 +1,4 @@
-version: "2"
+version: "3.8"
 
 services:
   tailscale:
@@ -12,3 +12,9 @@ services:
     volumes:
       - /var/lib:/var/lib
       - /dev/net/tun:/dev/net/tun
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:${APP_PORT}
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
