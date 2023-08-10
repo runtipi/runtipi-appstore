@@ -176,7 +176,7 @@ services:
 
   # Events service (quark)
   revolt-events:
-    image: ghcr.io/revoltchat/bonfire:20230611-3
+    image: ghcr.io/revoltchat/bonfire:20230810-3
     container_name: revolt-events
     depends_on:
       - revolt-database
