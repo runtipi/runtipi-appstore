@@ -30,7 +30,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.planka-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.planka.loadbalancer.server.port: 8016
+      traefik.http.services.planka.loadbalancer.server.port: 1337
       # Web
       traefik.http.routers.planka-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.planka-insecure.entrypoints: web
