@@ -2,6 +2,7 @@ version: "3.9"
 
 services:
   ghostfolio:
+    container_name: ghostfolio
     image: ghostfolio/ghostfolio:1.300.0
     restart: unless-stopped
     ports:
@@ -48,6 +49,7 @@ services:
       traefik.http.routers.ghostfolio-local.tls: true
 
   ghostfolio-postgres:
+    container_name: ghostfolio-postgres
     image: postgres:14-bullseye
     restart: unless-stopped
     stop_grace_period: 1m
@@ -63,6 +65,7 @@ services:
       - tipi_main_network
 
   ghostfolio-redis:
+    container_name: ghostfolio-redis
     image: redis:6.2-bullseye
     restart: unless-stopped
     user: "1000:1000"
