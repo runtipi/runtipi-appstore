@@ -50,11 +50,8 @@ services:
 
   ghostfolio-postgres:
     container_name: ghostfolio-postgres
-    image: postgres:14-bullseye
-    restart: unless-stopped
-    stop_grace_period: 1m
-    user: "1000:1000"
-    environment:
+    image: postgres:14
+    restart: unless-stopped    environment:
       POSTGRES_DB: ghostfolio
       POSTGRES_USER: ghostfolio
       POSTGRES_PASSWORD: ${GHOSTFOLIO_DB_PASSWORD}
@@ -66,9 +63,8 @@ services:
 
   ghostfolio-redis:
     container_name: ghostfolio-redis
-    image: redis:6.2-bullseye
+    image: redis:6.2
     restart: unless-stopped
-    user: "1000:1000"
     command: >
       --requirepass ${GHOSTFOLIO_REDIS_PASSWORD}
     volumes:
