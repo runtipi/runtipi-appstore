@@ -6,7 +6,7 @@ services:
     image: ghostfolio/ghostfolio:1.300.0
     restart: unless-stopped
     ports:
-      - ${APP_PORT}:8080
+      - ${APP_PORT}:3333
     environment:
       NODE_ENV: production
       HOST: 0.0.0.0
@@ -22,6 +22,9 @@ services:
       REDIS_PORT: 6379
     networks:
       - tipi_main_network
+    depends_on:
+      - ghostfolio-postgres
+      - ghostfolio-redis
     labels:
       # Main
       traefik.enable: true
