@@ -9,7 +9,7 @@
   "version": "1.5.4",
   "categories": ["data"],
   "description": "Drop your collection of links and notes. Get Tandoor and never look back onto a time without recipe management, storage, sharing and collaborative cooking!",
-  "short_desc": "Manage your ever growing recipe collection online.",
+  "short_desc": "Recipe collection manager.",
   "author": "Tandoor Recipes",
   "source": "https://github.com/TandoorRecipes/recipes",
   "website": "https://tandoor.dev/",
