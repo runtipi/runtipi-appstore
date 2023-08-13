@@ -12,7 +12,7 @@ services:
       HOST: 0.0.0.0
       PORT: 3333
       ACCESS_TOKEN_SALT: $GHOSTFOLIO_ACCESS_TOKEN_SALT
-      DATABASE_URL: postgresql://ghostfolio:${GHOSTFOLIO_DB_PASSWORD}@ghostfolio-postgres:5432/ghostfolio?sslmode=prefer
+      DATABASE_URL: postgresql://ghostfolio:${GHOSTFOLIO_DB_PASSWORD}@ghostfolio-db:5432/ghostfolio?sslmode=prefer
       JWT_SECRET_KEY: ${GHOSTFOLIO_JWT_SECRET_KEY}
       POSTGRES_DB: ghostfolio
       POSTGRES_USER: ghostfolio
@@ -23,8 +23,10 @@ services:
     networks:
       - tipi_main_network
     depends_on:
-      - ghostfolio-postgres
-      - ghostfolio-redis
+      - ghostfolio-db:
+        condition: service_healthy
+      - ghostfolio-redis:
+        condition: service_healthy
     labels:
       # Main
       traefik.enable: true
@@ -51,26 +53,37 @@ services:
       traefik.http.routers.ghostfolio-local.service: ghostfolio
       traefik.http.routers.ghostfolio-local.tls: true
 
-  ghostfolio-postgres:
-    container_name: ghostfolio-postgres
-    image: postgres:14
+  ghostfolio-db:
+    container_name: ghostfolio-db
+    image: postgres:15.4-alpine
     restart: unless-stopped
     environment:
       POSTGRES_DB: ghostfolio
       POSTGRES_USER: ghostfolio
       POSTGRES_PASSWORD: ${GHOSTFOLIO_DB_PASSWORD}
       PGDATA: /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-d", "ghostfolio"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     volumes:
-      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
     networks:
       - tipi_main_network
 
   ghostfolio-redis:
-    container_name: ghostfolio-redis
+    container_name: redis:7-alpine
     image: redis:6.2
     restart: unless-stopped
     command: >
       --requirepass ${GHOSTFOLIO_REDIS_PASSWORD}
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
     networks:
