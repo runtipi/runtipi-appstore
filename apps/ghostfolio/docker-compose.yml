@@ -51,7 +51,8 @@ services:
   ghostfolio-postgres:
     container_name: ghostfolio-postgres
     image: postgres:14
-    restart: unless-stopped    environment:
+    restart: unless-stopped
+    environment:
       POSTGRES_DB: ghostfolio
       POSTGRES_USER: ghostfolio
       POSTGRES_PASSWORD: ${GHOSTFOLIO_DB_PASSWORD}
