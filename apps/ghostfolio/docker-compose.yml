@@ -23,10 +23,10 @@ services:
     networks:
       - tipi_main_network
     depends_on:
-      - ghostfolio-db:
-          condition: service_healthy
-      - ghostfolio-redis:
-          condition: service_healthy
+      ghostfolio-db:
+        condition: service_healthy
+      ghostfolio-redis:
+        condition: service_healthy
     labels:
       # Main
       traefik.enable: true
