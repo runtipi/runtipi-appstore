@@ -9,7 +9,7 @@
     "version": "1.300.0",
     "categories": ["finance"],
     "description": "Ghostfolio is a privacy-first, open source dashboard for your personal finances.",
-    "short_desc": "",
+    "short_desc": "Open Source Wealth Management Software.",
     "author": "dtslvr",
     "source": "https://github.com/ghostfolio/ghostfolio",
     "form_fields": [
