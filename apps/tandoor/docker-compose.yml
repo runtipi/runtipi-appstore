@@ -51,7 +51,7 @@ services:
     image: postgres:15-alpine
     volumes:
       - ${APP_DATA_DIR}/postgresql:/var/lib/postgresql/data
-    enviroment:
+    environment:
       - POSTGRES_HOST=db_recipes
       - POSTGRES_PORT=5432
       - POSTGRES_USER=djangodb
