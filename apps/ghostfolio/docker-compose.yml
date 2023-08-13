@@ -73,8 +73,8 @@ services:
       - tipi_main_network
 
   ghostfolio-redis:
-    container_name: redis:7-alpine
-    image: redis:6.2
+    container_name: ghostfolio-redis
+    image: redis:7-alpine
     restart: unless-stopped
     command: >
       --requirepass ${GHOSTFOLIO_REDIS_PASSWORD}
