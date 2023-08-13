@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-  recipes:
+  tandoor:
     container_name: tandoor
     image: ghcr.io/tandoorrecipes/recipes:1.5.4
     volumes:
