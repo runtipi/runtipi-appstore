@@ -29,7 +29,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.tandoor-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.tandoor.loadbalancer.server.port: 8341
+      traefik.http.services.tandoor.loadbalancer.server.port: 8080
       # Web
       traefik.http.routers.tandoor-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.tandoor-insecure.entrypoints: web
