@@ -6,7 +6,7 @@
   "port": 6969,
   "id": "whisparr",
   "tipi_version": 1,
-  "version": "latest",
+  "version": "nightly",
   "categories": [
     "media",
     "utilities"
