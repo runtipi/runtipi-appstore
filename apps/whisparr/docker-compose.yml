@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   whisparr:
-    container_name: ${APP_ID}
+    container_name: whisparr
     hostname: ${APP_ID}
     image: cr.hotio.dev/hotio/whisparr:nightly
     ports:
