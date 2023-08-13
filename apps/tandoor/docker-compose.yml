@@ -11,7 +11,7 @@ services:
     environment:
       - SECRET_KEY=${TANDOOR_SECRET_KEY}
       - DB_ENGINE=django.db.backends.postgresql
-      - POSTGRES_HOST=db_recipes
+      - POSTGRES_HOST=tandoor_db
       - POSTGRES_PORT=5432
       - POSTGRES_USER=djangodb
       - POSTGRES_PASSWORD=${TANDOOR_POSTGRESS_PASSWORD}
@@ -47,12 +47,11 @@ services:
       - tandoor_db
 
   tandoor_db:
-    restart: always
     image: postgres:15-alpine
+    container_name: tandoor_db
     volumes:
       - ${APP_DATA_DIR}/postgresql:/var/lib/postgresql/data
     environment:
-      - POSTGRES_HOST=db_recipes
       - POSTGRES_PORT=5432
       - POSTGRES_USER=djangodb
       - POSTGRES_PASSWORD=${TANDOOR_POSTGRESS_PASSWORD}
