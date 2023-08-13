@@ -19,6 +19,12 @@ services:
     networks:
       - tipi_main_network
     restart: unless-stopped
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:8080
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
     labels:
       # Main
       traefik.enable: true
@@ -45,7 +51,8 @@ services:
       traefik.http.routers.tandoor-local.service: tandoor
       traefik.http.routers.tandoor-local.tls: true
     depends_on:
-      - tandoor-db
+      tandoor-db:
+        condition: service_healthy
 
   tandoor-db:
     image: postgres:15-alpine
