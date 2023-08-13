@@ -60,3 +60,9 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-d", "tandoor"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
