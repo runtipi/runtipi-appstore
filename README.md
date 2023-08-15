@@ -34,6 +34,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Freshrss](https://github.com/FreshRSS/FreshRSS) - A free, self-hostable RSS aggregator
 - [gandi-livedns](https://github.com/jbbodart/gandi-livedns) - Update your Gandi DNS zone records with your WAN IP
 - [Ghost](https://github.com/TryGhost/Ghost) - Ghost - Turn your audience into a business
+- [Ghostfolio](https://github.com/ghostfolio/ghostfolio) - Open Source Wealth Management Software.
 - [Gitea](https://github.com/go-gitea/gitea) - Gitea - A painless self-hosted Git service
 - [Gladys Assistant](https://github.com/gladysassistant/gladys) - A privacy-first, open-source home assistant
 - [Gotify](https://github.com/gotify/server) - Gotify - Simple server for sending and receiving notification messages
