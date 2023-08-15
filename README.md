@@ -131,6 +131,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Uptime Kuma](https://github.com/louislam/uptime-kuma) - A fancy self-hosted monitoring tool
 - [Vaultwarden](https://github.com/dani-garcia/vaultwarden) - Unofficial Bitwarden compatible server
 - [Vikunja](https://kolaente.dev/vikunja/) - The open-source, self-hostable to-do app. Organize everything, on all platforms.
+- [Whisparr](https://github.com/Whisparr/Whisparr) - Whisparr is an adult movie collection manager for Usenet and BitTorrent users.
 - [Wireguard Easy](https://github.com/WeeJeWel/wg-easy) - WireGuard VPN + Web-based Admin UI
 - [WikiJS](https://github.com/requarks/wiki) - A modern and powerful wiki app built on Node.js
 - [Wizarr](https://github.com/Wizarrrr/wizarr) - Wizarr is an advanced user invitation and management system for Jellyfin, Plex, Emby etc.
