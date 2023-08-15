@@ -13,7 +13,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.sshwifty-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.sshwifty.loadbalancer.server.port: 8273
+      traefik.http.services.sshwifty.loadbalancer.server.port: 8182
       # Web
       traefik.http.routers.sshwifty-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.sshwifty-insecure.entrypoints: web
