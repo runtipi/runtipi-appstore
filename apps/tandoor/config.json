@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "tandoor",
-  "tipi_version": 1,
-  "version": "1.5.4",
-  "categories": ["data"],
+  "tipi_version": 2,
+  "version": "1.5.5",
+  "categories": [
+    "data"
+  ],
   "description": "Drop your collection of links and notes. Get Tandoor and never look back onto a time without recipe management, storage, sharing and collaborative cooking!",
   "short_desc": "Recipe collection manager.",
   "author": "Tandoor Recipes",
