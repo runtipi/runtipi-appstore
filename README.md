@@ -34,6 +34,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Freshrss](https://github.com/FreshRSS/FreshRSS) - A free, self-hostable RSS aggregator
 - [gandi-livedns](https://github.com/jbbodart/gandi-livedns) - Update your Gandi DNS zone records with your WAN IP
 - [Ghost](https://github.com/TryGhost/Ghost) - Ghost - Turn your audience into a business
+- [Ghostfolio](https://github.com/ghostfolio/ghostfolio) - Open Source Wealth Management Software.
 - [Gitea](https://github.com/go-gitea/gitea) - Gitea - A painless self-hosted Git service
 - [Gladys Assistant](https://github.com/gladysassistant/gladys) - A privacy-first, open-source home assistant
 - [Gotify](https://github.com/gotify/server) - Gotify - Simple server for sending and receiving notification messages
@@ -120,6 +121,8 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Sshwifty](https://github.com/nirui/sshwifty/) - Web SSH & Telnet (WebSSH & WebTelnet client)
 - [Syncthing](https://github.com/syncthing/syncthing) - Continuous File Synchronization
 - [Tailscale](https://github.com/tailscale/tailscale) - The easiest, most secure way to use WireGuard and 2FA
+- [Tandoor](https://github.com/TandoorRecipes/recipes) - Drop your collection of links and notes. Get Tandoor and never look back onto a time without recipe management, storage, sharing and collaborative cooking!
+- [Tasks.md](https://github.com/BaldissaraMatheus/Tasks.md) - A self-hosted, file based task management board that supports Markdown syntax
 - [Tautulli](https://github.com/Tautulli/Tautulli) - A Python based monitoring and tracking tool for Plex Media Server
 - [Teddit](https://codeberg.org/teddit/teddit) - Alternative Reddit front-end focused on privacy https://teddit.net
 - [Transmission](https://github.com/transmission/transmission) - Fast, easy, and free BitTorrent client
