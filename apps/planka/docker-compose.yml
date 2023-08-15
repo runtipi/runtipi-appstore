@@ -20,17 +20,17 @@ services:
     ports:
       - ${APP_PORT}:1337
     environment:
-      BASE_URL: ${APP_PROTOCOL:-http}://${APP_DOMAIN}
-      TRUST_PROXY: 1
-      DATABASE_URL: "postgresql://postgres@postgres/planka"
-      SECRET_KEY: "${PLANKA_SECRET_KEY}"
+      - BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - TRUST_PROXY=1
+      - DATABASE_URL="postgresql://postgres@postgres/planka"
+      - SECRET_KEY="${PLANKA_SECRET_KEY}"
     networks:
       - tipi_main_network
     labels:
       # Main
       traefik.enable: true
       traefik.http.middlewares.planka-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.planka.loadbalancer.server.port: 8016
+      traefik.http.services.planka.loadbalancer.server.port: 1337
       # Web
       traefik.http.routers.planka-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.planka-insecure.entrypoints: web
