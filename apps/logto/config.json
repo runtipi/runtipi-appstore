@@ -5,14 +5,14 @@
   "available": true,
   "exposable": true,
   "id": "logto",
-  "tipi_version": 6,
+  "tipi_version": 7,
   "version": "1.7.0",
   "force_expose": true,
   "categories": [
     "security"
   ],
   "description": "Logto is a cost-effective open-source alternative to Auth0.",
-  "short_desc": "Logto is a cost-effective open-source alternative to Auth0. ",
+  "short_desc": "Identity management infrastructure.",
   "author": "Logto Team",
   "source": "https://github.com/logto-io/logto",
   "form_fields": [

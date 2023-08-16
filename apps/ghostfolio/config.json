@@ -5,11 +5,11 @@
     "available": true,
     "exposable": true,
     "id": "ghostfolio",
-    "tipi_version": 1,
+    "tipi_version": 2,
     "version": "1.300.0",
     "categories": ["finance"],
     "description": "Ghostfolio is a privacy-first, open source dashboard for your personal finances.",
-    "short_desc": "Open Source Wealth Management Software.",
+    "short_desc": "Wealth management software.",
     "author": "dtslvr",
     "source": "https://github.com/ghostfolio/ghostfolio",
     "form_fields": [

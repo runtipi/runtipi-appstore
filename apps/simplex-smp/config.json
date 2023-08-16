@@ -6,13 +6,13 @@
   "exposable": true,
   "no_gui": true,
   "id": "simplex-smp",
-  "tipi_version": 7,
+  "tipi_version": 8,
   "version": "5.2.1",
   "categories": [
     "social"
   ],
   "description": "A reference implementation of the SimpleX Messaging Protocol for simplex queues over public networks.",
-  "short_desc": "A reference implementation of the SimpleX Messaging Protocol for simplex queues over public networks.",
+  "short_desc": "SimpleX message broker.",
   "author": "Simplex Team",
   "source": "https://github.com/simplex-chat/simplexmq",
   "form_fields": [

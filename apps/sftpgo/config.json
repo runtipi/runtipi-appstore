@@ -5,13 +5,13 @@
   "available": true,
   "exposable": true,
   "id": "sftpgo",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "2.5.4-alpine",
   "categories": [
     "utilities"
   ],
   "description": "Fully featured and highly configurable SFTP server with optional HTTP/S, FTP/S and WebDAV support - S3, Google Cloud Storage, Azure Blob",
-  "short_desc": "Fully featured and highly configurable SFTP server",
+  "short_desc": "Highly configurable SFTP server.",
   "author": "drakkan",
   "source": "https://github.com/drakkan/sftpgo",
   "website": "https://sftpgo.com",

@@ -5,11 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "hammond",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "0.0.21",
   "categories": ["utilities"],
   "description": "Self hosted vehicle and expense management system. Like Clarkson, but better",
-  "short_desc": "Self hosted vehicle and expense management system. Like Clarkson, but better",
+  "short_desc": "Vehicle and expense management system.",
   "author": "Akhilrex, alfhou",
   "source": "https://github.com/alfhou/hammond",
   "form_fields": [

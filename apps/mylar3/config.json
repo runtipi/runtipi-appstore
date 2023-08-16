@@ -1,15 +1,15 @@
 {
   "$schema": "../schema.json",
-  "name": "Mylar3",
+  "name": "Mylar (3)",
   "port": 8174,
   "available": true,
   "exposable": true,
   "id": "mylar3",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "v0.7.1-ls84",
   "categories": ["media"],
   "description": "Mylar3 is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python.",
-  "short_desc": "Mylar3 is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python.",
+  "short_desc": "Comic Book collection manager.",
   "author": "Mylar3",
   "source": "https://github.com/mylar3/mylar3",
   "form_fields": []

@@ -5,12 +5,12 @@
   "port": 8010,
   "id": "kanboard",
   "description": "Kanboard is a free and open source Kanban project management software.",
-  "tipi_version": 6,
+  "tipi_version": 7,
   "version": "1.2.32",
   "categories": [
     "development"
   ],
-  "short_desc": "Open Source Kanban Board",
+  "short_desc": "Kanban Board system.",
   "author": "Frédéric Guillot",
   "source": "https://github.com/kanboard/kanboard",
   "website": "https://kanboard.org/",

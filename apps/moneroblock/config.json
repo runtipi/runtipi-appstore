@@ -1,15 +1,15 @@
 {
   "$schema": "../schema.json",
-  "name": "Moneroblock",
+  "name": "MoneroBlock",
   "available": true,
   "exposable": true,
   "port": 31312,
   "id": "moneroblock",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "0.1.2",
   "categories": ["utilities"],
   "description": "MoneroBlock is a trustless block explorer for the Monero payment network.",
-  "short_desc": "Decentralized and trustless Monero block explorer",
+  "short_desc": "Decentralized & trustless Monero explorer.",
   "author": "duggavo",
   "source": "https://github.com/duggavo/MoneroBlock",
   "form_fields": [

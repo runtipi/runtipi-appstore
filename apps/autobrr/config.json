@@ -1,6 +1,6 @@
 {
   "$schema": "../schema.json",
-  "name": "autobrr",
+  "name": "Autobrr",
   "port": 8158,
   "available": true,
   "exposable": true,

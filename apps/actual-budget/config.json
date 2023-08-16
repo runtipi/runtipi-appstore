@@ -5,13 +5,13 @@
   "exposable": true,
   "port": 8011,
   "id": "actual-budget",
-  "tipi_version": 9,
+  "tipi_version": 10,
   "version": "23.8.1",
   "categories": [
     "finance"
   ],
   "description": "Actual is a local-first personal finance tool. It is 100% free and open-source, written in NodeJS, it has a synchronization element so that all your changes can move between devices without any heavy lifting.",
-  "short_desc": "Local-first OpenSource Budget tool",
+  "short_desc": "Personal finance system.",
   "author": "Shift Reset LLC",
   "source": "https://github.com/actualbudget/actual-server",
   "form_fields": []

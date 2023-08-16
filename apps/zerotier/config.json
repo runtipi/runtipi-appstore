@@ -5,14 +5,14 @@
   "no_gui": true,
   "port": 9993,
   "id": "zerotier",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "1.10.6",
   "categories": [
     "network",
     "security"
   ],
   "description": "ZeroTier combines the capabilities of VPN and SD-WAN, simplifying network management.",
-  "short_desc": "Easy to use zero configuration VPN.",
+  "short_desc": "Zero configuration VPN.",
   "author": "© ZeroTier Inc.",
   "source": "https://github.com/zerotier/ZeroTierOne",
   "website": "https://www.zerotier.com",

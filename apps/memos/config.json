@@ -5,13 +5,13 @@
   "exposable": true,
   "port": 5230,
   "id": "memos",
-  "tipi_version": 13,
+  "tipi_version": 14,
   "version": "0.14.4",
   "categories": [
     "utilities"
   ],
   "description": "Memo hub for knowledge management and collaboration.",
-  "short_desc": "Memo hub for knowledge management and collaboration.",
+  "short_desc": "Lightweight note-taking service.",
   "author": "boojack",
   "website": "https://usememos.com/",
   "source": "https://github.com/usememos/memos",

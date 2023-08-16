@@ -5,13 +5,13 @@
   "available": true,
   "exposable": false,
   "id": "gladys",
-  "tipi_version": 14,
+  "tipi_version": 15,
   "version": "4.26.0",
   "categories": [
     "automation"
   ],
   "description": "A privacy-first, open-source home assistant",
-  "short_desc": "A privacy-first, open-source home assistant",
+  "short_desc": "Privacy-first home assistant.",
   "author": "Gladys Assistant",
   "source": "https://github.com/gladysassistant/gladys",
   "website": "https://gladysassistant.com/",

@@ -1,9 +1,9 @@
 {
   "$schema": "../schema.json",
-  "name": "Adguard",
+  "name": "AdGuard",
   "available": true,
   "exposable": true,
-  "tipi_version": 15,
+  "tipi_version": 16,
   "version": "0.107.36",
   "port": 8104,
   "id": "adguard",
@@ -12,7 +12,7 @@
     "security"
   ],
   "description": "Adguard is the best way to get rid of annoying ads and online tracking and protect your computer from malware. Make your web surfing fast, safe and ad-free.",
-  "short_desc": "World's most advanced adblocker!",
+  "short_desc": "DNS adblocker.",
   "author": "AdguardTeam",
   "source": "https://github.com/AdguardTeam",
   "requirements": {

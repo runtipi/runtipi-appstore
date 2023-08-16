@@ -10,13 +10,13 @@
     ]
   },
   "id": "transmission",
-  "tipi_version": 7,
+  "tipi_version": 8,
   "version": "4.0.3",
   "categories": [
     "utilities"
   ],
   "description": "Transmission is a fast, easy, and free BitTorrent client.",
-  "short_desc": "Fast, easy, and free BitTorrent client",
+  "short_desc": "BitTorrent client.",
   "author": "Transmission Project",
   "source": "https://github.com/transmission/transmission",
   "form_fields": [

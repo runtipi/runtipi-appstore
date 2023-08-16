@@ -5,12 +5,12 @@
   "exposable": true,
   "id": "grist",
   "description": "Grist is a modern relational spreadsheet. It combines the flexibility of a spreadsheet with the robustness of a database to organize your data and make you more productive.",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "1.1.3",
   "categories": [
     "utilities"
   ],
-  "short_desc": "Grist is the evolution of spreadsheets.",
+  "short_desc": "Modern relational spreadsheet system.",
   "author": "https://github.com/gristlabs",
   "source": "https://github.com/gristlabs/grist-core",
   "website": "https://www.getgrist.com/",

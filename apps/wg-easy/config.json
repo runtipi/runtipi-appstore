@@ -1,6 +1,6 @@
 {
   "$schema": "../schema.json",
-  "name": "Wireguard",
+  "name": "WireGuard (Easy)",
   "available": true,
   "exposable": true,
   "port": 8082,
@@ -10,13 +10,13 @@
     ]
   },
   "id": "wg-easy",
-  "tipi_version": 5,
+  "tipi_version": 6,
   "version": "7",
   "categories": [
     "network"
   ],
   "description": "Access your homeserver from anywhere even on your mobile device. Wireguard-easy is a simple tool to configure and manage Wireguard VPN servers. It is written in Go and uses the official Wireguard client. You have to open and redirect port 51820 to your homeserver in order to connect.",
-  "short_desc": "VPN server for your homeserver",
+  "short_desc": "Run WireGuard VPN with Web-UI.",
   "author": "WeeJeWel",
   "source": "https://github.com/WeeJeWel/wg-easy/",
   "form_fields": [
