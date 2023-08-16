@@ -5,14 +5,14 @@
   "exposable": true,
   "port": 8103,
   "id": "your-spotify",
-  "tipi_version": 5,
+  "tipi_version": 6,
   "version": "1.7.0",
   "categories": [
     "music",
     "utilities"
   ],
   "description": "Self hosted Spotify tracking dashboard.",
-  "short_desc": "Self hosted Spotify tracking dashboard.",
+  "short_desc": "Spotify tracking dashboard.",
   "author": "Yooooomi",
   "source": "https://github.com/Yooooomi/your_spotify",
   "form_fields": [

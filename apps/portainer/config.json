@@ -6,13 +6,13 @@
   "exposable": true,
   "https": true,
   "id": "portainer",
-  "tipi_version": 12,
+  "tipi_version": 13,
   "version": "2.18.4-alpine",
   "categories": [
     "utilities"
   ],
   "description": "",
-  "short_desc": "Making Docker and Kubernetes management easy.",
+  "short_desc": "Docker and Kubernetes management.",
   "author": "portainer.io",
   "source": "https://github.com/portainer/portainer",
   "form_fields": []

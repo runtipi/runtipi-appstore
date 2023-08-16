@@ -6,13 +6,13 @@
   "no_gui": true,
   "port": 2525,
   "id": "postfix-relay",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "1.4.0",
   "categories": [
     "utilities"
   ],
   "description": "Simple SMTP relay for environments where you may have private servers with no Internet connection.",
-  "short_desc": "Simple SMTP relay for environments where you may have private servers with no Internet connection.",
+  "short_desc": "Simple SMTP relay.",
   "author": "shamil",
   "source": "https://github.com/shamil/docker-postfix-relay",
   "form_fields": [

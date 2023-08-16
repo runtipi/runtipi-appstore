@@ -5,11 +5,11 @@
   "exposable": true,
   "port": 8106,
   "id": "nitter",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "latest",
   "categories": ["social"],
   "description": "A free and open source alternative Twitter front-end focused on privacy and performance.",
-  "short_desc": "Twitter without annoyances!",
+  "short_desc": "Twitter without annoyances.",
   "author": "zedeus",
   "source": "https://github.com/zedeus/nitter",
   "form_fields": []

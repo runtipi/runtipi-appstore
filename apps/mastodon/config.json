@@ -7,13 +7,13 @@
   "force_expose": true,
   "generate_vapid_keys": true,
   "id": "mastodon",
-  "tipi_version": 6,
+  "tipi_version": 7,
   "version": "4.1.6",
   "categories": [
     "social"
   ],
   "description": "Your self-hosted, globally interconnected microblogging community",
-  "short_desc": "Your self-hosted, globally interconnected microblogging community",
+  "short_desc": "Interconnected microblogging community.",
   "author": "Mastodon",
   "source": "https://github.com/mastodon/mastodon",
   "form_fields": [

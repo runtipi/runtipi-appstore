@@ -5,13 +5,13 @@
   "exposable": true,
   "port": 8122,
   "id": "privatebin",
-  "tipi_version": 4,
+  "tipi_version": 5,
   "version": "1.5.2",
   "categories": [
     "utilities"
   ],
   "description": "PrivateBin is a minimalist, open source online pastebin where the server has zero knowledge of pasted data. Data is encrypted and decrypted in the browser using 256bit AES in Galois Counter mode.",
-  "short_desc": "A minimalist, open source online pastebin where the server has zero knowledge of pasted data. Data is encrypted/decrypted in the browser using 256 bits AES.",
+  "short_desc": "Minimalist pastebin service.",
   "author": "PrivateBin",
   "source": "https://github.com/PrivateBin/PrivateBin",
   "form_fields": [],

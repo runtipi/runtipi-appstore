@@ -5,11 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "emulatorjs",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "1.7.2",
   "categories": ["gaming"],
   "description": "Self-hosted Javascript emulation for various system.",
-  "short_desc": "Self-hosted Javascript emulation for various system.",
+  "short_desc": "Emulation for various system.",
   "author": "EmulatorJS",
   "source": "https://github.com/EmulatorJS/EmulatorJS",
   "form_fields": []

@@ -5,13 +5,13 @@
   "available": true,
   "exposable": true,
   "id": "mixpost",
-  "tipi_version": 7,
+  "tipi_version": 8,
   "version": "1.3.2",
   "categories": [
     "social"
   ],
   "description": "Mixpost it's the coolest Self-hosted social media management software.",
-  "short_desc": "Self-hosted social media management. Schedule and organize your social content. ",
+  "short_desc": "Social media management platform.",
   "author": "Inovector",
   "source": "https://github.com/inovector/mixpost",
   "supported_architectures": [

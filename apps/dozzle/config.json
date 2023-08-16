@@ -5,11 +5,11 @@
   "exposable": true,
   "port": 8013,
   "id": "dozzle",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "latest",
   "categories": ["development"],
   "description": "Dozzle is a small web based app to monitor Docker logs.",
-  "short_desc": "Dozzle is a small web based app to monitor Docker logs",
+  "short_desc": "Monitor Docker containers logs.",
   "author": "Amir Raminfar",
   "source": "https://github.com/amir20/dozzle",
   "form_fields": [

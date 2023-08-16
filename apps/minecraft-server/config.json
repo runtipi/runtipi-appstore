@@ -6,11 +6,11 @@
   "no_gui": true,
   "port": 25565,
   "id": "minecraft-server",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "latest",
   "categories": ["gaming"],
   "description": "Minecraft Server",
-  "short_desc": "Run a minecraft server",
+  "short_desc": "Minecraft server.",
   "author": "Geoff Bourne",
   "source": "https://github.com/itzg/docker-minecraft-server",
   "form_fields": [

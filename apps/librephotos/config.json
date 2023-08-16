@@ -5,7 +5,7 @@
   "available": true,
   "exposable": true,
   "id": "librephotos",
-  "tipi_version": 10,
+  "tipi_version": 11,
   "version": "2023w31",
   "supported_architectures": [
     "amd64",
@@ -15,7 +15,7 @@
     "photography"
   ],
   "description": "Complete photo management service",
-  "short_desc": "Complete photo management service",
+  "short_desc": "Photo management service.",
   "author": "Niaz Faridani-Rad",
   "source": "https://github.com/LibrePhotos/librephotos",
   "form_fields": [

@@ -1,17 +1,17 @@
 {
   "$schema": "../schema.json",
-  "name": "Paperless-ngx",
+  "name": "Paperless (NGX)",
   "available": true,
   "exposable": true,
   "port": 8012,
   "id": "paperless-ngx",
-  "tipi_version": 5,
+  "tipi_version": 6,
   "version": "1.17",
   "categories": [
     "utilities"
   ],
   "description": "Paperless-ngx is a community-supported open-source document management system that transforms your physical documents into a searchable online archive so you can keep, well, less paper.",
-  "short_desc": "Document Management System (DMS)",
+  "short_desc": "Document management system.",
   "author": "Daniel Quinn, Jonas Winkler, and the Paperless-ngx team",
   "source": "https://github.com/paperless-ngx/paperless-ngx",
   "form_fields": [

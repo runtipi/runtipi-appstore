@@ -5,13 +5,13 @@
   "available": true,
   "exposable": true,
   "id": "romm",
-  "tipi_version": 9,
+  "tipi_version": 10,
   "version": "1.9.1",
   "categories": [
     "gaming"
   ],
   "description": "RomM (Rom Manager) is a web based retro roms manager integrated with IGDB.",
-  "short_desc": "RomM (Rom Manager) is a web based retro roms manager integrated with IGDB.",
+  "short_desc": "Rom Manager.",
   "author": "Zurdi15",
   "source": "https://github.com/zurdi15/romm",
   "form_fields": [

@@ -5,11 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "linkstack",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "latest",
   "categories": ["media"],
   "description": "LinkStack is a highly customizable link sharing platform with an intuitive, easy to use user interface",
-  "short_desc": "LinkStack is a highly customizable link sharing platform with an intuitive, easy to use user interface",
+  "short_desc": "Link sharing platform.",
   "author": "LinkStackOrg",
   "source": "https://github.com/LinkStackOrg/linkstack-docker",
   "form_fields": [

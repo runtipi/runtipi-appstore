@@ -9,9 +9,9 @@
     "social"
   ],
   "description": "",
-  "tipi_version": 4,
+  "tipi_version": 5,
   "version": "2.4.9.2",
-  "short_desc": "Open source alternative frontend for TikTok made using PHP ",
+  "short_desc": "TikTok alternative client.",
   "author": "pablouser1",
   "source": "https://github.com/pablouser1/ProxiTok",
   "form_fields": []

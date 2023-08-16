@@ -5,13 +5,13 @@
   "available": true,
   "exposable": true,
   "id": "fireshare",
-  "tipi_version": 6,
+  "tipi_version": 7,
   "version": "1.2.13",
   "categories": [
     "development"
   ],
   "description": "Self host your media and share with unique links. Share your game clips, videos, or other media via unique links.",
-  "short_desc": "Self host your media and share with unique links",
+  "short_desc": "Media sharing with unique links.",
   "author": "https://github.com/ShaneIsrael",
   "source": "https://github.com/ShaneIsrael/fireshare",
   "form_fields": [

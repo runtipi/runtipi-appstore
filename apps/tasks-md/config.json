@@ -5,13 +5,13 @@
   "available": true,
   "exposable": true,
   "id": "tasks-md",
-  "tipi_version": 6,
+  "tipi_version": 7,
   "version": "1.10.1",
   "categories": [
     "development"
   ],
   "description": "A self-hosted, file based task management board that supports Markdown syntax",
-  "short_desc": "A self-hosted, file based task management board.",
+  "short_desc": "File based task management board.",
   "author": "BaldissaraMatheus",
   "source": "https://github.com/BaldissaraMatheus/Tasks.md",
   "form_fields": [

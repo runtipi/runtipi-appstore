@@ -4,4 +4,3 @@ On the initial setup screen, enter /books as your calibre library location.
 
 - **username**: admin
 - **password**: admin123
-<br />
