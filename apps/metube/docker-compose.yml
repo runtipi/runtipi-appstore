@@ -9,7 +9,8 @@ services:
       - ${APP_PORT}:8081
     volumes:
       - ${ROOT_FOLDER_HOST}/media/downloads/complete/:/downloads
-    restart: unless-stopped
+    networks:
+      - tipi_main_network
     labels:
       # Main
       traefik.enable: true
