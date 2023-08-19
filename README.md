@@ -71,6 +71,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Mastodon](https://github.com/mastodon/mastodon) - Your self-hosted, globally interconnected microblogging community
 - [Mealie](https://github.com/hay-kot/mealie) - Self-hosted recipe manager and meal planner.
 - [Memos](https://github.com/usememos/memos) - Memo hub for knowledge management and collaboration.
+- [MeTube](https://github.com/alexta69/metube) - Web GUI for youtube-dl with playlist support. Allows you to download videos from YouTube and dozens of other sites.
 - [Minecraft server](https://github.com/itzg/docker-minecraft-server) - Run a minecraft server in one click
 - [Mind](https://github.com/Casvt/MIND) - A simple self hosted reminder platform that uses push to send notifications to your device.
 - [MinIO](https://github.com/minio/minio) - MinIO is a High Performance Object Storage released under GNU Affero General Public License v3.0
