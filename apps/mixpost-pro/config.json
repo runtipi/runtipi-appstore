@@ -6,7 +6,7 @@
   "exposable": true,
   "id": "mixpost-pro",
   "tipi_version": 8,
-  "version": "v1",
+  "version": "latest",
   "categories": ["social", "utilities"],
   "description": "Mixpost it's the coolest Self-hosted social media management software.",
   "short_desc": "Self-hosted social media management. Schedule and organize your social content. ",
