@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "wizarr",
-  "tipi_version": 5,
-  "version": "2.2.0",
+  "tipi_version": 6,
+  "version": "3.0.1",
   "categories": [
     "utilities"
   ],
