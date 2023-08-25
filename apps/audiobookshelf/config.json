@@ -3,10 +3,10 @@
   "name": "Audiobookshelf",
   "available": true,
   "exposable": true,
-  "port": 8003,
+  "port": 13378,
   "id": "audiobookshelf",
   "tipi_version": 1,
-  "version": "latest",
+  "version": "v2.3.3",
   "categories": [
     "books",
 	"media"
