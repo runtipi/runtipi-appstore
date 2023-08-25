@@ -2,7 +2,7 @@ version: "v2.3.3"
 services:
   audiobookshelf:
     container_name: audiobookshelf
-    image: ghcr.io/advplyr/audiobookshelf:latest
+    image: ghcr.io/advplyr/audiobookshelf:v2.3.3
     restart: unless-stopped
     ports:
       - ${APP_PORT}:80
