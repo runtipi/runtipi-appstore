@@ -21,3 +21,12 @@ Audiobookshelf is a self-hosted audiobook and podcast server.
   * Epub, pdf, cbr, cbz
   * Send ebook to device (i.e. Kindle)
 * Open RSS feeds for podcasts and audiobooks
+
+# Folder Info
+
+| Root Folder                         | Container Folder |
+|-------------------------------------|------------------|
+| /runtipi/app-data/audiobookshelf/config	 | /config          |
+| /runtipi/app-data/audiobookshelf/metadata	 | /metadata          |
+| /runtipi/media/data/books/spoken    | /audiobooks      |
+| /runtipi/media/data/podcasts        | /podcasts        |
