@@ -6,7 +6,7 @@
   "port": 13378,
   "id": "audiobookshelf",
   "tipi_version": 1,
-  "version": "v2.3.3",
+  "version": "2.3.3",
   "categories": [
     "books",
 	"media"
