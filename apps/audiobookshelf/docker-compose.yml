@@ -1,4 +1,4 @@
-version: "3.7"
+version: '3.7'
 services:
   audiobookshelf:
     container_name: audiobookshelf
@@ -9,8 +9,8 @@ services:
     volumes:
       - ${ROOT_FOLDER_HOST}/media/data/books/spoken:/audiobooks
       - ${ROOT_FOLDER_HOST}/media/data/podcasts:/podcasts
-      - ${APP_DATA_DIR}/config:/config
-      - ${APP_DATA_DIR}/metadata:/metadata
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${APP_DATA_DIR}/data/metadata:/metadata
     networks:
       - tipi_main_network
     labels:
