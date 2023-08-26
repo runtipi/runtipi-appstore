@@ -6,6 +6,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 
 - [Actual Budget](https://github.com/actualbudget/actual-server) - Local-first OpenSource Budget tool
 - [Adguard Home](https://github.com/AdguardTeam/AdGuardHome) - Adguard Home DNS adblocker
+- [Audiobookshelf](https://github.com/advplyr/audiobookshelf) - Audiobookshelf is a self-hosted audiobook and podcast server.
 - [autobrr](https://github.com/autobrr/autobrr) - Automation for downloads.
 - [Barrage](https://github.com/maulik9898/barrage) - Minimal Deluge WebUI with full mobile support
 - [Bazarr](https://github.com/morpheus65535/bazarr) - A companion application to Sonarr and Radarr that manages and downloads subtitles
