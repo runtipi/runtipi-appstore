@@ -6,15 +6,15 @@
   "port": 9876,
   "id": "tooljet",
   "tipi_version": 23,
-  "version": "0.237.0",
+  "version": "2.14.0",
   "categories": [
     "automation"
   ],
-  "description": "n8n is an extendable workflow automation tool. With a fair-code distribution model, n8n will always have visible source code, be available to self-host, and allow you to add your own custom functions, logic and apps. n8n's node-based approach makes it highly versatile, enabling you to connect anything to everything.",
-  "short_desc": "Workflow Automation Tool. Alternative to Zapier",
-  "author": "n8n.io",
-  "source": "https://github.com/n8n-io/n8n",
-  "website": "https://n8n.io/",
+  "description": "ToolJet is an open-source low-code framework to build and deploy internal tools quickly with minimal engineering effort. ToolJet's drag and drop frontend builder allows you to build complicated responsive frontends within minutes. You can also connect to your data sources, such as databases ( PostgreSQL, MongoDB, Elasticsearch & more), API endpoints (ToolJet supports importing OpenAPI spec & OAuth2 authorization), SaaS tools (Stripe, Slack, Google Sheets, Airtable, Notion & more) and object storage services ( S3, GCS, Minio, etc ) to fetch and write data.",
+  "short_desc": "Alternative to retool to construct CRM dashboard",
+  "author": "tooljet.com",
+  "source": "https://github.com/ToolJet/ToolJet",
+  "website": "https://www.tooljet.com",
   "form_fields": [
     {
       "type": "random",
