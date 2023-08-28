@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
 
-  tooljet-client:
+  client:
     container_name: tooljet-client
     tty: true
     stdin_open: true
@@ -11,7 +11,7 @@ services:
     ports:
       - ${APP_PORT}:80
     depends_on:
-      - tooljet-server
+      - server
     networks:
       - tipi_main_network
     labels:
@@ -41,7 +41,7 @@ services:
       traefik.http.routers.tooljet-local.tls: true
     command: openresty -g "daemon off;"
 
-  tooljet-server:
+  server:
     container_name: tooljet-server
     image: tooljet/tooljet-server-ce:v2.14.0    
     tty: true
