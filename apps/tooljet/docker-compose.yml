@@ -3,10 +3,10 @@ version: "3.7"
 services:
 
   tooljet-client:
+    container_name: tooljet-client
     tty: true
     stdin_open: true
-    image: tooljet/tooljet-client-ce:v2.4.2
-    container_name: tooljet-client
+    image: tooljet/tooljet-client-ce:v2.4.2    
     restart: always
     ports:
       - ${APP_PORT}:80
@@ -42,8 +42,8 @@ services:
     command: openresty -g "daemon off;"
 
   tooljet-server:
-    image: tooljet/tooljet-server-ce:v2.14.0
     container_name: tooljet-server
+    image: tooljet/tooljet-server-ce:v2.14.0    
     tty: true
     stdin_open: true
     restart: always
