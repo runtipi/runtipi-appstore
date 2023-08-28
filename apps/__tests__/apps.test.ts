@@ -1,6 +1,11 @@
 import fs from "fs";
 import jsyaml from "js-yaml";
 
+type FormField = {
+  type: "random";
+  required: boolean;
+};
+
 interface AppConfig {
   id: string;
   port: number;
@@ -16,6 +21,7 @@ interface AppConfig {
   author: string;
   source: string;
   available: boolean;
+  form_fields?: FormField[];
 }
 
 const networkExceptions = [
@@ -243,6 +249,22 @@ describe("App configs", () => {
           ]);
         }
       });
+    });
+  });
+
+  describe("All form fields with type random should not be marked as required", () => {
+    const configs = getAppConfigs();
+    configs.forEach((config) => {
+      const formFields = config.form_fields;
+      if (formFields) {
+        formFields.forEach((field) => {
+          if (field.type === "random") {
+            test(config.id, () => {
+              expect(Boolean(field.required)).toBe(false);
+            });
+          }
+        });
+      }
     });
   });
 });

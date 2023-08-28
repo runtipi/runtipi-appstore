@@ -3,7 +3,7 @@ version: "3.7"
 services:
   searxng:
     container_name: searxng
-    image: searxng/searxng:2022.11.11-3a765113
+    image: searxng/searxng:latest
     restart: unless-stopped
     networks:
       - tipi_main_network
@@ -14,7 +14,7 @@ services:
     environment:
       - BIND_ADDRESS=0.0.0.0:8080
       - BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}/
-      - SECRET_KEY=${SEARXNG_SECRET_KEY}
+      - SEARXNG_SECRET=${SEARXNG_SECRET_KEY}
     labels:
       # Main
       traefik.enable: true

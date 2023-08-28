@@ -3,7 +3,7 @@ version: "3"
 services:
   autobrr:
     container_name: autobrr
-    image: ghcr.io/autobrr/autobrr:v1.27.1
+    image: ghcr.io/autobrr/autobrr:v1.28.0
     restart: unless-stopped
     ports:
       - ${APP_PORT}:7474

@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  postfix-relay:
+    container_name: postfix-relay
+    # user: root
+    image: simenduev/postfix-relay:1.4.0
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:25
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/root/config:rw
+    environment:
+      - ACCEPTED_NETWORKS=${RELAY_ACCEPTED_NETWORKS}
+      - SMTP_HOST=${RELAY_SMTP_HOST}
+      - SMTP_LOGIN=${RELAY_SMTP_LOGIN}
+      - SMTP_PASSWORD=${RELAY_SMTP_PASSWORD}
+      - SMTP_PORT=${RELAY_SMTP_PORT}
+      - TLS_VERIFY=${RELAY_TLS_VERIFY}
+      - USE_TLS=${RELAY_USE_TLS}
+    healthcheck:
+      test: netstat -an | grep 25 > /dev/null; if [ 0 != $? ]; then exit 1; fi;
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: false

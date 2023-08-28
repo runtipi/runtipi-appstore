@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8127,
   "id": "searxng",
-  "tipi_version": 4,
-  "version": "2022.11.11-3a765113",
+  "tipi_version": 5,
+  "version": "latest",
   "categories": [
     "social"
   ],

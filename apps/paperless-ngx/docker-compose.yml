@@ -2,7 +2,7 @@ version: '3.7'
 services:
   paperless-ngx:
     container_name: paperless-ngx
-    image: ghcr.io/paperless-ngx/paperless-ngx:1.16
+    image: ghcr.io/paperless-ngx/paperless-ngx:1.17
     restart: unless-stopped
     depends_on:
       - db
@@ -63,7 +63,7 @@ services:
   
   # Postgres SQL
   db:
-    image: docker.io/library/postgres:13
+    image: docker.io/library/postgres:15
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
@@ -75,7 +75,7 @@ services:
       - tipi_main_network
       
   gotenberg:
-    image: docker.io/gotenberg/gotenberg:7.8
+    image: docker.io/gotenberg/gotenberg:7.9
     restart: unless-stopped
     # The gotenberg chromium route is used to convert .eml files. We do not
     # want to allow external content like tracking pixels or even javascript.
