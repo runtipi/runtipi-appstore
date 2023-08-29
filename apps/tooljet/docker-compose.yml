@@ -2,8 +2,8 @@ version: "3.7"
 
 services:
 
-  client:
-    container_name: tooljet-client
+  client-tooljet:
+    container_name: client-tooljet
     tty: true
     stdin_open: true
     image: tooljet/tooljet-client-ce:v2.4.2    
@@ -11,7 +11,7 @@ services:
     ports:
       - ${APP_PORT}:80
     depends_on:
-      - server
+      - server-tooljet
     networks:
       - tipi_main_network
     labels:
@@ -41,8 +41,8 @@ services:
       traefik.http.routers.tooljet-local.tls: true
     command: openresty -g "daemon off;"
 
-  server:
-    container_name: tooljet-server
+  server-tooljet:
+    container_name: server-tooljet
     image: tooljet/tooljet-server-ce:v2.14.0    
     tty: true
     stdin_open: true
@@ -57,7 +57,7 @@ services:
       - ORM_LOGGING
       - PG_DB=tooljet
       - PG_USER=tooljet
-      - PG_HOST=postgres_tooljet
+      - PG_HOST=db-tooljet
       - PG_PASS=${DB_PASSWORD}
       - CHECK_FOR_UPDATES=check_if_updates_are_available
       - GOOGLE_CLIENT_ID
@@ -79,7 +79,7 @@ services:
     command: npm run start:prod
 
   db-tooljet:
-    container_name: postgres_tooljet
+    container_name: db-tooljet
     image: postgres:11
     restart: on-failure
     volumes:
