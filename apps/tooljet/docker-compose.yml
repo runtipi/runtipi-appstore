@@ -57,7 +57,7 @@ services:
       - ORM_LOGGING
       - PG_DB=tooljet
       - PG_USER=tooljet
-      - PG_HOST=postgres_tooljet
+      - PG_HOST=db-tooljet
       - PG_PASS=${DB_PASSWORD}
       - CHECK_FOR_UPDATES=check_if_updates_are_available
       - GOOGLE_CLIENT_ID
@@ -79,7 +79,7 @@ services:
     command: npm run start:prod
 
   db-tooljet:
-    container_name: postgres_tooljet
+    container_name: db-tooljet
     image: postgres:11
     restart: on-failure
     volumes:
