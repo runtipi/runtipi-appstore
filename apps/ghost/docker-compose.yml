@@ -16,7 +16,7 @@ services:
       database__connection__user: tipi
       database__connection__password: ${GHOST_DATABASE_PASSWORD}
       database__connection__database: ghosttipi
-      url: http://localhost:${APP_PORT}
+      url: ${APP_PROTOCOL:-http}://${APP_DOMAIN}
     volumes:
       - ${APP_DATA_DIR}/content:/var/lib/ghost/content
     networks:
