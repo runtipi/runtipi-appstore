@@ -5,8 +5,8 @@
   "no_gui": true,
   "port": 9993,
   "id": "zerotier",
-  "tipi_version": 3,
-  "version": "1.10.6",
+  "tipi_version": 4,
+  "version": "1.12.1",
   "categories": [
     "network",
     "security"

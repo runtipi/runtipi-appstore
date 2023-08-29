@@ -18,12 +18,10 @@ services:
     environment:
       TZ: ${TZ}
       WEBPASSWORD: ${APP_PASSWORD}
-      FTLCONF_REPLY_ADDR4: 10.21.21.201
     cap_add:
       - NET_ADMIN
     networks:
-      tipi_main_network:
-        ipv4_address: 10.21.21.201
+      - tipi_main_network
     labels:
       # Main
       traefik.enable: true
