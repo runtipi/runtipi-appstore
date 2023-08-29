@@ -1,0 +1,48 @@
+version: "3.9"
+services:
+  my-app: librechat # Should be exact same name as "id" field in config.json
+    container_name: librechat  # Should be exact same name as "id" field in config.json
+    image: ghcr.io/danny-avila/librechat:v0.5.8 # Try to avoid "latest" tag. As it may break configs in the future.
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - CHATGPT_ACCESS_TOKEN=${CHATGPT_ACCESS_TOKEN}
+      - BING_ACCESS_TOKEN=${BING_ACCESS_TOKEN}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - AZURE_API_KEY=${AZURE_API_KEY}
+      - AZURE_OPENAI_API_INSTANCE_NAME=${AZURE_OPENAI_API_INSTANCE_NAME}
+      - AZURE_OPENAI_API_DEPLOYMENT_NAME=${AZURE_OPENAI_API_DEPLOYMENT_NAME}
+      - AZURE_OPENAI_API_VERSION=${AZURE_OPENAI_API_VERSION}
+      - PLUGINS_USE_AZURE=${PLUGINS_USE_AZURE}
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config # Always start the path with ${APP_DATA_DIR}. This will put all data inside app-data/my-app/data
+      - ${APP_DATA_DIR}/data/projects:/projects
+    ports:
+      - ${APP_PORT}:8240
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.librechat-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.librechat.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.librechat-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.librechat-insecure.entrypoints: web
+      traefik.http.routers.librechat-insecure.service: librechat
+      traefik.http.routers.librechat-insecure.middlewares: librechat-web-redirect
+      # Websecure
+      traefik.http.routers.librechat.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.librechat.entrypoints: websecure
+      traefik.http.routers.librechat.service: librechat
+      traefik.http.routers.librechat.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.librechat-local-insecure.rule: Host(`librechat.${LOCAL_DOMAIN}`)
+      traefik.http.routers.librechat-local-insecure.entrypoints: web
+      traefik.http.routers.librechat-local-insecure.service: librechat
+      traefik.http.routers.librechat-local-insecure.middlewares: librechat-web-redirect
+      # Local domain secure
+      traefik.http.routers.librechat-local.rule: Host(`librechat.${LOCAL_DOMAIN}`)
+      traefik.http.routers.librechat-local.entrypoints: websecure
+      traefik.http.routers.librechat-local.service: librechat
+      traefik.http.routers.librechat-local.tls: true
