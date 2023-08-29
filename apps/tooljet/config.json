@@ -4,9 +4,9 @@
   "available": true,
   "exposable": true,
   "port": 9876,
-  "id": "client-tooljet",
+  "id": "tooljet",
   "tipi_version": 23,
-  "version": "v2.14.0",
+  "version": "2.14.0",
   "categories": [
     "automation"
   ],
