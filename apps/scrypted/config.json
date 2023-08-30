@@ -1,11 +1,11 @@
 {
   "$schema": "../schema.json",
   "name": "Scrypted",
-  "port": 8202,
+  "port": 11080,
   "available": true,
   "exposable": true,
   "id": "scrypted",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "18-jammy-full.s6-v0.41.0",
   "categories": ["security"],
   "description": "Scrypted is a high performance home video integration and automation platform",
