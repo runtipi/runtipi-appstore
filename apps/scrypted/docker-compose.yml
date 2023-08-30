@@ -24,6 +24,7 @@ services:
     # Main
       traefik.enable: true
       traefik.http.middlewares.scrypted-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.searxng.scrypted.server.port: 10443
       # Web
       traefik.http.routers.scrypted-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.scrypted-insecure.entrypoints: web
