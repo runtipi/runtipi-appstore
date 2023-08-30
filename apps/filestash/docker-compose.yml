@@ -2,7 +2,7 @@ version: "2"
 services:
   filestash:
     container_name: filestash
-    image: machines/filestash:397fd8b
+    image: machines/filestash:latest
     restart: unless-stopped
     environment:
       - APPLICATION_URL=${APP_DOMAIN}
