@@ -16,8 +16,7 @@ services:
       - /dev/bus/usb:/dev/bus/usb
       - /dev/dri:/dev/dri
     restart: unless-stopped
-    networks:
-      - tipi_main_network
+    network_mode: host
     logging:
       driver: "json-file"
       options:
