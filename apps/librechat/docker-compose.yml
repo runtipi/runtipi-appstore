@@ -13,6 +13,10 @@ services:
       - AZURE_OPENAI_API_DEPLOYMENT_NAME=${AZURE_OPENAI_API_DEPLOYMENT_NAME}
       - AZURE_OPENAI_API_VERSION=${AZURE_OPENAI_API_VERSION}
       - PLUGINS_USE_AZURE=${PLUGINS_USE_AZURE}
+      - MEILI_HOST=http://meilisearch:7700
+      - MEILI_HTTP_ADDR=meilisearch:7700
+      - HOST=0.0.0.0
+      - MONGO_URI=mongodb://mongodb:27017/LibreChat
     volumes:
       - ${APP_DATA_DIR}/data/config:/config # Always start the path with ${APP_DATA_DIR}. This will put all data inside app-data/my-app/data
       - ${APP_DATA_DIR}/data/projects:/projects
