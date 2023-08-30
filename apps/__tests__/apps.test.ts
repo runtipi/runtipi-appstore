@@ -31,6 +31,7 @@ const networkExceptions = [
   "plex",
   "zerotier",
   "gladys",
+  "scrypted",
 ];
 const getAppConfigs = (): AppConfig[] => {
   const apps: AppConfig[] = [];
