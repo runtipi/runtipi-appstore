@@ -3,7 +3,7 @@
   "name": "Scrypted",
   "port": 10443,
   "available": true,
-  "exposable": true,
+  "exposable": false,
   "id": "scrypted",
   "tipi_version": 1,
   "version": "18-jammy-full.s6-v0.41.0",
