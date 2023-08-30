@@ -14,6 +14,8 @@ services:
       - server
     networks:
       - tipi_main_network
+    environment:
+      - SERVER_HOST=tooljet-server
     labels:
       # Main
       traefik.enable: true
@@ -41,7 +43,7 @@ services:
       traefik.http.routers.tooljet-local.tls: true
     command: openresty -g "daemon off;"
 
-  server:
+  tooljet-server:
     container_name: tooljet-server
     image: tooljet/tooljet-server-ce:v2.14.0    
     tty: true
@@ -51,6 +53,7 @@ services:
       - tipi_main_network
     environment:
       - SERVE_CLIENT=false
+      - SERVER_HOST=tooljet-server
       - TOOLJET_HOST=https://${APP_DOMAIN}
       - LOCKBOX_MASTER_KEY=70726290922441785304399601987729268981756953900892
       - SECRET_KEY_BASE=mqrBZqJvzUJ2GsHQaktZjKdb2cvdM8
