@@ -4,6 +4,7 @@
   "port": 10443,
   "available": true,
   "exposable": false,
+  "https": true,
   "id": "scrypted",
   "tipi_version": 4,
   "version": "18-jammy-full.s6-v0.41.0",
