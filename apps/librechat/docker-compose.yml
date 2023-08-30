@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  my-app: librechat # Should be exact same name as "id" field in config.json
+  librechat: # Should be exact same name as "id" field in config.json
     container_name: librechat  # Should be exact same name as "id" field in config.json
     image: ghcr.io/danny-avila/librechat:v0.5.8 # Try to avoid "latest" tag. As it may break configs in the future.
     environment:
