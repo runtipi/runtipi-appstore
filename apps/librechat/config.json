@@ -1,0 +1,89 @@
+{
+  "$schema": "../schema.json",
+  "name": "LibreChat",
+  "available": true,
+  "port": 8240,
+  "exposable": true,
+  "force_expose": true,
+  "id": "librechat",
+  "description": "All-In-One AI Conversations with LibreChat",
+  "tipi_version": 1,
+  "version": "0.5.8",
+  "categories": ["ai"],
+  "short_desc": "All-In-One AI Conversations with LibreChat",
+  "author": "https://github.com/danny-avila",
+  "source": "https://github.com/danny-avila/LibreChat",
+  "website": "https://docs.librechat.ai/",
+  "form_fields": [
+    {
+        "type": "text",
+        "label": "Openai API Key",
+        "max": 51,
+        "min": 51,
+        "required": false,
+        "env_variable": "OPENAI_API_KEY"
+    },
+    {
+        "type": "text",
+        "label": "Chatgpt Access Token",
+        "max": 100,
+        "min": 1,
+        "required": false,
+        "env_variable": "CHATGPT_ACCESS_TOKEN"
+    },
+    {
+        "type": "text",
+        "label": "Bing Access Token",
+        "max": 100,
+        "min": 1,
+        "required": false,
+        "env_variable": "BING_ACCESS_TOKEN"
+    },
+    {
+        "type": "text",
+        "label": "Anthropic Endpoint (Claude)",
+        "max": 100,
+        "min": 1,
+        "required": false,
+        "env_variable": "ANTHROPIC_API_KEY"
+    },
+    {
+        "type": "text",
+        "label": "Azure OpenAI Key",
+        "max": 100,
+        "min": 1,
+        "required": false,
+        "env_variable": "AZURE_API_KEY"
+    },
+    {
+        "type": "text",
+        "label": "Azure OpenAI Instance Name",
+        "max": 100,
+        "min": 1,
+        "required": false,
+        "env_variable": "AZURE_OPENAI_API_INSTANCE_NAME"
+    },
+    {
+        "type": "text",
+        "label": "Azure OpenAI Deployment Name",
+        "max": 100,
+        "min": 1,
+        "required": false,
+        "env_variable": "AZURE_OPENAI_API_DEPLOYMENT_NAME"
+    },
+    {
+        "type": "text",
+        "label": "Azure OpenAI API Version",
+        "max": 100,
+        "min": 1,
+        "required": false,
+        "env_variable": "AZURE_OPENAI_API_VERSION"
+    },
+    {
+        "type": "boolean",
+        "label": "PLUGINS_USE_AZURE",
+        "required": false,
+        "env_variable": "PLUGINS_USE_AZURE"
+    }
+  ]
+}
