@@ -4,7 +4,7 @@
   "available": true,
   "port": 8581,
   "tipi_version": 1,
-  "version": "stable",
+  "version": "latest",
   "id": "homebridge",
   "categories": ["automation"],
   "description": "HomeKit support for the impatient.",
