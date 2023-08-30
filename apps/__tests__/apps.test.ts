@@ -32,6 +32,7 @@ const networkExceptions = [
   "zerotier",
   "gladys",
   "scrypted",
+  "homebridge",
 ];
 const getAppConfigs = (): AppConfig[] => {
   const apps: AppConfig[] = [];
