@@ -13,10 +13,6 @@ Since Siri supports devices added through HomeKit, this means that with Homebrid
 
 You can explore all available plugins at the NPM website by [searching for the keyword `homebridge-plugin`](https://www.npmjs.com/search?q=homebridge-plugin).
 
- [![Unlocking Door](https://camo.githubusercontent.com/3819e14828a6da301c593bd73684d070b7d1bd8f9e483f67bd6c26319812f167/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f31306c373949436f6854753469512f67697068792e676966)](https://camo.githubusercontent.com/3819e14828a6da301c593bd73684d070b7d1bd8f9e483f67bd6c26319812f167/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f31306c373949436f6854753469512f67697068792e676966) [![Unlocking Door](https://camo.githubusercontent.com/3819e14828a6da301c593bd73684d070b7d1bd8f9e483f67bd6c26319812f167/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f31306c373949436f6854753469512f67697068792e676966)
-
-](https://camo.githubusercontent.com/3819e14828a6da301c593bd73684d070b7d1bd8f9e483f67bd6c26319812f167/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f31306c373949436f6854753469512f67697068792e676966)[](https://camo.githubusercontent.com/3819e14828a6da301c593bd73684d070b7d1bd8f9e483f67bd6c26319812f167/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f31306c373949436f6854753469512f67697068792e676966)
-
 ## [](https://github.com/homebridge/homebridge#community)Community
 
 The official Homebridge Discord server and Reddit community are where users can discuss Homebridge and ask for help.
