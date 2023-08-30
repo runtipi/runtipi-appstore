@@ -21,27 +21,26 @@ services:
           max-size: "10m"
           max-file: "10"
     labels:
-            # Main
+    # Main
       traefik.enable: true
       traefik.http.middlewares.scrypted-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.scrypted.loadbalancer.server.port: 10443
       # Web
       traefik.http.routers.scrypted-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.scrypted-insecure.entrypoints: web
-      traefik.http.routers.scrypted-insecure.service: scrypted
+      traefik.http.routers.scrypted-insecure.service: scrypted_secure_service@file
       traefik.http.routers.scrypted-insecure.middlewares: scrypted-web-redirect
       # Websecure
       traefik.http.routers.scrypted.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.scrypted.entrypoints: websecure
-      traefik.http.routers.scrypted.service: scrypted
+      traefik.http.routers.scrypted.service: scrypted_secure_service@file
       traefik.http.routers.scrypted.tls.certresolver: myresolver
       # Local domain
       traefik.http.routers.scrypted-local-insecure.rule: Host(`scrypted.${LOCAL_DOMAIN}`)
       traefik.http.routers.scrypted-local-insecure.entrypoints: web
-      traefik.http.routers.scrypted-local-insecure.service: scrypted
+      traefik.http.routers.scrypted-local-insecure.service: scrypted_secure_service@file
       traefik.http.routers.scrypted-local-insecure.middlewares: scrypted-web-redirect
       # Local domain secure
       traefik.http.routers.scrypted-local.rule: Host(`scrypted.${LOCAL_DOMAIN}`)
       traefik.http.routers.scrypted-local.entrypoints: websecure
-      traefik.http.routers.scrypted-local.service: scrypted
+      traefik.http.routers.scrypted-local.service: scrypted_secure_service@file
       traefik.http.routers.scrypted-local.tls: true
