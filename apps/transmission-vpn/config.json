@@ -10,8 +10,8 @@
     ]
   },
   "id": "transmission-vpn",
-  "tipi_version": 1,
-  "version": "5.0.2",
+  "tipi_version": 2,
+  "version": "5.1.0",
   "categories": [
     "utilities",
     "security"
@@ -68,57 +68,210 @@
       "type": "text",
       "required": true,
       "options": [
-        { "label": "Anonine", "value": "ANONINE" },
-        { "label": "AnonVPN", "value": "ANONVPN" },
-        { "label": "BlackVPN", "value": "BLACKVPN" },
-        { "label": "BTGuard", "value": "BTGUARD" },
-        { "label": "Cryptostorm", "value": "CRYPTOSTORM" },
-        { "label": "ExpressVPN", "value": "EXPRESSVPN" },
-        { "label": "FastestVPN", "value": "FASTESTVPN" },
-        { "label": "FreeVPN", "value": "FREEVPN" },
-        { "label": "FrootVPN", "value": "FROOT" },
-        { "label": "FrostVPN", "value": "FROSTVPN" },
-        { "label": "Getflix", "value": "GETFLIX" },
-        { "label": "GhostPath", "value": "GHOSTPATH" },
-        { "label": "Giganews", "value": "GIGANEWS" },
-        { "label": "HideMe", "value": "HIDEME" },
-        { "label": "HideMyAss", "value": "HIDEMYASS" },
-        { "label": "IntegrityVPN", "value": "INTEGRITYVPN" },
-        { "label": "IPVanish", "value": "IPVANISH" },
-        { "label": "IronSocket", "value": "IRONSOCKET" },
-        { "label": "Ivacy", "value": "IVACY" },
-        { "label": "IVPN", "value": "IVPN" },
-        { "label": "Mullvad", "value": "MULLVAD" },
-        { "label": "NordVPN", "value": "NORDVPN" },
-        { "label": "OctaneVPN", "value": "OCTANEVPN" },
-        { "label": "OVPN", "value": "OVPN" },
-        { "label": "Privado", "value": "PRIVADO" },
-        { "label": "Private Internet Access", "value": "PIA" },
-        { "label": "PrivateVPN", "value": "PRIVATEVPN" },
-        { "label": "ProtonVPN", "value": "PROTONVPN" },
-        { "label": "proXPN", "value": "PROXPN" },
-        { "label": "PureVPN", "value": "PUREVPN" },
-        { "label": "RA4W VPN", "value": "RA4W" },
-        { "label": "SaferVPN", "value": "SAFERVPN" },
-        { "label": "SlickVPN", "value": "SLICKVPN" },
-        { "label": "SlickVPNCore", "value": "SLICKVPNCORE" },
-        { "label": "Smart DNS Proxy", "value": "SMARTDNSPROXY" },
-        { "label": "SmartVPN", "value": "SMARTVPN" },
-        { "label": "Surfshark", "value": "SURFSHARK" },
-        { "label": "TigerVPN", "value": "TIGER" },
-        { "label": "TorGuard", "value": "TORGUARD" },
-        { "label": "Trust.Zone", "value": "TRUSTZONE" },
-        { "label": "TunnelBear", "value": "TUNNELBEAR" },
-        { "label": "VPN.AC", "value": "VPNAC" },
-        { "label": "VPNArea.com", "value": "VPNAREA" },
-        { "label": "VPNBook.com", "value": "VPNBOOK" },
-        { "label": "VPNFacile", "value": "VPNFACILE" },
-        { "label": "VPN.ht", "value": "VPNHT" },
-        { "label": "VPNTunnel", "value": "VPNTUNNEL" },
-        { "label": "VPNUnlimited", "value": "VPNUNLIMITED" },
-        { "label": "VyprVpn", "value": "VYPRVPN" },
-        { "label": "Windscribe", "value": "WINDSCRIBE" },
-        { "label": "ZoogVPN", "value": "ZOOGVPN" }
+        {
+          "label": "Anonine",
+          "value": "ANONINE"
+        },
+        {
+          "label": "AnonVPN",
+          "value": "ANONVPN"
+        },
+        {
+          "label": "BlackVPN",
+          "value": "BLACKVPN"
+        },
+        {
+          "label": "BTGuard",
+          "value": "BTGUARD"
+        },
+        {
+          "label": "Cryptostorm",
+          "value": "CRYPTOSTORM"
+        },
+        {
+          "label": "ExpressVPN",
+          "value": "EXPRESSVPN"
+        },
+        {
+          "label": "FastestVPN",
+          "value": "FASTESTVPN"
+        },
+        {
+          "label": "FreeVPN",
+          "value": "FREEVPN"
+        },
+        {
+          "label": "FrootVPN",
+          "value": "FROOT"
+        },
+        {
+          "label": "FrostVPN",
+          "value": "FROSTVPN"
+        },
+        {
+          "label": "Getflix",
+          "value": "GETFLIX"
+        },
+        {
+          "label": "GhostPath",
+          "value": "GHOSTPATH"
+        },
+        {
+          "label": "Giganews",
+          "value": "GIGANEWS"
+        },
+        {
+          "label": "HideMe",
+          "value": "HIDEME"
+        },
+        {
+          "label": "HideMyAss",
+          "value": "HIDEMYASS"
+        },
+        {
+          "label": "IntegrityVPN",
+          "value": "INTEGRITYVPN"
+        },
+        {
+          "label": "IPVanish",
+          "value": "IPVANISH"
+        },
+        {
+          "label": "IronSocket",
+          "value": "IRONSOCKET"
+        },
+        {
+          "label": "Ivacy",
+          "value": "IVACY"
+        },
+        {
+          "label": "IVPN",
+          "value": "IVPN"
+        },
+        {
+          "label": "Mullvad",
+          "value": "MULLVAD"
+        },
+        {
+          "label": "NordVPN",
+          "value": "NORDVPN"
+        },
+        {
+          "label": "OctaneVPN",
+          "value": "OCTANEVPN"
+        },
+        {
+          "label": "OVPN",
+          "value": "OVPN"
+        },
+        {
+          "label": "Privado",
+          "value": "PRIVADO"
+        },
+        {
+          "label": "Private Internet Access",
+          "value": "PIA"
+        },
+        {
+          "label": "PrivateVPN",
+          "value": "PRIVATEVPN"
+        },
+        {
+          "label": "ProtonVPN",
+          "value": "PROTONVPN"
+        },
+        {
+          "label": "proXPN",
+          "value": "PROXPN"
+        },
+        {
+          "label": "PureVPN",
+          "value": "PUREVPN"
+        },
+        {
+          "label": "RA4W VPN",
+          "value": "RA4W"
+        },
+        {
+          "label": "SaferVPN",
+          "value": "SAFERVPN"
+        },
+        {
+          "label": "SlickVPN",
+          "value": "SLICKVPN"
+        },
+        {
+          "label": "SlickVPNCore",
+          "value": "SLICKVPNCORE"
+        },
+        {
+          "label": "Smart DNS Proxy",
+          "value": "SMARTDNSPROXY"
+        },
+        {
+          "label": "SmartVPN",
+          "value": "SMARTVPN"
+        },
+        {
+          "label": "Surfshark",
+          "value": "SURFSHARK"
+        },
+        {
+          "label": "TigerVPN",
+          "value": "TIGER"
+        },
+        {
+          "label": "TorGuard",
+          "value": "TORGUARD"
+        },
+        {
+          "label": "Trust.Zone",
+          "value": "TRUSTZONE"
+        },
+        {
+          "label": "TunnelBear",
+          "value": "TUNNELBEAR"
+        },
+        {
+          "label": "VPN.AC",
+          "value": "VPNAC"
+        },
+        {
+          "label": "VPNArea.com",
+          "value": "VPNAREA"
+        },
+        {
+          "label": "VPNBook.com",
+          "value": "VPNBOOK"
+        },
+        {
+          "label": "VPNFacile",
+          "value": "VPNFACILE"
+        },
+        {
+          "label": "VPN.ht",
+          "value": "VPNHT"
+        },
+        {
+          "label": "VPNTunnel",
+          "value": "VPNTUNNEL"
+        },
+        {
+          "label": "VPNUnlimited",
+          "value": "VPNUNLIMITED"
+        },
+        {
+          "label": "VyprVpn",
+          "value": "VYPRVPN"
+        },
+        {
+          "label": "Windscribe",
+          "value": "WINDSCRIBE"
+        },
+        {
+          "label": "ZoogVPN",
+          "value": "ZOOGVPN"
+        }
       ],
       "env_variable": "TRANSMISSION_OVPN_PROVIDER"
     },
@@ -132,12 +285,30 @@
       "type": "text",
       "required": true,
       "options": [
-        { "label": "Combustion", "value": "combustion" },
-        { "label": "Kettu", "value": "kettu" },
-        { "label": "Web-Control", "value": "transmission-web-control" },
-        { "label": "Flood", "value": "flood-for-transmission" },
-        { "label": "Shift", "value": "shift" },
-        { "label": "Transmissionic", "value": "transmissionic" }
+        {
+          "label": "Combustion",
+          "value": "combustion"
+        },
+        {
+          "label": "Kettu",
+          "value": "kettu"
+        },
+        {
+          "label": "Web-Control",
+          "value": "transmission-web-control"
+        },
+        {
+          "label": "Flood",
+          "value": "flood-for-transmission"
+        },
+        {
+          "label": "Shift",
+          "value": "shift"
+        },
+        {
+          "label": "Transmissionic",
+          "value": "transmissionic"
+        }
       ],
       "env_variable": "TRANSMISSION_WEBUI"
     },
