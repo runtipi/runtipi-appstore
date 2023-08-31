@@ -1,0 +1,24 @@
+{
+  "$schema": "../schema.json",
+  "name": "Scrypted",
+  "port": 10443,
+  "available": true,
+  "exposable": false,
+  "https": true,
+  "id": "scrypted",
+  "tipi_version": 4,
+  "version": "18-jammy-full.s6-v0.41.0",
+  "categories": ["security"],
+  "description": "Scrypted is a high performance home video integration and automation platform",
+  "short_desc": "High performance home video integration and automation platform",
+  "author": "Koush",
+  "source": "https://github.com/koush/scrypted",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Scrypted Bearer Token",
+      "min": 32,
+      "env_variable": "SCRYPTED_BEARER_TOKEN"
+    }
+  ]
+}

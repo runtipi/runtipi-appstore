@@ -1,0 +1,18 @@
+
+version: '3'
+services:
+  homebridge:
+    container_name: homebridge
+    image: homebridge/homebridge:latest
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+    environment:
+      - TZ=${TZ}
+    volumes:
+      - ${APP_DATA_DIR}/data/homebridge:/homebridge
+    logging:
+      driver: json-file
+      options:
+        max-size: "10mb"
+        max-file: "1"
