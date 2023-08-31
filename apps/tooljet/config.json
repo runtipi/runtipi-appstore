@@ -22,6 +22,20 @@
       "min": 30,
       "max": 30,
       "env_variable": "DB_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Secret key base",
+      "min": 32,
+      "max": 32,
+      "env_variable": "SECRET_KEY_BASE"
+    },
+    {
+      "type": "random",
+      "label": "Lock master key",
+      "min": 64,
+      "max": 64,
+      "env_variable": "LOCKBOX_MASTER_KEY"
     }
   ]
 }
