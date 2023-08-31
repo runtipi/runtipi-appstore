@@ -1,20 +1,19 @@
 {
-    "$schema": "../schema.json",
-    "name": "Stirling-PDF",
-    "port": 8234,
-    "available": true,
-    "exposable": true,
-    "id": "stirling-pdf",
-    "tipi_version": 1,
-    "version": "0.13.0",
-    "categories": [
-        "data",
-        "utilities"
-    ],
-    "description": "Locally hosted web application that allows you to perform various operations on PDF files.",
-    "short_desc": "Powerful locally hosted web based PDF manipulation tool.",
-    "author": "Frooodle",
-    "source": "https://github.com/Frooodle/Stirling-PDF/",
-    "form_fields": []
-  }
-  
+  "$schema": "../schema.json",
+  "name": "Stirling-PDF",
+  "port": 8234,
+  "available": true,
+  "exposable": true,
+  "id": "stirling-pdf",
+  "tipi_version": 2,
+  "version": "0.13.1",
+  "categories": [
+    "data",
+    "utilities"
+  ],
+  "description": "Locally hosted web application that allows you to perform various operations on PDF files.",
+  "short_desc": "Powerful locally hosted web based PDF manipulation tool.",
+  "author": "Frooodle",
+  "source": "https://github.com/Frooodle/Stirling-PDF/",
+  "form_fields": []
+}
