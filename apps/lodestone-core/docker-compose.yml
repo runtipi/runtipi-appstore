@@ -9,7 +9,7 @@ services:
       - 25565-25575:25565-25575
     restart: unless-stopped
     volumes:
-      - ${APP_DATA_DIR}/data/lodestone-data:/root/.lodestone
+      - ${APP_DATA_DIR}/data/lodestone-data:/home/user/.lodestone
     networks:
       - tipi_main_network
     labels:
