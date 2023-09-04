@@ -132,6 +132,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Transmission](https://github.com/transmission/transmission) - Fast, easy, and free BitTorrent client
 - [Tube Archivist](https://github.com/tubearchivist/tubearchivist) - Your self-hosted YouTube media server
 - [Umami](https://github.com/umami-software/umami) - Umami is a simple, fast, privacy-focused alternative to Google Analytics.
+- [Unmanic](https://github.com/Unmanic/unmanic) - Unmanic gives you the power to automate the management of any file library.
 - [Uptime Kuma](https://github.com/louislam/uptime-kuma) - A fancy self-hosted monitoring tool
 - [Vaultwarden](https://github.com/dani-garcia/vaultwarden) - Unofficial Bitwarden compatible server
 - [Vikunja](https://kolaente.dev/vikunja/) - The open-source, self-hostable to-do app. Organize everything, on all platforms.
