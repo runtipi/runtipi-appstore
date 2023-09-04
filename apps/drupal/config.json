@@ -1,0 +1,19 @@
+{
+  "$schema": "../schema.json",
+  "name": "Drupal",
+  "port": 8215,
+  "available": true,
+  "exposable": true,
+  "id": "drupal",
+  "tipi_version": 1,
+  "version": "php8.2-fpm-bookworm",
+  "categories": [
+    "social"
+  ],
+  "description": "Drupal is an open source content management platform supporting a variety of websites ranging from personal weblogs to large community-driven websites.",
+  "short_desc": "Open source content management platform.",
+  "author": "Drupal",
+  "source": "https://git.drupalcode.org/project/drupal",
+  "website": "https://www.drupal.org/",
+  "form_fields": []
+}
