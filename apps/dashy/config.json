@@ -3,7 +3,7 @@
   "name": "Dashy",
   "port": 8205,
   "available": true,
-  "exposable": true,
+  "exposable": false,
   "id": "dashy",
   "tipi_version": 1,
   "version": "2.1.1",

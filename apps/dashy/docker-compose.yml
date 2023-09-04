@@ -9,8 +9,6 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/dashy/conf.yml:/app/public/conf.yml
     restart: unless-stopped
-    environment:
-      - BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
     networks:
       - tipi_main_network
     labels:
