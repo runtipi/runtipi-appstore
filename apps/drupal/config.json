@@ -8,7 +8,7 @@
   "tipi_version": 1,
   "version": "php8.2-fpm-bookworm",
   "categories": [
-    "social"
+    "development"
   ],
   "description": "Drupal is an open source content management platform supporting a variety of websites ranging from personal weblogs to large community-driven websites.",
   "short_desc": "Open source content management platform.",
