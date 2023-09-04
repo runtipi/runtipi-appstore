@@ -1,12 +1,11 @@
-version: "3.7"
+version: '3.7'
 
 services:
-
   tooljet:
     container_name: tooljet
     tty: true
     stdin_open: true
-    image: tooljet/tooljet-client-ce:v2.4.2    
+    image: tooljet/tooljet-client-ce:v2.4.2
     restart: always
     ports:
       - ${APP_PORT}:80
@@ -45,7 +44,7 @@ services:
 
   tooljet-server:
     container_name: tooljet-server
-    image: tooljet/tooljet-server-ce:v2.14.0    
+    image: tooljet/tooljet-server-ce:v2.14.0
     tty: true
     stdin_open: true
     restart: always
@@ -57,28 +56,12 @@ services:
       - TOOLJET_HOST=https://${APP_DOMAIN}
       - LOCKBOX_MASTER_KEY=${LOCKBOX_MASTER_KEY}
       - SECRET_KEY_BASE=${SECRET_KEY_BASE}
-      - ORM_LOGGING
       - PG_DB=tooljet
       - PG_USER=tooljet
       - PG_HOST=db-tooljet
       - PG_PASS=${DB_PASSWORD}
       - CHECK_FOR_UPDATES=check_if_updates_are_available
-      - GOOGLE_CLIENT_ID
-      - GOOGLE_CLIENT_SECRET
       - DEFAULT_FROM_EMAIL=hello@tooljet.io
-      - SMTP_USERNAME
-      - SMTP_PASSWORD
-      - SMTP_DOMAIN
-      - SMTP_PORT
-      - DISABLE_SIGNUPS
-      - APM_VENDOR
-      - SENTRY_DNS
-      - SENTRY_DEBUG    
-      - SSO_DISABLE_SIGNUP
-      - SSO_RESTRICTED_DOMAIN
-      - SSO_GOOGLE_OAUTH2_CLIENT_ID
-      - SSO_GIT_OAUTH2_CLIENT_ID
-      - SSO_GIT_OAUTH2_CLIENT_SECRET
     command: npm run start:prod
 
   db-tooljet:
@@ -94,4 +77,3 @@ services:
       - PGDATA=/data/postgres
     networks:
       - tipi_main_network
-
