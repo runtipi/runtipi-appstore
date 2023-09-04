@@ -3,17 +3,11 @@ version: "3"
 services:
   dashy:
     container_name: dashy
-    image: author/dashy
+    image: ghcr.io/lissy93/dashy:2.1.1
     ports:
       - ${APP_PORT}:80
     volumes:
-      - ${APP_DATA_DIR}/data/dashy:/data
-      - ${APP_DATA_DIR}/data/dashy:/processed
-      - ${ROOT_FOLDER_HOST}/media/data/videos/dashy:/videos
-    environment:
-      - USERNAME=${USERNAME}
-      - PASSWORD=${PASSWORD}
-      - SECRET_KEY=${SECRET_KEY}
+      - ${APP_DATA_DIR}/data/dashy:/app/public/
     restart: unless-stopped
     networks:
       - tipi_main_network
