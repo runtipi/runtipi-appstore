@@ -1,6 +1,6 @@
 services:
   transmission-vpn:
-    image: haugene/transmission-openvpn:5.1.1@sha256:c5a66e4c9df0b326310b81cfcd7fa1c0cd61ebeaf60b4651188c94b8afde3aca
+    image: haugene/transmission-openvpn:5.1.1
     container_name: transmission-vpn
     cap_add:
       - NET_ADMIN
