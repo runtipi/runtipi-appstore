@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "drupal",
-  "tipi_version": 1,
-  "version": "php8.2-fpm-bookworm",
+  "tipi_version": 2,
+  "version": "php8.2-apache",
   "categories": [
     "development"
   ],
