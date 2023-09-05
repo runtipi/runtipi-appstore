@@ -10,6 +10,9 @@ services:
       - ${APP_DATA_DIR}/data:/var/www/html/
     networks:
       - tipi_main_network
+    user: ${TIPI_UID}:${TIPI_GID} 
+    group_add: 
+      - ${TIPI_GID}
     labels:
       # Main
       traefik.enable: true
