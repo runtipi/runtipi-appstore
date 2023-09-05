@@ -10,8 +10,8 @@
     ]
   },
   "id": "transmission-vpn",
-  "tipi_version": 3,
-  "version": "5.1.1",
+  "tipi_version": 4,
+  "version": "5.2.0",
   "categories": [
     "utilities",
     "security"
