@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   drupal:
-    image: drupal:php8.2-fpm-bookworm
+    image: drupal:php8.2-apache
     restart: unless-stopped
     container_name: drupal
     ports:
