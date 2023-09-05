@@ -1,12 +1,12 @@
 {
-    "name": "Trillium",
+    "name": "Trilium",
     "available": true,
     "port": 8267,
     "exposable": true,
-    "id": "trillium",
+    "id": "trilium",
     "description": "Trilium Notes is a hierarchical note taking application with focus on building large personal knowledge bases. ",
     "tipi_version": 1,
-    "version": "1.25.1",
+    "version": "0.61.5-beta",
     "categories": [
         "utilities"
         ], 

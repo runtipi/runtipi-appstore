@@ -131,7 +131,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Tautulli](https://github.com/Tautulli/Tautulli) - A Python based monitoring and tracking tool for Plex Media Server
 - [Teddit](https://codeberg.org/teddit/teddit) - Alternative Reddit front-end focused on privacy https://teddit.net
 - [Transmission](https://github.com/transmission/transmission) - Fast, easy, and free BitTorrent client
-- [Trillium](https://github.com/zadam/trilium) - An open-source, self-hosted Notion alterative
+- [Trilium](https://github.com/zadam/trilium) - An open-source, self-hosted Notion alterative
 - [Tube Archivist](https://github.com/tubearchivist/tubearchivist) - Your self-hosted YouTube media server
 - [Umami](https://github.com/umami-software/umami) - Umami is a simple, fast, privacy-focused alternative to Google Analytics.
 - [Unmanic](https://github.com/Unmanic/unmanic) - Unmanic gives you the power to automate the management of any file library.
