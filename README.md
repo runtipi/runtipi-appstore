@@ -13,6 +13,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Bazarr](https://github.com/morpheus65535/bazarr) - A companion application to Sonarr and Radarr that manages and downloads subtitles
 - [Booksonic](https://github.com/popeen) - A server for streaming your audiobooks
 - [Bookstack](https://github.com/BookStackApp/BookStack) - Simple, easy-to-use platform for organising and storing information.
+- [Budibase](https://github.com/Budibase/budibase) - Low code platform for creating internal tools, workflows, and admin panels in minutes. Supports PostgreSQL, MySQL, MSSQL, MongoDB, Rest API, Docker, K8s, and more 🚀. Budibase, the low code platform you'll enjoy using ⚡
 - [Calibre-Web](https://github.com/janeczku/calibre-web) - Web Ebook Reader
 - [Chatpad AI](https://github.com/deiucanta/chatpad) - Not just another ChatGPT user-interface!
 - [Code-Server](https://github.com/coder/code-server) - Web VS Code
