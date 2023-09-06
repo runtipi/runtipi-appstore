@@ -23,7 +23,9 @@ services:
       traefik.http.services.homebridge.loadbalancer.server.port: 8581
       # Local domain
       traefik.http.routers.homebridge-local-insecure.rule: Host(`homebridge.${LOCAL_DOMAIN}`)
+      traefik.http.routers.homebridge-local-insecure.service: homebridge
       traefik.http.routers.homebridge-local-insecure.middlewares: homebridge-web-redirect
       # Local domain secure
       traefik.http.routers.homebridge-local.rule: Host(`homebridge.${LOCAL_DOMAIN}`)
+      traefik.http.routers.homebridge-local.service: homebridge
       traefik.http.routers.homebridge-local.tls: true
