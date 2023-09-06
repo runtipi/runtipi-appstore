@@ -47,7 +47,7 @@ services:
       - tipi_main_network
 
   vikunja-proxy:
-    container_name: vikunja
+    container_name: vikunja-proxy
     image: nginx
     ports:
       - ${APP_PORT}:80
