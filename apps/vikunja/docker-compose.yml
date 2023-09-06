@@ -32,14 +32,15 @@ services:
     restart: unless-stopped
     container_name: vikunja-api
     networks:
-      - tipi_main_network
+      tipi_main_network:
+        ipv4_address: 10.21.21.75
 
   vikunja:
     image: vikunja/frontend:0.21.0
     ports:
       - ${APP_PORT}:80
     environment:
-      VIKUNJA_API_URL: http://vikunja-api:3456/api/v1
+      VIKUNJA_API_URL: http://10.21.21.75:3456/api/v1
     restart: unless-stopped
     container_name: vikunja
     networks:
