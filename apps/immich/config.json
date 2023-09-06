@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8128,
   "id": "immich",
-  "tipi_version": 40,
-  "version": "1.76.1",
+  "tipi_version": 41,
+  "version": "1.77.0",
   "categories": [
     "data",
     "photography"
