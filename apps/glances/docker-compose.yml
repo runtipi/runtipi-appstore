@@ -1,0 +1,42 @@
+version: "3.7"
+services:
+    glances:
+        container_name: glances
+        restart: unless-stopped
+        ports:
+            - ${APP_PORT}:61208
+            - 8421:61209
+        environment:
+            - TZ=${TZ}
+            - GLANCES_OPT=-w
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+        pid: host
+        image: nicolargo/glances:3.4.0.3-full
+        networks:
+            - tipi_main_network
+        labels:
+            # Main
+            traefik.enable: true
+            traefik.http.middlewares.glances-web-redirect.redirectscheme.scheme: https
+            traefik.http.services.glances.loadbalancer.server.port: 61208
+            # Web
+            traefik.http.routers.glances-insecure.rule: Host(`${APP_DOMAIN}`)
+            traefik.http.routers.glances-insecure.entrypoints: web
+            traefik.http.routers.glances-insecure.service: glances
+            traefik.http.routers.glances-insecure.middlewares: glances-web-redirect
+            # Websecure
+            traefik.http.routers.glances.rule: Host(`${APP_DOMAIN}`)
+            traefik.http.routers.glances.entrypoints: websecure
+            traefik.http.routers.glances.service: glances
+            traefik.http.routers.glances.tls.certresolver: myresolver
+            # Local domain
+            traefik.http.routers.glances-local-insecure.rule: Host(`glances.${LOCAL_DOMAIN}`)
+            traefik.http.routers.glances-local-insecure.entrypoints: web
+            traefik.http.routers.glances-local-insecure.service: glances
+            traefik.http.routers.glances-local-insecure.middlewares: glances-web-redirect
+            # Local domain secure
+            traefik.http.routers.glances-local.rule: Host(`glances.${LOCAL_DOMAIN}`)
+            traefik.http.routers.glances-local.entrypoints: websecure
+            traefik.http.routers.glances-local.service: glances
+            traefik.http.routers.glances-local.tls: true
