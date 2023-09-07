@@ -39,6 +39,7 @@ services:
     container_name: vikunja-api
     networks:
       tipi_main_network:
+        external: true
         ipv4_address: 10.21.21.75
 
   vikunja:
