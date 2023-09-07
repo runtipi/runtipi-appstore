@@ -1,7 +1,7 @@
 version: "3"
 services:
   chatgpt-ui:
-    image: wongsaang/chatgpt-ui-client:v2.5.8
+    image: wongsaang/chatgpt-ui-client:v2.5.9
     container_name: chatgpt-ui
     environment:
       - SERVER_DOMAIN=http://chatgpt-ui-web-server
