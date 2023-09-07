@@ -3,7 +3,7 @@
   "name": "Glances",
   "port": 8420,
   "available": true,
-  "exposable": true,
+  "exposable": false,
   "id": "glances",
   "tipi_version": 1,
   "version": "3.4.0.3-full",
