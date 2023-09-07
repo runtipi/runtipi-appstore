@@ -1,34 +1,5 @@
 version: "3.7"
-
 services:
-  vikunja:
-    depends_on:
-      - vikunja-api
-    container_name: vikunja
-    image: vikunja/frontend:0.21.0
-    restart: unless-stopped
-    networks:
-      - tipi_main_network
-
-  vikunja-api:
-    container_name: vikunja-api
-    image: vikunja/api:0.21.0
-    environment:
-      VIKUNJA_DATABASE_HOST: vikunja-db
-      VIKUNJA_DATABASE_PASSWORD: ${VIKUNJA_DB_PASSWORD}
-      VIKUNJA_DATABASE_TYPE: postgres
-      VIKUNJA_DATABASE_USER: tipi
-      VIKUNJA_SERVICE_JWTSECRET: ${VIKUNJA_SERVICE_JWTSECRET}
-      VIKUNJA_SERVICE_FRONTENDURL: ${APP_PROTOCOL:-http}://${APP_DOMAIN}/
-    volumes:
-      - ${APP_DATA_DIR}/data/files:/app/vikunja/files
-    restart: unless-stopped
-    depends_on:
-      vikunja-db:
-        condition: service_healthy
-    networks:
-      - tipi_main_network
-
   vikunja-db:
     container_name: vikunja-db
     image: postgres:14
@@ -46,41 +17,37 @@ services:
     networks:
       - tipi_main_network
 
-  vikunja-proxy:
-    container_name: vikunja
-    image: nginx
+  vikunja-api:
+    image: vikunja/api:0.21.0
+    hostname: vikunja-api
+    environment:
+      VIKUNJA_DATABASE_HOST: vikunja-db
+      VIKUNJA_DATABASE_PASSWORD: ${VIKUNJA_DB_PASSWORD}
+      VIKUNJA_DATABASE_TYPE: postgres
+      VIKUNJA_DATABASE_USER: tipi
+      VIKUNJA_DATABASE_DATABASE: vikunja
+      VIKUNJA_SERVICE_JWTSECRET: ${VIKUNJA_SERVICE_SECRET}
+      VIKUNJA_SERVICE_FRONTENDURL: ${APP_PROTOCOL:-http}://${APP_DOMAIN}/
+    ports:
+      - 3456:3456
+    volumes:
+      - ${APP_DATA_DIR}/data/files:/app/vikunja/files
+    depends_on:
+      vikunja-db:
+        condition: service_healthy
+    restart: unless-stopped
+    container_name: vikunja-api
+    networks:
+      tipi_main_network:
+        ipv4_address: 10.21.21.75
+
+  vikunja:
+    image: vikunja/frontend:0.21.0
     ports:
       - ${APP_PORT}:80
-    volumes:
-      - ${APP_DATA_DIR}/data/proxy/nginx.conf:/etc/nginx/nginx.conf:ro
-    depends_on:
-      - vikunja-api
-      - vikunja
+    environment:
+      VIKUNJA_API_URL: http://10.21.21.75:3456/api/v1
     restart: unless-stopped
+    container_name: vikunja
     networks:
       - tipi_main_network
-    labels:
-      # Main
-      traefik.enable: true
-      traefik.http.middlewares.vikunja-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.vikunja.loadbalancer.server.port: 80
-      # Web
-      traefik.http.routers.vikunja-insecure.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.vikunja-insecure.entrypoints: web
-      traefik.http.routers.vikunja-insecure.service: vikunja
-      traefik.http.routers.vikunja-insecure.middlewares: vikunja-web-redirect
-      # Websecure
-      traefik.http.routers.vikunja.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.vikunja.entrypoints: websecure
-      traefik.http.routers.vikunja.service: vikunja
-      traefik.http.routers.vikunja.tls.certresolver: myresolver
-      # Local domain
-      traefik.http.routers.vikunja-local-insecure.rule: Host(`vikunja.${LOCAL_DOMAIN}`)
-      traefik.http.routers.vikunja-local-insecure.entrypoints: web
-      traefik.http.routers.vikunja-local-insecure.service: vikunja
-      traefik.http.routers.vikunja-local-insecure.middlewares: vikunja-web-redirect
-      # Local domain secure
-      traefik.http.routers.vikunja-local.rule: Host(`vikunja.${LOCAL_DOMAIN}`)
-      traefik.http.routers.vikunja-local.entrypoints: websecure
-      traefik.http.routers.vikunja-local.service: vikunja
-      traefik.http.routers.vikunja-local.tls: true
