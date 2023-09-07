@@ -39,6 +39,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Ghost](https://github.com/TryGhost/Ghost) - Ghost - Turn your audience into a business
 - [Ghostfolio](https://github.com/ghostfolio/ghostfolio) - Open Source Wealth Management Software.
 - [Gitea](https://github.com/go-gitea/gitea) - Gitea - A painless self-hosted Git service
+- [Glances](https://github.com/nicolargo/glances) - Glances - An Eye on your system.
 - [Gladys Assistant](https://github.com/gladysassistant/gladys) - A privacy-first, open-source home assistant
 - [Gotify](https://github.com/gotify/server) - Gotify - Simple server for sending and receiving notification messages
 - [GoToSocial](https://github.com/superseriousbusiness/gotosocial) - Fast, fun, ActivityPub server, powered by Go.
