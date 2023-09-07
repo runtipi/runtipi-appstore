@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "chatgpt-ui",
-  "tipi_version": 12,
-  "version": "2.5.8",
+  "tipi_version": 13,
+  "version": "2.5.9",
   "categories": [
     "ai"
   ],
