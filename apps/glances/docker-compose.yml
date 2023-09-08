@@ -5,7 +5,6 @@ services:
         restart: unless-stopped
         ports:
             - ${APP_PORT}:61208
-            - 8421:61209
         environment:
             - TZ=${TZ}
             - GLANCES_OPT=-w
