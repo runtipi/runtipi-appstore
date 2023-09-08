@@ -8,7 +8,7 @@ latest Qt 5. It does not need any KDE libs or infrastructure. It runs on every
 X11-based desktop on Linux, BSD and other Unix-like systems and of course in a
 Docker container.
 
-![Screenshot](https://github.com/shundhammer/qdirstat/blob/master/screenshots/QDirStat-main-win.png)
+![Screenshot](https://github.com/shundhammer/qdirstat/raw/master/screenshots/QDirStat-main-win.png)
 
 _Main window screenshot - notice the multi-selection in the tree and the treemap_
 
@@ -36,3 +36,9 @@ QDirStat has a number of new features compared to KDirStat. To name a few:
   - File size histogram view.
   - File age view.
   - Free, used and reserved disk size for each mounted filesystem (like _df_)
+  
+  ---
+
+  # Tipi Specific Note
+
+  By default, qDirStat will analyze the /runtipi/ directory, *not the whole system that tipi is installed on!*

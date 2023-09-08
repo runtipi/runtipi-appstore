@@ -5,8 +5,8 @@ services:
         restart: unless-stopped
         ports:
             - ${APP_PORT}:3000
-        environment: 
-            - FM_HOME:${APP_DATA_DIR}
+        environment:
+            - FM_HOME=~/runtipi
         volumes:
             - ${APP_DATA_DIR}/data/qdirstat/config
             - ${APP_DATA_DIR}/data/qdirstat/app/data
