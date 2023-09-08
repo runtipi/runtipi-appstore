@@ -5,9 +5,11 @@
   "exposable": true,
   "port": 8135,
   "id": "vikunja",
-  "tipi_version": 5,
+  "tipi_version": 6,
   "version": "0.21.0",
-  "categories": ["utilities"],
+  "categories": [
+    "utilities"
+  ],
   "description": "The Todo-app to organize your life.",
   "short_desc": "The Todo-app to organize your life.",
   "author": "kolaente",
@@ -17,13 +19,12 @@
     {
       "type": "random",
       "label": "Vikunja database password",
-      "random": true,
       "env_variable": "VIKUNJA_DB_PASSWORD"
     },
     {
       "type": "random",
-      "label": "Vikunja jwt secret",
-      "env_variable": "VIKUNJA_SERVICE_JWTSECRET"
+      "label": "Vikunja secret",
+      "env_variable": "VIKUNJA_SERVICE_SECRET"
     }
   ]
 }
