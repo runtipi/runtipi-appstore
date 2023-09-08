@@ -23,22 +23,6 @@
   <img alt="Budibase design ui" src="https://res.cloudinary.com/daog6scxm/image/upload/v1633524049/ui/design-ui-wide-mobile_gdaveq.jpg">
 </p>
 
-<p align="center">
-  <a href="https://github.com/Budibase/budibase/releases">
-    <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/Budibase/budibase/total">
-  </a>
-  <a href="https://github.com/Budibase/budibase/releases">
-    <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Budibase/budibase">
-  </a>
-  <a href="https://twitter.com/intent/follow?screen_name=budibase">
-    <img src="https://img.shields.io/twitter/follow/budibase?style=social" alt="Follow @budibase" />
-  </a>
-  <img src="https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg" alt="Code of conduct" />
-  <a href="https://codecov.io/gh/Budibase/budibase">
-    <img src="https://codecov.io/gh/Budibase/budibase/graph/badge.svg?token=E8W2ZFXQOH"/>
-  </a>
-</p>
-
 <h3 align="center">
   <a href="https://account.budibase.app/register">Get started - we host (Budibase Cloud)</a>
   <span> · </span>
@@ -54,17 +38,21 @@
 </h3>
 
 <br /><br />
+
 ## ✨ Features
 
-### Build and ship real software 
+### Build and ship real software
+
 Unlike other platforms, with Budibase you build and ship single page applications. Budibase applications have performance baked in and can be designed responsively, providing your users with a great experience.
 <br /><br />
 
 ### Open source and extensible
+
 Budibase is open-source - licensed as GPL v3. This should fill you with confidence that Budibase will always be around. You can also code against Budibase or fork it and make changes as you please, providing a developer-friendly experience.
 <br /><br />
 
 ### Load data or start from scratch
+
 Budibase pulls in data from multiple sources, including MongoDB, CouchDB, PostgreSQL, MySQL, Airtable, S3, DynamoDB, or a REST API. And unlike other platforms, with Budibase you can start from scratch and create business apps with no datasources. [Request new datasources](https://github.com/Budibase/budibase/discussions?discussions_q=category%3AIdeas).
 
 <p align="center">
@@ -82,6 +70,7 @@ Budibase comes out of the box with beautifully designed, powerful components whi
 <br /><br />
 
 ### Automate processes, integrate with other tools, and connect to webhooks
+
 Save time by automating manual processes and workflows. From connecting to webhooks, to automating emails, simply tell Budibase what to do and let it work for you. You can easily [create new automations for Budibase here](https://github.com/Budibase/automations) or [Request new automation](https://github.com/Budibase/budibase/discussions?discussions_q=category%3AIdeas).
 
 <p align="center">
@@ -90,6 +79,7 @@ Save time by automating manual processes and workflows. From connecting to webho
 <br /><br />
 
 ### Integrate with your favorite tools
+
 Budibase integrates with a number of popular tools allowing you to build apps that perfectly fit your stack.
 
 <p align="center">
@@ -98,6 +88,7 @@ Budibase integrates with a number of popular tools allowing you to build apps th
 <br /><br />
 
 ### Admin paradise
+
 Budibase is made to scale. With Budibase, you can self-host on your own infrastructure and globally manage users, onboarding, SMTP, apps, groups, theming and more. You can also provide users/groups with an app portal and disseminate user-management to the group manager.
 
 - Checkout the promo video: https://youtu.be/xoljVpty_Kw
@@ -108,15 +99,15 @@ Budibase is made to scale. With Budibase, you can self-host on your own infrastr
 
 <br />
 
-
 ## Budibase Public API
+
 As with anything that we build in Budibase, our new public API is simple to use, flexible, and introduces new extensibility. To summarize, the Budibase API enables:
 
 - Budibase as a backend
 - Interoperability
 
-
 #### Docs
+
 You can learn more about the Budibase API at the following places:
 
 - [General documentation](https://docs.budibase.com/docs/public-api) : Learn how to get your API key, how to use spec, and how to use with Postman
