@@ -1,10 +1,20 @@
 version: "1.8.1-ls82"
 services:
+<<<<<<< HEAD
     qdirstat:
+=======
+    glances:
+>>>>>>> e02ff9483d2cfaca07d498612d7a1204d15e96ea
         container_name: qdirstat
         restart: unless-stopped
         ports:
             - ${APP_PORT}:3000
+<<<<<<< HEAD
+=======
+        environment:
+            - TZ=${TZ}
+            - GLANCES_OPT=-w
+>>>>>>> e02ff9483d2cfaca07d498612d7a1204d15e96ea
         volumes:
             - ${APP_DATA_DIR}/data/qdirstat/:config
             - ${APP_DATA_DIR}/data/qdirstat/app/:data
