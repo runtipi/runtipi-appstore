@@ -62,7 +62,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.vikunja-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.vikunja.loadbalancer.server.port: 3001
+      traefik.http.services.vikunja.loadbalancer.server.port: 80
       # Web
       traefik.http.routers.vikunja-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.vikunja-insecure.entrypoints: web
