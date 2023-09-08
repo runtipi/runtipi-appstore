@@ -24,17 +24,6 @@
       "env_variable": "HALO_DATABASE_PASSWORD"
     },
     {
-      "type": "text",
-      "label": "Initial admin username",
-      "env_variable": "HALO_ADMIN_USERNAME"
-    },
-    {
-      "type": "text",
-      "label": "Initial admin password",
-      "min": 8,
-      "env_variable": "HALO_ADMIN_PASSWORD"
-    },
-    {
       "type": "url",
       "label": "External url",
       "env_variable": "HALO_EXTERNAL_URL"
