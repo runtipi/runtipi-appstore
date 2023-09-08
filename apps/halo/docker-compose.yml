@@ -27,8 +27,6 @@ services:
       - --spring.r2dbc.password=${HALO_DATABASE_PASSWORD}
       - --spring.sql.init.platform=postgresql
       - --halo.external-url=${HALO_EXTERNAL_URL}
-      - --halo.security.initializer.superadminusername=${HALO_ADMIN_USERNAME}
-      - --halo.security.initializer.superadminpassword=${HALO_ADMIN_PASSWORD}
     labels:
       # Main
       traefik.enable: true
