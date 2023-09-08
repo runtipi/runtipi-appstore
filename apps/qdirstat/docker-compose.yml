@@ -1,0 +1,39 @@
+version: "1.8.1-ls82"
+services:
+    qdirstat:
+        container_name: qdirstat
+        restart: unless-stopped
+        ports:
+            - ${APP_PORT}:3000
+        volumes:
+            - ${APP_DATA_DIR}/data/qdirstat/config
+            - ${APP_DATA_DIR}/data/qdirstat/app/data
+            - /:/host:ro
+        image: lscr.io/linuxserver/qdirstat:1.8.1-ls82
+        networks:
+            - tipi_main_network
+        labels:
+            # Main
+            traefik.enable: true
+            traefik.http.middlewares.qdirstat-web-redirect.redirectscheme.scheme: https
+            traefik.http.services.qdirstat.loadbalancer.server.port: 8080
+            # Web
+            traefik.http.routers.qdirstat-insecure.rule: Host(`${APP_DOMAIN}`)
+            traefik.http.routers.qdirstat-insecure.entrypoints: web
+            traefik.http.routers.qdirstat-insecure.service: qdirstat
+            traefik.http.routers.qdirstat-insecure.middlewares: qdirstat-web-redirect
+            # Websecure
+            traefik.http.routers.qdirstat.rule: Host(`${APP_DOMAIN}`)
+            traefik.http.routers.qdirstat.entrypoints: websecure
+            traefik.http.routers.qdirstat.service: qdirstat
+            traefik.http.routers.qdirstat.tls.certresolver: myresolver
+            # Local domain
+            traefik.http.routers.qdirstat-local-insecure.rule: Host(`qdirstat.${LOCAL_DOMAIN}`)
+            traefik.http.routers.qdirstat-local-insecure.entrypoints: web
+            traefik.http.routers.qdirstat-local-insecure.service: qdirstat
+            traefik.http.routers.qdirstat-local-insecure.middlewares: qdirstat-web-redirect
+            # Local domain secure
+            traefik.http.routers.qdirstat-local.rule: Host(`qdirstat.${LOCAL_DOMAIN}`)
+            traefik.http.routers.qdirstat-local.entrypoints: websecure
+            traefik.http.routers.qdirstat-local.service: qdirstat
+            traefik.http.routers.qdirstat-local.tls: true
