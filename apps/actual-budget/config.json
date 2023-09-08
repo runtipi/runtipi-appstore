@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8011,
   "id": "actual-budget",
-  "tipi_version": 9,
-  "version": "23.8.1",
+  "tipi_version": 10,
+  "version": "23.9.0",
   "categories": [
     "finance"
   ],
