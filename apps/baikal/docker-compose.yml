@@ -1,6 +1,7 @@
 version: "3"
 services:
   baikal:
+    container_name: baikal
     image: ckulka/baikal:0.9.3-nginx
     restart: unless-stopped
     ports:
