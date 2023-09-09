@@ -5,11 +5,11 @@
   "exposable": true,
   "port": 13378,
   "id": "audiobookshelf",
-  "tipi_version": 1,
-  "version": "2.3.3",
+  "tipi_version": 2,
+  "version": "2.4.0",
   "categories": [
     "books",
-	"media"
+    "media"
   ],
   "description": "Audiobookshelf is a self-hosted audiobook server for managing and playing your audiobooks. Audiobookshelf has a clean, accessible design that's loaded with features but not overly complicated.",
   "short_desc": "Audiobookshelf is a self-hosted audiobook and podcast server.",
