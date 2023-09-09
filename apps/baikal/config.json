@@ -1,0 +1,18 @@
+{
+  "$schema": "../schema.json",
+  "name": "Baïkal",
+  "available": true,
+  "exposable": true,
+  "port": 6556,
+  "id": "baikal",
+  "tipi_version": 1,
+  "version": "0.9.3-nginx",
+  "categories": [
+    "data"
+  ],
+  "description": "",
+  "short_desc": "Baïkal is a Calendar+Contacts server",
+  "author": "jeromeschneider",
+  "source": "https://github.com/sabre-io/Baikal",
+  "form_fields": []
+}
