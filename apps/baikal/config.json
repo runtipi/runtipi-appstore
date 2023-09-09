@@ -12,7 +12,7 @@
   ],
   "description": "",
   "short_desc": "Baïkal is a Calendar+Contacts server",
-  "author": "jeromeschneider",
-  "source": "https://github.com/sabre-io/Baikal",
+  "author": "ckulka",
+  "source": "https://github.com/ckulka/baikal-docker",
   "form_fields": []
 }
