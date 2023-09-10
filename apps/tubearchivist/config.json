@@ -6,7 +6,7 @@
   "port": 8120,
   "id": "tubearchivist",
   "tipi_version": 5,
-  "version": "latest",
+  "version": "v0.4.1",
   "supported_architectures": [
     "amd64",
     "arm64"
