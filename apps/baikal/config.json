@@ -7,9 +7,7 @@
   "id": "baikal",
   "tipi_version": 1,
   "version": "0.9.3-nginx",
-  "categories": [
-    "data"
-  ],
+  "categories": ["data", "utilities"],
   "description": "",
   "short_desc": "Baïkal is a Calendar+Contacts server",
   "author": "ckulka",
