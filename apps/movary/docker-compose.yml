@@ -69,6 +69,8 @@ services:
       - TMDB_ENABLE_IMAGE_CACHING=1
     depends_on: 
       - movary-db
+    networks:
+      - tipi_main_network
 
   movary-db:
     image: mysql:8.0
