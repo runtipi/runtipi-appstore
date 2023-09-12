@@ -5,7 +5,7 @@
   "available": true,
   "exposable": true,
   "id": "movary",
-  "tipi_version": 13,
+  "tipi_version": 14,
   "version": "0.57.0",
   "categories": [
     "media"
@@ -20,6 +20,12 @@
       "label": "MySQL Password",
       "min": 32,
       "env_variable": "MOVARY_MYSQL_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "MySQL Root Password",
+      "min": 32,
+      "env_variable": "MOVARY_MYSQL_ROOT_PASSWORD"
     },
     {
       "type": "text",
