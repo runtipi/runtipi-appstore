@@ -1,3 +1,15 @@
+# Danger
+
+After the **initial installation** and after **each image update** execute the database migrations.
+
+How to do it? 
+
+1. SSH into your Runtipi Server
+
+2. Run the command `docker exec movary php bin/console.php database:migration:migrate`
+
+Missing database migrations can cause criticatal errors!
+
 # Movary
 
 Movary is a self-hosted web application to track and rate your watched movies (like a digital movie diary). You can import/export your history and ratings from/to third parties like trakt.tv or letterboxd.com, scrobble your watches via Plex and Jellyfin and more.
