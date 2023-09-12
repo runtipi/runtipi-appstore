@@ -16,6 +16,7 @@ services:
       - DATABASE_MYSQL_USER=tipi
       - DATABASE_MYSQL_PASSWORD=${MOVARY_MYSQL_PASSWORD}
       - TMDB_ENABLE_IMAGE_CACHING=1
+      - APPLICATION_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/movary:/app/storage
