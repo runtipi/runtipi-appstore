@@ -85,6 +85,9 @@ services:
   movary-db:
     image: mysql:8.0
     container_name: movary-db
+    user: ${TIPI_UID}:${TIPI_GID} 
+    group_add: 
+    - ${TIPI_GID}
     environment:
       MYSQL_DATABASE: "movary"
       MYSQL_USER: "tipi"
