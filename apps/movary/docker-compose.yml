@@ -4,6 +4,9 @@ services:
   movary:
     image: leepeuker/movary:0.57.0
     container_name: movary
+    user: ${TIPI_UID}:${TIPI_GID} 
+    group_add: 
+    - ${TIPI_GID}
     environment:
       - TMDB_API_KEY=${MOVARY_TMDB_API_KEY}
       - TIMEZONE=${TZ}
