@@ -58,7 +58,7 @@ services:
   movary-migration:
     image: leepeuker/movary:0.57.0
     container_name: movary-migration
-    command: 
+    command: php bin/console.php database:migration:migrate
     user: ${TIPI_UID}:${TIPI_GID} 
     group_add: 
     - ${TIPI_GID}
