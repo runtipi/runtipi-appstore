@@ -67,6 +67,8 @@ services:
       - DATABASE_MYSQL_USER=tipi
       - DATABASE_MYSQL_PASSWORD=${MOVARY_MYSQL_PASSWORD}
       - TMDB_ENABLE_IMAGE_CACHING=1
+    volumes:
+      - ${APP_DATA_DIR}/data/movary:/app/storage
     depends_on: 
       - movary-db
     networks:
@@ -79,7 +81,7 @@ services:
       MYSQL_DATABASE: "movary"
       MYSQL_USER: "tipi"
       MYSQL_PASSWORD: ${MOVARY_MYSQL_PASSWORD}
-      MYSQL_ROOT_PASSWORD: ${MOVARY_MYSQL_ROOT_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MOVARY_MYSQL_PASSWORD}
     volumes:
       - ${APP_DATA_DIR}/data/mysql:/config
     networks:
