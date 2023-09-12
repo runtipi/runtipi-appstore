@@ -22,6 +22,12 @@
       "env_variable": "MOVARY_MYSQL_PASSWORD"
     },
     {
+      "type": "random",
+      "label": "MySQL Root Password",
+      "min": 32,
+      "env_variable": "MOVARY_MYSQL_ROOT_PASSWORD"
+    },
+    {
       "type": "text",
       "label": "The MovieDB API Key",
       "hint": "Get from https://www.themoviedb.org/settings/api",

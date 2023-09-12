@@ -53,12 +53,13 @@ services:
       traefik.http.routers.movary-local.tls: true
 
   movary-db:
-    image: linuxserver/mariadb:latest
+    image: mysql:8.0
+    container_name: movary-db
     environment:
       MYSQL_DATABASE: "movary"
       MYSQL_USER: "tipi"
       MYSQL_PASSWORD: ${MOVARY_MYSQL_PASSWORD}
-      MYSQL_ROOT_PASSWORD: ${MOVARY_MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MOVARY_MYSQL_ROOT_PASSWORD}
     volumes:
       - ${APP_DATA_DIR}/data/mysql:/config
     networks:
