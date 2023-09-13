@@ -3,7 +3,6 @@ services:
   notemark-proxy:
     container_name: notemark-proxy
     image: nginx:alpine
-    restart: unless-stopped
     ports:
       - ${APP_PORT}:80
     volumes:

@@ -95,8 +95,8 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Nextcloud](https://github.com/nextcloud/server) - A safe home for all your data
 - [Nitter](https://github.com/zedeus/nitter) - Alternative Twitter front-end
 - [NocoDB](https://github.com/nocodb/nocodb) - Open Source Airtable Alternative
-- [NoteMark](https://github.com/enchant97/note-mark/) - Note Mark is a lighting fast and minimal web-based Markdown notes app.
 - [Node-RED](https://github.com/node-red/node-red) - Low-code programming for event-driven applications
+- [NoteMark](https://github.com/enchant97/note-mark/) - Note Mark is a lighting fast and minimal web-based Markdown notes app.
 - [Obsidian LiveSync](https://github.com/vrtmrz/self-hosted-livesync-server) - LiveSync couchdb backend for Obsidian
 - [OneDev](https://code.onedev.io/onedev/server) - Self-hosted Git Server with Kanban and CI/CD
 - [Openbooks](https://github.com/evan-buss/openbooks) - Search and Download eBooks
