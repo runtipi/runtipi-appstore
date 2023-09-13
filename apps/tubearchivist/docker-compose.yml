@@ -62,7 +62,7 @@ services:
       - tubearchivist-es
 
   tubearchivist-es:
-    image: bbilly1/tubearchivist-es:latest
+    image: elasticsearch:8.9.0
     container_name: tubearchivist-es
     restart: always
     environment:
