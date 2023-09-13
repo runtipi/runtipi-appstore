@@ -4,9 +4,8 @@
   "port": 8182,
   "available": true,
   "exposable": true,
-  "force_expose": true,
   "id": "pairdrop",
-  "tipi_version": 9,
+  "tipi_version": 10,
   "version": "1.7.7",
   "categories": [
     "media",
