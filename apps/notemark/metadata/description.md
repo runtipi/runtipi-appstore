@@ -13,9 +13,6 @@ Note Mark is a lighting fast and minimal; web-based Markdown notes app. Featurin
 - Multiple views for a note (rendered, plain)
 - Editor with shortcuts
 
-## Preview
-![Preview Image Showing App](site/static/preview.png)
-
 ## Docs
 Documentation is available here: [notemark.docs.enchantedcode.co.uk](https://notemark.docs.enchantedcode.co.uk/).
 
