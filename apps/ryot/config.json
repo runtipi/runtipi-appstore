@@ -18,6 +18,14 @@
       "label": "RYOT_DB_PASSWORD",
       "min": 32,
       "env_variable": "RYOT_DB_PASSWORD"
+    },
+    {
+      "type": "boolean",
+      "label": "Allow Registration",
+      "hint": "First user will be admin, Needed for at least one user.",
+      "required": false,
+      "default": "true",
+      "env_variable": "RYOT_ALLOW_REGISTRATION"
     }
   ]
 }

@@ -7,6 +7,7 @@ services:
     environment:
       - DATABASE_URL=postgres://tipi:${RYOT_DB_PASSWORD}@ryot-db:5432/ryot
       - SERVER_INSECURE_COOKIE=true
+      - ALLOW_REGISTRATION=${RYOT_ALLOW_REGISTRATION}
     restart: unless-stopped
     ports:
       - ${APP_PORT}:8000
