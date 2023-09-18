@@ -1,0 +1,23 @@
+{
+  "$schema": "../schema.json",
+  "name": "Ryot",
+  "port": 8206,
+  "available": true,
+  "exposable": true,
+  "id": "ryot",
+  "tipi_version": 1,
+  "version": "v2.17.3",
+  "categories": ["media"],
+  "description": "Roll your own tracker!",
+  "short_desc": "Roll your own tracker!",
+  "author": "IgnisDa",
+  "source": "https://github.com/IgnisDa/ryot",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "RYOT_DB_PASSWORD",
+      "min": 32,
+      "env_variable": "RYOT_DB_PASSWORD"
+    }
+  ]
+}
