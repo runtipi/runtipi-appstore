@@ -26,6 +26,20 @@
       "required": false,
       "default": "true",
       "env_variable": "RYOT_ALLOW_REGISTRATION"
+    },
+    {
+      "type": "text",
+      "label": "Twitch Client ID",
+      "hint": "For Video Game Tracking, Read Below for more Info!",
+      "required": false,
+      "env_variable": "RYOT_VIDEO_GAMES_TWITCH_CLIENT_ID"
+    },
+    {
+      "type": "text",
+      "label": "Twitch Client Secret",
+      "hint": "For Video Game Tracking, Read Below for more Info!",
+      "required": false,
+      "env_variable": "RYOT_VIDEO_GAMES_TWITCH_CLIENT_SECRET"
     }
   ]
 }

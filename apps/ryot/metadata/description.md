@@ -1,3 +1,6 @@
+## Install Info
+
+If you want to setup Video Tracking, you need to set a Twitch Client ID and Secret. Please read the [Ryot Documentation](https://ignisda.github.io/ryot/guides/video-games.html) if you do not know how to get them
 # Ryot
 
 ### A self hosted platform for tracking various facets of your life - media, fitness etc.
