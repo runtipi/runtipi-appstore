@@ -12,7 +12,7 @@
   ],
   "description": "Send push notifications to any devices using a simple HTTP PUT or POST request.",
   "short_desc": "Ntfy, a simple server for sending and receiving notification messages.",
-  "author": "npty",
+  "author": "https://github.com/binwiederhier",
   "source": "https://github.com/binwiederhier/ntfy",
   "website": "https://ntfy.sh/"
 }
