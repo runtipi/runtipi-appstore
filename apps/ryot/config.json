@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "ryot",
-  "tipi_version": 1,
-  "version": "v2.17.3",
-  "categories": ["media"],
+  "tipi_version": 2,
+  "version": "2.17.4",
+  "categories": [
+    "media"
+  ],
   "description": "Roll your own tracker!",
   "short_desc": "Roll your own tracker!",
   "author": "IgnisDa",
