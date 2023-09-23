@@ -63,7 +63,7 @@ services:
   
   # Postgres SQL
   db:
-    image: docker.io/library/postgres:15
+    image: docker.io/library/postgres:16
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data

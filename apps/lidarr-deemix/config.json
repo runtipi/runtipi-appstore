@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "lidarr-deemix",
-  "tipi_version": 6,
-  "version": "1.5.0",
+  "tipi_version": 7,
+  "version": "1.5.1",
   "categories": [
     "media"
   ],
