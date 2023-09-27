@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 6767,
   "id": "bazarr",
-  "tipi_version": 9,
-  "version": "1.2.4",
+  "tipi_version": 10,
+  "version": "1.3.0",
   "categories": [
     "media",
     "utilities"

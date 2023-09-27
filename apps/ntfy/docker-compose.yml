@@ -1,0 +1,43 @@
+version: '3.7'
+
+services:
+  ntfy:
+    container_name: ntfy
+    image: binwiederhier/ntfy:v2.7.0
+    environment:
+      - NTFY_BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - NTFY_UPSTREAM_BASE_URL=https://ntfy.sh
+    command: serve
+    volumes:
+      - '${APP_DATA_DIR}/data/cache:/var/cache/ntfy'
+      - '${APP_DATA_DIR}/data/config:/etc/ntfy'
+    ports:
+      - ${APP_PORT}:80
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.ntfy-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.ntfy.loadbalancer.passhostheader: true
+      traefik.http.services.ntfy.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.ntfy-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.ntfy-insecure.entrypoints: web
+      traefik.http.routers.ntfy-insecure.service: ntfy
+      traefik.http.routers.ntfy-insecure.middlewares: ntfy-web-redirect
+      # Websecure
+      traefik.http.routers.ntfy.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.ntfy.entrypoints: websecure
+      traefik.http.routers.ntfy.service: ntfy
+      traefik.http.routers.ntfy.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.ntfy-local-insecure.rule: Host(`ntfy.${LOCAL_DOMAIN}`)
+      traefik.http.routers.ntfy-local-insecure.entrypoints: web
+      traefik.http.routers.ntfy-local-insecure.service: ntfy
+      traefik.http.routers.ntfy-local-insecure.middlewares: ntfy-web-redirect
+      # Local domain secure
+      traefik.http.routers.ntfy-local.rule: Host(`ntfy.${LOCAL_DOMAIN}`)
+      traefik.http.routers.ntfy-local.entrypoints: websecure
+      traefik.http.routers.ntfy-local.service: ntfy
+      traefik.http.routers.ntfy-local.tls: true
