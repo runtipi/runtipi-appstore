@@ -3,7 +3,7 @@
 Kiwix Server is a .zim compatible web server: it allows you to deliver .zim files over the HTTP protocol within your local network – be it a University or your own house. Simply start Kiwix-Serve on your machine, and your content will be available for anybody through their web browser. This allows you to view a website without having internet access.
 
 
-**Ensure that your there are .zim files in the `${APP_DATA_DIR}/zim` directory otherwise the server won't launch properly and will need to be restarted**
+**Ensure that your there are .zim files in the `${APP_DATA_DIR}/data/zim` directory otherwise the server won't launch properly and will need to be restarted**
 
 For doumentation see [the Kiwix wiki](https://wiki.kiwix.org/wiki/Kiwix-serve)
 
