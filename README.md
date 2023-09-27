@@ -97,6 +97,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Nitter](https://github.com/zedeus/nitter) - Alternative Twitter front-end
 - [NocoDB](https://github.com/nocodb/nocodb) - Open Source Airtable Alternative
 - [Node-RED](https://github.com/node-red/node-red) - Low-code programming for event-driven applications
+- [Ntfy](https://github.com/binwiederhier/ntfy) - A Straightforward Notification service that operates over HTTP
 - [Obsidian LiveSync](https://github.com/vrtmrz/self-hosted-livesync-server) - LiveSync couchdb backend for Obsidian
 - [OneDev](https://code.onedev.io/onedev/server) - Self-hosted Git Server with Kanban and CI/CD
 - [Openbooks](https://github.com/evan-buss/openbooks) - Search and Download eBooks
