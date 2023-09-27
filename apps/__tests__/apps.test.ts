@@ -33,6 +33,7 @@ const networkExceptions = [
   "gladys",
   "scrypted",
   "homebridge",
+  "cloudflared",
 ];
 const getAppConfigs = (): AppConfig[] => {
   const apps: AppConfig[] = [];

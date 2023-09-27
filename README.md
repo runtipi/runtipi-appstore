@@ -62,6 +62,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Invidious](https://github.com/iv-org/invidious) - An alternative front-end to YouTube
 - [Jackett](https://github.com/Jackett/Jackett) - API Support for your favorite torrent trackers
 - [Jellyfin](https://github.com/jellyfin/jellyfin) - A media server for your home collection
+- [Jellyfin Vue (Beta)](https://github.com/jellyfin/jellyfin-vue) - A modern web client for Jellyfin based on Vue
 - [Jellyseerr](https://github.com/Fallenbagel/jellyseerr) - Fork of overseerr for Jellyfin support
 - [Joplin](https://github.com/laurent22/joplin) - Privacy focused note-taking app
 - [Kanboard](https://github.com/kanboard/kanboard) - Kanboard is a free and open source Kanban project management software.
@@ -97,6 +98,8 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Nitter](https://github.com/zedeus/nitter) - Alternative Twitter front-end
 - [NocoDB](https://github.com/nocodb/nocodb) - Open Source Airtable Alternative
 - [Node-RED](https://github.com/node-red/node-red) - Low-code programming for event-driven applications
+- [NoteMark](https://github.com/enchant97/note-mark/) - Note Mark is a lighting fast and minimal web-based Markdown notes app.
+- [Ntfy](https://github.com/binwiederhier/ntfy) - A Straightforward Notification service that operates over HTTP
 - [Obsidian LiveSync](https://github.com/vrtmrz/self-hosted-livesync-server) - LiveSync couchdb backend for Obsidian
 - [OneDev](https://code.onedev.io/onedev/server) - Self-hosted Git Server with Kanban and CI/CD
 - [Openbooks](https://github.com/evan-buss/openbooks) - Search and Download eBooks
