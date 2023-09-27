@@ -1,0 +1,17 @@
+{
+  "$schema": "../schema.json",
+  "name": "Cloudflared",
+  "port": 14333,
+  "available": true,
+  "exposable": false,
+  "id": "cloudflared",
+  "tipi_version": 1,
+  "version": "2023.8.2",
+  "categories": ["utilities"],
+  "description": "Cloudflared-web is a docker image that packages both cloudflared cli and a no-frills Web UI for easy starting/stopping of cloudflare tunnel.",
+  "short_desc": "Cloudflare Tunnels in a Web UI",
+  "author": "WisdomSky",
+  "source": "https://github.com/WisdomSky/Cloudflared-web",
+  "form_fields": [
+  ]
+}
