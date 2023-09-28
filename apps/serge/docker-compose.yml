@@ -9,8 +9,8 @@ services:
     networks:
       - tipi_main_network
     volumes:
-      - ${APP_DATA_DIR}/weights:/usr/src/app/weights
-      - ${APP_DATA_DIR}/datadb:/data/db/
+      - ${APP_DATA_DIR}/data/weights:/usr/src/app/weights
+      - ${APP_DATA_DIR}/data/db:/data/db/
     labels:
       # Main
       traefik.enable: true
