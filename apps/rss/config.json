@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "rss",
-  "tipi_version": 5,
-  "version": "1.4.1",
+  "tipi_version": 6,
+  "version": "1.4.2",
   "categories": [
     "utilities",
     "media"
