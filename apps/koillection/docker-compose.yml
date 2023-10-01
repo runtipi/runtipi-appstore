@@ -21,6 +21,13 @@ services:
             - CORS_ALLOW_ORIGIN='^https?://(localhost|127\.0\.0\.1)(:[0-9]+)?$'
             - JWT_SECRET_KEY=%kernel.project_dir%/config/jwt/private.pem
             - JWT_PUBLIC_KEY=%kernel.project_dir%/config/jwt/public.pem
+            - DB_DRIVER=pdo_pgsql
+            - DB_NAME=koillection
+            - DB_HOST=db
+            - DB_PORT=5432
+            - DB_USER=root
+            - DB_PASSWORD=root
+            - DB_VERSION=15
         networks:
             - koillection
             - tipi_main_network
@@ -55,13 +62,6 @@ services:
         container_name: db
         restart: unless-stopped
         environment:
-            - DB_DRIVER=pdo_pgsql
-            - DB_NAME=koillection
-            - DB_HOST=db
-            - DB_PORT=5432
-            - DB_USER=root
-            - DB_PASSWORD=root
-            - DB_VERSION=15
             - POSTGRES_DB=koillection
             - POSTGRES_USER=root
             - POSTGRES_PASSWORD=root
