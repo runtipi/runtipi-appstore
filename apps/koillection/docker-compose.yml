@@ -1,0 +1,78 @@
+version: '3'
+
+services:
+    koillection:
+        image: koillection/koillection:1.4.11
+        container_name: koillection
+        restart: unless-stopped
+        ports:
+            - ${APP_PORT}:80
+        env_file:
+            - .env
+        depends_on:
+            - db
+        volumes:
+            - ${APP_DATA_DIR}/data/volumes/koillection/uploads:/uploads
+        environment:
+            - APP_DEBUG=0
+            - APP_ENV=prod
+            - HTTPS_ENABLED=1
+            - UPLOAD_MAX_FILESIZE=20M
+            - PHP_MEMORY_LIMIT=512M
+            - PHP_TZ=${TZ}
+            - CORS_ALLOW_ORIGIN='^https?://(localhost|127\.0\.0\.1)(:[0-9]+)?$'
+            - JWT_SECRET_KEY=%kernel.project_dir%/config/jwt/private.pem
+            - JWT_PUBLIC_KEY=%kernel.project_dir%/config/jwt/public.pem
+        networks:
+            - koillection
+            - tipi_main_network
+        labels:
+              # Main
+              traefik.enable: true
+              traefik.http.middlewares.koillection-web-redirect.redirectscheme.scheme: https
+              traefik.http.services.koillection.loadbalancer.server.port: 8080
+              # Web
+              traefik.http.routers.koillection-insecure.rule: Host(`${APP_DOMAIN}`)
+              traefik.http.routers.koillection-insecure.entrypoints: web
+              traefik.http.routers.koillection-insecure.service: koillection
+              traefik.http.routers.koillection-insecure.middlewares: koillection-web-redirect
+              # Websecure
+              traefik.http.routers.koillection.rule: Host(`${APP_DOMAIN}`)
+              traefik.http.routers.koillection.entrypoints: websecure
+              traefik.http.routers.koillection.service: koillection
+              traefik.http.routers.koillection.tls.certresolver: myresolver
+              # Local domain
+              traefik.http.routers.koillection-local-insecure.rule: Host(`koillection.${LOCAL_DOMAIN}`)
+              traefik.http.routers.koillection-local-insecure.entrypoints: web
+              traefik.http.routers.koillection-local-insecure.service: koillection
+              traefik.http.routers.koillection-local-insecure.middlewares: koillection-web-redirect
+              # Local domain secure
+              traefik.http.routers.koillection-local.rule: Host(`koillection.${LOCAL_DOMAIN}`)
+              traefik.http.routers.koillection-local.entrypoints: websecure
+              traefik.http.routers.koillection-local.service: koillection
+              traefik.http.routers.koillection-local.tls: true
+
+    db:
+        image: postgres:15
+        container_name: db
+        restart: unless-stopped
+        env_file:
+            - .env
+        environment:
+            - POSTGRES_DB=${DB_NAME}
+            - POSTGRES_USER=${DB_USER}
+            - POSTGRES_PASSWORD=${DB_PASSWORD}
+            - DB_DRIVER=pdo_pgsql
+            - DB_NAME=koillection
+            - DB_HOST=db
+            - DB_PORT=5432
+            - DB_USER=root
+            - DB_PASSWORD=root
+            - DB_VERSION=15
+        volumes:
+            - ${APP_DATA_DIR}/data/volumes/postgresql:/var/lib/postgresql/data
+        networks:
+            - koillection
+networks:
+    koillection:
+        driver: bridge

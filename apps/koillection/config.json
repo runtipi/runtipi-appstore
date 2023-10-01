@@ -1,0 +1,16 @@
+{
+    "name": "Koillection",
+    "available": true,
+    "port": 8050,
+    "exposable": true,
+    "id": "koillection",
+    "description": "Koillection is a self-hosted service allowing users to manage any kind of collections.", 
+    "tipi_version": 1,
+    "version": "1.4.11",
+    "categories": ["utilities"], 
+    "short_desc": "Koillection allow you to manage any kind of collections.",
+    "author": "https://github.com/benjaminjonard", 
+    "source": "https://github.com/benjaminjonard/koillection",
+    "website": "https://koillection.github.io/",
+    "form_fields": []  
+}
