@@ -1,0 +1,16 @@
+{
+  "$schema": "../schema.json",
+  "name": "Serge",
+  "available": true,
+  "exposable": true,
+  "port": 8008,
+  "id": "serge",
+  "tipi_version": 1,
+  "version": "0.4.1",
+  "categories": ["ai"],
+  "description": "",
+  "short_desc": "LLaMA made easy",
+  "author": "nsarrazin",
+  "source": "https://github.com/serge-chat/serge",
+  "form_fields": []
+}

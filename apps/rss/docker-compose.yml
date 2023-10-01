@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   rss:
-    image: ghcr.io/ssddanbrown/rss:v1.4.0
+    image: ghcr.io/ssddanbrown/rss:v1.4.2
     container_name: rss
     environment:
       - APP_NAME=Tipi-RSS

@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "pairdrop",
-  "tipi_version": 11,
-  "version": "1.8.0",
+  "tipi_version": 13,
+  "version": "1.8.2",
   "categories": [
     "media",
     "data",
