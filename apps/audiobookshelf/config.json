@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 13378,
   "id": "audiobookshelf",
-  "tipi_version": 5,
-  "version": "2.4.3",
+  "tipi_version": 6,
+  "version": "2.4.4",
   "categories": [
     "books",
     "media"
