@@ -62,9 +62,9 @@ services:
             - DB_USER=root
             - DB_PASSWORD=root
             - DB_VERSION=15
-            - POSTGRES_DB=${DB_NAME}
-            - POSTGRES_USER=${DB_USER}
-            - POSTGRES_PASSWORD=${DB_PASSWORD}
+            - POSTGRES_DB=koillection
+            - POSTGRES_USER=root
+            - POSTGRES_PASSWORD=root
             
         volumes:
             - ${APP_DATA_DIR}/data/volumes/postgresql:/var/lib/postgresql/data
