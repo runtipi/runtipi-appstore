@@ -8,7 +8,7 @@
   "generate_vapid_keys": true,
   "supported_architectures": ["amd64"],
   "id": "revolt",
-  "tipi_version": 9,
+  "tipi_version": 10,
   "version": "20230810-3",
   "categories": ["media"],
   "description": "Open source user-first chat platform.",
@@ -98,6 +98,14 @@
       "min": 16,
       "max": 16,
       "env_variable": "REVOLT_MANAGE_TOKEN"
+    },
+    {
+      "type": "text",
+      "label": "Vortex Voice Server IP",
+      "hint": "Your Voice Server Public IP (1.1.1.1)",
+      "placeholder": "1.1.1.1",
+      "required": true,
+      "env_variable": "REVOLT_VORTEX_IP"
     }
   ]
 }

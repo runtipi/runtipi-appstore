@@ -441,7 +441,7 @@ services:
     - MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
     - VOSO_MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
     - VOSO_PUBLIC_URL=https://${REVOLT_VORTEX_URL}
-    - RTC_IPS=${INTERNAL_IP}
+    - RTC_IPS=${REVOLT_VORTEX_IP}
     - VOSO_WS_HOST=wss://${REVOLT_VORTEX_URL}
     - MONGODB=mongodb://revolt-database
     - REDIS_URI=redis://revolt-redis/
