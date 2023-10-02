@@ -409,6 +409,7 @@ services:
       traefik.http.services.revolt.loadbalancer.server.port: 80
   revolt-voso:
     image: revoltchat/vortex:0.3.0-alpha.1
+    container_name: revolt-voso
     restart: unless-stopped
     ports:
       - "8275:8080"
@@ -430,5 +431,6 @@ services:
     - MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
     - VOSO_MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
     - VOSO_PUBLIC_URL=https://${REVOLT_VORTEX_URL}
+    - RTC_IPS=${INTERNAL_IP}
 
 
