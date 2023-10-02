@@ -38,6 +38,7 @@ services:
       - MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
       - VOSO_MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
       - VOSO_PUBLIC_URL=https://${REVOLT_VORTEX_URL}
+      - VOSO_WS_HOST=wss://${REVOLT_VORTEX_URL}
 
   # Redis server
   revolt-redis:
@@ -74,6 +75,7 @@ services:
       - MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
       - VOSO_MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
       - VOSO_PUBLIC_URL=https://${REVOLT_VORTEX_URL}
+      - VOSO_WS_HOST=wss://${REVOLT_VORTEX_URL}
 
   # S3-compatible storage server
   revolt-minio:
@@ -113,6 +115,7 @@ services:
       - MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
       - VOSO_MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
       - VOSO_PUBLIC_URL=https://${REVOLT_VORTEX_URL}
+      - VOSO_WS_HOST=wss://${REVOLT_VORTEX_URL}
   # Web App (revite)
   revolt-web:
     image: ghcr.io/revoltchat/client:master
@@ -148,6 +151,7 @@ services:
       - MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
       - VOSO_MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
       - VOSO_PUBLIC_URL=https://${REVOLT_VORTEX_URL}
+      - VOSO_WS_HOST=wss://${REVOLT_VORTEX_URL}
 
   # API server (delta)
   revolt-api:
@@ -188,6 +192,7 @@ services:
       - MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
       - VOSO_MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
       - VOSO_PUBLIC_URL=https://${REVOLT_VORTEX_URL}
+      - VOSO_WS_HOST=wss://${REVOLT_VORTEX_URL}
 
   # Events service (quark)
   revolt-events:
@@ -228,6 +233,7 @@ services:
       - MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
       - VOSO_MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
       - VOSO_PUBLIC_URL=https://${REVOLT_VORTEX_URL}
+      - VOSO_WS_HOST=wss://${REVOLT_VORTEX_URL}
 
   # File server (autumn)
   revolt-autumn:
@@ -271,6 +277,7 @@ services:
       - MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
       - VOSO_MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
       - VOSO_PUBLIC_URL=https://${REVOLT_VORTEX_URL}
+      - VOSO_WS_HOST=wss://${REVOLT_VORTEX_URL}
 
   # Metadata and image proxy (january)
   revolt-january:
@@ -309,6 +316,7 @@ services:
       - MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
       - VOSO_MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
       - VOSO_PUBLIC_URL=https://${REVOLT_VORTEX_URL}
+      - VOSO_WS_HOST=wss://${REVOLT_VORTEX_URL}
 
   # Create buckets for minio.
   revolt-createbuckets:
@@ -358,6 +366,7 @@ services:
       - MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
       - VOSO_MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
       - VOSO_PUBLIC_URL=https://${REVOLT_VORTEX_URL}
+      - VOSO_WS_HOST=wss://${REVOLT_VORTEX_URL}
 
   revolt:
     image: caddy
@@ -391,6 +400,7 @@ services:
       - MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
       - VOSO_MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
       - VOSO_PUBLIC_URL=https://${REVOLT_VORTEX_URL}
+      - VOSO_WS_HOST=wss://${REVOLT_VORTEX_URL}
     ports:
       - "${APP_PORT}:80"
       - "8273:443"
@@ -432,5 +442,30 @@ services:
     - VOSO_MANAGE_TOKEN=${REVOLT_MANAGE_TOKEN}
     - VOSO_PUBLIC_URL=https://${REVOLT_VORTEX_URL}
     - RTC_IPS=${INTERNAL_IP}
+    - VOSO_WS_HOST=wss://${REVOLT_VORTEX_URL}
+    - MONGODB=mongodb://revolt-database
+    - REDIS_URI=redis://revolt-redis/
+    - HOSTNAME=:80
+    - REVOLT_APP_URL=https://${APP_DOMAIN}
+    - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+    - VITE_API_URL=https://${APP_DOMAIN}/api
+    - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+    - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+    - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+    - REVOLT_UNSAFE_NO_CAPTCHA=1
+    - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+    - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+    - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+    - REVOLT_SMTP_FROM=${REVOLT_SMTP_FROM}
+    - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+    - REVOLT_MAX_GROUP_SIZE=150
+    - REVOLT_VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
+    - REVOLT_VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
+    - AUTUMN_S3_REGION=minio
+    - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+    - MINIO_ROOT_USER=minioautumn
+    - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+    - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+    - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
 
 

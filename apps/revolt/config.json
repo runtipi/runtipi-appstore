@@ -8,7 +8,7 @@
   "generate_vapid_keys": true,
   "supported_architectures": ["amd64"],
   "id": "revolt",
-  "tipi_version": 8,
+  "tipi_version": 9,
   "version": "20230810-3",
   "categories": ["media"],
   "description": "Open source user-first chat platform.",
