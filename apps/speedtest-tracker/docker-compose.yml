@@ -5,8 +5,8 @@ services:
     image: ghcr.io/alexjustesen/speedtest-tracker:v0.13.1
     container_name: speedtest-tracker
     environment:
-      - PUID=${TIPI_UID}
-      - PGID=${TIPI_GID}
+      - PUID=1000
+      - PGID=1000
       - DB_CONNECTION=pgsql
       - DB_HOST=speedtest-tracker-db
       - DB_PORT=5432
