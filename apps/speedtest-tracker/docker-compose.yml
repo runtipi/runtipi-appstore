@@ -14,7 +14,6 @@ services:
       - DB_USERNAME=tipi
       - DB_PASSWORD=${SPEEDTEST_TRACKER_DB_PASSWORD}
       - TZ=${TZ}
-      - FORCE_HTTPS=true
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/speedtest-tracker/config:/config
@@ -30,8 +29,8 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.speedtest-tracker-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.speedtest-tracker.loadbalancer.server.port: 443
-      traefik.http.services.speedtest-tracker.loadbalancer.serverstransport: insecuretransport@file
+      traefik.http.services.speedtest-tracker.loadbalancer.server.port: 80
+      #traefik.http.services.speedtest-tracker.loadbalancer.serverstransport: insecuretransport@file
       # Web
       traefik.http.routers.speedtest-tracker-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.speedtest-tracker-insecure.entrypoints: web
