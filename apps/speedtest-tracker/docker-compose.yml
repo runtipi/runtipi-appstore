@@ -31,6 +31,7 @@ services:
       traefik.enable: true
       traefik.http.middlewares.speedtest-tracker-web-redirect.redirectscheme.scheme: https
       traefik.http.services.speedtest-tracker.loadbalancer.server.port: 443
+      traefik.http.services.speedtest-tracker.loadbalancer.serverstransport: insecuretransport@file
       # Web
       traefik.http.routers.speedtest-tracker-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.speedtest-tracker-insecure.entrypoints: web
