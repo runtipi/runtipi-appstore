@@ -131,6 +131,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Serge](https://github.com/serge-chat/serge) -  A web interface for chatting with Alpaca through llama.cpp.
 - [SimpleX SMP](https://github.com/simplex-chat/simplexmq) - A reference implementation of the SimpleX Messaging Protocol for simplex queues over public networks.
 - [Sonarr](https://github.com/Sonarr/Sonarr) - TV show manager for Usenet and BitTorrent
+- [Speedtest Tracker](https://github.com/alexjustesen/speedtest-tracker) - Internet performance tracking application.
 - [Sshwifty](https://github.com/nirui/sshwifty/) - Web SSH & Telnet (WebSSH & WebTelnet client)
 - [Stirling-PDF](https://github.com/Frooodle/Stirling-PDF) - Locally hosted web application that allows you to perform various operations on PDF files.
 - [Syncthing](https://github.com/syncthing/syncthing) - Continuous File Synchronization
