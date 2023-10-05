@@ -11,11 +11,10 @@
     "data"
   ],
   "description": "A web-based MongoDB admin interface written with Node.js, Express, and Bootstrap3",
-  "tipi_version": 2,
+  "tipi_version": 1,
   "version": "1.0.0",
   "source": "https://github.com/mongo-express/mongo-express",
   "website": "https://www.mongodb.com/",
-  "exposable": true,
   "no_gui": true,
   "form_fields": [
     {
