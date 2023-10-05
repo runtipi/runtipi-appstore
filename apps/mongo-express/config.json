@@ -5,7 +5,7 @@
   "available": true,
   "short_desc": "Web-based MongoDB admin interface, written with Node.js and Express",
   "author": "MongoDB",
-  "port": 8208,
+  "port": 8087,
   "categories": [
     "development",
     "data"
@@ -16,12 +16,13 @@
   "source": "https://github.com/mongo-express/mongo-express",
   "website": "https://www.mongodb.com/",
   "exposable": true,
+  "no_gui": true,
   "form_fields": [
     {
       "type": "text",
       "label": "MongoDB Admin Username",
       "max": 50,
-      "min": 10,
+      "min": 3,
       "required": true,
       "env_variable": "ME_CONFIG_MONGODB_ADMINUSERNAME"
     },
@@ -37,7 +38,7 @@
         "type": "text",
         "label": "Mongo Express Web Username",
         "max": 50,
-        "min": 10,
+        "min": 3,
         "required": true,
         "env_variable": "ME_CONFIG_BASICAUTH_USERNAME"
     },
