@@ -1,7 +1,7 @@
 version: "3.8"
 services:
-  mongodb:
-    container_name: mongodb
+  mongo:
+    container_name: mongo
     image: mongo:7.0.2
     restart: unless-stopped
     ports:
@@ -14,25 +14,25 @@ services:
     labels:
       # Main
       traefik.enable: true
-      traefik.http.middlewares.mongodb-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.mongodb.loadbalancer.server.port: 27017
+      traefik.http.middlewares.mongo-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.mongo.loadbalancer.server.port: 27017
       # Web
-      traefik.http.routers.mongodb-insecure.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.mongodb-insecure.entrypoints: web
-      traefik.http.routers.mongodb-insecure.service: mongodb
-      traefik.http.routers.mongodb-insecure.middlewares: mongodb-web-redirect
+      traefik.http.routers.mongo-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mongo-insecure.entrypoints: web
+      traefik.http.routers.mongo-insecure.service: mongo
+      traefik.http.routers.mongo-insecure.middlewares: mongo-web-redirect
       # Websecure
-      traefik.http.routers.mongodb.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.mongodb.entrypoints: websecure
-      traefik.http.routers.mongodb.service: mongodb
-      traefik.http.routers.mongodb.tls.certresolver: myresolver
+      traefik.http.routers.mongo.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mongo.entrypoints: websecure
+      traefik.http.routers.mongo.service: mongo
+      traefik.http.routers.mongo.tls.certresolver: myresolver
       # Local domain
-      traefik.http.routers.mongodb-local-insecure.rule: Host(`mongodb.${LOCAL_DOMAIN}`)
-      traefik.http.routers.mongodb-local-insecure.entrypoints: web
-      traefik.http.routers.mongodb-local-insecure.service: mongodb
-      traefik.http.routers.mongodb-local-insecure.middlewares: mongodb-web-redirect
+      traefik.http.routers.mongo-local-insecure.rule: Host(`mongo.${LOCAL_DOMAIN}`)
+      traefik.http.routers.mongo-local-insecure.entrypoints: web
+      traefik.http.routers.mongo-local-insecure.service: mongo
+      traefik.http.routers.mongo-local-insecure.middlewares: mongo-web-redirect
       # Local domain secure
-      traefik.http.routers.mongodb-local.rule: Host(`mongodb.${LOCAL_DOMAIN}`)
-      traefik.http.routers.mongodb-local.entrypoints: websecure
-      traefik.http.routers.mongodb-local.service: mongodb
-      traefik.http.routers.mongodb-local.tls: true
+      traefik.http.routers.mongo-local.rule: Host(`mongo.${LOCAL_DOMAIN}`)
+      traefik.http.routers.mongo-local.entrypoints: websecure
+      traefik.http.routers.mongo-local.service: mongo
+      traefik.http.routers.mongo-local.tls: true

@@ -19,7 +19,7 @@
   "form_fields": [
     {
         "type": "text",
-        "label": "Username",
+        "label": "Admin Username",
         "max": 50,
         "min": 3,
         "required": true,
@@ -27,7 +27,7 @@
     },
     {
         "type": "password",
-        "label": "Password",
+        "label": "Admin Password",
         "max": 50,
         "min": 10,
         "required": true,
