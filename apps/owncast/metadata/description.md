@@ -4,7 +4,7 @@
 ### Setting Up an Exposed Instance with SSL Certs
 As Owncast uses the RTMP protocol for ingesting incoming streams, the typical Cloudflare Zero Access configuration will not work as it does not have RTMP as an option for routing. 
 
-You can optionally follow [this guide](https://gist.github.com/HeyOsco/6e8102d7d82ffaeaae16f41bef98b739) for setting up an exposed Owncast server with your RunTipi instance. 
+You can optionally follow [this guide](https://gist.github.com/oscoDOTblog/6e8102d7d82ffaeaae16f41bef98b739) for setting up an exposed Owncast server with your RunTipi instance. 
 
 ### Admin Dashboard Access
 
