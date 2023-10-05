@@ -1,7 +1,7 @@
 {
   "$schema": "../schema.json",
   "name": "MongoDB",
-  "id": "mongodb",
+  "id": "mongo",
   "available": true,
   "short_desc": "MongoDB is an open-source NoSQL database",
   "author": "MongoDB",
