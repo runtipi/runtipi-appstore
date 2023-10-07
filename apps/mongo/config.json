@@ -1,0 +1,38 @@
+{
+  "$schema": "../schema.json",
+  "name": "MongoDB",
+  "id": "mongo",
+  "available": true,
+  "short_desc": "MongoDB is an open-source NoSQL database",
+  "author": "MongoDB",
+  "port": 27017,
+  "categories": [
+    "development",
+    "data"
+  ],
+  "description": "MongoDB is an open-source document-oriented database that is designed to store a large scale of data and also allows you to work with that data very efficiently. It is categorized under the NoSQL (Not only SQL) database because the storage and retrieval of data in the MongoDB are not in the form of tables.",
+  "tipi_version": 1,
+  "version": "7.0.2",
+  "source": "https://github.com/mongodb/mongo",
+  "website": "https://www.mongodb.com/",
+  "exposable": true,
+  "no_gui": true,
+  "form_fields": [
+    {
+        "type": "text",
+        "label": "Admin Username",
+        "max": 50,
+        "min": 3,
+        "required": true,
+        "env_variable": "MONGO_INITDB_ROOT_USERNAME"
+    },
+    {
+        "type": "password",
+        "label": "Admin Password",
+        "max": 50,
+        "min": 10,
+        "required": true,
+        "env_variable": "MONGO_INITDB_ROOT_PASSWORD"
+    }
+  ]
+}

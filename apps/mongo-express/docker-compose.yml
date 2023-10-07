@@ -1,0 +1,42 @@
+version: "3.8"
+services:
+  mongo-express:
+    container_name: mongo-express
+    image: mongo-express:1.0.0
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:8081
+    networks:
+      - tipi_main_network
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=${ME_CONFIG_MONGODB_ADMINUSERNAME}
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=${ME_CONFIG_MONGODB_ADMINPASSWORD}
+      - ME_CONFIG_BASICAUTH_USERNAME=${ME_CONFIG_BASICAUTH_USERNAME}
+      - ME_CONFIG_BASICAUTH_PASSWORD=${ME_CONFIG_BASICAUTH_PASSWORD}
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.mongo-express-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.mongo-express.loadbalancer.server.port: 8081
+      # Web
+      traefik.http.routers.mongo-express-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mongo-express-insecure.entrypoints: web
+      traefik.http.routers.mongo-express-insecure.service: mongo-express
+      traefik.http.routers.mongo-express-insecure.middlewares: mongo-express-web-redirect
+      # Websecure
+      traefik.http.routers.mongo-express.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mongo-express.entrypoints: websecure
+      traefik.http.routers.mongo-express.service: mongo-express
+      traefik.http.routers.mongo-express.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.mongo-express-local-insecure.rule: Host(`mongo-express.${LOCAL_DOMAIN}`)
+      traefik.http.routers.mongo-express-local-insecure.entrypoints: web
+      traefik.http.routers.mongo-express-local-insecure.service: mongo-express
+      traefik.http.routers.mongo-express-local-insecure.middlewares: mongo-express-web-redirect
+      # Local domain secure
+      traefik.http.routers.mongo-express-local.rule: Host(`mongo-express.${LOCAL_DOMAIN}`)
+      traefik.http.routers.mongo-express-local.entrypoints: websecure
+      traefik.http.routers.mongo-express-local.service: mongo-express
+      traefik.http.routers.mongo-express-local.tls: true
