@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8131,
   "id": "lidarr",
-  "tipi_version": 5,
-  "version": "1.3.5",
+  "tipi_version": 6,
+  "version": "1.4.5",
   "categories": [
     "media",
     "music"
