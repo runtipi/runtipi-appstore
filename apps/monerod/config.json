@@ -6,9 +6,11 @@
   "no_gui": true,
   "port": 18080,
   "id": "monerod",
-  "tipi_version": 7,
-  "version": "0.18.2.2",
-  "categories": ["finance"],
+  "tipi_version": 8,
+  "version": "0.18.3.1",
+  "categories": [
+    "finance"
+  ],
   "description": "A device on the Internet running the Monero software, with a full copy of the Monero blockchain, actively assisting the Monero network. This is a simple and straightforward Dockerized monerod built from source and exposing standard ports. Please note that running this requires >50GB of free disk space and is best run on solid-state (SSD) storage.",
   "short_desc": "Monero is a private, decentralized cryptocurrency that keeps your finances confidential and secure.",
   "author": "sethforprivacy",
