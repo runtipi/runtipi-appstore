@@ -10,6 +10,8 @@ services:
       - SYS_ADMIN
     security_opt:
       - apparmor:unconfined
+    ports:
+      - ${APP_PORT}:19999
     volumes:
       - ${APP_DATA_DIR}/data/config:/etc/netdata
       - ${APP_DATA_DIR}/data/lib:/var/lib/netdata
