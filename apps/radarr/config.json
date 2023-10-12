@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8088,
   "id": "radarr",
-  "tipi_version": 9,
-  "version": "4.7.5",
+  "tipi_version": 10,
+  "version": "5.0.3",
   "categories": [
     "media",
     "utilities"
