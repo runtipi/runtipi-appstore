@@ -2,6 +2,8 @@ ViewTube is an alternative YouTube frontend that lets you watch, search and disc
 
 You can find the documentation at [viewtube.wiki](https://viewtube.wiki) 
 
+**Warning! MongoDB version 4.4.18 will be used for arm64 devices like the raspberry pi!**
+
 ## Features
 
 -   Watch videos without ads or tracking
