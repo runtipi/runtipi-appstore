@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   ryot:
-    image: ghcr.io/ignisda/ryot:v2.24.1
+    image: ghcr.io/ignisda/ryot:v2.24.2
     container_name: ryot
     environment:
       - DATABASE_URL=postgres://tipi:${RYOT_DB_PASSWORD}@ryot-db:5432/ryot
