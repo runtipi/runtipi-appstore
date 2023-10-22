@@ -9,7 +9,7 @@ services:
     ports:
       - 8003:80
     volumes:
-      - ${APP_DATA_DIR}/public:/opt/kimai/public:ro
+      - ${APP_DATA_DIR}/data/public:/opt/kimai/public:ro
     restart: unless-stopped
     depends_on:
       - kimai
@@ -49,15 +49,15 @@ services:
 
   kimai:
     container_name: kimai
-    image: kimai/kimai2:fpm-2.0.35-prod
+    image: kimai/kimai2:fpm-2.1.0-prod
     environment:
       - ADMINMAIL=${KIMAI_ADMINMAIL}
       - ADMINPASS=${KIMAI_ADMINPASS}
       - "DATABASE_URL=mysql://kimai:${KIMAI_DATABASE_PASSWORD}@kimai-sqldb/kimai?charset=utf8&serverVersion=5.7"
       - TRUSTED_HOSTS=kimai-proxy,localhost,127.0.0.1
     volumes:
-      - ${APP_DATA_DIR}/public:/opt/kimai/public
-      - ${APP_DATA_DIR}/var:/opt/kimai/var
+      - ${APP_DATA_DIR}/data/public:/opt/kimai/public
+      - ${APP_DATA_DIR}/data/var:/opt/kimai/var
       # - ./ldap.conf:/etc/openldap/ldap.conf:z
       # - ./ROOT-CA.pem:/etc/ssl/certs/ROOT-CA.pem:z
     restart: unless-stopped
