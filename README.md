@@ -67,6 +67,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Joplin](https://github.com/laurent22/joplin) - Privacy focused note-taking app
 - [Kanboard](https://github.com/kanboard/kanboard) - Kanboard is a free and open source Kanban project management software.
 - [Kapowarr](https://github.com/Casvt/Kapowarr) - Kapowarr is a software to build and manage a comic book library, fitting in the \*arr suite of software.
+- [Kasm Workspaces](https://github.com/kasmtech) - Kasm Workspaces is a docker container streaming platform for delivering browser-based access to desktops, applications, and web services
 - [Kavita](https://github.com/Kareadita/Kavita) - Kavita is a fast, feature rich, cross platform reading server
 - [Libreddit](https://github.com/spikecodes/libreddit) - Private front-end for Reddit
 - [LibrePhotos](https://github.com/LibrePhotos/librephotos) - Complete photo management service
