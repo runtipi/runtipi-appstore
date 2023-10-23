@@ -37,7 +37,7 @@ services:
       traefik.http.routers.notemark-local.tls: true
 
   notemark-backend:
-    image: ghcr.io/enchant97/note-mark-backend:0.7.0
+    image: ghcr.io/enchant97/note-mark-backend:0.8.0
     container_name: notemark-backend
     restart: unless-stopped
     networks:
