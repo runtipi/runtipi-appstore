@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "ghostfolio",
-  "tipi_version": 10,
-  "version": "2.12.0",
+  "tipi_version": 11,
+  "version": "2.14.0",
   "categories": [
     "finance"
   ],
