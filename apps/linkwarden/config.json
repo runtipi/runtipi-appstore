@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "linkwarden",
-  "tipi_version": 2,
-  "version": "v1.2.0",
-  "categories": ["data"],
+  "tipi_version": 3,
+  "version": "1.2.5",
+  "categories": [
+    "data"
+  ],
   "description": "A self-hosted, open-source collaborative bookmark manager to collect, organize and archive webpages.",
   "short_desc": "A self-hosted, open-source collaborative bookmark manager",
   "author": "Linkwarden",
