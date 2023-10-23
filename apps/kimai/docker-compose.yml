@@ -7,7 +7,7 @@ services:
     container_name: kimai-proxy
     image: tobybatch/nginx-fpm-reverse-proxy:latest
     ports:
-      - 8003:80
+      - ${APP_PORT}:80
     volumes:
       - ${APP_DATA_DIR}/data/public:/opt/kimai/public:ro
     restart: unless-stopped
