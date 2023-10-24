@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8133,
   "id": "qbittorrent",
-  "tipi_version": 8,
-  "version": "4.5.5",
+  "tipi_version": 9,
+  "version": "4.6.0",
   "categories": [
     "utilities"
   ],
