@@ -1,17 +1,22 @@
 {
-    "name": "Kasm Workspaces",
-    "available": true,
-    "port": 8744,
-    "exposable": true, 
-    "id": "kasm-workspaces", 
-    "description": "Kasm Workspaces is a docker container streaming platform for delivering browser-based access to desktops, applications, and web services.", 
-    "tipi_version": 1, 
-    "version": "1.14.0", 
-    "categories": ["utilities"], 
-    "short_desc": "Container streaming platform.",
-    "author": "Kasm",
-    "source": "https://github.com/kasmtech",
-    "website": "https://www.kasmweb.com/",
-    "form_fields": [],
-    "supported_architectures": ["arm64", "amd64"]
-  }
+  "name": "Kasm Workspaces",
+  "available": true,
+  "port": 8744,
+  "exposable": true,
+  "id": "kasm-workspaces",
+  "description": "Kasm Workspaces is a docker container streaming platform for delivering browser-based access to desktops, applications, and web services.",
+  "tipi_version": 2,
+  "version": "1.120.20221218",
+  "categories": [
+    "utilities"
+  ],
+  "short_desc": "Container streaming platform.",
+  "author": "Kasm",
+  "source": "https://github.com/kasmtech",
+  "website": "https://www.kasmweb.com/",
+  "form_fields": [],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}
