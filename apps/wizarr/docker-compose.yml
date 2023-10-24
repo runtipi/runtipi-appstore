@@ -3,15 +3,11 @@ version: "3.8"
 services:
   wizarr:
     container_name: wizarr
-    image: ghcr.io/wizarrrr/wizarr:2.2.0
+    image: ghcr.io/wizarrrr/wizarr:latest
     ports:
       - ${APP_PORT}:5690
     volumes:
       - ${APP_DATA_DIR}/data/database:/data/database
-    environment:
-      - APP_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
-      - DISABLE_BUILTIN_AUTH=false #Set to true ONLY if you are using another auth provider (Authelia, Authentik, etc)
-      - TZ=${TZ}
     networks:
       - tipi_main_network
     labels:
