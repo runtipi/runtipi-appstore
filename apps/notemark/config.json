@@ -6,7 +6,7 @@
   "port": 8567,
   "id": "notemark",
   "tipi_version": 3,
-  "version": "alpine",
+  "version": "0.8.0",
   "categories": [
     "utilities"
   ],
