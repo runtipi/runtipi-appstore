@@ -49,7 +49,7 @@ services:
       CORS_ORIGINS: "*"
 
   notemark:
-    image: ghcr.io/enchant97/note-mark-frontend:0.7.0
+    image: ghcr.io/enchant97/note-mark-frontend:0.8.0
     container_name: notemark
     restart: unless-stopped
     networks:
