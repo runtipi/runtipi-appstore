@@ -1,0 +1,86 @@
+# Adapted from https://github.com/tobybatch/kimai2/blob/799a534b8d93d18a2d10573457936a31052ce8e0/compose/docker-compose.fpm.prod.yml
+
+version: "3.5"
+
+services:
+  nginx:
+    container_name: kimai-proxy
+    image: tobybatch/nginx-fpm-reverse-proxy:latest
+    ports:
+      - ${APP_PORT}:80
+    volumes:
+      - ${APP_DATA_DIR}/data/public:/opt/kimai/public:ro
+    restart: unless-stopped
+    depends_on:
+      - kimai
+    healthcheck:
+      test: wget --spider http://kimai-proxy/health || exit 1
+      interval: 20s
+      start_period: 10s
+      timeout: 10s
+      retries: 3
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.kimai-proxy-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.kimai-proxy.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.kimai-proxy-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.kimai-proxy-insecure.entrypoints: web
+      traefik.http.routers.kimai-proxy-insecure.service: kimai-proxy
+      traefik.http.routers.kimai-proxy-insecure.middlewares: kimai-proxy-web-redirect
+      # Websecure
+      traefik.http.routers.kimai-proxy.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.kimai-proxy.entrypoints: websecure
+      traefik.http.routers.kimai-proxy.service: kimai-proxy
+      traefik.http.routers.kimai-proxy.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.kimai-proxy-local-insecure.rule: Host(`kimai.${LOCAL_DOMAIN}`)
+      traefik.http.routers.kimai-proxy-local-insecure.entrypoints: web
+      traefik.http.routers.kimai-proxy-local-insecure.service: kimai-proxy
+      traefik.http.routers.kimai-proxy-local-insecure.middlewares: kimai-proxy-web-redirect
+      # Local domain secure
+      traefik.http.routers.kimai-proxy-local.rule: Host(`kimai-proxy.${LOCAL_DOMAIN}`)
+      traefik.http.routers.kimai-proxy-local.entrypoints: websecure
+      traefik.http.routers.kimai-proxy-local.service: kimai-proxy
+      traefik.http.routers.kimai-proxy-local.tls: true
+
+  kimai:
+    container_name: kimai
+    image: kimai/kimai2:fpm-2.1.0-prod
+    environment:
+      - ADMINMAIL=${KIMAI_ADMINMAIL}
+      - ADMINPASS=${KIMAI_ADMINPASS}
+      - "DATABASE_URL=mysql://kimai:${KIMAI_DATABASE_PASSWORD}@kimai-sqldb/kimai?charset=utf8&serverVersion=5.7"
+      - TRUSTED_HOSTS=kimai-proxy,localhost,127.0.0.1
+    volumes:
+      - ${APP_DATA_DIR}/data/public:/opt/kimai/public
+      - ${APP_DATA_DIR}/data/var:/opt/kimai/var
+      # - ./ldap.conf:/etc/openldap/ldap.conf:z
+      # - ./ROOT-CA.pem:/etc/ssl/certs/ROOT-CA.pem:z
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+
+  sqldb:
+    container_name: kimai-sqldb
+    image: mysql:5.7
+    environment:
+      - MYSQL_DATABASE=kimai
+      - MYSQL_USER=kimai
+      - MYSQL_PASSWORD=${KIMAI_DATABASE_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${KIMAI_DATABASE_ROOT_PASSWORD}
+    volumes:
+        - ${APP_DATA_DIR}/data/mysql:/var/lib/mysql
+    command: --default-storage-engine innodb
+    restart: unless-stopped
+    healthcheck:
+      test: mysqladmin -p$$MYSQL_ROOT_PASSWORD ping -h localhost
+      interval: 20s
+      start_period: 10s
+      timeout: 10s
+      retries: 3
+    networks:
+      - tipi_main_network

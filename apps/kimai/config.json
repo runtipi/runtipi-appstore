@@ -1,0 +1,45 @@
+{
+  "name": "Kimai",
+  "available": true,
+  "port": 8003,
+  "exposable": true,
+  "id": "kimai",
+  "description": "Kimai is a professional grade time-tracking application, free and open-source. It handles use-cases of freelancers as well as companies with dozens or hundreds of users.",
+  "tipi_version": 1,
+  "version": "fpm-2.1.0-prod",
+  "categories": ["utilities"],
+  "short_desc": "Open source time-tracker",
+  "author": "Kevin Papst",
+  "source": "https://github.com/kimai/kimai",
+  "website": "https://www.kimai.org",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "KIMAI_DATABASE_ROOT_PASSWORD",
+      "min": 32,
+      "env_variable": "KIMAI_DATABASE_ROOT_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "KIMAI_DATABASE_PASSWORD",
+      "min": 32,
+      "env_variable": "KIMAI_DATABASE_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Admin email",
+      "max": 254,
+      "min": 3,
+      "required": true,
+      "env_variable": "KIMAI_ADMINMAIL"
+    },
+    {
+      "type": "password",
+      "label": "Admin password",
+      "max": 128,
+      "min": 10,
+      "required": true,
+      "env_variable": "KIMAI_ADMINPASS"
+    }
+  ]
+}

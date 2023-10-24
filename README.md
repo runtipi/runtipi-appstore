@@ -70,6 +70,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Kapowarr](https://github.com/Casvt/Kapowarr) - Kapowarr is a software to build and manage a comic book library, fitting in the \*arr suite of software.
 - [Kasm Workspaces](https://github.com/kasmtech) - Kasm Workspaces is a docker container streaming platform for delivering browser-based access to desktops, applications, and web services
 - [Kavita](https://github.com/Kareadita/Kavita) - Kavita is a fast, feature rich, cross platform reading server
+- [Kimai](https://github.com/kimai/kimai) - Open source time-tracker
 - [Libreddit](https://github.com/spikecodes/libreddit) - Private front-end for Reddit
 - [LibrePhotos](https://github.com/LibrePhotos/librephotos) - Complete photo management service
 - [LibreTranslate](https://github.com/LibreTranslate/LibreTranslate) - Free and Open Source Machine Translation API. 100% self-hosted, offline capable and easy to setup
