@@ -1,0 +1,16 @@
+services:
+  recyclarr:
+    user: ${TIPI_UID}:${TIPI_GID}
+    container_name: recyclarr
+    image: ghcr.io/recyclarr/recyclarr:6.0.2
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config
+    environment:
+      - RECYCLARR_CREATE_CONFIG=${RECYCLARR_CREATE_CONFIG-true}
+      - TZ=${TZ}
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: false
