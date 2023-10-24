@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8567,
   "id": "notemark",
-  "tipi_version": 1,
-  "version": "0.7.0",
+  "tipi_version": 2,
+  "version": "0.8.0",
   "categories": [
     "utilities"
   ],
