@@ -25,7 +25,6 @@ services:
       traefik.enable: true
       traefik.http.middlewares.jellystat-web-redirect.redirectscheme.scheme: https
       traefik.http.services.jellystat.loadbalancer.server.port: 3000
-      #traefik.http.services.jellystat.loadbalancer.serverstransport: insecuretransport@file
       # Web
       traefik.http.routers.jellystat-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.jellystat-insecure.entrypoints: web
@@ -49,7 +48,7 @@ services:
 
   jellystat-db:
     container_name: jellystat-db
-    image: postgres:15
+    image: postgres:15-alpine
     restart: unless-stopped
     environment:
       - POSTGRES_USER=tipi
