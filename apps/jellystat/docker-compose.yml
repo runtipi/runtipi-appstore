@@ -1,0 +1,60 @@
+version: "3.7"
+
+services:
+  jellystat:
+    image: cyfershepard/jellystat:1.0.8
+    container_name: jellystat
+    environment:
+      - POSTGRES_IP=jellystat-db
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=tipi
+      - POSTGRES_PASSWORD=${JELLYSTAT_DB_PASSWORD}
+      - JWT_SECRET=${JWT_SECRET}
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/backups:/app/backend/backup-data
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - ${APP_PORT}:3000
+    depends_on:
+      - jellystat-db
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.jellystat-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.jellystat.loadbalancer.server.port: 3000
+      #traefik.http.services.jellystat.loadbalancer.serverstransport: insecuretransport@file
+      # Web
+      traefik.http.routers.jellystat-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.jellystat-insecure.entrypoints: web
+      traefik.http.routers.jellystat-insecure.service: jellystat
+      traefik.http.routers.jellystat-insecure.middlewares: jellystat-web-redirect
+      # Websecure
+      traefik.http.routers.jellystat.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.jellystat.entrypoints: websecure
+      traefik.http.routers.jellystat.service: jellystat
+      traefik.http.routers.jellystat.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.jellystat-local-insecure.rule: Host(`jellystat.${LOCAL_DOMAIN}`)
+      traefik.http.routers.jellystat-local-insecure.entrypoints: web
+      traefik.http.routers.jellystat-local-insecure.service: jellystat
+      traefik.http.routers.jellystat-local-insecure.middlewares: jellystat-web-redirect
+      # Local domain secure
+      traefik.http.routers.jellystat-local.rule: Host(`jellystat.${LOCAL_DOMAIN}`)
+      traefik.http.routers.jellystat-local.entrypoints: websecure
+      traefik.http.routers.jellystat-local.service: jellystat
+      traefik.http.routers.jellystat-local.tls: true
+
+  jellystat-db:
+    container_name: jellystat-db
+    image: postgres:15
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=tipi
+      - POSTGRES_PASSWORD=${JELLYSTAT_DB_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    networks:
+      - tipi_main_network
