@@ -65,6 +65,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Jellyfin](https://github.com/jellyfin/jellyfin) - A media server for your home collection
 - [Jellyfin Vue (Beta)](https://github.com/jellyfin/jellyfin-vue) - A modern web client for Jellyfin based on Vue
 - [Jellyseerr](https://github.com/Fallenbagel/jellyseerr) - Fork of overseerr for Jellyfin support
+- [Jellystat](https://github.com/CyferShepard/Jellystat) - Jellystat is a free and open source Statistics App for Jellyfin
 - [Joplin](https://github.com/laurent22/joplin) - Privacy focused note-taking app
 - [Kanboard](https://github.com/kanboard/kanboard) - Kanboard is a free and open source Kanban project management software.
 - [Kapowarr](https://github.com/Casvt/Kapowarr) - Kapowarr is a software to build and manage a comic book library, fitting in the \*arr suite of software.
