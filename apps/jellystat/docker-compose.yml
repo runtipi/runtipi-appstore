@@ -54,6 +54,7 @@ services:
     environment:
       - POSTGRES_USER=tipi
       - POSTGRES_PASSWORD=${JELLYSTAT_DB_PASSWORD}
+      - POSTGRES_DB=jfstat
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
     networks:
