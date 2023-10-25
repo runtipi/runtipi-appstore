@@ -3,6 +3,7 @@
   "available": true,
   "port": 8734,
   "exposable": true,
+  "url_suffix": "?offline=1",
   "id": "drawio",
   "description": "draw.io is a JavaScript, client-side editor for general diagramming and whiteboarding.",
   "tipi_version": 2,
