@@ -59,7 +59,7 @@ services:
     networks:
       - tipi_main_network
     healthcheck:
-      test: ["CMD", "pg_isready", "-d", "ghostfolio"]
+      test: ["CMD", "pg_isready", "-d", "jfstat"]
       interval: 10s
       timeout: 5s
       retries: 5
