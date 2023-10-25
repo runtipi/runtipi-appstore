@@ -1,7 +1,7 @@
 {
     "$schema": "../schema.json",
     "name": "Jellystat",
-    "port": 3000,
+    "port": 8207,
     "available": true,
     "exposable": true,
     "id": "jellystat",
