@@ -7,23 +7,26 @@
     "id": "jellystat",
     "tipi_version": 1,
     "version": "1.0.8",
-    "categories": ["media", "utilities"],
+    "categories": [
+        "media",
+        "utilities"
+    ],
     "description": "Jellystat is a free and open source Statistics App for Jellyfin!",
     "short_desc": "Jellystat is a free and open source Statistics App for Jellyfin!",
     "author": "CyferShepard",
     "source": "https://github.com/CyferShepard/Jellystat",
     "form_fields": [
-    {
-        "type": "random",
-        "label": "JELLYSTAT_DB_PASSWORD",
-        "min": 32,
-        "env_variable": "JELLYSTAT_DB_PASSWORD"
-    },
-    {
-        "type": "random",
-        "label": "JWT_SECRET",
-        "min": 32,
-        "env_variable": "JWT_SECRET"
-    }
+        {
+            "type": "random",
+            "label": "JELLYSTAT_DB_PASSWORD",
+            "min": 32,
+            "env_variable": "JELLYSTAT_DB_PASSWORD"
+        },
+        {
+            "type": "random",
+            "label": "JWT_SECRET",
+            "min": 32,
+            "env_variable": "JWT_SECRET"
+        }
     ]
 }
