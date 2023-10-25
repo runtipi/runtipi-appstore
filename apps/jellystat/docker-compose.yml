@@ -13,7 +13,6 @@ services:
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/backups:/app/backend/backup-data
-      - /etc/localtime:/etc/localtime:ro
     ports:
       - ${APP_PORT}:3000
     depends_on:
