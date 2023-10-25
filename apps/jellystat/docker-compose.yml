@@ -16,7 +16,8 @@ services:
     ports:
       - ${APP_PORT}:3000
     depends_on:
-      - jellystat-db
+      jellystat-db:
+        condition: service_healthy
     networks:
       - tipi_main_network
     labels:
@@ -47,13 +48,18 @@ services:
 
   jellystat-db:
     container_name: jellystat-db
-    image: postgres:15-alpine
+    image: postgres:15.4-alpine
     restart: unless-stopped
     environment:
       - POSTGRES_USER=tipi
       - POSTGRES_PASSWORD=${JELLYSTAT_DB_PASSWORD}
       - POSTGRES_DB=jfstat
     volumes:
-      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
     networks:
       - tipi_main_network
+    healthcheck:
+      test: ["CMD", "pg_isready", "-d", "ghostfolio"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
