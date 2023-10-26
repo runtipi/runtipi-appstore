@@ -4,7 +4,7 @@ services:
   viewtube:
     restart: unless-stopped
     container_name: viewtube
-    image: mauriceo/viewtube:0.12.2
+    image: mauriceo/viewtube:0.13.0
     depends_on:
       - viewtube-mongodb
       - viewtube-redis
