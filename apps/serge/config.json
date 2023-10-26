@@ -5,9 +5,11 @@
   "exposable": true,
   "port": 8008,
   "id": "serge",
-  "tipi_version": 1,
-  "version": "0.4.1",
-  "categories": ["ai"],
+  "tipi_version": 2,
+  "version": "0.5.0",
+  "categories": [
+    "ai"
+  ],
   "description": "",
   "short_desc": "LLaMA made easy",
   "author": "nsarrazin",
