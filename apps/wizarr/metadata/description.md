@@ -1,45 +1,4 @@
-<h1 align="center">Wizarr</h1>
-<h3 align="center">The Free Media Invitation System</h3>
-
----
-
-<p align="center">
-<img src="https://raw.githubusercontent.com/Wizarrrr/wizarr/master/frontend/src/assets/img/wizard.png" height="200">
-<br/>
-<br/>
-<a href="https://github.com/wizarrrr/wizarr">
-<img alt="GPL 2.0 License" src="https://img.shields.io/github/license/wizarrrr/wizarr.svg"/>
-</a>
-<a href="https://github.com/jellyfin/jellyfin/releases">
-<img alt="Current Release" src="https://img.shields.io/github/release/wizarrrr/wizarr.svg"/>
-</a>
-<a href="https://hosted.weblate.org/engage/wizarr/">
-<img src="https://hosted.weblate.org/widgets/wizarr/-/app/svg-badge.svg" />
-</a>
-<a href="https://opencollective.com/wizarr">
-<img alt="Donate" src="https://img.shields.io/opencollective/all/wizarr.svg?label=backers"/>
-</a>
-<a href="https://features.wizarr.dev">
-<img alt="Submit Feature Requests" src="https://img.shields.io/badge/vote_now-features?label=features"/>
-</a>
-<a href="https://discord.gg/XXCz7aM3ak">
-<img alt="Chat on Discord" src="https://img.shields.io/discord/1020742926856372224"/>
-</a>
-<a href="https://www.reddit.com/r/wizarr">
-<img alt="Join our Subreddit" src="https://img.shields.io/badge/reddit-r%2Fwizarr-%23FF5700.svg"/>
-</a>
-<a href="https://github.com/Wizarrrr/wizarr/issues">
-<img alt="Github Issue" src="https://img.shields.io/github/issues/wizarrrr/wizarr"/>
-</a>
-<a href="https://features.wizarr.dev">
-<img alt="Submit Feature Requests" src="https://img.shields.io/badge/fider-vote%20on%20features-success.svg"/>
-</a>
-<a href="https://github.com/Wizarrrr/wizarr/actions/workflows/release.yml">
-<img alt="Github Build" src="https://img.shields.io/github/actions/workflow/status/wizarrrr/wizarr/release.yml"/>
-</a>
-</p>
-
-Wizarr is a automatic user invitation system for Plex and Jellyfin. Create a unique link and share it to a user and they will be invited to your Media Server after they complete there signup proccess! They can even be guided to download the clients and read instructions on how to use your media software!
+Wizarr is an automatic user invitation system for Plex and Jellyfin. Create a unique link and share it to a user and they will be invited to your Media Server after they complete there signup proccess! They can even be guided to download the clients and read instructions on how to use your media software!
 
 ## Where is V2?
 

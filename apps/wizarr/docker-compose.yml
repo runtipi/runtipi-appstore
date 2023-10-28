@@ -3,7 +3,7 @@ version: "3.8"
 services:
   wizarr:
     container_name: wizarr
-    image: ghcr.io/wizarrrr/wizarr:latest
+    image: ghcr.io/wizarrrr/wizarr:latest-3.4.2
     ports:
       - ${APP_PORT}:5690
     volumes:

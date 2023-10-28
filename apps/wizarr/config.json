@@ -6,12 +6,12 @@
   "exposable": true,
   "id": "wizarr",
   "tipi_version": 5,
-  "version": "latest",
+  "version": "latest-3.4.2",
   "categories": [
     "utilities"
   ],
-  "description": "Wizarr is a automatic user invitation system for Plex and Jellyfin. Create a unique link and share it to a user and they will be invited to your Media Server after they complete there signup proccess! They can even be guided to download the clients and read instructions on how to use your media software!",
-  "short_desc": "Wizarr is a automatic user invitation system for Plex and Jellyfin.",
+  "description": "Wizarr is an automatic user invitation system for Plex and Jellyfin. Create a unique link and share it to a user and they will be invited to your Media Server after they complete there signup proccess! They can even be guided to download the clients and read instructions on how to use your media software!",
+  "short_desc": "Wizarr is an automatic user invitation system for Plex and Jellyfin.",
   "author": "https://github.com/Wizarrrr",
   "source": "https://github.com/Wizarrrr/wizarr",
   "website": "https://docs.wizarr.dev/",
