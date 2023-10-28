@@ -3,7 +3,7 @@ version: "3.9"
 services:
   kavita:
     container_name: kavita
-    image: jvmilazz0/kavita:0.7.9
+    image: jvmilazz0/kavita:0.7.10
     ports:
       - ${APP_PORT}:5000
     volumes:
