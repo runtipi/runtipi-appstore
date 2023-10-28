@@ -12,5 +12,12 @@
     "author": "https://github.com/benjaminjonard", 
     "source": "https://github.com/benjaminjonard/koillection",
     "website": "https://koillection.github.io/",
-    "form_fields": []  
+    "form_fields": [
+        {
+            "type": "boolean",
+            "label": "https enable",
+            "required": true,
+            "env_variable": "HTTPS_ENABLED"
+        }
+    ]  
 }

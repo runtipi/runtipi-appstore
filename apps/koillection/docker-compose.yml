@@ -14,7 +14,7 @@ services:
         environment:
             - APP_DEBUG=0
             - APP_ENV=prod
-            - HTTPS_ENABLED=1
+            - HTTPS_ENABLED={HTTPS_ENABLED}
             - UPLOAD_MAX_FILESIZE=20M
             - PHP_MEMORY_LIMIT=512M
             - PHP_TZ=${TZ}
