@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   forgejo:
-    image: codeberg.org/forgejo/forgejo:1.20.4-0
+    image: codeberg.org/forgejo/forgejo:1.20.5-0
     container_name: forgejo
     environment:
       - USER_UID=1000
@@ -11,7 +11,7 @@ services:
       - FORGEJO__database__HOST=forgejo-db:5432
       - FORGEJO__database__NAME=forgejo
       - FORGEJO__database__USER=forgejo
-      - FORGEJO__database__PASSWD=forgejo
+      - FORGEJO__database__PASSWD=${FORGEJO_DB_PASSWORD}
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/forgejo:/data

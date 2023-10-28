@@ -1,0 +1,18 @@
+{
+  "name": "Netdata",
+  "available": true,
+  "port": 19999,
+  "exposable": true,
+  "id": "netdata",
+  "description": "Stream any metrics from every physical and virtual server, container and IoT device, to one dashboard, in real-time.",
+  "tipi_version": 3,
+  "version": "1.43.1",
+  "categories": [
+    "utilities"
+  ],
+  "short_desc": "Open-source, real-time, performance and health monitoring.",
+  "author": "netdata",
+  "source": "https://github.com/netdata/netdata",
+  "website": "https://www.netdata.cloud/",
+  "form_fields": []
+}

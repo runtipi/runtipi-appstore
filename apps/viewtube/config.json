@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "viewtube",
-  "tipi_version": 1,
-  "version": "0.12.2",
-  "categories": ["media"],
+  "tipi_version": 3,
+  "version": "0.13.0",
+  "categories": [
+    "media"
+  ],
   "description": "The open source, privacy-conscious way to enjoy your favorite YouTube content.",
   "short_desc": "The open source, privacy-conscious way to enjoy your favorite YouTube content.",
   "author": "ViewTube",

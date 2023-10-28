@@ -2,7 +2,7 @@ version: "3.7"
 services:
   zerotier:
     container_name: zerotier
-    image: zerotier/zerotier:1.12.1
+    image: zerotier/zerotier:1.12.2
     restart: on-failure
     command: "${NETWORK_ID}"
     cap_add:

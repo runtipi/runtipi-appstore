@@ -16,6 +16,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Budibase](https://github.com/Budibase/budibase) - Low code platform for creating internal tools, workflows, and admin panels in minutes. Supports PostgreSQL, MySQL, MSSQL, MongoDB, Rest API, Docker, K8s, and more 🚀. Budibase, the low code platform you'll enjoy using ⚡
 - [Bookstack](https://github.com/BookStackApp/BookStack) - Simple, easy-to-use platform for organising and storing information.
 - [Calibre-Web](https://github.com/janeczku/calibre-web) - Web Ebook Reader
+- [ChangeDetection.io](https://github.com/dgtlmoon/changedetection.io) - The best and simplest free open source website change detection, restock monitor and notification service.
 - [Chatpad AI](https://github.com/deiucanta/chatpad) - Not just another ChatGPT user-interface!
 - [Code-Server](https://github.com/coder/code-server) - Web VS Code
 - [Codex.Docs](https://github.com/codex-team/codex.docst) - Free Docs app powered by Editor.js ecosystem.
@@ -28,6 +29,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Deemix](https://gitlab.com/Bockiii/deemix-docker) - deemix is a barebone deezer downloader library built from the ashes of Deezloader Remix.
 - [DokuWiki](https://github.com/dokuwiki/dokuwiki) - DokuWiki is a simple to use and highly versatile Open Source wiki software
 - [Dozzle](https://github.com/amir20/dozzle) - Dozzle is a small web based app to monitor Docker logs
+- [Draw.io](https://github.com/jgraph/drawio) - draw.io is a JavaScript, client-side editor for general diagramming and whiteboarding.
 - [Duplicati](https://github.com/linuxserver/docker-duplicati) - Store securely encrypted backups in the cloud!
 - [Emulatorjs](https://github.com/EmulatorJS/EmulatorJS) - Self-hosted Javascript emulation for various system.
 - [Excalidraw](https://github.com/excalidraw/excalidraw) - Online whiteboard collaboration made easy
@@ -61,11 +63,14 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Invidious](https://github.com/iv-org/invidious) - An alternative front-end to YouTube
 - [Jackett](https://github.com/Jackett/Jackett) - API Support for your favorite torrent trackers
 - [Jellyfin](https://github.com/jellyfin/jellyfin) - A media server for your home collection
+- [Jellyfin Vue (Beta)](https://github.com/jellyfin/jellyfin-vue) - A modern web client for Jellyfin based on Vue
 - [Jellyseerr](https://github.com/Fallenbagel/jellyseerr) - Fork of overseerr for Jellyfin support
 - [Joplin](https://github.com/laurent22/joplin) - Privacy focused note-taking app
 - [Kanboard](https://github.com/kanboard/kanboard) - Kanboard is a free and open source Kanban project management software.
 - [Kapowarr](https://github.com/Casvt/Kapowarr) - Kapowarr is a software to build and manage a comic book library, fitting in the \*arr suite of software.
+- [Kasm Workspaces](https://github.com/kasmtech) - Kasm Workspaces is a docker container streaming platform for delivering browser-based access to desktops, applications, and web services
 - [Kavita](https://github.com/Kareadita/Kavita) - Kavita is a fast, feature rich, cross platform reading server
+- [Kimai](https://github.com/kimai/kimai) - Open source time-tracker
 - [Libreddit](https://github.com/spikecodes/libreddit) - Private front-end for Reddit
 - [LibrePhotos](https://github.com/LibrePhotos/librephotos) - Complete photo management service
 - [LibreTranslate](https://github.com/LibreTranslate/LibreTranslate) - Free and Open Source Machine Translation API. 100% self-hosted, offline capable and easy to setup
@@ -87,15 +92,20 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Monica](https://github.com/monicahq/monica) - A Personal Relationship Management tool to help you document your social life
 - [Mixpost](https://github.com/inovector/mixpost) - Self-hosted social media management. Schedule and organize your social content.
 - [Mixpost Pro](https://mixpost.app/pricing) - Self-hosted social media management. Schedule and organize your social content.
-- [Movary](https://github.com/leepeuker/movary - ) Track and rate your watched movies
+- [MongoDB](https://github.com/mongodb/mongo)- MongoDB is an open-source NoSQL database
+- [Mongo Express](https://github.com/mongo-express/mongo-express) - A web-based MongoDB admin interface written with Node.js, Express, and Bootstrap3
+- [Movary](https://github.com/leepeuker/movary ) - Track and rate your watched movies
 - [mStream](https://github.com/IrosTheBeggar/mStream) - The easiest music streaming server available
 - [Mylar3](https://github.com/mylar3/mylar3) - Mylar3 is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python.
 - [n8n](https://github.com/n8n-io/n8n) - Workflow Automation Tool
 - [Navidrome](https://github.com/navidrome/navidrome) - A selfhosted music server
+- [Netdata](https://github.com/netdata/netdata) - Open-source, real-time, performance and health monitoring.
 - [Nextcloud](https://github.com/nextcloud/server) - A safe home for all your data
 - [Nitter](https://github.com/zedeus/nitter) - Alternative Twitter front-end
 - [NocoDB](https://github.com/nocodb/nocodb) - Open Source Airtable Alternative
 - [Node-RED](https://github.com/node-red/node-red) - Low-code programming for event-driven applications
+- [NoteMark](https://github.com/enchant97/note-mark/) - Note Mark is a lighting fast and minimal web-based Markdown notes app.
+- [Ntfy](https://github.com/binwiederhier/ntfy) - A Straightforward Notification service that operates over HTTP
 - [Obsidian LiveSync](https://github.com/vrtmrz/self-hosted-livesync-server) - LiveSync couchdb backend for Obsidian
 - [OneDev](https://code.onedev.io/onedev/server) - Self-hosted Git Server with Kanban and CI/CD
 - [Openbooks](https://github.com/evan-buss/openbooks) - Search and Download eBooks
@@ -124,8 +134,10 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Sabnzbd](https://github.com/sabnzbd/sabnzbd) - Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can"
 - [SearXNG](https://github.com/searxng/searxng) - SearXNG is a free internet metasearch engine which aggregates results from various search services and databases. Users are neither tracked nor profiled
 - [Send](https://gitlab.com/timvisee/send) - Simple, private file sharing
+- [Serge](https://github.com/serge-chat/serge) -  A web interface for chatting with Alpaca through llama.cpp.
 - [SimpleX SMP](https://github.com/simplex-chat/simplexmq) - A reference implementation of the SimpleX Messaging Protocol for simplex queues over public networks.
 - [Sonarr](https://github.com/Sonarr/Sonarr) - TV show manager for Usenet and BitTorrent
+- [Speedtest Tracker](https://github.com/alexjustesen/speedtest-tracker) - Internet performance tracking application.
 - [Sshwifty](https://github.com/nirui/sshwifty/) - Web SSH & Telnet (WebSSH & WebTelnet client)
 - [Stirling-PDF](https://github.com/Frooodle/Stirling-PDF) - Locally hosted web application that allows you to perform various operations on PDF files.
 - [Syncthing](https://github.com/syncthing/syncthing) - Continuous File Synchronization

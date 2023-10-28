@@ -3,7 +3,7 @@ version: "3.7"
 services:
   joplin:
     container_name: joplin
-    image: florider89/joplin-server:2.12.1
+    image: florider89/joplin-server:2.13.2
     restart: unless-stopped
     depends_on:
       - db-joplin

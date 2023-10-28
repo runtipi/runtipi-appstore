@@ -2,7 +2,7 @@ version: "3.7"
 services:
   libretranslate:
     container_name: libretranslate
-    image: libretranslate/libretranslate:v1.3.11
+    image: libretranslate/libretranslate:v1.4.0
     dns:
       - ${DNS_IP}
     ports:

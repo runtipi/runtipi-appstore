@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "planka",
-  "tipi_version": 2,
-  "version": "1.12.0",
-  "categories": ["development"],
+  "tipi_version": 5,
+  "version": "1.14.3",
+  "categories": [
+    "development"
+  ],
   "description": "The realtime kanban board for workgroups built with React and Redux.",
   "short_desc": "Free open source kanban board for workgroups.",
   "author": "Planka",

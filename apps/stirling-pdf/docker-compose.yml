@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   stirling-pdf:
-    image: ghcr.io/frooodle/s-pdf:0.14.2
+    image: ghcr.io/frooodle/s-pdf:0.14.5
     restart: unless-stopped
     container_name: stirling-pdf
     privileged: true

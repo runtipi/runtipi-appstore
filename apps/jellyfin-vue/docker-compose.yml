@@ -1,0 +1,36 @@
+version: "3"
+
+services: 
+  jellyfin-vue:
+    container_name: jellyfin-vue
+    image: ghcr.io/jellyfin/jellyfin-vue:unstable.2023-09-18.fe0f640
+    ports:
+      - ${APP_PORT}:80
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.jellyfin-vue-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.jellyfin-vue.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.jellyfin-vue-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.jellyfin-vue-insecure.entrypoints: web
+      traefik.http.routers.jellyfin-vue-insecure.service: jellyfin-vue
+      traefik.http.routers.jellyfin-vue-insecure.middlewares: jellyfin-vue-web-redirect
+      # Websecure
+      traefik.http.routers.jellyfin-vue.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.jellyfin-vue.entrypoints: websecure
+      traefik.http.routers.jellyfin-vue.service: jellyfin-vue
+      traefik.http.routers.jellyfin-vue.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.jellyfin-vue-local-insecure.rule: Host(`jellyfin-vue.${LOCAL_DOMAIN}`)
+      traefik.http.routers.jellyfin-vue-local-insecure.entrypoints: web
+      traefik.http.routers.jellyfin-vue-local-insecure.service: jellyfin-vue
+      traefik.http.routers.jellyfin-vue-local-insecure.middlewares: jellyfin-vue-web-redirect
+      # Local domain secure
+      traefik.http.routers.jellyfin-vue-local.rule: Host(`jellyfin-vue.${LOCAL_DOMAIN}`)
+      traefik.http.routers.jellyfin-vue-local.entrypoints: websecure
+      traefik.http.routers.jellyfin-vue-local.service: jellyfin-vue
+      traefik.http.routers.jellyfin-vue-local.tls: true

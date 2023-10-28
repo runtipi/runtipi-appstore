@@ -2,12 +2,13 @@ version: "3.7"
 
 services:
   linkwarden:
-    image: ghcr.io/selfhostedhub/linkwarden:v1.0.1
+    image: ghcr.io/linkwarden/linkwarden:v1.2.5
     container_name: linkwarden
     environment:
       - DATABASE_URL=postgresql://tipi:${LINKWARDEN_DB_PASSWORD}@linkwarden-db:5432/linkwarden
       - NEXTAUTH_SECRET=${LINKWARDEN_NEXTAUTH_SECRET}
       - NEXTAUTH_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - NEXT_PUBLIC_DISABLE_REGISTRATION=${LINKWARDEN_NEXT_PUBLIC_DISABLE_REGISTRATION}
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/linkwarden:/data/data

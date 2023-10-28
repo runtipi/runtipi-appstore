@@ -5,9 +5,11 @@
   "exposable": true,
   "port": 8121,
   "id": "libretranslate",
-  "tipi_version": 6,
-  "version": "1.3.11",
-  "categories": ["utilities"],
+  "tipi_version": 9,
+  "version": "1.4.0",
+  "categories": [
+    "utilities"
+  ],
   "description": "Free and Open Source Machine Translation API, entirely self-hosted. Unlike other APIs, it doesn't rely on proprietary providers such as Google or Azure to perform translations. Instead, its translation engine is powered by the open source Argos Translate library.",
   "short_desc": "Free and Open Source Machine Translation API. 100% self-hosted, offline capable and easy to setup.",
   "author": "LibreTranslate",

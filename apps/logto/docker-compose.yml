@@ -4,7 +4,7 @@ services:
     depends_on:
       logto-db:
         condition: service_healthy
-    image: svhd/logto:1.9.0
+    image: svhd/logto:1.10.0
     container_name: logto
     entrypoint: ["sh", "-c", "npm run cli db seed -- --swe && npm start"]
     ports:

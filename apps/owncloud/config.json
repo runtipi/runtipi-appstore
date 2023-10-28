@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "owncloud",
-  "tipi_version": 7,
-  "version": "10.13.1",
+  "tipi_version": 8,
+  "version": "10.13.2",
   "categories": [
     "data"
   ],

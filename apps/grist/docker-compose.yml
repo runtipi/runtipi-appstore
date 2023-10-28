@@ -6,7 +6,7 @@ services:
     environment:
       - APP_HOME_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
       - GRIST_SANDBOX_FLAVOR=${GRIST_SANDBOX_FLAVOR}
-    image: "gristlabs/grist:1.1.4"
+    image: "gristlabs/grist:1.1.6"
     ports:
       - "${APP_PORT}:8484"
     restart: always

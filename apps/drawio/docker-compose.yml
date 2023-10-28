@@ -1,0 +1,36 @@
+version: "3.7"
+services:
+  drawio:
+    image: jgraph/drawio:22.0.8
+    ports:
+      - ${APP_PORT}:8080
+    container_name: drawio
+    tty: true
+    stdin_open: true
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.drawio-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.drawio.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.drawio-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.drawio-insecure.entrypoints: web
+      traefik.http.routers.drawio-insecure.service: drawio
+      traefik.http.routers.drawio-insecure.middlewares: drawio-web-redirect
+      # Websecure
+      traefik.http.routers.drawio.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.drawio.entrypoints: websecure
+      traefik.http.routers.drawio.service: drawio
+      traefik.http.routers.drawio.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.drawio-local-insecure.rule: Host(`drawio.${LOCAL_DOMAIN}`)
+      traefik.http.routers.drawio-local-insecure.entrypoints: web
+      traefik.http.routers.drawio-local-insecure.service: drawio
+      traefik.http.routers.drawio-local-insecure.middlewares: drawio-web-redirect
+      # Local domain secure
+      traefik.http.routers.drawio-local.rule: Host(`drawio.${LOCAL_DOMAIN}`)
+      traefik.http.routers.drawio-local.entrypoints: websecure
+      traefik.http.routers.drawio-local.service: drawio
+      traefik.http.routers.drawio-local.tls: true
