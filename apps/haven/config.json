@@ -33,5 +33,6 @@
       "label": "DB password",
       "env_variable": "HAVEN_DB_PASSWORD"
     }
-  ]
+  ],
+  "supported_architectures": ["amd64"]
 }

@@ -13,5 +13,6 @@
   "author": "Kiwix",
   "source": "https://github.com/kiwix/kiwix-tools/",
   "website": "https://kiwix.org/",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

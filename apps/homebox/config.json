@@ -23,5 +23,6 @@
       "required": true,
       "env_variable": "HBOX_OPTIONS_ALLOW_REGISTRATION"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

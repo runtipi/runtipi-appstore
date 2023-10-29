@@ -22,5 +22,6 @@
       "required": false,
       "env_variable": "DAEMON_ADDRESS"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

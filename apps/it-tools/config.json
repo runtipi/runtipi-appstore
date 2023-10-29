@@ -12,5 +12,6 @@
   "short_desc": "Collection of handy online tools for developers, with great UX.",
   "author": "CorentinTh",
   "source": "https://github.com/CorentinTh/it-tools",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

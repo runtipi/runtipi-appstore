@@ -35,5 +35,6 @@
       "min": 32,
       "env_variable": "IMMICH_TYPESENSE_API_KEY"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

@@ -15,5 +15,6 @@
   "short_desc": " Looks and smells like Sonarr but made for music.",
   "author": "lidarr.audio",
   "source": "https://github.com/Lidarr/Lidarr",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

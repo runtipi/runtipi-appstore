@@ -7,10 +7,6 @@
   "id": "librephotos",
   "tipi_version": 12,
   "version": "2023w37p2",
-  "supported_architectures": [
-    "amd64",
-    "arm64"
-  ],
   "categories": [
     "photography"
   ],
@@ -51,5 +47,6 @@
       "label": "Secret key",
       "env_variable": "LIBREPHOTOS_SECRET_KEY"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

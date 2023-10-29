@@ -21,5 +21,6 @@
       "required": false,
       "env_variable": "PLUGIN_INSTALLER"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

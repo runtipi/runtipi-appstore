@@ -92,5 +92,6 @@
       "required": true,
       "env_variable": "MASTODON_LOCAL_DOMAIN"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

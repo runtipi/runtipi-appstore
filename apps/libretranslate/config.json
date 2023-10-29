@@ -14,5 +14,6 @@
   "short_desc": "Free and Open Source Machine Translation API. 100% self-hosted, offline capable and easy to setup.",
   "author": "LibreTranslate",
   "source": "https://github.com/LibreTranslate/LibreTranslate",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

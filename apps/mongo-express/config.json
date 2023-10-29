@@ -15,6 +15,14 @@
   "form_fields": [
     {
       "type": "text",
+      "label": "MongoDB Server IP Address",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "ME_CONFIG_MONGODB_SERVERIP"
+    },
+    {
+      "type": "text",
       "label": "MongoDB Admin Username",
       "max": 50,
       "min": 3,
@@ -45,5 +53,6 @@
       "required": true,
       "env_variable": "ME_CONFIG_BASICAUTH_PASSWORD"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

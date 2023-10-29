@@ -12,5 +12,6 @@
   "short_desc": "The easiest music streaming server available",
   "author": "IrosTheBeggar",
   "source": "https://github.com/IrosTheBeggar/mStream",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }
