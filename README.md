@@ -37,6 +37,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Filestash](https://github.com/mickael-kerjean/filestash) - A modern web client for SFTP, S3, FTP, WebDAV, Git, Minio, LDAP, CalDAV, CardDAV, Mysql, Backblaze
 - [Firefly III](https://github.com/firefly-iii/firefly-iii) - A personal finances manager
 - [Fireshare](https://github.com/ShaneIsrael/fireshare) - Self host your media and share with unique links
+- [Flaresolverr](https://github.com/FlareSolverr/FlareSolverr) - FlareSolverr is a proxy server to bypass Cloudflare and DDoS-GUARD protection.
 - [Flatnotes](https://github.com/Dullage/flatnotes) - A self-hosted, database-less note taking web app
 - [Freshrss](https://github.com/FreshRSS/FreshRSS) - A free, self-hostable RSS aggregator
 - [gandi-livedns](https://github.com/jbbodart/gandi-livedns) - Update your Gandi DNS zone records with your WAN IP
