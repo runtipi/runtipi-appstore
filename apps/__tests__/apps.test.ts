@@ -22,6 +22,7 @@ interface AppConfig {
   source: string;
   available: boolean;
   form_fields?: FormField[];
+  supported_architectures: string[];
 }
 
 const networkExceptions = [
@@ -133,6 +134,16 @@ describe("App configs", () => {
         expect(app.port).toBeDefined();
         expect(app.port).toBeGreaterThan(999);
         expect(app.port).toBeLessThan(65535);
+      });
+    });
+  });
+
+  describe("Each app should have a supported architecture", () => {
+    const apps = getAppConfigs();
+
+    apps.forEach((app) => {
+      test(app.supported_architectures, () => {
+        expect(app.supported_architectures).toBeDefined();
       });
     });
   });

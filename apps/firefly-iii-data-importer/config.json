@@ -32,5 +32,6 @@
       "required": false,
       "env_variable": "FIREFLY_III_ACCESS_TOKEN"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

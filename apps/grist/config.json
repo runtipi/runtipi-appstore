@@ -31,5 +31,6 @@
       ],
       "env_variable": "GRIST_SANDBOX_FLAVOR"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

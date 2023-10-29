@@ -15,5 +15,6 @@
   "author": "Bubka",
   "source": "https://github.com/Bubka/2FAuth",
   "website": "https://docs.2fauth.app/",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

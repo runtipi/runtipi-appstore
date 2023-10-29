@@ -12,6 +12,6 @@
   "short_desc": "A self-hostable personal dashboard built for you.",
   "author": "lissy93",
   "source": "https://github.com/lissy93/dashy",
-  "form_fields": [
-  ]
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

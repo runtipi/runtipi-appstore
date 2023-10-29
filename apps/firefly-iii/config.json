@@ -41,5 +41,6 @@
       "label": "Random key",
       "env_variable": "STATIC_CRON_TOKEN"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

@@ -12,5 +12,6 @@
   "short_desc": "Grav is a Fast, Simple, and Flexible, file-based Web-platform. ",
   "author": "Grav",
   "source": "https://github.com/getgrav/grav",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

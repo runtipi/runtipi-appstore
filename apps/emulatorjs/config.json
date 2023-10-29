@@ -12,5 +12,6 @@
   "short_desc": "Self-hosted Javascript emulation for various system.",
   "author": "EmulatorJS",
   "source": "https://github.com/EmulatorJS/EmulatorJS",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

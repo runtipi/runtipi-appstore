@@ -14,5 +14,6 @@
   "author": "dgtlmoon",
   "source": "https://github.com/dgtlmoon/changedetection.io",
   "website": "https://changedetection.io/",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

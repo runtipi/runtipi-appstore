@@ -24,5 +24,6 @@
       "max": 30,
       "env_variable": "BOOKSTACK_DB_PASS"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

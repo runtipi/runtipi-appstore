@@ -14,5 +14,6 @@
   "short_desc": "Messenger for the Decentralized Web",
   "author": "balzack",
   "source": "https://github.com/balzack/databag",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

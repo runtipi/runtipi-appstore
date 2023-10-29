@@ -12,5 +12,6 @@
   "short_desc": "The selfhosted audiobook server",
   "author": "https://github.com/popeen",
   "source": "https://github.com/popeen/Booksonic-Air",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

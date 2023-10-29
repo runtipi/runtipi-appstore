@@ -12,5 +12,6 @@
   "short_desc": "Online whiteboard collaboration made easy",
   "author": "Excalidraw",
   "source": "https://github.com/excalidraw/excalidraw",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["amd64"]
 }

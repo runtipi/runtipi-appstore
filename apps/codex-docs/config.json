@@ -33,5 +33,6 @@
       "min": 32,
       "env_variable": "CODEX_AUTH_SECRET"
     }
-  ]
+  ],
+  "supported_architectures": ["amd64"]
 }
