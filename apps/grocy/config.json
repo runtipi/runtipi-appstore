@@ -12,5 +12,6 @@
   "short_desc": "ERP beyond your fridge",
   "author": "berrnd",
   "source": "https://github.com/grocy/grocy",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

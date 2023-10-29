@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "photoprism",
-  "tipi_version": 3,
-  "version": "latest",
+  "tipi_version": 4,
+  "version": "231021",
   "categories": [
     "photography"
   ],
@@ -33,5 +33,6 @@
       "label": "Photoprism root DB password",
       "env_variable": "DB_ROOT_PASSWORD"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

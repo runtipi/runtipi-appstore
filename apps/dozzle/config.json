@@ -33,5 +33,6 @@
       "required": false,
       "env_variable": "DOZZLE_NO_ANALYTICS"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

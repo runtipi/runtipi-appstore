@@ -12,5 +12,6 @@
   "short_desc": "Baïkal is a Calendar+Contacts server",
   "author": "ckulka",
   "source": "https://github.com/ckulka/baikal-docker",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

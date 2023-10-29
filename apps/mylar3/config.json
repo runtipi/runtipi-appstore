@@ -12,5 +12,6 @@
   "short_desc": "Mylar3 is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python.",
   "author": "Mylar3",
   "source": "https://github.com/mylar3/mylar3",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

@@ -30,5 +30,6 @@
       "required": true,
       "env_variable": "SPOTIFY_SECRET"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

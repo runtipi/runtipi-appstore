@@ -45,5 +45,6 @@
       "required": true,
       "env_variable": "ONEDEV_PASSWORD"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

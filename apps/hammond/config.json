@@ -19,5 +19,6 @@
       "placeholder": "Europe/Paris",
       "env_variable": "HAMMOND_TZ"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

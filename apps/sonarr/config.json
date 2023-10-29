@@ -15,5 +15,6 @@
   "short_desc": "TV show manager for Usenet and BitTorrent",
   "author": "sonarr.tv",
   "source": "https://github.com/Sonarr/Sonarr",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

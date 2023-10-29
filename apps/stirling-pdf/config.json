@@ -15,5 +15,6 @@
   "short_desc": "Powerful locally hosted web based PDF manipulation tool.",
   "author": "Frooodle",
   "source": "https://github.com/Frooodle/Stirling-PDF/",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

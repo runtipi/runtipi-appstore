@@ -15,5 +15,6 @@
   "short_desc": "Monitoring and tracking tool for Plex Media Server.",
   "author": "JonnyWong16",
   "source": "https://github.com/Tautulli/Tautulli",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

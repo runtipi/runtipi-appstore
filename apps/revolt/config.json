@@ -6,7 +6,6 @@
   "exposable": true,
   "force_expose": true,
   "generate_vapid_keys": true,
-  "supported_architectures": ["amd64"],
   "id": "revolt",
   "tipi_version": 13,
   "version": "20230810-3",
@@ -84,5 +83,6 @@
       ],
       "env_variable": "REVOLT_INVITE_ONLY"
     }
-  ]
+  ],
+  "supported_architectures": ["amd64"]
 }

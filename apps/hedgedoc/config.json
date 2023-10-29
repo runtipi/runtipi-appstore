@@ -15,9 +15,7 @@
   "website": "https://hedgedoc.org/",
   "author": "https://github.com/hedgedoc",
   "source": "https://github.com/hedgedoc/hedgedoc",
-  "supported_architectures": [
-    "amd64"
-  ],
+  "supported_architectures": ["arm64", "amd64"],
   "form_fields": [
     {
       "type": "random",

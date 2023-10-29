@@ -75,5 +75,6 @@
       "required": false,
       "env_variable": "GTS_SMTP_FROM"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

@@ -28,5 +28,6 @@
       "label": "External url",
       "env_variable": "HALO_EXTERNAL_URL"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

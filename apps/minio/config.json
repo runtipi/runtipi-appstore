@@ -35,5 +35,6 @@
       "required": false,
       "env_variable": "MINIO_API_URL"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

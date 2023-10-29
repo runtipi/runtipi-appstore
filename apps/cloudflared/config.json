@@ -12,6 +12,6 @@
   "short_desc": "Cloudflare Tunnels in a Web UI",
   "author": "WisdomSky",
   "source": "https://github.com/WisdomSky/Cloudflared-web",
-  "form_fields": [
-  ]
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

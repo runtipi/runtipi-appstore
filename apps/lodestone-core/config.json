@@ -13,5 +13,6 @@
   "short_desc": "Server hosting tool for Minecraft and other multiplayers",
   "author": "Lodestone-Team",
   "source": "https://github.com/Lodestone-Team/lodestone_core",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

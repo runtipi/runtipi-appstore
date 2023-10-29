@@ -21,5 +21,6 @@
       "required": true,
       "env_variable": "LINKSTACK_CUSTOM_EMAIL"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

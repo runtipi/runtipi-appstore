@@ -23,5 +23,6 @@
       "required": true,
       "env_variable": "VAULTWARDEN_ADMIN_PASSWORD"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

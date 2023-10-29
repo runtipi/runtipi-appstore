@@ -34,5 +34,6 @@
       "default": "true",
       "env_variable": "PLAUSIBLE_DISABLE_REGISTRATION"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

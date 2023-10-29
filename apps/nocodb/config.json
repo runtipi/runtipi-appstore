@@ -33,5 +33,6 @@
       "min": 32,
       "env_variable": "NOCODB_REDIS_PASSWORD"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

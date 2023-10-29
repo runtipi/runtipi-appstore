@@ -22,5 +22,6 @@
       "required": true,
       "env_variable": "TASKS_MD_TITLE"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

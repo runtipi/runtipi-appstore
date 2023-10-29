@@ -15,5 +15,6 @@
   "short_desc": "Audiobookshelf is a self-hosted audiobook and podcast server.",
   "author": "advplyr",
   "source": "https://github.com/advplyr/audiobookshelf",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

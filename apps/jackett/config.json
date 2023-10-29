@@ -15,5 +15,6 @@
   ],
   "author": "",
   "source": "https://github.com/Jackett/Jackett",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

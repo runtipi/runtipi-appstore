@@ -68,5 +68,6 @@
       "placeholder": "yes|no",
       "env_variable": "RELAY_USE_TLS"
     }
-  ]
+  ],
+  "supported_architectures": ["amd64"]
 }

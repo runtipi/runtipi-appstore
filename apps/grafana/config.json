@@ -14,5 +14,6 @@
   "short_desc": "The open and composable observability and data visualization platform",
   "author": "Grafana Labs",
   "source": "https://github.com/grafana/grafana",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

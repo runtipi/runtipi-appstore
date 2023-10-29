@@ -40,5 +40,6 @@
       "required": false,
       "env_variable": "WIREGUARD_DNS"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

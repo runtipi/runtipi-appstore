@@ -15,5 +15,6 @@
   "short_desc": "A companion application to Sonarr and Radarr that manages and downloads subtitles",
   "author": "morpheus65535",
   "source": "https://github.com/morpheus65535/bazarr",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

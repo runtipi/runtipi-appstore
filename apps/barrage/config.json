@@ -40,5 +40,6 @@
       "required": true,
       "env_variable": "BARRAGE_PASSWORD"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

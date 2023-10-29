@@ -19,6 +19,6 @@
   "author": "rcdailey",
   "source": "https://github.com/recyclarr/recyclarr",
   "website": "https://recyclarr.dev",
-  "form_fields": [
-  ]
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

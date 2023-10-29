@@ -14,5 +14,6 @@
   "short_desc": "Open source alternative frontend for TikTok made using PHP ",
   "author": "pablouser1",
   "source": "https://github.com/pablouser1/ProxiTok",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

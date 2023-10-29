@@ -21,5 +21,6 @@
       "label": "Notemark secret",
       "env_variable": "NOTEMARK_SERVICE_SECRET"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

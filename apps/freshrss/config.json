@@ -14,5 +14,6 @@
   "short_desc": "A free, self-hostable aggregator… ",
   "author": "https://freshrss.org/",
   "source": "https://github.com/FreshRSS/FreshRSS",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

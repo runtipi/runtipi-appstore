@@ -15,5 +15,6 @@
   "author": "nicolargo",
   "source": "https://github.com/nicolargo/glances",
   "website": "https://nicolargo.github.io/glances/",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

@@ -14,5 +14,6 @@
   "short_desc": "Hello World web server in under 2 MB",
   "author": "crccheck",
   "source": "https://github.com/crccheck/docker-hello-world",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["amd64"]
 }

@@ -14,5 +14,6 @@
   "short_desc": "Simple, private file sharing. https://send.vis.ee/",
   "author": "timvisee",
   "source": "https://gitlab.com/timvisee/send",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["amd64"]
 }

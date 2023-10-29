@@ -43,5 +43,6 @@
       "label": "Redis password",
       "env_variable": "GHOSTFOLIO_REDIS_PASSWORD"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

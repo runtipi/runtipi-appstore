@@ -13,5 +13,6 @@
   "author": "Andrei Canta",
   "source": "https://github.com/deiucanta/chatpad",
   "website": "https://chatpad.ai/",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

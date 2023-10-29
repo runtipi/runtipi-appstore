@@ -80,5 +80,6 @@
       "required": false,
       "env_variable": "GANDI_LIVEDNS_FORCE_IPV6"
     }
-  ]
+  ],
+  "supported_architectures": ["amd64"]
 }

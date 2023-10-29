@@ -22,5 +22,6 @@
       "min": 32,
       "env_variable": "WIKI_JS_DB_PASS"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

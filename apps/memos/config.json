@@ -15,9 +15,6 @@
   "author": "boojack",
   "website": "https://usememos.com/",
   "source": "https://github.com/usememos/memos",
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ],
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

@@ -15,5 +15,6 @@
   "author": "Owncast",
   "source": "https://github.com/owncast/owncast",
   "website": "https://owncast.online/",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

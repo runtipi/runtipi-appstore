@@ -23,5 +23,6 @@
       "max": 30,
       "env_variable": "DB_PASSWORD"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

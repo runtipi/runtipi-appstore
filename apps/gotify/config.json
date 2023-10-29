@@ -32,5 +32,6 @@
       "required": true,
       "env_variable": "GOTIFY_DEFAULTUSER_PASS"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

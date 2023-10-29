@@ -50,5 +50,6 @@
       "min": 32,
       "env_variable": "FLATNOTES_TOTP_KEY"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

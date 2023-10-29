@@ -26,5 +26,6 @@
       "label": "Vikunja secret",
       "env_variable": "VIKUNJA_SERVICE_SECRET"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

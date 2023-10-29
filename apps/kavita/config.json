@@ -14,5 +14,6 @@
   "short_desc": "Kavita is a fast, feature rich, cross platform reading server",
   "author": "Kareadita",
   "source": "https://github.com/Kareadita/Kavita",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

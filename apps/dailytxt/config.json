@@ -29,5 +29,6 @@
       "default": true,
       "env_variable": "DAILYTXT_ALLOW_REGISTRATION"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

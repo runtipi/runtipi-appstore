@@ -27,5 +27,6 @@
       "min": 32,
       "env_variable": "HASH_SALT"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

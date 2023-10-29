@@ -22,5 +22,6 @@
       "min": 20,
       "env_variable": "GHOST_DATABASE_PASSWORD"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }
