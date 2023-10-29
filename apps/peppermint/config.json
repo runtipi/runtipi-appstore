@@ -22,5 +22,5 @@
       "env_variable": "PEPPERMINT_DB_PASSWORD"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": ["amd64"]
 }
