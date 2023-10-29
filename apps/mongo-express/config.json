@@ -14,7 +14,7 @@
   "website": "https://www.mongodb.com/",
   "form_fields": [
     {
-      "type": "text",
+      "type": "ip",
       "label": "MongoDB Server IP Address",
       "max": 50,
       "min": 3,

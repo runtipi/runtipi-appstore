@@ -144,7 +144,7 @@ describe("App configs", () => {
     apps.forEach((app) => {
       test(app.id, () => {
         expect(app.supported_architectures).toBeDefined();
-        expect(app.categories).toBeInstanceOf(Array);
+        expect(app.supported_architectures).toBeInstanceOf(Array);
       });
     });
   });
