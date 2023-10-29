@@ -142,7 +142,7 @@ describe("App configs", () => {
     const apps = getAppConfigs();
 
     apps.forEach((app) => {
-      test(app.supported_architectures, () => {
+      test(app.id, () => {
         expect(app.supported_architectures).toBeDefined();
       });
     });
