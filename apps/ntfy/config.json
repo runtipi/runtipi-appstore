@@ -13,5 +13,6 @@
   "author": "https://github.com/binwiederhier",
   "source": "https://github.com/binwiederhier/ntfy",
   "website": "https://ntfy.sh/",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

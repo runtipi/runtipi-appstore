@@ -14,5 +14,6 @@
   "short_desc": "A fancy self-hosted monitoring tool.",
   "author": "louislam",
   "source": "https://github.com/louislam/uptime-kuma",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

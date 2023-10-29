@@ -21,5 +21,6 @@
       "min": 32,
       "env_variable": "SEARXNG_SECRET_KEY"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

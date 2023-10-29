@@ -28,5 +28,6 @@
       "min": 32,
       "env_variable": "TANDOOR_POSTGRESS_PASSWORD"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

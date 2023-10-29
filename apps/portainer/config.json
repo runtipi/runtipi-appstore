@@ -15,5 +15,6 @@
   "short_desc": "Making Docker and Kubernetes management easy.",
   "author": "portainer.io",
   "source": "https://github.com/portainer/portainer",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

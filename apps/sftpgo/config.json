@@ -53,5 +53,6 @@
       "placeholder": "5",
       "env_variable": "SFTPGO_GRACE_TIME"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

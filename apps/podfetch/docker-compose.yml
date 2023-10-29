@@ -3,7 +3,7 @@ version: "3"
 services:
   podfetch:
     container_name: podfetch
-    image:  samuel19982/podfetch:latest
+    image: samuel19982/podfetch:latest
     ports:
       - ${APP_PORT}:8000
     volumes:

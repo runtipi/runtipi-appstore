@@ -14,5 +14,6 @@
   "short_desc": "A self-hosted, ad-free, privacy-respecting metasearch engine.",
   "author": "Ben Busby",
   "source": "https://github.com/benbusby/whoogle-search",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

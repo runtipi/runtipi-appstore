@@ -15,5 +15,6 @@
   "short_desc": "A simple, opinionated, RSS feed aggregator.",
   "author": "https://github.com/ssddanbrown",
   "source": "https://github.com/ssddanbrown/rss",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

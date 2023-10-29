@@ -16,5 +16,6 @@
   "author": "The Syncthing Foundation",
   "source": "https://github.com/syncthing",
   "website": "https://syncthing.net",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

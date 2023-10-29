@@ -38,5 +38,6 @@
       "required": true,
       "env_variable": "OWNCLOUD_PASSWORD"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

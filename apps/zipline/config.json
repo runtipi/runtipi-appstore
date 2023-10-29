@@ -28,5 +28,6 @@
       "min": 32,
       "env_variable": "ZIPLINE_CORE_SECRET"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

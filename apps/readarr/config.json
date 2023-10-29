@@ -15,5 +15,6 @@
   "short_desc": "Book Manager and Automation (Sonarr for Ebooks)",
   "author": "readarr.com",
   "source": "https://github.com/Readarr/Readarr",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

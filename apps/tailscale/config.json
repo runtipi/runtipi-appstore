@@ -15,5 +15,6 @@
   "author": "© Tailscale Inc.",
   "source": "https://github.com/tailscale/tailscale",
   "website": "https://tailscale.com/",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

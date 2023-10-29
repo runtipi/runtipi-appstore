@@ -43,5 +43,6 @@
       "required": false,
       "env_variable": "RYOT_VIDEO_GAMES_TWITCH_CLIENT_SECRET"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

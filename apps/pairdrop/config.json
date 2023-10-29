@@ -17,5 +17,6 @@
   "author": "schlagmichdoch",
   "source": "https://github.com/schlagmichdoch/PairDrop",
   "website": "https://pairdrop.net/",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

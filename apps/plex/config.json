@@ -15,5 +15,6 @@
   "short_desc": "Stream Movies & TV Shows",
   "author": "plexinc",
   "source": "https://github.com/plexinc/pms-docker",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

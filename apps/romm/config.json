@@ -42,5 +42,6 @@
       "required": false,
       "env_variable": "ROMM_STEAMGRIDDB_API_KEY"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

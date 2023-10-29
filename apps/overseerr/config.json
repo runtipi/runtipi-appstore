@@ -15,5 +15,6 @@
   "short_desc": "Request management and media discovery tool for the Plex ecosystem",
   "author": "sct",
   "source": "https://github.com/sct/overseerr",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

@@ -15,5 +15,6 @@
   "author": "https://github.com/Wizarrrr",
   "source": "https://github.com/Wizarrrr/wizarr",
   "website": "https://docs.wizarr.dev/",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }
