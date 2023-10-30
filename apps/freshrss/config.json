@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8086,
   "id": "freshrss",
-  "tipi_version": 6,
-  "version": "1.22.0",
+  "tipi_version": 7,
+  "version": "1.22.1",
   "categories": [
     "utilities"
   ],
@@ -15,5 +15,8 @@
   "author": "https://freshrss.org/",
   "source": "https://github.com/FreshRSS/FreshRSS",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
