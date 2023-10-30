@@ -16,8 +16,21 @@
         {
             "type": "boolean",
             "label": "https enable",
-            "required": true,
-            "env_variable": "HTTPS_ENABLED"
+            "env_variable": "KOILLECTION_HTTPS_ENABLED"
+        },
+        {
+            "type": "random",
+            "label": "database user",
+            "min": 15,
+            "max": 15,
+            "env_variable": "KOILLECTION_DB_USER"
+        },
+        {
+            "type": "random",
+            "label": "database password",
+            "min": 30,
+            "max": 30,
+            "env_variable": "KOILLECTION_DB_PASSWORD"
         }
     ]  
 }

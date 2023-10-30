@@ -10,26 +10,25 @@ services:
         depends_on:
             - db
         volumes:
-            - ${APP_DATA_DIR}/data/volumes/koillection/uploads:/uploads
+            - ${APP_DATA_DIR}/data/uploads:/uploads
         environment:
             - APP_DEBUG=0
             - APP_ENV=prod
-            - HTTPS_ENABLED={HTTPS_ENABLED}
+            - HTTPS_ENABLED={KOILLECTION_HTTPS_ENABLED}
             - UPLOAD_MAX_FILESIZE=20M
             - PHP_MEMORY_LIMIT=512M
             - PHP_TZ=${TZ}
-            - CORS_ALLOW_ORIGIN='^https?://(localhost|127\.0\.0\.1)(:[0-9]+)?$'
+            - CORS_ALLOW_ORIGIN=*
             - JWT_SECRET_KEY=%kernel.project_dir%/config/jwt/private.pem
             - JWT_PUBLIC_KEY=%kernel.project_dir%/config/jwt/public.pem
             - DB_DRIVER=pdo_pgsql
             - DB_NAME=koillection
             - DB_HOST=db
             - DB_PORT=5432
-            - DB_USER=root
-            - DB_PASSWORD=root
+            - DB_USER={KOILLECTION_DB_USER}
+            - DB_PASSWORD={KOILLECTION_DB_PASSWORD}
             - DB_VERSION=15
         networks:
-            - koillection
             - tipi_main_network
         labels:
               # Main
@@ -57,9 +56,9 @@ services:
               traefik.http.routers.koillection-local.service: koillection
               traefik.http.routers.koillection-local.tls: true
 
-    db:
+    koillection-db:
         image: postgres:15
-        container_name: db
+        container_name: koillection-db
         restart: unless-stopped
         environment:
             - POSTGRES_DB=koillection
@@ -69,7 +68,4 @@ services:
         volumes:
             - ${APP_DATA_DIR}/data/volumes/postgresql:/var/lib/postgresql/data
         networks:
-            - koillection
-networks:
-    koillection:
-        driver: bridge
+            - tipi_main_network
