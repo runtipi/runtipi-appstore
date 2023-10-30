@@ -7,10 +7,6 @@
   "id": "tubearchivist",
   "tipi_version": 7,
   "version": "0.4.2",
-  "supported_architectures": [
-    "amd64",
-    "arm64"
-  ],
   "categories": [
     "media"
   ],
@@ -42,5 +38,6 @@
       "min": 3,
       "env_variable": "ELASTIC_PASSWORD"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

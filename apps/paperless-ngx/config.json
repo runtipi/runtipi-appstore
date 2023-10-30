@@ -50,5 +50,6 @@
       ],
       "env_variable": "PAPERLESS_TIKA_ENABLED"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

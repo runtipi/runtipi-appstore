@@ -13,5 +13,6 @@
   "author": "Bockiii",
   "source": "https://gitlab.com/Bockiii/deemix-docker",
   "website": "https://deemix.app/",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

@@ -12,5 +12,6 @@
   ],
   "short_desc": "An open-source, self-hosted Notion alterative",
   "author": "zadam",
-  "source": "https://github.com/zadam/trilium"
+  "source": "https://github.com/zadam/trilium",
+  "supported_architectures": ["arm64", "amd64"]
 }

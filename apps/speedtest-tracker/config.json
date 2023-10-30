@@ -19,5 +19,6 @@
       "min": 32,
       "env_variable": "SPEEDTEST_TRACKER_DB_PASSWORD"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

@@ -14,5 +14,6 @@
   "short_desc": "LLaMA made easy",
   "author": "nsarrazin",
   "source": "https://github.com/serge-chat/serge",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

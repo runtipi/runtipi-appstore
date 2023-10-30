@@ -12,5 +12,6 @@
   "short_desc": "Kapowarr is a software to build and manage a comic book library, fitting in the *arr suite of software.",
   "author": "Casvt",
   "source": "https://github.com/Casvt/Kapowarr",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

@@ -40,5 +40,6 @@
       "required": true,
       "env_variable": "MOVARY_TMDB_API_KEY"
     }
-  ]
+  ],
+  "supported_architectures": ["amd64"]
 }

@@ -16,5 +16,6 @@
   "source": "https://github.com/PrivateBin/PrivateBin",
   "form_fields": [],
   "uid": 65534,
-  "gid": 82
+  "gid": 82,
+  "supported_architectures": ["arm64", "amd64"]
 }

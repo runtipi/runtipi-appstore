@@ -7,7 +7,6 @@
   "id": "invidious",
   "version": "latest",
   "tipi_version": 7,
-  "supported_architectures": ["arm64", "amd64"],
   "categories": ["media", "social"],
   "description": "Invidious is an open source alternative front-end to YouTube.",
   "short_desc": "An alternative front-end to YouTube",
@@ -21,5 +20,6 @@
       "label": "HMAC key",
       "env_variable": "INVIDIOUS_HMAC_KEY"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

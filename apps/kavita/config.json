@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "kavita",
-  "tipi_version": 7,
-  "version": "0.7.9",
+  "tipi_version": 8,
+  "version": "0.7.10",
   "categories": [
     "media"
   ],
@@ -14,5 +14,6 @@
   "short_desc": "Kavita is a fast, feature rich, cross platform reading server",
   "author": "Kareadita",
   "source": "https://github.com/Kareadita/Kavita",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

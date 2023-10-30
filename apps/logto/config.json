@@ -29,5 +29,6 @@
       "required": true,
       "env_variable": "LOGTO_ADMIN_URL"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

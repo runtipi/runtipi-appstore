@@ -12,5 +12,6 @@
   "short_desc": "Twitter without annoyances!",
   "author": "zedeus",
   "source": "https://github.com/zedeus/nitter",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

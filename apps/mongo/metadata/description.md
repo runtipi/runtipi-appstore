@@ -1,3 +1,5 @@
+**Warning ⚠️:** Mongodb supports only apple's newer arm64 arch not raspberry pi.
+
 # MongoDB
 MongoDB is an open-source document-oriented database that is designed to store a large scale of data and also allows you to work with that data very efficiently. It is categorized under the NoSQL (Not only SQL) database because the storage and retrieval of data in the MongoDB are not in the form of tables. 
 

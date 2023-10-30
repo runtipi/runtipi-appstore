@@ -37,5 +37,6 @@
       "max": 64,
       "env_variable": "LOCKBOX_MASTER_KEY"
     }
-  ]
+  ],
+  "supported_architectures": ["amd64"]
 }

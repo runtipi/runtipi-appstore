@@ -31,5 +31,6 @@
       "required": true,
       "env_variable": "NEXTCLOUD_ADMIN_PASSWORD"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

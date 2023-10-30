@@ -14,5 +14,6 @@
   "short_desc": "Local-first OpenSource Budget tool",
   "author": "Shift Reset LLC",
   "source": "https://github.com/actualbudget/actual-server",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

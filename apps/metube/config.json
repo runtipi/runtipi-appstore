@@ -12,5 +12,6 @@
   "short_desc": "youtube-dl web UI",
   "author": "alexta69",
   "source": "https://github.com/alexta69/metube",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

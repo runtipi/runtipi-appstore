@@ -338,5 +338,6 @@
       "placeholder": "http://list.iblocklist.com/?list=bt_level1&fileformat=p2p&archiveformat=gz",
       "env_variable": "TRANSMISSION_BLOCKLIST_URL"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

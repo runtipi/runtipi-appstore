@@ -11,5 +11,6 @@
   "short_desc": "Open source home automation that puts local control and privacy first",
   "author": "ArneNaessens",
   "source": "https://github.com/home-assistant/core",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

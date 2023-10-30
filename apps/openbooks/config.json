@@ -27,5 +27,6 @@
       "placeholder": "sjdfksd",
       "env_variable": "OPENBOOKS_IRC_USERNAME"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

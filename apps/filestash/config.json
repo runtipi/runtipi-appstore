@@ -31,5 +31,6 @@
       "required": false,
       "env_variable": "FILESTASH_DROPBOX_CLIENT_ID"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

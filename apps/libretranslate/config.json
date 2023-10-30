@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8121,
   "id": "libretranslate",
-  "tipi_version": 9,
-  "version": "1.4.0",
+  "tipi_version": 10,
+  "version": "1.4.1",
   "categories": [
     "utilities"
   ],
@@ -14,5 +14,9 @@
   "short_desc": "Free and Open Source Machine Translation API. 100% self-hosted, offline capable and easy to setup.",
   "author": "LibreTranslate",
   "source": "https://github.com/LibreTranslate/LibreTranslate",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }

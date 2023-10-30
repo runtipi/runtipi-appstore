@@ -20,5 +20,6 @@
       "min": 32,
       "env_variable": "SCRYPTED_BEARER_TOKEN"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

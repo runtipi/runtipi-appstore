@@ -36,5 +36,6 @@
       "required": false,
       "env_variable": "NETWORK_INTERFACE"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

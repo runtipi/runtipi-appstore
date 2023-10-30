@@ -21,5 +21,6 @@
       "min": 32,
       "env_variable": "FORGEJO_DB_PASSWORD"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

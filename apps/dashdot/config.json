@@ -15,5 +15,6 @@
   "author": "MauriceNino",
   "source": "https://github.com/MauriceNino/dashdot",
   "website": "https://getdashdot.com/",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

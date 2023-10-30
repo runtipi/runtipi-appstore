@@ -3,7 +3,7 @@ services:
   whisparr:
     container_name: whisparr
     hostname: ${APP_ID}
-    image: cr.hotio.dev/hotio/whisparr:nightly
+    image: ghcr.io/hotio/whisparr:nightly-2.0.0.287
     ports:
       - "${APP_PORT}:6969"
     environment:

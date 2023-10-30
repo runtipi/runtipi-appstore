@@ -12,5 +12,6 @@
   "short_desc": "Browse reddit without problems!",
   "author": "spikecodes",
   "source": "https://github.com/spikecodes/libreddit",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

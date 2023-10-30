@@ -35,5 +35,6 @@
       "default": "false",
       "env_variable": "LINKWARDEN_NEXT_PUBLIC_DISABLE_REGISTRATION"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

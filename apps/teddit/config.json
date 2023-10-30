@@ -14,5 +14,6 @@
   "short_desc": "Alternative Reddit front-end focused on privacy https://teddit.net",
   "author": "teddit",
   "source": "https://codeberg.org/teddit/teddit",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

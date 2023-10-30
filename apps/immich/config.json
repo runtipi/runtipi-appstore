@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8128,
   "id": "immich",
-  "tipi_version": 49,
-  "version": "1.82.1",
+  "tipi_version": 50,
+  "version": "1.83.0",
   "categories": [
     "data",
     "photography"
@@ -35,5 +35,6 @@
       "min": 32,
       "env_variable": "IMMICH_TYPESENSE_API_KEY"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

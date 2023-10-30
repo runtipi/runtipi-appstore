@@ -22,5 +22,6 @@
       "required": false,
       "env_variable": "MC_VERSION"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

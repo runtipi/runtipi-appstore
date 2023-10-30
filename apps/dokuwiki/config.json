@@ -13,5 +13,6 @@
   "author": "https://github.com/dokuwiki",
   "source": "https://github.com/dokuwiki/dokuwiki",
   "website": "https://www.dokuwiki.org/dokuwiki",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

@@ -23,5 +23,6 @@
       "min": 8,
       "env_variable": "JOPLIN_DB_PASSWORD"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "onedev",
-  "tipi_version": 56,
-  "version": "9.2.3",
+  "tipi_version": 57,
+  "version": "9.2.4",
   "categories": [
     "development"
   ],
@@ -45,5 +45,9 @@
       "required": true,
       "env_variable": "ONEDEV_PASSWORD"
     }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
   ]
 }

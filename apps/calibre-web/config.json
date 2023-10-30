@@ -14,5 +14,6 @@
   "short_desc": "Calibre-web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database.",
   "author": "https://github.com/janeczku/",
   "source": "https://github.com/janeczku/calibre-web",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

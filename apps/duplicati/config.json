@@ -12,5 +12,6 @@
   "short_desc": "Store securely encrypted backups in the cloud!",
   "author": "https://github.com/duplicati",
   "source": "https://github.com/linuxserver/docker-duplicati",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

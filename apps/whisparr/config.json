@@ -37,5 +37,6 @@
       "placeholder": "002",
       "env_variable": "WHISPARR_UMASK"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

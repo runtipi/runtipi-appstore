@@ -15,5 +15,6 @@
   "author": "Budibase",
   "source": "https://github.com/Budibase/budibase",
   "website": "https://budibase.com/",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

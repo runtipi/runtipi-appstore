@@ -15,5 +15,6 @@
   "author": "Gladys Assistant",
   "source": "https://github.com/gladysassistant/gladys",
   "website": "https://gladysassistant.com/",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

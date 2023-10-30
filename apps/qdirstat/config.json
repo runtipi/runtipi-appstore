@@ -14,5 +14,6 @@
   "short_desc": "A graphical disk usage analyzer",
   "author": "Stefan Hundhammer",
   "source": "https://github.com/linuxserver/docker-qdirstat",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

@@ -14,5 +14,6 @@
   "short_desc": "Gitea - Git with a cup of tea · A painless self-hosted Git service. · Cross-platform · Easy to install · Lightweight · Open Source.",
   "author": "go-gitea",
   "source": "https://github.com/go-gitea/gitea",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

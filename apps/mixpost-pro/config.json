@@ -12,7 +12,6 @@
   "short_desc": "Self-hosted social media management. Schedule and organize your social content. ",
   "author": "Inovector",
   "source": "https://github.com/inovector/mixpost",
-  "supported_architectures": ["amd64"],
   "form_fields": [
     {
       "type": "random",
@@ -40,5 +39,6 @@
       "required": true,
       "env_variable": "MIXPOST_LICENSE_KEY"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

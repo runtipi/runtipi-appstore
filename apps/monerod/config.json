@@ -17,5 +17,6 @@
   "source": "https://github.com/sethforprivacy/simple-monerod-docker",
   "form_fields": [],
   "uid": 1000,
-  "gid": 1000
+  "gid": 1000,
+  "supported_architectures": ["arm64", "amd64"]
 }

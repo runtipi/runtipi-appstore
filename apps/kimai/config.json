@@ -41,5 +41,6 @@
       "required": true,
       "env_variable": "KIMAI_ADMINPASS"
     }
-  ]
+  ],
+  "supported_architectures": ["amd64"]
 }

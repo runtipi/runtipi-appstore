@@ -14,5 +14,6 @@
   "short_desc": "A simple self hosted reminder platform that uses push to send notifications to your device.",
   "author": "https://github.com/Casvt",
   "source": "https://github.com/Casvt/MIND",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

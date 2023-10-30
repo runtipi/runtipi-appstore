@@ -26,5 +26,6 @@
       "required": true,
       "env_variable": "NETWORK_ID"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

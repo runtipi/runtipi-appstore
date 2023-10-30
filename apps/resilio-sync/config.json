@@ -14,5 +14,6 @@
   "short_desc": "Resilio Sync is a fast, reliable, and simple file sync and share solution, powered by P2P technology",
   "author": "Resilio, Inc.",
   "source": "https://github.com/bt-sync",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

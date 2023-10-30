@@ -17,5 +17,6 @@
   "author": "Unmanic",
   "source": "https://github.com/Unmanic/unmanic",
   "website": "https://docs.unmanic.app/",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

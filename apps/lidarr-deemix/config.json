@@ -14,5 +14,6 @@
   "short_desc": "Lidarr with some muscles thanks to deemix",
   "author": "Youegraillot",
   "source": "https://github.com/youegraillot/lidarr-on-steroids",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

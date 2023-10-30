@@ -14,5 +14,6 @@
   "author": "netdata",
   "source": "https://github.com/netdata/netdata",
   "website": "https://www.netdata.cloud/",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

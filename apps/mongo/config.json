@@ -34,5 +34,6 @@
         "required": true,
         "env_variable": "MONGO_INITDB_ROOT_PASSWORD"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

@@ -13,5 +13,6 @@
   "author": "filebrowser.org",
   "website": "https://filebrowser.org/",
   "source": "https://github.com/filebrowser/filebrowser",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

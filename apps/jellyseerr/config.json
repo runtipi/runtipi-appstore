@@ -15,5 +15,6 @@
   "short_desc": "Fork of overseerr for Jellyfin support",
   "author": "Fallenbagel",
   "source": "https://github.com/Fallenbagel/jellyseerr",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

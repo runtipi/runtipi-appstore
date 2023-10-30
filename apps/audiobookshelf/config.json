@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 13378,
   "id": "audiobookshelf",
-  "tipi_version": 6,
-  "version": "2.4.4",
+  "tipi_version": 7,
+  "version": "2.5.0",
   "categories": [
     "books",
     "media"
@@ -15,5 +15,9 @@
   "short_desc": "Audiobookshelf is a self-hosted audiobook and podcast server.",
   "author": "advplyr",
   "source": "https://github.com/advplyr/audiobookshelf",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
