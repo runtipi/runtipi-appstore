@@ -23,7 +23,7 @@ services:
             - JWT_PUBLIC_KEY=%kernel.project_dir%/config/jwt/public.pem
             - DB_DRIVER=pdo_pgsql
             - DB_NAME=koillection
-            - DB_HOST=db
+            - DB_HOST=koillection-db
             - DB_PORT=5432
             - DB_USER={KOILLECTION_DB_USER}
             - DB_PASSWORD={KOILLECTION_DB_PASSWORD}
