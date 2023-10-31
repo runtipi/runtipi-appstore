@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8121,
   "id": "libretranslate",
-  "tipi_version": 10,
-  "version": "1.4.1",
+  "tipi_version": 11,
+  "version": "1.5.0",
   "categories": [
     "utilities"
   ],
