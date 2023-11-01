@@ -3,7 +3,7 @@ version: "3.7"
 services:
   immich:
     container_name: immich
-    image: altran1502/immich-proxy:v1.83.0
+    image: altran1502/immich-proxy:v1.84.0
     ports:
       - ${APP_PORT}:8080
     depends_on:
