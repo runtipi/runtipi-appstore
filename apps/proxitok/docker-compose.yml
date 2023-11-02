@@ -1,17 +1,17 @@
-
+version: "3.8"
 services:
-
   proxitok:
     container_name: proxitok
-    image: ghcr.io/pablouser1/proxitok:v2.4.9.2
+    image: ghcr.io/pablouser1/proxitok:master
     restart: unless-stopped
     ports:
-      - ${APP_PORT}:80
+      - ${APP_PORT}:8080
     environment:
       - "LATTE_CACHE=/cache"
       - "API_CACHE=redis"
       - "REDIS_HOST=proxitok-redis"
       - "REDIS_PORT=6379"
+      - "API_SIGNER=remote"
       - "API_SIGNER_URL=http://proxitok-signer:8080/signature"
     volumes:
       - "proxitok-cache:/cache"
@@ -24,7 +24,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.proxitok-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.proxitok.loadbalancer.server.port: 80
+      traefik.http.services.proxitok.loadbalancer.server.port: 8080
       # Web
       traefik.http.routers.proxitok-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.proxitok-insecure.entrypoints: web
@@ -48,18 +48,17 @@ services:
 
   proxitok-redis:
     container_name: proxitok-redis
-    image: docker.io/redis:7-alpine
+    image: redis:7-alpine
     restart: unless-stopped
     command: redis-server --save 60 1 --loglevel warning
     networks:
-        - tipi_main_network
+      - tipi_main_network
 
   proxitok-signer:
     container_name: proxitok-signer
     image: ghcr.io/pablouser1/signtok:master
     networks:
       - tipi_main_network
-
 
 volumes:
   proxitok-cache:
