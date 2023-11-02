@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8092,
   "id": "halo",
-  "tipi_version": 11,
-  "version": "2.10.1",
+  "tipi_version": 12,
+  "version": "2.10.2",
   "description": "Halo is a powerful and easy-to-use open source website building tool.",
   "short_desc": "Halo - Open source website building tool.",
   "categories": [
@@ -29,5 +29,8 @@
       "env_variable": "HALO_EXTERNAL_URL"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
