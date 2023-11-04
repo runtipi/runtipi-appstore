@@ -2,7 +2,7 @@ version: "3.9"
 services:
   actual-budget:
     container_name: actual-budget
-    image: actualbudget/actual-server:23.10.0
+    image: actualbudget/actual-server:23.11.0
     restart: unless-stopped
     ports:
       - ${APP_PORT}:5006
