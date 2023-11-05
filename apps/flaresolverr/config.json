@@ -6,8 +6,8 @@
   "exposable": false,
   "no_gui": true,
   "id": "flaresolverr",
-  "tipi_version": 2,
-  "version": "3.3.6",
+  "tipi_version": 3,
+  "version": "3.3.7",
   "categories": [
     "media",
     "security",
@@ -19,6 +19,5 @@
   "source": "https://github.com/FlareSolverr/FlareSolverr",
   "website": "https://github.com/FlareSolverr/FlareSolverr",
   "form_fields": [
-  ],
-  "supported_architectures": ["arm64", "amd64"]
+  ]
 }
