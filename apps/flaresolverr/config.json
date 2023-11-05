@@ -1,7 +1,7 @@
 {
   "$schema": "../schema.json",
   "name": "Flaresolverr",
-  "port": 8191,
+  "port": 8666,
   "available": true,
   "exposable": false,
   "no_gui": true,
