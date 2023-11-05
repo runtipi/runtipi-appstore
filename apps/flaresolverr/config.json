@@ -18,6 +18,6 @@
   "author": "FlareSolverr Team",
   "source": "https://github.com/FlareSolverr/FlareSolverr",
   "website": "https://github.com/FlareSolverr/FlareSolverr",
-  "form_fields": [
-  ]
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }
