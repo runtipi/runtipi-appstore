@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "budibase",
-  "tipi_version": 24,
-  "version": "2.13.0",
+  "tipi_version": 25,
+  "version": "2.13.1",
   "categories": [
     "development"
   ],
