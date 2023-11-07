@@ -5,8 +5,8 @@
   "exposable": true,
   "id": "grist",
   "description": "Grist is a modern relational spreadsheet. It combines the flexibility of a spreadsheet with the robustness of a database to organize your data and make you more productive.",
-  "tipi_version": 5,
-  "version": "1.1.6",
+  "tipi_version": 6,
+  "version": "1.1.7",
   "categories": [
     "utilities"
   ],
@@ -32,5 +32,8 @@
       "env_variable": "GRIST_SANDBOX_FLAVOR"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
