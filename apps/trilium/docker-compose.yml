@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   trilium:
-    image: ghcr.io/zadam/trilium:0.61.10-beta
+    image: ghcr.io/zadam/trilium:0.62.0-beta
     container_name: trilium
     ports:
       - ${APP_PORT}:8080
