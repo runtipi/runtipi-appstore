@@ -44,7 +44,7 @@ services:
 
   tooljet-server:
     container_name: tooljet-server
-    image: tooljet/tooljet-server-ce:v2.23.0
+    image: tooljet/tooljet-server-ce:v2.24.0
     tty: true
     stdin_open: true
     restart: always
