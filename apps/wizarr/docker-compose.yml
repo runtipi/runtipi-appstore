@@ -3,7 +3,7 @@ version: "3.8"
 services:
   wizarr:
     container_name: wizarr
-    image: ghcr.io/wizarrrr/wizarr:latest-3.4.2
+    image: ghcr.io/wizarrrr/wizarr:3.4.8
     ports:
       - ${APP_PORT}:5690
     volumes:
@@ -35,5 +35,3 @@ services:
       traefik.http.routers.wizarr-local.entrypoints: websecure
       traefik.http.routers.wizarr-local.service: wizarr
       traefik.http.routers.wizarr-local.tls: true
-
-
