@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "budibase",
-  "tipi_version": 19,
-  "version": "2.11.45",
+  "tipi_version": 29,
+  "version": "2.13.5",
   "categories": [
     "development"
   ],
@@ -16,5 +16,8 @@
   "source": "https://github.com/Budibase/budibase",
   "website": "https://budibase.com/",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }

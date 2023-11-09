@@ -5,8 +5,8 @@
   "available": true,
   "exposable": false,
   "id": "gladys",
-  "tipi_version": 19,
-  "version": "4.29.0",
+  "tipi_version": 20,
+  "version": "4.30.0",
   "categories": [
     "automation"
   ],
@@ -16,5 +16,8 @@
   "source": "https://github.com/gladysassistant/gladys",
   "website": "https://gladysassistant.com/",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }

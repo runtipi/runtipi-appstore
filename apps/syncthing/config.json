@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8090,
   "id": "syncthing",
-  "tipi_version": 8,
-  "version": "1.25",
+  "tipi_version": 9,
+  "version": "1.26",
   "categories": [
     "data",
     "utilities"
@@ -17,5 +17,8 @@
   "source": "https://github.com/syncthing",
   "website": "https://syncthing.net",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }

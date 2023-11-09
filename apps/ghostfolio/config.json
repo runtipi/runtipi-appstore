@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "ghostfolio",
-  "tipi_version": 13,
-  "version": "2.16.0",
+  "tipi_version": 17,
+  "version": "2.20.0",
   "categories": [
     "finance"
   ],
@@ -44,5 +44,8 @@
       "env_variable": "GHOSTFOLIO_REDIS_PASSWORD"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }

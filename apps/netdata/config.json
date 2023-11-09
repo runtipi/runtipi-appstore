@@ -5,8 +5,8 @@
   "exposable": true,
   "id": "netdata",
   "description": "Stream any metrics from every physical and virtual server, container and IoT device, to one dashboard, in real-time.",
-  "tipi_version": 3,
-  "version": "1.43.1",
+  "tipi_version": 4,
+  "version": "1.43.2",
   "categories": [
     "utilities"
   ],
@@ -15,5 +15,8 @@
   "source": "https://github.com/netdata/netdata",
   "website": "https://www.netdata.cloud/",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
