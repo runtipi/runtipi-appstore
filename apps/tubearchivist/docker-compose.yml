@@ -4,7 +4,7 @@ services:
   tubearchivist:
     container_name: tubearchivist
     restart: unless-stopped
-    image: bbilly1/tubearchivist:v0.4.2
+    image: bbilly1/tubearchivist:v0.4.3
     ports:
       - ${APP_PORT}:8000
     dns:
