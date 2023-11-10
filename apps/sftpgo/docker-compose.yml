@@ -4,7 +4,7 @@ services:
   sftpgo:
     container_name: sftpgo
     user: root
-    image: drakkan/sftpgo:v2.5.4-alpine
+    image: drakkan/sftpgo:v2.5.5-alpine
     restart: unless-stopped
     depends_on:
       sftpgo-db:
