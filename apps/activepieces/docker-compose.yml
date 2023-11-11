@@ -43,14 +43,14 @@ services:
       traefik.http.routers.activepieces-local.tls: true
 
   activepieces-postgres:
-    image: postgres:activepieces-postgres
+    image: postgres:14
     restart: unless-stopped
     environment:
       - POSTGRES_DB=activepieces
       - POSTGRES_PASSWORD=${AP_POSTGRES_PASSWORD}
       - POSTGRES_USER=tipi
     volumes:
-      - "${APP_DATA}/data/postgres:/var/lib/postgresql/data"
+      - "${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data"
     networks:
       - tipi_main_network
 
@@ -59,6 +59,6 @@ services:
     container_name: activepieces-redis
     restart: unless-stopped
     volumes:
-      - "${APP_DATA}/data/redis/:/data"
+      - "${APP_DATA_DIR}/data/redis/:/data"
     networks:
       - tipi_main_network
