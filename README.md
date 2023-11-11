@@ -5,6 +5,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 ## Apps available
 
 - [2FAuth](https://github.com/Bubka/2FAuth) - A Web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes
+- [Activepieces](https://github.com/activepieces/activepieces) - A true zapier alternative.
 - [Actual Budget](https://github.com/actualbudget/actual-server) - Local-first OpenSource Budget tool
 - [Adguard Home](https://github.com/AdguardTeam/AdGuardHome) - Adguard Home DNS adblocker
 - [Audiobookshelf](https://github.com/advplyr/audiobookshelf) - Audiobookshelf is a self-hosted audiobook and podcast server.
