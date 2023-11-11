@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   netbootxyz:
-    image: ghcr.io/netbootxyz/netbootxyz:0.6.9-nbxyz2
+    image: lscr.io/linuxserver/netbootxyz:0.6.9
     container_name: netbootxyz
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
