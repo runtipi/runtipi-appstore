@@ -19,7 +19,7 @@ services:
       - AP_WEBHOOK_TIMEOUT_SECONDS=30
       - AP_TRIGGER_DEFAULT_POLL_INTERVAL=5
       - AP_POSTGRES_DATABASE=activepieces
-      - AP_POSTGRES_HOST=activepieces-postgress.runtipi_tipi_main_network
+      - AP_POSTGRES_HOST=activepieces-postgres.runtipi_tipi_main_network
       - AP_POSTGRES_PORT=5432
       - AP_POSTGRES_USERNAME=tipi
       - AP_POSTGRES_PASSWORD=${AP_POSTGRES_PASSWORD}
