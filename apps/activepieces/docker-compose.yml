@@ -61,6 +61,7 @@ services:
   activepieces-postgres:
     image: postgres:14
     restart: unless-stopped
+    container_name: activepieces-postgres
     environment:
       - POSTGRES_DB=activepieces
       - POSTGRES_PASSWORD=${AP_POSTGRES_PASSWORD}
