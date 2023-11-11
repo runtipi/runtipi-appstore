@@ -17,8 +17,8 @@
   "form_fields": [
     {
         "type": "random",
-        "max": 32,
-        "min": 8,
+        "label": "Activepieces postgres password.",
+        "min": 32,
         "env_variable": "AP_POSTGRES_PASSWORD"
     }
   ],
