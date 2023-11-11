@@ -20,6 +20,24 @@
         "label": "Activepieces postgres password.",
         "min": 32,
         "env_variable": "AP_POSTGRES_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Activepieces api key.",
+      "min": 32,
+      "env_variable": "AP_API_KEY"
+    },
+    {
+      "type": "random",
+      "label": "Activepieces encryption key.",
+      "min": 32,
+      "env_variable": "AP_ENCRYPTION_KEY"
+    },
+    {
+      "type": "random",
+      "label": "Activepieces jwt secret.",
+      "min": 32,
+      "env_variable": "AP_JWT_SECRET"
     }
   ],
   "supported_architectures": ["arm64", "amd64"]
