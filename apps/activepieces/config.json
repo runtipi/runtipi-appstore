@@ -1,0 +1,26 @@
+{
+  "name": "Activepieces",
+  "available": true,
+  "port": 8605,
+  "exposable": true,
+  "id": "activepieces",
+  "description": "Your friendliest open source all-in-one automation tool.",
+  "tipi_version": 1,
+  "version": "0.12.2",
+  "categories": [
+    "automation"
+  ],
+  "short_desc": "True zapier alternative.",
+  "author": "Activepieces",
+  "source": "https://github.com/activepieces/activepieces",
+  "website": "https://www.activepieces.com/",
+  "form_fields": [
+    {
+        "type": "random",
+        "max": 32,
+        "min": 8,
+        "env_variable": "AP_POSTGRES_PASSWORD"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}
