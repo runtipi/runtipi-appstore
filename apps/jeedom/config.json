@@ -1,5 +1,5 @@
 {
-    "name": "My super app",
+    "name": "Jeedom",
     "available": true,
     "port": 52080,
     "exposable": true, 
@@ -8,7 +8,7 @@
     "tipi_version": 1, 
     "version": "4.4", 
     "categories": ["automation"], 
-    "short_desc": "", 
+    "short_desc": "Jeedom is free open-source home automation software that can be installed on any Linux system.", 
     "author": "Hotfirenet", 
     "source": "https://github.com/jeedom/core",
     "website": "https://www.jeedom.com", 
