@@ -1,0 +1,16 @@
+{
+    "name": "My super app",
+    "available": true,
+    "port": 52080,
+    "exposable": true, 
+    "id": "jeedom", 
+    "description": "", 
+    "tipi_version": 1, 
+    "version": "4.4", 
+    "categories": ["automation"], 
+    "short_desc": "", 
+    "author": "Hotfirenet", 
+    "source": "https://github.com/jeedom/core",
+    "website": "https://www.jeedom.com", 
+    "form_fields": [] 
+  }
