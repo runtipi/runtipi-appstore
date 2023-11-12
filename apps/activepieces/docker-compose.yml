@@ -1,14 +1,16 @@
-version: "3.7"
+version: '3.7'
 services:
   activepieces:
     image: activepieces/activepieces:0.12.2
     container_name: activepieces
     restart: unless-stopped
     ports:
-      - "${APP_PORT}:80"
+      - '${APP_PORT}:80'
     depends_on:
-      - activepieces-postgres
-      - activepieces-redis
+      activepieces-postgres:
+        condition: service_healthy
+      activepieces-redis:
+        condition: service_healthy
     environment:
       - AP_ENGINE_EXECUTABLE_PATH=dist/packages/engine/main.js
       - AP_API_KEY=${AP_API_KEY}
@@ -19,19 +21,19 @@ services:
       - AP_WEBHOOK_TIMEOUT_SECONDS=30
       - AP_TRIGGER_DEFAULT_POLL_INTERVAL=5
       - AP_POSTGRES_DATABASE=activepieces
-      - AP_POSTGRES_HOST=activepieces-postgres.runtipi_tipi_main_network
+      - AP_POSTGRES_HOST=activepieces-postgres
       - AP_POSTGRES_PORT=5432
       - AP_POSTGRES_USERNAME=tipi
       - AP_POSTGRES_PASSWORD=${AP_POSTGRES_PASSWORD}
       - AP_EXECUTION_MODE=UNSANDBOXED
-      - AP_REDIS_HOST=activepieces-redis.runtipi_tipi_main_network
+      - AP_REDIS_HOST=activepieces-redis
       - AP_REDIS_PORT=6379
       - AP_SANDBOX_RUN_TIME_SECONDS=600
       - AP_TELEMETRY_ENABLED=true
       - AP_TEMPLATES_SOURCE_URL="https://cloud.activepieces.com/api/v1/flow-templates"
     networks:
-     - tipi_main_network
-    
+      - tipi_main_network
+
     labels:
       # Main
       traefik.enable: true
@@ -62,20 +64,30 @@ services:
     image: postgres:14
     restart: unless-stopped
     container_name: activepieces-postgres
+    healthcheck:
+      test: pg_isready -U tipi
+      interval: 30s
+      timeout: 30s
+      retries: 3
     environment:
       - POSTGRES_DB=activepieces
       - POSTGRES_PASSWORD=${AP_POSTGRES_PASSWORD}
       - POSTGRES_USER=tipi
     volumes:
-      - "${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data"
+      - '${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data'
     networks:
       - tipi_main_network
 
   activepieces-redis:
     image: redis:7
     container_name: activepieces-redis
+    healthcheck:
+      test: redis-cli ping
+      interval: 30s
+      timeout: 30s
+      retries: 3
     restart: unless-stopped
     volumes:
-      - "${APP_DATA_DIR}/data/redis/:/data"
+      - '${APP_DATA_DIR}/data/redis/:/data'
     networks:
       - tipi_main_network
