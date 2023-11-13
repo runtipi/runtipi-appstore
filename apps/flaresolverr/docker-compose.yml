@@ -1,7 +1,7 @@
 services:
   flaresolverr:
     container_name: flaresolverr
-    image: ghcr.io/flaresolverr/flaresolverr:v3.3.8
+    image: ghcr.io/flaresolverr/flaresolverr:v3.3.9
     restart: unless-stopped
     environment:
       - LOG_LEVEL=${FLARESOLVERR_LOG_LEVEL-info}
