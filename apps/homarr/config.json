@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8102,
   "id": "homarr",
-  "tipi_version": 18,
-  "version": "0.13.4",
+  "tipi_version": 19,
+  "version": "0.14.0",
   "categories": [
     "utilities"
   ],
@@ -25,5 +25,8 @@
       "env_variable": "HOMARR_PASSWORD"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
