@@ -6,7 +6,7 @@
   "port": 8083,
   "id": "nextcloud",
   "tipi_version": 18,
-  "version": "25.0.13-apache",
+  "version": "27.1.3-apache",
   "categories": [
     "data"
   ],
