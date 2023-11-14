@@ -12,7 +12,6 @@
   "short_desc": "The authentication glue you need.",
   "author": "goauthentik",
   "source": "https://github.com/goauthentik/authentik",
-  "supported_architectures": ["arm64", "amd64"],
   "form_fields": [
     {
       "type": "random",
@@ -26,5 +25,6 @@
       "min": 50,
       "env_variable": "AUTHENTIK_SECRET_KEY"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }
