@@ -16,8 +16,6 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/authentik-media:/media
       - ${APP_DATA_DIR}/data/authentik-custom-templates:/templates
-    env_file:
-      - .env
     ports:
       - "8769:9000"
       - "${APP_PORT}:9443"
