@@ -18,7 +18,7 @@ services:
     env_file:
       - .env
     ports:
-      - "${APP_PORT}:9000"
+      - "8769:9000"
       - "${APP_PORT}:9443"
     depends_on:
       - authentik-db
@@ -54,6 +54,7 @@ services:
     image: ghcr.io/goauthentik/server:2023.10.3
     restart: unless-stopped
     command: worker
+    container_name: authentik-worker
     environment:
       AUTHENTIK_REDIS__HOST: authentik-redis
       AUTHENTIK_POSTGRESQL__HOST: authentik-db
