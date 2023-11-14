@@ -29,6 +29,7 @@ services:
       traefik.enable: true
       traefik.http.middlewares.authentik-web-redirect.redirectscheme.scheme: https
       traefik.http.services.authentik.loadbalancer.server.port: 9443
+      traefik.http.services.portainer.loadbalancer.server.scheme: https
       # Web
       traefik.http.routers.authentik-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.authentik-insecure.entrypoints: web
