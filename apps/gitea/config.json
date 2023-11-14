@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "gitea",
-  "tipi_version": 15,
-  "version": "1.20.5",
+  "tipi_version": 16,
+  "version": "1.21.0",
   "categories": [
     "development"
   ],
@@ -15,5 +15,8 @@
   "author": "go-gitea",
   "source": "https://github.com/go-gitea/gitea",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
