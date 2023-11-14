@@ -1,20 +1,22 @@
 {
-    "name": "Netboot.xyz",
-    "available": true,
-    "port": 8675,
-    "exposable": true,
-    "id": "netbootxyz",
-    "description": "Your favorite operating systems in one place. A network-based bootable operating system installer based on iPXE.",
-    "tipi_version": 1,
-    "version": "0.6.9",
-    "categories": [
-      "utilities"
-    ],
-    "short_desc": "Your favorite operating systems in one place.",
-    "author": "netboot.xyz",
-    "source": "https://github.com/netbootxyz/netboot.xyz",
-    "website": "https://netboot.xyz/",
-    "form_fields": [],
-    "supported_architectures": ["arm64", "amd64"]
-  }
-  
+  "name": "Netboot.xyz",
+  "available": true,
+  "port": 8675,
+  "exposable": true,
+  "id": "netbootxyz",
+  "description": "Your favorite operating systems in one place. A network-based bootable operating system installer based on iPXE.",
+  "tipi_version": 2,
+  "version": "2.0.53",
+  "categories": [
+    "utilities"
+  ],
+  "short_desc": "Your favorite operating systems in one place.",
+  "author": "netboot.xyz",
+  "source": "https://github.com/netbootxyz/netboot.xyz",
+  "website": "https://netboot.xyz/",
+  "form_fields": [],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}
