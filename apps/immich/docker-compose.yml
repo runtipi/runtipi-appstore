@@ -114,7 +114,7 @@ services:
 
   immich-web:
     container_name: immich-web
-    image: altran1502/immich-web:v1.85.0
+    image: altran1502/immich-web:v1.86.0
     restart: unless-stopped
     networks:
       - tipi_main_network
