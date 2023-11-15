@@ -1,0 +1,43 @@
+version: "3"
+services:
+  navidrome:
+    container_name: navidrome
+    image: deluan/navidrome:0.49.3
+    ports:
+      - ${APP_PORT}:4533
+    restart: unless-stopped
+    environment:
+      ND_SCANSCHEDULE: 1h
+      ND_LOGLEVEL: info
+      ND_SESSIONTIMEOUT: 24h
+      ND_BASEURL: ""
+    volumes:
+      - ${APP_DATA_DIR}/navidrome/data:/data
+      - ${ROOT_FOLDER_HOST}/media/data/music:/music:ro
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.navidrome-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.navidrome.loadbalancer.server.port: 4533
+      # Web
+      traefik.http.routers.navidrome-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.navidrome-insecure.entrypoints: web
+      traefik.http.routers.navidrome-insecure.service: navidrome
+      traefik.http.routers.navidrome-insecure.middlewares: navidrome-web-redirect
+      # Websecure
+      traefik.http.routers.navidrome.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.navidrome.entrypoints: websecure
+      traefik.http.routers.navidrome.service: navidrome
+      traefik.http.routers.navidrome.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.navidrome-local-insecure.rule: Host(`navidrome.${LOCAL_DOMAIN}`)
+      traefik.http.routers.navidrome-local-insecure.entrypoints: web
+      traefik.http.routers.navidrome-local-insecure.service: navidrome
+      traefik.http.routers.navidrome-local-insecure.middlewares: navidrome-web-redirect
+      # Local domain secure
+      traefik.http.routers.navidrome-local.rule: Host(`navidrome.${LOCAL_DOMAIN}`)
+      traefik.http.routers.navidrome-local.entrypoints: websecure
+      traefik.http.routers.navidrome-local.service: navidrome
+      traefik.http.routers.navidrome-local.tls: true

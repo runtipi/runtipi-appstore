@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   vaultwarden:
-    image: vaultwarden/server:1.25.1
+    image: vaultwarden/server:1.30.0
     container_name: vaultwarden
     restart: unless-stopped
     ports:
@@ -15,9 +15,27 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.vaultwarden-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.vaultwarden.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.vaultwarden-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.vaultwarden-insecure.entrypoints: web
+      traefik.http.routers.vaultwarden-insecure.service: vaultwarden
+      traefik.http.routers.vaultwarden-insecure.middlewares: vaultwarden-web-redirect
+      # Websecure
       traefik.http.routers.vaultwarden.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.vaultwarden.entrypoints: websecure
       traefik.http.routers.vaultwarden.service: vaultwarden
       traefik.http.routers.vaultwarden.tls.certresolver: myresolver
-      traefik.http.services.vaultwarden.loadbalancer.server.port: 80
+      # Local domain
+      traefik.http.routers.vaultwarden-local-insecure.rule: Host(`vaultwarden.${LOCAL_DOMAIN}`)
+      traefik.http.routers.vaultwarden-local-insecure.entrypoints: web
+      traefik.http.routers.vaultwarden-local-insecure.service: vaultwarden
+      traefik.http.routers.vaultwarden-local-insecure.middlewares: vaultwarden-web-redirect
+      # Local domain secure
+      traefik.http.routers.vaultwarden-local.rule: Host(`vaultwarden.${LOCAL_DOMAIN}`)
+      traefik.http.routers.vaultwarden-local.entrypoints: websecure
+      traefik.http.routers.vaultwarden-local.service: vaultwarden
+      traefik.http.routers.vaultwarden-local.tls: true

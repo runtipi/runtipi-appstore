@@ -1,0 +1,13 @@
+services:
+  flaresolverr:
+    container_name: flaresolverr
+    image: ghcr.io/flaresolverr/flaresolverr:v3.3.10
+    restart: unless-stopped
+    environment:
+      - LOG_LEVEL=${FLARESOLVERR_LOG_LEVEL-info}
+      - TZ=${TZ}
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: false

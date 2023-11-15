@@ -1,0 +1,19 @@
+{
+  "$schema": "../schema.json",
+  "name": "Uptime Kuma",
+  "available": true,
+  "exposable": true,
+  "port": 8125,
+  "id": "uptime-kuma",
+  "tipi_version": 2,
+  "version": "1",
+  "categories": [
+    "utilities"
+  ],
+  "description": "It is a self-hosted monitoring tool like Uptime Robot.",
+  "short_desc": "A fancy self-hosted monitoring tool.",
+  "author": "louislam",
+  "source": "https://github.com/louislam/uptime-kuma",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

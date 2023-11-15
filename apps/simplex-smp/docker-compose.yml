@@ -1,0 +1,40 @@
+version: '3.9'
+services:
+  simplex-smp:
+    image: simplexchat/smp-server:v5.3.0
+    container_name: simplex-smp
+    volumes:
+      - ${APP_DATA_DIR}/data/simplex/logs:/var/opt/simplex:z
+      - ${APP_DATA_DIR}/data/simplex/config:/etc/opt/simplex:z
+    ports:
+      - ${APP_PORT}:5223
+    environment:
+      - PASS=${SIMPLEX_SMP_PASSWORD}
+      - ADDR=${APP_DOMAIN}
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.simplex-smp-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.simplex-smp.loadbalancer.server.port: 5223
+      # Web
+      traefik.http.routers.simplex-smp-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.simplex-smp-insecure.entrypoints: web
+      traefik.http.routers.simplex-smp-insecure.service: simplex-smp
+      traefik.http.routers.simplex-smp-insecure.middlewares: simplex-smp-web-redirect
+      # Websecure
+      traefik.http.routers.simplex-smp.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.simplex-smp.entrypoints: websecure
+      traefik.http.routers.simplex-smp.service: simplex-smp
+      traefik.http.routers.simplex-smp.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.simplex-smp-local-insecure.rule: Host(`simplex-smp.${LOCAL_DOMAIN}`)
+      traefik.http.routers.simplex-smp-local-insecure.entrypoints: web
+      traefik.http.routers.simplex-smp-local-insecure.service: simplex-smp
+      traefik.http.routers.simplex-smp-local-insecure.middlewares: simplex-smp-web-redirect
+      # Local domain secure
+      traefik.http.routers.simplex-smp-local.rule: Host(`simplex-smp.${LOCAL_DOMAIN}`)
+      traefik.http.routers.simplex-smp-local.entrypoints: websecure
+      traefik.http.routers.simplex-smp-local.service: simplex-smp
+      traefik.http.routers.simplex-smp-local.tls: true

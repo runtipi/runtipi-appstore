@@ -1,0 +1,17 @@
+{
+  "$schema": "../schema.json",
+  "name": "MeTube",
+  "port": 8250,
+  "available": true,
+  "exposable": true,
+  "id": "metube",
+  "tipi_version": 1,
+  "version": "2023-08-13",
+  "categories": ["media"],
+  "description": "Web GUI for youtube-dl with playlist support. Allows you to download videos from YouTube and dozens of other sites.",
+  "short_desc": "youtube-dl web UI",
+  "author": "alexta69",
+  "source": "https://github.com/alexta69/metube",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

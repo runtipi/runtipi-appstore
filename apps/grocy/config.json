@@ -1,0 +1,17 @@
+{
+  "$schema": "../schema.json",
+  "name": "Grocy",
+  "available": true,
+  "exposable": true,
+  "tipi_version": 4,
+  "version": "4.0.3",
+  "port": 8136,
+  "id": "grocy",
+  "categories": ["automation", "finance"],
+  "description": "grocy is a web-based self-hosted groceries & household management solution for your home",
+  "short_desc": "ERP beyond your fridge",
+  "author": "berrnd",
+  "source": "https://github.com/grocy/grocy",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

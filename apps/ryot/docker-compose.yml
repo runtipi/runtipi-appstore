@@ -1,0 +1,57 @@
+version: "3.7"
+
+services:
+  ryot:
+    image: ghcr.io/ignisda/ryot:v2.24.2
+    container_name: ryot
+    environment:
+      - DATABASE_URL=postgres://tipi:${RYOT_DB_PASSWORD}@ryot-db:5432/ryot
+      - SERVER_INSECURE_COOKIE=true
+      - USERS_ALLOW_REGISTRATION=${RYOT_ALLOW_REGISTRATION}
+      - VIDEO_GAMES_TWITCH_CLIENT_ID=${RYOT_VIDEO_GAMES_TWITCH_CLIENT_ID}
+      - VIDEO_GAMES_TWITCH_CLIENT_SECRET= ${VIDEO_GAMES_TWITCH_CLIENT_SECRET}
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:8000
+    depends_on:
+      - ryot-db
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.ryot-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.ryot.loadbalancer.server.port: 8000
+      # Web
+      traefik.http.routers.ryot-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.ryot-insecure.entrypoints: web
+      traefik.http.routers.ryot-insecure.service: ryot
+      traefik.http.routers.ryot-insecure.middlewares: ryot-web-redirect
+      # Websecure
+      traefik.http.routers.ryot.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.ryot.entrypoints: websecure
+      traefik.http.routers.ryot.service: ryot
+      traefik.http.routers.ryot.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.ryot-local-insecure.rule: Host(`ryot.${LOCAL_DOMAIN}`)
+      traefik.http.routers.ryot-local-insecure.entrypoints: web
+      traefik.http.routers.ryot-local-insecure.service: ryot
+      traefik.http.routers.ryot-local-insecure.middlewares: ryot-web-redirect
+      # Local domain secure
+      traefik.http.routers.ryot-local.rule: Host(`ryot.${LOCAL_DOMAIN}`)
+      traefik.http.routers.ryot-local.entrypoints: websecure
+      traefik.http.routers.ryot-local.service: ryot
+      traefik.http.routers.ryot-local.tls: true
+
+  ryot-db:
+    container_name: ryot-db
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=tipi
+      - POSTGRES_PASSWORD=${RYOT_DB_PASSWORD}
+      - POSTGRES_DB=ryot
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    networks:
+      - tipi_main_network

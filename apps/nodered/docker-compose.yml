@@ -3,7 +3,7 @@ version: "3.7"
 services:
   nodered:
     container_name: nodered
-    image: nodered/node-red:3.0.0
+    image: nodered/node-red:3.1.0
     restart: unless-stopped
     ports:
       - ${APP_PORT}:1880
@@ -11,3 +11,28 @@ services:
       - ${APP_DATA_DIR}/data:/data
     networks:
       - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.nodered-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.nodered.loadbalancer.server.port: 1880
+      # Web
+      traefik.http.routers.nodered-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nodered-insecure.entrypoints: web
+      traefik.http.routers.nodered-insecure.service: nodered
+      traefik.http.routers.nodered-insecure.middlewares: nodered-web-redirect
+      # Websecure
+      traefik.http.routers.nodered.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nodered.entrypoints: websecure
+      traefik.http.routers.nodered.service: nodered
+      traefik.http.routers.nodered.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.nodered-local-insecure.rule: Host(`nodered.${LOCAL_DOMAIN}`)
+      traefik.http.routers.nodered-local-insecure.entrypoints: web
+      traefik.http.routers.nodered-local-insecure.service: nodered
+      traefik.http.routers.nodered-local-insecure.middlewares: nodered-web-redirect
+      # Local domain secure
+      traefik.http.routers.nodered-local.rule: Host(`nodered.${LOCAL_DOMAIN}`)
+      traefik.http.routers.nodered-local.entrypoints: websecure
+      traefik.http.routers.nodered-local.service: nodered
+      traefik.http.routers.nodered-local.tls: true

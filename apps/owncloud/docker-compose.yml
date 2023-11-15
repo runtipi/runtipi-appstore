@@ -1,0 +1,102 @@
+version: "3"
+
+services:
+  owncloud:
+    image: owncloud/server:10.13.2
+    container_name: owncloud
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:8080
+    depends_on:
+      - owncloud-db
+      - owncloud-redis
+    environment:
+      - OWNCLOUD_DOMAIN=${APP_DOMAIN}
+      - OWNCLOUD_TRUSTED_DOMAINS=${APP_DOMAIN}
+      - OWNCLOUD_DB_TYPE=mysql
+      - OWNCLOUD_DB_NAME=owncloud
+      - OWNCLOUD_DB_USERNAME=tipi
+      - OWNCLOUD_DB_PASSWORD=${OWNCLOUD_DB_PASSWORD}
+      - OWNCLOUD_DB_HOST=owncloud-db
+      - OWNCLOUD_ADMIN_USERNAME=${OWNCLOUD_USERNAME}
+      - OWNCLOUD_ADMIN_PASSWORD=${OWNCLOUD_PASSWORD}
+      - OWNCLOUD_MYSQL_UTF8MB4=true
+      - OWNCLOUD_REDIS_ENABLED=true
+      - OWNCLOUD_REDIS_HOST=owncloud-redis
+    healthcheck:
+      test: ["CMD", "/usr/bin/healthcheck"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    volumes:
+      - ${APP_DATA_DIR}/data/owncloud:/mnt/data
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.owncloud-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.owncloud.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.owncloud-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.owncloud-insecure.entrypoints: web
+      traefik.http.routers.owncloud-insecure.service: owncloud
+      traefik.http.routers.owncloud-insecure.middlewares: owncloud-web-redirect
+      # Websecure
+      traefik.http.routers.owncloud.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.owncloud.entrypoints: websecure
+      traefik.http.routers.owncloud.service: owncloud
+      traefik.http.routers.owncloud.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.owncloud-local-insecure.rule: Host(`owncloud.${LOCAL_DOMAIN}`)
+      traefik.http.routers.owncloud-local-insecure.entrypoints: web
+      traefik.http.routers.owncloud-local-insecure.service: owncloud
+      traefik.http.routers.owncloud-local-insecure.middlewares: owncloud-web-redirect
+      # Local domain secure
+      traefik.http.routers.owncloud-local.rule: Host(`owncloud.${LOCAL_DOMAIN}`)
+      traefik.http.routers.owncloud-local.entrypoints: websecure
+      traefik.http.routers.owncloud-local.service: owncloud
+      traefik.http.routers.owncloud-local.tls: true
+
+  owncloud-db:
+    image: mariadb:10.6 # minimum required ownCloud version is 10.9
+    container_name: owncloud-db
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=${OWNCLOUD_DB_PASSWORD}
+      - MYSQL_USER=tipi
+      - MYSQL_PASSWORD=${OWNCLOUD_DB_PASSWORD}
+      - MYSQL_DATABASE=owncloud
+    command: ["--max-allowed-packet=128M", "--innodb-log-file-size=64M"]
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-u",
+          "root",
+          "--password=${OWNCLOUD_DB_PASSWORD}",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - ${APP_DATA_DIR}/data/mysql:/var/lib/mysql
+    networks:
+      - tipi_main_network
+
+  owncloud-redis:
+    image: redis:6
+    container_name: owncloud-redis
+    restart: unless-stopped
+    command: ["--databases", "1"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data
+    networks:
+      - tipi_main_network

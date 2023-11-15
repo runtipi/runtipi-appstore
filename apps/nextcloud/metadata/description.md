@@ -26,4 +26,12 @@ Enterprise? Public Sector or Education user? You may want to have a look into [*
 
 You can also [get support for Nextcloud](https://nextcloud.com/support)!
 
+## Reset password
+Nextcloud does not support password resets from environment variables. If you want to change your password run the following commands in your terminal:
+    
+```bash
+sudo docker exec -u www-data -it nextcloud /bin/bash
+php occ user:resetpassword username
+```
+
 ![](https://raw.githubusercontent.com/nextcloud/screenshots/master/files/Files%20Sharing.png)

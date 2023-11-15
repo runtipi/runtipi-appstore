@@ -1,0 +1,23 @@
+{
+  "$schema": "../schema.json",
+  "name": "autobrr",
+  "port": 8158,
+  "available": true,
+  "exposable": true,
+  "id": "autobrr",
+  "tipi_version": 13,
+  "version": "1.33.0",
+  "categories": [
+    "media"
+  ],
+  "description": "autobrr is the modern download automation tool for torrents. With inspiration and ideas from tools like trackarr, autodl-irssi and flexget we built one tool that can do it all, and then some.",
+  "short_desc": "Automation for downloads.",
+  "author": "autobrr",
+  "source": "https://github.com/autobrr/autobrr",
+  "website": "https://autobrr.com/",
+  "form_fields": [],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}

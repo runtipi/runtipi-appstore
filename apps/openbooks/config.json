@@ -1,0 +1,32 @@
+{
+  "$schema": "../schema.json",
+  "name": "openbooks",
+  "port": 8152,
+  "available": true,
+  "exposable": true,
+  "id": "openbooks",
+  "tipi_version": 3,
+  "url_suffix": "/openbooks/",
+  "version": "4.5.0",
+  "categories": [
+    "media",
+    "books"
+  ],
+  "description": "Openbooks allows you to download ebooks from irc.irchighway.net quickly and easily.  ",
+  "short_desc": "Search and Download eBooks",
+  "author": "https://github.com/evan-buss",
+  "source": "https://github.com/evan-buss/openbooks",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "IRC Username",
+      "required": true,
+      "min": 5,
+      "max": 20,
+      "hint": "Username used to connect to IRC server",
+      "placeholder": "sjdfksd",
+      "env_variable": "OPENBOOKS_IRC_USERNAME"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

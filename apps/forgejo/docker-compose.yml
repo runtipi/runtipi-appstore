@@ -1,0 +1,62 @@
+version: '3.7'
+
+services:
+  forgejo:
+    image: codeberg.org/forgejo/forgejo:1.20.5-0
+    container_name: forgejo
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - FORGEJO__database__DB_TYPE=postgres
+      - FORGEJO__database__HOST=forgejo-db:5432
+      - FORGEJO__database__NAME=forgejo
+      - FORGEJO__database__USER=forgejo
+      - FORGEJO__database__PASSWD=${FORGEJO_DB_PASSWORD}
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/forgejo:/data
+    ports:
+      - ${APP_PORT}:3000
+      - '222:22'
+    depends_on:
+      - forgejo-db
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.forgejo-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.forgejo.loadbalancer.server.port: 3000
+      # Web
+      traefik.http.routers.forgejo-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.forgejo-insecure.entrypoints: web
+      traefik.http.routers.forgejo-insecure.service: forgejo
+      traefik.http.routers.forgejo-insecure.middlewares: forgejo-web-redirect
+      # Websecure
+      traefik.http.routers.forgejo.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.forgejo.entrypoints: websecure
+      traefik.http.routers.forgejo.service: forgejo
+      traefik.http.routers.forgejo.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.forgejo-local-insecure.rule: Host(`forgejo.${LOCAL_DOMAIN}`)
+      traefik.http.routers.forgejo-local-insecure.entrypoints: web
+      traefik.http.routers.forgejo-local-insecure.service: forgejo
+      traefik.http.routers.forgejo-local-insecure.middlewares: forgejo-web-redirect
+      # Local domain secure
+      traefik.http.routers.forgejo-local.rule: Host(`forgejo.${LOCAL_DOMAIN}`)
+      traefik.http.routers.forgejo-local.entrypoints: websecure
+      traefik.http.routers.forgejo-local.service: forgejo
+      traefik.http.routers.forgejo-local.tls: true
+
+  forgejo-db:
+    container_name: forgejo-db
+    image: postgres:14
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=forgejo
+      - POSTGRES_PASSWORD=${FORGEJO_DB_PASSWORD}
+      - POSTGRES_DB=forgejo
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    networks:
+      - tipi_main_network

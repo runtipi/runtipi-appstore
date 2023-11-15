@@ -1,0 +1,37 @@
+{
+  "$schema": "../schema.json",
+  "name": "Firefly III Data Importer",
+  "available": true,
+  "exposable": true,
+  "port": 8150,
+  "tipi_version": 4,
+  "version": "version-1",
+  "id": "firefly-iii-data-importer",
+  "categories": ["finance"],
+  "description": "",
+  "short_desc": "The Firefly III Data Importer can import data into Firefly III",
+  "author": "JC5",
+  "website": "https://www.firefly-iii.org/",
+  "source": "https://github.com/firefly-iii/data-importer",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Firefly III URL",
+      "required": false,
+      "env_variable": "FIREFLY_III_URL"
+    },
+    {
+      "type": "number",
+      "label": "Firefly III Public Client ID",
+      "required": false,
+      "env_variable": "FIREFLY_III_CLIENT_ID"
+    },
+    {
+      "type": "text",
+      "label": "Firefly III OAuth Access Token",
+      "required": false,
+      "env_variable": "FIREFLY_III_ACCESS_TOKEN"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

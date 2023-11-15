@@ -1,0 +1,42 @@
+version: "3.7"
+
+services:
+  lodestone-core:
+    container_name: lodestone-core
+    image: ghcr.io/lodestone-team/lodestone_core:0.4.4
+    ports:
+      - ${APP_PORT}:16662
+      - 25565-25575:25565-25575
+    user: ${TIPI_UID}:${TIPI_GID} 
+    group_add: 
+    - ${TIPI_GID}
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/lodestone-data:/home/user/.lodestone
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.lodestone-core-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.lodestone-core.loadbalancer.server.port: 16662
+      # Web
+      traefik.http.routers.lodestone-core-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.lodestone-core-insecure.entrypoints: web
+      traefik.http.routers.lodestone-core-insecure.service: lodestone-core
+      traefik.http.routers.lodestone-core-insecure.middlewares: lodestone-core-web-redirect
+      # Websecure
+      traefik.http.routers.lodestone-core.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.lodestone-core.entrypoints: websecure
+      traefik.http.routers.lodestone-core.service: lodestone-core
+      traefik.http.routers.lodestone-core.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.lodestone-core-local-insecure.rule: Host(`lodestone-core.${LOCAL_DOMAIN}`)
+      traefik.http.routers.lodestone-core-local-insecure.entrypoints: web
+      traefik.http.routers.lodestone-core-local-insecure.service: lodestone-core
+      traefik.http.routers.lodestone-core-local-insecure.middlewares: lodestone-core-web-redirect
+      # Local domain secure
+      traefik.http.routers.lodestone-core-local.rule: Host(`lodestone-core.${LOCAL_DOMAIN}`)
+      traefik.http.routers.lodestone-core-local.entrypoints: websecure
+      traefik.http.routers.lodestone-core-local.service: lodestone-core
+      traefik.http.routers.lodestone-core-local.tls: true

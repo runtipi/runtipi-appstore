@@ -2,11 +2,14 @@
   "$schema": "../schema.json",
   "name": "Code-Server - Web VS Code",
   "available": true,
-  "port": 8101,
+  "exposable": true,
+  "port": 8138,
   "id": "code-server",
-  "tipi_version": 1,
-  "version": "4.5.1",
-  "categories": ["development"],
+  "tipi_version": 17,
+  "version": "4.18.0",
+  "categories": [
+    "development"
+  ],
   "description": "",
   "short_desc": "Code-server is VS Code running on a remote server, accessible through the browser.",
   "author": "https://github.com/coder",
@@ -20,5 +23,6 @@
       "required": true,
       "env_variable": "CODESERVER_PASSWORD"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

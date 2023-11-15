@@ -2,14 +2,16 @@
   "$schema": "../schema.json",
   "name": "Booksonic",
   "available": true,
+  "exposable": true,
   "port": 8040,
-  "tipi_version": 2,
-  "version": "latest",
+  "tipi_version": 5,
+  "version": "2201.1.0",
   "id": "booksonic",
   "categories": ["books", "media"],
-  "description": "",
+  "description": "The selfhosted audiobook server",
   "short_desc": "The selfhosted audiobook server",
   "author": "https://github.com/popeen",
   "source": "https://github.com/popeen/Booksonic-Air",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

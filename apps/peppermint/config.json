@@ -1,0 +1,26 @@
+{
+  "$schema": "../schema.json",
+  "name": "Peppermint",
+  "port": 8176,
+  "available": true,
+  "exposable": true,
+  "id": "peppermint",
+  "tipi_version": 3,
+  "version": "latest",
+  "categories": [
+    "utilities"
+  ],
+  "description": "An open source ticket management & help desk solution.",
+  "short_desc": "An open source ticket management & help desk solution.",
+  "author": "Peppermint-Lab",
+  "source": "https://github.com/Peppermint-Lab/peppermint",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Peppermint DB Password",
+      "min": 32,
+      "env_variable": "PEPPERMINT_DB_PASSWORD"
+    }
+  ],
+  "supported_architectures": ["amd64"]
+}

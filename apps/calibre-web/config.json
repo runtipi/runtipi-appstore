@@ -2,14 +2,18 @@
   "$schema": "../schema.json",
   "name": "Calibre-Web - EBook Reader",
   "available": true,
+  "exposable": true,
   "port": 8100,
-  "tipi_version": 1,
-  "version": "0.6.18",
+  "tipi_version": 7,
+  "version": "0.6.21",
   "id": "calibre-web",
-  "categories": ["books"],
+  "categories": [
+    "books"
+  ],
   "description": "On the initial setup screen, enter /books as your calibre library location. \n Default admin login: Username: admin Password: admin123",
   "short_desc": "Calibre-web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database.",
   "author": "https://github.com/janeczku/",
   "source": "https://github.com/janeczku/calibre-web",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   freshrss:
-    image: lscr.io/linuxserver/freshrss:1.19.2
+    image: lscr.io/linuxserver/freshrss:1.22.1
     container_name: freshrss
     environment:
       - PUID=1000
@@ -16,17 +16,27 @@ services:
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.freshrss-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.freshrss.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.freshrss-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.freshrss-insecure.entrypoints: web
+      traefik.http.routers.freshrss-insecure.service: freshrss
+      traefik.http.routers.freshrss-insecure.middlewares: freshrss-web-redirect
+      # Websecure
       traefik.http.routers.freshrss.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.freshrss.entrypoints: websecure
       traefik.http.routers.freshrss.service: freshrss
       traefik.http.routers.freshrss.tls.certresolver: myresolver
-      traefik.http.services.freshrss.loadbalancer.server.port: 80
-
-    # labels:
-    #     traefik.enable: true
-    #     traefik.http.routers.freshrss.rule: Host(`freshrss.tipi.home`)
-    #     traefik.http.routers.freshrss.service: freshrss
-    #     traefik.http.routers.freshrss.tls: true
-    #     traefik.http.routers.freshrss.entrypoints: websecure
-    #     traefik.http.services.freshrss.loadbalancer.server.port: 80
+      # Local domain
+      traefik.http.routers.freshrss-local-insecure.rule: Host(`freshrss.${LOCAL_DOMAIN}`)
+      traefik.http.routers.freshrss-local-insecure.entrypoints: web
+      traefik.http.routers.freshrss-local-insecure.service: freshrss
+      traefik.http.routers.freshrss-local-insecure.middlewares: freshrss-web-redirect
+      # Local domain secure
+      traefik.http.routers.freshrss-local.rule: Host(`freshrss.${LOCAL_DOMAIN}`)
+      traefik.http.routers.freshrss-local.entrypoints: websecure
+      traefik.http.routers.freshrss-local.service: freshrss
+      traefik.http.routers.freshrss-local.tls: true

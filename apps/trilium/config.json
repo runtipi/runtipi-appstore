@@ -1,0 +1,20 @@
+{
+  "name": "Trilium",
+  "available": true,
+  "port": 8267,
+  "exposable": true,
+  "id": "trilium",
+  "description": "Trilium Notes is a hierarchical note taking application with focus on building large personal knowledge bases. ",
+  "tipi_version": 8,
+  "version": "0.62.1-beta",
+  "categories": [
+    "utilities"
+  ],
+  "short_desc": "An open-source, self-hosted Notion alterative",
+  "author": "zadam",
+  "source": "https://github.com/zadam/trilium",
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}

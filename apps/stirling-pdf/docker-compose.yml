@@ -1,0 +1,40 @@
+version: "3.7"
+services:
+  stirling-pdf:
+    image: ghcr.io/frooodle/s-pdf:0.15.1
+    restart: unless-stopped
+    container_name: stirling-pdf
+    privileged: true
+    ports:
+      - ${APP_PORT}:8080
+    volumes:
+      - ${APP_DATA_DIR}/datatrainingData:/usr/share/tesseract-ocr/4.00/tessdata #Required for extra OCR languages
+      - ${APP_DATA_DIR}/dataextraConfigs:/configs
+      - ${APP_DATA_DIR}/datacustomFiles:/customFiles/
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.stirling-pdf-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.stirling-pdf.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.stirling-pdf-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.stirling-pdf-insecure.entrypoints: web
+      traefik.http.routers.stirling-pdf-insecure.service: stirling-pdf
+      traefik.http.routers.stirling-pdf-insecure.middlewares: stirling-pdf-web-redirect
+      # Websecure
+      traefik.http.routers.stirling-pdf.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.stirling-pdf.entrypoints: websecure
+      traefik.http.routers.stirling-pdf.service: stirling-pdf
+      traefik.http.routers.stirling-pdf.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.stirling-pdf-local-insecure.rule: Host(`stirling-pdf.${LOCAL_DOMAIN}`)
+      traefik.http.routers.stirling-pdf-local-insecure.entrypoints: web
+      traefik.http.routers.stirling-pdf-local-insecure.service: stirling-pdf
+      traefik.http.routers.stirling-pdf-local-insecure.middlewares: stirling-pdf-web-redirect
+      # Local domain secure
+      traefik.http.routers.stirling-pdf-local.rule: Host(`stirling-pdf.${LOCAL_DOMAIN}`)
+      traefik.http.routers.stirling-pdf-local.entrypoints: websecure
+      traefik.http.routers.stirling-pdf-local.service: stirling-pdf
+      traefik.http.routers.stirling-pdf-local.tls: true

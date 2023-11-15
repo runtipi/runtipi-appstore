@@ -1,0 +1,88 @@
+{
+  "$schema": "../schema.json",
+  "name": "Revolt Chat",
+  "port": 8272,
+  "available": true,
+  "exposable": true,
+  "force_expose": true,
+  "generate_vapid_keys": true,
+  "id": "revolt",
+  "tipi_version": 13,
+  "version": "20230810-3",
+  "categories": ["media"],
+  "description": "Open source user-first chat platform.",
+  "short_desc": "Open source user-first chat platform.",
+  "author": "RevoltChat",
+  "source": "https://github.com/revoltchat",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Revlot Minio Root Password",
+      "min": 32,
+      "env_variable": "REVOLT_MINIO_ROOT_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Revlot Minio Root Password",
+      "min": 32,
+      "env_variable": "REVOLT_MINIO_ROOT_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Revlot AWS Access Key",
+      "min": 16,
+      "max": 16,
+      "env_variable": "REVOLT_AWS_ACCESS_KEY_ID"
+    },
+    {
+      "type": "random",
+      "label": "Revlot AWS Secret Access Key",
+      "min": 32,
+      "max": 32,
+      "env_variable": "REVOLT_AWS_SECRET_ACCESS_KEY"
+    },
+    {
+      "type": "text",
+      "label": "SMTP Host",
+      "hint": "Your SMTP Server",
+      "placeholder": "smtp.example.com",
+      "required": true,
+      "env_variable": "REVOLT_SMTP_HOST"
+    },
+    {
+      "type": "text",
+      "label": "SMTP Username",
+      "hint": "Your SMTP Server User/Username",
+      "placeholder": "noreply@example.com",
+      "required": true,
+      "env_variable": "REVOLT_SMTP_USERNAME"
+    },
+    {
+      "type": "text",
+      "label": "SMTP Password",
+      "hint": "Your SMTP Server Password",
+      "required": true,
+      "env_variable": "REVOLT_SMTP_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "SMTP From Address",
+      "hint": "Make sure the Format is like Revolt <noreply@example.com>",
+      "placeholder": "Revolt <noreply@example.com>",
+      "required": true,
+      "env_variable": "REVOLT_SMTP_FROM"
+    },
+    {
+      "label": "Revolt Invite Only",
+      "type": "text",
+      "hint": "Choose whether you want Open Signups or have the Platform Invite Only",
+      "required": true,
+      "options": [
+        { "label": "Open Signups", "value": "0" },
+        { "label": "Invite Only", "value": "1" }
+      ],
+      "env_variable": "REVOLT_INVITE_ONLY"
+    }
+  ],
+  "supported_architectures": ["amd64"]
+}

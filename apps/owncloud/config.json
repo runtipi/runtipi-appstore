@@ -1,0 +1,43 @@
+{
+  "$schema": "../schema.json",
+  "name": "Owncloud",
+  "port": 8151,
+  "available": true,
+  "exposable": true,
+  "id": "owncloud",
+  "tipi_version": 8,
+  "version": "10.13.2",
+  "categories": [
+    "data"
+  ],
+  "description": "ownCloud gives you freedom and control over your own data. A personal cloud which runs on your own server.  ",
+  "short_desc": "A personal cloud which runs on your own server. ",
+  "author": "https://github.com/owncloud",
+  "source": "https://github.com/owncloud/core",
+  "website": "https://owncloud.com/",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "OWNCLOUD_DB_PASSWORD",
+      "min": 32,
+      "env_variable": "OWNCLOUD_DB_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Owncloud username",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "OWNCLOUD_USERNAME"
+    },
+    {
+      "type": "password",
+      "label": "Owncloud password",
+      "max": 50,
+      "min": 8,
+      "required": true,
+      "env_variable": "OWNCLOUD_PASSWORD"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

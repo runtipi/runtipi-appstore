@@ -1,0 +1,26 @@
+{
+  "$schema": "../schema.json",
+  "name": "LinkStack",
+  "port": 8154,
+  "available": true,
+  "exposable": true,
+  "id": "linkstack",
+  "tipi_version": 2,
+  "version": "latest",
+  "categories": ["media"],
+  "description": "LinkStack is a highly customizable link sharing platform with an intuitive, easy to use user interface",
+  "short_desc": "LinkStack is a highly customizable link sharing platform with an intuitive, easy to use user interface",
+  "author": "LinkStackOrg",
+  "source": "https://github.com/LinkStackOrg/linkstack-docker",
+  "form_fields": [
+    {
+      "type": "email",
+      "label": "Admin email",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "LINKSTACK_CUSTOM_EMAIL"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

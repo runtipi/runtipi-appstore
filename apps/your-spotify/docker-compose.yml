@@ -1,6 +1,44 @@
 version: "3"
 
 services:
+  your-spotify:
+    container_name: your-spotify
+    image: yooooomi/your_spotify_client:1.7.1
+    depends_on:
+      - your-spotify-server
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:3000
+    environment:
+      - API_ENDPOINT=http://${INTERNAL_IP}:32500
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.your-spotify-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.your-spotify.loadbalancer.server.port: 3000
+      # Web
+      traefik.http.routers.your-spotify-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.your-spotify-insecure.entrypoints: web
+      traefik.http.routers.your-spotify-insecure.service: your-spotify
+      traefik.http.routers.your-spotify-insecure.middlewares: your-spotify-web-redirect
+      # Websecure
+      traefik.http.routers.your-spotify.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.your-spotify.entrypoints: websecure
+      traefik.http.routers.your-spotify.service: your-spotify
+      traefik.http.routers.your-spotify.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.your-spotify-local-insecure.rule: Host(`your-spotify.${LOCAL_DOMAIN}`)
+      traefik.http.routers.your-spotify-local-insecure.entrypoints: web
+      traefik.http.routers.your-spotify-local-insecure.service: your-spotify
+      traefik.http.routers.your-spotify-local-insecure.middlewares: your-spotify-web-redirect
+      # Local domain secure
+      traefik.http.routers.your-spotify-local.rule: Host(`your-spotify.${LOCAL_DOMAIN}`)
+      traefik.http.routers.your-spotify-local.entrypoints: websecure
+      traefik.http.routers.your-spotify-local.service: your-spotify
+      traefik.http.routers.your-spotify-local.tls: true
+      
   your-spotify-server:
     container_name: your-spotify-server
     image: yooooomi/your_spotify_server
@@ -32,15 +70,3 @@ services:
     networks:
       - tipi_main_network
 
-  your-spotify:
-    container_name: your-spotify
-    image: yooooomi/your_spotify_client
-    depends_on:
-      - your-spotify-server
-    restart: unless-stopped
-    ports:
-      - ${APP_PORT}:3000
-    environment:
-      - API_ENDPOINT=http://${INTERNAL_IP}:32500
-    networks:
-      - tipi_main_network

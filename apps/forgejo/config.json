@@ -1,0 +1,26 @@
+{
+  "$schema": "../schema.json",
+  "name": "Forgejo",
+  "port": 8195,
+  "available": true,
+  "exposable": true,
+  "id": "forgejo",
+  "tipi_version": 8,
+  "version": "1.20.5-0",
+  "categories": [
+    "development"
+  ],
+  "description": "Forgejo is a self-hosted lightweight software forge. Easy to install and low maintenance, it just does the job.",
+  "short_desc": "Beyond coding. We forge. · Lightweight and performant · Guaranteed 100% Free Software",
+  "author": "forgejo",
+  "source": "https://codeberg.org/forgejo/forgejo/",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "FORGEJO_DB_PASSWORD",
+      "min": 32,
+      "env_variable": "FORGEJO_DB_PASSWORD"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "../schema.json",
+  "name": "Hello World",
+  "available": true,
+  "exposable": true,
+  "port": 8000,
+  "id": "hello-world",
+  "tipi_version": 2,
+  "version": "latest",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Hello World web server in under 2 MB",
+  "short_desc": "Hello World web server in under 2 MB",
+  "author": "crccheck",
+  "source": "https://github.com/crccheck/docker-hello-world",
+  "form_fields": [],
+  "supported_architectures": ["amd64"]
+}

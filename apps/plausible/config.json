@@ -1,0 +1,39 @@
+{
+  "$schema": "../schema.json",
+  "name": "Plausible",
+  "port": 8190,
+  "available": true,
+  "exposable": true,
+  "id": "plausible",
+  "tipi_version": 3,
+  "version": "v1.5.1",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Simple, open-source, lightweight (< 1 KB) and privacy-friendly web analytics alternative to Google Analytics.",
+  "short_desc": "Simple, open-source, lightweight (< 1 KB) and privacy-friendly web analytics alternative to Google Analytics.",
+  "author": "Plausible",
+  "source": "https://github.com/plausible/analytics",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Plausible Secret Key",
+      "min": 64,
+      "env_variable": "PLAUSIBLE_SECRET_KEY_BASE"
+    },
+    {
+      "type": "random",
+      "label": "Plausible DB Key",
+      "min": 32,
+      "env_variable": "PLAUSIBLE_DB_PASSWORD"
+    },
+    {
+      "type": "boolean",
+      "label": "Disable User Registration",
+      "hint": "Check to enable Registration",
+      "default": "true",
+      "env_variable": "PLAUSIBLE_DISABLE_REGISTRATION"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

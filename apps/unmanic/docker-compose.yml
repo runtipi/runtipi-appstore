@@ -1,0 +1,43 @@
+version: "3.5"
+services:
+  unmanic:
+    image: josh5/unmanic:0.2.4
+    restart: unless-stopped
+    container_name: unmanic
+    privileged: true
+    ports:
+      - ${APP_PORT}:8888
+    networks:
+      - tipi_main_network
+    environment:
+        - PUID=${TIPI_UID}
+        - PGID=${TIPI_GID}
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${ROOT_FOLDER_HOST}/media/data:/library
+      - ${APP_DATA_DIR}/data/temp:/tmp/unmanic
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.unmanic-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.unmanic.loadbalancer.server.port: 8888
+      # Web
+      traefik.http.routers.unmanic-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.unmanic-insecure.entrypoints: web
+      traefik.http.routers.unmanic-insecure.service: unmanic
+      traefik.http.routers.unmanic-insecure.middlewares: unmanic-web-redirect
+      # Websecure
+      traefik.http.routers.unmanic.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.unmanic.entrypoints: websecure
+      traefik.http.routers.unmanic.service: unmanic
+      traefik.http.routers.unmanic.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.unmanic-local-insecure.rule: Host(`unmanic.${LOCAL_DOMAIN}`)
+      traefik.http.routers.unmanic-local-insecure.entrypoints: web
+      traefik.http.routers.unmanic-local-insecure.service: unmanic
+      traefik.http.routers.unmanic-local-insecure.middlewares: unmanic-web-redirect
+      # Local domain secure
+      traefik.http.routers.unmanic-local.rule: Host(`unmanic.${LOCAL_DOMAIN}`)
+      traefik.http.routers.unmanic-local.entrypoints: websecure
+      traefik.http.routers.unmanic-local.service: unmanic
+      traefik.http.routers.unmanic-local.tls: true

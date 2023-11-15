@@ -2,14 +2,19 @@
   "$schema": "../schema.json",
   "name": "Readarr",
   "available": true,
+  "exposable": true,
   "port": 8112,
   "id": "readarr",
-  "tipi_version": 2,
+  "tipi_version": 4,
   "version": "develop",
-  "categories": ["books", "media"],
+  "categories": [
+    "books",
+    "media"
+  ],
   "description": "",
   "short_desc": "Book Manager and Automation (Sonarr for Ebooks)",
   "author": "readarr.com",
   "source": "https://github.com/Readarr/Readarr",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

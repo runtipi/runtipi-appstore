@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   radarr:
-    image: lscr.io/linuxserver/radarr:4.1.0
+    image: lscr.io/linuxserver/radarr:5.0.3
     container_name: radarr
     environment:
       - PUID=1000
@@ -18,3 +18,28 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.radarr-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.radarr.loadbalancer.server.port: 7878
+      # Web
+      traefik.http.routers.radarr-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.radarr-insecure.entrypoints: web
+      traefik.http.routers.radarr-insecure.service: radarr
+      traefik.http.routers.radarr-insecure.middlewares: radarr-web-redirect
+      # Websecure
+      traefik.http.routers.radarr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.radarr.entrypoints: websecure
+      traefik.http.routers.radarr.service: radarr
+      traefik.http.routers.radarr.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.radarr-local-insecure.rule: Host(`radarr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.radarr-local-insecure.entrypoints: web
+      traefik.http.routers.radarr-local-insecure.service: radarr
+      traefik.http.routers.radarr-local-insecure.middlewares: radarr-web-redirect
+      # Local domain secure
+      traefik.http.routers.radarr-local.rule: Host(`radarr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.radarr-local.entrypoints: websecure
+      traefik.http.routers.radarr-local.service: radarr
+      traefik.http.routers.radarr-local.tls: true

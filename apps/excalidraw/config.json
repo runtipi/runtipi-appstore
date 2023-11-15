@@ -1,0 +1,17 @@
+{
+  "$schema": "../schema.json",
+  "name": "Excalidraw",
+  "port": 8172,
+  "available": true,
+  "exposable": true,
+  "id": "excalidraw",
+  "tipi_version": 2,
+  "version": "latest",
+  "categories": ["utilities"],
+  "description": "Virtual whiteboard for sketching hand-drawn like diagrams",
+  "short_desc": "Online whiteboard collaboration made easy",
+  "author": "Excalidraw",
+  "source": "https://github.com/excalidraw/excalidraw",
+  "form_fields": [],
+  "supported_architectures": ["amd64"]
+}

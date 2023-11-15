@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   jackett:
-    image: lscr.io/linuxserver/jackett:0.20.1342
+    image: lscr.io/linuxserver/jackett:latest
     container_name: jackett
     environment:
       - PUID=1000
@@ -18,3 +18,28 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.jackett-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.jackett.loadbalancer.server.port: 9117
+      # Web
+      traefik.http.routers.jackett-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.jackett-insecure.entrypoints: web
+      traefik.http.routers.jackett-insecure.service: jackett
+      traefik.http.routers.jackett-insecure.middlewares: jackett-web-redirect
+      # Websecure
+      traefik.http.routers.jackett.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.jackett.entrypoints: websecure
+      traefik.http.routers.jackett.service: jackett
+      traefik.http.routers.jackett.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.jackett-local-insecure.rule: Host(`jackett.${LOCAL_DOMAIN}`)
+      traefik.http.routers.jackett-local-insecure.entrypoints: web
+      traefik.http.routers.jackett-local-insecure.service: jackett
+      traefik.http.routers.jackett-local-insecure.middlewares: jackett-web-redirect
+      # Local domain secure
+      traefik.http.routers.jackett-local.rule: Host(`jackett.${LOCAL_DOMAIN}`)
+      traefik.http.routers.jackett-local.entrypoints: websecure
+      traefik.http.routers.jackett-local.service: jackett
+      traefik.http.routers.jackett-local.tls: true

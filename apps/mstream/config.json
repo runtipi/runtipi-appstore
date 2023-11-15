@@ -1,0 +1,17 @@
+{
+  "$schema": "../schema.json",
+  "name": "mStream Music",
+  "port": 8162,
+  "available": true,
+  "exposable": true,
+  "id": "mstream",
+  "tipi_version": 2,
+  "version": "v5.11.4-ls101",
+  "categories": ["music", "media"],
+  "description": "mStream is a personal music streaming server. You can use mStream to stream your music from your home computer to any device, anywhere.",
+  "short_desc": "The easiest music streaming server available",
+  "author": "IrosTheBeggar",
+  "source": "https://github.com/IrosTheBeggar/mStream",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

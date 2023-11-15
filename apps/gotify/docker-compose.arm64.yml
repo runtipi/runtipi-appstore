@@ -1,0 +1,44 @@
+version: "3.7"
+
+services:
+  gotify:
+    image: gotify/server-arm64:2.4.0
+    container_name: gotify
+    restart: unless-stopped
+    volumes:
+      - "${APP_DATA_DIR}/data:/app/data"
+    environment:
+      - GOTIFY_DEFAULTUSER_PASS=${GOTIFY_DEFAULTUSER_PASS}
+    ports:
+      - ${APP_PORT}:80
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.gotify-web-redirect.redirectscheme.scheme: https
+      traefik.http.middlewares.gotify-web-redirect.redirectscheme.permanent: true
+      traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto: http
+      traefik.http.services.gotify.loadbalancer.server.port: 80
+      traefik.http.services.gotify.loadbalancer.passhostheader: true
+      traefik.http.services.gotify.loadbalancer.sticky: true
+      # Web
+      traefik.http.routers.gotify-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.gotify-insecure.entrypoints: web
+      traefik.http.routers.gotify-insecure.service: gotify
+      traefik.http.routers.gotify-insecure.middlewares: gotify-web-redirect
+      # Websecure
+      traefik.http.routers.gotify.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.gotify.entrypoints: websecure
+      traefik.http.routers.gotify.service: gotify
+      traefik.http.routers.gotify.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.gotify-local-insecure.rule: Host(`gotify.${LOCAL_DOMAIN}`)
+      traefik.http.routers.gotify-local-insecure.entrypoints: web
+      traefik.http.routers.gotify-local-insecure.service: gotify
+      traefik.http.routers.gotify-local-insecure.middlewares: gotify-web-redirect
+      # Local domain secure
+      traefik.http.routers.gotify-local.rule: Host(`gotify.${LOCAL_DOMAIN}`)
+      traefik.http.routers.gotify-local.entrypoints: websecure
+      traefik.http.routers.gotify-local.service: gotify
+      traefik.http.routers.gotify-local.tls: true

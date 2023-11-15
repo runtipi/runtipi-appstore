@@ -1,0 +1,27 @@
+{
+  "$schema": "../schema.json",
+  "name": "WikiJS",
+  "port": 8148,
+  "available": true,
+  "exposable": true,
+  "id": "wikijs",
+  "tipi_version": 5,
+  "version": "2.5.300",
+  "categories": [
+    "media"
+  ],
+  "description": "A modern, lightweight and powerful wiki app built on NodeJS ",
+  "short_desc": "A modern and powerful wiki app built on Node.js",
+  "author": "https://github.com/requarks",
+  "source": "https://github.com/requarks/wiki",
+  "website": "https://js.wiki/",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "WIKI_JS_DB_PASS",
+      "min": 32,
+      "env_variable": "WIKI_JS_DB_PASS"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

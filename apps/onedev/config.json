@@ -1,0 +1,53 @@
+{
+  "$schema": "../schema.json",
+  "name": "OneDev",
+  "port": 6610,
+  "available": true,
+  "exposable": true,
+  "id": "onedev",
+  "tipi_version": 58,
+  "version": "9.2.5",
+  "categories": [
+    "development"
+  ],
+  "description": "Self-hosted Git Server with Kanban and CI/CD",
+  "short_desc": "Self-hosted Git Server with Kanban and CI/CD",
+  "author": "https://code.onedev.io/",
+  "source": "https://code.onedev.io/onedev/server",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "DB_PASSWORD",
+      "min": 32,
+      "env_variable": "ONEDEV_DB_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Onedev username",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "ONEDEV_USERNAME"
+    },
+    {
+      "type": "email",
+      "label": "Onedev email",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "ONEDEV_EMAIL"
+    },
+    {
+      "type": "password",
+      "label": "Onedev password",
+      "max": 50,
+      "min": 8,
+      "required": true,
+      "env_variable": "ONEDEV_PASSWORD"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}

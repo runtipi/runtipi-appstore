@@ -1,0 +1,26 @@
+{
+  "$schema": "../schema.json",
+  "name": "Notemark",
+  "available": true,
+  "exposable": true,
+  "port": 8567,
+  "id": "notemark",
+  "tipi_version": 3,
+  "version": "0.8.0",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Note Mark is a lighting fast and minimal web-based Markdown notes app.",
+  "short_desc": "Lighting fast web-based Markdown notes app.",
+  "author": "enchant97",
+  "source": "https://github.com/enchant97/note-mark/",
+  "website": "https://notemark.docs.enchantedcode.co.uk/",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Notemark secret",
+      "env_variable": "NOTEMARK_SERVICE_SECRET"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

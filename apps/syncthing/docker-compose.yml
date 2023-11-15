@@ -3,7 +3,7 @@ version: "3.7"
 services:
   syncthing:
     container_name: syncthing
-    image: syncthing/syncthing:1.20
+    image: syncthing/syncthing:1.26
     stop_grace_period: 1m
     hostname: tipi
     environment:
@@ -11,6 +11,7 @@ services:
       - PGID=1000
     volumes:
       - ${APP_DATA_DIR}/data:/var/syncthing
+      - ${ROOT_FOLDER_HOST}/media/data/syncthing:/media/data/syncthing
     ports:
       - ${APP_PORT}:8384
       - 22000:22000/tcp # TCP file transfers
@@ -19,3 +20,28 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.syncthing-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.syncthing.loadbalancer.server.port: 8384
+      # Web
+      traefik.http.routers.syncthing-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.syncthing-insecure.entrypoints: web
+      traefik.http.routers.syncthing-insecure.service: syncthing
+      traefik.http.routers.syncthing-insecure.middlewares: syncthing-web-redirect
+      # Websecure
+      traefik.http.routers.syncthing.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.syncthing.entrypoints: websecure
+      traefik.http.routers.syncthing.service: syncthing
+      traefik.http.routers.syncthing.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.syncthing-local-insecure.rule: Host(`syncthing.${LOCAL_DOMAIN}`)
+      traefik.http.routers.syncthing-local-insecure.entrypoints: web
+      traefik.http.routers.syncthing-local-insecure.service: syncthing
+      traefik.http.routers.syncthing-local-insecure.middlewares: syncthing-web-redirect
+      # Local domain secure
+      traefik.http.routers.syncthing-local.rule: Host(`syncthing.${LOCAL_DOMAIN}`)
+      traefik.http.routers.syncthing-local.entrypoints: websecure
+      traefik.http.routers.syncthing-local.service: syncthing
+      traefik.http.routers.syncthing-local.tls: true

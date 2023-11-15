@@ -1,0 +1,58 @@
+{
+  "$schema": "../schema.json",
+  "name": "flatnotes",
+  "available": true,
+  "exposable": true,
+  "id": "flatnotes",
+  "port": 8137,
+  "tipi_version": 16,
+  "version": "3.5.0",
+  "categories": [
+    "utilities"
+  ],
+  "description": "A self-hosted, database-less note taking web app that utilises a flat folder of markdown files for storage.",
+  "short_desc": "A self-hosted, database-less note taking web app",
+  "author": "Dullage",
+  "source": "https://github.com/Dullage/flatnotes",
+  "website": "https://demo.flatnotes.io/",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Flatnotes Auth Type",
+      "hint": "Either `password` or `totp` for 2FA",
+      "placeholder": "password",
+      "required": true,
+      "env_variable": "FLATNOTES_AUTH_TYPE"
+    },
+    {
+      "type": "text",
+      "label": "Flatnotes Username",
+      "min": 2,
+      "required": true,
+      "env_variable": "FLATNOTES_USERNAME"
+    },
+    {
+      "type": "text",
+      "label": "Flatnotes Password",
+      "min": 5,
+      "required": true,
+      "env_variable": "FLATNOTES_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "FLATNOTES_SECRET_KEY",
+      "min": 32,
+      "env_variable": "FLATNOTES_SECRET_KEY"
+    },
+    {
+      "type": "random",
+      "label": "FLATNOTES_TOTP_KEY",
+      "min": 32,
+      "env_variable": "FLATNOTES_TOTP_KEY"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}

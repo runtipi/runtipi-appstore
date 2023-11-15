@@ -1,22 +1,9 @@
 version: "3.7"
 
 services:
-  db-n8n:
-    container_name: db-n8n
-    image: postgres:14.2
-    restart: on-failure
-    volumes:
-      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_PASSWORD=tipi
-      - POSTGRES_USER=tipi
-      - POSTGRES_DB=n8n
-    networks:
-      - tipi_main_network
-
   n8n:
     container_name: n8n
-    image: n8nio/n8n:0.186.1
+    image: n8nio/n8n:0.237.0
     restart: unless-stopped
     ports:
       - ${APP_PORT}:5678
@@ -30,7 +17,46 @@ services:
       - DB_POSTGRESDB_PORT=5432
       - DB_POSTGRESDB_USER=tipi
       - DB_POSTGRESDB_PASSWORD=tipi
+      - N8N_EDITOR_BASE_URL=${APP_DOMAIN}
     depends_on:
       - db-n8n
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.n8n-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.n8n.loadbalancer.server.port: 5678
+      # Web
+      traefik.http.routers.n8n-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.n8n-insecure.entrypoints: web
+      traefik.http.routers.n8n-insecure.service: n8n
+      traefik.http.routers.n8n-insecure.middlewares: n8n-web-redirect
+      # Websecure
+      traefik.http.routers.n8n.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.n8n.entrypoints: websecure
+      traefik.http.routers.n8n.service: n8n
+      traefik.http.routers.n8n.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.n8n-local-insecure.rule: Host(`n8n.${LOCAL_DOMAIN}`)
+      traefik.http.routers.n8n-local-insecure.entrypoints: web
+      traefik.http.routers.n8n-local-insecure.service: n8n
+      traefik.http.routers.n8n-local-insecure.middlewares: n8n-web-redirect
+      # Local domain secure
+      traefik.http.routers.n8n-local.rule: Host(`n8n.${LOCAL_DOMAIN}`)
+      traefik.http.routers.n8n-local.entrypoints: websecure
+      traefik.http.routers.n8n-local.service: n8n
+      traefik.http.routers.n8n-local.tls: true
+
+  db-n8n:
+    container_name: db-n8n
+    image: postgres:14.2
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_USER=tipi
+      - POSTGRES_DB=n8n
     networks:
       - tipi_main_network

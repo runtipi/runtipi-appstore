@@ -1,12 +1,11 @@
-version: '3.9'
+version: "3.9"
 
 services:
-
   ghost:
-    image: ghost:5.7.0
+    image: ghost:5.73.1
     container_name: ghost
     depends_on:
-    - ghostdb
+      - ghostdb
     restart: unless-stopped
     ports:
       - ${APP_PORT}:2368
@@ -17,18 +16,36 @@ services:
       database__connection__user: tipi
       database__connection__password: ${GHOST_DATABASE_PASSWORD}
       database__connection__database: ghosttipi
-      url: http://localhost:${APP_PORT}
+      url: ${APP_PROTOCOL:-http}://${APP_DOMAIN}
     volumes:
       - ${APP_DATA_DIR}/content:/var/lib/ghost/content
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.ghost-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.ghost.loadbalancer.server.port: 2368
+      # Web
+      traefik.http.routers.ghost-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.ghost-insecure.entrypoints: web
+      traefik.http.routers.ghost-insecure.service: ghost
+      traefik.http.routers.ghost-insecure.middlewares: ghost-web-redirect
+      # Websecure
       traefik.http.routers.ghost.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.ghost.entrypoints: websecure
       traefik.http.routers.ghost.service: ghost
       traefik.http.routers.ghost.tls.certresolver: myresolver
-      traefik.http.services.ghost.loadbalancer.server.port: 2368
+      # Local domain
+      traefik.http.routers.ghost-local-insecure.rule: Host(`ghost.${LOCAL_DOMAIN}`)
+      traefik.http.routers.ghost-local-insecure.entrypoints: web
+      traefik.http.routers.ghost-local-insecure.service: ghost
+      traefik.http.routers.ghost-local-insecure.middlewares: ghost-web-redirect
+      # Local domain secure
+      traefik.http.routers.ghost-local.rule: Host(`ghost.${LOCAL_DOMAIN}`)
+      traefik.http.routers.ghost-local.entrypoints: websecure
+      traefik.http.routers.ghost-local.service: ghost
+      traefik.http.routers.ghost-local.tls: true
 
   ghostdb:
     container_name: ghostdb

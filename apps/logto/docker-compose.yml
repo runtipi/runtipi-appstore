@@ -1,0 +1,50 @@
+version: "3.9"
+services:
+  logto:
+    depends_on:
+      logto-db:
+        condition: service_healthy
+    image: svhd/logto:1.11.0
+    container_name: logto
+    entrypoint: ["sh", "-c", "npm run cli db seed -- --swe && npm start"]
+    ports:
+      - ${APP_PORT}:3001
+      - 8204:3002
+    environment:
+      - NODE_ENV=production
+      - TRUST_PROXY_HEADER=1
+      - DB_URL=postgres://tipi:${LOGTO_DB_PASSWORD}@logto-db:5432/logto
+      - ENDPOINT=https://${APP_DOMAIN}
+      - ADMIN_ENDPOINT=https://${LOGTO_ADMIN_URL}
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.logto.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.logto.entrypoints: websecure
+      traefik.http.routers.logto.service: logto
+      traefik.http.routers.logto.tls.certresolver: myresolver
+      traefik.http.services.logto.loadbalancer.server.port: 3001
+      traefik.http.routers.logto-admin.rule: Host(`${LOGTO_ADMIN_URL}`)
+      traefik.http.routers.logto-admin.entrypoints: websecure
+      traefik.http.routers.logto-admin.service: logto
+      traefik.http.routers.logto-admin.tls.certresolver: myresolver
+      traefik.http.services.logto-admin.loadbalancer.server.port: 3002
+
+  logto-db:
+    container_name: logto-db
+    image: postgres:14
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=tipi
+      - POSTGRES_PASSWORD=${LOGTO_DB_PASSWORD}
+      - POSTGRES_DB=logto
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - tipi_main_network

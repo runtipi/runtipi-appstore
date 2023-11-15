@@ -1,22 +1,9 @@
 version: "3.7"
 
 services:
-  db-joplin:
-    container_name: db-joplin
-    image: postgres:14.2
-    volumes:
-      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
-    restart: unless-stopped
-    environment:
-      - POSTGRES_PASSWORD=tipi
-      - POSTGRES_USER=tipi
-      - POSTGRES_DB=joplin
-    networks:
-      - tipi_main_network
-
   joplin:
     container_name: joplin
-    image: florider89/joplin-server:2.7.4
+    image: florider89/joplin-server:2.13.2
     restart: unless-stopped
     depends_on:
       - db-joplin
@@ -26,13 +13,52 @@ services:
       - ${DNS_IP}
     environment:
       - APP_PORT=22300
-      - APP_BASE_URL=http://${INTERNAL_IP}:${APP_PORT}
+      - APP_BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}/
       - DB_CLIENT=pg
-      - POSTGRES_PASSWORD=tipi
+      - POSTGRES_PASSWORD=${JOPLIN_DB_PASSWORD}
       - POSTGRES_USER=tipi
       - POSTGRES_DATABASE=joplin
       - POSTGRES_PORT=5432
       - POSTGRES_HOST=db-joplin
       - MAX_TIME_DRIFT=0
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.joplin-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.joplin.loadbalancer.passhostheader: true
+      traefik.http.services.joplin.loadbalancer.server.port: 22300
+      # Web
+      traefik.http.routers.joplin-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.joplin-insecure.entrypoints: web
+      traefik.http.routers.joplin-insecure.service: joplin
+      traefik.http.routers.joplin-insecure.middlewares: joplin-web-redirect
+      # Websecure
+      traefik.http.routers.joplin.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.joplin.entrypoints: websecure
+      traefik.http.routers.joplin.service: joplin
+      traefik.http.routers.joplin.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.joplin-local-insecure.rule: Host(`joplin.${LOCAL_DOMAIN}`)
+      traefik.http.routers.joplin-local-insecure.entrypoints: web
+      traefik.http.routers.joplin-local-insecure.service: joplin
+      traefik.http.routers.joplin-local-insecure.middlewares: joplin-web-redirect
+      # Local domain secure
+      traefik.http.routers.joplin-local.rule: Host(`joplin.${LOCAL_DOMAIN}`)
+      traefik.http.routers.joplin-local.entrypoints: websecure
+      traefik.http.routers.joplin-local.service: joplin
+      traefik.http.routers.joplin-local.tls: true
+
+  db-joplin:
+    container_name: db-joplin
+    image: postgres:14.2
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    restart: unless-stopped
+    environment:
+      - POSTGRES_PASSWORD=${JOPLIN_DB_PASSWORD}
+      - POSTGRES_USER=tipi
+      - POSTGRES_DB=joplin
     networks:
       - tipi_main_network

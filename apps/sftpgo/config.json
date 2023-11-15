@@ -1,0 +1,61 @@
+{
+  "$schema": "../schema.json",
+  "name": "SFTPGo",
+  "port": 8002,
+  "available": true,
+  "exposable": true,
+  "id": "sftpgo",
+  "tipi_version": 3,
+  "version": "2.5.5-alpine",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Fully featured and highly configurable SFTP server with optional HTTP/S, FTP/S and WebDAV support - S3, Google Cloud Storage, Azure Blob",
+  "short_desc": "Fully featured and highly configurable SFTP server",
+  "author": "drakkan",
+  "source": "https://github.com/drakkan/sftpgo",
+  "website": "https://sftpgo.com",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Database password",
+      "min": 20,
+      "env_variable": "SFTPGO_DATABASE_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Web Admin User",
+      "hint": "Username for the web admin user",
+      "placeholder": "admin",
+      "required": true,
+      "env_variable": "SFTPGO_ADMIN_USERNAME"
+    },
+    {
+      "type": "password",
+      "label": "Web Admin Password",
+      "min": 20,
+      "hint": "Password for the web admin user",
+      "placeholder": "password",
+      "required": true,
+      "env_variable": "SFTPGO_ADMIN_PASSWORD"
+    },
+    {
+      "type": "number",
+      "label": "Binding Port",
+      "hint": "Port used to run application in container",
+      "placeholder": "8080",
+      "env_variable": "SFTPGO_BINDING_PORT"
+    },
+    {
+      "type": "number",
+      "label": "Grace Time on stop",
+      "hint": "Waiting time before killing app after requesting a stop",
+      "placeholder": "5",
+      "env_variable": "SFTPGO_GRACE_TIME"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}

@@ -1,0 +1,37 @@
+version: '3.7'
+services:
+  budibase:
+    image: budibase/budibase:2.13.9
+    restart: unless-stopped
+    container_name: budibase
+    ports:
+      - ${APP_PORT}:80
+    volumes:
+      - ${APP_DATA_DIR}:/data
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.budibase-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.budibase.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.budibase-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.budibase-insecure.entrypoints: web
+      traefik.http.routers.budibase-insecure.service: budibase
+      traefik.http.routers.budibase-insecure.middlewares: budibase-web-redirect
+      # Websecure
+      traefik.http.routers.budibase.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.budibase.entrypoints: websecure
+      traefik.http.routers.budibase.service: budibase
+      traefik.http.routers.budibase.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.budibase-local-insecure.rule: Host(`budibase.${LOCAL_DOMAIN}`)
+      traefik.http.routers.budibase-local-insecure.entrypoints: web
+      traefik.http.routers.budibase-local-insecure.service: budibase
+      traefik.http.routers.budibase-local-insecure.middlewares: budibase-web-redirect
+      # Local domain secure
+      traefik.http.routers.budibase-local.rule: Host(`budibase.${LOCAL_DOMAIN}`)
+      traefik.http.routers.budibase-local.entrypoints: websecure
+      traefik.http.routers.budibase-local.service: budibase
+      traefik.http.routers.budibase-local.tls: true

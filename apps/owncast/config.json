@@ -1,0 +1,20 @@
+{
+  "$schema": "../schema.json",
+  "name": "Owncast",
+  "available": true,
+  "port": 8198,
+  "exposable": true,
+  "id": "owncast",
+  "description": "Owncast is an open source, self-hosted, decentralized, single user live video streaming and chat server for running your own live streams similar in style to the large mainstream options. It offers complete ownership over your content, interface, moderation and audience.",
+  "tipi_version": 2,
+  "version": "0.1.1",
+  "categories": [
+    "media"
+  ],
+  "short_desc": " Take control over your live stream video by running it yourself. Streaming + chat out of the box. ",
+  "author": "Owncast",
+  "source": "https://github.com/owncast/owncast",
+  "website": "https://owncast.online/",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

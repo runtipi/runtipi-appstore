@@ -1,0 +1,38 @@
+version: "3.7"
+
+services:
+  whoogle:
+    container_name: whoogle
+    image: benbusby/whoogle-search:0.8.4
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    ports:
+      - ${APP_PORT}:8255
+    environment:
+      EXPOSE_PORT: 8255
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.whoogle-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.whoogle.loadbalancer.server.port: 8255
+      # Web
+      traefik.http.routers.whoogle-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.whoogle-insecure.entrypoints: web
+      traefik.http.routers.whoogle-insecure.service: whoogle
+      traefik.http.routers.whoogle-insecure.middlewares: whoogle-web-redirect
+      # Websecure
+      traefik.http.routers.whoogle.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.whoogle.entrypoints: websecure
+      traefik.http.routers.whoogle.service: whoogle
+      traefik.http.routers.whoogle.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.whoogle-local-insecure.rule: Host(`whoogle.${LOCAL_DOMAIN}`)
+      traefik.http.routers.whoogle-local-insecure.entrypoints: web
+      traefik.http.routers.whoogle-local-insecure.service: whoogle
+      traefik.http.routers.whoogle-local-insecure.middlewares: whoogle-web-redirect
+      # Local domain secure
+      traefik.http.routers.whoogle-local.rule: Host(`whoogle.${LOCAL_DOMAIN}`)
+      traefik.http.routers.whoogle-local.entrypoints: websecure
+      traefik.http.routers.whoogle-local.service: whoogle
+      traefik.http.routers.whoogle-local.tls: true

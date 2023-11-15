@@ -1,0 +1,45 @@
+version: "3.7"
+
+services:
+  dailytxt:
+    image: phitux/dailytxt:1.0.13
+    container_name: dailytxt
+    restart: unless-stopped
+    environment:
+      - PORT=8765
+      - SECRET_KEY=${DAILYTXT_SECRET_KEY}
+      - ALLOW_REGISTRATION=${DAILYTXT_ALLOW_REGISTRATION}
+      - DATA_INDENT=2
+      - JWT_EXP_DAYS=60
+      - ENABLE_UPDATE_CHECK=True
+    ports:
+      - ${APP_PORT}:8765
+    volumes:
+      - "${APP_DATA_DIR}/data/dailytxt:/app/data/"
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.dailytxt-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.dailytxt.loadbalancer.server.port: 8765
+      # Web
+      traefik.http.routers.dailytxt-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.dailytxt-insecure.entrypoints: web
+      traefik.http.routers.dailytxt-insecure.service: dailytxt
+      traefik.http.routers.dailytxt-insecure.middlewares: dailytxt-web-redirect
+      # Websecure
+      traefik.http.routers.dailytxt.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.dailytxt.entrypoints: websecure
+      traefik.http.routers.dailytxt.service: dailytxt
+      traefik.http.routers.dailytxt.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.dailytxt-local-insecure.rule: Host(`dailytxt.${LOCAL_DOMAIN}`)
+      traefik.http.routers.dailytxt-local-insecure.entrypoints: web
+      traefik.http.routers.dailytxt-local-insecure.service: dailytxt
+      traefik.http.routers.dailytxt-local-insecure.middlewares: dailytxt-web-redirect
+      # Local domain secure
+      traefik.http.routers.dailytxt-local.rule: Host(`dailytxt.${LOCAL_DOMAIN}`)
+      traefik.http.routers.dailytxt-local.entrypoints: websecure
+      traefik.http.routers.dailytxt-local.service: dailytxt
+      traefik.http.routers.dailytxt-local.tls: true

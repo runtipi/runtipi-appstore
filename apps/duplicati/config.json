@@ -1,0 +1,17 @@
+{
+  "$schema": "../schema.json",
+  "name": "Duplicati",
+  "port": 8159,
+  "available": true,
+  "exposable": true,
+  "id": "duplicati",
+  "tipi_version": 3,
+  "version": "2.0.7",
+  "categories": ["data"],
+  "description": "Duplicati is a free, open source, backup client that securely stores encrypted, incremental, compressed backups on cloud storage services and remote file servers.",
+  "short_desc": "Store securely encrypted backups in the cloud!",
+  "author": "https://github.com/duplicati",
+  "source": "https://github.com/linuxserver/docker-duplicati",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  zerotier:
+    container_name: zerotier
+    image: zerotier/zerotier:1.12.2
+    restart: on-failure
+    command: "${NETWORK_ID}"
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+    devices:
+      - /dev/net/tun
+    healthcheck:
+      test: ['CMD','true']
+    network_mode: host
+# TO DO: Pass host data to retain zerotier id, or setup a volume. Prefer ~stateless.
+#    networks:
+#      - tipi_main_network
+#    mac_address: ${MAC_ADDRESS}

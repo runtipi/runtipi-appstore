@@ -1,8 +1,8 @@
-version: '3.9'
+version: "3.9"
 
 services:
   firefly-iii:
-    image: fireflyiii/core:latest
+    image: fireflyiii/core:version-6
     container_name: firefly-iii
     restart: unless-stopped
     volumes:
@@ -16,6 +16,7 @@ services:
       - APP_DEBUG=false
       - SITE_OWNER=${EMAIL}
       - APP_KEY=${APP_KEY}
+      - STATIC_CRON_TOKEN=${STATIC_CRON_TOKEN}
       - TZ=${TZ}
       - TRUSTED_PROXIES=**
 
@@ -42,10 +43,35 @@ services:
       - APP_URL=http://localhost:${APP_PORT}
     networks:
       - tipi_main_network
-    
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.firefly-iii-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.firefly-iii.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.firefly-iii-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.firefly-iii-insecure.entrypoints: web
+      traefik.http.routers.firefly-iii-insecure.service: firefly-iii
+      traefik.http.routers.firefly-iii-insecure.middlewares: firefly-iii-web-redirect
+      # Websecure
+      traefik.http.routers.firefly-iii.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.firefly-iii.entrypoints: websecure
+      traefik.http.routers.firefly-iii.service: firefly-iii
+      traefik.http.routers.firefly-iii.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.firefly-iii-local-insecure.rule: Host(`firefly-iii.${LOCAL_DOMAIN}`)
+      traefik.http.routers.firefly-iii-local-insecure.entrypoints: web
+      traefik.http.routers.firefly-iii-local-insecure.service: firefly-iii
+      traefik.http.routers.firefly-iii-local-insecure.middlewares: firefly-iii-web-redirect
+      # Local domain secure
+      traefik.http.routers.firefly-iii-local.rule: Host(`firefly-iii.${LOCAL_DOMAIN}`)
+      traefik.http.routers.firefly-iii-local.entrypoints: websecure
+      traefik.http.routers.firefly-iii-local.service: firefly-iii
+      traefik.http.routers.firefly-iii-local.tls: true
+
   firefly-iii-db:
     container_name: firefly-iii-db
-    image: mariadb    
+    image: mariadb
     hostname: fireflyiii-db
     restart: unless-stopped
     environment:
@@ -55,5 +81,12 @@ services:
       - MYSQL_DATABASE=firefly
     volumes:
       - ${APP_DATA_DIR}/data/db:/var/lib/mysql
+    networks:
+      - tipi_main_network
+
+  firefly-iii-cron:
+    container_name: firefly-iii-cron
+    image: alpine
+    command: sh -c "echo \"0 3 * * * wget -qO- http://${APP_DOMAIN}/api/v1/cron/${STATIC_CRON_TOKEN}\" | crontab - && crond -f -L /dev/stdout"
     networks:
       - tipi_main_network

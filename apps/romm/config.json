@@ -1,0 +1,47 @@
+{
+  "$schema": "../schema.json",
+  "name": "RomM",
+  "port": 8178,
+  "available": true,
+  "exposable": true,
+  "id": "romm",
+  "tipi_version": 9,
+  "version": "1.9.1",
+  "categories": [
+    "gaming"
+  ],
+  "description": "RomM (Rom Manager) is a web based retro roms manager integrated with IGDB.",
+  "short_desc": "RomM (Rom Manager) is a web based retro roms manager integrated with IGDB.",
+  "author": "Zurdi15",
+  "source": "https://github.com/zurdi15/romm",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "ROMM_MYSQL_PASSWORD",
+      "min": 32,
+      "env_variable": "ROMM_MYSQL_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "IGDB Client ID",
+      "hint": "IGDB Client ID",
+      "required": true,
+      "env_variable": "ROMM_IGDB_CLIENT_ID"
+    },
+    {
+      "type": "text",
+      "label": "IGDB Client Secret",
+      "hint": "IGDB Client Secret",
+      "required": true,
+      "env_variable": "ROMM_IGDB_CLIENT_SECRET"
+    },
+    {
+      "type": "text",
+      "label": "Steam Grid DB API",
+      "hint": "Steam Grid DB API",
+      "required": false,
+      "env_variable": "ROMM_STEAMGRIDDB_API_KEY"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

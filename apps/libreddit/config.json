@@ -5,12 +5,13 @@
   "exposable": true,
   "port": 8105,
   "id": "libreddit",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "latest",
   "categories": ["social"],
   "description": "LibReddit is a bloat free reddit frontend written in Rust, no ads, no tracking and strong Content Security Policy prevents any request from going to reddit, everything is proxied.",
   "short_desc": "Browse reddit without problems!",
   "author": "spikecodes",
   "source": "https://github.com/spikecodes/libreddit",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

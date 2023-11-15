@@ -2,14 +2,19 @@
   "$schema": "../schema.json",
   "name": "Transmission",
   "available": true,
+  "exposable": true,
   "port": 8089,
   "requirements": {
-    "ports": [51413]
+    "ports": [
+      51413
+    ]
   },
   "id": "transmission",
-  "tipi_version": 1,
-  "version": "latest",
-  "categories": ["utilities"],
+  "tipi_version": 8,
+  "version": "4.0.4",
+  "categories": [
+    "utilities"
+  ],
   "description": "Transmission is a fast, easy, and free BitTorrent client.",
   "short_desc": "Fast, easy, and free BitTorrent client",
   "author": "Transmission Project",
@@ -31,5 +36,6 @@
       "required": true,
       "env_variable": "TRANSMISSION_PASSWORD"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

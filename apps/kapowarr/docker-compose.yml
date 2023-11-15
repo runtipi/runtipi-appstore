@@ -1,0 +1,40 @@
+version: "3.7"
+services:
+  kapowarr:
+    image: mrcas/kapowarr:v1.0.0-beta-3
+    container_name: kapowarr
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${APP_DATA_DIR}/data/kapowarr-db:/app/db
+      - ${ROOT_FOLDER_HOST}/media/downloads/kapowarr:/app/temp_downloads
+      - ${ROOT_FOLDER_HOST}/media:/media
+    ports:
+      - ${APP_PORT}:5656
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.kapowarr-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.kapowarr.loadbalancer.server.port: 5656
+      # Web
+      traefik.http.routers.kapowarr-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.kapowarr-insecure.entrypoints: web
+      traefik.http.routers.kapowarr-insecure.service: kapowarr
+      traefik.http.routers.kapowarr-insecure.middlewares: kapowarr-web-redirect
+      # Websecure
+      traefik.http.routers.kapowarr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.kapowarr.entrypoints: websecure
+      traefik.http.routers.kapowarr.service: kapowarr
+      traefik.http.routers.kapowarr.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.kapowarr-local-insecure.rule: Host(`kapowarr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.kapowarr-local-insecure.entrypoints: web
+      traefik.http.routers.kapowarr-local-insecure.service: kapowarr
+      traefik.http.routers.kapowarr-local-insecure.middlewares: kapowarr-web-redirect
+      # Local domain secure
+      traefik.http.routers.kapowarr-local.rule: Host(`kapowarr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.kapowarr-local.entrypoints: websecure
+      traefik.http.routers.kapowarr-local.service: kapowarr
+      traefik.http.routers.kapowarr-local.tls: true

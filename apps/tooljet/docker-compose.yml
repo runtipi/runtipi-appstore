@@ -1,0 +1,79 @@
+version: '3.7'
+
+services:
+  tooljet:
+    container_name: tooljet
+    tty: true
+    stdin_open: true
+    image: tooljet/tooljet-client-ce:v2.4.2
+    restart: always
+    ports:
+      - ${APP_PORT}:80
+    depends_on:
+      - tooljet-server
+    networks:
+      - tipi_main_network
+    environment:
+      - SERVER_HOST=tooljet-server
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.tooljet-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.tooljet.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.tooljet-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.tooljet-insecure.entrypoints: web
+      traefik.http.routers.tooljet-insecure.service: tooljet
+      traefik.http.routers.tooljet-insecure.middlewares: tooljet-web-redirect
+      # Websecure
+      traefik.http.routers.tooljet.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.tooljet.entrypoints: websecure
+      traefik.http.routers.tooljet.service: tooljet
+      traefik.http.routers.tooljet.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.tooljet-local-insecure.rule: Host(`tooljet.${LOCAL_DOMAIN}`)
+      traefik.http.routers.tooljet-local-insecure.entrypoints: web
+      traefik.http.routers.tooljet-local-insecure.service: tooljet
+      traefik.http.routers.tooljet-local-insecure.middlewares: tooljet-web-redirect
+      # Local domain secure
+      traefik.http.routers.tooljet-local.rule: Host(`tooljet.${LOCAL_DOMAIN}`)
+      traefik.http.routers.tooljet-local.entrypoints: websecure
+      traefik.http.routers.tooljet-local.service: tooljet
+      traefik.http.routers.tooljet-local.tls: true
+    command: openresty -g "daemon off;"
+
+  tooljet-server:
+    container_name: tooljet-server
+    image: tooljet/tooljet-server-ce:v2.24.0
+    tty: true
+    stdin_open: true
+    restart: always
+    networks:
+      - tipi_main_network
+    environment:
+      - SERVE_CLIENT=false
+      - SERVER_HOST=tooljet-server
+      - TOOLJET_HOST=https://${APP_DOMAIN}
+      - LOCKBOX_MASTER_KEY=${LOCKBOX_MASTER_KEY}
+      - SECRET_KEY_BASE=${SECRET_KEY_BASE}
+      - PG_DB=tooljet
+      - PG_USER=tooljet
+      - PG_HOST=db-tooljet
+      - PG_PASS=${DB_PASSWORD}
+      - CHECK_FOR_UPDATES=check_if_updates_are_available
+      - DEFAULT_FROM_EMAIL=hello@tooljet.io
+    command: npm run start:prod
+
+  db-tooljet:
+    container_name: db-tooljet
+    image: postgres:11
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=tooljet
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=tooljet
+      - PGDATA=/data/postgres
+    networks:
+      - tipi_main_network

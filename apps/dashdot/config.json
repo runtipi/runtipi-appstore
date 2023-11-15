@@ -1,0 +1,20 @@
+{
+  "$schema": "../schema.json",
+  "name": "Dash.",
+  "port": 8173,
+  "available": true,
+  "exposable": true,
+  "id": "dashdot",
+  "tipi_version": 5,
+  "version": "5.2.3",
+  "categories": [
+    "utilities"
+  ],
+  "description": "dash. (or dashdot) is a modern server dashboard, running on the latest tech, designed with glassmorphism in mind. It is intended to be used for smaller VPS and private servers.",
+  "short_desc": "A simple, modern server dashboard, primarily used by smaller private server",
+  "author": "MauriceNino",
+  "source": "https://github.com/MauriceNino/dashdot",
+  "website": "https://getdashdot.com/",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

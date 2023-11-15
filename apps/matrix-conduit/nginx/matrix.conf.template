@@ -1,0 +1,19 @@
+server {
+    server_name ${APP_DOMAIN};
+    listen      80 default_server;
+
+    location /.well-known/matrix/server {
+       return 200 '{"m.server": "${APP_DOMAIN}:443"}';
+       types { } default_type "application/json; charset=utf-8";
+    }
+
+   location /.well-known/matrix/client {
+       return 200 '{"m.homeserver": {"base_url": "https://${APP_DOMAIN}"}}';
+       types { } default_type "application/json; charset=utf-8";
+       add_header "Access-Control-Allow-Origin" *;
+   }
+
+   location / {
+       return 404;
+   }
+}

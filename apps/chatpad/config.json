@@ -1,0 +1,18 @@
+{
+  "$schema": "../schema.json",
+  "name": "Chatpad AI",
+  "available": true,
+  "exposable": true,
+  "port": 8179,
+  "id": "chatpad",
+  "tipi_version": 3,
+  "version": "latest",
+  "categories": ["ai"],
+  "description": "Not just another ChatGPT user-interface!",
+  "short_desc": "Not just another ChatGPT user-interface!",
+  "author": "Andrei Canta",
+  "source": "https://github.com/deiucanta/chatpad",
+  "website": "https://chatpad.ai/",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

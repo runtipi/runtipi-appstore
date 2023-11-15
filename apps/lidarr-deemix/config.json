@@ -1,0 +1,19 @@
+{
+  "$schema": "../schema.json",
+  "name": "Lidarr on Steroids",
+  "port": 8186,
+  "available": true,
+  "exposable": true,
+  "id": "lidarr-deemix",
+  "tipi_version": 7,
+  "version": "1.5.1",
+  "categories": [
+    "media"
+  ],
+  "description": "Lidarr with some muscles thanks to deemix",
+  "short_desc": "Lidarr with some muscles thanks to deemix",
+  "author": "Youegraillot",
+  "source": "https://github.com/youegraillot/lidarr-on-steroids",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

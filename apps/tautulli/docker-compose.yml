@@ -2,7 +2,7 @@ version: "2.1"
 services:
   tautulli:
     container_name: tautulli
-    image: lscr.io/linuxserver/tautulli:2.10.2
+    image: lscr.io/linuxserver/tautulli:2.13.2
     environment:
       - PUID=1000
       - PGID=1000
@@ -14,3 +14,28 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.tautulli-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.tautulli.loadbalancer.server.port: 8181
+      # Web
+      traefik.http.routers.tautulli-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.tautulli-insecure.entrypoints: web
+      traefik.http.routers.tautulli-insecure.service: tautulli
+      traefik.http.routers.tautulli-insecure.middlewares: tautulli-web-redirect
+      # Websecure
+      traefik.http.routers.tautulli.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.tautulli.entrypoints: websecure
+      traefik.http.routers.tautulli.service: tautulli
+      traefik.http.routers.tautulli.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.tautulli-local-insecure.rule: Host(`tautulli.${LOCAL_DOMAIN}`)
+      traefik.http.routers.tautulli-local-insecure.entrypoints: web
+      traefik.http.routers.tautulli-local-insecure.service: tautulli
+      traefik.http.routers.tautulli-local-insecure.middlewares: tautulli-web-redirect
+      # Local domain secure
+      traefik.http.routers.tautulli-local.rule: Host(`tautulli.${LOCAL_DOMAIN}`)
+      traefik.http.routers.tautulli-local.entrypoints: websecure
+      traefik.http.routers.tautulli-local.service: tautulli
+      traefik.http.routers.tautulli-local.tls: true

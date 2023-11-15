@@ -1,8 +1,7 @@
 version: "3.7"
-
 services:
   jellyfin:
-    image: lscr.io/linuxserver/jellyfin:10.8.1
+    image: lscr.io/linuxserver/jellyfin:10.8.11
     container_name: jellyfin
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
@@ -11,8 +10,34 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${TZ}
+      - JELLYFIN_PublishedServerUrl=${APP_PROTOCOL:-http}://${APP_DOMAIN}/
     restart: "unless-stopped"
     ports:
       - ${APP_PORT}:8096
     networks:
       - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.jellyfin-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.jellyfin.loadbalancer.server.port: 8096
+      # Web
+      traefik.http.routers.jellyfin-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.jellyfin-insecure.entrypoints: web
+      traefik.http.routers.jellyfin-insecure.service: jellyfin
+      traefik.http.routers.jellyfin-insecure.middlewares: jellyfin-web-redirect
+      # Websecure
+      traefik.http.routers.jellyfin.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.jellyfin.entrypoints: websecure
+      traefik.http.routers.jellyfin.service: jellyfin
+      traefik.http.routers.jellyfin.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.jellyfin-local-insecure.rule: Host(`jellyfin.${LOCAL_DOMAIN}`)
+      traefik.http.routers.jellyfin-local-insecure.entrypoints: web
+      traefik.http.routers.jellyfin-local-insecure.service: jellyfin
+      traefik.http.routers.jellyfin-local-insecure.middlewares: jellyfin-web-redirect
+      # Local domain secure
+      traefik.http.routers.jellyfin-local.rule: Host(`jellyfin.${LOCAL_DOMAIN}`)
+      traefik.http.routers.jellyfin-local.entrypoints: websecure
+      traefik.http.routers.jellyfin-local.service: jellyfin
+      traefik.http.routers.jellyfin-local.tls: true

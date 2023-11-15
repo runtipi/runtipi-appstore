@@ -1,0 +1,43 @@
+{
+  "$schema": "../schema.json",
+  "name": "Immich",
+  "available": true,
+  "exposable": true,
+  "port": 8128,
+  "id": "immich",
+  "tipi_version": 53,
+  "version": "1.86.0",
+  "categories": [
+    "data",
+    "photography"
+  ],
+  "description": "Photo and video backup solution directly from your mobile phone.",
+  "short_desc": "Photo and video backup solution directly from your mobile phone.",
+  "author": "Alex Tran",
+  "website": "https://www.immich.app/",
+  "source": "https://github.com/immich-app/immich",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "DB_PASSWORD",
+      "min": 32,
+      "env_variable": "DB_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "JWT_SECRET",
+      "min": 32,
+      "env_variable": "JWT_SECRET"
+    },
+    {
+      "type": "random",
+      "label": "IMMICH_TYPESENSE_API_KEY",
+      "min": 32,
+      "env_variable": "IMMICH_TYPESENSE_API_KEY"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}

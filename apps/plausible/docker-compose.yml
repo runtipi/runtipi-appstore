@@ -1,0 +1,75 @@
+version: "3.7"
+services:
+  plausible:
+    container_name: plausible
+    image: plausible/analytics:v1.5.1
+    restart: always
+    command: sh -c "sleep 10 && /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh db init-admin && /entrypoint.sh run"
+    depends_on:
+      - plausible-db
+      - plausible-events-db
+    ports:
+      - ${APP_PORT}:8000 
+    environment:
+      - BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN} 
+      - SECRET_KEY_BASE=${PLAUSIBLE_SECRET_KEY_BASE} 
+      - DATABASE_URL=postgres://tipi:${PLAUSIBLE_DB_PASSWORD}@plausible-db:5432/plausible-db
+      - CLICKHOUSE_DATABASE_URL=http://plausible-events-db:8123/plausible_events_db
+      - DISABLE_REGISTRATION=${PLAUSIBLE_DISABLE_REGISTRATION}
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.plausible-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.plausible.loadbalancer.server.port: 8000
+      # Web
+      traefik.http.routers.plausible-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.plausible-insecure.entrypoints: web
+      traefik.http.routers.plausible-insecure.service: plausible
+      traefik.http.routers.plausible-insecure.middlewares: plausible-web-redirect
+      # Websecure
+      traefik.http.routers.plausible.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.plausible.entrypoints: websecure
+      traefik.http.routers.plausible.service: plausible
+      traefik.http.routers.plausible.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.plausible-local-insecure.rule: Host(`plausible.${LOCAL_DOMAIN}`)
+      traefik.http.routers.plausible-local-insecure.entrypoints: web
+      traefik.http.routers.plausible-local-insecure.service: plausible
+      traefik.http.routers.plausible-local-insecure.middlewares: plausible-web-redirect
+      # Local domain secure
+      traefik.http.routers.plausible-local.rule: Host(`plausible.${LOCAL_DOMAIN}`)
+      traefik.http.routers.plausible-local.entrypoints: websecure
+      traefik.http.routers.plausible-local.service: plausible
+      traefik.http.routers.plausible-local.tls: true
+
+  plausible-db:
+    # supported versions are 12, 13, and 14
+    image: postgres:14-alpine
+    container_name: plausible-db    
+    restart: always
+    networks:
+      - tipi_main_network
+    volumes:
+      - ${APP_DATA_DIR}/data/database/:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${PLAUSIBLE_DB_PASSWORD}
+      - POSTGRES_USER=tipi
+      - POSTGRES_DB=plausible-db
+
+  plausible-events-db:
+    container_name: plausible-events-db
+    image: clickhouse/clickhouse-server:22.6-alpine
+    restart: always
+    networks:
+      - tipi_main_network 
+    volumes:
+      - ${APP_DATA_DIR}/data/plausible-event-data:/var/lib/clickhouse
+      - ${APP_DATA_DIR}/data/clickhouse/clickhouse-config.xml:/etc/clickhouse-server/config.d/logging.xml:ro
+      - ${APP_DATA_DIR}/data/clickhouse/clickhouse-user-config.xml:/etc/clickhouse-server/users.d/logging.xml:ro
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+

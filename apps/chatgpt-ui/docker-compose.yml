@@ -1,0 +1,95 @@
+version: "3"
+services:
+  chatgpt-ui:
+    image: wongsaang/chatgpt-ui-client:v2.5.9
+    container_name: chatgpt-ui
+    environment:
+      - SERVER_DOMAIN=http://chatgpt-ui-web-server
+      - DEFAULT_LOCALE=en
+      #- NUXT_PUBLIC_APP_NAME='ChatGPT UI' # The name of the application
+      #- NUXT_PUBLIC_TYPEWRITER=true # Whether to enable the typewriter effect, default false
+      #- NUXT_PUBLIC_TYPEWRITER_DELAY=50 # The delay time of the typewriter effect, default 50ms
+    depends_on:
+      - chatgpt-ui-web-server
+    ports:
+      - "8200:80"
+    restart: always
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.chatgpt-ui-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.chatgpt-ui.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.chatgpt-ui-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.chatgpt-ui-insecure.entrypoints: web
+      traefik.http.routers.chatgpt-ui-insecure.service: chatgpt-ui
+      traefik.http.routers.chatgpt-ui-insecure.middlewares: chatgpt-ui-web-redirect
+      # Websecure
+      traefik.http.routers.chatgpt-ui.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.chatgpt-ui.entrypoints: websecure
+      traefik.http.routers.chatgpt-ui.service: chatgpt-ui
+      traefik.http.routers.chatgpt-ui.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.chatgpt-ui-local-insecure.rule: Host(`chatgpt-ui.${LOCAL_DOMAIN}`)
+      traefik.http.routers.chatgpt-ui-local-insecure.entrypoints: web
+      traefik.http.routers.chatgpt-ui-local-insecure.service: chatgpt-ui
+      traefik.http.routers.chatgpt-ui-local-insecure.middlewares: chatgpt-ui-web-redirect
+      # Local domain secure
+      traefik.http.routers.chatgpt-ui-local.rule: Host(`chatgpt-ui.${LOCAL_DOMAIN}`)
+      traefik.http.routers.chatgpt-ui-local.entrypoints: websecure
+      traefik.http.routers.chatgpt-ui-local.service: chatgpt-ui
+      traefik.http.routers.chatgpt-ui-local.tls: true
+
+  chatgpt-ui-wsgi-server:
+    image: wongsaang/chatgpt-ui-wsgi-server:v2.5.2
+    container_name: chatgpt-ui-wsgi-server
+    environment:
+      - APP_DOMAIN=${INTERNAL_IP}:8201
+      - SERVER_WORKERS=3
+      - WORKER_TIMEOUT=180
+      - DB_URL=mysql://tipi:${CHATGPT_UI_DB_PASSWORD}@chatgpt-ui-db:3306/chatgptdb
+      - DJANGO_SUPERUSER_USERNAME=${CHATGPT_UI_SUPERUSER_USERNAME} # default superuser name
+      - DJANGO_SUPERUSER_PASSWORD=${CHATGPT_UI_SUPERUSER_PASSWORD} # default superuser password
+      - DJANGO_SUPERUSER_EMAIL=${CHATGPT_UI_SUPERUSER_EMAIL} # default superuser email
+      - ACCOUNT_EMAIL_VERIFICATION=none
+      #- EMAIL_HOST=SMTP server address
+      #- EMAIL_PORT=SMTP server port
+      #- EMAIL_HOST_USER=
+      #- EMAIL_HOST_PASSWORD=
+      #- EMAIL_USE_TLS=True
+      #- EMAIL_FROM=no-reply@example.com  #Default sender email address
+    networks:
+      - tipi_main_network
+    depends_on:
+      - chatgpt-ui-db
+    restart: always
+
+  chatgpt-ui-web-server:
+    image: wongsaang/chatgpt-ui-web-server:v2.5.2
+    container_name: chatgpt-ui-web-server
+    environment:
+      - BACKEND_URL=http://chatgpt-ui-wsgi-server:8000
+    ports:
+      - "8201:80"
+    depends_on:
+      - chatgpt-ui-wsgi-server
+      - chatgpt-ui-db
+    networks:
+      - tipi_main_network
+    restart: always
+
+  chatgpt-ui-db:
+    container_name: chatgpt-ui-db
+    image: lscr.io/linuxserver/mariadb:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=$CHATGPT_UI_DB_PASSWORD}
+      - MYSQL_DATABASE=chatgptdb
+      - MYSQL_USER=tipi
+      - MYSQL_PASSWORD=${CHATGPT_UI_DB_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}/data/mysql/config:/config
+    restart: "unless-stopped"
+    networks:
+      - tipi_main_network

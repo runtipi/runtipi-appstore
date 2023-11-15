@@ -1,0 +1,43 @@
+version: "3.7"
+
+services:
+  duplicati:
+    container_name: duplicati
+    image: lscr.io/linuxserver/duplicati:2.0.7
+    ports:
+      - ${APP_PORT}:8200
+    volumes:
+      - ${APP_DATA_DIR}/data/duplicati-config:/config
+      - ${ROOT_FOLDER_HOST}:/backups/runtipi-folder
+      - /home:/source
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.duplicati-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.duplicati.loadbalancer.server.port: 8200
+      # Web
+      traefik.http.routers.duplicati-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.duplicati-insecure.entrypoints: web
+      traefik.http.routers.duplicati-insecure.service: duplicati
+      traefik.http.routers.duplicati-insecure.middlewares: duplicati-web-redirect
+      # Websecure
+      traefik.http.routers.duplicati.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.duplicati.entrypoints: websecure
+      traefik.http.routers.duplicati.service: duplicati
+      traefik.http.routers.duplicati.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.duplicati-local-insecure.rule: Host(`duplicati.${LOCAL_DOMAIN}`)
+      traefik.http.routers.duplicati-local-insecure.entrypoints: web
+      traefik.http.routers.duplicati-local-insecure.service: duplicati
+      traefik.http.routers.duplicati-local-insecure.middlewares: duplicati-web-redirect
+      # Local domain secure
+      traefik.http.routers.duplicati-local.rule: Host(`duplicati.${LOCAL_DOMAIN}`)
+      traefik.http.routers.duplicati-local.entrypoints: websecure
+      traefik.http.routers.duplicati-local.service: duplicati
+      traefik.http.routers.duplicati-local.tls: true

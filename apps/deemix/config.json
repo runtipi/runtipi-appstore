@@ -1,0 +1,18 @@
+{
+  "$schema": "../schema.json",
+  "name": "Deemix",
+  "port": 6595,
+  "available": true,
+  "exposable": true,
+  "id": "deemix",
+  "tipi_version": 2,
+  "version": "latest",
+  "categories": ["media", "music"],
+  "description": "deemix is a barebone deezer downloader library built from the ashes of Deezloader Remix.",
+  "short_desc": "deemix is a barebone deezer downloader library built from the ashes of Deezloader Remix.",
+  "author": "Bockiii",
+  "source": "https://gitlab.com/Bockiii/deemix-docker",
+  "website": "https://deemix.app/",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

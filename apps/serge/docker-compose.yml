@@ -1,0 +1,38 @@
+version: "3.7"
+services:
+  serge:
+    image: ghcr.io/serge-chat/serge:0.5.2
+    container_name: serge
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:8008
+    networks:
+      - tipi_main_network
+    volumes:
+      - ${APP_DATA_DIR}/data/weights:/usr/src/app/weights
+      - ${APP_DATA_DIR}/data/db:/data/db/
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.serge-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.serge.loadbalancer.server.port: 8008
+      # Web
+      traefik.http.routers.serge-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.serge-insecure.entrypoints: web
+      traefik.http.routers.serge-insecure.service: serge
+      traefik.http.routers.serge-insecure.middlewares: serge-web-redirect
+      # Websecure
+      traefik.http.routers.serge.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.serge.entrypoints: websecure
+      traefik.http.routers.serge.service: serge
+      traefik.http.routers.serge.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.serge-local-insecure.rule: Host(`serge.${LOCAL_DOMAIN}`)
+      traefik.http.routers.serge-local-insecure.entrypoints: web
+      traefik.http.routers.serge-local-insecure.service: serge
+      traefik.http.routers.serge-local-insecure.middlewares: serge-web-redirect
+      # Local domain secure
+      traefik.http.routers.serge-local.rule: Host(`serge.${LOCAL_DOMAIN}`)
+      traefik.http.routers.serge-local.entrypoints: websecure
+      traefik.http.routers.serge-local.service: serge
+      traefik.http.routers.serge-local.tls: true

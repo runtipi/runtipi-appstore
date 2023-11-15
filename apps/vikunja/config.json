@@ -1,0 +1,31 @@
+{
+  "$schema": "../schema.json",
+  "name": "Vikunja",
+  "available": true,
+  "exposable": true,
+  "port": 8135,
+  "id": "vikunja",
+  "tipi_version": 7,
+  "version": "0.21.0",
+  "categories": [
+    "utilities"
+  ],
+  "description": "The Todo-app to organize your life.",
+  "short_desc": "The Todo-app to organize your life.",
+  "author": "kolaente",
+  "source": "https://kolaente.dev/vikunja",
+  "website": "https://vikunja.io",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Vikunja database password",
+      "env_variable": "VIKUNJA_DB_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Vikunja secret",
+      "env_variable": "VIKUNJA_SERVICE_SECRET"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

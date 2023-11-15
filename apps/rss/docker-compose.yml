@@ -1,0 +1,42 @@
+version: '3.7'
+
+services:
+  rss:
+    image: ghcr.io/ssddanbrown/rss:v1.4.2
+    container_name: rss
+    environment:
+      - APP_NAME=Tipi-RSS
+      - APP_FEED_UPDATE_FREQUENCY=35
+      - APP_LOAD_POST_THUMBNAILS=true
+    volumes:
+      - ${APP_DATA_DIR}/data/storage:/app/storage
+    ports:
+      - '${APP_PORT}:80'
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.rss-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.rss.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.rss-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.rss-insecure.entrypoints: web
+      traefik.http.routers.rss-insecure.service: rss
+      traefik.http.routers.rss-insecure.middlewares: rss-web-redirect
+      # Websecure
+      traefik.http.routers.rss.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.rss.entrypoints: websecure
+      traefik.http.routers.rss.service: rss
+      traefik.http.routers.rss.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.rss-local-insecure.rule: Host(`rss.${LOCAL_DOMAIN}`)
+      traefik.http.routers.rss-local-insecure.entrypoints: web
+      traefik.http.routers.rss-local-insecure.service: rss
+      traefik.http.routers.rss-local-insecure.middlewares: rss-web-redirect
+      # Local domain secure
+      traefik.http.routers.rss-local.rule: Host(`rss.${LOCAL_DOMAIN}`)
+      traefik.http.routers.rss-local.entrypoints: websecure
+      traefik.http.routers.rss-local.service: rss
+      traefik.http.routers.rss-local.tls: true

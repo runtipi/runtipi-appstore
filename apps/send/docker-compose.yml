@@ -1,0 +1,65 @@
+version: "3.7"
+services:
+  send:
+    image: registry.gitlab.com/timvisee/send:latest
+    container_name: send
+    restart: unless-stopped
+    dns:
+      - ${DNS_IP}
+    ports:
+      - ${APP_PORT}:1443
+    networks:
+      - tipi_main_network
+    volumes:
+      - ${APP_DATA_DIR}/data/uploads:/uploads
+    environment:
+      - NODE_ENV=production
+      # Networking
+      - BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      # Redis
+      - REDIS_HOST=send-redis
+      # Storage Limit
+      - MAX_FILE_SIZE=2147483648
+      # Storage path
+      - FILE_DIR=/uploads
+    depends_on:
+      - send-redis
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.send-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.send.loadbalancer.server.port: 1443
+      # Web
+      traefik.http.routers.send-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.send-insecure.entrypoints: web
+      traefik.http.routers.send-insecure.service: send
+      traefik.http.routers.send-insecure.middlewares: send-web-redirect
+      # Websecure
+      traefik.http.routers.send.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.send.entrypoints: websecure
+      traefik.http.routers.send.service: send
+      traefik.http.routers.send.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.send-local-insecure.rule: Host(`send.${LOCAL_DOMAIN}`)
+      traefik.http.routers.send-local-insecure.entrypoints: web
+      traefik.http.routers.send-local-insecure.service: send
+      traefik.http.routers.send-local-insecure.middlewares: send-web-redirect
+      # Local domain secure
+      traefik.http.routers.send-local.rule: Host(`send.${LOCAL_DOMAIN}`)
+      traefik.http.routers.send-local.entrypoints: websecure
+      traefik.http.routers.send-local.service: send
+      traefik.http.routers.send-local.tls: true
+  
+  send-redis:
+    image: redis:alpine
+    container_name: send-redis
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    networks:
+      - tipi_main_network

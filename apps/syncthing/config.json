@@ -2,15 +2,23 @@
   "$schema": "../schema.json",
   "name": "Syncthing",
   "available": true,
+  "exposable": true,
   "port": 8090,
   "id": "syncthing",
-  "tipi_version": 1,
-  "version": "1.20",
-  "categories": ["data", "utilities"],
-  "description": "Syncthing is a peer-to-peer continuous file synchronization program. It synchronizes files between two or more computers in real time, safely protected from prying eyes. Your data is your data alone and you deserve to choose where it is stored, whether it is shared with some third party, and how it's transmitted over the internet.\n\nInstall the Syncthing app on your Umbrel and pair it with the Syncthing app on your phone or computer for a self hosted peer-to-peer backup solution.",
+  "tipi_version": 9,
+  "version": "1.26",
+  "categories": [
+    "data",
+    "utilities"
+  ],
+  "description": "Syncthing is a continuous file synchronization program. It synchronizes files between two or more computers. We strive to fulfill the goals below. The goals are listed in order of importance, the most important one being the first. This is the summary version of the goal list - for more commentary, see the full Goals document.",
   "short_desc": "Peer-to-peer file synchronization between your devices",
   "author": "The Syncthing Foundation",
   "source": "https://github.com/syncthing",
   "website": "https://syncthing.net",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }

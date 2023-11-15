@@ -2,11 +2,15 @@
   "$schema": "../schema.json",
   "name": "Your Spotify",
   "available": true,
+  "exposable": true,
   "port": 8103,
   "id": "your-spotify",
-  "tipi_version": 1,
-  "version": "latest",
-  "categories": ["music", "utilities"],
+  "tipi_version": 6,
+  "version": "1.7.1",
+  "categories": [
+    "music",
+    "utilities"
+  ],
   "description": "Self hosted Spotify tracking dashboard.",
   "short_desc": "Self hosted Spotify tracking dashboard.",
   "author": "Yooooomi",
@@ -26,5 +30,6 @@
       "required": true,
       "env_variable": "SPOTIFY_SECRET"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

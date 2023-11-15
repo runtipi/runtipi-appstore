@@ -1,0 +1,66 @@
+version: '3'
+
+services:
+  viewtube:
+    restart: unless-stopped
+    container_name: viewtube
+    image: mauriceo/viewtube:0.13.1
+    depends_on:
+      - viewtube-mongodb
+      - viewtube-redis
+    volumes:
+      - ${APP_DATA_DIR}/data/viewtube:/data
+    environment:
+      - VIEWTUBE_DATABASE_HOST=viewtube-mongodb
+      - VIEWTUBE_REDIS_HOST=viewtube-redis
+      - VIEWTUBE_SECURE=true
+      - VIEWTUBE_CORS_ORIGIN=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      # - VIEWTUBE_YOUTUBE_COOKIE=
+      # - VIEWTUBE_YOUTUBE_IDENTIFIER=
+    ports:
+      - ${APP_PORT}:8066
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.viewtube-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.viewtube.loadbalancer.server.port: 8066
+      # Web
+      traefik.http.routers.viewtube-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.viewtube-insecure.entrypoints: web
+      traefik.http.routers.viewtube-insecure.service: viewtube
+      traefik.http.routers.viewtube-insecure.middlewares: viewtube-web-redirect
+      # Websecure
+      traefik.http.routers.viewtube.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.viewtube.entrypoints: websecure
+      traefik.http.routers.viewtube.service: viewtube
+      traefik.http.routers.viewtube.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.viewtube-local-insecure.rule: Host(`viewtube.${LOCAL_DOMAIN}`)
+      traefik.http.routers.viewtube-local-insecure.entrypoints: web
+      traefik.http.routers.viewtube-local-insecure.service: viewtube
+      traefik.http.routers.viewtube-local-insecure.middlewares: viewtube-web-redirect
+      # Local domain secure
+      traefik.http.routers.viewtube-local.rule: Host(`viewtube.${LOCAL_DOMAIN}`)
+      traefik.http.routers.viewtube-local.entrypoints: websecure
+      traefik.http.routers.viewtube-local.service: viewtube
+      traefik.http.routers.viewtube-local.tls: true
+  
+  viewtube-mongodb:
+    container_name: viewtube-mongodb
+    restart: unless-stopped
+    image: mongo:4.4.18
+    networks:
+      - tipi_main_network
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/data/db
+  
+  viewtube-redis:
+    container_name: viewtube-redis
+    restart: unless-stopped
+    image: redis:7
+    networks:
+      - tipi_main_network
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data

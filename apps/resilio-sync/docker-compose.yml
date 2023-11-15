@@ -16,3 +16,28 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.resilio-sync-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.resilio-sync.loadbalancer.server.port: 8888
+      # Web
+      traefik.http.routers.resilio-sync-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.resilio-sync-insecure.entrypoints: web
+      traefik.http.routers.resilio-sync-insecure.service: resilio-sync
+      traefik.http.routers.resilio-sync-insecure.middlewares: resilio-sync-web-redirect
+      # Websecure
+      traefik.http.routers.resilio-sync.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.resilio-sync.entrypoints: websecure
+      traefik.http.routers.resilio-sync.service: resilio-sync
+      traefik.http.routers.resilio-sync.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.resilio-sync-local-insecure.rule: Host(`resilio-sync.${LOCAL_DOMAIN}`)
+      traefik.http.routers.resilio-sync-local-insecure.entrypoints: web
+      traefik.http.routers.resilio-sync-local-insecure.service: resilio-sync
+      traefik.http.routers.resilio-sync-local-insecure.middlewares: resilio-sync-web-redirect
+      # Local domain secure
+      traefik.http.routers.resilio-sync-local.rule: Host(`resilio-sync.${LOCAL_DOMAIN}`)
+      traefik.http.routers.resilio-sync-local.entrypoints: websecure
+      traefik.http.routers.resilio-sync-local.service: resilio-sync
+      traefik.http.routers.resilio-sync-local.tls: true

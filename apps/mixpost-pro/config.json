@@ -1,0 +1,44 @@
+{
+  "$schema": "../schema.json",
+  "name": "Mixpost Pro",
+  "port": 8191,
+  "available": true,
+  "exposable": true,
+  "id": "mixpost-pro",
+  "tipi_version": 8,
+  "version": "latest",
+  "categories": ["social", "utilities"],
+  "description": "Mixpost it's the coolest Self-hosted social media management software.",
+  "short_desc": "Self-hosted social media management. Schedule and organize your social content. ",
+  "author": "Inovector",
+  "source": "https://github.com/inovector/mixpost",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Mixpost SQL Password",
+      "min": 32,
+      "env_variable": "MIXPOST_MYSQL_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Mixpost Redis Password",
+      "min": 32,
+      "env_variable": "MIXPOST_REDIS_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Application key",
+      "required": false,
+      "min": 32,
+      "max": 32,
+      "env_variable": "MIXPOST_APP_KEY"
+    },
+    {
+      "type": "text",
+      "label": "Mixpost Pro License key",
+      "required": true,
+      "env_variable": "MIXPOST_LICENSE_KEY"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

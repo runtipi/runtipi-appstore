@@ -1,0 +1,34 @@
+{
+  "$schema": "../schema.json",
+  "name": "DailyTxT",
+  "port": 8156,
+  "available": true,
+  "exposable": true,
+  "id": "dailytxt",
+  "tipi_version": 5,
+  "version": "1.0.13",
+  "categories": [
+    "utilities"
+  ],
+  "description": "DailyTxT is an encrypted Diary Web-App to write down your stories of the day and to find them again easily.",
+  "short_desc": "Encrypted Diary Web-App",
+  "author": "PhiTux",
+  "source": "https://github.com/PhiTux/DailyTxT",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "DailyTXT Secret Key",
+      "min": 32,
+      "env_variable": "DAILYTXT_SECRET_KEY"
+    },
+    {
+      "type": "boolean",
+      "label": "Allow User Registrastion",
+      "hint": "Set it to true intially to create the first user.",
+      "placeholder": "true",
+      "default": true,
+      "env_variable": "DAILYTXT_ALLOW_REGISTRATION"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

@@ -1,0 +1,75 @@
+version: "3.7"
+services:
+  tandoor:
+    container_name: tandoor
+    image: ghcr.io/tandoorrecipes/recipes:1.5.6
+    volumes:
+      - ${APP_DATA_DIR}/data/staticfiles:/opt/recipes/staticfiles
+      - ${APP_DATA_DIR}/data/mediafiles:/opt/recipes/mediafiles
+    ports:
+      - ${APP_PORT}:8080
+    environment:
+      - SECRET_KEY=${TANDOOR_SECRET_KEY}
+      - DB_ENGINE=django.db.backends.postgresql
+      - POSTGRES_HOST=tandoor-db
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=tandoor
+      - POSTGRES_PASSWORD=${TANDOOR_POSTGRESS_PASSWORD}
+      - POSTGRES_DB=tandoordb
+    networks:
+      - tipi_main_network
+    restart: unless-stopped
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:8080
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.tandoor-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.tandoor.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.tandoor-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.tandoor-insecure.entrypoints: web
+      traefik.http.routers.tandoor-insecure.service: tandoor
+      traefik.http.routers.tandoor-insecure.middlewares: tandoor-web-redirect
+      # Websecure
+      traefik.http.routers.tandoor.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.tandoor.entrypoints: websecure
+      traefik.http.routers.tandoor.service: tandoor
+      traefik.http.routers.tandoor.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.tandoor-local-insecure.rule: Host(`tandoor.${LOCAL_DOMAIN}`)
+      traefik.http.routers.tandoor-local-insecure.entrypoints: web
+      traefik.http.routers.tandoor-local-insecure.service: tandoor
+      traefik.http.routers.tandoor-local-insecure.middlewares: tandoor-web-redirect
+      # Local domain secure
+      traefik.http.routers.tandoor-local.rule: Host(`tandoor.${LOCAL_DOMAIN}`)
+      traefik.http.routers.tandoor-local.entrypoints: websecure
+      traefik.http.routers.tandoor-local.service: tandoor
+      traefik.http.routers.tandoor-local.tls: true
+    depends_on:
+      tandoor-db:
+        condition: service_healthy
+
+  tandoor-db:
+    image: postgres:15-alpine
+    container_name: tandoor-db
+    volumes:
+      - ${APP_DATA_DIR}/data/postgresql:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=tandoor
+      - POSTGRES_PASSWORD=${TANDOOR_POSTGRESS_PASSWORD}
+      - POSTGRES_DB=tandoordb
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-d", "tandoor"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s

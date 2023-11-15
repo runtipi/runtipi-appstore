@@ -3,14 +3,21 @@
   "name": "Portainer",
   "port": 9443,
   "available": true,
+  "exposable": true,
   "https": true,
   "id": "portainer",
-  "tipi_version": 3,
-  "version": "2.14.2",
-  "categories": ["utilities"],
+  "tipi_version": 15,
+  "version": "2.19.2-alpine",
+  "categories": [
+    "utilities"
+  ],
   "description": "",
   "short_desc": "Making Docker and Kubernetes management easy.",
   "author": "portainer.io",
   "source": "https://github.com/portainer/portainer",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }

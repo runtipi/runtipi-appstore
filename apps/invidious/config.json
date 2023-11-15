@@ -6,11 +6,20 @@
   "port": 8095,
   "id": "invidious",
   "version": "latest",
-  "tipi_version": 2,
+  "tipi_version": 7,
   "categories": ["media", "social"],
   "description": "Invidious is an open source alternative front-end to YouTube.",
   "short_desc": "An alternative front-end to YouTube",
   "author": "iv-org",
   "source": "https://github.com/iv-org/invidious",
-  "form_fields": []
+  "form_fields": [
+    {
+      "type": "random",
+      "min": 20,
+      "max": 20,
+      "label": "HMAC key",
+      "env_variable": "INVIDIOUS_HMAC_KEY"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

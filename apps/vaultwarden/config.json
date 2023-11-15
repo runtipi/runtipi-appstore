@@ -5,9 +5,11 @@
   "exposable": true,
   "port": 8107,
   "id": "vaultwarden",
-  "tipi_version": 2,
-  "version": "1.25.1",
-  "categories": ["utilities"],
+  "tipi_version": 10,
+  "version": "1.30.0",
+  "categories": [
+    "utilities"
+  ],
   "description": "Alternative implementation of the Bitwarden server API written in Rust and compatible with upstream Bitwarden clients, perfect for self-hosted deployment where running the official resource-heavy service might not be ideal.",
   "short_desc": "All your passwords in your control!",
   "author": "Daniel García",
@@ -21,5 +23,9 @@
       "required": true,
       "env_variable": "VAULTWARDEN_ADMIN_PASSWORD"
     }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
   ]
 }

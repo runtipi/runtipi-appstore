@@ -2,17 +2,34 @@
   "$schema": "../schema.json",
   "name": "Adguard",
   "available": true,
-  "tipi_version": 1,
-  "version": "0.107.7",
+  "exposable": true,
+  "tipi_version": 20,
+  "version": "0.107.41",
   "port": 8104,
   "id": "adguard",
-  "categories": ["network", "security"],
+  "categories": [
+    "network",
+    "security"
+  ],
   "description": "Adguard is the best way to get rid of annoying ads and online tracking and protect your computer from malware. Make your web surfing fast, safe and ad-free.",
   "short_desc": "World's most advanced adblocker!",
   "author": "AdguardTeam",
   "source": "https://github.com/AdguardTeam",
   "requirements": {
-    "ports": [53]
+    "ports": [
+      53
+    ]
   },
-  "form_fields": []
+  "form_fields": [
+    {
+      "type": "ip",
+      "label": "Network Interface (default: 0.0.0.0)",
+      "required": false,
+      "env_variable": "NETWORK_INTERFACE"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }

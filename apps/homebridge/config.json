@@ -1,0 +1,16 @@
+{
+  "$schema": "../schema.json",
+  "name": "Home Bridge",
+  "available": true,
+  "port": 8581,
+  "tipi_version": 1,
+  "version": "latest",
+  "id": "homebridge",
+  "categories": ["automation"],
+  "description": "HomeKit support for the impatient.",
+  "short_desc": "HomeKit support for the impatient.  ",
+  "author": "ArneNaessens",
+  "source": "https://github.com/homebridge/homebridge",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

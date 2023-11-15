@@ -1,0 +1,17 @@
+{
+  "$schema": "../schema.json",
+  "name": "Jellyfin Vue (Beta)",
+  "port": 8202,
+  "available": true,
+  "exposable": true,
+  "id": "jellyfin-vue",
+  "tipi_version": 1,
+  "version": "unstable.2023-09-18.fe0f640",
+  "categories": ["media"],
+  "description": "A modern web client for Jellyfin based on Vue",
+  "short_desc": "A modern web client for Jellyfin based on Vue",
+  "author": "Jellyfin",
+  "source": "https://github.com/jellyfin/jellyfin-vue",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "../schema.json",
+  "name": "PodFetch",
+  "port": 8177,
+  "available": true,
+  "exposable": true,
+  "id": "podfetch",
+  "tipi_version": 3,
+  "version": "latest",
+  "categories": [
+    "media"
+  ],
+  "description": "A sleek and efficient podcast downloader.",
+  "short_desc": "A sleek and efficient podcast downloader.",
+  "author": "SamTV12345",
+  "source": "https://github.com/SamTV12345/PodFetch",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "PodFetch Username",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "PODFETCH_USERNAME"
+    },
+    {
+      "type": "password",
+      "label": "PodFetch Password",
+      "max": 50,
+      "min": 8,
+      "required": true,
+      "env_variable": "PODFETCH_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Podcast Index API Key",
+      "hint": "The API key sent to you via mail",
+      "placeholder": "",
+      "required": false,
+      "env_variable": "PODFETCH_PODINDEX_API_KEY"
+    },
+    {
+      "type": "text",
+      "label": "Podcast Index API Secret",
+      "hint": "The API secret sent to you via mail",
+      "placeholder": "",
+      "required": false,
+      "env_variable": "PODFETCH_PODINDEX_API_SECRET"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

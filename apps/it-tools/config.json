@@ -1,0 +1,17 @@
+{
+  "$schema": "../schema.json",
+  "name": "IT-Tools",
+  "port": 8171,
+  "available": true,
+  "exposable": true,
+  "id": "it-tools",
+  "tipi_version": 2,
+  "version": "latest",
+  "categories": ["development"],
+  "description": "Useful tools for developer and people working in IT. ",
+  "short_desc": "Collection of handy online tools for developers, with great UX.",
+  "author": "CorentinTh",
+  "source": "https://github.com/CorentinTh/it-tools",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

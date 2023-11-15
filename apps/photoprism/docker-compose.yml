@@ -1,9 +1,8 @@
 version: "3.7"
-
 services:
   photoprism:
     # TODO: Special image for arm/v7 is available
-    image: photoprism/photoprism:latest
+    image: photoprism/photoprism:231021
     container_name: photoprism
     depends_on:
       - photoprism-db
@@ -12,7 +11,7 @@ services:
       - "${APP_PORT}:2342"
     environment:
       PHOTOPRISM_ADMIN_PASSWORD: ${PHOTOPRISM_ADMIN_PASSWORD}
-      PHOTOPRISM_SITE_URL: "http://localhost:2342/"
+      PHOTOPRISM_SITE_URL: "${APP_PROTOCOL:-http}://${APP_DOMAIN}/"
       PHOTOPRISM_ORIGINALS_LIMIT: 5000
       PHOTOPRISM_HTTP_COMPRESSION: "gzip"
       PHOTOPRISM_LOG_LEVEL: "info"
@@ -34,18 +33,43 @@ services:
       PHOTOPRISM_DATABASE_SERVER: "photoprism-db:3306"
       PHOTOPRISM_DATABASE_NAME: "photoprism"
       PHOTOPRISM_DATABASE_USER: "photoprism"
-      PHOTOPRISM_DATABASE_PASSWORD: "photoprism"
+      PHOTOPRISM_DATABASE_PASSWORD: "${DB_PASSWORD}"
       PHOTOPRISM_SITE_CAPTION: "AI-Powered Photos App"
     working_dir: "/photoprism"
     volumes:
-      - "${APP_DATA_DIR}/data/photoprism/originals:/photoprism/originals"
+      - "${ROOT_FOLDER_HOST}/media/data/images:/photoprism/originals"
       - "${APP_DATA_DIR}/data/photoprism/storage:/photoprism/storage"
     networks:
       - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.photoprism-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.photoprism.loadbalancer.server.port: 2342
+      # Web
+      traefik.http.routers.photoprism-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.photoprism-insecure.entrypoints: web
+      traefik.http.routers.photoprism-insecure.service: photoprism
+      traefik.http.routers.photoprism-insecure.middlewares: photoprism-web-redirect
+      # Websecure
+      traefik.http.routers.photoprism.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.photoprism.entrypoints: websecure
+      traefik.http.routers.photoprism.service: photoprism
+      traefik.http.routers.photoprism.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.photoprism-local-insecure.rule: Host(`photoprism.${LOCAL_DOMAIN}`)
+      traefik.http.routers.photoprism-local-insecure.entrypoints: web
+      traefik.http.routers.photoprism-local-insecure.service: photoprism
+      traefik.http.routers.photoprism-local-insecure.middlewares: photoprism-web-redirect
+      # Local domain secure
+      traefik.http.routers.photoprism-local.rule: Host(`photoprism.${LOCAL_DOMAIN}`)
+      traefik.http.routers.photoprism-local.entrypoints: websecure
+      traefik.http.routers.photoprism-local.service: photoprism
+      traefik.http.routers.photoprism-local.tls: true
 
   photoprism-db:
     restart: unless-stopped
-    image: mariadb:10.8.3
+    image: mariadb:10.8
     container_name: photoprism-db
     command: mysqld --innodb-buffer-pool-size=128M --transaction-isolation=READ-COMMITTED --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --max-connections=512 --innodb-rollback-on-timeout=OFF --innodb-lock-wait-timeout=120
     volumes:
@@ -53,7 +77,7 @@ services:
     environment:
       MARIADB_DATABASE: "photoprism"
       MARIADB_USER: "photoprism"
-      MARIADB_PASSWORD: "photoprism"
-      MARIADB_ROOT_PASSWORD: "photoprism"
+      MARIADB_PASSWORD: "${DB_PASSWORD}"
+      MARIADB_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
     networks:
       - tipi_main_network

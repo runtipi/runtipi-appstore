@@ -1,0 +1,31 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "rebaseWhen": "conflicted",
+  "gitIgnoredAuthors": ["githubaction@githubaction.com"],
+  "dependencyDashboard": true,
+  "enabledManagers": ["docker-compose", "dockerfile"],
+  "hostRules": [
+    {
+      "matchHost": "index.docker.io",
+      "hostType": "docker",
+      "username": "jphj",
+      "encrypted": {
+        "password": "wcFMA/xDdHCJBTolAQ/8DjCFGYoCRb08EDqxfzeYRn7ciN0Qslh22QdSIFYYLw4SffcC0uuiOkheaEKtE7F6hQRpL7tFCOdGMWYs9mbyRjxAMxSthPrkzoc7LfofXoDrE4/tKyRbKuFxtaMygaE4XSxLwihGd4RTEbDEINR2ilc9jTpkNQYzoxjwwnEMEZxQLNoDOlQtgUmdSmf2kAtqhVwE6a3NRM+mAXZzYMf3VgDu6/Rep4uO2BOKlLIaf6m4hFnCIQxTtgE/B2FrciuNYmBffjcIvE0vqDDAzbaj4KX1vr9asSWdCmGCtS5tnr9xrt7Fja6nqPph3AVVukVfhRbPhVALoMSRC/nDfTq5asGElU4HbU8bFv2Cwu28MNgor19o80oR0TIXDM4Hst+oX/HNUbQT2PSujgR4AkYASDzBmwaYbne+YgwVQrc6uCeYy9U0+F0aUbrHMvLb9fUG1bdXFcTWkGctNL6R/27QAMZvZ1At1IWBR4EGi6flEo6OGUFZSTVVzsthTFMTKzg7FMpHusGhHQ2t0v70w14yEBgOVL+pSV18239XNYA+Lw6VYUpHP+/oSKuiaJKX6klQyygaFxSx3aPjMdeaEeQECaJz75pOt1CD27WIO/lw2Uti1jnDs1S4SGbU42QSHLI5KyrVztzB2X/nVNDIe6oztja1yp/tHB7yZWDpyHkrmnDScgEJtoIx7Y/46DltouaBvauisSOtvYq5IkX4TSAQoi4tVoJURtrcLoqns+ZTDFdw943Os7CDBOLN/HIphGtVwxr+qzmTDJ/PlFN3C/Fq/IIbZlgsJWSZ+ndv+mYHwRyJFQ6LSdK4xN8AnZlp1+QB3/tOcA"
+      }
+    },
+    {
+      "matchHost": "docker.io",
+      "concurrentRequestLimit": 2
+    }
+  ],
+  "packageRules": [
+    {
+      "managers": ["docker-compose", "dockerfile"],
+      "packagePatterns": [
+        "^([^\\/]+\\/)?(mysql|mariadb|mongodb|mongo|postgres|redis|clickhouse-server|clickhouse|nginx|couchdb|documentserver)(:|$)"
+      ],
+      "enabled": false
+    }
+  ]
+}

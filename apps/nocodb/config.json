@@ -1,0 +1,38 @@
+{
+  "$schema": "../schema.json",
+  "name": "NocoDB",
+  "port": 8146,
+  "available": true,
+  "exposable": true,
+  "id": "nocodb",
+  "tipi_version": 25,
+  "version": "0.202.5",
+  "categories": [
+    "utilities"
+  ],
+  "description": "The Open Source Airtable Alternative. Turns any MySQL, PostgreSQL, SQL Server, SQLite & MariaDB into a smart-spreadsheet.",
+  "short_desc": "Open Source Airtable Alternative",
+  "author": "https://github.com/nocodb",
+  "source": "https://github.com/nocodb/nocodb",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "NOCODB_DB_PASSWORD",
+      "min": 32,
+      "env_variable": "NOCODB_DB_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "NOCODB_JWT_SECRET",
+      "min": 32,
+      "env_variable": "NOCODB_JWT_SECRET"
+    },
+    {
+      "type": "random",
+      "label": "REDIS_PASSWORD",
+      "min": 32,
+      "env_variable": "NOCODB_REDIS_PASSWORD"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

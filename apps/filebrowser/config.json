@@ -2,9 +2,10 @@
   "$schema": "../schema.json",
   "name": "File Browser",
   "available": true,
+  "exposable": true,
   "port": 8096,
   "id": "filebrowser",
-  "tipi_version": 1,
+  "tipi_version": 3,
   "version": "s6",
   "categories": ["utilities"],
   "description": "Reliable and Performant File Management Desktop Sync and File Sharing\n Default credentials: admin / admin",
@@ -12,5 +13,6 @@
   "author": "filebrowser.org",
   "website": "https://filebrowser.org/",
   "source": "https://github.com/filebrowser/filebrowser",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

@@ -1,0 +1,20 @@
+{
+  "$schema": "../schema.json",
+  "name": "Glances",
+  "port": 8420,
+  "available": true,
+  "exposable": false,
+  "id": "glances",
+  "tipi_version": 1,
+  "version": "3.4.0.3-full",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Glances is an open-source system cross-platform monitoring tool. It allows real-time monitoring of various aspects of your system such as CPU, memory, disk, network usage etc.",
+  "short_desc": "An eye on your system",
+  "author": "nicolargo",
+  "source": "https://github.com/nicolargo/glances",
+  "website": "https://nicolargo.github.io/glances/",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "../schema.json",
+  "name": "SABnzbd",
+  "port": 8168,
+  "available": true,
+  "exposable": true,
+  "id": "sabnzbd",
+  "tipi_version": 8,
+  "version": "4.1.0",
+  "categories": [
+    "media",
+    "utilities"
+  ],
+  "description": "Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can. All you have to do is add an .nzb. SABnzbd takes over from there, where it will be automatically downloaded, verified, repaired, extracted and filed away with zero human interaction.",
+  "short_desc": "Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can",
+  "author": "Sabnzbd",
+  "source": "https://github.com/sabnzbd/sabnzbd",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

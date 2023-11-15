@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   sonarr:
-    image: lscr.io/linuxserver/sonarr:3.0.8
+    image: lscr.io/linuxserver/sonarr:3.0.10
     container_name: sonarr
     environment:
       - PUID=1000
@@ -18,3 +18,28 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.sonarr-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.sonarr.loadbalancer.server.port: 8989
+      # Web
+      traefik.http.routers.sonarr-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.sonarr-insecure.entrypoints: web
+      traefik.http.routers.sonarr-insecure.service: sonarr
+      traefik.http.routers.sonarr-insecure.middlewares: sonarr-web-redirect
+      # Websecure
+      traefik.http.routers.sonarr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.sonarr.entrypoints: websecure
+      traefik.http.routers.sonarr.service: sonarr
+      traefik.http.routers.sonarr.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.sonarr-local-insecure.rule: Host(`sonarr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.sonarr-local-insecure.entrypoints: web
+      traefik.http.routers.sonarr-local-insecure.service: sonarr
+      traefik.http.routers.sonarr-local-insecure.middlewares: sonarr-web-redirect
+      # Local domain secure
+      traefik.http.routers.sonarr-local.rule: Host(`sonarr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.sonarr-local.entrypoints: websecure
+      traefik.http.routers.sonarr-local.service: sonarr
+      traefik.http.routers.sonarr-local.tls: true

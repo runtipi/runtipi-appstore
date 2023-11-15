@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  gandi-livedns:
+    image: jbbodart/gandi-livedns:latest
+    container_name: gandi-livedns
+    restart: unless-stopped
+    environment:
+      APIKEY: ${GANDI_LIVEDNS_APIKEY}
+      RECORD_LIST: ${GANDI_LIVEDNS_RECORD_LIST}
+      DOMAIN: ${GANDI_LIVEDNS_DOMAIN}
+      REFRESH_INTERVAL: ${GANDI_LIVEDNS_REFRESH_INTERVAL}
+      TTL: ${GANDI_LIVEDNS_TTL}
+      SET_IPV4: ${GANDI_LIVEDNS_SET_IPV4}
+      SET_IPV6: ${GANDI_LIVEDNS_SET_IPV6}
+      FORCE_IPV4: ${GANDI_LIVEDNS_FORCE_IPV4}
+      FORCE_IPV6: ${GANDI_LIVEDNS_FORCE_IPV6}
+    networks:
+      - tipi_main_network

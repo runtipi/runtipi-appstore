@@ -1,0 +1,35 @@
+version: "3.7"
+services:
+  hello-world:
+    container_name: hello-world
+    image: crccheck/hello-world:latest
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:8000
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.hello-world-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.hello-world.loadbalancer.server.port: 8000
+      # Web
+      traefik.http.routers.hello-world-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.hello-world-insecure.entrypoints: web
+      traefik.http.routers.hello-world-insecure.service: hello-world
+      traefik.http.routers.hello-world-insecure.middlewares: hello-world-web-redirect
+      # Websecure
+      traefik.http.routers.hello-world.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.hello-world.entrypoints: websecure
+      traefik.http.routers.hello-world.service: hello-world
+      traefik.http.routers.hello-world.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.hello-world-local-insecure.rule: Host(`hello-world.${LOCAL_DOMAIN}`)
+      traefik.http.routers.hello-world-local-insecure.entrypoints: web
+      traefik.http.routers.hello-world-local-insecure.service: hello-world
+      traefik.http.routers.hello-world-local-insecure.middlewares: hello-world-web-redirect
+      # Local domain secure
+      traefik.http.routers.hello-world-local.rule: Host(`hello-world.${LOCAL_DOMAIN}`)
+      traefik.http.routers.hello-world-local.entrypoints: websecure
+      traefik.http.routers.hello-world-local.service: hello-world
+      traefik.http.routers.hello-world-local.tls: true

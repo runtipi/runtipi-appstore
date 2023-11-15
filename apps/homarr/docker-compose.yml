@@ -2,12 +2,42 @@ version: "3.7"
 services:
   homarr:
     container_name: homarr
-    image: ghcr.io/ajnart/homarr:0.9.2
+    image: ghcr.io/ajnart/homarr:0.14.1
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/config:/app/data/configs
+      - ${APP_DATA_DIR}/data/icons:/app/public/icons
       - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - PASSWORD=${HOMARR_PASSWORD}
+      - PGID=1000
+      - TZ=${TZ}
     ports:
       - ${APP_PORT}:7575
     networks:
       - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.homarr-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.homarr.loadbalancer.server.port: 7575
+      # Web
+      traefik.http.routers.homarr-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.homarr-insecure.entrypoints: web
+      traefik.http.routers.homarr-insecure.service: homarr
+      traefik.http.routers.homarr-insecure.middlewares: homarr-web-redirect
+      # Websecure
+      traefik.http.routers.homarr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.homarr.entrypoints: websecure
+      traefik.http.routers.homarr.service: homarr
+      traefik.http.routers.homarr.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.homarr-local-insecure.rule: Host(`homarr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.homarr-local-insecure.entrypoints: web
+      traefik.http.routers.homarr-local-insecure.service: homarr
+      traefik.http.routers.homarr-local-insecure.middlewares: homarr-web-redirect
+      # Local domain secure
+      traefik.http.routers.homarr-local.rule: Host(`homarr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.homarr-local.entrypoints: websecure
+      traefik.http.routers.homarr-local.service: homarr
+      traefik.http.routers.homarr-local.tls: true

@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+ pairdrop:
+    image: lscr.io/linuxserver/pairdrop:1.9.4
+    container_name: pairdrop
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+      - RATE_LIMIT=false]
+      - WS_FALLBACK=false 
+    ports:
+      - ${APP_PORT}:3000
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.pairdrop-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.pairdrop.loadbalancer.server.port: 3000
+      # Web
+      traefik.http.routers.pairdrop-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.pairdrop-insecure.entrypoints: web
+      traefik.http.routers.pairdrop-insecure.service: pairdrop
+      traefik.http.routers.pairdrop-insecure.middlewares: pairdrop-web-redirect
+      # Websecure
+      traefik.http.routers.pairdrop.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.pairdrop.entrypoints: websecure
+      traefik.http.routers.pairdrop.service: pairdrop
+      traefik.http.routers.pairdrop.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.pairdrop-local-insecure.rule: Host(`pairdrop.${LOCAL_DOMAIN}`)
+      traefik.http.routers.pairdrop-local-insecure.entrypoints: web
+      traefik.http.routers.pairdrop-local-insecure.service: pairdrop
+      traefik.http.routers.pairdrop-local-insecure.middlewares: pairdrop-web-redirect
+      # Local domain secure
+      traefik.http.routers.pairdrop-local.rule: Host(`pairdrop.${LOCAL_DOMAIN}`)
+      traefik.http.routers.pairdrop-local.entrypoints: websecure
+      traefik.http.routers.pairdrop-local.service: pairdrop
+      traefik.http.routers.pairdrop-local.tls: true

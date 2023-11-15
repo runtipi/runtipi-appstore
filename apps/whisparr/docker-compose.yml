@@ -1,0 +1,54 @@
+version: "3.9"
+services:
+  whisparr:
+    container_name: whisparr
+    hostname: ${APP_ID}
+    image: ghcr.io/hotio/whisparr:nightly-2.0.0.287
+    ports:
+      - "${APP_PORT}:6969"
+    environment:
+      - PUID=${WHISPARR_PUID-1000}
+      - PGID=${WHISPARR_PGID-1000}
+      - UMASK=${WHISPARR_UMASK-002}
+      - TZ=${TZ}
+    dns:
+      - ${DNS_IP}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - ${APP_DATA_DIR}/data:/config
+      - ${ROOT_FOLDER_HOST}/media:/media
+    healthcheck:
+      test: timeout 5s bash -c ':> /dev/tcp/127.0.0.1/6969' || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.whisparr-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.whisparr.loadbalancer.server.port: 6969
+      # Web
+      traefik.http.routers.whisparr-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.whisparr-insecure.entrypoints: web
+      traefik.http.routers.whisparr-insecure.service: whisparr
+      traefik.http.routers.whisparr-insecure.middlewares: whisparr-web-redirect
+      # Websecure
+      traefik.http.routers.whisparr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.whisparr.entrypoints: websecure
+      traefik.http.routers.whisparr.service: whisparr
+      traefik.http.routers.whisparr.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.whisparr-local-insecure.rule: Host(`whisparr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.whisparr-local-insecure.entrypoints: web
+      traefik.http.routers.whisparr-local-insecure.service: whisparr
+      traefik.http.routers.whisparr-local-insecure.middlewares: whisparr-web-redirect
+      # Local domain secure
+      traefik.http.routers.whisparr-local.rule: Host(`whisparr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.whisparr-local.entrypoints: websecure
+      traefik.http.routers.whisparr-local.service: whisparr
+      traefik.http.routers.whisparr-local.tls: true

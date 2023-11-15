@@ -1,0 +1,55 @@
+{
+  "$schema": "../schema.json",
+  "name": "LibrePhotos",
+  "port": 8132,
+  "available": true,
+  "exposable": true,
+  "id": "librephotos",
+  "tipi_version": 13,
+  "version": "2023w43",
+  "categories": [
+    "photography"
+  ],
+  "description": "Complete photo management service",
+  "short_desc": "Complete photo management service",
+  "author": "Niaz Faridani-Rad",
+  "source": "https://github.com/LibrePhotos/librephotos",
+  "form_fields": [
+    {
+      "type": "email",
+      "label": "LibrePhotos admin email",
+      "required": true,
+      "env_variable": "LIBREPHOTOS_EMAIL"
+    },
+    {
+      "type": "text",
+      "label": "LibrePhotos admin username",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "LIBREPHOTOS_USERNAME"
+    },
+    {
+      "type": "password",
+      "label": "LibrePhotos admin password",
+      "max": 50,
+      "min": 8,
+      "required": true,
+      "env_variable": "LIBREPHOTOS_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "DB password",
+      "env_variable": "LIBREPHOTOS_DB_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Secret key",
+      "env_variable": "LIBREPHOTOS_SECRET_KEY"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "../schema.json",
+  "name": "GoToSocial",
+  "port": 8188,
+  "available": true,
+  "exposable": true,
+  "force_expose": true,
+  "id": "gotosocial",
+  "tipi_version": 11,
+  "uid": 1000,
+  "gid": 1000,
+  "version": "0.12.2",
+  "categories": [
+    "social"
+  ],
+  "description": "Fast, fun, ActivityPub server, powered by Go.",
+  "short_desc": "Fast, fun, ActivityPub server, powered by Go.",
+  "author": "superseriousbusiness",
+  "source": "https://github.com/superseriousbusiness/gotosocial",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "GoToSocial DB Password",
+      "min": 32,
+      "env_variable": "GTS_DB_PASSWORD"
+    },
+    {
+      "label": "Sign Ups",
+      "type": "text",
+      "required": true,
+      "options": [
+        {
+          "label": "Open Sign Up",
+          "value": "true"
+        },
+        {
+          "label": "Invite Only",
+          "value": "false"
+        }
+      ],
+      "env_variable": "GTS_ACCOUNTS_REGISTRATION_OPE"
+    },
+    {
+      "type": "text",
+      "label": "SMTP Host",
+      "hint": "Your SMTP Server",
+      "required": false,
+      "env_variable": "GTS_SMTP_HOST"
+    },
+    {
+      "type": "text",
+      "label": "SMTP Port",
+      "hint": "Your SMTP Port",
+      "required": false,
+      "env_variable": "GTS_SMTP_PORT"
+    },
+    {
+      "type": "text",
+      "label": "SMTP Username",
+      "hint": "Your SMTP Server User/Username",
+      "required": false,
+      "env_variable": "GTS_SMTP_USERNAME"
+    },
+    {
+      "type": "text",
+      "label": "SMTP Password",
+      "hint": "Your SMTP Server Password",
+      "required": false,
+      "env_variable": "GTS_SMTP_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "SMTP From Address",
+      "hint": "Make sure the Format is like noreply@example.com",
+      "required": false,
+      "env_variable": "GTS_SMTP_FROM"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}

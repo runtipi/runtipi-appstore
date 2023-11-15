@@ -2,15 +2,27 @@
   "$schema": "../schema.json",
   "name": "Joplin Server",
   "available": true,
+  "exposable": true,
   "port": 8099,
   "id": "joplin",
-  "tipi_version": 1,
-  "version": "2.7.4",
-  "categories": ["utilities"],
+  "tipi_version": 10,
+  "version": "2.13.2",
+  "categories": [
+    "utilities"
+  ],
   "description": "Default credentials: admin@localhost / admin",
   "short_desc": "Note taking and to-do application with synchronisation",
   "author": "https://github.com/laurent22",
   "source": "https://github.com/laurent22/joplin",
   "website": "https://joplinapp.org",
-  "form_fields": []
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Joplin DB password",
+      "max": 50,
+      "min": 8,
+      "env_variable": "JOPLIN_DB_PASSWORD"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
 }

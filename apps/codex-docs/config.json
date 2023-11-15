@@ -1,0 +1,38 @@
+{
+  "$schema": "../schema.json",
+  "name": "CodeX.docs",
+  "available": true,
+  "exposable": true,
+  "port": 8101,
+  "id": "codex-docs",
+  "tipi_version": 2,
+  "version": "v2.1",
+  "categories": ["media"],
+  "description": "CodeX Docs is a free docs application. It's based on Editor.js ecosystem which gives all modern opportunities for working with content. You can use it for product documentation, for internal team docs, for personal notes or any other need.  ",
+  "short_desc": "Free Docs app powered by Editor.js ecosystem.",
+  "author": "https://docs.codex.so/",
+  "source": "https://github.com/codex-team/codex.docs",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "Auth Password",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "CODEX_AUTH_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "CODEX_DB_PASSWORD",
+      "min": 32,
+      "env_variable": "CODEX_DB_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "CODEX_AUTH_SECRET",
+      "min": 32,
+      "env_variable": "CODEX_AUTH_SECRET"
+    }
+  ],
+  "supported_architectures": ["amd64"]
+}

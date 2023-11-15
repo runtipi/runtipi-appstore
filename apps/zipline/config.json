@@ -1,0 +1,36 @@
+{
+  "$schema": "../schema.json",
+  "name": "Zipline",
+  "port": 8139,
+  "available": true,
+  "exposable": true,
+  "id": "zipline",
+  "tipi_version": 6,
+  "version": "3.7.5",
+  "categories": [
+    "media"
+  ],
+  "description": "A ShareX/file upload server that is easy to use, packed with features, and with an easy setup!  ",
+  "short_desc": "A ShareX/file upload server that is easy to use, packed with features, and with an easy setup!  ",
+  "author": "https://github.com/diced",
+  "source": "https://github.com/diced/zipline",
+  "website": "https://zipline.diced.tech/docs/config/",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "ZIPLINE_DB_PASSWORD",
+      "min": 32,
+      "env_variable": "ZIPLINE_DB_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "ZIPLINE_CORE_SECRET",
+      "min": 32,
+      "env_variable": "ZIPLINE_CORE_SECRET"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}

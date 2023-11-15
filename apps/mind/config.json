@@ -1,0 +1,19 @@
+{
+  "$schema": "../schema.json",
+  "name": "Mind",
+  "port": 8143,
+  "available": true,
+  "exposable": true,
+  "id": "mind",
+  "tipi_version": 7,
+  "version": "1.3.3",
+  "categories": [
+    "utilities"
+  ],
+  "description": "A simple self hosted reminder platform that uses push to send notifications to your device. Set the reminder and forget about it!",
+  "short_desc": "A simple self hosted reminder platform that uses push to send notifications to your device.",
+  "author": "https://github.com/Casvt",
+  "source": "https://github.com/Casvt/MIND",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

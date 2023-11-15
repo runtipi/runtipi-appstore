@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  kanboard:
+    container_name: kanboard
+    image: kanboard/kanboard:v1.2.33
+    environment:
+      - PLUGIN_INSTALLER=${PLUGIN_INSTALLER}
+    ports:
+      - ${APP_PORT}:80
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/kanboard_data:/var/www/app/data
+      - ${APP_DATA_DIR}/data/kanboard_plugins:/var/www/app/plugins
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.kanboard-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.kanboard.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.kanboard-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.kanboard-insecure.entrypoints: web
+      traefik.http.routers.kanboard-insecure.service: kanboard
+      traefik.http.routers.kanboard-insecure.middlewares: kanboard-web-redirect
+      # Websecure
+      traefik.http.routers.kanboard.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.kanboard.entrypoints: websecure
+      traefik.http.routers.kanboard.service: kanboard
+      traefik.http.routers.kanboard.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.kanboard-local-insecure.rule: Host(`kanboard.${LOCAL_DOMAIN}`)
+      traefik.http.routers.kanboard-local-insecure.entrypoints: web
+      traefik.http.routers.kanboard-local-insecure.service: kanboard
+      traefik.http.routers.kanboard-local-insecure.middlewares: kanboard-web-redirect
+      # Local domain secure
+      traefik.http.routers.kanboard-local.rule: Host(`kanboard.${LOCAL_DOMAIN}`)
+      traefik.http.routers.kanboard-local.entrypoints: websecure
+      traefik.http.routers.kanboard-local.service: kanboard
+      traefik.http.routers.kanboard-local.tls: true

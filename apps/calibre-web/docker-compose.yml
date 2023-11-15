@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   calibre-web:
-    image: lscr.io/linuxserver/calibre-web:0.6.18
+    image: lscr.io/linuxserver/calibre-web:0.6.21
     container_name: calibre-web
     environment:
       - PUID=1000
@@ -9,9 +9,34 @@ services:
       - TZ=${TZ}
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
-      - ${ROOT_FOLDER_HOST}/media/data/books:/books
+      - ${APP_DATA_DIR}/data/books:/books
     ports:
       - ${APP_PORT}:8083
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.calibre-web-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.calibre-web.loadbalancer.server.port: 8083
+      # Web
+      traefik.http.routers.calibre-web-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.calibre-web-insecure.entrypoints: web
+      traefik.http.routers.calibre-web-insecure.service: calibre-web
+      traefik.http.routers.calibre-web-insecure.middlewares: calibre-web-web-redirect
+      # Websecure
+      traefik.http.routers.calibre-web.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.calibre-web.entrypoints: websecure
+      traefik.http.routers.calibre-web.service: calibre-web
+      traefik.http.routers.calibre-web.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.calibre-web-local-insecure.rule: Host(`calibre-web.${LOCAL_DOMAIN}`)
+      traefik.http.routers.calibre-web-local-insecure.entrypoints: web
+      traefik.http.routers.calibre-web-local-insecure.service: calibre-web
+      traefik.http.routers.calibre-web-local-insecure.middlewares: calibre-web-web-redirect
+      # Local domain secure
+      traefik.http.routers.calibre-web-local.rule: Host(`calibre-web.${LOCAL_DOMAIN}`)
+      traefik.http.routers.calibre-web-local.entrypoints: websecure
+      traefik.http.routers.calibre-web-local.service: calibre-web
+      traefik.http.routers.calibre-web-local.tls: true

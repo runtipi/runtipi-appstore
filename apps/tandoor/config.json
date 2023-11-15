@@ -1,0 +1,33 @@
+{
+  "$schema": "../schema.json",
+  "name": "Tandoor",
+  "port": 8341,
+  "available": true,
+  "exposable": true,
+  "id": "tandoor",
+  "tipi_version": 3,
+  "version": "1.5.6",
+  "categories": [
+    "data"
+  ],
+  "description": "Drop your collection of links and notes. Get Tandoor and never look back onto a time without recipe management, storage, sharing and collaborative cooking!",
+  "short_desc": "Recipe collection manager.",
+  "author": "Tandoor Recipes",
+  "source": "https://github.com/TandoorRecipes/recipes",
+  "website": "https://tandoor.dev/",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Tandoor Secret Key",
+      "min": 32,
+      "env_variable": "TANDOOR_SECRET_KEY"
+    },
+    {
+      "type": "random",
+      "label": "Postgress Password",
+      "min": 32,
+      "env_variable": "TANDOOR_POSTGRESS_PASSWORD"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

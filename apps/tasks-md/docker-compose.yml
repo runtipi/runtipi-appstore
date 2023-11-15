@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+  tasks-md:
+    container_name: tasks-md
+    image: baldissaramatheus/tasks.md:1.10.1
+    ports:
+      - ${APP_PORT}:8080
+    volumes:
+      - ${APP_DATA_DIR}/data/files:/api/files/
+      - ${APP_DATA_DIR}/data/stylesheets:/usr/share/nginx/html/stylesheets/
+    environment:
+      - TITLE="${TASKS_MD_TITLE}"
+    networks:
+      - tipi_main_network
+    restart: unless-stopped
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.tasks-md-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.tasks-md.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.tasks-md-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.tasks-md-insecure.entrypoints: web
+      traefik.http.routers.tasks-md-insecure.service: tasks-md
+      traefik.http.routers.tasks-md-insecure.middlewares: tasks-md-web-redirect
+      # Websecure
+      traefik.http.routers.tasks-md.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.tasks-md.entrypoints: websecure
+      traefik.http.routers.tasks-md.service: tasks-md
+      traefik.http.routers.tasks-md.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.tasks-md-local-insecure.rule: Host(`tasks-md.${LOCAL_DOMAIN}`)
+      traefik.http.routers.tasks-md-local-insecure.entrypoints: web
+      traefik.http.routers.tasks-md-local-insecure.service: tasks-md
+      traefik.http.routers.tasks-md-local-insecure.middlewares: tasks-md-web-redirect
+      # Local domain secure
+      traefik.http.routers.tasks-md-local.rule: Host(`tasks-md.${LOCAL_DOMAIN}`)
+      traefik.http.routers.tasks-md-local.entrypoints: websecure
+      traefik.http.routers.tasks-md-local.service: tasks-md
+      traefik.http.routers.tasks-md-local.tls: true

@@ -1,0 +1,67 @@
+version: '3'
+
+services:
+  planka:
+    image: ghcr.io/plankanban/planka:1.14.3
+    container_name: planka
+    command: >
+      bash -c
+        "for i in `seq 1 30`; do
+          ./start.sh &&
+          s=$$? && break || s=$$?;
+          echo \"Tried $$i times. Waiting 5 seconds...\";
+          sleep 5;
+        done; (exit $$s)"
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/user-avatars:/app/public/user-avatars
+      - ${APP_DATA_DIR}/data/project-background-images:/app/public/project-background-images
+      - ${APP_DATA_DIR}/data/attachments:/app/private/attachments
+    ports:
+      - ${APP_PORT}:1337
+    environment:
+      - BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - TRUST_PROXY=1
+      - DATABASE_URL="postgresql://postgres@postgres/planka"
+      - SECRET_KEY="${PLANKA_SECRET_KEY}"
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.planka-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.planka.loadbalancer.server.port: 1337
+      # Web
+      traefik.http.routers.planka-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.planka-insecure.entrypoints: web
+      traefik.http.routers.planka-insecure.service: planka
+      traefik.http.routers.planka-insecure.middlewares: planka-web-redirect
+      # Websecure
+      traefik.http.routers.planka.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.planka.entrypoints: websecure
+      traefik.http.routers.planka.service: planka
+      traefik.http.routers.planka.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.planka-local-insecure.rule: Host(`planka.${LOCAL_DOMAIN}`)
+      traefik.http.routers.planka-local-insecure.entrypoints: web
+      traefik.http.routers.planka-local-insecure.service: planka
+      traefik.http.routers.planka-local-insecure.middlewares: planka-web-redirect
+      # Local domain secure
+      traefik.http.routers.planka-local.rule: Host(`planka.${LOCAL_DOMAIN}`)
+      traefik.http.routers.planka-local.entrypoints: websecure
+      traefik.http.routers.planka-local.service: planka
+      traefik.http.routers.planka-local.tls: true
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:14-alpine
+    container_name: planka-db
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: "planka"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+    networks:
+      - tipi_main_network

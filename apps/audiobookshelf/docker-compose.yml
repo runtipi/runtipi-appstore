@@ -1,0 +1,40 @@
+version: '3.7'
+services:
+  audiobookshelf:
+    container_name: audiobookshelf
+    image: ghcr.io/advplyr/audiobookshelf:2.5.0
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:80
+    volumes:
+      - ${ROOT_FOLDER_HOST}/media/data/books/spoken:/audiobooks
+      - ${ROOT_FOLDER_HOST}/media/data/podcasts:/podcasts
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${APP_DATA_DIR}/data/metadata:/metadata
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.audiobookshelf-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.audiobookshelf.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.audiobookshelf-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.audiobookshelf-insecure.entrypoints: web
+      traefik.http.routers.audiobookshelf-insecure.service: audiobookshelf
+      traefik.http.routers.audiobookshelf-insecure.middlewares: audiobookshelf-web-redirect
+      # Websecure
+      traefik.http.routers.audiobookshelf.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.audiobookshelf.entrypoints: websecure
+      traefik.http.routers.audiobookshelf.service: audiobookshelf
+      traefik.http.routers.audiobookshelf.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.audiobookshelf-local-insecure.rule: Host(`audiobookshelf.${LOCAL_DOMAIN}`)
+      traefik.http.routers.audiobookshelf-local-insecure.entrypoints: web
+      traefik.http.routers.audiobookshelf-local-insecure.service: audiobookshelf
+      traefik.http.routers.audiobookshelf-local-insecure.middlewares: audiobookshelf-web-redirect
+      # Local domain secure
+      traefik.http.routers.audiobookshelf-local.rule: Host(`audiobookshelf.${LOCAL_DOMAIN}`)
+      traefik.http.routers.audiobookshelf-local.entrypoints: websecure
+      traefik.http.routers.audiobookshelf-local.service: audiobookshelf
+      traefik.http.routers.audiobookshelf-local.tls: true

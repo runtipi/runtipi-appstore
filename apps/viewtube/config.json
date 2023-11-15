@@ -1,0 +1,22 @@
+{
+  "$schema": "../schema.json",
+  "name": "ViewTube",
+  "port": 8180,
+  "available": true,
+  "exposable": true,
+  "id": "viewtube",
+  "tipi_version": 4,
+  "version": "0.13.1",
+  "categories": [
+    "media"
+  ],
+  "description": "The open source, privacy-conscious way to enjoy your favorite YouTube content.",
+  "short_desc": "The open source, privacy-conscious way to enjoy your favorite YouTube content.",
+  "author": "ViewTube",
+  "source": "https://github.com/ViewTube/viewtube",
+  "form_fields": [],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "../schema.json",
+  "name": "Databag",
+  "available": true,
+  "exposable": true,
+  "port": 8201,
+  "id": "databag",
+  "tipi_version": 2,
+  "version": "latest",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Databag is a federated chat app for self-hosting that focuses on user privacy and security; the service includes clients for iOS, Android, and browser.",
+  "short_desc": "Messenger for the Decentralized Web",
+  "author": "balzack",
+  "source": "https://github.com/balzack/databag",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

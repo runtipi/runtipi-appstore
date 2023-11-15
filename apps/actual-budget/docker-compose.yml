@@ -1,0 +1,37 @@
+version: "3.9"
+services:
+  actual-budget:
+    container_name: actual-budget
+    image: actualbudget/actual-server:23.11.0
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:5006
+    networks:
+      - tipi_main_network
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.actual-budget-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.actual-budget.loadbalancer.server.port: 5006
+      # Web
+      traefik.http.routers.actual-budget-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.actual-budget-insecure.entrypoints: web
+      traefik.http.routers.actual-budget-insecure.service: actual-budget
+      traefik.http.routers.actual-budget-insecure.middlewares: actual-budget-web-redirect
+      # Websecure
+      traefik.http.routers.actual-budget.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.actual-budget.entrypoints: websecure
+      traefik.http.routers.actual-budget.service: actual-budget
+      traefik.http.routers.actual-budget.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.actual-budget-local-insecure.rule: Host(`actual-budget.${LOCAL_DOMAIN}`)
+      traefik.http.routers.actual-budget-local-insecure.entrypoints: web
+      traefik.http.routers.actual-budget-local-insecure.service: actual-budget
+      traefik.http.routers.actual-budget-local-insecure.middlewares: actual-budget-web-redirect
+      # Local domain secure
+      traefik.http.routers.actual-budget-local.rule: Host(`actual-budget.${LOCAL_DOMAIN}`)
+      traefik.http.routers.actual-budget-local.entrypoints: websecure
+      traefik.http.routers.actual-budget-local.service: actual-budget
+      traefik.http.routers.actual-budget-local.tls: true

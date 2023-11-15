@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  gladys:
+    container_name: gladys
+    image: gladysassistant/gladys:v4.30.0
+    privileged: true
+    restart: on-failure
+    stop_grace_period: 1m
+    network_mode: host
+    environment:
+      - NODE_ENV=production
+      - SERVER_PORT=8270
+      - TZ=${TZ}
+      - SQLITE_FILE_PATH=/var/lib/gladysassistant/gladys-production.db
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${APP_DATA_DIR}/data/gladysassistant:/var/lib/gladysassistant
+      - /dev:/dev
+      - /run/udev:/run/udev:ro
+    # Not Exposing like Home Assitant
+    #labels:
+    #traefik.enable: ${APP_EXPOSED}
+    #traefik.http.routers.gladys.rule: Host(`${APP_DOMAIN}`)
+    #traefik.http.routers.gladys.entrypoints: websecure
+    #traefik.http.routers.gladys.service: gladys
+    #traefik.http.routers.gladys.tls.certresolver: myresolver
+    #traefik.http.services.gladys.loadbalancer.server.port: 8270

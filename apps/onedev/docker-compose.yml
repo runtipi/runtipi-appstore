@@ -1,0 +1,65 @@
+version: "3.7"
+
+services:
+  onedev:
+    image: 1dev/server:9.2.5
+    container_name: onedev
+    environment:
+      - hibernate_dialect=io.onedev.server.persistence.PostgreSQLDialect
+      - hibernate_connection_driver_class=org.postgresql.Driver
+      - hibernate_connection_url=jdbc:postgresql://onedev-db:5432/onedev
+      - hibernate_connection_username=tipi
+      - hibernate_connection_password=${ONEDEV_DB_PASSWORD}
+      - initial_user=${ONEDEV_USERNAME}
+      - initial_password=${ONEDEV_PASSWORD}
+      - initial_email=${ONEDEV_EMAIL}
+      - initial_server_url=${APP_DOMAIN}
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/onedev:/opt/onedev
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - ${APP_PORT}:6610
+      - "6611:6611"
+    depends_on:
+      - onedev-db
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.onedev-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.onedev.loadbalancer.server.port: 6610
+      # Web
+      traefik.http.routers.onedev-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.onedev-insecure.entrypoints: web
+      traefik.http.routers.onedev-insecure.service: onedev
+      traefik.http.routers.onedev-insecure.middlewares: onedev-web-redirect
+      # Websecure
+      traefik.http.routers.onedev.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.onedev.entrypoints: websecure
+      traefik.http.routers.onedev.service: onedev
+      traefik.http.routers.onedev.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.onedev-local-insecure.rule: Host(`onedev.${LOCAL_DOMAIN}`)
+      traefik.http.routers.onedev-local-insecure.entrypoints: web
+      traefik.http.routers.onedev-local-insecure.service: onedev
+      traefik.http.routers.onedev-local-insecure.middlewares: onedev-web-redirect
+      # Local domain secure
+      traefik.http.routers.onedev-local.rule: Host(`onedev.${LOCAL_DOMAIN}`)
+      traefik.http.routers.onedev-local.entrypoints: websecure
+      traefik.http.routers.onedev-local.service: onedev
+      traefik.http.routers.onedev-local.tls: true
+
+  onedev-db:
+    container_name: onedev-db
+    image: postgres:14
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=tipi
+      - POSTGRES_PASSWORD=${ONEDEV_DB_PASSWORD}
+      - POSTGRES_DB=onedev
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    networks:
+      - tipi_main_network

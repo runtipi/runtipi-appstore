@@ -1,0 +1,38 @@
+{
+  "$schema": "../schema.json",
+  "name": "Haven",
+  "available": true,
+  "exposable": true,
+  "port": 8130,
+  "id": "haven",
+  "tipi_version": 2,
+  "version": "a0280ce",
+  "categories": ["social"],
+  "description": "Self-hostable private blogging",
+  "short_desc": "Self-hostable private blogging",
+  "author": "mawise",
+  "source": "https://github.com/havenweb/haven",
+  "website": "https://havenweb.org/index.html",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Email",
+      "required": true,
+      "env_variable": "HAVEN_USER_EMAIL"
+    },
+    {
+      "type": "password",
+      "label": "Haven password",
+      "max": 50,
+      "min": 8,
+      "required": true,
+      "env_variable": "HAVEN_USER_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "DB password",
+      "env_variable": "HAVEN_DB_PASSWORD"
+    }
+  ],
+  "supported_architectures": ["amd64"]
+}

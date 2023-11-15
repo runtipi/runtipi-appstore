@@ -1,0 +1,26 @@
+{
+  "$schema": "../schema.json",
+  "name": "SearXNG",
+  "available": true,
+  "exposable": true,
+  "port": 8127,
+  "id": "searxng",
+  "tipi_version": 5,
+  "version": "latest",
+  "categories": [
+    "social"
+  ],
+  "description": "SearXNG is a free internet metasearch engine which aggregates results from various search services and databases. Users are neither tracked nor profiled.",
+  "short_desc": "Privacy-respecting, hackable metasearch engine",
+  "author": "searxng",
+  "source": "https://github.com/searxng/searxng",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "SearXNG Secret Key",
+      "min": 32,
+      "env_variable": "SEARXNG_SECRET_KEY"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

@@ -21,3 +21,10 @@ Radarr is a movie collection manager for Usenet and BitTorrent users. It can mon
 * Adding metadata such as posters and information for Kodi and others to use
 * Advanced customization for profiles, such that Radarr will always download the copy you want
 * A beautiful UI
+
+## Folder Info
+
+| Root Folder                   | Container Folder |
+|-------------------------------|------------------|
+| /runtipi/app-data/radarr/data | /config          |
+| /runtipi/media                | /media           |

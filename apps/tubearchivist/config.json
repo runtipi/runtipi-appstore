@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema.json",
+  "name": "Tube Archivist",
+  "available": true,
+  "exposable": true,
+  "port": 8120,
+  "id": "tubearchivist",
+  "tipi_version": 8,
+  "version": "0.4.3",
+  "categories": [
+    "media"
+  ],
+  "description": "Once your YouTube video collection grows, it becomes hard to search and find a specific video. That's where Tube Archivist comes in: By indexing your video collection with metadata from YouTube, you can organize, search and enjoy your archived YouTube videos without hassle offline through a convenient web interface.",
+  "short_desc": "Your self-hosted YouTube media server",
+  "author": "bbilly1",
+  "source": "https://github.com/tubearchivist/tubearchivist",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Tube Archivist Username",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "TA_USER"
+    },
+    {
+      "type": "password",
+      "label": "Tube Archivist Password",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "TA_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Elasticsearch Password",
+      "max": 50,
+      "min": 3,
+      "env_variable": "ELASTIC_PASSWORD"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}

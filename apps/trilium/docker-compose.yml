@@ -1,0 +1,37 @@
+version: '3.7'
+
+services:
+  trilium:
+    image: ghcr.io/zadam/trilium:0.62.1-beta
+    container_name: trilium
+    ports:
+      - ${APP_PORT}:8080
+    volumes:
+      - ${APP_DATA_DIR}/home/node/trilium-data
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.trilium-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.trilium.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.trilium-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.trilium-insecure.entrypoints: web
+      traefik.http.routers.trilium-insecure.service: trilium
+      traefik.http.routers.trilium-insecure.middlewares: trilium-web-redirect
+      # Websecure
+      traefik.http.routers.trilium.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.trilium.entrypoints: websecure
+      traefik.http.routers.trilium.service: trilium
+      traefik.http.routers.trilium.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.trilium-local-insecure.rule: Host(`trilium.${LOCAL_DOMAIN}`)
+      traefik.http.routers.trilium-local-insecure.entrypoints: web
+      traefik.http.routers.trilium-local-insecure.service: trilium
+      traefik.http.routers.trilium-local-insecure.middlewares: trilium-web-redirect
+      # Local domain secure
+      traefik.http.routers.trilium-local.rule: Host(`trilium.${LOCAL_DOMAIN}`)
+      traefik.http.routers.trilium-local.entrypoints: websecure
+      traefik.http.routers.trilium-local.service: trilium
+      traefik.http.routers.trilium-local.tls: true

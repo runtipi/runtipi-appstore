@@ -1,0 +1,97 @@
+{
+  "$schema": "../schema.json",
+  "name": "Mastodon",
+  "port": 8210,
+  "available": true,
+  "exposable": true,
+  "force_expose": true,
+  "generate_vapid_keys": true,
+  "id": "mastodon",
+  "tipi_version": 11,
+  "version": "4.2.1",
+  "categories": [
+    "social"
+  ],
+  "description": "Your self-hosted, globally interconnected microblogging community",
+  "short_desc": "Your self-hosted, globally interconnected microblogging community",
+  "author": "Mastodon",
+  "source": "https://github.com/mastodon/mastodon",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Mastodon Redis Password",
+      "min": 32,
+      "max": 32,
+      "env_variable": "MASTODON_REDIS_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Mastodon Postgres Password",
+      "min": 32,
+      "max": 32,
+      "env_variable": "MASTODON_POSTGRES_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Mastodon Secret Key Base",
+      "min": 64,
+      "max": 64,
+      "env_variable": "MASTODON_SECRET_KEY_BASE"
+    },
+    {
+      "type": "random",
+      "label": "Mastodon OTP Secret",
+      "min": 64,
+      "max": 64,
+      "env_variable": "MASTODON_OTP_SECRET"
+    },
+    {
+      "type": "text",
+      "label": "SMTP Host",
+      "hint": "Your SMTP Server",
+      "placeholder": "smtp.example.com",
+      "required": true,
+      "env_variable": "MASTODON_SMTP_SERVER"
+    },
+    {
+      "type": "text",
+      "label": "SMTP Port",
+      "hint": "Your SMTP Port",
+      "placeholder": "25",
+      "required": true,
+      "env_variable": "MASTODON_SMTP_PORT"
+    },
+    {
+      "type": "text",
+      "label": "SMTP Username",
+      "hint": "Your SMTP Server User/Username",
+      "placeholder": "noreply@example.com",
+      "required": true,
+      "env_variable": "MASTODON_SMTP_LOGIN"
+    },
+    {
+      "type": "text",
+      "label": "SMTP Password",
+      "hint": "Your SMTP Server Password",
+      "required": true,
+      "env_variable": "MASTODON_SMTP_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "SMTP From Address",
+      "hint": "Make sure the Format is like noreply@example.com",
+      "placeholder": "noreply@example.com",
+      "required": true,
+      "env_variable": "MASTODON_SMTP_FROM_ADDRESS"
+    },
+    {
+      "type": "text",
+      "label": "Mastodon Local domain",
+      "hint": "Could be the same of the Exposed Domain. Ex: social.example.com",
+      "placeholder": "example.com",
+      "required": true,
+      "env_variable": "MASTODON_LOCAL_DOMAIN"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

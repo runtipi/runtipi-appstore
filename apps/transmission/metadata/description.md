@@ -7,3 +7,10 @@ Transmission is a fast, easy, and free BitTorrent client. It comes in several fl
   * A web UI for remote controlling any of the above
 
 Visit [https://transmissionbt.com/](https://transmissionbt.com/) for more information.
+
+## Folder Info
+
+| Root Folder                   | Container Folder |
+|-------------------------------|------------------|
+| /runtipi/app-data/transmission/data/config | /config          |
+| /runtipi/media/torrents                | /media/torrents       |

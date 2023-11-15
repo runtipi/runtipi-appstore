@@ -1,0 +1,18 @@
+{
+  "$schema": "../schema.json",
+  "name": "Kiwix Server",
+  "port": 8169,
+  "available": true,
+  "exposable": true,
+  "id": "kiwix-serve",
+  "tipi_version": 1,
+  "version": "3.5.0-2",
+  "categories": ["media"],
+  "description": "Kiwix Server is a web server for hosting .zim files",
+  "short_desc": "Kiwix Server is a web server for hosting .zim files",
+  "author": "Kiwix",
+  "source": "https://github.com/kiwix/kiwix-tools/",
+  "website": "https://kiwix.org/",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

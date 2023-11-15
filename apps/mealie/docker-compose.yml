@@ -13,3 +13,28 @@ services:
       - ${APP_DATA_DIR}/data:/app/data
     networks:
       - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.mealie-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.mealie.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.mealie-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mealie-insecure.entrypoints: web
+      traefik.http.routers.mealie-insecure.service: mealie
+      traefik.http.routers.mealie-insecure.middlewares: mealie-web-redirect
+      # Websecure
+      traefik.http.routers.mealie.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mealie.entrypoints: websecure
+      traefik.http.routers.mealie.service: mealie
+      traefik.http.routers.mealie.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.mealie-local-insecure.rule: Host(`mealie.${LOCAL_DOMAIN}`)
+      traefik.http.routers.mealie-local-insecure.entrypoints: web
+      traefik.http.routers.mealie-local-insecure.service: mealie
+      traefik.http.routers.mealie-local-insecure.middlewares: mealie-web-redirect
+      # Local domain secure
+      traefik.http.routers.mealie-local.rule: Host(`mealie.${LOCAL_DOMAIN}`)
+      traefik.http.routers.mealie-local.entrypoints: websecure
+      traefik.http.routers.mealie-local.service: mealie
+      traefik.http.routers.mealie-local.tls: true

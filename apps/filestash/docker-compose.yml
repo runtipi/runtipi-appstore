@@ -1,0 +1,52 @@
+version: "2"
+services:
+  filestash:
+    container_name: filestash
+    image: machines/filestash:latest
+    restart: unless-stopped
+    environment:
+      - APPLICATION_URL=${APP_DOMAIN}
+      - GDRIVE_CLIENT_ID=${FILESTASH_GDRIVE_CLIENT_ID}
+      - GDRIVE_CLIENT_SECRET=${FILESTASH_GDRIVE_CLIENT_SECRET}
+      - DROPBOX_CLIENT_ID=${FILESTASH_DROPBOX_CLIENT_ID}
+      - ONLYOFFICE_URL=http://filestash-onlyoffice
+    ports:
+      - ${APP_PORT}:8334
+    depends_on:
+      - filestash-onlyoffice
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.filestash-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.filestash.loadbalancer.server.port: 8334
+      # Web
+      traefik.http.routers.filestash-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.filestash-insecure.entrypoints: web
+      traefik.http.routers.filestash-insecure.service: filestash
+      traefik.http.routers.filestash-insecure.middlewares: filestash-web-redirect
+      # Websecure
+      traefik.http.routers.filestash.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.filestash.entrypoints: websecure
+      traefik.http.routers.filestash.service: filestash
+      traefik.http.routers.filestash.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.filestash-local-insecure.rule: Host(`filestash.${LOCAL_DOMAIN}`)
+      traefik.http.routers.filestash-local-insecure.entrypoints: web
+      traefik.http.routers.filestash-local-insecure.service: filestash
+      traefik.http.routers.filestash-local-insecure.middlewares: filestash-web-redirect
+      # Local domain secure
+      traefik.http.routers.filestash-local.rule: Host(`filestash.${LOCAL_DOMAIN}`)
+      traefik.http.routers.filestash-local.entrypoints: websecure
+      traefik.http.routers.filestash-local.service: filestash
+      traefik.http.routers.filestash-local.tls: true
+
+  filestash-onlyoffice:
+    container_name: filestash_oods
+    image: onlyoffice/documentserver:7.3.3.50
+    restart: unless-stopped
+    security_opt:
+      - seccomp:unconfined
+    networks:
+      - tipi_main_network

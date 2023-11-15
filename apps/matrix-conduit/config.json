@@ -1,0 +1,73 @@
+{
+  "$schema": "../schema.json",
+  "name": "Conduit",
+  "port": 6167,
+  "available": true,
+  "exposable": true,
+  "force_expose": true,
+  "no_gui": true,
+  "id": "matrix-conduit",
+  "tipi_version": 4,
+  "version": "0.6.0",
+  "categories": ["social"],
+  "description": "Conduit is a fast Matrix homeserver that’s easy to set up and just works. You can install it on a mini-computer like the Raspberry Pi to host Matrix for your family, friends or company.",
+  "short_desc": "Conduit is a simple, fast and reliable chat server written in Rust",
+  "author": "Timo Kösters",
+  "source": "https://gitlab.com/famedly/conduit",
+  "website": "https://matrix.org/docs/projects/server/conduit",
+  "form_fields": [
+    {
+      "type": "boolean",
+      "label": "Allow Registration",
+      "hint": "WARNING! First user will be admin",
+      "required": false,
+      "env_variable": "ALLOW_REGISTRATION"
+    },
+    {
+      "type": "boolean",
+      "label": "Allow Federation",
+      "required": false,
+      "env_variable": "ALLOW_FEDERATION"
+    },
+    {
+      "type": "text",
+      "label": "Trusted Servers",
+      "hint": "List of domain names",
+      "placeholder": "[\"matrix.org\"]",
+      "regex": "^\\[((\"[^\"]*\")(, ?(\"[^\"]*\"))*)?\\]$",
+      "pattern_error": "Must be in list of domain names format",
+      "required": false,
+      "env_variable": "TRUSTED_SERVERS"
+    },
+    {
+      "type": "number",
+      "label": "Max request size",
+      "hint": "In bytes, for example 20000000",
+      "required": false,
+      "env_variable": "MAX_REQUEST_SIZE"
+    },
+    {
+      "type": "text",
+      "label": "Loggin Level",
+      "hint": "Available levels: error, warn, info, debug, trace",
+      "placeholder": "warn,rocket=off,_=off,sled=off",
+      "required": false,
+      "env_variable": "LOG"
+    },
+    {
+      "type": "text",
+      "label": "TURN URIs",
+      "hint": "List of TURN server URIs turn:/turns:",
+      "placeholder": "[\"turn:<your server domain>?transport=udp\", \"turn:<your server domain>?transport=tcp\"]",
+      "required": false,
+      "env_variable": "TURN_URIS"
+    },
+    {
+      "type": "password",
+      "label": "TURN Secret",
+      "required": false,
+      "env_variable": "TURN_SECRET"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

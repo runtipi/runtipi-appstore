@@ -1,0 +1,20 @@
+{
+  "$schema": "../schema.json",
+  "name": "2FAuth",
+  "port": 8235,
+  "available": true,
+  "exposable": true,
+  "id": "2fauth",
+  "tipi_version": 6,
+  "version": "4.2.3",
+  "categories": [
+    "security"
+  ],
+  "description": "A Web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes.",
+  "short_desc": "Manage your Two-Factor Authentication codes.",
+  "author": "Bubka",
+  "source": "https://github.com/Bubka/2FAuth",
+  "website": "https://docs.2fauth.app/",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

@@ -1,0 +1,58 @@
+version: "3.7"
+
+services:
+  linkwarden:
+    image: ghcr.io/linkwarden/linkwarden:v2.2.1
+    container_name: linkwarden
+    environment:
+      - DATABASE_URL=postgresql://tipi:${LINKWARDEN_DB_PASSWORD}@linkwarden-db:5432/linkwarden
+      - NEXTAUTH_SECRET=${LINKWARDEN_NEXTAUTH_SECRET}
+      - NEXTAUTH_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}/api/v1/auth
+      - NEXT_PUBLIC_DISABLE_REGISTRATION=${LINKWARDEN_NEXT_PUBLIC_DISABLE_REGISTRATION}
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/linkwarden:/data/data
+    ports:
+      - ${APP_PORT}:3000
+    depends_on:
+      - linkwarden-db
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.linkwarden-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.linkwarden.loadbalancer.server.port: 3000
+      # Web
+      traefik.http.routers.linkwarden-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.linkwarden-insecure.entrypoints: web
+      traefik.http.routers.linkwarden-insecure.service: linkwarden
+      traefik.http.routers.linkwarden-insecure.middlewares: linkwarden-web-redirect
+      # Websecure
+      traefik.http.routers.linkwarden.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.linkwarden.entrypoints: websecure
+      traefik.http.routers.linkwarden.service: linkwarden
+      traefik.http.routers.linkwarden.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.linkwarden-local-insecure.rule: Host(`linkwarden.${LOCAL_DOMAIN}`)
+      traefik.http.routers.linkwarden-local-insecure.entrypoints: web
+      traefik.http.routers.linkwarden-local-insecure.service: linkwarden
+      traefik.http.routers.linkwarden-local-insecure.middlewares: linkwarden-web-redirect
+      # Local domain secure
+      traefik.http.routers.linkwarden-local.rule: Host(`linkwarden.${LOCAL_DOMAIN}`)
+      traefik.http.routers.linkwarden-local.entrypoints: websecure
+      traefik.http.routers.linkwarden-local.service: linkwarden
+      traefik.http.routers.linkwarden-local.tls: true
+
+  linkwarden-db:
+    container_name: linkwarden-db
+    image: postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=tipi
+      - POSTGRES_PASSWORD=${LINKWARDEN_DB_PASSWORD}
+      - POSTGRES_DB=linkwarden
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    networks:
+      - tipi_main_network

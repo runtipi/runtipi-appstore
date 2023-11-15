@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   code-server:
-    image: lscr.io/linuxserver/code-server:4.5.1
+    image: lscr.io/linuxserver/code-server:4.18.0
     container_name: code-server
     environment:
       - PUID=1000
@@ -17,3 +17,28 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.code-server-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.code-server.loadbalancer.server.port: 8443
+      # Web
+      traefik.http.routers.code-server-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.code-server-insecure.entrypoints: web
+      traefik.http.routers.code-server-insecure.service: code-server
+      traefik.http.routers.code-server-insecure.middlewares: code-server-web-redirect
+      # Websecure
+      traefik.http.routers.code-server.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.code-server.entrypoints: websecure
+      traefik.http.routers.code-server.service: code-server
+      traefik.http.routers.code-server.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.code-server-local-insecure.rule: Host(`code-server.${LOCAL_DOMAIN}`)
+      traefik.http.routers.code-server-local-insecure.entrypoints: web
+      traefik.http.routers.code-server-local-insecure.service: code-server
+      traefik.http.routers.code-server-local-insecure.middlewares: code-server-web-redirect
+      # Local domain secure
+      traefik.http.routers.code-server-local.rule: Host(`code-server.${LOCAL_DOMAIN}`)
+      traefik.http.routers.code-server-local.entrypoints: websecure
+      traefik.http.routers.code-server-local.service: code-server
+      traefik.http.routers.code-server-local.tls: true

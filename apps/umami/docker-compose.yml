@@ -1,0 +1,55 @@
+version: '3.7'
+
+services:
+  umami:
+    container_name: umami
+    image: ghcr.io/umami-software/umami:postgresql-v1.40.0
+    ports:
+      - '${APP_PORT}:3000'
+    environment:
+      DATABASE_URL: postgresql://umami:${DB_PASSWORD}@umami-db:5432/umami
+      DATABASE_TYPE: postgresql
+      HASH_SALT: ${HASH_SALT}
+    depends_on:
+      - umami-db
+    restart: always
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.umami-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.umami.loadbalancer.server.port: 3000
+      # Web
+      traefik.http.routers.umami-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.umami-insecure.entrypoints: web
+      traefik.http.routers.umami-insecure.service: umami
+      traefik.http.routers.umami-insecure.middlewares: umami-web-redirect
+      # Websecure
+      traefik.http.routers.umami.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.umami.entrypoints: websecure
+      traefik.http.routers.umami.service: umami
+      traefik.http.routers.umami.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.umami-local-insecure.rule: Host(`umami.${LOCAL_DOMAIN}`)
+      traefik.http.routers.umami-local-insecure.entrypoints: web
+      traefik.http.routers.umami-local-insecure.service: umami
+      traefik.http.routers.umami-local-insecure.middlewares: umami-web-redirect
+      # Local domain secure
+      traefik.http.routers.umami-local.rule: Host(`umami.${LOCAL_DOMAIN}`)
+      traefik.http.routers.umami-local.entrypoints: websecure
+      traefik.http.routers.umami-local.service: umami
+      traefik.http.routers.umami-local.tls: true
+
+  umami-db:
+    container_name: umami-db
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_DB: umami
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - tipi_main_network

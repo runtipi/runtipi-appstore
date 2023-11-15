@@ -1,0 +1,19 @@
+{
+  "$schema": "../schema.json",
+  "name": "qDirStat",
+  "port": 7125,
+  "available": true,
+  "exposable": true,
+  "id": "qdirstat",
+  "tipi_version": 1,
+  "version": "1.8.1-ls82",
+  "categories": [
+    "Utilities"
+  ],
+  "description": "QDirStat Qt-based directory statistics: KDirStat without any KDE -- from the author of the original KDirStat.",
+  "short_desc": "A graphical disk usage analyzer",
+  "author": "Stefan Hundhammer",
+  "source": "https://github.com/linuxserver/docker-qdirstat",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

@@ -1,0 +1,58 @@
+version: "3.7"
+services:
+  notemark-proxy:
+    container_name: notemark-proxy
+    image: nginx:alpine
+    ports:
+      - ${APP_PORT}:80
+    volumes:
+      - ${APP_DATA_DIR}/data/proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.notemark-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.notemark.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.notemark-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.notemark-insecure.entrypoints: web
+      traefik.http.routers.notemark-insecure.service: notemark
+      traefik.http.routers.notemark-insecure.middlewares: notemark-web-redirect
+      # Websecure
+      traefik.http.routers.notemark.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.notemark.entrypoints: websecure
+      traefik.http.routers.notemark.service: notemark
+      traefik.http.routers.notemark.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.notemark-local-insecure.rule: Host(`notemark.${LOCAL_DOMAIN}`)
+      traefik.http.routers.notemark-local-insecure.entrypoints: web
+      traefik.http.routers.notemark-local-insecure.service: notemark
+      traefik.http.routers.notemark-local-insecure.middlewares: notemark-web-redirect
+      # Local domain secure
+      traefik.http.routers.notemark-local.rule: Host(`notemark.${LOCAL_DOMAIN}`)
+      traefik.http.routers.notemark-local.entrypoints: websecure
+      traefik.http.routers.notemark-local.service: notemark
+      traefik.http.routers.notemark-local.tls: true
+
+  notemark-backend:
+    image: ghcr.io/enchant97/note-mark-backend:0.8.0
+    container_name: notemark-backend
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    environment:
+      JWT_SECRET: "${NOTEMARK_SERVICE_SECRET}"
+      CORS_ORIGINS: "*"
+
+  notemark:
+    image: ghcr.io/enchant97/note-mark-frontend:0.8.0
+    container_name: notemark
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+
+    

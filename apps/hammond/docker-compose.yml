@@ -1,0 +1,49 @@
+version: "3.8"
+
+services:
+  hammond:
+    container_name: hammond
+    image: alfhou/hammond:v0.0.21
+    ports:
+      - ${APP_PORT}:3000
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${APP_DATA_DIR}/data/assets:/assets
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+    environment:
+      - TZ=${HAMMOND_TZ-Europe/Paris}
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.hammond-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.hammond.loadbalancer.server.port: 3000
+      # Web
+      traefik.http.routers.hammond-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.hammond-insecure.entrypoints: web
+      traefik.http.routers.hammond-insecure.service: hammond
+      traefik.http.routers.hammond-insecure.middlewares: hammond-web-redirect
+      # Websecure
+      traefik.http.routers.hammond.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.hammond.entrypoints: websecure
+      traefik.http.routers.hammond.service: hammond
+      traefik.http.routers.hammond.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.hammond-local-insecure.rule: Host(`hammond.${LOCAL_DOMAIN}`)
+      traefik.http.routers.hammond-local-insecure.entrypoints: web
+      traefik.http.routers.hammond-local-insecure.service: hammond
+      traefik.http.routers.hammond-local-insecure.middlewares: hammond-web-redirect
+      # Local domain secure
+      traefik.http.routers.hammond-local.rule: Host(`hammond.${LOCAL_DOMAIN}`)
+      traefik.http.routers.hammond-local.entrypoints: websecure
+      traefik.http.routers.hammond-local.service: hammond
+      traefik.http.routers.hammond-local.tls: true
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:3000
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s

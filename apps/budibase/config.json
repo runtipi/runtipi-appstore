@@ -1,0 +1,23 @@
+{
+  "$schema": "../schema.json",
+  "name": "Budibase",
+  "port": 8268,
+  "available": true,
+  "exposable": true,
+  "id": "budibase",
+  "tipi_version": 32,
+  "version": "2.13.9",
+  "categories": [
+    "development"
+  ],
+  "description": "Low code platform for creating internal tools, workflows, and admin panels in minutes. Supports PostgreSQL, MySQL, MSSQL, MongoDB, Rest API, Docker, K8s, and more 🚀. Budibase, the low code platform you'll enjoy using ⚡",
+  "short_desc": "Internal tools made easy.",
+  "author": "Budibase",
+  "source": "https://github.com/Budibase/budibase",
+  "website": "https://budibase.com/",
+  "form_fields": [],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}

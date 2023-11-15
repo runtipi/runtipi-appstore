@@ -1,0 +1,41 @@
+version: "3.9"
+services:
+  dozzle:
+    container_name: dozzle
+    image: amir20/dozzle:latest
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - ${APP_PORT}:8080
+    networks:
+      - tipi_main_network
+    environment:
+      - DOZZLE_NO_ANALYTICS=${DOZZLE_NO_ANALYTICS}
+      - DOZZLE_USERNAME=${DOZZLE_USERNAME}
+      - DOZZLE_PASSWORD=${DOZZLE_PASSWORD}
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.dozzle-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.dozzle.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.dozzle-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.dozzle-insecure.entrypoints: web
+      traefik.http.routers.dozzle-insecure.service: dozzle
+      traefik.http.routers.dozzle-insecure.middlewares: dozzle-web-redirect
+      # Websecure
+      traefik.http.routers.dozzle.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.dozzle.entrypoints: websecure
+      traefik.http.routers.dozzle.service: dozzle
+      traefik.http.routers.dozzle.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.dozzle-local-insecure.rule: Host(`dozzle.${LOCAL_DOMAIN}`)
+      traefik.http.routers.dozzle-local-insecure.entrypoints: web
+      traefik.http.routers.dozzle-local-insecure.service: dozzle
+      traefik.http.routers.dozzle-local-insecure.middlewares: dozzle-web-redirect
+      # Local domain secure
+      traefik.http.routers.dozzle-local.rule: Host(`dozzle.${LOCAL_DOMAIN}`)
+      traefik.http.routers.dozzle-local.entrypoints: websecure
+      traefik.http.routers.dozzle-local.service: dozzle
+      traefik.http.routers.dozzle-local.tls: true

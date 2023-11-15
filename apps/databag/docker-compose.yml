@@ -1,0 +1,38 @@
+version: "3.9"
+services:
+  databag:
+    container_name: databag
+    image: balzack/databag:latest
+    ports:
+      - ${APP_PORT}:7000
+    volumes:
+      - ${APP_DATA_DIR}/data/databag:/var/lib/databag
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.databag-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.databag.loadbalancer.server.port: 7000
+      # Web
+      traefik.http.routers.databag-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.databag-insecure.entrypoints: web
+      traefik.http.routers.databag-insecure.service: databag
+      traefik.http.routers.databag-insecure.middlewares: databag-web-redirect
+      # Websecure
+      traefik.http.routers.databag.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.databag.entrypoints: websecure
+      traefik.http.routers.databag.service: databag
+      traefik.http.routers.databag.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.databag-local-insecure.rule: Host(`databag.${LOCAL_DOMAIN}`)
+      traefik.http.routers.databag-local-insecure.entrypoints: web
+      traefik.http.routers.databag-local-insecure.service: databag
+      traefik.http.routers.databag-local-insecure.middlewares: databag-web-redirect
+      # Local domain secure
+      traefik.http.routers.databag-local.rule: Host(`databag.${LOCAL_DOMAIN}`)
+      traefik.http.routers.databag-local.entrypoints: websecure
+      traefik.http.routers.databag-local.service: databag
+      traefik.http.routers.databag-local.tls: true
+
+

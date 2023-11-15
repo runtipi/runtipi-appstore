@@ -1,0 +1,96 @@
+version: "3"
+
+services:
+  mastodon:
+    container_name: mastodon
+    image: lscr.io/linuxserver/mastodon:4.2.1
+    ports:
+      - 8209:80
+      - ${APP_PORT}:443
+    volumes:
+      - ${APP_DATA_DIR}/data/mastodon-config:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+      - LOCAL_DOMAIN=${MASTODON_LOCAL_DOMAIN}
+      - WEB_DOMAIN=${APP_DOMAIN}
+      - VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
+      - VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
+      - REDIS_HOST=mastodon-redis
+      - REDIS_PASSWORD=${MASTODON_REDIS_PASSWORD}
+      - REDIS_PORT=6379
+      - DB_HOST=mastodon-db
+      - DB_USER=tipi
+      - DB_NAME=mastodon
+      - DB_PASS=${MASTODON_POSTGRES_PASSWORD}
+      - DB_PORT=5432
+      - ES_ENABLED=false
+      #- ES_HOST=mastodon-es
+      #- ES_PORT=9200
+      #- ES_USER=elastic
+      #- ES_PASS=${MASTODON_ELASTIC_PASSWORD}
+      - SECRET_KEY_BASE=${MASTODON_SECRET_KEY_BASE}
+      - OTP_SECRET=${MASTODON_OTP_SECRET}
+      - SMTP_SERVER=${MASTODON_SMTP_SERVER}
+      - SMTP_PORT=${MASTODON_SMTP_PORT}
+      - SMTP_LOGIN=${MASTODON_SMTP_LOGIN}
+      - SMTP_PASSWORD=${MASTODON_SMTP_PASSWORD}
+      - SMTP_FROM_ADDRESS=${MASTODON_SMTP_FROM_ADDRESS}
+      - S3_ENABLED=false
+      #- S3_BUCKET=files.example.com
+      # - AWS_ACCESS_KEY_ID=
+      #- AWS_SECRET_ACCESS_KEY=
+      #- S3_ALIAS_HOST=files.example.com
+      - SIDEKIQ_ONLY=false 
+      - SIDEKIQ_DEFAULT=false
+      - SIDEKIQ_THREADS=5
+
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.mastodon.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mastodon.entrypoints: websecure
+      traefik.http.routers.mastodon.service: mastodon
+      traefik.http.routers.mastodon.tls.certresolver: myresolver
+      traefik.http.services.mastodon.loadbalancer.server.port: 443
+      traefik.http.services.mastodon.loadbalancer.serverstransport: insecuretransport@file
+      traefik.http.services.mastodon.loadbalancer.server.scheme: https
+    depends_on:
+      mastodon-db:
+        condition: service_healthy
+      mastodon-redis:
+        condition: service_healthy
+      
+
+  mastodon-db:
+    restart: always
+    container_name: mastodon-db
+    image: postgres:14-alpine
+    shm_size: 256mb
+    environment:
+      POSTGRES_PASSWORD: ${MASTODON_POSTGRES_PASSWORD}
+      POSTGRES_USER: tipi
+      POSTGRES_DB: mastodon
+      PG_DATA: /var/lib/postgresql/data
+      POSTGRES_HOST_AUTH_METHODL: trust
+    networks:
+      - tipi_main_network
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-U', 'tipi']
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+
+  mastodon-redis:
+    restart: always
+    image: redis:7-alpine
+    command: redis-server --appendonly yes --replica-read-only no --requirepass "${MASTODON_REDIS_PASSWORD}"
+    container_name: mastodon-redis
+    networks:
+      - tipi_main_network
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data

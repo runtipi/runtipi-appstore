@@ -1,0 +1,20 @@
+{
+  "$schema": "../schema.json",
+  "name": "Bazarr",
+  "available": true,
+  "exposable": true,
+  "port": 6767,
+  "id": "bazarr",
+  "tipi_version": 11,
+  "version": "1.3.1",
+  "categories": [
+    "media",
+    "utilities"
+  ],
+  "description": "Bazarr is a companion application to Sonarr and Radarr that manages and downloads subtitles based on your requirements.",
+  "short_desc": "A companion application to Sonarr and Radarr that manages and downloads subtitles",
+  "author": "morpheus65535",
+  "source": "https://github.com/morpheus65535/bazarr",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

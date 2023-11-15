@@ -2,7 +2,7 @@ version: "3"
 services:
   overseerr:
     container_name: overseerr
-    image: sctx/overseerr:1.29.0
+    image: sctx/overseerr:1.33.2
     environment:
       - TZ=${TZ}
     volumes:
@@ -14,3 +14,28 @@ services:
       - ${DNS_IP}
     networks:
       - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.overseerr-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.overseerr.loadbalancer.server.port: 5055
+      # Web
+      traefik.http.routers.overseerr-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.overseerr-insecure.entrypoints: web
+      traefik.http.routers.overseerr-insecure.service: overseerr
+      traefik.http.routers.overseerr-insecure.middlewares: overseerr-web-redirect
+      # Websecure
+      traefik.http.routers.overseerr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.overseerr.entrypoints: websecure
+      traefik.http.routers.overseerr.service: overseerr
+      traefik.http.routers.overseerr.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.overseerr-local-insecure.rule: Host(`overseerr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.overseerr-local-insecure.entrypoints: web
+      traefik.http.routers.overseerr-local-insecure.service: overseerr
+      traefik.http.routers.overseerr-local-insecure.middlewares: overseerr-web-redirect
+      # Local domain secure
+      traefik.http.routers.overseerr-local.rule: Host(`overseerr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.overseerr-local.entrypoints: websecure
+      traefik.http.routers.overseerr-local.service: overseerr
+      traefik.http.routers.overseerr-local.tls: true

@@ -1,0 +1,29 @@
+{
+  "$schema": "../schema.json",
+  "name": "Speedtest Tracker",
+  "port": 8211,
+  "available": true,
+  "exposable": true,
+  "id": "speedtest-tracker",
+  "tipi_version": 3,
+  "version": "0.13.3",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Speedtest Tracker is a self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.",
+  "short_desc": "Internet performance tracking application.",
+  "author": "alexjustesen",
+  "source": "https://github.com/alexjustesen/speedtest-tracker",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "SPEEDTEST_TRACKER_DB_PASSWORD",
+      "min": 32,
+      "env_variable": "SPEEDTEST_TRACKER_DB_PASSWORD"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}

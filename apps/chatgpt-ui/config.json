@@ -1,0 +1,48 @@
+{
+  "$schema": "../schema.json",
+  "name": "ChatGPT UI",
+  "port": 8200,
+  "available": true,
+  "exposable": true,
+  "id": "chatgpt-ui",
+  "tipi_version": 13,
+  "version": "2.5.9",
+  "categories": [
+    "ai"
+  ],
+  "description": "A ChatGPT web client that supports multiple users, multiple languages, and multiple database connections for persistent data storage",
+  "short_desc": "A ChatGPT web client that supports multiple users, multiple languages, and multiple database connections for persistent data storage",
+  "author": "https://github.com/WongSaang",
+  "source": "https://github.com/WongSaang/chatgpt-ui",
+  "supported_architectures": ["amd64"],
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "CHATGPT_UI_DB_PASSWORD",
+      "min": 32,
+      "env_variable": "CHATGPT_UI_DB_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Superuser Username",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "CHATGPT_UI_SUPERUSER_USERNAME"
+    },
+    {
+      "type": "password",
+      "label": "Superuser Password",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "CHATGPT_UI_SUPERUSER_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Superuser Email",
+      "required": true,
+      "env_variable": "CHATGPT_UI_SUPERUSER_EMAIL"
+    }
+  ]
+}

@@ -18,3 +18,28 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.readarr-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.readarr.loadbalancer.server.port: 8787
+      # Web
+      traefik.http.routers.readarr-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.readarr-insecure.entrypoints: web
+      traefik.http.routers.readarr-insecure.service: readarr
+      traefik.http.routers.readarr-insecure.middlewares: readarr-web-redirect
+      # Websecure
+      traefik.http.routers.readarr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.readarr.entrypoints: websecure
+      traefik.http.routers.readarr.service: readarr
+      traefik.http.routers.readarr.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.readarr-local-insecure.rule: Host(`readarr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.readarr-local-insecure.entrypoints: web
+      traefik.http.routers.readarr-local-insecure.service: readarr
+      traefik.http.routers.readarr-local-insecure.middlewares: readarr-web-redirect
+      # Local domain secure
+      traefik.http.routers.readarr-local.rule: Host(`readarr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.readarr-local.entrypoints: websecure
+      traefik.http.routers.readarr-local.service: readarr
+      traefik.http.routers.readarr-local.tls: true

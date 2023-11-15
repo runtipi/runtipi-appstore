@@ -1,0 +1,18 @@
+{
+  "$schema": "../schema.json",
+  "name": "Ntfy",
+  "available": true,
+  "exposable": true,
+  "port": 8166,
+  "id": "ntfy",
+  "tipi_version": 1,
+  "version": "2.7.0",
+  "categories": ["utilities"],
+  "description": "Send push notifications to any devices using a simple HTTP PUT or POST request.",
+  "short_desc": "Ntfy, a simple server for sending and receiving notification messages.",
+  "author": "https://github.com/binwiederhier",
+  "source": "https://github.com/binwiederhier/ntfy",
+  "website": "https://ntfy.sh/",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

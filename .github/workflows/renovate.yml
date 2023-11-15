@@ -1,0 +1,33 @@
+name: Renovate
+
+on:
+  workflow_dispatch:
+    inputs:
+      log-level:
+        type: choice
+        description: Select log level for Renovate
+        options:
+          - trace
+          - debug
+          - info
+          - warn
+          - error
+        default: into
+        required: false
+  schedule:
+    # The "*" (#42, asterisk) character has special semantics in YAML, so this
+    # string has to be quoted.
+    - cron: '0/30 * * * *'
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.0.0
+      - name: Self-hosted Renovate
+        uses: renovatebot/github-action@v36.0.4
+        with:
+          token: ${{ secrets.RENOVATE_TOKEN }}
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}

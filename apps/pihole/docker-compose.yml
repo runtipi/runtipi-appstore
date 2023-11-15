@@ -1,28 +1,16 @@
 version: "3.7"
 
 services:
-  # unbound:
-  #   image: "klutchell/unbound"
-  #   container_name: unbound
-  #   restart: unless-stopped
-  #   volumes:
-  #     - "${APP_DATA_DIR}/data/unbound:/etc/unbound"
-  #   networks:
-  #     tipi_main_network:
-  #       ipv4_address: 10.21.21.200
-
   pihole:
-    # depends_on: [unbound]
     container_name: pihole
-    image: pihole/pihole:2022.07.1
+    image: pihole/pihole:2023.10.0
     restart: unless-stopped
     hostname: pihole
     dns:
       - 127.0.0.1
-      # - 10.21.21.200 # Points to unbound
     ports:
-      - 53:53/tcp
-      - 53:53/udp
+      - ${NETWORK_INTERFACE:-0.0.0.0}:53:53/tcp
+      - ${NETWORK_INTERFACE:-0.0.0.0}:53:53/udp
       - ${APP_PORT}:80
     volumes:
       - ${APP_DATA_DIR}/data/pihole:/etc/pihole
@@ -30,10 +18,32 @@ services:
     environment:
       TZ: ${TZ}
       WEBPASSWORD: ${APP_PASSWORD}
-      # PIHOLE_DNS_: 10.21.21.200 # Points to unbound
-      FTLCONF_REPLY_ADDR4: 10.21.21.201
     cap_add:
       - NET_ADMIN
     networks:
-      tipi_main_network:
-        ipv4_address: 10.21.21.201
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.pihole-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.pihole.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.pihole-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.pihole-insecure.entrypoints: web
+      traefik.http.routers.pihole-insecure.service: pihole
+      traefik.http.routers.pihole-insecure.middlewares: pihole-web-redirect
+      # Websecure
+      traefik.http.routers.pihole.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.pihole.entrypoints: websecure
+      traefik.http.routers.pihole.service: pihole
+      traefik.http.routers.pihole.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.pihole-local-insecure.rule: Host(`pihole.${LOCAL_DOMAIN}`)
+      traefik.http.routers.pihole-local-insecure.entrypoints: web
+      traefik.http.routers.pihole-local-insecure.service: pihole
+      traefik.http.routers.pihole-local-insecure.middlewares: pihole-web-redirect
+      # Local domain secure
+      traefik.http.routers.pihole-local.rule: Host(`pihole.${LOCAL_DOMAIN}`)
+      traefik.http.routers.pihole-local.entrypoints: websecure
+      traefik.http.routers.pihole-local.service: pihole
+      traefik.http.routers.pihole-local.tls: true

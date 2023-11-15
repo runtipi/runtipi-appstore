@@ -1,0 +1,43 @@
+version: '3.9'
+services:
+  owncast:
+    container_name: owncast
+    image: owncast/owncast:0.1.1
+    volumes:
+      - ${APP_DATA_DIR}/data:/app/data
+    ports:
+      - ${APP_PORT}:8080 # App Port
+      - 1935:1935 # RTMP Port
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.owncast-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.owncast.loadbalancer.server.port: 8080
+      traefik.tcp.services.owncast-rtmp.loadbalancer.server.port: 1935
+      # Web
+      traefik.http.routers.owncast-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.owncast-insecure.entrypoints: web
+      traefik.http.routers.owncast-insecure.service: owncast
+      traefik.http.routers.owncast-insecure.middlewares: owncast-web-redirect
+      traefik.tcp.routers.owncast-rtmp-insecure.rule: HostSNI(`${APP_DOMAIN}`)
+      # Websecure
+      traefik.http.routers.owncast.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.owncast.entrypoints: websecure
+      traefik.http.routers.owncast.service: owncast
+      traefik.http.routers.owncast.tls.certresolver: myresolver
+      traefik.tcp.routers.owncast-rtmp.rule: HostSNI(`${APP_DOMAIN}`)
+      # Local domain
+      traefik.http.routers.owncast-local-insecure.rule: Host(`owncast.${LOCAL_DOMAIN}`)
+      traefik.http.routers.owncast-local-insecure.entrypoints: web
+      traefik.http.routers.owncast-local-insecure.service: owncast
+      traefik.http.routers.owncast-local-insecure.middlewares: owncast-web-redirect
+      traefik.tcp.routers.owncast-rtmp-local-insecure.rule: HostSNI(`owncast.${LOCAL_DOMAIN}`)
+      # Local domain secure
+      traefik.http.routers.owncast-local.rule: Host(`owncast.${LOCAL_DOMAIN}`)
+      traefik.http.routers.owncast-local.entrypoints: websecure
+      traefik.http.routers.owncast-local.service: owncast
+      traefik.http.routers.owncast-local.tls: true
+      traefik.tcp.routers.owncast-rtmp-local.rule: HostSNI(`owncast.${LOCAL_DOMAIN}`)

@@ -4,7 +4,7 @@ filebrowser provides a file managing interface within a specified directory and 
 
 - **username**: admin
 - **password**: admin
-<br />
+
 ## Features
 
 Please refer to our docs at [https://filebrowser.org/features](https://filebrowser.org/features)

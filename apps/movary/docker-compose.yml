@@ -1,0 +1,103 @@
+version: "3"
+
+services:
+  movary:
+    image: leepeuker/movary:0.59.0
+    container_name: movary
+    user: ${TIPI_UID}:${TIPI_GID} 
+    group_add: 
+    - ${TIPI_GID}
+    environment:
+      - TMDB_API_KEY=${MOVARY_TMDB_API_KEY}
+      - TIMEZONE=${TZ}
+      - DATABASE_MODE=mysql
+      - DATABASE_MYSQL_HOST=movary-db
+      - DATABASE_MYSQL_NAME=movary
+      - DATABASE_MYSQL_USER=tipi
+      - DATABASE_MYSQL_PASSWORD=${MOVARY_MYSQL_PASSWORD}
+      - TMDB_ENABLE_IMAGE_CACHING=1
+      - APPLICATION_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - PLEX_IDENTIFIER=${MOVARY_PLEX_IDENTIFIER}
+      - JELLYFIN_DEVICE_ID=${MOVARY_JELLYFIN_IDENTIFIER}
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/movary:/app/storage
+    ports:
+      - ${APP_PORT}:80
+    depends_on:
+      movary-db:
+        condition: service_healthy
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.movary-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.movary.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.movary-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.movary-insecure.entrypoints: web
+      traefik.http.routers.movary-insecure.service: movary
+      traefik.http.routers.movary-insecure.middlewares: movary-web-redirect
+      # Websecure
+      traefik.http.routers.movary.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.movary.entrypoints: websecure
+      traefik.http.routers.movary.service: movary
+      traefik.http.routers.movary.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.movary-local-insecure.rule: Host(`movary.${LOCAL_DOMAIN}`)
+      traefik.http.routers.movary-local-insecure.entrypoints: web
+      traefik.http.routers.movary-local-insecure.service: movary
+      traefik.http.routers.movary-local-insecure.middlewares: movary-web-redirect
+      # Local domain secure
+      traefik.http.routers.movary-local.rule: Host(`movary.${LOCAL_DOMAIN}`)
+      traefik.http.routers.movary-local.entrypoints: websecure
+      traefik.http.routers.movary-local.service: movary
+      traefik.http.routers.movary-local.tls: true
+  
+  movary-migration:
+    image: leepeuker/movary:0.59.0
+    container_name: movary-migration
+    command: php bin/console.php database:migration:migrate
+    user: ${TIPI_UID}:${TIPI_GID} 
+    group_add: 
+    - ${TIPI_GID}
+    environment:
+      - TMDB_API_KEY=${MOVARY_TMDB_API_KEY}
+      - TIMEZONE=${TZ}
+      - DATABASE_MODE=mysql
+      - DATABASE_MYSQL_HOST=movary-db
+      - DATABASE_MYSQL_NAME=movary
+      - DATABASE_MYSQL_USER=tipi
+      - DATABASE_MYSQL_PASSWORD=${MOVARY_MYSQL_PASSWORD}
+      - TMDB_ENABLE_IMAGE_CACHING=1
+      - APPLICATION_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - PLEX_IDENTIFIER=${MOVARY_PLEX_IDENTIFIER}
+      - JELLYFIN_DEVICE_ID=${MOVARY_JELLYFIN_IDENTIFIER}
+    volumes:
+      - ${APP_DATA_DIR}/data/movary:/app/storage
+    depends_on: 
+      movary-db:
+        condition: service_healthy
+    networks:
+      - tipi_main_network
+
+  movary-db:
+    image: mysql:8.0
+    container_name: movary-db
+    user: ${TIPI_UID}:${TIPI_GID} 
+    group_add: 
+    - ${TIPI_GID}
+    environment:
+      MYSQL_DATABASE: "movary"
+      MYSQL_USER: "tipi"
+      MYSQL_PASSWORD: ${MOVARY_MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MOVARY_MYSQL_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}/data/mysql:/var/lib/mysql
+    networks:
+      - tipi_main_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10

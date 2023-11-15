@@ -1,0 +1,27 @@
+{
+  "$schema": "../schema.json",
+  "name": "Minecraft Server",
+  "available": true,
+  "exposable": true,
+  "no_gui": true,
+  "port": 25565,
+  "id": "minecraft-server",
+  "tipi_version": 2,
+  "version": "latest",
+  "categories": ["gaming"],
+  "description": "Minecraft Server",
+  "short_desc": "Run a minecraft server",
+  "author": "Geoff Bourne",
+  "source": "https://github.com/itzg/docker-minecraft-server",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Minecraft version",
+      "hint": "The version of Minecraft to use, leave empty for latest",
+      "placeholder": "1.18.2",
+      "required": false,
+      "env_variable": "MC_VERSION"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

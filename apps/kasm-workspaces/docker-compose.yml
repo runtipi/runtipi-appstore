@@ -1,0 +1,41 @@
+version: "3.7"
+services:
+  kasm-workspaces:
+    image: lscr.io/linuxserver/kasm:1.120.20221218
+    container_name: kasm-workspaces
+    privileged: true
+    environment:
+      - KASM_PORT=8744
+    volumes:
+      - ${APP_DATA_DIR}/data:/opt
+    ports:
+      - 8743:3000
+      - ${APP_PORT}:8744
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.kasm-workspaces-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.kasm-workspaces.loadbalancer.server.port: 8744
+      # Web
+      traefik.http.routers.kasm-workspaces-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.kasm-workspaces-insecure.entrypoints: web
+      traefik.http.routers.kasm-workspaces-insecure.service: kasm-workspaces
+      traefik.http.routers.kasm-workspaces-insecure.middlewares: kasm-workspaces-web-redirect
+      # Websecure
+      traefik.http.routers.kasm-workspaces.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.kasm-workspaces.entrypoints: websecure
+      traefik.http.routers.kasm-workspaces.service: kasm-workspaces
+      traefik.http.routers.kasm-workspaces.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.kasm-workspaces-local-insecure.rule: Host(`kasm-workspaces.${LOCAL_DOMAIN}`)
+      traefik.http.routers.kasm-workspaces-local-insecure.entrypoints: web
+      traefik.http.routers.kasm-workspaces-local-insecure.service: kasm-workspaces
+      traefik.http.routers.kasm-workspaces-local-insecure.middlewares: kasm-workspaces-web-redirect
+      # Local domain secure
+      traefik.http.routers.kasm-workspaces-local.rule: Host(`kasm-workspaces.${LOCAL_DOMAIN}`)
+      traefik.http.routers.kasm-workspaces-local.entrypoints: websecure
+      traefik.http.routers.kasm-workspaces-local.service: kasm-workspaces
+      traefik.http.routers.kasm-workspaces-local.tls: true

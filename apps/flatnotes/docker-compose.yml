@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+  flatnotes:
+    container_name: flatnotes
+    image: dullage/flatnotes:v3.5.0
+    environment:
+      FLATNOTES_AUTH_TYPE: ${FLATNOTES_AUTH_TYPE}
+      FLATNOTES_USERNAME: ${FLATNOTES_USERNAME}
+      FLATNOTES_PASSWORD: ${FLATNOTES_PASSWORD}
+      FLATNOTES_SECRET_KEY: ${FLATNOTES_SECRET_KEY}
+      FLATNOTES_TOTP_KEY: ${FLATNOTES_TOTP_KEY}
+    volumes:
+      - "${APP_DATA_DIR}/data:/data"
+      # - "./index:/app/data/.flatnotes"
+      # Optional. Allows you to save the search index in a different location.
+    ports:
+      - ${APP_PORT}:8080
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.flatnotes-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.flatnotes.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.flatnotes-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.flatnotes-insecure.entrypoints: web
+      traefik.http.routers.flatnotes-insecure.service: flatnotes
+      traefik.http.routers.flatnotes-insecure.middlewares: flatnotes-web-redirect
+      # Websecure
+      traefik.http.routers.flatnotes.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.flatnotes.entrypoints: websecure
+      traefik.http.routers.flatnotes.service: flatnotes
+      traefik.http.routers.flatnotes.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.flatnotes-local-insecure.rule: Host(`flatnotes.${LOCAL_DOMAIN}`)
+      traefik.http.routers.flatnotes-local-insecure.entrypoints: web
+      traefik.http.routers.flatnotes-local-insecure.service: flatnotes
+      traefik.http.routers.flatnotes-local-insecure.middlewares: flatnotes-web-redirect
+      # Local domain secure
+      traefik.http.routers.flatnotes-local.rule: Host(`flatnotes.${LOCAL_DOMAIN}`)
+      traefik.http.routers.flatnotes-local.entrypoints: websecure
+      traefik.http.routers.flatnotes-local.service: flatnotes
+      traefik.http.routers.flatnotes-local.tls: true

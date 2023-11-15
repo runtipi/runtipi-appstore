@@ -1,0 +1,17 @@
+{
+  "$schema": "../schema.json",
+  "name": "Grav",
+  "port": 8161,
+  "available": true,
+  "exposable": true,
+  "id": "grav",
+  "tipi_version": 2,
+  "version": "1.7.39.4-ls97",
+  "categories": ["social", "media"],
+  "description": "Grav is a Fast, Simple, and Flexible, file-based Web-platform. There is Zero installation required. It follows similar principles to other flat-file CMS platforms, but has a different design philosophy than most. Grav comes with a powerful Package Management System to allow for simple installation and upgrading of plugins and themes, as well as simple updating of Grav itself.",
+  "short_desc": "Grav is a Fast, Simple, and Flexible, file-based Web-platform. ",
+  "author": "Grav",
+  "source": "https://github.com/getgrav/grav",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

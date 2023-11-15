@@ -1,0 +1,63 @@
+version: "3.7"
+
+services:
+  teddit:
+    image: teddit/teddit:latest
+    container_name: teddit
+    networks:
+      - tipi_main_network
+    ports:
+      - ${APP_PORT}:8080
+    depends_on:
+      - teddit-redis
+    restart: unless-stopped
+    environment:
+      - REDIS_HOST=teddit-redis
+      - DOMAIN=${APP_DOMAIN}
+      - THEME=dark
+      - HTTPS_ENABLED=false
+      - REDIRECT_HTTP_TO_HTTPS=false
+      - REDIRECT_WWW=false
+    healthcheck:
+      test: ["CMD", "wget" ,"--no-verbose", "--tries=1", "--spider", "http://localhost:8080/about"]
+      interval: 1m
+      timeout: 3s
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.teddit-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.teddit.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.teddit-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.teddit-insecure.entrypoints: web
+      traefik.http.routers.teddit-insecure.service: teddit
+      traefik.http.routers.teddit-insecure.middlewares: teddit-web-redirect
+      # Websecure
+      traefik.http.routers.teddit.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.teddit.entrypoints: websecure
+      traefik.http.routers.teddit.service: teddit
+      traefik.http.routers.teddit.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.teddit-local-insecure.rule: Host(`teddit.${LOCAL_DOMAIN}`)
+      traefik.http.routers.teddit-local-insecure.entrypoints: web
+      traefik.http.routers.teddit-local-insecure.service: teddit
+      traefik.http.routers.teddit-local-insecure.middlewares: teddit-web-redirect
+      # Local domain secure
+      traefik.http.routers.teddit-local.rule: Host(`teddit.${LOCAL_DOMAIN}`)
+      traefik.http.routers.teddit-local.entrypoints: websecure
+      traefik.http.routers.teddit-local.service: teddit
+      traefik.http.routers.teddit-local.tls: true
+  
+  teddit-redis:
+    image: redis:alpine
+    container_name: teddit-redis
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 1s
+      timeout: 3s
+      retries: 30
+    networks:
+      - tipi_main_network

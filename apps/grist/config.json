@@ -1,0 +1,39 @@
+{
+  "name": "Grist",
+  "available": true,
+  "port": 8484,
+  "exposable": true,
+  "id": "grist",
+  "description": "Grist is a modern relational spreadsheet. It combines the flexibility of a spreadsheet with the robustness of a database to organize your data and make you more productive.",
+  "tipi_version": 6,
+  "version": "1.1.7",
+  "categories": [
+    "utilities"
+  ],
+  "short_desc": "Grist is the evolution of spreadsheets.",
+  "author": "https://github.com/gristlabs",
+  "source": "https://github.com/gristlabs/grist-core",
+  "website": "https://www.getgrist.com/",
+  "form_fields": [
+    {
+      "type": "",
+      "label": "GRIST_SANDBOX_FLAVOR",
+      "required": true,
+      "options": [
+        {
+          "label": "unsandboxed",
+          "value": "unsandboxed"
+        },
+        {
+          "label": "gvisor",
+          "value": "gvisor"
+        }
+      ],
+      "env_variable": "GRIST_SANDBOX_FLAVOR"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}

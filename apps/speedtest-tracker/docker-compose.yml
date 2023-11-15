@@ -1,0 +1,66 @@
+version: "3.7"
+
+services:
+  speedtest-tracker:
+    image: ghcr.io/alexjustesen/speedtest-tracker:v0.13.3
+    container_name: speedtest-tracker
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - DB_CONNECTION=pgsql
+      - DB_HOST=speedtest-tracker-db
+      - DB_PORT=5432
+      - DB_DATABASE=speedtest-tracker
+      - DB_USERNAME=tipi
+      - DB_PASSWORD=${SPEEDTEST_TRACKER_DB_PASSWORD}
+      - TZ=${TZ}
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/speedtest-tracker/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - ${APP_PORT}:80
+      - 8212:443
+    depends_on:
+      - speedtest-tracker-db
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.speedtest-tracker-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.speedtest-tracker.loadbalancer.server.port: 80
+      #traefik.http.services.speedtest-tracker.loadbalancer.serverstransport: insecuretransport@file
+      # Web
+      traefik.http.routers.speedtest-tracker-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.speedtest-tracker-insecure.entrypoints: web
+      traefik.http.routers.speedtest-tracker-insecure.service: speedtest-tracker
+      traefik.http.routers.speedtest-tracker-insecure.middlewares: speedtest-tracker-web-redirect
+      # Websecure
+      traefik.http.routers.speedtest-tracker.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.speedtest-tracker.entrypoints: websecure
+      traefik.http.routers.speedtest-tracker.service: speedtest-tracker
+      traefik.http.routers.speedtest-tracker.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.speedtest-tracker-local-insecure.rule: Host(`speedtest-tracker.${LOCAL_DOMAIN}`)
+      traefik.http.routers.speedtest-tracker-local-insecure.entrypoints: web
+      traefik.http.routers.speedtest-tracker-local-insecure.service: speedtest-tracker
+      traefik.http.routers.speedtest-tracker-local-insecure.middlewares: speedtest-tracker-web-redirect
+      # Local domain secure
+      traefik.http.routers.speedtest-tracker-local.rule: Host(`speedtest-tracker.${LOCAL_DOMAIN}`)
+      traefik.http.routers.speedtest-tracker-local.entrypoints: websecure
+      traefik.http.routers.speedtest-tracker-local.service: speedtest-tracker
+      traefik.http.routers.speedtest-tracker-local.tls: true
+
+  speedtest-tracker-db:
+    container_name: speedtest-tracker-db
+    image: postgres:15
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=tipi
+      - POSTGRES_PASSWORD=${SPEEDTEST_TRACKER_DB_PASSWORD}
+      - POSTGRES_DB=speedtest-tracker
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    networks:
+      - tipi_main_network

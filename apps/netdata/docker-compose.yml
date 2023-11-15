@@ -1,0 +1,51 @@
+version: "3.7"
+services:
+  netdata:
+    image: netdata/netdata:v1.43.2
+    container_name: netdata
+    pid: host
+    restart: unless-stopped
+    cap_add:
+      - SYS_PTRACE
+      - SYS_ADMIN
+    security_opt:
+      - apparmor:unconfined
+    ports:
+      - ${APP_PORT}:19999
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/etc/netdata
+      - ${APP_DATA_DIR}/data/lib:/var/lib/netdata
+      - ${APP_DATA_DIR}/data/cache:/var/cache/netdata
+      - /etc/passwd:/host/etc/passwd:ro
+      - /etc/group:/host/etc/group:ro
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /etc/os-release:/host/etc/os-release:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.netdata-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.netdata.loadbalancer.server.port: 19999
+      # Web
+      traefik.http.routers.netdata-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.netdata-insecure.entrypoints: web
+      traefik.http.routers.netdata-insecure.service: netdata
+      traefik.http.routers.netdata-insecure.middlewares: netdata-web-redirect
+      # Websecure
+      traefik.http.routers.netdata.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.netdata.entrypoints: websecure
+      traefik.http.routers.netdata.service: netdata
+      traefik.http.routers.netdata.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.netdata-local-insecure.rule: Host(`netdata.${LOCAL_DOMAIN}`)
+      traefik.http.routers.netdata-local-insecure.entrypoints: web
+      traefik.http.routers.netdata-local-insecure.service: netdata
+      traefik.http.routers.netdata-local-insecure.middlewares: netdata-web-redirect
+      # Local domain secure
+      traefik.http.routers.netdata-local.rule: Host(`netdata.${LOCAL_DOMAIN}`)
+      traefik.http.routers.netdata-local.entrypoints: websecure
+      traefik.http.routers.netdata-local.service: netdata
+      traefik.http.routers.netdata-local.tls: true

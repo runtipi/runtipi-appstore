@@ -1,0 +1,45 @@
+version: "3"
+
+services:
+  deemix:
+    container_name: deemix
+    image: registry.gitlab.com/bockiii/deemix-docker:latest
+    ports:
+      - ${APP_PORT}:6595
+    volumes:
+      - ${APP_DATA_DIR}/data/deemix-config:/config
+      - ${ROOT_FOLDER_HOST}/media:/media
+      - ${ROOT_FOLDER_HOST}/media/data/torrents/deemix:/downloads
+      - ${ROOT_FOLDER_HOST}/media/data/music:/music
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK_SET=022
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.deemix-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.deemix.loadbalancer.server.port: 6595
+      # Web
+      traefik.http.routers.deemix-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.deemix-insecure.entrypoints: web
+      traefik.http.routers.deemix-insecure.service: deemix
+      traefik.http.routers.deemix-insecure.middlewares: deemix-web-redirect
+      # Websecure
+      traefik.http.routers.deemix.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.deemix.entrypoints: websecure
+      traefik.http.routers.deemix.service: deemix
+      traefik.http.routers.deemix.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.deemix-local-insecure.rule: Host(`deemix.${LOCAL_DOMAIN}`)
+      traefik.http.routers.deemix-local-insecure.entrypoints: web
+      traefik.http.routers.deemix-local-insecure.service: deemix
+      traefik.http.routers.deemix-local-insecure.middlewares: deemix-web-redirect
+      # Local domain secure
+      traefik.http.routers.deemix-local.rule: Host(`deemix.${LOCAL_DOMAIN}`)
+      traefik.http.routers.deemix-local.entrypoints: websecure
+      traefik.http.routers.deemix-local.service: deemix
+      traefik.http.routers.deemix-local.tls: true

@@ -1,0 +1,73 @@
+{
+  "$schema": "../schema.json",
+  "name": "Postfix Mail Relay",
+  "available": true,
+  "exposable": false,
+  "no_gui": true,
+  "port": 2525,
+  "id": "postfix-relay",
+  "tipi_version": 1,
+  "version": "1.4.0",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Simple SMTP relay for environments where you may have private servers with no Internet connection.",
+  "short_desc": "Simple SMTP relay for environments where you may have private servers with no Internet connection.",
+  "author": "shamil",
+  "source": "https://github.com/shamil/docker-postfix-relay",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Accepted Networks",
+      "hint": "Space delimited list of networks to accept mail from.",
+      "placeholder": "192.168.0.0/16 172.16.0.0/12 10.0.0.0/8",
+      "env_variable": "RELAY_ACCEPTED_NETWORKS"
+    },{
+      "type": "text",
+      "label": "SMTP Host",
+      "hint": "External relay DNS name.",
+      "placeholder": "smtp.sendgrid.net",
+      "required": true,
+      "env_variable": "RELAY_SMTP_HOST"
+    },
+    {
+      "type": "text",
+      "label": "SMTP Login",
+      "hint": "Login to connect to the external relay.",
+      "placeholder": "apikey",
+      "required": true,
+      "env_variable": "RELAY_SMTP_LOGIN"
+    },
+    {
+      "type": "password",
+      "label": "SMTP Password",
+      "hint": "Password to connect to the external relay.",
+      "placeholder": "password",
+      "required": true,
+      "env_variable": "RELAY_SMTP_PASSWORD"
+    },
+    {
+      "type": "number",
+      "label": "SMTP Port",
+      "hint": "External relay TCP port.",
+      "placeholder": "25",
+      "required": false,
+      "env_variable": "RELAY_SMTP_PORT"
+    },
+    {
+      "type": "text",
+      "label": "TLS Verify",
+      "hint": "Trust level for checking remote side cert: http://www.postfix.org/postconf.5.html#smtp_tls_security_level",
+      "placeholder": "none|may|encrypt|dane|dane-only|fingerprint|verify|secure",
+      "env_variable": "RELAY_TLS_VERIFY"
+    },
+    {
+      "type": "text",
+      "label": "Use TLS",
+      "hint": "Remote require tls.",
+      "placeholder": "yes|no",
+      "env_variable": "RELAY_USE_TLS"
+    }
+  ],
+  "supported_architectures": ["amd64"]
+}

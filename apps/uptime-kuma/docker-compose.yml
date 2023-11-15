@@ -1,0 +1,39 @@
+version: "3.7"
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: uptime-kuma
+    volumes:
+      - ${APP_DATA_DIR}/data:/app/data
+    dns:
+      - ${DNS_IP}
+    ports:
+      - ${APP_PORT}:3001
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.uptime-kuma-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.uptime-kuma.loadbalancer.server.port: 3001
+      # Web
+      traefik.http.routers.uptime-kuma-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.uptime-kuma-insecure.entrypoints: web
+      traefik.http.routers.uptime-kuma-insecure.service: uptime-kuma
+      traefik.http.routers.uptime-kuma-insecure.middlewares: uptime-kuma-web-redirect
+      # Websecure
+      traefik.http.routers.uptime-kuma.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.uptime-kuma.entrypoints: websecure
+      traefik.http.routers.uptime-kuma.service: uptime-kuma
+      traefik.http.routers.uptime-kuma.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.uptime-kuma-local-insecure.rule: Host(`uptime-kuma.${LOCAL_DOMAIN}`)
+      traefik.http.routers.uptime-kuma-local-insecure.entrypoints: web
+      traefik.http.routers.uptime-kuma-local-insecure.service: uptime-kuma
+      traefik.http.routers.uptime-kuma-local-insecure.middlewares: uptime-kuma-web-redirect
+      # Local domain secure
+      traefik.http.routers.uptime-kuma-local.rule: Host(`uptime-kuma.${LOCAL_DOMAIN}`)
+      traefik.http.routers.uptime-kuma-local.entrypoints: websecure
+      traefik.http.routers.uptime-kuma-local.service: uptime-kuma
+      traefik.http.routers.uptime-kuma-local.tls: true

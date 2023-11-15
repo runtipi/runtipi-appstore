@@ -1,0 +1,43 @@
+version: "3.7"
+services:
+  lidarr:
+    image: lscr.io/linuxserver/lidarr:1.4.5
+    container_name: lidarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${APP_DATA_DIR}/data:/config
+      - ${ROOT_FOLDER_HOST}/media:/media
+    ports:
+      - ${APP_PORT}:8686
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.lidarr-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.lidarr.loadbalancer.server.port: 8686
+      # Web
+      traefik.http.routers.lidarr-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.lidarr-insecure.entrypoints: web
+      traefik.http.routers.lidarr-insecure.service: lidarr
+      traefik.http.routers.lidarr-insecure.middlewares: lidarr-web-redirect
+      # Websecure
+      traefik.http.routers.lidarr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.lidarr.entrypoints: websecure
+      traefik.http.routers.lidarr.service: lidarr
+      traefik.http.routers.lidarr.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.lidarr-local-insecure.rule: Host(`lidarr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.lidarr-local-insecure.entrypoints: web
+      traefik.http.routers.lidarr-local-insecure.service: lidarr
+      traefik.http.routers.lidarr-local-insecure.middlewares: lidarr-web-redirect
+      # Local domain secure
+      traefik.http.routers.lidarr-local.rule: Host(`lidarr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.lidarr-local.entrypoints: websecure
+      traefik.http.routers.lidarr-local.service: lidarr
+      traefik.http.routers.lidarr-local.tls: true

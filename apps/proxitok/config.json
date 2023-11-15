@@ -2,14 +2,16 @@
   "$schema": "../schema.json",
   "name": "ProxiTok",
   "available": true,
+  "exposable": true,
   "port": 8118,
   "id": "proxitok",
   "categories": ["social"],
   "description": "",
-  "tipi_version": 1,
-  "version": "1.0.0",
+  "tipi_version": 5,
+  "version": "master",
   "short_desc": "Open source alternative frontend for TikTok made using PHP ",
   "author": "pablouser1",
   "source": "https://github.com/pablouser1/ProxiTok",
-  "form_fields": []
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
 }

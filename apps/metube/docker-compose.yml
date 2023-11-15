@@ -1,0 +1,38 @@
+version: "3.7"
+
+services:
+  metube:
+    image: ghcr.io/alexta69/metube:2023-08-13
+    container_name: metube
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:8081
+    volumes:
+      - ${ROOT_FOLDER_HOST}/media/downloads/complete/:/downloads
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.metube-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.metube.loadbalancer.server.port: 8081
+      # Web
+      traefik.http.routers.metube-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.metube-insecure.entrypoints: web
+      traefik.http.routers.metube-insecure.service: metube
+      traefik.http.routers.metube-insecure.middlewares: metube-web-redirect
+      # Websecure
+      traefik.http.routers.metube.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.metube.entrypoints: websecure
+      traefik.http.routers.metube.service: metube
+      traefik.http.routers.metube.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.metube-local-insecure.rule: Host(`metube.${LOCAL_DOMAIN}`)
+      traefik.http.routers.metube-local-insecure.entrypoints: web
+      traefik.http.routers.metube-local-insecure.service: metube
+      traefik.http.routers.metube-local-insecure.middlewares: metube-web-redirect
+      # Local domain secure
+      traefik.http.routers.metube-local.rule: Host(`metube.${LOCAL_DOMAIN}`)
+      traefik.http.routers.metube-local.entrypoints: websecure
+      traefik.http.routers.metube-local.service: metube
+      traefik.http.routers.metube-local.tls: true

@@ -1,0 +1,343 @@
+{
+  "$schema": "../schema.json",
+  "name": "Transmission (VPN)",
+  "available": true,
+  "exposable": true,
+  "port": 9091,
+  "requirements": {
+    "ports": [
+      51413
+    ]
+  },
+  "id": "transmission-vpn",
+  "tipi_version": 4,
+  "version": "5.2.0",
+  "categories": [
+    "utilities",
+    "security"
+  ],
+  "description": "Transmission is running only when OpenVPN has an active tunnel. It has built-in support for many popular VPN providers to make the setup easier.",
+  "short_desc": "BitTorrent client with VPN support.",
+  "author": "haugene",
+  "source": "https://github.com/haugene/docker-transmission-openvpn",
+  "form_fields": [
+    {
+      "type": "numeric",
+      "label": "Container > UserID (UID)",
+      "placeholder": "1000",
+      "env_variable": "TRANSMISSION_PUID"
+    },
+    {
+      "type": "numeric",
+      "label": "Container > GroupID (PGID)",
+      "placeholder": "1000",
+      "env_variable": "TRANSMISSION_PGID"
+    },
+    {
+      "type": "boolean",
+      "label": "Container > Create TUN device",
+      "env_variable": "TRANSMISSION_CREATE_TUN_DEVICE"
+    },
+    {
+      "type": "text",
+      "label": "OpenVPN > Local Network",
+      "placeholder": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+      "env_variable": "TRANSMISSION_OVPN_LOCAL_NETWORK"
+    },
+    {
+      "type": "text",
+      "label": "OpenVPN > Username",
+      "required": true,
+      "env_variable": "TRANSMISSION_OVPN_USERNAME"
+    },
+    {
+      "type": "password",
+      "label": "OpenVPN > Password",
+      "required": true,
+      "env_variable": "TRANSMISSION_OVPN_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "OpenVPN > Default Provider Config",
+      "required": true,
+      "placeholder": "france,sweden,austria,italy,belgium",
+      "env_variable": "TRANSMISSION_OVPN_CONFIG"
+    },
+    {
+      "label": "OpenVPN > Provider",
+      "type": "text",
+      "required": true,
+      "options": [
+        {
+          "label": "Anonine",
+          "value": "ANONINE"
+        },
+        {
+          "label": "AnonVPN",
+          "value": "ANONVPN"
+        },
+        {
+          "label": "BlackVPN",
+          "value": "BLACKVPN"
+        },
+        {
+          "label": "BTGuard",
+          "value": "BTGUARD"
+        },
+        {
+          "label": "Cryptostorm",
+          "value": "CRYPTOSTORM"
+        },
+        {
+          "label": "ExpressVPN",
+          "value": "EXPRESSVPN"
+        },
+        {
+          "label": "FastestVPN",
+          "value": "FASTESTVPN"
+        },
+        {
+          "label": "FreeVPN",
+          "value": "FREEVPN"
+        },
+        {
+          "label": "FrootVPN",
+          "value": "FROOT"
+        },
+        {
+          "label": "FrostVPN",
+          "value": "FROSTVPN"
+        },
+        {
+          "label": "Getflix",
+          "value": "GETFLIX"
+        },
+        {
+          "label": "GhostPath",
+          "value": "GHOSTPATH"
+        },
+        {
+          "label": "Giganews",
+          "value": "GIGANEWS"
+        },
+        {
+          "label": "HideMe",
+          "value": "HIDEME"
+        },
+        {
+          "label": "HideMyAss",
+          "value": "HIDEMYASS"
+        },
+        {
+          "label": "IntegrityVPN",
+          "value": "INTEGRITYVPN"
+        },
+        {
+          "label": "IPVanish",
+          "value": "IPVANISH"
+        },
+        {
+          "label": "IronSocket",
+          "value": "IRONSOCKET"
+        },
+        {
+          "label": "Ivacy",
+          "value": "IVACY"
+        },
+        {
+          "label": "IVPN",
+          "value": "IVPN"
+        },
+        {
+          "label": "Mullvad",
+          "value": "MULLVAD"
+        },
+        {
+          "label": "NordVPN",
+          "value": "NORDVPN"
+        },
+        {
+          "label": "OctaneVPN",
+          "value": "OCTANEVPN"
+        },
+        {
+          "label": "OVPN",
+          "value": "OVPN"
+        },
+        {
+          "label": "Privado",
+          "value": "PRIVADO"
+        },
+        {
+          "label": "Private Internet Access",
+          "value": "PIA"
+        },
+        {
+          "label": "PrivateVPN",
+          "value": "PRIVATEVPN"
+        },
+        {
+          "label": "ProtonVPN",
+          "value": "PROTONVPN"
+        },
+        {
+          "label": "proXPN",
+          "value": "PROXPN"
+        },
+        {
+          "label": "PureVPN",
+          "value": "PUREVPN"
+        },
+        {
+          "label": "RA4W VPN",
+          "value": "RA4W"
+        },
+        {
+          "label": "SaferVPN",
+          "value": "SAFERVPN"
+        },
+        {
+          "label": "SlickVPN",
+          "value": "SLICKVPN"
+        },
+        {
+          "label": "SlickVPNCore",
+          "value": "SLICKVPNCORE"
+        },
+        {
+          "label": "Smart DNS Proxy",
+          "value": "SMARTDNSPROXY"
+        },
+        {
+          "label": "SmartVPN",
+          "value": "SMARTVPN"
+        },
+        {
+          "label": "Surfshark",
+          "value": "SURFSHARK"
+        },
+        {
+          "label": "TigerVPN",
+          "value": "TIGER"
+        },
+        {
+          "label": "TorGuard",
+          "value": "TORGUARD"
+        },
+        {
+          "label": "Trust.Zone",
+          "value": "TRUSTZONE"
+        },
+        {
+          "label": "TunnelBear",
+          "value": "TUNNELBEAR"
+        },
+        {
+          "label": "VPN.AC",
+          "value": "VPNAC"
+        },
+        {
+          "label": "VPNArea.com",
+          "value": "VPNAREA"
+        },
+        {
+          "label": "VPNBook.com",
+          "value": "VPNBOOK"
+        },
+        {
+          "label": "VPNFacile",
+          "value": "VPNFACILE"
+        },
+        {
+          "label": "VPN.ht",
+          "value": "VPNHT"
+        },
+        {
+          "label": "VPNTunnel",
+          "value": "VPNTUNNEL"
+        },
+        {
+          "label": "VPNUnlimited",
+          "value": "VPNUNLIMITED"
+        },
+        {
+          "label": "VyprVpn",
+          "value": "VYPRVPN"
+        },
+        {
+          "label": "Windscribe",
+          "value": "WINDSCRIBE"
+        },
+        {
+          "label": "ZoogVPN",
+          "value": "ZOOGVPN"
+        }
+      ],
+      "env_variable": "TRANSMISSION_OVPN_PROVIDER"
+    },
+    {
+      "type": "boolean",
+      "label": "OpenVPN > Use VPN DNS",
+      "env_variable": "TRANSMISSION_PEER_DNS"
+    },
+    {
+      "label": "Transmission > WebUI",
+      "type": "text",
+      "required": true,
+      "options": [
+        {
+          "label": "Combustion",
+          "value": "combustion"
+        },
+        {
+          "label": "Kettu",
+          "value": "kettu"
+        },
+        {
+          "label": "Web-Control",
+          "value": "transmission-web-control"
+        },
+        {
+          "label": "Flood",
+          "value": "flood-for-transmission"
+        },
+        {
+          "label": "Shift",
+          "value": "shift"
+        },
+        {
+          "label": "Transmissionic",
+          "value": "transmissionic"
+        }
+      ],
+      "env_variable": "TRANSMISSION_WEBUI"
+    },
+    {
+      "type": "boolean",
+      "label": "Transmission > Enable DHT",
+      "env_variable": "TRANSMISSION_DHT_ENABLED"
+    },
+    {
+      "type": "boolean",
+      "label": "Transmission > Enable LPD",
+      "env_variable": "TRANSMISSION_LPD_ENABLED"
+    },
+    {
+      "type": "boolean",
+      "label": "Transmission > Enable PEX",
+      "env_variable": "TRANSMISSION_PEX_ENABLED"
+    },
+    {
+      "type": "boolean",
+      "label": "Transmission > Enable Blocklist",
+      "env_variable": "TRANSMISSION_BLOCKLIST_ENABLED"
+    },
+    {
+      "type": "text",
+      "label": "Transmission > Blocklist URL",
+      "placeholder": "http://list.iblocklist.com/?list=bt_level1&fileformat=p2p&archiveformat=gz",
+      "env_variable": "TRANSMISSION_BLOCKLIST_URL"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

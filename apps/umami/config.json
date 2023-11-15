@@ -1,0 +1,32 @@
+{
+  "$schema": "../schema.json",
+  "name": "Umami",
+  "port": 8147,
+  "available": true,
+  "exposable": true,
+  "id": "umami",
+  "tipi_version": 2,
+  "version": "v1.40.0",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Umami is a simple, fast, privacy-focused alternative to Google Analytics.",
+  "short_desc": "Umami is a simple, fast, privacy-focused alternative to Google Analytics.",
+  "author": "umami-software",
+  "source": "https://github.com/umami-software/umami",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "DB_PASSWORD",
+      "min": 32,
+      "env_variable": "DB_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "HASH_SALT",
+      "min": 32,
+      "env_variable": "HASH_SALT"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

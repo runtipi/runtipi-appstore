@@ -1,0 +1,83 @@
+version: "3.7"
+
+services:
+  tubearchivist:
+    container_name: tubearchivist
+    restart: unless-stopped
+    image: bbilly1/tubearchivist:v0.4.3
+    ports:
+      - ${APP_PORT}:8000
+    dns:
+      - ${DNS_IP}
+    volumes:
+      - ${ROOT_FOLDER_HOST}/media/data/youtube:/youtube 
+      - ${APP_DATA_DIR}/data/cache:/cache
+    environment:
+      - ES_URL=http://tubearchivist-es:9200
+      - REDIS_HOST=tubearchivist-redis
+      - TA_USERNAME=${TA_USER}
+      - TA_PASSWORD=${TA_PASSWORD}
+      - TA_HOST=${APP_DOMAIN}
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+    depends_on:
+      - tubearchivist-es
+      - tubearchivist-redis
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.tubearchivist-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.tubearchivist.loadbalancer.server.port: 8000
+      # Web
+      traefik.http.routers.tubearchivist-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.tubearchivist-insecure.entrypoints: web
+      traefik.http.routers.tubearchivist-insecure.service: tubearchivist
+      traefik.http.routers.tubearchivist-insecure.middlewares: tubearchivist-web-redirect
+      # Websecure
+      traefik.http.routers.tubearchivist.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.tubearchivist.entrypoints: websecure
+      traefik.http.routers.tubearchivist.service: tubearchivist
+      traefik.http.routers.tubearchivist.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.tubearchivist-local-insecure.rule: Host(`tubearchivist.${LOCAL_DOMAIN}`)
+      traefik.http.routers.tubearchivist-local-insecure.entrypoints: web
+      traefik.http.routers.tubearchivist-local-insecure.service: tubearchivist
+      traefik.http.routers.tubearchivist-local-insecure.middlewares: tubearchivist-web-redirect
+      # Local domain secure
+      traefik.http.routers.tubearchivist-local.rule: Host(`tubearchivist.${LOCAL_DOMAIN}`)
+      traefik.http.routers.tubearchivist-local.entrypoints: websecure
+      traefik.http.routers.tubearchivist-local.service: tubearchivist
+      traefik.http.routers.tubearchivist-local.tls: true
+
+  tubearchivist-redis:
+    image: redislabs/rejson:latest
+    container_name: tubearchivist-redis
+    restart: always
+    networks:
+      - tipi_main_network
+    volumes:
+      - ${APP_DATA_DIR}/data/redis-data:/data
+    depends_on:
+      - tubearchivist-es
+
+  tubearchivist-es:
+    image: elasticsearch:8.11.0
+    container_name: tubearchivist-es
+    restart: always
+    environment:
+      - "xpack.security.enabled=true"
+      - "ELASTIC_PASSWORD=${ELASTIC_PASSWORD}"
+      - "discovery.type=single-node"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "path.repo=/usr/share/elasticsearch/data/snapshot"
+    networks:
+      - tipi_main_network
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ${APP_DATA_DIR}/data/es:/usr/share/elasticsearch/data
+    expose:
+      - "9200"

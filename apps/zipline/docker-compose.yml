@@ -1,0 +1,54 @@
+version: '3.7'
+
+services:
+  zipline:
+    container_name: zipline
+    image: ghcr.io/diced/zipline:3.7.5
+    ports:
+      - '${APP_PORT}:3000'
+    restart: unless-stopped
+    environment:
+      - CORE_RETURN_HTTPS=false
+      - CORE_SECRET=${ZIPLINE_CORE_SECRET}
+      - CORE_HOST=0.0.0.0
+      - CORE_PORT=3000
+      - CORE_DATABASE_URL=postgres://tipi:${ZIPLINE_DB_PASSWORD}@zipline-db/zipline
+      - CORE_LOGGER=true
+    volumes:
+      - '${APP_DATA_DIR}/data/uploads:/zipline/uploads'
+      - '${APP_DATA_DIR}/data/public:/zipline/public'
+    depends_on:
+      - 'zipline-db'
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.zipline.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.zipline.entrypoints: websecure
+      traefik.http.routers.zipline.service: zipline
+      traefik.http.routers.zipline.tls.certresolver: myresolver
+      traefik.http.services.zipline.loadbalancer.server.port: 3000
+      traefik.http.middlewares.zipline_service_headers.headers.customrequestheaders.X-Real-IP: $remote_addr
+      traefik.http.middlewares.zipline_service_headers.headers.customrequestheaders.X-Forwarded-For: $proxy_add_x_forwarded_for
+      traefik.http.middlewares.zipline_service_headers.headers.customrequestheaders.X-Forwarded-Proto: $scheme
+      traefik.http.middlewares.zipline_service_buffering.buffering.maxRequestBodyBytes: 100000000
+      traefik.http.middlewares.zipline_service_buffering.buffering.maxResponseBodyBytes: 100000000
+      traefik.http.routers.zipline.middlewares: zipline_service_buffering,zipline_service_headers
+    networks:
+      - tipi_main_network
+
+  zipline-db:
+    container_name: zipline-db
+    image: postgres:14
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=tipi
+      - POSTGRES_PASSWORD=${ZIPLINE_DB_PASSWORD}
+      - POSTGRES_DB=zipline
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    networks:
+      - tipi_main_network
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 5

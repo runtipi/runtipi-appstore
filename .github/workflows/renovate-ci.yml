@@ -1,0 +1,162 @@
+name: Renovate CI
+on:
+  pull_request:
+
+jobs:
+  get-last-commit-message:
+    if: contains(github.head_ref, 'renovate/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Get last commit message
+        id: get-last-commit-message
+        run: |
+          echo "last_commit_message=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
+
+  update-config:
+    needs: get-last-commit-message
+    if: "!contains(${{ needs.get-last-commit-message.outputs.last_commit_message }}, '[ready]')"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PERSONAL_TOKEN }}
+
+      - name: Get changed files
+        uses: jitterbit/get-changed-files@v1
+        id: files
+
+      - name: Apply config update
+        run: |
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            echo "Changed file: $changed_file" # example: apps/jackett/docker-compose.yml
+            if [[ $changed_file == *"docker-compose.yml"* ]]; then
+              app_name=$(echo $changed_file | cut -d'/' -f 2)
+              echo "App name: $app_name"
+              ./.github/workflows/renovate-app-version.sh $app_name
+            fi
+          done
+
+      - name: Commit and push changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: Tipi CI
+          author_email: ci@runtipi.io
+          message: "Update app version [ready]"
+          commit: --no-verify
+          push: origin HEAD:${{ github.head_ref }}
+
+  ci:
+    needs:
+      - update-config
+      - get-last-commit-message
+    if: contains(${{ needs.get-last-commit-message.outputs.last_commit_message }}, '[ready]')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - uses: pnpm/action-setup@v2.0.1
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run global tests
+        run: pnpm test
+
+      - name: Run linter
+        run: pnpm run lint
+
+      - name: Check bumped version
+        id: check-bumped-version
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const semver = require('semver')
+            const { data } = await github.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            });
+
+            const modifiedFiles = data.map(file => file.filename);
+            const filesInAppsFolder = modifiedFiles.filter(file => file.includes('apps/'))
+
+            if (filesInAppsFolder.length < modifiedFiles.length) {
+              console.log('Not all files are in apps folder, skipping automerge')
+              core.setOutput('major_bump', 'true')
+              return
+            }
+
+            const configs = modifiedFiles.filter(file => file.includes('config.json'))
+            let majorBump = 'false'
+
+            for (const configFile of configs) {
+              const baseContent = await github.repos.getContent({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                path: configFile,
+                ref: context.payload.pull_request.base.ref
+              });
+              const baseConfig = JSON.parse(Buffer.from(baseContent.data.content, 'base64').toString('utf-8'))
+
+              const currentContent = await github.repos.getContent({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                path: configFile,
+                ref: context.payload.pull_request.head.ref
+              });
+              const currentConfig = JSON.parse(Buffer.from(currentContent.data.content, 'base64').toString('utf-8'))
+
+              const baseVersion = semver.coerce(baseConfig.version)
+              const currentVersion = semver.coerce(currentConfig.version)
+
+              if (currentVersion?.major > baseVersion?.major) {
+                console.log('Major bump detected, skipping automerge')
+                majorBump = 'true'
+                break
+              } 
+            }
+
+            core.setOutput('major_bump', majorBump)
+
+      - name: Label this PR as "automerge" if major_bump is false
+        if: steps.check-bumped-version.outputs.major_bump == 'false'
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.PERSONAL_TOKEN }}
+          script: |
+            github.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ["automerge"]
+            })

@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  scrypted:
+    container_name: scrypted
+    image: koush/scrypted:20-jammy-full.s6-v0.57.0
+    privileged: true
+    volumes:
+      - ${APP_DATA_DIR}/data/scrypted/database:/server/volume
+      - ${ROOT_FOLDER_HOST}/media/data/NVR/scrypted:/nvr
+      #- /var/run/dbus:/var/run/dbus
+      #- /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
+    environment:
+      - SCRYPTED_WEBHOOK_UPDATE_AUTHORIZATION=${SCRYPTED_BEARER_TOKEN}
+      - SCRYPTED_DOCKER_AVAHI=false
+      #- SCRYPTED_WEBHOOK_UPDATE=${APP_PROTOCOL:-http}://${APP_DOMAIN}/v1/update
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
+      - /dev/dri:/dev/dri
+    restart: unless-stopped
+    network_mode: host
+    logging:
+      driver: "json-file"
+      options:
+          max-size: "10m"
+          max-file: "10"
+    

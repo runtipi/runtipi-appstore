@@ -1,0 +1,47 @@
+version: "3.7"
+services:
+  monerod:
+    image: sethsimmons/simple-monerod:v0.18.3.1
+    dns:
+      - ${DNS_IP}
+    ports:
+      - ${APP_PORT}:18080
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    container_name: monerod
+    volumes:
+      - ${APP_DATA_DIR}/data:/home/monero/.bitmonero
+    command: >-
+      --rpc-restricted-bind-ip=0.0.0.0
+      --rpc-restricted-bind-port=18089
+      --public-node
+      --no-igd
+      --enable-dns-blocklist
+      --prune-blockchain
+      --zmq-pub=tcp://0.0.0.0:18083
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.monerod-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.monerod.loadbalancer.server.port: 18089
+      # Web
+      traefik.http.routers.monerod-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.monerod-insecure.entrypoints: web
+      traefik.http.routers.monerod-insecure.service: monerod
+      traefik.http.routers.monerod-insecure.middlewares: monerod-web-redirect
+      # Websecure
+      traefik.http.routers.monerod.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.monerod.entrypoints: websecure
+      traefik.http.routers.monerod.service: monerod
+      traefik.http.routers.monerod.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.monerod-local-insecure.rule: Host(`monerod.${LOCAL_DOMAIN}`)
+      traefik.http.routers.monerod-local-insecure.entrypoints: web
+      traefik.http.routers.monerod-local-insecure.service: monerod
+      traefik.http.routers.monerod-local-insecure.middlewares: monerod-web-redirect
+      # Local domain secure
+      traefik.http.routers.monerod-local.rule: Host(`monerod.${LOCAL_DOMAIN}`)
+      traefik.http.routers.monerod-local.entrypoints: websecure
+      traefik.http.routers.monerod-local.service: monerod
+      traefik.http.routers.monerod-local.tls: true

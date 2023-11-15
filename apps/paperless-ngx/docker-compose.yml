@@ -1,0 +1,94 @@
+version: '3.7'
+services:
+  paperless-ngx:
+    container_name: paperless-ngx
+    image: ghcr.io/paperless-ngx/paperless-ngx:1.17
+    restart: unless-stopped
+    depends_on:
+      - db
+      - broker
+    ports:
+      - ${APP_PORT}:8000
+    volumes:
+      - ${APP_DATA_DIR}/data/paperless_data:/usr/src/paperless/data
+      - ${APP_DATA_DIR}/data/paperless_media:/usr/src/paperless/media
+      - ${APP_DATA_DIR}/data/paperless_export:/usr/src/paperless/export
+      - ${APP_DATA_DIR}/data/paperless_consume:/usr/src/paperless/consume
+    environment:
+      PAPERLESS_REDIS: redis://broker:6379
+      PAPERLESS_DBHOST: db
+      PAPERLESS_ADMIN_USER: ${PAPERLESS_ADMIN_USERNAME}
+      PAPERLESS_ADMIN_PASSWORD: ${PAPERLESS_ADMIN_PASSWORD}
+      PAPERLESS_TIKA_ENABLED: ${PAPERLESS_TIKA_ENABLED}
+      PAPERLESS_TIKA_GOTENBERG_ENDPOINT: http://gotenberg:3000
+      PAPERLESS_TIKA_ENDPOINT: http://tika:9998
+      PAPERLESS_URL: ${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      COMPOSE_PROJECT_NAME: paperless-ngx
+    networks:
+        - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.paperless-ngx-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.paperless-ngx.loadbalancer.server.port: 8000
+        # Web
+      traefik.http.routers.paperless-ngx-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.paperless-ngx-insecure.entrypoints: web
+      traefik.http.routers.paperless-ngx-insecure.service: paperless-ngx
+      traefik.http.routers.paperless-ngx-insecure.middlewares: paperless-ngx-web-redirect
+        # Websecure
+      traefik.http.routers.paperless-ngx.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.paperless-ngx.entrypoints: websecure
+      traefik.http.routers.paperless-ngx.service: paperless-ngx
+      traefik.http.routers.paperless-ngx.tls.certresolver: myresolver
+        # Local domain
+      traefik.http.routers.paperless-ngx-local-insecure.rule: Host(`paperless-ngx.${LOCAL_DOMAIN}`)
+      traefik.http.routers.paperless-ngx-local-insecure.entrypoints: web
+      traefik.http.routers.paperless-ngx-local-insecure.service: paperless-ngx
+      traefik.http.routers.paperless-ngx-local-insecure.middlewares: paperless-ngx-web-redirect
+        # Local domain secure
+      traefik.http.routers.paperless-ngx-local.rule: Host(`paperless-ngx.${LOCAL_DOMAIN}`)
+      traefik.http.routers.paperless-ngx-local.entrypoints: websecure
+      traefik.http.routers.paperless-ngx-local.service: paperless-ngx
+      traefik.http.routers.paperless-ngx-local.tls: true
+
+  # Redis
+  broker:
+    image: docker.io/library/redis:7
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data
+    networks:
+      - tipi_main_network
+  
+  # Postgres SQL
+  db:
+    image: docker.io/library/postgres:16
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: paperless
+      POSTGRES_USER: paperless
+      POSTGRES_PASSWORD: paperless
+    networks:
+      - tipi_main_network
+      
+  gotenberg:
+    image: docker.io/gotenberg/gotenberg:7.9
+    restart: unless-stopped
+    # The gotenberg chromium route is used to convert .eml files. We do not
+    # want to allow external content like tracking pixels or even javascript.
+    command:
+      - "gotenberg"
+      - "--chromium-disable-javascript=true"
+      - "--chromium-allow-list=file:///tmp/.*"
+    networks:
+    - tipi_main_network
+      
+  tika:
+    image: ghcr.io/paperless-ngx/tika:latest
+    restart: unless-stopped
+    networks:
+    - tipi_main_network
+      

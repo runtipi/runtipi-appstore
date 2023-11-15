@@ -1,0 +1,43 @@
+version: "3.4"
+
+services:
+  homebox:
+    image: ghcr.io/hay-kot/homebox:v0.10.1
+    container_name: homebox
+    restart: always
+    environment:
+      - HBOX_LOG_LEVEL=info
+      - HBOX_LOG_FORMAT=text
+      - HBOX_WEB_MAX_UPLOAD_SIZE=10
+      - HBOX_OPTIONS_ALLOW_REGISTRATION=${HBOX_OPTIONS_ALLOW_REGISTRATION}
+    volumes:
+      - ${APP_DATA_DIR}/data/homebox-data:/data/
+    ports:
+      - ${APP_PORT}:7745
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.homebox-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.homebox.loadbalancer.server.port: 7745
+      # Web
+      traefik.http.routers.homebox-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.homebox-insecure.entrypoints: web
+      traefik.http.routers.homebox-insecure.service: homebox
+      traefik.http.routers.homebox-insecure.middlewares: homebox-web-redirect
+      # Websecure
+      traefik.http.routers.homebox.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.homebox.entrypoints: websecure
+      traefik.http.routers.homebox.service: homebox
+      traefik.http.routers.homebox.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.homebox-local-insecure.rule: Host(`homebox.${LOCAL_DOMAIN}`)
+      traefik.http.routers.homebox-local-insecure.entrypoints: web
+      traefik.http.routers.homebox-local-insecure.service: homebox
+      traefik.http.routers.homebox-local-insecure.middlewares: homebox-web-redirect
+      # Local domain secure
+      traefik.http.routers.homebox-local.rule: Host(`homebox.${LOCAL_DOMAIN}`)
+      traefik.http.routers.homebox-local.entrypoints: websecure
+      traefik.http.routers.homebox-local.service: homebox
+      traefik.http.routers.homebox-local.tls: true

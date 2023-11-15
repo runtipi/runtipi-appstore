@@ -1,0 +1,37 @@
+{
+  "$schema": "../schema.json",
+  "name": "Logto",
+  "port": 8203,
+  "available": true,
+  "exposable": true,
+  "id": "logto",
+  "tipi_version": 12,
+  "version": "1.11.0",
+  "force_expose": true,
+  "categories": [
+    "security"
+  ],
+  "description": "Logto is a cost-effective open-source alternative to Auth0.",
+  "short_desc": "Logto is a cost-effective open-source alternative to Auth0. ",
+  "author": "Logto Team",
+  "source": "https://github.com/logto-io/logto",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Database Password",
+      "min": 32,
+      "env_variable": "LOGTO_DB_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Logto Admin Console URL URL",
+      "hint": "Example: admin.example.com",
+      "required": true,
+      "env_variable": "LOGTO_ADMIN_URL"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}
