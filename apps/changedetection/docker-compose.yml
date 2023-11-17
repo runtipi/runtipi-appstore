@@ -40,10 +40,10 @@ services:
         traefik.http.routers.changedetection-web-local.tls: true
 
 
-    chnagedetection-chrome:
-      hostname: chnagedetection-chrome
-      image: browserless/chrome:latest
-      restart: unless-stopped
-      container_name: chnagedetection-chrome
-      networks:
-        - tipi_main_network
+    # chnagedetection-chrome:
+    #   hostname: chnagedetection-chrome
+    #   image: browserless/chrome:latest
+    #   restart: unless-stopped
+    #   container_name: chnagedetection-chrome
+    #   networks:
+    #     - tipi_main_network
