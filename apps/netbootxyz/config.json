@@ -6,7 +6,7 @@
   "id": "netbootxyz",
   "description": "Your favorite operating systems in one place. A network-based bootable operating system installer based on iPXE.",
   "tipi_version": 2,
-  "version": "0.7.0",
+  "version": "2.0.53",
   "categories": [
     "utilities"
   ],
