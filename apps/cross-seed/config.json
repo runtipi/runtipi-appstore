@@ -8,8 +8,8 @@
   "uid": 1000,
   "gid": 1000,
   "id": "cross-seed",
-  "tipi_version": 5,
-  "version": "5.7.0",
+  "tipi_version": 6,
+  "version": "5.8.1",
   "categories": [
     "media",
     "utilities"
@@ -20,5 +20,8 @@
   "source": "https://github.com/cross-seed/cross-seed",
   "website": "https://www.cross-seed.org",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
