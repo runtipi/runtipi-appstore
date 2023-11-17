@@ -9,8 +9,6 @@ services:
       ports:
         - ${APP_PORT}:5000
       restart: unless-stopped
-      environment:
-        - PLAYWRIGHT_DRIVER_URL=ws://chnagedetection-chrome:3000/?stealth=1&--disable-web-security=true
       networks:
         - tipi_main_network
       labels:
