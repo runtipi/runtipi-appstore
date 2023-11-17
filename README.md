@@ -22,6 +22,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Code-Server](https://github.com/coder/code-server) - Web VS Code
 - [Codex.Docs](https://github.com/codex-team/codex.docst) - Free Docs app powered by Editor.js ecosystem.
 - [Conduit](https://gitlab.com/famedly/conduit) - Conduit is a simple, fast and reliable chat server written in Rust
+- [Cross-seed](https://github.com/cross-seed/cross-seed) - Fully-automatic, no false positives.
 - [DailyTXT](https://github.com/PhiTux/DailyTxT) - Encrypted Diary Web-App
 - [Dash.](https://github.com/MauriceNino/dashdot) - A simple, modern server dashboard, primarily used by smaller private server
 - [Dashy](https://github.com/lissy93/dashy) - A self-hostable personal dashboard built for you.
