@@ -6,8 +6,8 @@
   "url_suffix": "?offline=1",
   "id": "drawio",
   "description": "draw.io is a JavaScript, client-side editor for general diagramming and whiteboarding.",
-  "tipi_version": 3,
-  "version": "22.0.8",
+  "tipi_version": 7,
+  "version": "22.1.3",
   "categories": [
     "utilities"
   ],
@@ -16,5 +16,8 @@
   "source": "https://github.com/jgraph/drawio",
   "website": "https://www.drawio.com/",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }

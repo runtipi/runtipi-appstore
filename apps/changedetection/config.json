@@ -5,8 +5,8 @@
   "exposable": true,
   "id": "changedetection",
   "description": "The best and simplest free open source website change detection, restock monitor and notification service.",
-  "tipi_version": 4,
-  "version": "0.45.5",
+  "tipi_version": 6,
+  "version": "0.45.7",
   "categories": [
     "utilities"
   ],
@@ -15,5 +15,8 @@
   "source": "https://github.com/dgtlmoon/changedetection.io",
   "website": "https://changedetection.io/",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }

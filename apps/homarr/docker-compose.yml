@@ -2,11 +2,12 @@ version: "3.7"
 services:
   homarr:
     container_name: homarr
-    image: ghcr.io/ajnart/homarr:0.13.4
+    image: ghcr.io/ajnart/homarr:0.14.1
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/config:/app/data/configs
       - ${APP_DATA_DIR}/data/icons:/app/public/icons
+      - ${APP_DATA_DIR}/data/dashboard:/data
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - PASSWORD=${HOMARR_PASSWORD}

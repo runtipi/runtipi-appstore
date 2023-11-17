@@ -5,8 +5,8 @@
   "exposable": true,
   "id": "flatnotes",
   "port": 8137,
-  "tipi_version": 15,
-  "version": "3.4.0",
+  "tipi_version": 16,
+  "version": "3.5.0",
   "categories": [
     "utilities"
   ],
@@ -51,5 +51,8 @@
       "env_variable": "FLATNOTES_TOTP_KEY"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }

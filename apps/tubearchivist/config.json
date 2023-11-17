@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8120,
   "id": "tubearchivist",
-  "tipi_version": 7,
-  "version": "0.4.2",
+  "tipi_version": 8,
+  "version": "0.4.3",
   "categories": [
     "media"
   ],
@@ -39,5 +39,8 @@
       "env_variable": "ELASTIC_PASSWORD"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }

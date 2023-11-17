@@ -1,0 +1,30 @@
+{
+  "$schema": "../schema.json",
+  "name": "Authentik",
+  "port": 8770,
+  "available": true,
+  "exposable": true,
+  "id": "authentik",
+  "tipi_version": 1,
+  "version": "2023.10.3",
+  "categories": ["development"],
+  "description": "The authentication glue you need.",
+  "short_desc": "The authentication glue you need.",
+  "author": "goauthentik",
+  "source": "https://github.com/goauthentik/authentik",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "AUTHENTIK_DB_PASSWORD",
+      "min": 40,
+      "env_variable": "AUTHENTIK_DB_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "AUTHENTIK_SECRET_KEY",
+      "min": 50,
+      "env_variable": "AUTHENTIK_SECRET_KEY"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

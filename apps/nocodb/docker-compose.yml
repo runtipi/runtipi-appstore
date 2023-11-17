@@ -11,7 +11,7 @@ services:
       - NC_PUBLIC_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
       - NC_AUTH_JWT_SECRET=${NOCODB_JWT_SECRET}
       - NC_REDIS_URL=redis://default:${NOCODB_REDIS_PASSWORD}@nocodb-redis:6379
-    image: "nocodb/nocodb:0.202.5"
+    image: "nocodb/nocodb:0.202.7"
     ports:
       - "${APP_PORT}:8080"
     restart: always

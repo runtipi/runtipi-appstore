@@ -1,7 +1,7 @@
 version: "3.7"
 services:
     changedetection:
-      image: ghcr.io/dgtlmoon/changedetection.io:0.45.5
+      image: ghcr.io/dgtlmoon/changedetection.io:0.45.7
       container_name: changedetection
       hostname: changedetection
       volumes:
@@ -9,8 +9,6 @@ services:
       ports:
         - ${APP_PORT}:5000
       restart: unless-stopped
-      environment:
-        - PLAYWRIGHT_DRIVER_URL=ws://chnagedetection-chrome:3000/?stealth=1&--disable-web-security=true
       networks:
         - tipi_main_network
       labels:
@@ -40,10 +38,10 @@ services:
         traefik.http.routers.changedetection-web-local.tls: true
 
 
-    chnagedetection-chrome:
-      hostname: chnagedetection-chrome
-      image: browserless/chrome:latest
-      restart: unless-stopped
-      container_name: chnagedetection-chrome
-      networks:
-        - tipi_main_network
+    # chnagedetection-chrome:
+    #   hostname: chnagedetection-chrome
+    #   image: browserless/chrome:latest
+    #   restart: unless-stopped
+    #   container_name: chnagedetection-chrome
+    #   networks:
+    #     - tipi_main_network

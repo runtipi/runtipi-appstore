@@ -1,0 +1,38 @@
+{
+  "$schema": "../schema.json",
+  "name": "Koillection",
+  "available": true,
+  "port": 8050,
+  "exposable": true,
+  "id": "koillection",
+  "description": "Koillection is a self-hosted service allowing users to manage any kind of collections.",
+  "tipi_version": 2,
+  "version": "1.4.13",
+  "categories": [
+    "utilities"
+  ],
+  "short_desc": "Koillection allow you to manage any kind of collections.",
+  "author": "https://github.com/benjaminjonard",
+  "source": "https://github.com/benjaminjonard/koillection",
+  "website": "https://koillection.github.io/",
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "database user",
+      "min": 15,
+      "max": 15,
+      "env_variable": "KOILLECTION_DB_USER"
+    },
+    {
+      "type": "random",
+      "label": "database password",
+      "min": 30,
+      "max": 30,
+      "env_variable": "KOILLECTION_DB_PASSWORD"
+    }
+  ]
+}

@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "grafana",
-  "tipi_version": 18,
-  "version": "10.2.0",
+  "tipi_version": 19,
+  "version": "10.2.1",
   "categories": [
     "data"
   ],
@@ -15,5 +15,8 @@
   "author": "Grafana Labs",
   "source": "https://github.com/grafana/grafana",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }

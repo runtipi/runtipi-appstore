@@ -6,10 +6,10 @@
   "exposable": true,
   "force_expose": true,
   "id": "gotosocial",
-  "tipi_version": 10,
+  "tipi_version": 11,
   "uid": 1000,
   "gid": 1000,
-  "version": "0.12.1",
+  "version": "0.12.2",
   "categories": [
     "social"
   ],
@@ -76,5 +76,8 @@
       "env_variable": "GTS_SMTP_FROM"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
