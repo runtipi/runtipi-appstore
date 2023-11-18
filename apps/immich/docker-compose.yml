@@ -43,7 +43,7 @@ services:
 
   immich-server:
     container_name: immich-server
-    image: altran1502/immich-server:v1.86.0
+    image: altran1502/immich-server:v1.87.0
     command: ["start-server.sh"]
     volumes:
       - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
@@ -68,7 +68,7 @@ services:
 
   immich-microservices:
     container_name: immich-microservices
-    image: altran1502/immich-server:v1.86.0
+    image: altran1502/immich-server:v1.87.0
     command: ["start-microservices.sh"]
     volumes:
       - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
@@ -114,7 +114,7 @@ services:
 
   immich-web:
     container_name: immich-web
-    image: altran1502/immich-web:v1.86.0
+    image: altran1502/immich-web:v1.87.0
     restart: unless-stopped
     networks:
       - tipi_main_network
