@@ -23,8 +23,10 @@ services:
       - "3334:3334/tcp"
       - "3334:3334/udp"
     depends_on:
-      - bitmagnet-db
-      - bitmagnet-redis
+      bitmagnet-db:
+        condition: service_healthy
+      bitmagnet-redis:
+        condition: service_started
     networks:
       - tipi_main_network
     labels:
