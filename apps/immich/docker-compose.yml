@@ -32,7 +32,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.immich-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.immich.loadbalancer.server.port: 8080
+      traefik.http.services.immich.loadbalancer.server.port: 3001
       # Web
       traefik.http.routers.immich-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.immich-insecure.entrypoints: web
