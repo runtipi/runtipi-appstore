@@ -2,7 +2,7 @@ version: '3.9'
 services:
   owncast:
     container_name: owncast
-    image: owncast/owncast:0.1.1
+    image: owncast/owncast:0.1.2
     volumes:
       - ${APP_DATA_DIR}/data:/app/data
     ports:
