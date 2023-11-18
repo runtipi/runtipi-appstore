@@ -15,8 +15,8 @@ services:
     environment:
       - POSTGRES_HOST=bitmagnet-db
       - POSTGRES_NAME=bitmagnet
-      - POSTGRES_USER=bitmagnet
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=tipi
+      - POSTGRES_PASSWORD=${BITMAGNENT_DB_PASSWORD}
       - REDIS_ADDR=bitmagnet-redis:6379
     ports:
       - "${APP_PORT}:3333"
@@ -67,7 +67,7 @@ services:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: ${BITMAGNENT_DB_PASSWORD}
-      POSTGRES_USER: bitmagnet
+      POSTGRES_USER: tipi
       POSTGRES_DB: bitmagnet
     networks:
       - tipi_main_network
