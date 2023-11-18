@@ -26,6 +26,14 @@
         "^([^\\/]+\\/)?(mysql|mariadb|mongodb|mongo|postgres|redis|clickhouse-server|clickhouse|nginx|couchdb|documentserver)(:|$)"
       ],
       "enabled": false
+    },
+    {
+      "managers": ["docker-compose", "dockerfile"],
+      "packagePatterns": [
+        "^([^\\/]+\\/)?(immich-server|immich-proxy|immich-machine-learning|immich-web)(:|$)"
+      ],
+      "automerge": false,
+      "groupName": "manual-merge-packages"
     }
   ]
 }
