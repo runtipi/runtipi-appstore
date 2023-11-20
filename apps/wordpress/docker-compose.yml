@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  wordpress-database:
+    container_name: wordpress-database
+    # We use a mariadb image which supports both amd64 & arm64 architecture
+    image: mariadb:11.1.3-focal
+    # If you really want to use MySQL, uncomment the following line
+    #image: mysql:8.0.27
+    command: '--default-authentication-plugin=mysql_native_password'
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/data/db
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+  wordpress-app:
+    container_name: wordpress-app
+    depends_on:
+      - wordpress-database
+    image: wordpress:6.4.1
+    ports:
+      - "8000:80"
+    restart: always
+    environment:
+      - WORDPRESS_DB_HOST=wordpress-database:3306
+      - WORDPRESS_DB_USER=${MYSQL_USER}
+      - WORDPRESS_DB_PASSWORD=${MYSQL_PASSWORD}
+      - WORDPRESS_DB_NAME=${MYSQL_DATABASE}
+volumes:
+  db_data:
+
+  
+    

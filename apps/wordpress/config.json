@@ -1,0 +1,49 @@
+{
+  "name": "WordPress",
+  "available": true,
+  "port": 8213,
+  "exposable": true,
+  "id": "wordpress",
+  "description": "WordPress, the versatile and powerful content management system (CMS)",
+  "tipi_version": 1,
+  "version": "6.4.1",
+  "categories": ["network"],
+  "short_desc": "The WordPress rich content management system can utilize plugins, widgets, and themes.",
+  "author": "https://wordpress.org/",
+  "source": "https://github.com/WordPress/WordPress",
+  "website": "https://wordpress.org/",
+  "form_fields": [
+    {
+        "type": "password",
+        "label": "MySQL Root Password",
+        "max": 50,
+        "min": 3,
+        "required": true,
+        "env_variable": "MYSQL_ROOT_PASSWORD"
+    },
+    {
+        "type": "text",
+        "label": "MySQL Database",
+        "max": 50,
+        "min": 3,
+        "required": true,
+        "env_variable": "MYSQL_DATABASE"
+    },
+    {
+        "type": "text",
+        "label": "MySQL User",
+        "max": 50,
+        "min": 3,
+        "required": true,
+        "env_variable": "MYSQL_USER"
+    },
+    {
+        "type": "password",
+        "label": "MySQL password",
+        "max": 50,
+        "min": 3,
+        "required": true,
+        "env_variable": "MYSQL_PASSWORD"
+    }
+  ]
+}
