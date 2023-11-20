@@ -3,7 +3,7 @@ version: '3.7'
 services:
   ntfy:
     container_name: ntfy
-    image: binwiederhier/ntfy:v2.7.0
+    image: binwiederhier/ntfy:v2.8.0
     environment:
       - NTFY_BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
       - NTFY_UPSTREAM_BASE_URL=https://ntfy.sh
