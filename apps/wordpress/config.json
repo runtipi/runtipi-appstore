@@ -1,0 +1,45 @@
+{
+  "name": "WordPress",
+  "available": true,
+  "port": 8213,
+  "exposable": true,
+  "id": "wordpress",
+  "description": "WordPress is a popular content management system for creating websites and blogs.",
+  "tipi_version": 1,
+  "version": "6.4.1",
+  "categories": ["development"],
+  "short_desc": "Popular CMS for websites and blogs",
+  "author": "WordPress.org",
+  "source": "https://github.com/WordPress/WordPress",
+  "website": "https://wordpress.org",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Database Name",
+      "required": true,
+      "env_variable": "DB_NAME"
+    },
+    {
+      "type": "text",
+      "label": "Database User",
+      "required": true,
+      "env_variable": "DB_USER"
+    },
+    {
+      "type": "password",
+      "label": "Database Password",
+      "required": true,
+      "env_variable": "DB_PASSWORD"
+    },
+    {
+      "type": "password",
+      "label": "Database Root Password",
+      "required": true,
+      "env_variable": "DB_ROOT_PASSWORD"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ]
+}
