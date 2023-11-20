@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   budibase:
-    image: budibase/budibase:2.13.10
+    image: budibase/budibase:2.13.11
     restart: unless-stopped
     container_name: budibase
     ports:
