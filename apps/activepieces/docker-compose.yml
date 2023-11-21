@@ -17,7 +17,7 @@ services:
       - AP_ENCRYPTION_KEY=${AP_ENCRYPTION_KEY}
       - AP_JWT_SECRET=${AP_JWT_SECRET}
       - AP_ENVIRONMENT=prod
-      - AP_FRONTEND_URL=http://localhost:8080
+      - AP_FRONTEND_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
       - AP_WEBHOOK_TIMEOUT_SECONDS=30
       - AP_TRIGGER_DEFAULT_POLL_INTERVAL=5
       - AP_POSTGRES_DATABASE=activepieces
@@ -65,7 +65,7 @@ services:
     restart: unless-stopped
     container_name: activepieces-postgres
     healthcheck:
-      test: pg_isready -U tipi
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
       interval: 30s
       timeout: 30s
       retries: 3
