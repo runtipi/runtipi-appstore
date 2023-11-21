@@ -8,8 +8,8 @@
   "uid": 1000,
   "gid": 1000,
   "id": "cross-seed",
-  "tipi_version": 7,
-  "version": "5.8.2",
+  "tipi_version": 8,
+  "version": "5.8.3",
   "categories": [
     "media",
     "utilities"
