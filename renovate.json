@@ -23,7 +23,7 @@
     {
       "managers": ["docker-compose", "dockerfile"],
       "packagePatterns": [
-        "^([^\\/]+\\/)?(mysql|mariadb|mongodb|mongo|postgres|redis|clickhouse-server|clickhouse|nginx|couchdb|documentserver)(:|$)"
+        "^([^\\/]+\\/)?(mysql|mariadb|mongodb|mongo|postgres|redis|clickhouse-server|clickhouse|nginx|couchdb|documentserver|postgres-alpine)(:|$)"
       ],
       "enabled": false
     },
