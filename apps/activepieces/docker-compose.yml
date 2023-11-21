@@ -38,7 +38,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.activepieces-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.activepieces.loadbalancer.server.port: 8744
+      traefik.http.services.activepieces.loadbalancer.server.port: 80
       # Web
       traefik.http.routers.activepieces-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.activepieces-insecure.entrypoints: web
