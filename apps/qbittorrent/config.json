@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8133,
   "id": "qbittorrent",
-  "tipi_version": 9,
-  "version": "4.6.0",
+  "tipi_version": 10,
+  "version": "4.6.1",
   "categories": [
     "utilities"
   ],
@@ -15,5 +15,8 @@
   "author": "qBittorrent project",
   "source": "https://github.com/qbittorrent/qBittorrent",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
