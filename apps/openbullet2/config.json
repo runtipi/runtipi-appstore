@@ -1,0 +1,19 @@
+{
+  "name": "openbullet2",
+  "port": 8822,
+  "available": true,
+  "exposable": true,
+  "id": "openbullet2",
+  "tipi_version": 1,
+  "version": "0.2.5",
+  "categories": [
+    "data",
+    "security",
+    "networks"
+  ],
+  "description": "OpenBullet 2 facilitates web requests to a target application and provides various tools for data extraction, automated penetration testing, and more.  ",
+  "short_desc": "Automate penetration testing, data extraction and web requests",
+  "author": "https://github.com/openbullet/",
+  "source": "https://github.com/openbullet/OpenBullet2",
+  "form_fields": []
+}
