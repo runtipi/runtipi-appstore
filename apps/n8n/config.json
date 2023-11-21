@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8094,
   "id": "n8n",
-  "tipi_version": 23,
-  "version": "0.237.0",
+  "tipi_version": 24,
+  "version": "1.17.1",
   "categories": [
     "automation"
   ],
@@ -24,5 +24,8 @@
       "env_variable": "DB_PASSWORD"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
