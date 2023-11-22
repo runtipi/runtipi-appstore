@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "ryot",
-  "tipi_version": 25,
-  "version": "2.24.2",
+  "tipi_version": 26,
+  "version": "3.4.13",
   "categories": [
     "media"
   ],
@@ -44,5 +44,8 @@
       "env_variable": "RYOT_VIDEO_GAMES_TWITCH_CLIENT_SECRET"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
