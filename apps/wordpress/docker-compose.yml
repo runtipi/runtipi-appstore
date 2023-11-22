@@ -45,9 +45,8 @@ services:
     ports:
       - 8214:80
     environment:
-      PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      DOCKER_COMPOSE_YML_LOCATION: ${PWD}
+      PMA_HOST: mariadb
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
 
   volumes:
     ${APP_DATA_DIR}/data/mariadb:
