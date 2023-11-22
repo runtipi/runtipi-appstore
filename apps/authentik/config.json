@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "authentik",
-  "tipi_version": 1,
-  "version": "2023.10.3",
-  "categories": ["development"],
+  "tipi_version": 3,
+  "version": "2023.10.4",
+  "categories": [
+    "development"
+  ],
   "description": "The authentication glue you need.",
   "short_desc": "The authentication glue you need.",
   "author": "goauthentik",
@@ -26,5 +28,8 @@
       "env_variable": "AUTHENTIK_SECRET_KEY"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
