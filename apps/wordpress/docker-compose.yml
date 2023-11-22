@@ -33,19 +33,3 @@ services:
     restart: always
     networks:
       - tipi_main_network
-
-  phpmyadmin:
-    container_name: phpmyadmin
-    image: phpmyadmin/phpmyadmin:latest
-    hostname: localhost
-    restart: always
-    depends_on:
-      - mariadb
-      - wordpress
-    ports:
-      - 8214:80
-    environment:
-      PMA_HOST: mariadb
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-    networks:
-      - tipi_main_network
