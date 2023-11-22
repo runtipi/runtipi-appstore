@@ -4,7 +4,7 @@ services:
   wordpress:
     container_name: wordpress
     image: wordpress:6.4.1
-    hostname: changedetection
+    hostname: wordpress
     environment:
       - WORDPRESS_DB_HOST=mariadb
       - WORDPRESS_DB_NAME=${DB_NAME}
