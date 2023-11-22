@@ -59,14 +59,14 @@ services:
     networks:
       - tipi_main_network
 
-phpmyadmin:
-    container_name: phpmyadmin
-    image: phpmyadmin/phpmyadmin:5.2.1
-    environment:
-      - PMA_HOST=mariadb
-      - PMA_PORT=3306
-      - PMA_USER=${DB_USER}
-      - PMA_PASSWORD=${DB_PASSWORD}
-    restart: always
-    networks:
-      - tipi_main_network
+  phpmyadmin:
+      container_name: phpmyadmin
+      image: phpmyadmin/phpmyadmin:5.2.1
+      environment:
+        - PMA_HOST=mariadb
+        - PMA_PORT=3306
+        - PMA_USER=${DB_USER}
+        - PMA_PASSWORD=${DB_PASSWORD}
+      restart: always
+      networks:
+        - tipi_main_network
