@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "2fauth",
-  "tipi_version": 6,
-  "version": "4.2.3",
+  "tipi_version": 7,
+  "version": "4.2.4",
   "categories": [
     "security"
   ],
@@ -16,5 +16,8 @@
   "source": "https://github.com/Bubka/2FAuth",
   "website": "https://docs.2fauth.app/",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
