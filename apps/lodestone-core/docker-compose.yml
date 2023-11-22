@@ -13,6 +13,7 @@ services:
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/lodestone-data:/home/user/.lodestone
+      - ${APP_DATA_DIR}/data/lodestone-data:/root/.lodestone
     networks:
       - tipi_main_network
     labels:
