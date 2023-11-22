@@ -70,3 +70,28 @@ services:
       restart: always
       networks:
         - tipi_main_network
+      labels:
+          # Main
+          traefik.enable: true
+          traefik.http.middlewares.phpmyadmin-web-redirect.redirectscheme.scheme: https
+          traefik.http.services.phpmyadmin-web.loadbalancer.server.port: 80
+          # Web
+          traefik.http.routers.phpmyadmin-web-insecure.rule: Host(`${APP_DOMAIN}/phpmyadmin`)
+          traefik.http.routers.phpmyadmin-web-insecure.entrypoints: web
+          traefik.http.routers.phpmyadmin-web-insecure.service: phpmyadmin-web
+          traefik.http.routers.phpmyadmin-web-insecure.middlewares: phpmyadmin-web-redirect
+          # Websecure
+          traefik.http.routers.phpmyadmin-web.rule: Host(`${APP_DOMAIN}/phpmyadmin`)
+          traefik.http.routers.phpmyadmin-web.entrypoints: websecure
+          traefik.http.routers.phpmyadmin-web.service: phpmyadmin-web
+          traefik.http.routers.phpmyadmin-web.tls.certresolver: myresolver
+          # Local domain
+          traefik.http.routers.phpmyadmin-web-local-insecure.rule: Host(`phpmyadmin-web.${LOCAL_DOMAIN}/phpmyadmin`)
+          traefik.http.routers.phpmyadmin-web-local-insecure.entrypoints: web
+          traefik.http.routers.phpmyadmin-web-local-insecure.service: phpmyadmin-web
+          traefik.http.routers.phpmyadmin-web-local-insecure.middlewares: phpmyadmin-web-redirect
+          # Local domain secure
+          traefik.http.routers.phpmyadmin-web-local.rule: Host(`phpmyadmin-web.${LOCAL_DOMAIN}/phpmyadmin`)
+          traefik.http.routers.phpmyadmin-web-local.entrypoints: websecure
+          traefik.http.routers.phpmyadmin-web-local.service: phpmyadmin-web
+          traefik.http.routers.phpmyadmin-web-local.tls: true
