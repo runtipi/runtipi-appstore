@@ -47,6 +47,8 @@ services:
     environment:
       PMA_HOST: mariadb
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    networks:
+      - tipi_main_network
 
   volumes:
     ${APP_DATA_DIR}/data/mariadb:
