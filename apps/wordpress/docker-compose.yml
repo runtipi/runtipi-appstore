@@ -4,6 +4,7 @@ services:
   wordpress:
     container_name: wordpress
     image: wordpress:6.4.1
+    hostname: changedetection
     environment:
       - WORDPRESS_DB_HOST=mariadb
       - WORDPRESS_DB_NAME=${DB_NAME}
@@ -21,13 +22,13 @@ services:
     labels:
         # Main
         traefik.enable: true
-        traefik.http.middlewares.wordpress-web-web-redirect.redirectscheme.scheme: https
-        traefik.http.services.wordpress-web.loadbalancer.server.port: 5000
+        traefik.http.middlewares.wordpress-web-redirect.redirectscheme.scheme: https
+        traefik.http.services.wordpress-web.loadbalancer.server.port: 80
         # Web
         traefik.http.routers.wordpress-web-insecure.rule: Host(`${APP_DOMAIN}`)
         traefik.http.routers.wordpress-web-insecure.entrypoints: web
         traefik.http.routers.wordpress-web-insecure.service: wordpress-web
-        traefik.http.routers.wordpress-web-insecure.middlewares: wordpress-web-web-redirect
+        traefik.http.routers.wordpress-web-insecure.middlewares: wordpress-web-redirect
         # Websecure
         traefik.http.routers.wordpress-web.rule: Host(`${APP_DOMAIN}`)
         traefik.http.routers.wordpress-web.entrypoints: websecure
@@ -37,7 +38,7 @@ services:
         traefik.http.routers.wordpress-web-local-insecure.rule: Host(`wordpress-web.${LOCAL_DOMAIN}`)
         traefik.http.routers.wordpress-web-local-insecure.entrypoints: web
         traefik.http.routers.wordpress-web-local-insecure.service: wordpress-web
-        traefik.http.routers.wordpress-web-local-insecure.middlewares: wordpress-web-web-redirect
+        traefik.http.routers.wordpress-web-local-insecure.middlewares: wordpress-web-redirect
         # Local domain secure
         traefik.http.routers.wordpress-web-local.rule: Host(`wordpress-web.${LOCAL_DOMAIN}`)
         traefik.http.routers.wordpress-web-local.entrypoints: websecure
