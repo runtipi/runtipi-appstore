@@ -28,6 +28,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Dashy](https://github.com/lissy93/dashy) - A self-hostable personal dashboard built for you.
 - [Databag](https://github.com/balzack/databag) - A tiny federated messenger web with clients for iOS, Android, and browser.
 - [Deluge](https://github.com/linuxserver/docker-deluge) - Deluge is a lightweight, Free Software, cross-platform BitTorrent client
+- [Dockge](https://github.com/louislam/dockge) - A fancy, easy-to-use and reactive self-hosted docker compose.yaml stack-oriented manager.
 - [Deemix](https://gitlab.com/Bockiii/deemix-docker) - deemix is a barebone deezer downloader library built from the ashes of Deezloader Remix.
 - [DokuWiki](https://github.com/dokuwiki/dokuwiki) - DokuWiki is a simple to use and highly versatile Open Source wiki software
 - [Dozzle](https://github.com/amir20/dozzle) - Dozzle is a small web based app to monitor Docker logs
