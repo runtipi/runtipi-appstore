@@ -5,7 +5,7 @@
   "exposable": true,
   "id": "activepieces",
   "description": "Your friendliest open source all-in-one automation tool.",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "0.13.0",
   "categories": [
     "automation"
