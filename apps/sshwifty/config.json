@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "sshwifty",
-  "tipi_version": 6,
-  "version": "0.3.2-beta-release",
+  "tipi_version": 7,
+  "version": "0.3.3-beta-release",
   "categories": [
     "development"
   ],
@@ -16,5 +16,8 @@
   "source": "https://github.com/nirui/sshwifty",
   "website": "https://sshwifty-demo.nirui.org/",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
