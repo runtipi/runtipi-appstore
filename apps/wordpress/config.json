@@ -15,12 +15,6 @@
   "form_fields": [
     {
       "type": "random",
-      "label": "Database Name",
-      "min": 32,
-      "env_variable": "DB_NAME"
-    },
-    {
-      "type": "random",
       "label": "Database User",
       "min": 32,
       "env_variable": "DB_USER"

@@ -4,10 +4,9 @@ services:
   wordpress:
     container_name: wordpress
     image: wordpress:6.4.1
-    hostname: wordpress
     environment:
       - WORDPRESS_DB_HOST=wordpress-db
-      - WORDPRESS_DB_NAME=${DB_NAME}
+      - WORDPRESS_DB_NAME=wordpress
       - WORDPRESS_DB_USER=${DB_USER}
       - WORDPRESS_DB_PASSWORD=${DB_PASSWORD}
     volumes:
@@ -50,7 +49,7 @@ services:
     image: mariadb:11.1.3
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
-      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_DATABASE=wordpress
       - MYSQL_USER=${DB_USER}
       - MYSQL_PASSWORD=${DB_PASSWORD}
     volumes:
