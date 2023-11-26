@@ -7,34 +7,34 @@
   "description": "WordPress is a popular content management system for creating websites and blogs.",
   "tipi_version": 1,
   "version": "6.4.1",
-  "categories": ["development"],
+  "categories": ["social"],
   "short_desc": "Popular CMS for websites and blogs",
   "author": "WordPress.org",
   "source": "https://github.com/WordPress/WordPress",
   "website": "https://wordpress.org",
   "form_fields": [
     {
-      "type": "text",
+      "type": "random",
       "label": "Database Name",
-      "required": true,
+      "min": 32,
       "env_variable": "DB_NAME"
     },
     {
-      "type": "text",
+      "type": "random",
       "label": "Database User",
-      "required": true,
+      "min": 32,
       "env_variable": "DB_USER"
     },
     {
-      "type": "password",
+      "type": "random",
       "label": "Database Password",
-      "required": true,
+      "min": 32,
       "env_variable": "DB_PASSWORD"
     },
     {
-      "type": "password",
+      "type": "random",
       "label": "Database Root Password",
-      "required": true,
+      "min": 32,
       "env_variable": "DB_ROOT_PASSWORD"
     }
   ],
