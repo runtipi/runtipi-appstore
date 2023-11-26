@@ -1,0 +1,18 @@
+{
+    "name": "Nginx",
+    "available": true,
+    "port": 8754,
+    "exposable": true,
+    "id": "nginx",
+    "description": "Simple webserver to test your tipi install. An alternative to the hello-world app.",
+    "tipi_version": 1,
+    "version": "1.25.3",
+    "categories": ["utilities"],
+    "short_desc": "Open-source simple and fast web server.",
+    "author": "nginx",
+    "source": "https://github.com/nginx/nginx",
+    "website": "https://www.nginx.com/",
+    "form_fields": [],
+    "supported_architectures": ["arm64", "amd64"]
+  }
+  
