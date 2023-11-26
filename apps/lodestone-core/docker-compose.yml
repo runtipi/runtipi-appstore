@@ -7,9 +7,6 @@ services:
     ports:
       - ${APP_PORT}:16662
       - 25565-25575:25565-25575
-    user: ${TIPI_UID}:${TIPI_GID} 
-    group_add: 
-    - ${TIPI_GID}
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/lodestone-data:/home/user/.lodestone
