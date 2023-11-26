@@ -163,6 +163,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Wireguard Easy](https://github.com/WeeJeWel/wg-easy) - WireGuard VPN + Web-based Admin UI
 - [WikiJS](https://github.com/requarks/wiki) - A modern and powerful wiki app built on Node.js
 - [Wizarr](https://github.com/Wizarrrr/wizarr) - Wizarr is an advanced user invitation and management system for Jellyfin, Plex, Emby etc.
+- [WordPress](https://github.com/WordPress/WordPress) - WordPress is a popular content management system for creating websites and blogs.
 - [Your Spotify](https://github.com/Yooooomi/your_spotify) - Self hosted Spotify tracking dashboard
 - [ZeroTier](https://github.com/zerotier/ZeroTierOne) - Easy to use zero configuration VPN.
 - [Zipline](https://github.com/diced/zipline) - A ShareX/file upload server that is easy to use, packed with features, and with an easy setup!
