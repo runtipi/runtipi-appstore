@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "fireshare",
-  "tipi_version": 7,
-  "version": "1.2.14",
+  "tipi_version": 8,
+  "version": "1.2.15",
   "categories": [
     "development"
   ],
@@ -38,5 +38,8 @@
       "env_variable": "FIRESHARE_PASSWORD"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
