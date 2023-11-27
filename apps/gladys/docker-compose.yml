@@ -3,7 +3,7 @@ version: '3'
 services:
   gladys:
     container_name: gladys
-    image: gladysassistant/gladys:v4.31.0
+    image: gladysassistant/gladys:v4.31.1
     privileged: true
     restart: on-failure
     stop_grace_period: 1m
