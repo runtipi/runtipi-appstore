@@ -141,6 +141,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [SearXNG](https://github.com/searxng/searxng) - SearXNG is a free internet metasearch engine which aggregates results from various search services and databases. Users are neither tracked nor profiled
 - [Send](https://gitlab.com/timvisee/send) - Simple, private file sharing
 - [Serge](https://github.com/serge-chat/serge) -  A web interface for chatting with Alpaca through llama.cpp.
+- [Shlink](https://shlink.io/) - API first URL shortener
 - [SimpleX SMP](https://github.com/simplex-chat/simplexmq) - A reference implementation of the SimpleX Messaging Protocol for simplex queues over public networks.
 - [Sonarr](https://github.com/Sonarr/Sonarr) - TV show manager for Usenet and BitTorrent
 - [Speedtest Tracker](https://github.com/alexjustesen/speedtest-tracker) - Internet performance tracking application.

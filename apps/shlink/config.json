@@ -1,0 +1,24 @@
+{
+  "$schema": "../schema.json",
+  "name": "Shlink",
+  "available": true,
+  "exposable": true,
+  "force_expose": true,
+  "port": 8207,
+  "id": "shlink",
+  "tipi_version": 1,
+  "version": "3.7.0",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Shlink is a self-hosted URL shortener which provides both a REST and a CLI interface to interact with it.",
+  "short_desc": "Shlink is a self-hosted URL shortener",
+  "author": "https://shlink.io/",
+  "source": "https://github.com/shlinkio/shlink",
+  "website": "https://shlink.io/",
+  "form_fields": [],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}
