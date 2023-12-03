@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "movary",
-  "tipi_version": 26,
-  "version": "0.59.0",
+  "tipi_version": 27,
+  "version": "0.60.0",
   "categories": [
     "media"
   ],
@@ -41,5 +41,7 @@
       "env_variable": "MOVARY_TMDB_API_KEY"
     }
   ],
-  "supported_architectures": ["amd64"]
+  "supported_architectures": [
+    "amd64"
+  ]
 }
