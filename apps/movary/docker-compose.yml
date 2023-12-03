@@ -2,7 +2,7 @@ version: "3"
 
 services:
   movary:
-    image: leepeuker/movary:0.59.0
+    image: leepeuker/movary:0.60.0
     container_name: movary
     user: ${TIPI_UID}:${TIPI_GID} 
     group_add: 
@@ -56,7 +56,7 @@ services:
       traefik.http.routers.movary-local.tls: true
   
   movary-migration:
-    image: leepeuker/movary:0.59.0
+    image: leepeuker/movary:0.60.0
     container_name: movary-migration
     command: php bin/console.php database:migration:migrate
     user: ${TIPI_UID}:${TIPI_GID} 
