@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "sshwifty",
-  "tipi_version": 7,
-  "version": "0.3.3-beta-release",
+  "tipi_version": 8,
+  "version": "0.3.4-beta-release",
   "categories": [
     "development"
   ],
