@@ -5,8 +5,8 @@
   "exposable": true,
   "id": "netdata",
   "description": "Stream any metrics from every physical and virtual server, container and IoT device, to one dashboard, in real-time.",
-  "tipi_version": 4,
-  "version": "1.43.2",
+  "tipi_version": 5,
+  "version": "1.44.0",
   "categories": [
     "utilities"
   ],
