@@ -1,0 +1,63 @@
+version: "3.9"
+
+services:
+  odoodb:
+    container_name: odoodb
+    image: postgres:15
+    user: root
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=${ODOO_POSTGRES_PASSWORD}
+      - POSTGRES_DB=postgres
+    restart: unless-stopped
+    volumes:
+        - ${APP_DATA_DIR}/data/postgresql:/var/lib/postgresql/data
+    networks:
+      - tipi_main_network
+
+  odoo:
+    container_name: odoo
+    image: odoo:17
+    user: root
+    depends_on:
+      - odoodb
+    ports:
+      - ${APP_PORT}:8069
+    tty: true
+    command: --
+    environment:
+      - HOST=odoodb
+      - USER=odoo
+      - PASSWORD=${ODOO_POSTGRES_PASSWORD}
+    volumes:
+      # - ./entrypoint.sh:/entrypoint.sh   # if you want to install additional Python packages, uncomment this line!
+      - ${APP_DATA_DIR}/data/addons:/mnt/extra-addons
+      - ${APP_DATA_DIR}/data/etc:/etc/odoo
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.odoo-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.odoo.loadbalancer.server.port: 8017
+      # Web
+      traefik.http.routers.odoo-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.odoo-insecure.entrypoints: web
+      traefik.http.routers.odoo-insecure.service: odoo
+      traefik.http.routers.odoo-insecure.middlewares: odoo-web-redirect
+      # Websecure
+      traefik.http.routers.odoo.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.odoo.entrypoints: websecure
+      traefik.http.routers.odoo.service: odoo
+      traefik.http.routers.odoo.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.odoo-local-insecure.rule: Host(`odoo.${LOCAL_DOMAIN}`)
+      traefik.http.routers.odoo-local-insecure.entrypoints: web
+      traefik.http.routers.odoo-local-insecure.service: odoo
+      traefik.http.routers.odoo-local-insecure.middlewares: odoo-web-redirect
+      # Local domain secure
+      traefik.http.routers.odoo-local.rule: Host(`odoo.${LOCAL_DOMAIN}`)
+      traefik.http.routers.odoo-local.entrypoints: websecure
+      traefik.http.routers.odoo-local.service: odoo
+      traefik.http.routers.odoo-local.tls: true
