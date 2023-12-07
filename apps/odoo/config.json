@@ -6,11 +6,7 @@
   "id": "odoo",
   "tipi_version": 1,
   "version": "17",
-  "categories": [
-    "utilities",
-    "finance",
-    "data"
-  ],
+  "categories": ["utilities", "finance"],
   "description": "Open-source business management software suite designed to streamline various aspects of business operations. With its modular structure, users can choose and integrate specific applications such as accounting, inventory, and sales. Odoo provides a user-friendly interface, scalability for businesses of all sizes, and is available in both community (free) and enterprise editions. Its integrated approach and customization options make it a popular choice for comprehensive ERP (Enterprise Resource Planning) solutions.",
   "short_desc": "Open-source business management software with modular applications for streamlined operations.",
   "author": "armandgillot",
@@ -23,8 +19,5 @@
       "env_variable": "ODOO_POSTGRES_PASSWORD"
     }
   ],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"]
 }
