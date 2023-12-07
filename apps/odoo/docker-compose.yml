@@ -31,7 +31,7 @@ services:
       - PASSWORD=odoo17@2023
     volumes:
       # - ./entrypoint.sh:/entrypoint.sh   # if you want to install additional Python packages, uncomment this line!
-      - ${APP_DATA_DIR}/addons:/mnt/extra-addons
+      - ${APP_DATA_DIR}/data/addons:/mnt/extra-addons
       - ${APP_DATA_DIR}/etc:/etc/odoo
     restart: unless-stopped
     networks:
