@@ -5,7 +5,7 @@
   "exposable": true,
   "id": "odoo",
   "tipi_version": 1,
-  "version": "17.0",
+  "version": "17",
   "categories": [
     "utilities",
     "finance",
@@ -15,6 +15,14 @@
   "short_desc": "Open-source business management software with modular applications for streamlined operations.",
   "author": "armandgillot",
   "source": "https://github.com/odoo/odoo",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "odoo postgres password.",
+      "min": 32,
+      "env_variable": "ODOO_POSTGRES_PASSWORD"
+    }
+  ],
   "supported_architectures": [
     "arm64",
     "amd64"

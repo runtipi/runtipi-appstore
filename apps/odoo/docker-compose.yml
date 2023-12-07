@@ -7,11 +7,11 @@ services:
     user: root
     environment:
       - POSTGRES_USER=odoo
-      - POSTGRES_PASSWORD=odoo17@2023      
+      - POSTGRES_PASSWORD=${ODOO_POSTGRES_PASSWORD}
       - POSTGRES_DB=postgres
     restart: unless-stopped
     volumes:
-        - ${APP_DATA_DIR}/postgresql:/var/lib/postgresql/data
+        - ${APP_DATA_DIR}/data/postgresql:/var/lib/postgresql/data
     networks:
       - tipi_main_network
 
@@ -28,11 +28,11 @@ services:
     environment:
       - HOST=odoodb
       - USER=odoo
-      - PASSWORD=odoo17@2023
+      - PASSWORD=${ODOO_POSTGRES_PASSWORD}
     volumes:
       # - ./entrypoint.sh:/entrypoint.sh   # if you want to install additional Python packages, uncomment this line!
-      - ${APP_DATA_DIR}/addons:/mnt/extra-addons
-      - ${APP_DATA_DIR}/etc:/etc/odoo
+      - ${APP_DATA_DIR}/data/addons:/mnt/extra-addons
+      - ${APP_DATA_DIR}/data/etc:/etc/odoo
     restart: unless-stopped
     networks:
       - tipi_main_network
