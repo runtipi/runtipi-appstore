@@ -1,14 +1,14 @@
-version: "3.9"
+version: '3.9'
 services:
   octobot:
     container_name: octobot
-    image: drakkarsoftware/octobot:stable
+    image: drakkarsoftware/octobot:1.0.3
     environment:
       - TZ=${TZ}
     volumes:
-      - ${APP_DATA_DIR}/octobot/user:/octobot/user
-      - ${APP_DATA_DIR}/octobot/tentacles:/octobot/tentacles
-      - ${APP_DATA_DIR}/octobot/logs:/octobot/logs
+      - ${APP_DATA_DIR}/data/user:/octobot/user
+      - ${APP_DATA_DIR}/data/tentacles:/octobot/tentacles
+      - ${APP_DATA_DIR}/data/logs:/octobot/logs
     ports:
       - ${APP_PORT}:5001
     restart: unless-stopped
@@ -41,4 +41,3 @@ services:
       traefik.http.routers.octobot-local.entrypoints: websecure
       traefik.http.routers.octobot-local.service: octobot
       traefik.http.routers.octobot-local.tls: true
-
