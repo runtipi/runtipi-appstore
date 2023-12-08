@@ -10,7 +10,7 @@ services:
       - DB_HOST=shlink-db
       - DB_NAME=shlink
       - DB_USER=shlink
-      - DB_PASSWORD=shlink
+      - DB_PASSWORD=${SHLINK_POSTGRES_PASSWORD}
     ports:
       - ${APP_PORT}:8080
     restart: unless-stopped
@@ -53,6 +53,6 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_PASSWORD=shlink
+      - POSTGRES_PASSWORD=${SHLINK_POSTGRES_PASSWORD}
       - POSTGRES_USER=shlink
       - POSTGRES_DB=shlink

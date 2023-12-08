@@ -16,7 +16,14 @@
   "author": "https://shlink.io/",
   "source": "https://github.com/shlinkio/shlink",
   "website": "https://shlink.io/",
-  "form_fields": [],
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Database password",
+      "min": 32,
+      "env_variable": "SHLINK_POSTGRES_PASSWORD"
+    }
+  ],
   "supported_architectures": [
     "arm64",
     "amd64"
