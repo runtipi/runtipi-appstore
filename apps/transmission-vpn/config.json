@@ -10,8 +10,8 @@
     ]
   },
   "id": "transmission-vpn",
-  "tipi_version": 4,
-  "version": "5.2.0",
+  "tipi_version": 5,
+  "version": "5.3.0",
   "categories": [
     "utilities",
     "security"
@@ -339,5 +339,8 @@
       "env_variable": "TRANSMISSION_BLOCKLIST_URL"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
