@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   forgejo:
-    image: codeberg.org/forgejo/forgejo:1.21.1-0
+    image: codeberg.org/forgejo/forgejo:1.21.2-0
     container_name: forgejo
     environment:
       - USER_UID=1000
