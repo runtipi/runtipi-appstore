@@ -16,8 +16,8 @@ services:
       - DB_POSTGRESDB_HOST=db-n8n
       - DB_POSTGRESDB_PORT=5432
       - DB_POSTGRESDB_USER=tipi
-      - DB_POSTGRESDB_PASSWORD=tipi
-      - N8N_EDITOR_BASE_URL=${APP_DOMAIN}
+      - DB_POSTGRESDB_PASSWORD=${DB_PASSWORD}
+      - N8N_EDITOR_BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
     depends_on:
       - db-n8n
     networks:
