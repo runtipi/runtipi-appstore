@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "stirling-pdf",
-  "tipi_version": 8,
-  "version": "0.15.1",
+  "tipi_version": 9,
+  "version": "0.16.0",
   "categories": [
     "data",
     "utilities"
@@ -16,5 +16,8 @@
   "author": "Frooodle",
   "source": "https://github.com/Frooodle/Stirling-PDF/",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
