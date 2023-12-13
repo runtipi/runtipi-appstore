@@ -5,13 +5,14 @@ services:
     image: pepperlabs/peppermint:latest
     container_name: peppermint
     environment:
-      - PORT=3000
       - DB_USERNAME=tipi
       - DB_PASSWORD=${PEPPERMINT_DB_PASSWORD}
       - DB_HOST=peppermint-db
+      - API_URL={APP_PROTOCOL:-http}://${PEPPERMINT_DOMAIN_API}
     restart: unless-stopped
     ports:
-      - ${APP_PORT}:5000
+      - ${APP_PORT}:3000
+      - ${APP_PORT}:5003
     depends_on:
       - peppermint-db
     networks:
@@ -41,6 +42,29 @@ services:
       traefik.http.routers.peppermint-local.entrypoints: websecure
       traefik.http.routers.peppermint-local.service: peppermint
       traefik.http.routers.peppermint-local.tls: true
+      #API URL
+      traefik.http.middlewares.peppermint-api-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.peppermint-api.loadbalancer.server.port: 5003
+      # Web
+      traefik.http.routers.peppermint-api-insecure.rule: Host(`${PEPPERMINT_DOMAIN_API}`)
+      traefik.http.routers.peppermint-api-insecure.entrypoints: web
+      traefik.http.routers.peppermint-api-insecure.service: peppermint
+      traefik.http.routers.ppeppermint-api-insecure.middlewares: peppermint-api-web-redirect
+      # Websecure
+      traefik.http.routers.peppermint-api.rule: Host(`${PEPPERMINT_DOMAIN_API}`)
+      traefik.http.routers.peppermint-api.entrypoints: websecure
+      traefik.http.routers.peppermint-api.service: peppermint
+      traefik.http.routers.peppermint-api.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.peppermint-api-local-insecure.rule: Host(`peppermintapi.${LOCAL_DOMAIN}`)
+      traefik.http.routers.peppermint-api-local-insecure.entrypoints: web
+      traefik.http.routers.peppermint-api-local-insecure.service: peppermint
+      traefik.http.routers.peppermint-api-local-insecure.middlewares: peppermint-api-web-redirect
+      # Local domain secure
+      traefik.http.routers.peppermint-api-local.rule: Host(`peppermintapi.${LOCAL_DOMAIN}`)
+      traefik.http.routers.peppermint-api-local.entrypoints: websecure
+      traefik.http.routers.peppermint-api-local.service: peppermint
+      traefik.http.routers.peppermint-api-local.tls: true
 
   peppermint-db:
     container_name: peppermint-db
