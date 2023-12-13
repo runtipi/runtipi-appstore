@@ -1,7 +1,7 @@
 {
   "$schema": "../schema.json",
   "name": "Peppermint",
-  "port": 8176,
+  "port": 8216,
   "available": true,
   "exposable": true,
   "id": "peppermint",
@@ -20,6 +20,13 @@
       "label": "Peppermint DB Password",
       "min": 32,
       "env_variable": "PEPPERMINT_DB_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "API URL",
+      "required": true,
+      "hint": "Can be an exposable domiain like peppermintapi.example.com or peppermintapi.tipi.local",
+      "env_variable": "PEPPERMINT_DOMAIN_API"
     }
   ],
   "supported_architectures": ["amd64", "arm64"]
