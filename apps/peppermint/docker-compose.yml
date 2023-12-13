@@ -5,11 +5,10 @@ services:
     image: pepperlabs/peppermint:latest
     container_name: peppermint
     environment:
-      - PORT=5000
+      - PORT=3000
       - DB_USERNAME=tipi
       - DB_PASSWORD=${PEPPERMINT_DB_PASSWORD}
       - DB_HOST=peppermint-db
-      - BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
     restart: unless-stopped
     ports:
       - ${APP_PORT}:5000
@@ -21,7 +20,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.peppermint-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.peppermint.loadbalancer.server.port: 5000
+      traefik.http.services.peppermint.loadbalancer.server.port: 3000
       # Web
       traefik.http.routers.peppermint-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.peppermint-insecure.entrypoints: web
