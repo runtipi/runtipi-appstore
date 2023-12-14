@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  lobe-chat:
+    container_name: lobe-chat
+    image: lobehub/lobe-chat:v0.116.4
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_PROXY_URL=${OPEANAI_PROXY_URL}
+      - CUSTOM_MODELS=${CUSTOM_MODELS}
+      - ACCESS_CODE=${ACCESS_CODE}
+    ports:
+      - ${APP_PORT}:3210
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
