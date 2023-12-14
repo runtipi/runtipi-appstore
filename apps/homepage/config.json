@@ -1,0 +1,22 @@
+{
+    "$schema": "../schema.json",
+    "name": "Homepage",
+    "available": true,
+    "port": 8756,
+    "tipi_version": 1,
+    "version": "v0.8.3",
+    "id": "homepage",
+    "categories": [
+        "utilities"
+    ],
+    "description": "A modern, fully static, fast, secure fully proxied, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages.",
+    "short_desc": "A highly customizable homepage",
+    "author": "gethomepage",
+    "source": "https://github.com/gethomepage/homepage",
+    "form_fields": [],
+    "supported_architectures": [
+        "arm64", 
+        "amd64"
+    ]
+  }
+  
