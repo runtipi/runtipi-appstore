@@ -2,6 +2,7 @@
     "$schema": "../schema.json",
     "name": "Homepage",
     "available": true,
+    "exposable": true,
     "port": 8756,
     "tipi_version": 1,
     "version": "v0.8.3",
