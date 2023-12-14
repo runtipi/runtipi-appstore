@@ -7,7 +7,7 @@ services:
     ports:
       - ${APP_PORT}:3000
     volumes:
-      - ${APP_DATA_DIR}:/app/config
+      - ${APP_DATA_DIR}/data/:/app/config
     networks:
       - tipi_main_network
     labels:
