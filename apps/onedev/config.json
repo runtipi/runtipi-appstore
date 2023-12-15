@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "onedev",
-  "tipi_version": 61,
-  "version": "9.3.2",
+  "tipi_version": 62,
+  "version": "9.4.0",
   "categories": [
     "development"
   ],
