@@ -2,7 +2,7 @@ version: "3"
 
 services:
  pairdrop:
-    image: lscr.io/linuxserver/pairdrop:1.10.0
+    image: lscr.io/linuxserver/pairdrop:1.10.2
     container_name: pairdrop
     environment:
       - PUID=1000
