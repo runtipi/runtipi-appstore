@@ -5,13 +5,19 @@
   "exposable": true,
   "port": 6556,
   "id": "baikal",
-  "tipi_version": 1,
-  "version": "0.9.3-nginx",
-  "categories": ["data", "utilities"],
+  "tipi_version": 2,
+  "version": "0.9.4-nginx",
+  "categories": [
+    "data",
+    "utilities"
+  ],
   "description": "",
   "short_desc": "Baïkal is a Calendar+Contacts server",
   "author": "ckulka",
   "source": "https://github.com/ckulka/baikal-docker",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
