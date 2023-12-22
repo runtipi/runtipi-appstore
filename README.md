@@ -136,6 +136,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Proxitok](https://github.com/pablouser1/ProxiTok) - Open source alternative frontend for TikTok made using PHP
 - [qBittorrent](https://github.com/qbittorrent/qBittorrent) - BitTorrent client
 - [Radarr](https://github.com/Radarr/Radarr) - Movie collection manager for Usenet and BitTorrent users
+- [Rallly](https://github.com/lukevella/rallly) - Rallly is an open-source scheduling and collaboration tool designed to make organizing events and meetings easier
 - [Readarr](https://github.com/Readarr/Readarr) - Book Manager and Automation (Sonarr for Ebooks)
 - [Resilio Sync](https://github.com/bt-sync) - Fast, reliable, and simple file sync and share solution
 - [RSS](https://github.com/ssddanbrown/rss) - A simple, opinionated, RSS feed aggregator
