@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 32400,
   "id": "plex",
-  "tipi_version": 22,
-  "version": "1.32.7",
+  "tipi_version": 23,
+  "version": "1.32.8",
   "url_suffix": "/web",
   "categories": [
     "media"

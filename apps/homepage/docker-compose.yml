@@ -1,0 +1,38 @@
+version: "3.9"
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:v0.8.4
+    container_name: homepage
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:3000
+    volumes:
+      - ${APP_DATA_DIR}/data/:/app/config
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.homepage-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.homepage.loadbalancer.server.port: 3000
+      # Web
+      traefik.http.routers.homepage-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.homepage-insecure.entrypoints: web
+      traefik.http.routers.homepage-insecure.service: homepage
+      traefik.http.routers.homepage-insecure.middlewares: homepage-web-redirect
+      # Websecure
+      traefik.http.routers.homepage.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.homepage.entrypoints: websecure
+      traefik.http.routers.homepage.service: homepage
+      traefik.http.routers.homepage.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.homepage-local-insecure.rule: Host(`homepage.${LOCAL_DOMAIN}`)
+      traefik.http.routers.homepage-local-insecure.entrypoints: web
+      traefik.http.routers.homepage-local-insecure.service: homepage
+      traefik.http.routers.homepage-local-insecure.middlewares: homepage-web-redirect
+      # Local domain secure
+      traefik.http.routers.homepage-local.rule: Host(`homepage.${LOCAL_DOMAIN}`)
+      traefik.http.routers.homepage-local.entrypoints: websecure
+      traefik.http.routers.homepage-local.service: homepage
+      traefik.http.routers.homepage-local.tls: true
+    

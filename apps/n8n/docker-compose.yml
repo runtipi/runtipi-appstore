@@ -1,4 +1,4 @@
-version: "3.7"
+version: '3.7'
 
 services:
   n8n:
@@ -11,15 +11,7 @@ services:
       - ${APP_DATA_DIR}/data/n8n:/home/node/.n8n
     command: /bin/sh -c "sleep 5; n8n start"
     environment:
-      - DB-TYPE=postgresdb
-      - DB_POSTGRESDB_DATABASE=n8n
-      - DB_POSTGRESDB_HOST=db-n8n
-      - DB_POSTGRESDB_PORT=5432
-      - DB_POSTGRESDB_USER=tipi
-      - DB_POSTGRESDB_PASSWORD=tipi
-      - N8N_EDITOR_BASE_URL=${APP_DOMAIN}
-    depends_on:
-      - db-n8n
+      - N8N_EDITOR_BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
     networks:
       - tipi_main_network
     labels:
@@ -47,16 +39,3 @@ services:
       traefik.http.routers.n8n-local.entrypoints: websecure
       traefik.http.routers.n8n-local.service: n8n
       traefik.http.routers.n8n-local.tls: true
-
-  db-n8n:
-    container_name: db-n8n
-    image: postgres:14.2
-    restart: on-failure
-    volumes:
-      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
-      - POSTGRES_USER=tipi
-      - POSTGRES_DB=n8n
-    networks:
-      - tipi_main_network

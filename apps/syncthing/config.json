@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8090,
   "id": "syncthing",
-  "tipi_version": 9,
-  "version": "1.26",
+  "tipi_version": 10,
+  "version": "1.27",
   "categories": [
     "data",
     "utilities"

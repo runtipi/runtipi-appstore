@@ -1,7 +1,7 @@
 services:
   cross-seed:
     container_name: cross-seed
-    image: ghcr.io/cross-seed/cross-seed:5.8.3
+    image: ghcr.io/cross-seed/cross-seed:5.8.5
     user: 1000:1000
     restart: unless-stopped
     command: daemon

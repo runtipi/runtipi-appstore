@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "kavita",
-  "tipi_version": 8,
-  "version": "0.7.10",
+  "tipi_version": 9,
+  "version": "0.7.11",
   "categories": [
     "media"
   ],
@@ -15,5 +15,8 @@
   "author": "Kareadita",
   "source": "https://github.com/Kareadita/Kavita",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }

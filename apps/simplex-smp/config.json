@@ -6,8 +6,8 @@
   "exposable": true,
   "no_gui": true,
   "id": "simplex-smp",
-  "tipi_version": 8,
-  "version": "5.3.0",
+  "tipi_version": 9,
+  "version": "5.4.0",
   "categories": [
     "social"
   ],
@@ -25,5 +25,7 @@
       "env_variable": "SIMPLEX_SMP_PASSWORD"
     }
   ],
-  "supported_architectures": ["amd64"]
+  "supported_architectures": [
+    "amd64"
+  ]
 }

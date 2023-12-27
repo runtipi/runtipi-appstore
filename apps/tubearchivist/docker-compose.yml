@@ -4,7 +4,7 @@ services:
   tubearchivist:
     container_name: tubearchivist
     restart: unless-stopped
-    image: bbilly1/tubearchivist:v0.4.4
+    image: bbilly1/tubearchivist:v0.4.5
     ports:
       - ${APP_PORT}:8000
     dns:
@@ -62,7 +62,7 @@ services:
       - tubearchivist-es
 
   tubearchivist-es:
-    image: elasticsearch:8.11.1
+    image: elasticsearch:8.11.3
     container_name: tubearchivist-es
     restart: always
     environment:

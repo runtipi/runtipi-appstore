@@ -1,0 +1,41 @@
+version: "3.8"
+services:
+  dockge:
+    image: louislam/dockge:1.3.5
+    container_name: dockge
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:5001
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${APP_DATA_DIR}/data/app-data:/app/data
+      - ${APP_DATA_DIR}/data/stacks:${APP_DATA_DIR}/data/stacks
+    environment:
+      - DOCKGE_STACKS_DIR=${APP_DATA_DIR}/data/stacks
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.dockge-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.dockge.loadbalancer.server.port: 5001
+      # Web
+      traefik.http.routers.dockge-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.dockge-insecure.entrypoints: web
+      traefik.http.routers.dockge-insecure.service: dockge
+      traefik.http.routers.dockge-insecure.middlewares: dockge-web-redirect
+      # Websecure
+      traefik.http.routers.dockge.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.dockge.entrypoints: websecure
+      traefik.http.routers.dockge.service: dockge
+      traefik.http.routers.dockge.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.dockge-local-insecure.rule: Host(`dockge.${LOCAL_DOMAIN}`)
+      traefik.http.routers.dockge-local-insecure.entrypoints: web
+      traefik.http.routers.dockge-local-insecure.service: dockge
+      traefik.http.routers.dockge-local-insecure.middlewares: dockge-web-redirect
+      # Local domain secure
+      traefik.http.routers.dockge-local.rule: Host(`dockge.${LOCAL_DOMAIN}`)
+      traefik.http.routers.dockge-local.entrypoints: websecure
+      traefik.http.routers.dockge-local.service: dockge
+      traefik.http.routers.dockge-local.tls: true

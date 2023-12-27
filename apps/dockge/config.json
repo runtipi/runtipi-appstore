@@ -1,0 +1,22 @@
+{
+  "$schema": "../schema.json",
+  "name": "Dockge",
+  "port": 8768,
+  "available": true,
+  "exposable": true,
+  "id": "dockge",
+  "tipi_version": 7,
+  "version": "1.3.5",
+  "categories": [
+    "utilities"
+  ],
+  "description": "A fancy, easy-to-use and reactive self-hosted docker compose.yaml stack-oriented manager.",
+  "short_desc": "Docker compose.yaml stack-oriented manager.",
+  "author": "Louis Lam",
+  "source": "https://github.com/louislam/dockge",
+  "form_fields": [],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}

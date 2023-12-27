@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   plex:
-    image: lscr.io/linuxserver/plex:1.32.7
+    image: lscr.io/linuxserver/plex:1.32.8
     container_name: plex
     network_mode: host
     environment:
