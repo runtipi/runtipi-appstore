@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8567,
   "id": "notemark",
-  "tipi_version": 3,
-  "version": "0.8.0",
+  "tipi_version": 4,
+  "version": "0.9.0",
   "categories": [
     "utilities"
   ],
@@ -22,5 +22,8 @@
       "env_variable": "NOTEMARK_SERVICE_SECRET"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
