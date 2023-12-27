@@ -1,5 +1,24 @@
 version: "3.7"
 services:
+  notemark:
+    image: ghcr.io/enchant97/note-mark-frontend:0.9.0
+    container_name: notemark
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+
+  notemark-backend:
+    image: ghcr.io/enchant97/note-mark-backend:0.9.0
+    container_name: notemark-backend
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    environment:
+      JWT_SECRET: "${NOTEMARK_SERVICE_SECRET}"
+      CORS_ORIGINS: "*"
+      
   notemark-proxy:
     container_name: notemark-proxy
     image: nginx:alpine
@@ -35,24 +54,5 @@ services:
       traefik.http.routers.notemark-local.entrypoints: websecure
       traefik.http.routers.notemark-local.service: notemark
       traefik.http.routers.notemark-local.tls: true
-
-  notemark-backend:
-    image: ghcr.io/enchant97/note-mark-backend:0.9.0
-    container_name: notemark-backend
-    restart: unless-stopped
-    networks:
-      - tipi_main_network
-    volumes:
-      - ${APP_DATA_DIR}/data:/data
-    environment:
-      JWT_SECRET: "${NOTEMARK_SERVICE_SECRET}"
-      CORS_ORIGINS: "*"
-
-  notemark:
-    image: ghcr.io/enchant97/note-mark-frontend:0.8.0
-    container_name: notemark
-    restart: unless-stopped
-    networks:
-      - tipi_main_network
 
     
