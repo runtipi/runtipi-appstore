@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8083,
   "id": "nextcloud",
-  "tipi_version": 19,
-  "version": "26.0.8-apache",
+  "tipi_version": 20,
+  "version": "26.0.10-apache",
   "categories": [
     "data"
   ],
@@ -32,5 +32,8 @@
       "env_variable": "NEXTCLOUD_ADMIN_PASSWORD"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
