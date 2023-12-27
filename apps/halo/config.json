@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8092,
   "id": "halo",
-  "tipi_version": 12,
-  "version": "2.10.2",
+  "tipi_version": 15,
+  "version": "2.11.2",
   "description": "Halo is a powerful and easy-to-use open source website building tool.",
   "short_desc": "Halo - Open source website building tool.",
   "categories": [

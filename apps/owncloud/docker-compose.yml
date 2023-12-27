@@ -2,7 +2,7 @@ version: "3"
 
 services:
   owncloud:
-    image: owncloud/server:10.13.3
+    image: owncloud/server:10.13.4
     container_name: owncloud
     restart: unless-stopped
     ports:

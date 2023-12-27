@@ -5,9 +5,11 @@
   "exposable": true,
   "id": "wordpress",
   "description": "WordPress is a popular content management system for creating websites and blogs.",
-  "tipi_version": 1,
-  "version": "6.4.1",
-  "categories": ["social"],
+  "tipi_version": 2,
+  "version": "6.4.2",
+  "categories": [
+    "social"
+  ],
   "short_desc": "Popular CMS for websites and blogs",
   "author": "WordPress.org",
   "source": "https://github.com/WordPress/WordPress",
