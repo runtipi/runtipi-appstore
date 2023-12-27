@@ -6,10 +6,8 @@
   "port": 8567,
   "id": "notemark",
   "tipi_version": 6,
-  "version": "0.9.0",
-  "categories": [
-    "utilities"
-  ],
+  "version": "0.10.0",
+  "categories": ["utilities"],
   "description": "Note Mark is a lighting fast and minimal web-based Markdown notes app.",
   "short_desc": "Lighting fast web-based Markdown notes app.",
   "author": "enchant97",
@@ -22,8 +20,5 @@
       "env_variable": "NOTEMARK_SERVICE_SECRET"
     }
   ],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"]
 }
