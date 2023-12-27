@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8086,
   "id": "freshrss",
-  "tipi_version": 7,
-  "version": "1.22.1",
+  "tipi_version": 8,
+  "version": "1.23.0",
   "categories": [
     "utilities"
   ],
