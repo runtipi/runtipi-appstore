@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "romm",
-  "tipi_version": 9,
-  "version": "1.9.1",
+  "tipi_version": 10,
+  "version": "2.1.0",
   "categories": [
     "gaming"
   ],
@@ -43,5 +43,8 @@
       "env_variable": "ROMM_STEAMGRIDDB_API_KEY"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
