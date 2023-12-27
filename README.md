@@ -99,7 +99,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Mixpost Pro](https://mixpost.app/pricing) - Self-hosted social media management. Schedule and organize your social content.
 - [MongoDB](https://github.com/mongodb/mongo)- MongoDB is an open-source NoSQL database
 - [Mongo Express](https://github.com/mongo-express/mongo-express) - A web-based MongoDB admin interface written with Node.js, Express, and Bootstrap3
-- [Movary](https://github.com/leepeuker/movary ) - Track and rate your watched movies
+- [Movary](https://github.com/leepeuker/movary) - Track and rate your watched movies
 - [mStream](https://github.com/IrosTheBeggar/mStream) - The easiest music streaming server available
 - [Mylar3](https://github.com/mylar3/mylar3) - Mylar3 is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python.
 - [n8n](https://github.com/n8n-io/n8n) - Workflow Automation Tool
@@ -121,6 +121,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Owncloud](https://github.com/owncloud/core) - A personal cloud which runs on your own server.
 - [PairDrop](https://github.com/schlagmichdoch/PairDrop) - Local file sharing in your browser. Inspired by Apple's AirDrop.
 - [Paperless-ngx](https://github.com/paperless-ngx/paperless-ngx) - Document Management System (DMS)
+- [Penpot](https://github.com/penpot/penpot) - The Open-Source design & prototyping platform.
 - [Peppermint](https://github.com/Peppermint-Lab/peppermint) - An open source ticket management & help desk solution.
 - [Photoprism](https://github.com/photoprism/photoprism) - AI-Powered Photos App for the Decentralized Web. We are on a mission to protect your freedom and privacy.
 - [Pihole](https://github.com/pi-hole/pi-hole) - A black hole for Internet advertisements
@@ -141,7 +142,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Sabnzbd](https://github.com/sabnzbd/sabnzbd) - Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can"
 - [SearXNG](https://github.com/searxng/searxng) - SearXNG is a free internet metasearch engine which aggregates results from various search services and databases. Users are neither tracked nor profiled
 - [Send](https://gitlab.com/timvisee/send) - Simple, private file sharing
-- [Serge](https://github.com/serge-chat/serge) -  A web interface for chatting with Alpaca through llama.cpp.
+- [Serge](https://github.com/serge-chat/serge) - A web interface for chatting with Alpaca through llama.cpp.
 - [Shlink](https://shlink.io/) - API first URL shortener
 - [SimpleX SMP](https://github.com/simplex-chat/simplexmq) - A reference implementation of the SimpleX Messaging Protocol for simplex queues over public networks.
 - [Sonarr](https://github.com/Sonarr/Sonarr) - TV show manager for Usenet and BitTorrent
