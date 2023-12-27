@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 6767,
   "id": "bazarr",
-  "tipi_version": 11,
-  "version": "1.3.1",
+  "tipi_version": 12,
+  "version": "1.4.0",
   "categories": [
     "media",
     "utilities"
@@ -16,5 +16,8 @@
   "author": "morpheus65535",
   "source": "https://github.com/morpheus65535/bazarr",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }

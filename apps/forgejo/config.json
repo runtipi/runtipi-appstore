@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "forgejo",
-  "tipi_version": 8,
-  "version": "1.20.5-0",
+  "tipi_version": 10,
+  "version": "1.21.2-0",
   "categories": [
     "development"
   ],
@@ -22,5 +22,8 @@
       "env_variable": "FORGEJO_DB_PASSWORD"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }

@@ -2,11 +2,8 @@ version: "3"
 
 services:
   movary:
-    image: leepeuker/movary:0.59.0
+    image: leepeuker/movary:0.60.0
     container_name: movary
-    user: ${TIPI_UID}:${TIPI_GID} 
-    group_add: 
-    - ${TIPI_GID}
     environment:
       - TMDB_API_KEY=${MOVARY_TMDB_API_KEY}
       - TIMEZONE=${TZ}
@@ -54,14 +51,11 @@ services:
       traefik.http.routers.movary-local.entrypoints: websecure
       traefik.http.routers.movary-local.service: movary
       traefik.http.routers.movary-local.tls: true
-  
+
   movary-migration:
-    image: leepeuker/movary:0.59.0
+    image: leepeuker/movary:0.60.0
     container_name: movary-migration
     command: php bin/console.php database:migration:migrate
-    user: ${TIPI_UID}:${TIPI_GID} 
-    group_add: 
-    - ${TIPI_GID}
     environment:
       - TMDB_API_KEY=${MOVARY_TMDB_API_KEY}
       - TIMEZONE=${TZ}
@@ -76,7 +70,7 @@ services:
       - JELLYFIN_DEVICE_ID=${MOVARY_JELLYFIN_IDENTIFIER}
     volumes:
       - ${APP_DATA_DIR}/data/movary:/app/storage
-    depends_on: 
+    depends_on:
       movary-db:
         condition: service_healthy
     networks:
@@ -85,9 +79,6 @@ services:
   movary-db:
     image: mysql:8.0
     container_name: movary-db
-    user: ${TIPI_UID}:${TIPI_GID} 
-    group_add: 
-    - ${TIPI_GID}
     environment:
       MYSQL_DATABASE: "movary"
       MYSQL_USER: "tipi"

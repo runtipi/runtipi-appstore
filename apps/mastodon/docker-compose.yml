@@ -3,7 +3,7 @@ version: "3"
 services:
   mastodon:
     container_name: mastodon
-    image: lscr.io/linuxserver/mastodon:4.2.1
+    image: lscr.io/linuxserver/mastodon:4.2.3
     ports:
       - 8209:80
       - ${APP_PORT}:443

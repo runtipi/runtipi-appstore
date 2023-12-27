@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "tandoor",
-  "tipi_version": 3,
-  "version": "1.5.6",
+  "tipi_version": 6,
+  "version": "1.5.10",
   "categories": [
     "data"
   ],
@@ -29,5 +29,8 @@
       "env_variable": "TANDOOR_POSTGRESS_PASSWORD"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }

@@ -6,7 +6,7 @@
   "no_gui": true,
   "port": 16662,
   "id": "lodestone-core",
-  "tipi_version": 5,
+  "tipi_version": 6,
   "version": "0.4.4",
   "categories": ["gaming"],
   "description": "A free, open source server hosting tool for Minecraft and other multiplayers",

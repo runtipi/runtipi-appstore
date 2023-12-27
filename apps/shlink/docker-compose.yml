@@ -1,0 +1,58 @@
+version: "3.9"
+services:
+  shlink:
+    container_name: shlink
+    image: ghcr.io/shlinkio/shlink:3.7.1
+    environment:
+      - DEFAULT_DOMAIN=${APP_DOMAIN}
+      - IS_HTTPS_ENABLED=true
+      - DB_DRIVER=postgres
+      - DB_HOST=shlink-db
+      - DB_NAME=shlink
+      - DB_USER=shlink
+      - DB_PASSWORD=${SHLINK_POSTGRES_PASSWORD}
+    ports:
+      - ${APP_PORT}:8080
+    restart: unless-stopped
+    depends_on:
+      - shlink-db
+    volumes: []
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.shlink-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.shlink.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.shlink-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.shlink-insecure.entrypoints: web
+      traefik.http.routers.shlink-insecure.service: shlink
+      traefik.http.routers.shlink-insecure.middlewares: shlink-web-redirect
+      # Websecure
+      traefik.http.routers.shlink.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.shlink.entrypoints: websecure
+      traefik.http.routers.shlink.service: shlink
+      traefik.http.routers.shlink.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.shlink-local-insecure.rule: Host(`shlink.${LOCAL_DOMAIN}`)
+      traefik.http.routers.shlink-local-insecure.entrypoints: web
+      traefik.http.routers.shlink-local-insecure.service: shlink
+      traefik.http.routers.shlink-local-insecure.middlewares: shlink-web-redirect
+      # Local domain secure
+      traefik.http.routers.shlink-local.rule: Host(`shlink.${LOCAL_DOMAIN}`)
+      traefik.http.routers.shlink-local.entrypoints: websecure
+      traefik.http.routers.shlink-local.service: shlink
+      traefik.http.routers.shlink-local.tls: true
+  shlink-db:
+    container_name: shlink-db
+    image: docker.io/library/postgres:16.1-alpine
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${SHLINK_POSTGRES_PASSWORD}
+      - POSTGRES_USER=shlink
+      - POSTGRES_DB=shlink

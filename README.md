@@ -28,6 +28,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Dashy](https://github.com/lissy93/dashy) - A self-hostable personal dashboard built for you.
 - [Databag](https://github.com/balzack/databag) - A tiny federated messenger web with clients for iOS, Android, and browser.
 - [Deluge](https://github.com/linuxserver/docker-deluge) - Deluge is a lightweight, Free Software, cross-platform BitTorrent client
+- [Dockge](https://github.com/louislam/dockge) - A fancy, easy-to-use and reactive self-hosted docker compose.yaml stack-oriented manager.
 - [Deemix](https://gitlab.com/Bockiii/deemix-docker) - deemix is a barebone deezer downloader library built from the ashes of Deezloader Remix.
 - [DokuWiki](https://github.com/dokuwiki/dokuwiki) - DokuWiki is a simple to use and highly versatile Open Source wiki software
 - [Dozzle](https://github.com/amir20/dozzle) - Dozzle is a small web based app to monitor Docker logs
@@ -61,6 +62,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Home Assistant](https://github.com/home-assistant/core) - Open source home automation that puts local control and privacy first
 - [HomeBox](https://github.com/hay-kot/homebox) - Homebox is the inventory and organization system built for the Home User
 - [Halo](https://github.com/halo-dev/halo) - Halo is a powerful and easy-to-use open source website building tool.
+- [Homepage](https://github.com/gethomepage/homepage) - A modern, fully static, fast, secure fully proxied, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages.
 - [Immich](https://github.com/immich-app/immich) - Photo and video backup solution directly from your mobile phone
 - [IT-Tools](https://github.com/CorentinTh/it-tools) - Collection of handy online tools for developers, with great UX.
 - [Invidious](https://github.com/iv-org/invidious) - An alternative front-end to YouTube
@@ -97,7 +99,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Mixpost Pro](https://mixpost.app/pricing) - Self-hosted social media management. Schedule and organize your social content.
 - [MongoDB](https://github.com/mongodb/mongo)- MongoDB is an open-source NoSQL database
 - [Mongo Express](https://github.com/mongo-express/mongo-express) - A web-based MongoDB admin interface written with Node.js, Express, and Bootstrap3
-- [Movary](https://github.com/leepeuker/movary ) - Track and rate your watched movies
+- [Movary](https://github.com/leepeuker/movary) - Track and rate your watched movies
 - [mStream](https://github.com/IrosTheBeggar/mStream) - The easiest music streaming server available
 - [Mylar3](https://github.com/mylar3/mylar3) - Mylar3 is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python.
 - [n8n](https://github.com/n8n-io/n8n) - Workflow Automation Tool
@@ -105,6 +107,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Netboot.xyz](https://github.com/netbootxyz/netboot.xyz) - Your favorite operating systems in one place!
 - [Netdata](https://github.com/netdata/netdata) - Open-source, real-time, performance and health monitoring.
 - [Nextcloud](https://github.com/nextcloud/server) - A safe home for all your data
+- [Nginx](https://github.com/nginx/nginx) - A simple web server to test your tipi install
 - [Nitter](https://github.com/zedeus/nitter) - Alternative Twitter front-end
 - [NocoDB](https://github.com/nocodb/nocodb) - Open Source Airtable Alternative
 - [Node-RED](https://github.com/node-red/node-red) - Low-code programming for event-driven applications
@@ -118,6 +121,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Owncloud](https://github.com/owncloud/core) - A personal cloud which runs on your own server.
 - [PairDrop](https://github.com/schlagmichdoch/PairDrop) - Local file sharing in your browser. Inspired by Apple's AirDrop.
 - [Paperless-ngx](https://github.com/paperless-ngx/paperless-ngx) - Document Management System (DMS)
+- [Penpot](https://github.com/penpot/penpot) - The Open-Source design & prototyping platform.
 - [Peppermint](https://github.com/Peppermint-Lab/peppermint) - An open source ticket management & help desk solution.
 - [Photoprism](https://github.com/photoprism/photoprism) - AI-Powered Photos App for the Decentralized Web. We are on a mission to protect your freedom and privacy.
 - [Pihole](https://github.com/pi-hole/pi-hole) - A black hole for Internet advertisements
@@ -138,7 +142,8 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Sabnzbd](https://github.com/sabnzbd/sabnzbd) - Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can"
 - [SearXNG](https://github.com/searxng/searxng) - SearXNG is a free internet metasearch engine which aggregates results from various search services and databases. Users are neither tracked nor profiled
 - [Send](https://gitlab.com/timvisee/send) - Simple, private file sharing
-- [Serge](https://github.com/serge-chat/serge) -  A web interface for chatting with Alpaca through llama.cpp.
+- [Serge](https://github.com/serge-chat/serge) - A web interface for chatting with Alpaca through llama.cpp.
+- [Shlink](https://shlink.io/) - API first URL shortener
 - [SimpleX SMP](https://github.com/simplex-chat/simplexmq) - A reference implementation of the SimpleX Messaging Protocol for simplex queues over public networks.
 - [Sonarr](https://github.com/Sonarr/Sonarr) - TV show manager for Usenet and BitTorrent
 - [Speedtest Tracker](https://github.com/alexjustesen/speedtest-tracker) - Internet performance tracking application.
@@ -162,6 +167,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Wireguard Easy](https://github.com/WeeJeWel/wg-easy) - WireGuard VPN + Web-based Admin UI
 - [WikiJS](https://github.com/requarks/wiki) - A modern and powerful wiki app built on Node.js
 - [Wizarr](https://github.com/Wizarrrr/wizarr) - Wizarr is an advanced user invitation and management system for Jellyfin, Plex, Emby etc.
+- [WordPress](https://github.com/WordPress/WordPress) - WordPress is a popular content management system for creating websites and blogs.
 - [Your Spotify](https://github.com/Yooooomi/your_spotify) - Self hosted Spotify tracking dashboard
 - [ZeroTier](https://github.com/zerotier/ZeroTierOne) - Easy to use zero configuration VPN.
 - [Zipline](https://github.com/diced/zipline) - A ShareX/file upload server that is easy to use, packed with features, and with an easy setup!

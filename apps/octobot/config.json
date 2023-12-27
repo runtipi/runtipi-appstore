@@ -1,0 +1,22 @@
+{
+  "name": "Octobot",
+  "port": 8825,
+  "available": true,
+  "exposable": true,
+  "id": "octobot",
+  "tipi_version": 3,
+  "version": "1.0.5",
+  "categories": [
+    "automation",
+    "finance"
+  ],
+  "description": "OctoBot is a highly customizable trading bot using its configuration and tentacles system. You can build your own bot using the infinite configuration possibilities such as technical analysis, social media processing or even external statistics management like google trends.",
+  "short_desc": "Octobot is a powerful open-source cryptocurrency trading robot.",
+  "author": "https://github.com/Drakkar-Software/",
+  "source": "https://github.com/Drakkar-Software/OctoBot",
+  "form_fields": [],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}

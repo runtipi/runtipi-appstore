@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   authentik:
-    image: ghcr.io/goauthentik/server:2023.10.4
+    image: ghcr.io/goauthentik/server:2023.10.5
     restart: unless-stopped
     command: server
     container_name: authentik
@@ -50,7 +50,7 @@ services:
       traefik.http.routers.authentik-local.service: authentik
       traefik.http.routers.authentik-local.tls: true
   authentik-worker:
-    image: ghcr.io/goauthentik/server:2023.10.4
+    image: ghcr.io/goauthentik/server:2023.10.5
     restart: unless-stopped
     command: worker
     container_name: authentik-worker
@@ -81,7 +81,7 @@ services:
 
   authentik-db:
     container_name: authentik-db
-    image: docker.io/library/postgres:12-alpine
+    image: postgres:12-alpine
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
@@ -99,7 +99,7 @@ services:
       - tipi_main_network
 
   authentik-redis:
-    image: docker.io/library/redis:alpine
+    image: redis:alpine
     command: --save 60 1 --loglevel warning
     container_name: authentik-redis
     restart: unless-stopped
