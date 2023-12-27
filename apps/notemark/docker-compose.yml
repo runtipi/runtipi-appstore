@@ -8,7 +8,7 @@ services:
       - tipi_main_network
 
   notemark-backend:
-    image: ghcr.io/enchant97/note-mark-backend:0.9.0
+    image: ghcr.io/enchant97/note-mark-backend:0.10.0
     container_name: notemark-backend
     restart: unless-stopped
     networks:
