@@ -1,0 +1,19 @@
+{
+  "$schema": "../schema.json",
+  "name": "Stash",
+  "available": true,
+  "exposable": true,
+  "port": 9999,
+  "id": "Stash",
+  "tipi_version": 2,
+  "version": "latest",
+  "categories": [
+    "media"
+  ],
+  "description": "An organizer for your porn, written in Go. Documentation: https://docs.stashapp.cc",
+  "short_desc": "An organizer for your porn, written in Go.",
+  "author": "stashapp",
+  "source": "https://stashapp.cc",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}
