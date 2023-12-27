@@ -1,0 +1,100 @@
+version: "3.9"
+services:
+  penpot:
+    image: penpotapp/frontend:latest
+    container_name: penpot
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:80
+    volumes:
+      - ${APP_DATA_DIR}/data/assets:/opt/data/assets
+    depends_on:
+      - penpot-backend
+      - penpot-exporter
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.penpot-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.penpot.loadbalancer.server.port:
+        80
+        # Web
+      traefik.http.routers.penpot-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.penpot-insecure.entrypoints: web
+      traefik.http.routers.penpot-insecure.service: penpot
+      traefik.http.routers.penpot-insecure.middlewares:
+        penpot-web-redirect
+        # Websecure
+      traefik.http.routers.penpot.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.penpot.entrypoints: websecure
+      traefik.http.routers.penpot.service: penpot
+      traefik.http.routers.penpot.tls.certresolver:
+        myresolver
+        # Local domain
+      traefik.http.routers.penpot-local-insecure.rule: Host(`penpot.${LOCAL_DOMAIN}`)
+      traefik.http.routers.penpot-local-insecure.entrypoints: web
+      traefik.http.routers.penpot-local-insecure.service: penpot
+      traefik.http.routers.penpot-local-insecure.middlewares:
+        penpot-web-redirect
+        # Local domain secure
+      traefik.http.routers.penpot-local.rule: Host(`penpot.${LOCAL_DOMAIN}`)
+      traefik.http.routers.penpot-local.entrypoints: websecure
+      traefik.http.routers.penpot-local.service: penpot
+      traefik.http.routers.penpot-local.tls: true
+    environment:
+      - PENPOT_FLAGS=enable-registration enable-login-with-password
+
+  penpot-backend:
+    image: penpotapp/backend:latest
+    container_name: penpot-backend
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/assets:/opt/data/assets
+    depends_on:
+      - penpot-postgres
+      - penpot-redis
+    networks:
+      - tipi_main_network
+    environment:
+      - PENPOT_FLAGS=enable-registration enable-login-with-password disable-email-verification
+      - PENPOT_PUBLIC_URI=${APP_PROTOCOL:-http}://${APP_DOMAIN}:${APP_PORT}
+      - PENPOT_DATABASE_URI=postgresql://penpot-postgres/penpot
+      - PENPOT_DATABASE_USERNAME=tipi
+      - PENPOT_DATABASE_PASSWORD=${PENPOT_POSTGRES_PASSWORD}
+      - PENPOT_REDIS_URI=redis://penpot-redis/0
+      - PENPOT_ASSETS_STORAGE_BACKEND=assets-fs
+      - PENPOT_STORAGE_ASSETS_FS_DIRECTORY=/opt/data/assets
+      - PENPOT_TELEMETRY_ENABLED=false
+
+  penpot-exporter:
+    image: penpotapp/exporter:latest
+    container_name: penpot-exporter
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    environment:
+      - PENPOT_PUBLIC_URI=http://penpot
+      - PENPOT_REDIS_URI=redis://penpot-redis/0
+
+  penpot-postgres:
+    image: postgres:14
+    restart: unless-stopped
+    container_name: penpot-postgres
+    stop_signal: SIGINT
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    networks:
+      - tipi_main_network
+    environment:
+      - POSTGRES_INITDB_ARGS=--data-checksums
+      - POSTGRES_DB=penpot
+      - POSTGRES_USER=tipi
+      - POSTGRES_PASSWORD=${PENPOT_POSTGRES_PASSWORD}
+
+  penpot-redis:
+    image: redis:7
+    container_name: penpot-redis
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
