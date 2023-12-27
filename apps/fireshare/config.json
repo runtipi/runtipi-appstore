@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "fireshare",
-  "tipi_version": 9,
-  "version": "1.2.16",
+  "tipi_version": 10,
+  "version": "1.2.17",
   "categories": [
     "development"
   ],
