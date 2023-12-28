@@ -1,0 +1,42 @@
+services:
+  nextcloud-aio:
+    image: nextcloud/all-in-one:latest
+    container_name: nextcloud-aio
+    init: true
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:80
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/mnt/docker-aio-config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - APACHE_PORT=11000
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.nextcloud-aio-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.nextcloud-aio.loadbalancer.server.port: 11000
+      traefik.http.middlewares.nextcloud-aio.headers.hostsProxyHeaders: X-Forwarded-Host
+      traefik.http.middlewares.nextcloud-aio.headers.referrerPolicy: same-origin
+      # Web
+      traefik.http.routers.nextcloud-aio-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nextcloud-aio-insecure.entrypoints: web
+      traefik.http.routers.nextcloud-aio-insecure.service: nextcloud-aio
+      traefik.http.routers.nextcloud-aio-insecure.middlewares: nextcloud-aio-web-redirect
+      # Websecure
+      traefik.http.routers.nextcloud-aio.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nextcloud-aio.entrypoints: websecure
+      traefik.http.routers.nextcloud-aio.service: nextcloud-aio
+      traefik.http.routers.nextcloud-aio.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.nextcloud-aio-local-insecure.rule: Host(`nextcloud-aio.${LOCAL_DOMAIN}`)
+      traefik.http.routers.nextcloud-aio-local-insecure.entrypoints: web
+      traefik.http.routers.nextcloud-aio-local-insecure.service: nextcloud-aio
+      traefik.http.routers.nextcloud-aio-local-insecure.middlewares: nextcloud-aio-web-redirect
+      # Local domain secure
+      traefik.http.routers.nextcloud-aio-local.rule: Host(`nextcloud-aio.${LOCAL_DOMAIN}`)
+      traefik.http.routers.nextcloud-aio-local.entrypoints: websecure
+      traefik.http.routers.nextcloud-aio-local.service: nextcloud-aio
+      traefik.http.routers.nextcloud-aio-local.tls: true

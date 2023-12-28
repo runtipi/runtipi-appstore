@@ -1,0 +1,17 @@
+{
+  "$schema": "../schema.json",
+  "name": "Nextcloud AIO",
+  "available": true,
+  "exposable": true,
+  "port": 8084,
+  "id": "nextcloud-aio",
+  "tipi_version": 1,
+  "version": "latest",
+  "categories": ["data"],
+  "description": "Nextcloud is a self-hosted, open source, and fully-featured cloud storage solution for your personal files, office documents, and photos.",
+  "short_desc": "Productivity platform that keeps you in control",
+  "author": "Nextcloud GmbH",
+  "source": "https://github.com/nextcloud/all-in-one",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}
