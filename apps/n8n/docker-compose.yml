@@ -1,4 +1,4 @@
-version: '3.7'
+version: "3.7"
 
 services:
   n8n:
@@ -12,6 +12,7 @@ services:
     command: /bin/sh -c "sleep 5; n8n start"
     environment:
       - N8N_EDITOR_BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - WEBHOOK_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
     networks:
       - tipi_main_network
     labels:
