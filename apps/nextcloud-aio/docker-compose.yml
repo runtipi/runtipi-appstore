@@ -8,6 +8,7 @@ services:
       - ${APP_PORT}:8080
     volumes:
       - ${APP_DATA_DIR}/data/files:/data
+      - ${APP_DATA_DIR}/data/config:/tmp/tmp-config
       - nextcloud_aio_mastercontainer:/mnt/docker-aio-config
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
