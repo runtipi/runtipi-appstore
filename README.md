@@ -107,6 +107,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Netboot.xyz](https://github.com/netbootxyz/netboot.xyz) - Your favorite operating systems in one place!
 - [Netdata](https://github.com/netdata/netdata) - Open-source, real-time, performance and health monitoring.
 - [Nextcloud](https://github.com/nextcloud/server) - A safe home for all your data
+- [Netxcloud AIO](https://github.com/nextcloud/all-in-one) - Nextcloud aio, a safe home for all your data.
 - [Nginx](https://github.com/nginx/nginx) - A simple web server to test your tipi install
 - [Nitter](https://github.com/zedeus/nitter) - Alternative Twitter front-end
 - [NocoDB](https://github.com/nocodb/nocodb) - Open Source Airtable Alternative

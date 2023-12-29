@@ -1,0 +1,39 @@
+version: "3.9"
+services:
+  nextcloud-aio:
+    container_name: nextcloud-aio
+    image: nextcloud/all-in-one:20231220_153200-latest
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:8080
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    environment:
+      - NEXTCLOUD_DATADIR="/data"
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.nextcloud-aio-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.nextcloud-aio.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.nextcloud-aio-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nextcloud-aio-insecure.entrypoints: web
+      traefik.http.routers.nextcloud-aio-insecure.service: nextcloud-aio
+      traefik.http.routers.nextcloud-aio-insecure.middlewares: nextcloud-aio-web-redirect
+      # Websecure
+      traefik.http.routers.nextcloud-aio.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nextcloud-aio.entrypoints: websecure
+      traefik.http.routers.nextcloud-aio.service: nextcloud-aio
+      traefik.http.routers.nextcloud-aio.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.nextcloud-aio-local-insecure.rule: Host(`nextcloud-aio.${LOCAL_DOMAIN}`)
+      traefik.http.routers.nextcloud-aio-local-insecure.entrypoints: web
+      traefik.http.routers.nextcloud-aio-local-insecure.service: nextcloud-aio
+      traefik.http.routers.nextcloud-aio-local-insecure.middlewares: nextcloud-aio-web-redirect
+      # Local domain secure
+      traefik.http.routers.nextcloud-aio-local.rule: Host(`nextcloud-aio.${LOCAL_DOMAIN}`)
+      traefik.http.routers.nextcloud-aio-local.entrypoints: websecure
+      traefik.http.routers.nextcloud-aio-local.service: nextcloud-aio
+      traefik.http.routers.nextcloud-aio-local.tls: true
+    networks:
+      - tipi_main_network
