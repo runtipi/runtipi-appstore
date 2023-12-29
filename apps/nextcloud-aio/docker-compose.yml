@@ -1,16 +1,17 @@
 version: "3.9"
 services:
   nextcloud-aio:
-    container_name: nextcloud-aio
+    container_name: nextcloud-aio-mastercontainer
     image: nextcloud/all-in-one:20231220_153200-latest
     restart: unless-stopped
     ports:
       - ${APP_PORT}:8080
     volumes:
-      - ${APP_DATA_DIR}/data:/data
+      - ${APP_DATA_DIR}/data/files:/data
+      - nextcloud_aio_mastercontainer:/mnt/docker-aio-config
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - NEXTCLOUD_DATADIR="/data"
+      - NEXTCLOUD_DATADIR=/data
     labels:
       # Main
       traefik.enable: true
@@ -38,3 +39,11 @@ services:
       traefik.http.routers.nextcloud-aio-local.tls: true
     networks:
       - tipi_main_network
+
+volumes:
+  nextcloud_aio_mastercontainer:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${APP_DATA_DIR}/data/config
