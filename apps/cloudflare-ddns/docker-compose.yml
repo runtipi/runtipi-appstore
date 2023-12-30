@@ -2,8 +2,6 @@ version: "3.9"
 services:
   cloudflare-ddns:
     container_name: cloudflare-ddns
-    volumes:
-      - ${APP_DATA_DIR}/data/config.yaml:/app/config.yaml
     image: ghcr.io/joshuaavalon/cloudflare-ddns:3.3.0
     environment:
       - CF_DNS__AUTH__SCOPED_TOKEN=${CF_DNS__AUTH__SCOPED_TOKEN}
