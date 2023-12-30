@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   linkwarden:
-    image: ghcr.io/linkwarden/linkwarden:v2.4.2
+    image: ghcr.io/linkwarden/linkwarden:v2.4.3
     container_name: linkwarden
     environment:
       - DATABASE_URL=postgresql://tipi:${LINKWARDEN_DB_PASSWORD}@linkwarden-db:5432/linkwarden
