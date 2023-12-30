@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8098,
   "id": "sonarr",
-  "tipi_version": 5,
-  "version": "3.0.10",
+  "tipi_version": 6,
+  "version": "4.0.0",
   "categories": [
     "media",
     "utilities"
@@ -16,5 +16,8 @@
   "author": "sonarr.tv",
   "source": "https://github.com/Sonarr/Sonarr",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
