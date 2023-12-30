@@ -1,0 +1,40 @@
+{
+  "$schema": "../schema.json",
+  "name": "Cloudflare DDNS",
+  "available": true,
+  "exposable": false,
+  "port": 22222,
+  "no_gui": true,
+  "id": "cloudflare-ddns",
+  "tipi_version": 1,
+  "version": "3.3.0",
+  "categories": [
+    "network"
+  ],
+  "description": "Cloudflare DDNS is a Docker image that update DNS records on Cloudflare on schedule.",
+  "short_desc": "Update DNS records on Cloudflare.",
+  "author": "Joshua Avalon",
+  "source": "https://github.com/joshuaavalon/docker-cloudflare",
+  "form_fields": [
+    {
+      "type": "fqdn",
+      "label": "Domain",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "CF_DNS__DOMAINS_0__NAME"
+    },
+    {
+      "type": "password",
+      "label": "Token",
+      "max": 40,
+      "min": 40,
+      "required": true,
+      "env_variable": "CF_DNS__AUTH__SCOPED_TOKEN"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}

@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  cloudflare-ddns:
+    container_name: cloudflare-ddns
+    image: ghcr.io/joshuaavalon/cloudflare-ddns:3.3.0
+    environment:
+      - CF_DNS__AUTH__SCOPED_TOKEN=${CF_DNS__AUTH__SCOPED_TOKEN}
+      #- CF_DNS__CRON="*/5 * * * *"
+      - CF_DNS__DOMAINS_0__NAME=${CF_DNS__DOMAINS_0__NAME}
+      - CF_DNS__DOMAINS_0__PROXIED=false #true
+      #- CF_DNS__LOG_LEVEL=info
+      - CF_DNS__LOG_TYPE=json #Set to json for JSON log output.
+      #- CF_DNS__TIMEOUT 5000 #Timeout for network request. Disable if timeout <= 0.
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
