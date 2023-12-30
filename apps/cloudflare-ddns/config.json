@@ -3,6 +3,7 @@
   "name": "Cloudflare DDNS",
   "available": true,
   "exposable": false,
+  "port": 22222,
   "no_gui": true,
   "id": "cloudflare-ddns",
   "tipi_version": 1,
