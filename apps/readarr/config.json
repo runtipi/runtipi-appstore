@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8112,
   "id": "readarr",
-  "tipi_version": 4,
-  "version": "develop",
+  "tipi_version": 5,
+  "version": "0.3.14-nightly",
   "categories": [
     "books",
     "media"
