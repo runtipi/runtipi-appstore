@@ -2,8 +2,7 @@
 
 ![https://airvpn.org/?referred_by=674291](https://airvpn.org/images/promotional/banner_641x91.gif)
 
-**This container is heavily tested using
-[AirVPN](https://airvpn.org/?referred_by=674291).**
+**This container is heavily tested using [AirVPN](https://airvpn.org/?referred_by=674291).**
 
 | VPN Provider               | Port Forwarding | Works ? |
 |----------------------------|-----------------|---------|
