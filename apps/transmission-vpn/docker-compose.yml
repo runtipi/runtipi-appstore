@@ -37,6 +37,7 @@ services:
 
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
+      - ${APP_DATA_DIR}/data/custom:/etc/openvpn/custom
       - ${ROOT_FOLDER_HOST}/media/torrents:/media/torrents
     ports:
       - ${APP_PORT}:9091
