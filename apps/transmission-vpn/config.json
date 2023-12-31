@@ -4,13 +4,8 @@
   "available": true,
   "exposable": true,
   "port": 9091,
-  "requirements": {
-    "ports": [
-      51413
-    ]
-  },
   "id": "transmission-vpn",
-  "tipi_version": 6,
+  "tipi_version": 7,
   "version": "5.3.1",
   "categories": [
     "utilities",
@@ -60,7 +55,7 @@
       "type": "text",
       "label": "OpenVPN > Default Provider Config",
       "required": true,
-      "placeholder": "france,sweden,austria,italy,belgium",
+      "placeholder": "france,italy,etc or AirVPN_XX-XXXXXX_XXX_UDP-443-Entry3",
       "env_variable": "TRANSMISSION_OVPN_CONFIG"
     },
     {
@@ -68,6 +63,10 @@
       "type": "text",
       "required": true,
       "options": [
+        {
+          "label": "Custom Config.",
+          "value": "CUSTOM"
+        },
         {
           "label": "Anonine",
           "value": "ANONINE"
