@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "linkwarden",
-  "tipi_version": 12,
-  "version": "2.4.7",
+  "tipi_version": 13,
+  "version": "2.4.8",
   "categories": [
     "data"
   ],
