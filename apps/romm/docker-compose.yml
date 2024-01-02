@@ -2,7 +2,7 @@ version: "3"
 
 services:
   romm:
-    image: zurdi15/romm:2.2.0
+    image: zurdi15/romm:2.2.1
     container_name: romm
     environment:
       - ROMM_DB_DRIVER=mariadb
