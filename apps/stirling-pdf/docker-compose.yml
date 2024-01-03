@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.9"
 services:
   stirling-pdf:
     image: ghcr.io/frooodle/s-pdf:0.18.1
