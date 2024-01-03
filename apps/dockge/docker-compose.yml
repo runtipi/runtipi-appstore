@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   dockge:
-    image: louislam/dockge:1.4.0
+    image: louislam/dockge:1.4.1
     container_name: dockge
     restart: unless-stopped
     ports:
