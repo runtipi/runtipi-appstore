@@ -8,7 +8,7 @@ services:
     ports:
       - ${APP_PORT}:8080
     volumes:
-      - ${APP_DATA_DIR}/datatrainingData:/usr/share/tesseract-ocr/4.00/tessdata #Required for extra OCR languages
+      - ${APP_DATA_DIR}/data/trainingData:/usr/share/tesseract-ocr/5/tessdata #Required for extra OCR languages
       - ${APP_DATA_DIR}/data/extraConfigs:/configs
       - ${APP_DATA_DIR}/data/customFiles:/customFiles/
       - ${APP_DATA_DIR}/data/logs:/logs/
