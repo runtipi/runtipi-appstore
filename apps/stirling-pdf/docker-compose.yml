@@ -11,6 +11,8 @@ services:
       - ${APP_DATA_DIR}/datatrainingData:/usr/share/tesseract-ocr/4.00/tessdata #Required for extra OCR languages
       - ${APP_DATA_DIR}/dataextraConfigs:/configs
       - ${APP_DATA_DIR}/datacustomFiles:/customFiles/
+    environment:
+      - DOCKER_ENABLE_SECURITY=${STIRLING_PDF_DOCKER_ENABLE_SECURITY-false}
     networks:
       - tipi_main_network
     labels:
