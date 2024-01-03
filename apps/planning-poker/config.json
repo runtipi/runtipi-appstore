@@ -1,0 +1,23 @@
+{
+  "$schema": "../schema.json",
+  "name": "Planning Poker",
+  "port": 8880,
+  "available": true,
+  "exposable": true,
+  "https": true,
+  "id": "planning-poker",
+  "tipi_version": 1,
+  "version": "1.2.1",
+  "categories": [
+    "development"
+  ],
+  "description": "",
+  "short_desc": "Online planning poker for scrum master.",
+  "author": "axeleroy",
+  "source": "https://github.com/axeleroy/self-host-planning-poker",
+  "form_fields": [],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}
