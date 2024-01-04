@@ -34,6 +34,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Dozzle](https://github.com/amir20/dozzle) - Dozzle is a small web based app to monitor Docker logs
 - [Draw.io](https://github.com/jgraph/drawio) - draw.io is a JavaScript, client-side editor for general diagramming and whiteboarding.
 - [Duplicati](https://github.com/linuxserver/docker-duplicati) - Store securely encrypted backups in the cloud!
+- [Email OAuth 2.0 Proxy](https://github.com/simonrob/email-oauth2-proxy) - Transparently add OAuth 2.0 support to IMAP/POP/SMTP client applications, scripts or any other email use-cases that don't support this authentication method.
 - [Emulatorjs](https://github.com/EmulatorJS/EmulatorJS) - Self-hosted Javascript emulation for various system.
 - [Excalidraw](https://github.com/excalidraw/excalidraw) - Online whiteboard collaboration made easy
 - [Filebrowser](https://github.com/filebrowser/filebrowser) - Web File Browser
