@@ -12,6 +12,9 @@
     "available": {
       "type": "boolean"
     },
+    "deprecated": {
+      "type": "boolean"
+    },
     "exposable": {
       "type": "boolean"
     },
