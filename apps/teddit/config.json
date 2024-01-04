@@ -2,6 +2,7 @@
   "$schema": "../schema.json",
   "name": "teddit",
   "available": true,
+  "deprecated": true,
   "exposable": true,
   "port": 8124,
   "id": "teddit",
