@@ -21,8 +21,8 @@ Built with [Next.js](https://github.com/vercel/next.js/), [Prisma](https://githu
 | Allowed Emails  | RALLLY_ALLOWED_EMAILS   | text     | Comma separated list of email addresses that are allowed to register and login. You can use wildcard syntax to match a range of email addresses. | NO       |
 | SMTP Host       | RALLLY_SMTP_HOST        | text     | The host address of your SMTP server                                                                                                             | YES      |
 | SMTP Port       | RALLLY_SMTP_PORT        | number   | The port of your SMTP server                                                                                                                     | YES      |
-| SMTP Secure     | RALLLY_SMTP_SECURE      | boolean  | Set to "true" if SSL is enabled for your SMTP connection                                                                                         | -        |
-| SMTP Enable TLS | RALLLY_SMTP_TLS_ENABLED | boolean  | Enable TLS for your SMTP connection                                                                                                              | -        |
+| SMTP Secure     | RALLLY_SMTP_SECURE      | boolean  | Set to "true" if SSL is enabled for your SMTP connection                                                                                         | NO        |
+| SMTP Enable TLS | RALLLY_SMTP_TLS_ENABLED | boolean  | Enable TLS for your SMTP connection                                                                                                              | NO        |
 | SMTP User       | RALLLY_SMTP_USER        | text     | The username (if auth is enabled on your SMTP server)                                                                                            | NO       |
 | SMTP Password   | RALLLY_SMTP_PWD         | password | The password (if auth is enabled on your SMTP server)                                                                                            | NO       |
 

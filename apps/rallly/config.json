@@ -72,13 +72,13 @@
     {
       "type": "boolean",
       "label": "SMTP Secure",
-      "required": true,
+      "required": false,
       "env_variable": "RALLLY_SMTP_SECURE"
     },
     {
       "type": "boolean",
       "label": "SMTP Enable TLS",
-      "required": true,
+      "required": false,
       "env_variable": "RALLLY_SMTP_TLS_ENABLED"
     },
     {
