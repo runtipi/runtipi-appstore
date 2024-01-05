@@ -1,0 +1,21 @@
+{
+  "$schema": "../schema.json",
+  "name": "Email OAuth2 Proxy",
+  "available": true,
+  "exposable": false,
+  "no_gui": true,
+  "port": 1999,
+  "id": "email-oauth2-proxy",
+  "tipi_version": 1,
+  "version": "2024.01.04",
+  "categories": [
+    "utilities",
+    "security"
+  ],
+  "description": "Transparently add OAuth 2.0 support to IMAP/POP/SMTP client applications, scripts or any other email use-cases that don't support this authentication method.",
+  "short_desc": "OAuth Proxy for IMAP/POP/SMTP.",
+  "author": "simonrob",
+  "source": "https://github.com/simonrob/email-oauth2-proxy",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}
