@@ -9,7 +9,7 @@
     "version": "0.8.6",
     "categories": ["utilities"],
     "short_desc": "SeedSync is a tool to sync the files on a remote Linux server.",
-    "author": "https://github.com/ipsingh06",
+    "author": "Inderpreet Singh",
     "source": "https://github.com/ipsingh06/seedsync",
     "website": "https://ipsingh06.github.io/seedsync/",
     "form_fields": []
