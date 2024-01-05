@@ -12,5 +12,20 @@
     "author": "Inderpreet Singh",
     "source": "https://github.com/ipsingh06/seedsync",
     "website": "https://ipsingh06.github.io/seedsync/",
-    "form_fields": []
+    "form_fields": [
+      {
+        "type": "number",
+        "label": "UID",
+        "hint": "Ensure any volume directories on the host are owned by the same user you specify",
+        "placeholder": "1000",
+        "env_variable": "SEEDSYNC_PUID"
+      },
+      {
+        "type": "number",
+        "label": "GUID",
+        "hint": "Ensure any volume directories on the host are owned by the same group you specify",
+        "placeholder": "1000",
+        "env_variable": "SEEDSYNC_PGID"
+      }
+    ]
   }

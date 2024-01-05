@@ -3,6 +3,7 @@ services:
   seedsync: 
     container_name: seedsync
     image: ipsingh06/seedsync:0.8.6
+    user: "${SEEDSYNC_PUID}:${SEEDSYNC_PGID}"
     environment:
       - TZ=${TZ}
     volumes:
@@ -12,7 +13,7 @@ services:
       - ${APP_PORT}:8800
     restart: unless-stopped
     networks:
-      - tipi_main_network
+      - tipi_main_network    
     labels:
       # Main
       traefik.enable: true
