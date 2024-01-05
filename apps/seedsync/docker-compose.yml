@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  my-app: seedsync
+  seedsync: 
     container_name: seedsync
     image: ipsingh06/seedsync:0.8.6
     environment:
