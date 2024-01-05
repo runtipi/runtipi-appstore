@@ -17,6 +17,8 @@ Install SeedSync on a local machine. SeedSync will connect to your remote server
 
 You don't need to install anything on the remote server. All you need are the SSH credentials for the remote server.
 
+FAQ: https://ipsingh06.github.io/seedsync/faq/
+
 ## Folder Info
 
 | Root Folder                           | Container Folder |
