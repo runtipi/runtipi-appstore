@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema.json",
+  "name": "Invoice Ninja",
+  "port": 8881,
+  "available": true,
+  "exposable": true,
+  "id": "invoice-ninja",
+  "tipi_version": 1,
+  "version": "1.25",
+  "categories": [
+    "finance"
+  ],
+  "description": "Invoice Ninja is an invoicing application which makes sending invoices and receiving payments simple and easy. Our latest version is a clean slate rewrite of our popular invoicing application which builds on the existing feature set and adds a wide range of features and enhancements the community has asked for.",
+  "short_desc": "Invoices, Expenses and Tasks built with Laravel, Flutter and React.",
+  "author": "https://www.invoiceninja.org/",
+  "source": "https://github.com/invoiceninja/invoiceninja",
+  "form_fields": [
+    {
+      "type": "email",
+      "label": "Invoice Ninja User Mail",
+      "required": true,
+      "env_variable": "INVOICE_NINJA_USER_MAIL"
+    },
+    {
+      "type": "password",
+      "label": "Invoice Ninja User Password",
+      "required": true,
+      "env_variable": "INVOICE_NINJA_USER_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "MySQL Password",
+      "min": 32,
+      "env_variable": "INVOICE_NINJA_BDD_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Invoice Ninja Application Key (Must be generated with the following command `docker run --rm -it invoiceninja/invoiceninja php artisan key:generate --show`)",
+      "required": true,
+      "env_variable": "INVOICE_NINJA_APP_KEY"
+    }
+  ],
+  "supported_architectures": [
+    "amd64"
+  ]
+}
