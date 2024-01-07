@@ -5,39 +5,44 @@
   "exposable": true,
   "id": "lobe-chat",
   "description": "LobeChat is an open-source, high-performance chatbot framework that supports speech synthesis, multimodal, and extensible (Function Call) plugin system.",
-  "tipi_version": 1,
-  "version": "0.116.4",
-  "categories": ["ai"],
+  "tipi_version": 2,
+  "version": "0.119.7",
+  "categories": [
+    "ai"
+  ],
   "short_desc": "LLM chatbot framework",
   "author": "https://github.com/lobehub",
   "source": "https://github.com/lobehub/lobe-chat",
   "website": "https://github.com/lobehub/lobe-chat",
   "form_fields": [
     {
-        "type": "text",
-        "label": "OpenAI API Key",
-        "required": true,
-        "env_variable": "OPENAI_API_KEY"
+      "type": "text",
+      "label": "OpenAI API Key",
+      "required": true,
+      "env_variable": "OPENAI_API_KEY"
     },
     {
-        "type": "url",
-        "label": "OpenAI API URL",
-        "required": false,
-        "env_variable": "OPENAI_PROXY_URL"
+      "type": "url",
+      "label": "OpenAI API URL",
+      "required": false,
+      "env_variable": "OPENAI_PROXY_URL"
     },
     {
-        "type": "text",
-        "label": "Custom Models",
-        "hint": "Comma separated list of model IDs",
-        "required": false,
-        "env_variable": "CUSTOM_MODELS"
+      "type": "text",
+      "label": "Custom Models",
+      "hint": "Comma separated list of model IDs",
+      "required": false,
+      "env_variable": "CUSTOM_MODELS"
     },
     {
-        "type": "password",
-        "label": "Password",
-        "required": false,
-        "env_variable": "ACCESS_CODE"
+      "type": "password",
+      "label": "Password",
+      "required": false,
+      "env_variable": "ACCESS_CODE"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
