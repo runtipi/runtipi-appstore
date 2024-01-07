@@ -1,0 +1,43 @@
+version: "3.9"
+services:
+  planning-poker:
+    image: axeleroy/self-host-planning-poker:1.2.1
+    container_name: planning-poker
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:8000
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    networks:
+      - tipi_main_network
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:8000
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.planning-poker-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.planning-poker.loadbalancer.server.port: 8000
+      # Web
+      traefik.http.routers.planning-poker-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.planning-poker-insecure.entrypoints: web
+      traefik.http.routers.planning-poker-insecure.service: planning-poker
+      traefik.http.routers.planning-poker-insecure.middlewares: planning-poker-web-redirect
+      # Websecure
+      traefik.http.routers.planning-poker.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.planning-poker.entrypoints: websecure
+      traefik.http.routers.planning-poker.service: planning-poker
+      traefik.http.routers.planning-poker.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.planning-poker-local-insecure.rule: Host(`planning-poker.${LOCAL_DOMAIN}`)
+      traefik.http.routers.planning-poker-local-insecure.entrypoints: web
+      traefik.http.routers.planning-poker-local-insecure.service: planning-poker
+      traefik.http.routers.planning-poker-local-insecure.middlewares: planning-poker-web-redirect
+      # Local domain secure
+      traefik.http.routers.planning-poker-local.rule: Host(`planning-poker.${LOCAL_DOMAIN}`)
+      traefik.http.routers.planning-poker-local.entrypoints: websecure
+      traefik.http.routers.planning-poker-local.service: planning-poker
+      traefik.http.routers.planning-poker-local.tls: true
