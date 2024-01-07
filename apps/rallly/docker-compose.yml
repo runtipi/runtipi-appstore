@@ -1,0 +1,66 @@
+services:
+  rallly_db:
+    image: postgres:14
+    restart: always
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${RALLLY_DB_PASSWORD}
+      - POSTGRES_DB=rallly
+      - POSTGRES_USER=tipi
+    networks:
+      - tipi_main_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tipi"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  rallly:
+    image: lukevella/rallly:3.4.2
+    restart: always
+    depends_on:
+      rallly_db:
+        condition: service_healthy
+    ports:
+      - ${APP_PORT}:3000
+    environment:
+      - DATABASE_URL=postgres://tipi:${RALLLY_DB_PASSWORD}@rallly_db:5432/rallly
+      - SECRET_PASSWORD=${RALLLY_SECRET_KEY}
+      - NEXT_PUBLIC_BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - NOREPLY_EMAIL=${RALLLY_NOREPLY_EMAIL}
+      - SUPPORT_EMAIL=${RALLLY_SUPPORT_EMAIL}
+      - SMTP_HOST=${RALLLY_SMTP_HOST}
+      - SMTP_PORT=${RALLLY_SMTP_PORT}
+      - SMTP_SECURE=${RALLLY_SMTP_SECURE}
+      - SMTP_USER=${RALLLY_SMTP_USER}
+      - SMTP_PWD=${RALLLY_SMTP_PWD}
+      - SMTP_TLS_ENABLED=${RALLLY_SMTP_TLS_ENABLED}
+      - ALLOWED_EMAILS=${RALLLY_ALLOWED_EMAILS}
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.rallly-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.rallly.loadbalancer.server.port: 3000
+      # Web
+      traefik.http.routers.rallly-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.rallly-insecure.entrypoints: web
+      traefik.http.routers.rallly-insecure.service: rallly
+      traefik.http.routers.rallly-insecure.middlewares: rallly-web-redirect
+      # Websecure
+      traefik.http.routers.rallly.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.rallly.entrypoints: websecure
+      traefik.http.routers.rallly.service: rallly
+      traefik.http.routers.rallly.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.rallly-local-insecure.rule: Host(`rallly.${LOCAL_DOMAIN}`)
+      traefik.http.routers.rallly-local-insecure.entrypoints: web
+      traefik.http.routers.rallly-local-insecure.service: rallly
+      traefik.http.routers.rallly-local-insecure.middlewares: rallly-web-redirect
+      # Local domain secure
+      traefik.http.routers.rallly-local.rule: Host(`rallly.${LOCAL_DOMAIN}`)
+      traefik.http.routers.rallly-local.entrypoints: websecure
+      traefik.http.routers.rallly-local.service: rallly
+      traefik.http.routers.rallly-local.tls: true
