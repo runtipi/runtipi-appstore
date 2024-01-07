@@ -1,4 +1,4 @@
-version: "3.9"
+version: '3.9'
 services:
   lobe-chat:
     container_name: lobe-chat
@@ -17,7 +17,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.lobe-chat-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.lobe-chat.loadbalancer.server.port: 16662
+      traefik.http.services.lobe-chat.loadbalancer.server.port: 3210
       # Web
       traefik.http.routers.lobe-chat-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.lobe-chat-insecure.entrypoints: web
