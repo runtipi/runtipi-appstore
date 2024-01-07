@@ -13,7 +13,8 @@
   "author": "lukevella",
   "source": "https://github.com/lukevella/rallly",
   "website": "https://rallly.co",
-  "form_fields": [    
+  "supported_architectures": ["amd64"],
+  "form_fields": [
     {
       "type": "random",
       "min": 32,

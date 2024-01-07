@@ -1,22 +1,6 @@
 services:
-  rallly_db:
-    image: postgres:14
-    restart: always
-    volumes:
-      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_PASSWORD=${RALLLY_DB_PASSWORD}
-      - POSTGRES_DB=rallly
-      - POSTGRES_USER=tipi
-    networks:
-      - tipi_main_network
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U tipi"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
-
   rallly:
+    container_name: rallly
     image: lukevella/rallly:3.4.2
     restart: always
     depends_on:
@@ -43,24 +27,46 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.rallly-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.rallly.loadbalancer.server.port: 3000
-      # Web
+      traefik.http.services.rallly.loadbalancer.server.port:
+        3000
+        # Web
       traefik.http.routers.rallly-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.rallly-insecure.entrypoints: web
       traefik.http.routers.rallly-insecure.service: rallly
-      traefik.http.routers.rallly-insecure.middlewares: rallly-web-redirect
-      # Websecure
+      traefik.http.routers.rallly-insecure.middlewares:
+        rallly-web-redirect
+        # Websecure
       traefik.http.routers.rallly.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.rallly.entrypoints: websecure
       traefik.http.routers.rallly.service: rallly
-      traefik.http.routers.rallly.tls.certresolver: myresolver
-      # Local domain
+      traefik.http.routers.rallly.tls.certresolver:
+        myresolver
+        # Local domain
       traefik.http.routers.rallly-local-insecure.rule: Host(`rallly.${LOCAL_DOMAIN}`)
       traefik.http.routers.rallly-local-insecure.entrypoints: web
       traefik.http.routers.rallly-local-insecure.service: rallly
-      traefik.http.routers.rallly-local-insecure.middlewares: rallly-web-redirect
-      # Local domain secure
+      traefik.http.routers.rallly-local-insecure.middlewares:
+        rallly-web-redirect
+        # Local domain secure
       traefik.http.routers.rallly-local.rule: Host(`rallly.${LOCAL_DOMAIN}`)
       traefik.http.routers.rallly-local.entrypoints: websecure
       traefik.http.routers.rallly-local.service: rallly
       traefik.http.routers.rallly-local.tls: true
+
+  rallly_db:
+    container_name: rallly_db
+    image: postgres:14
+    restart: always
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${RALLLY_DB_PASSWORD}
+      - POSTGRES_DB=rallly
+      - POSTGRES_USER=tipi
+    networks:
+      - tipi_main_network
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U tipi']
+      interval: 5s
+      timeout: 5s
+      retries: 5
