@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "dashdot",
-  "tipi_version": 5,
-  "version": "5.2.3",
+  "tipi_version": 8,
+  "version": "5.3.2",
   "categories": [
     "utilities"
   ],
@@ -16,5 +16,8 @@
   "source": "https://github.com/MauriceNino/dashdot",
   "website": "https://getdashdot.com/",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }

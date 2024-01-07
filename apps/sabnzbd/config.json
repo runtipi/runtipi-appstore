@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "sabnzbd",
-  "tipi_version": 8,
-  "version": "4.1.0",
+  "tipi_version": 10,
+  "version": "4.2.1",
   "categories": [
     "media",
     "utilities"
@@ -16,5 +16,8 @@
   "author": "Sabnzbd",
   "source": "https://github.com/sabnzbd/sabnzbd",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }

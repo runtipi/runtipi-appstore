@@ -12,6 +12,8 @@ services:
     ports:
       - ${NETWORK_INTERFACE:-0.0.0.0}:53:53/tcp
       - ${NETWORK_INTERFACE:-0.0.0.0}:53:53/udp
+      - ${NETWORK_INTERFACE:-0.0.0.0}:853:853/tcp
+      - ${NETWORK_INTERFACE:-0.0.0.0}:853:853/udp
       - ${APP_PORT}:80
     labels:
       # Main
