@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8112,
   "id": "readarr",
-  "tipi_version": 5,
-  "version": "0.3.14-nightly",
+  "tipi_version": 6,
+  "version": "0.3.15-nightly",
   "categories": [
     "books",
     "media"
@@ -16,5 +16,8 @@
   "author": "readarr.com",
   "source": "https://github.com/Readarr/Readarr",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
