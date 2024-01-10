@@ -5,11 +5,9 @@
   "exposable": true,
   "port": 8135,
   "id": "vikunja",
-  "tipi_version": 7,
-  "version": "0.21.0",
-  "categories": [
-    "utilities"
-  ],
+  "tipi_version": 8,
+  "version": "0.22.0",
+  "categories": ["utilities"],
   "description": "The Todo-app to organize your life.",
   "short_desc": "The Todo-app to organize your life.",
   "author": "kolaente",

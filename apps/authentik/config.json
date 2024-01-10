@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "authentik",
-  "tipi_version": 4,
-  "version": "2023.10.5",
+  "tipi_version": 5,
+  "version": "2023.10.6",
   "categories": [
     "development"
   ],

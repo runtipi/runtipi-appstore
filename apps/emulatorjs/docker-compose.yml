@@ -3,7 +3,7 @@ version: "3.7"
 services:
   emulatorjs:
     container_name: emulatorjs
-    image: lscr.io/linuxserver/emulatorjs:1.7.3
+    image: lscr.io/linuxserver/emulatorjs:1.8.1
     ports:
       - ${APP_PORT}:80
       - 8165:3000

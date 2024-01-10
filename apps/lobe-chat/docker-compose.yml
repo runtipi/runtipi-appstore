@@ -2,7 +2,7 @@ version: '3.9'
 services:
   lobe-chat:
     container_name: lobe-chat
-    image: lobehub/lobe-chat:v0.119.7
+    image: lobehub/lobe-chat:v0.119.13
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - OPENAI_PROXY_URL=${OPEANAI_PROXY_URL}
