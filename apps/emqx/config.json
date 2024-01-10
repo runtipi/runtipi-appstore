@@ -1,0 +1,38 @@
+{
+  "name": "EMQX",
+  "available": true,
+  "port": 18083,
+  "id": "emqx",
+  "description": "EMQX is the world's most scalable open-source MQTT broker...",
+  "tipi_version": 1,
+  "version": "5.4.1",
+  "categories": ["utilities, automation"],
+  "short_desc": "The most scalable open-source MQTT broker for IoT, IIoT, connected vehicles, and more.",
+  "author": "EMQX.io",
+  "source": "https://github.com/emqx/emqx",
+  "form_fields": [
+    {
+      "type": "number",
+      "label": "MQTT TCP Port",
+      "max": 65535,
+      "min": 1024,
+      "required": true,
+      "env_variable": "EMQX_LISTENERS__TCP__DEFAULT__BIND"
+    },
+    {
+      "type": "text",
+      "label": "Node Name",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "EMQX_NAME"
+    },
+    {
+      "type": "fqdnip",
+      "label": "Node Host/IP/FQDN",
+      "required": true,
+      "env_variable": "EMQX_HOST"
+    }
+  ]
+}
+

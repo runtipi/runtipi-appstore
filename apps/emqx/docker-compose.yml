@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  emqx:
+    container_name: emqx
+    image: emqx/emqx:5.4.1
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:18083"
+    volumes:
+      - "${APP_DATA_DIR}/data/emqx.conf:/opt/emqx/etc/emqx.conf"
+      - "${APP_DATA_DIR}/data/plugins.conf:/opt/emqx/etc/plugins.conf"
+      - "${APP_DATA_DIR}/log:/opt/emqx/log"
+      - "${APP_DATA_DIR}/data:/opt/emqx/data"
+    environment:
+      - EMQX_NAME=${EMQX_NAME}
+      - EMQX_HOST=${EMQX_HOST}
+      - EMQX_LISTENERS__TCP__DEFAULT__BIND=${EMQX_LISTENERS__TCP__DEFAULT__BIND}
+    networks:
+      - tipi_main_network
+
+networks:
+  tipi_main_network:
+    name: runtipi_tipi_main_network
+    external: true
