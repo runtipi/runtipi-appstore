@@ -35,7 +35,7 @@
     },
     {
       "type": "text",
-      "label": "Invoice Ninja Application Key (Must be generated with the following command `docker run --rm -it invoiceninja/invoiceninja php artisan key:generate --show`)",
+      "label": "Invoice Ninja Application Key (cf. Installation Notice in Readme)",
       "required": true,
       "env_variable": "INVOICE_NINJA_APP_KEY"
     }

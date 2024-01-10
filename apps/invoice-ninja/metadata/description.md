@@ -1,3 +1,13 @@
+## Installation Notice
+
+## Initial Setup
+1. Generate an API Key using the following command:
+    ``` 
+    docker run --rm -it invoiceninja/invoiceninja php artisan key:generate --show 
+    ```
+2. Paste the generated key to `Invoice Ninja Application Key` in the Tipi UI.
+
+---
 <p align="center">
     <img src="https://raw.githubusercontent.com/hillelcoren/invoice-ninja/master/public/images/round_logo.png" alt="Sublime's custom image"/>
 </p>
