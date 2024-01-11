@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "hammond",
-  "tipi_version": 4,
-  "version": "0.0.22",
+  "tipi_version": 5,
+  "version": "0.0.23",
   "categories": [
     "utilities"
   ],
