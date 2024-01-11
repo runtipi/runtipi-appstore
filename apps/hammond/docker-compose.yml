@@ -3,7 +3,7 @@ version: "3.8"
 services:
   hammond:
     container_name: hammond
-    image: alfhou/hammond:v0.0.22
+    image: alfhou/hammond:v0.0.23
     ports:
       - ${APP_PORT}:3000
     volumes:
