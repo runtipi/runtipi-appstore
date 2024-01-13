@@ -1,0 +1,20 @@
+{
+  "$schema": "../schema.json",
+  "name": "Wekan",
+  "port": 8207,
+  "available": true,
+  "exposable": true,
+  "id": "wekan",
+  "tipi_version": 1,
+  "version": "2.7.2",
+  "categories": [
+    "development"
+  ],
+  "description": "Experience efficient task management with WeKan - the Open-Source, customizable, and privacy-focused kanban",
+  "short_desc": "Open-Source, customizable, and privacy-focused kanban",
+  "author": "Lauri Ojansivu",
+  "source": "https://github.com/wekan/wekan",
+  "supported_architectures": [
+    "amd64"
+  ]
+}
