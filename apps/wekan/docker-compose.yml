@@ -7,7 +7,7 @@ services:
     environment:
       # https://github.com/wekan/wekan/blob/main/docker-compose.yml
       - MONGO_URL=mongodb://wekan-db:27017/wekan
-      - ROOT_URL=${APP_DOMAIN}
+      - ROOT_URL=https://${APP_DOMAIN}
     restart: unless-stopped
     volumes:
       - /etc/localtime:/etc/localtime:ro
