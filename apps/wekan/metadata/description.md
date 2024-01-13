@@ -12,7 +12,7 @@ Experience efficient task management with WeKan - the Open-Source, customizable,
 
 ## Mail
 
-Wekan requires a working email to register a user. This app is configured to use gmail with an app-password.
+Wekan requires a working email to register a user. This app is configured to use a `user@googlemail.com` account with an app-password.
 
 <https://support.google.com/mail/answer/185833?hl=en>
 

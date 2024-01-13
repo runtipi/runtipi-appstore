@@ -9,7 +9,7 @@ services:
       - MONGO_URL=mongodb://wekan-db:27017/wekan
       - ROOT_URL=https://${APP_DOMAIN}
       # https://github.com/wekan/wekan/wiki/Troubleshooting-Mail
-      - MAIL_URL=smtp://${MAIL_USER}@gmail.com:${MAIL_PASSWORD}@smtp.gmail.com:587
+      - MAIL_URL=smtp://${MAIL_USER}@googlemail.com:${MAIL_PASSWORD}@smtp.gmail.com:587
       - MAIL_FROM=Wekan Notifications <noreply.wekan@${APP_DOMAIN}>
     restart: unless-stopped
     volumes:
