@@ -14,6 +14,22 @@
   "short_desc": "Open-Source, customizable, and privacy-focused kanban",
   "author": "Lauri Ojansivu",
   "source": "https://github.com/wekan/wekan",
+  "form_fields": [
+    {
+      "type": "string",
+      "label": "email user",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "MAIL_USER"
+    },
+    {
+      "type": "password",
+      "label": "email password",
+      "required": true,
+      "env_variable": "MAIL_PASSWORD"
+    }
+  ],
   "supported_architectures": [
     "amd64"
   ]
