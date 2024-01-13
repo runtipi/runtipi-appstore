@@ -1,0 +1,20 @@
+{
+  "$schema": "../schema.json",
+  "name": "Atuin",
+  "available": true,
+  "exposable": true,
+  "port": 8888,
+  "id": "atuin",
+  "tipi_version": 2,
+  "version": "latest",
+  "categories": [
+    "utilities",
+    "development"
+  ],
+  "description": "Making your shell magical",
+  "short_desc": "Magical Shell History",
+  "author": "atuinsh",
+  "source": "https://github.com/atuinsh/atuin",
+  "form_fields": [],
+  "supported_architectures": ["amd64"]
+}

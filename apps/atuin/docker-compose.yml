@@ -1,0 +1,56 @@
+version: "3.5"
+services:
+  atuin:
+    restart: always
+    image: ghcr.io/atuinsh/atuin:latest
+    command: server start
+    volumes:
+      - "./config:/config"
+    links:
+      - postgresql:db
+    ports:
+      - 8888:8888
+    environment:
+      ATUIN_HOST: "0.0.0.0"
+      ATUIN_OPEN_REGISTRATION: "true"
+      ATUIN_DB_URI: postgres://atuin:really-insecure@db/atuin
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.atuin-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.atuin.loadbalancer.server.port: 8888
+      # Web
+      traefik.http.routers.atuin-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.atuin-insecure.entrypoints: web
+      traefik.http.routers.atuin-insecure.service: atuin
+      traefik.http.routers.atuin-insecure.middlewares: atuin-web-redirect
+      # Websecure
+      traefik.http.routers.atuin.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.atuin.entrypoints: websecure
+      traefik.http.routers.atuin.service: atuin
+      traefik.http.routers.atuin.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.atuin-local-insecure.rule: Host(`atuin.${LOCAL_DOMAIN}`)
+      traefik.http.routers.atuin-local-insecure.entrypoints: web
+      traefik.http.routers.atuin-local-insecure.service: atuin
+      traefik.http.routers.atuin-local-insecure.middlewares: atuin-web-redirect
+      # Local domain secure
+      traefik.http.routers.atuin-local.rule: Host(`atuin.${LOCAL_DOMAIN}`)
+      traefik.http.routers.atuin-local.entrypoints: websecure
+      traefik.http.routers.atuin-local.service: atuin
+      traefik.http.routers.atuin-local.tls: true
+
+  postgresql:
+    image: postgres:14
+    restart: unless-stopped
+    volumes: # Don't remove permanent storage for index database files!
+      - "./database:/var/lib/postgresql/data/"
+    environment:
+      POSTGRES_USER: atuin
+      POSTGRES_PASSWORD: really-insecure
+      POSTGRES_DB: atuin
+    networks:
+      - tipi_main_network
+      
