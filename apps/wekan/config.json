@@ -17,11 +17,11 @@
   "form_fields": [
     {
       "type": "string",
-      "label": "email user",
+      "label": "email address",
       "max": 50,
       "min": 3,
       "required": true,
-      "env_variable": "MAIL_USER"
+      "env_variable": "MAIL_ADDRESS"
     },
     {
       "type": "password",
