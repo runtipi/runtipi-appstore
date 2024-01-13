@@ -58,7 +58,7 @@ services:
       - backend
 
   dbbackup:
-    image: tiredofit/db-backup:4
+    image: tiredofit/db-backup:4.0.34
     container_name: wekan-db-backup
     environment:
       - DEFAULT_COMPRESSION=GZ
