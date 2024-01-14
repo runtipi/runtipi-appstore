@@ -10,15 +10,13 @@ Sync, search and backup shell history with Atuin
 
 ## Features
 
-1. Shell History Sync 
-    - Sync your shell history to all of your machines, wherever they are
-1. End-to-end Encryption 
+2. End-to-end Encryption 
     - All data is encrypted, and can only be read by you
-1. Efficient Search
+3. Efficient Search
     - Search decades of shell history, and recall it in an instant. Atuin offers configurable full text or fuzzy search, filterable by host, directory, etc.
-1. Data Import
+4. Data Import
     - Bring your existing history with you - Atuin supports importing from a wide variety of formats
-1. Store Extra Context
+5. Store Extra Context
     - Atuin stores extra context with your commands - working directory, exit code, and more!
 
 ## Self-hosted sync server
