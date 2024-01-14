@@ -15,6 +15,13 @@
   "short_desc": "Magical Shell History",
   "author": "atuinsh",
   "source": "https://github.com/atuinsh/atuin",
-  "form_fields": [],
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "Atuin DB Password",
+      "required": true,
+      "env_variable": "ATUIN_DB_PASSWORD"
+    }
+  ],
   "supported_architectures": ["amd64"]
 }

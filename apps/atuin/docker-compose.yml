@@ -13,7 +13,7 @@ services:
     environment:
       ATUIN_HOST: "0.0.0.0"
       ATUIN_OPEN_REGISTRATION: "true"
-      ATUIN_DB_URI: postgres://atuin:really-insecure@db/atuin
+      ATUIN_DB_URI: "postgres://atuin:${ATUIN_DB_PASSWORD}@db/atuin"
     networks:
       - tipi_main_network
     labels:
@@ -49,7 +49,7 @@ services:
       - "${APP_DATA_DIR}/data:/var/lib/postgresql/data/"
     environment:
       POSTGRES_USER: atuin
-      POSTGRES_PASSWORD: really-insecure
+      POSTGRES_PASSWORD: "${ATUIN_DB_PASSWORD}"
       POSTGRES_DB: atuin
     networks:
       - tipi_main_network
