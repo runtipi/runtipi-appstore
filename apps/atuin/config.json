@@ -13,9 +13,10 @@
   ],
   "description": "Making your shell magical",
   "short_desc": "Magical Shell History",
-  "author": "atuinsh",
+  "author": "https://github.com/atuinsh",
   "source": "https://github.com/atuinsh/atuin",
   "website": "https://atuin.sh",
+  "no_gui": true,
   "form_fields": [
     {
       "type": "password",
