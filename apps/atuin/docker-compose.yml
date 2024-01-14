@@ -6,7 +6,7 @@ services:
     image: ghcr.io/atuinsh/atuin:latest
     command: server start
     volumes:
-      - "${APP_DATA_DIR}/data/config:/config"
+      - "${APP_DATA_DIR}:/config"
     links:
       - postgresql:db
     ports:
