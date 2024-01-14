@@ -10,7 +10,8 @@ Visit [https://transmissionbt.com/](https://transmissionbt.com/) for more inform
 
 ## Folder Info
 
-| Root Folder                   | Container Folder |
-|-------------------------------|------------------|
+| Root Folder                                | Container Folder |
+|--------------------------------------------|------------------|
 | /runtipi/app-data/transmission/data/config | /config          |
-| /runtipi/media/torrents                | /media/torrents       |
+| /runtipi/media/torrents                    | /downloads       |
+| /runtipi/media/watch                       | /watch           |
