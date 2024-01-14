@@ -1,7 +1,7 @@
 {
   "$schema": "../schema.json",
   "name": "Wekan",
-  "port": 8207,
+  "port": 8678,
   "available": true,
   "exposable": true,
   "id": "wekan",
