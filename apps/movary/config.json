@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "movary",
-  "tipi_version": 28,
-  "version": "0.60.0",
-  "categories": ["media"],
+  "tipi_version": 29,
+  "version": "0.61.0",
+  "categories": [
+    "media"
+  ],
   "description": "Movary is a self-hosted web application to track and rate your watched movies (like a digital movie diary). You can import/export your history and ratings from/to third parties like trakt.tv or letterboxd.com, scrobble your watches via Plex and Jellyfin and more.",
   "short_desc": "Movary is a self-hosted web application to track and rate your watched movies. ",
   "author": "leepeuker",
@@ -39,5 +41,7 @@
       "env_variable": "MOVARY_TMDB_API_KEY"
     }
   ],
-  "supported_architectures": ["amd64"]
+  "supported_architectures": [
+    "amd64"
+  ]
 }
