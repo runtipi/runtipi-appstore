@@ -3,7 +3,7 @@
   "name": "CyberChef",
   "available": true,
   "exposable": true,
-  "port": 8088,
+  "port": 18000,
   "id": "cyberchef",
   "tipi_version": 1,
   "version": "latest",
