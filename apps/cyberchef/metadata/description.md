@@ -1,32 +1,23 @@
+# CyberChef
 
-## Authentication
+#### *The Cyber Swiss Army Knife*
 
-Speedtest Tracker uses Filament for the admin panel. During the install process an admin account is created for you.
+CyberChef is a simple, intuitive web app for carrying out all manner of "cyber" operations within a web browser. These operations include simple encoding like XOR and Base64, more complex encryption like AES, DES and Blowfish, creating binary and hexdumps, compression and decompression of data, calculating hashes and checksums, IPv6 and X.509 parsing, changing character encodings, and much more.
 
-Default User Account
-| Username | Password |
-| --- | --- |
-| `admin@example.com`| `password` |
+The tool is designed to enable both technical and non-technical analysts to manipulate data in complex ways without having to deal with complex tools or algorithms. It was conceived, designed, built and incrementally improved by an analyst in their 10% innovation time over several years.
 
----
+## Live demo
 
-## About
+CyberChef is still under active development. As a result, it shouldn't be considered a finished product. There is still testing and bug fixing to do, new features to be added and additional documentation to write. Please contribute!
 
-A Docker image to check your internet speed using Ookla's Speedtest service. Build using Laravel and the Speedtest CLI.
-These docs are up-to-date for version: `v0.12.1`
+Cryptographic operations in CyberChef should not be relied upon to provide security in any situation. No guarantee is offered for their correctness.
 
-![](https://834071469-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2Fvtb3s6TB12XY9iIx8YyJ%2Fuploads%2FrOKoxV0cH35wwjkbAgvE%2Fdashboard_screenshot.jpg?alt=media&token=121f5175-4008-4b26-9655-bc67d1369710)
+[A live demo can be found here][1] - have fun!
 
-### 
+### Containerized by github.com/mpepping
 
-Introduction
+Cyberchef does all its work in the client so doesn't require a server aside from to serve the HTTP requests - it can be served from an S3 bucket or something like [Glitch](https://thecyberchef.glitch.me). This is another easy way to self-host.
 
-Speedtest Tracker is a self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.
+> GCHQ CyberChef in a container. CyberChef is the Cyber Swiss Army Knife web app for encryption, encoding, compression and data analysis.
 
-#### 
-
-Why might I want this?
-
-The main use case for Speedtest Tracker is to build a history of your internet's performance so that you can be informed when you're not receiving your ISP's advertised rates.
-
-_...also some of us just like a lot of data._
+(from the README at https://github.com/mpepping/docker-cyberchef)
