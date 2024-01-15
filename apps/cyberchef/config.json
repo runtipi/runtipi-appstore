@@ -1,0 +1,23 @@
+{
+  "$schema": "../schema.json",
+  "name": "CyberChef",
+  "available": true,
+  "exposable": true,
+  "port": 8088,
+  "id": "cyberchef",
+  "tipi_version": 1,
+  "version": "latest",
+  "categories": [
+    "utilities",
+    "development"
+  ],
+  "description": "CyberChef is a simple, intuitive web app for carrying out all manner of \"cyber\" operations within a web browser.",
+  "short_desc": "The Cyber Swiss Army Knife",
+  "author": "https://github.com/gchq",
+  "source": "https://github.com/mpepping/docker-cyberchef",
+  "website": "https://gchq.github.io/CyberChef",
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ]
+}

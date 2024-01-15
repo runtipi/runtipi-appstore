@@ -1,0 +1,7 @@
+\version: "3"
+
+services:
+  cyber-chef:
+    image: mpepping/cyberchef:latest
+    ports:
+      - "8088:8088"
