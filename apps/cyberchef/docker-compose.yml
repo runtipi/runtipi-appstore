@@ -3,7 +3,7 @@ version: "3"
 services:
   cyber-chef:
     image: mpepping/cyberchef:latest
-    container_name: cyberchef
+    container_name: cyber-chef
     restart: unless-stopped
     ports:
       - '${APP_PORT}:8080'
@@ -13,25 +13,25 @@ services:
     labels:
       # Main
       traefik.enable: true
-      traefik.http.middlewares.cyberchef-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.cyberchef.loadbalancer.server.port: 8080
+      traefik.http.middlewares.cyber-chef-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.cyber-chef.loadbalancer.server.port: 8080
       # Web
-      traefik.http.routers.cyberchef-insecure.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.cyberchef-insecure.entrypoints: web
-      traefik.http.routers.cyberchef-insecure.service: cyberchef
-      traefik.http.routers.cyberchef-insecure.middlewares: cyberchef-web-redirect
+      traefik.http.routers.cyber-chef-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.cyber-chef-insecure.entrypoints: web
+      traefik.http.routers.cyber-chef-insecure.service: cyber-chef
+      traefik.http.routers.cyber-chef-insecure.middlewares: cyber-chef-web-redirect
       # Websecure
-      traefik.http.routers.cyberchef.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.cyberchef.entrypoints: websecure
-      traefik.http.routers.cyberchef.service: cyberchef
-      traefik.http.routers.cyberchef.tls.certresolver: myresolver
+      traefik.http.routers.cyber-chef.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.cyber-chef.entrypoints: websecure
+      traefik.http.routers.cyber-chef.service: cyber-chef
+      traefik.http.routers.cyber-chef.tls.certresolver: myresolver
       # Local domain
-      traefik.http.routers.cyberchef-local-insecure.rule: Host(`cyberchef.${LOCAL_DOMAIN}`)
-      traefik.http.routers.cyberchef-local-insecure.entrypoints: web
-      traefik.http.routers.cyberchef-local-insecure.service: cyberchef
-      traefik.http.routers.cyberchef-local-insecure.middlewares: cyberchef-web-redirect
+      traefik.http.routers.cyber-chef-local-insecure.rule: Host(`cyber-chef.${LOCAL_DOMAIN}`)
+      traefik.http.routers.cyber-chef-local-insecure.entrypoints: web
+      traefik.http.routers.cyber-chef-local-insecure.service: cyber-chef
+      traefik.http.routers.cyber-chef-local-insecure.middlewares: cyber-chef-web-redirect
       # Local domain secure
-      traefik.http.routers.cyberchef-local.rule: Host(`cyberchef.${LOCAL_DOMAIN}`)
-      traefik.http.routers.cyberchef-local.entrypoints: websecure
-      traefik.http.routers.cyberchef-local.service: cyberchef
-      traefik.http.routers.cyberchef-local.tls: true
+      traefik.http.routers.cyber-chef-local.rule: Host(`cyber-chef.${LOCAL_DOMAIN}`)
+      traefik.http.routers.cyber-chef-local.entrypoints: websecure
+      traefik.http.routers.cyber-chef-local.service: cyber-chef
+      traefik.http.routers.cyber-chef-local.tls: true
