@@ -61,6 +61,4 @@ services:
       - backend
 
 networks:
-  # tipi_main_network:
-  #   external: true
   backend: {}
