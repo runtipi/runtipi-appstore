@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8102,
   "id": "homarr",
-  "tipi_version": 23,
-  "version": "0.14.3",
+  "tipi_version": 24,
+  "version": "0.14.4",
   "categories": [
     "utilities"
   ],
