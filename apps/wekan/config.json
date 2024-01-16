@@ -17,7 +17,7 @@
   "form_fields": [
     {
       "type": "string",
-      "label": "email address",
+      "label": "Email Address",
       "max": 50,
       "min": 3,
       "required": true,
@@ -25,7 +25,7 @@
     },
     {
       "type": "password",
-      "label": "email password",
+      "label": "Email Password",
       "required": true,
       "env_variable": "MAIL_PASSWORD"
     }

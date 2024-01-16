@@ -19,9 +19,3 @@ Wekan requires a working email to register a user. This app is configured to use
 For the use with other email providers use a user-config and configure env via:
 
 <https://github.com/wekan/wekan/wiki/Troubleshooting-Mail>
-
-## DB Backup
-
-DB Backup is integrated with docker-db-backup
-
-<https://github.com/tiredofit/docker-db-backup>

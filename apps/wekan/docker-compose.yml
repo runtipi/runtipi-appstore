@@ -60,25 +60,7 @@ services:
     networks:
       - backend
 
-  dbbackup:
-    image: tiredofit/db-backup:4.0.34
-    container_name: wekan-db-backup
-    environment:
-      - DEFAULT_COMPRESSION=GZ
-      - DB01_TYPE=mongo
-      - DB01_HOST=wekan-db
-      - DB01_NAME=wekan
-      - CONTAINER_ENABLE_MONITORING=FALSE #Enable Monitoring of applications or metrics
-    restart: unless-stopped
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - ${APP_DATA_DIR}/data/db-backup:/backup
-    depends_on:
-      - wekan-db
-    networks:
-      - backend
-
-networks:
-  tipi_main_network:
-    external: true
-  backend: {}
+# networks:
+#   tipi_main_network:
+#     external: true
+#   backend: {}
