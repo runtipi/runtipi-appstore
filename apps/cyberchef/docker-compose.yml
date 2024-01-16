@@ -6,7 +6,7 @@ services:
     container_name: cyber-chef
     restart: unless-stopped
     ports:
-      - '${APP_PORT}:8080'
+      - '${APP_PORT}:8000'
     networks:
       - tipi_main_network
 
@@ -14,7 +14,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.cyber-chef-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.cyber-chef.loadbalancer.server.port: 8080
+      traefik.http.services.cyber-chef.loadbalancer.server.port: 8000
       # Web
       traefik.http.routers.cyber-chef-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.cyber-chef-insecure.entrypoints: web
