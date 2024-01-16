@@ -21,7 +21,7 @@ services:
       - wekan-db
     networks:
       - tipi_main_network
-      - backend
+      - backend_network
     labels:
       # Main
       traefik.enable: true
@@ -58,7 +58,7 @@ services:
       - ${APP_DATA_DIR}/data/mongo:/data/db
       - ${APP_DATA_DIR}/data/dump:/dump
     networks:
-      - backend
+      - backend_network
 
 networks:
-  backend: {}
+  backend_network:
