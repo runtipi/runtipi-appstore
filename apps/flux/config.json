@@ -1,0 +1,24 @@
+{
+    "$schema": "../schema.json",
+    "name": "Flux",
+    "available": true,
+    "exposable": true,
+    "port": 8373,
+    "id": "flux",
+    "tipi_version": 1,
+    "version": "latest",
+    "categories": [
+      "utilities",
+      "development",
+      "ai"
+    ],
+    "description": "Graph-based LLM power tool for exploring many completions in parallel.",
+    "short_desc": "One prompt; many answers",
+    "author": "https://github.com/paradigmxyz",
+    "source": "https://github.com/paradigmxyz/flux",
+    "website": "https://flux.paradigm.xyz/",
+    "supported_architectures": [
+      "amd64",
+      "arm64"
+    ]
+  }

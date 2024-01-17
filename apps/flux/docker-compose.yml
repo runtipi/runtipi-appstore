@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  flux:
+    image: cori/flux-docker:latest
+    container_name: flux
+    restart: unless-stopped
+    ports:
+      - '${APP_PORT}:8373'
+    networks:
+      - tipi_main_network
+
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.flux-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.flux.loadbalancer.server.port: 8373
+      # Web
+      traefik.http.routers.flux-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.flux-insecure.entrypoints: web
+      traefik.http.routers.flux-insecure.service: flux
+      traefik.http.routers.flux-insecure.middlewares: flux-web-redirect
+      # Websecure
+      traefik.http.routers.flux.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.flux.entrypoints: websecure
+      traefik.http.routers.flux.service: flux
+      traefik.http.routers.flux.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.flux-local-insecure.rule: Host(`flux.${LOCAL_DOMAIN}`)
+      traefik.http.routers.flux-local-insecure.entrypoints: web
+      traefik.http.routers.flux-local-insecure.service: flux
+      traefik.http.routers.flux-local-insecure.middlewares: flux-web-redirect
+      # Local domain secure
+      traefik.http.routers.flux-local.rule: Host(`flux.${LOCAL_DOMAIN}`)
+      traefik.http.routers.flux-local.entrypoints: websecure
+      traefik.http.routers.flux-local.service: flux
+      traefik.http.routers.flux-local.tls: true
