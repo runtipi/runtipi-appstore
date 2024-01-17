@@ -21,6 +21,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Chatpad AI](https://github.com/deiucanta/chatpad) - Not just another ChatGPT user-interface!
 - [Code-Server](https://github.com/coder/code-server) - Web VS Code
 - [Codex.Docs](https://github.com/codex-team/codex.docst) - Free Docs app powered by Editor.js ecosystem.
+- [Crafty Controller](https://gitlab.com/crafty-controller/crafty-4) - Crafty 4 is the next iteration of our Minecraft Server Wrapper / Controller / Launcher.
 - [Conduit](https://gitlab.com/famedly/conduit) - Conduit is a simple, fast and reliable chat server written in Rust
 - [Cross-seed](https://github.com/cross-seed/cross-seed) - Fully-automatic, no false positives.
 - [DailyTXT](https://github.com/PhiTux/DailyTxT) - Encrypted Diary Web-App
