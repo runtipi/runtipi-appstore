@@ -1,6 +1,10 @@
 # Crafty Controller 4.2.2
 > Python based Control Panel for your Minecraft Server
 
+## Credentials
+
+Default credentials are located in `runtipi/app-data/crafty/config/default-creds.txt`
+
 ## What is Crafty Controller?
 Crafty Controller is a Minecraft Server Control Panel / Launcher. The purpose
 of Crafty Controller is to launch a Minecraft Server in the background and present

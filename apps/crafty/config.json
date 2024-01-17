@@ -5,6 +5,7 @@
     "exposable": true,
     "port": 8456,
     "id": "crafty",
+    "https": true,
     "tipi_version": 1,
     "version": "4.2.2",
     "categories": [
