@@ -2,7 +2,7 @@ version: "3"
 
 services:
   flux:
-    image: cori/flux-docker:latest
+    image: ghcr.io/cori/flux/flux-docker:latest
     container_name: flux
     restart: unless-stopped
     ports:
