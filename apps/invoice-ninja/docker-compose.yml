@@ -95,7 +95,7 @@ services:
       start_period: 10s
 
   invoice-ninja-init:
-    image: bash:5.2.21
+    image: bash:5.2.26
     container_name: invoice-ninja-init
     volumes:
       - ${APP_DATA_DIR}/data:/tmp/data
