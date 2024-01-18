@@ -5,13 +5,18 @@
   "available": true,
   "exposable": true,
   "id": "deluge",
-  "tipi_version": 3,
-  "version": "2.1.1",
-  "categories": ["utilities"],
+  "tipi_version": 4,
+  "version": "18.04.1",
+  "categories": [
+    "utilities"
+  ],
   "description": "Deluge is a lightweight, Free Software, cross-platform BitTorrent client.",
   "short_desc": "Deluge is a lightweight, Free Software, cross-platform BitTorrent client.",
   "author": "https://github.com/deluge-torrent",
   "source": "https://github.com/linuxserver/docker-deluge",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
