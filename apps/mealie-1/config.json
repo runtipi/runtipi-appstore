@@ -1,6 +1,6 @@
 {
   "$schema": "../schema.json",
-  "name": "Mealie 1.0.0",
+  "name": "Mealie",
   "port": 8220,
   "available": true,
   "exposable": true,
