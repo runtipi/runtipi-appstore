@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:4.6.3
+    image: lscr.io/linuxserver/qbittorrent:20.04.1
     container_name: qbittorrent
     dns:
       - ${DNS_IP}
