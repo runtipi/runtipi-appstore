@@ -5,7 +5,7 @@
   "exposable": true,
   "port": 8013,
   "id": "dozzle",
-  "tipi_version": 6,
+  "tipi_version": 7,
   "version": "6.1.0",
   "categories": [
     "development"
@@ -15,20 +15,6 @@
   "author": "Amir Raminfar",
   "source": "https://github.com/amir20/dozzle",
   "form_fields": [
-    {
-      "type": "text",
-      "label": "Username (optional)",
-      "required": false,
-      "placeholder": "Username",
-      "env_variable": "DOZZLE_USERNAME"
-    },
-    {
-      "type": "password",
-      "label": "Password (optional)",
-      "placeholder": "Password",
-      "required": false,
-      "env_variable": "DOZZLE_PASSWORD"
-    },
     {
       "type": "boolean",
       "label": "Disable Google Analytics",
