@@ -1,0 +1,17 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🤔 Questions and Help on Store Applications
+    url: https://github.com/runtipi/runtipi-appstore/discussions/categories/q-a
+    about: This issue tracker is not for support questions. Please refer to our Discussions.
+  - name: 💬 Chat
+    url: https://discord.gg/d8afGXHAhc
+    about: Want to discuss RunTipi with others? Check out our Discord.
+  - name: 📦 Store Application Requests
+    url: https://github.com/runtipi/runtipi-appstore/discussions/categories/applications-requests
+    about: Remember to search for existing application requests and "up-vote" any you like
+  - name: 🎪 Store Improvement Ideas
+    url: https://github.com/runtipi/runtipi-appstore/discussions/categories/ideas
+    about: Remember to search for existing ideas before starting new, discuss and "up-vote" any you like
+  - name: ⛺ RunTipi Core Repository (CLI)
+    url: https://github.com/runtipi/runtipi
+    about: Take a look at our main repository to submit ideas, improvements and issues related to the RunTipi CLI
