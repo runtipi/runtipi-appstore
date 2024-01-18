@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8013,
   "id": "dozzle",
-  "tipi_version": 4,
-  "version": "6.0.0",
+  "tipi_version": 5,
+  "version": "6.0.8",
   "categories": [
     "development"
   ],
