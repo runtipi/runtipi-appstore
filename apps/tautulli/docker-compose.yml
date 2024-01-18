@@ -2,7 +2,7 @@ version: "2.1"
 services:
   tautulli:
     container_name: tautulli
-    image: lscr.io/linuxserver/tautulli:2.13.4
+    image: lscr.io/linuxserver/tautulli:2021.12.16
     environment:
       - PUID=1000
       - PGID=1000
