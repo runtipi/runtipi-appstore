@@ -1,0 +1,17 @@
+{
+  "name": "Nextcloud AIO",
+  "available": true,
+  "port": 8736,
+  "exposable": true,
+  "id": "nextcloud-aio",
+  "description": "The official Nextcloud installation method. Provides easy deployment and maintenance with most features included in this one Nextcloud instance.",
+  "tipi_version": 1,
+  "version": "20231220_153200-latest",
+  "categories": ["data"],
+  "short_desc": "Nextcloud aio, a safe home for all your data.",
+  "author": "nextcloud",
+  "source": "https://github.com/nextcloud/all-in-one",
+  "website": "https://nextcloud.com",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}
