@@ -1,6 +1,6 @@
-name: Application Request
-description: Request a new application in our official store !
 title: ✨ MyNewApp
+labels:
+  - new-app
 body:
   - type: textarea
     id: description
