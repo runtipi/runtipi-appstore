@@ -1,0 +1,25 @@
+name: app-list-generator
+
+on:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  generate-readme-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Delete old readme (just in case)
+        run: rm README.md
+
+      - name: Generate new README.md file
+        run: bun app-list-generator.ts
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
