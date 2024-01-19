@@ -24,6 +24,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Crafty Controller](https://gitlab.com/crafty-controller/crafty-4) - Crafty 4 is the next iteration of our Minecraft Server Wrapper / Controller / Launcher.
 - [Conduit](https://gitlab.com/famedly/conduit) - Conduit is a simple, fast and reliable chat server written in Rust
 - [Cross-seed](https://github.com/cross-seed/cross-seed) - Fully-automatic, no false positives.
+- [CTFd](https://github.com/CTFd/CTFd) - CTFd is a Capture The Flag framework focusing on ease of use and customizability.
 - [DailyTXT](https://github.com/PhiTux/DailyTxT) - Encrypted Diary Web-App
 - [Dash.](https://github.com/MauriceNino/dashdot) - A simple, modern server dashboard, primarily used by smaller private server
 - [Dashy](https://github.com/lissy93/dashy) - A self-hostable personal dashboard built for you.
