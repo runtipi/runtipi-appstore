@@ -1,6 +1,4 @@
 title: ✨ MyNewApp
-labels:
-  - new-app
 body:
   - type: textarea
     id: description
@@ -84,11 +82,15 @@ body:
             I confirm that I have indeed checked that no similar request for
             this application already exists
           required: true
-  - type: markdown
+  - type: textarea
+    id: support
     attributes:
+      label: Gathering crowds
+      description: >-
+        Write a message of encouragement to gather votes and make your request
+        one of the most popular!
       value: |-
-        ----
-        **Hey folks!** 
+        Hey folks!
 
         Please upvote 👍 this discussion to show your interest in this request! 
 
