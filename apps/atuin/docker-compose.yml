@@ -1,6 +1,7 @@
 version: "3.5"
 services:
   atuin:
+    container_name: atuin
     restart: always
     image: ghcr.io/atuinsh/atuin:latest
     command: server start
