@@ -1,6 +1,6 @@
-name: 🚨 Bug Report
+name: 🐛 Bug Report
 description: Something is not working
-title: '🚨 [MyApp] Concise description of the issue'
+title: '🐛 [MyApp] Concise description of the issue'
 labels:
   - bug
   - triage

@@ -7,7 +7,7 @@ contact_links:
     url: https://discord.gg/d8afGXHAhc
     about: Want to discuss RunTipi with others? Check out our Discord.
   - name: 📦 Store Application Requests
-    url: https://github.com/runtipi/runtipi-appstore/discussions/categories/applications-requests
+    url: https://github.com/runtipi/runtipi-appstore/discussions/categories/requests
     about: Remember to search for existing application requests and "up-vote" any you like
   - name: 🎪 Store Improvement Ideas
     url: https://github.com/runtipi/runtipi-appstore/discussions/categories/ideas
