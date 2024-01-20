@@ -6,13 +6,16 @@
   "exposable": true,
   "deprecated": true,
   "id": "mealie",
-  "tipi_version": 4,
-  "version": "v0.5.6",
+  "tipi_version": 5,
+  "version": "1.0.0",
   "description": "Mealie is a self-hosted recipe manager and meal planner with a RestAPI backend and a reactive frontend application built in Vue for a pleasant user experience for the whole family. Easily add recipes into your database by providing the url and Mealie will automatically import the relevant data or add a family recipe with the UI editor. Mealie also provides an API for interactions from 3rd party applications. Default username / password is changeme@email.com / MyPassword",
   "short_desc": "Mealie is a self-hosted recipe manager and meal planner.",
   "author": "hay-kot",
   "categories": [],
   "source": "https://github.com/hay-kot/mealie",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
