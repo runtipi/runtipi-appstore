@@ -3,7 +3,7 @@ version: "3"
 services:
   scrypted:
     container_name: scrypted
-    image: koush/scrypted:20-jammy-full.s6-v0.57.0
+    image: koush/scrypted:18-jammy-full.s6-v0.88.0
     privileged: true
     volumes:
       - ${APP_DATA_DIR}/data/scrypted/database:/server/volume
