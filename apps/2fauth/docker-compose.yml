@@ -1,4 +1,3 @@
-version: "3.7"
 services:
   2fauth:
     image: 2fauth/2fauth:5.0.3
@@ -7,6 +6,9 @@ services:
       - ${APP_DATA_DIR}/data:/2fauth
     ports:
       - ${APP_PORT}:8000
+    environment:
+      - ASSET_URL=https://${APP_DOMAIN}
+      - APP_URL=https://${APP_DOMAIN}
     networks:
       - tipi_main_network
     labels:
