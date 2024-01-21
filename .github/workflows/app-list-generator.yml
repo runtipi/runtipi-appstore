@@ -1,9 +1,7 @@
 name: app-list-generator
 
 on:
-  push:
-    branches:
-      - "master"
+  workflow-dispatch:
 
 jobs:
   generate-readme-file:
@@ -15,11 +13,18 @@ jobs:
       - name: Install Bun
         uses: oven-sh/setup-bun@v1
 
-      - name: Delete old readme (just in case)
-        run: rm README.md
-
       - name: Generate new README.md file
         run: bun app-list-generator.ts
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: |
+            docs: refresh readme apps
+          committer: GitHub <noreply@github.com>
+          author: GitHub <noreply@github.com>
+          branch: bot/readme-update
+          title: |
+            app-list-generator: update readme
+          labels: bot
