@@ -3,7 +3,7 @@ version: "3.9"
 services:
   ghostfolio:
     container_name: ghostfolio
-    image: ghostfolio/ghostfolio:2.41.0
+    image: ghostfolio/ghostfolio:2.42.0
     restart: unless-stopped
     ports:
       - ${APP_PORT}:3333
