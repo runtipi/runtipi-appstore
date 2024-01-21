@@ -1,0 +1,123 @@
+name: 🐛 Bug Report
+description: Something is not working
+title: '🐛 [MyApp] Concise description of the issue'
+labels:
+  - bug
+  - triage
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        ### ⚠️ Please note: issues are for *bugs* only!
+
+        These are problems that you think affect all Tipi users, not just
+        yourself. 
+
+        If you're uncertain, choose one of the other options below.
+  - type: markdown
+    attributes:
+      value: >-
+        #### Have a question? 👉 [Start a new
+        discussion](https://github.com/paperless-ngx/paperless-ngx/discussions/new)
+        or [ask in Discord](https://discord.gg/d8afGXHAhc).
+
+
+        #### Before opening an issue, please double check:
+
+
+        - The installation instructions of the related app.
+
+        - Existing issues and discussions in upstream app repository.
+
+        - [Existing issues and discussions in Tipi Store
+        repository](https://github.com/runtipi/runtipi-appstore/issues).
+
+        - Remove any custom app user-config, if any to check if it's related.
+  - type: input
+    id: app
+    attributes:
+      label: Store Application
+      description: Please tell us which store application is concerned by your bug report.
+      placeholder: Plex
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      placeholder: e.g. 2.5.0
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: >-
+        A clear and concise description of what the bug is. If applicable, add
+        screenshots to help explain your problem.
+      placeholder: Currently my app does not work when...[Screenshot if applicable]
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Steps to reproduce the behavior.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. See error
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: App logs
+      description: Logs from the app related to your issue.
+      render: bash
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      description: Which browser you are using, if relevant.
+      placeholder: e.g. Edge, Chrome, Safari
+  - type: textarea
+    id: logs_browser
+    attributes:
+      label: Browser logs
+      description: Logs from the web browser related to your issue, if needed
+      render: bash
+  - type: textarea
+    id: config-changes
+    attributes:
+      label: User-Config changes
+      description: >-
+        Any configuration changes you made in
+        `user-config\app\docker-compose.yml`
+  - type: textarea
+    id: other
+    attributes:
+      label: Other
+      description: Any other relevant details.
+  - type: checkboxes
+    id: required-checks
+    attributes:
+      label: Please confirm the following
+      options:
+        - label: >-
+            I believe this issue is a bug that affects all users of RunTipi, not
+            something specific to my installation.
+          required: true
+        - label: >-
+            I have already searched for relevant existing issues and discussions
+            before opening this report.
+          required: true
+        - label: I have updated the title field above with a concise description.
+          required: true
+  - type: markdown
+    attributes:
+      value: >-
+        This template was generated with [Issue Forms
+        Creator](https://issue-forms-creator.netlify.app)

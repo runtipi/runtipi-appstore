@@ -1,8 +1,7 @@
-version: "3.9"
 services:
   dozzle:
     container_name: dozzle
-    image: amir20/dozzle:v5.8.1
+    image: amir20/dozzle:v6.1.0
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -11,9 +10,7 @@ services:
     networks:
       - tipi_main_network
     environment:
-      - DOZZLE_NO_ANALYTICS=${DOZZLE_NO_ANALYTICS}
-      - DOZZLE_USERNAME=${DOZZLE_USERNAME}
-      - DOZZLE_PASSWORD=${DOZZLE_PASSWORD}
+      - DOZZLE_NO_ANALYTICS=${DOZZLE_NO_ANALYTICS-true}
     labels:
       # Main
       traefik.enable: true

@@ -6,8 +6,8 @@
   "exposable": true,
   "id": "rallly",
   "description": "Rallly is an open-source scheduling and collaboration tool designed to make organizing events and meetings easier.",
-  "tipi_version": 2,
-  "version": "3.5.0",
+  "tipi_version": 3,
+  "version": "3.5.1",
   "categories": [
     "utilities"
   ],

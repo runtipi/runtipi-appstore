@@ -1,0 +1,102 @@
+title: ✨ MyNewApp
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of the application wanted.
+      placeholder: >-
+        Unofficial Bitwarden compatible server written in Rust, formerly known
+        as bitwarden_rs
+    validations:
+      required: true
+  - type: input
+    id: website
+    attributes:
+      label: Official Website
+      description: Please give us the official website link
+  - type: input
+    id: docs-link
+    attributes:
+      label: Documentation link
+      description: Please indicate the link of the application documentation (wiki, etc)
+      placeholder: https://github.com/dani-garcia/vaultwarden/wiki
+    validations:
+      required: true
+  - type: input
+    id: last-release-date
+    attributes:
+      label: Last application release & date
+      description: Please tell us which & when the last stable version was released
+      placeholder: 1.30.1 (19/10/2023)
+    validations:
+      required: true
+  - type: input
+    id: license
+    attributes:
+      label: Application license
+      description: Please indicate license of application
+      placeholder: AGPL-3.0 license
+    validations:
+      required: true
+  - type: input
+    id: github-repository
+    attributes:
+      label: Source code repository link
+      description: >-
+        Link to official Github repository link (or Gitlab, etc.) to see source
+        code
+      placeholder: https://github.com/dani-garcia/vaultwarden
+    validations:
+      required: true
+  - type: input
+    id: docker-image-link
+    attributes:
+      label: Docker image link
+      description: Link to docker image respository of app (Github prefered over Dockerhub)
+      placeholder: https://github.com/dani-garcia/vaultwarden/pkgs/container/vaultwarden
+    validations:
+      required: true
+  - type: textarea
+    id: other
+    attributes:
+      label: Other's
+      description: Add any other context or information about the application request here.
+      placeholder: >-
+        Forums: https://vaultwarden.discourse.group; Proxy Examples:
+        https://github.com/dani-garcia/vaultwarden/wiki/Proxy-examples
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Please confirm the following
+      options:
+        - label: I confirm that I've put the app name in the title of the discussion
+          required: true
+        - label: I confirm that the application is actively maintained.
+          required: true
+        - label: >-
+            I confirm that the docker image of the application is actively
+            maintained.
+          required: true
+        - label: >-
+            I confirm that I have indeed checked that no similar request for
+            this application already exists
+          required: true
+  - type: textarea
+    id: support
+    attributes:
+      label: Gathering crowds
+      description: >-
+        Write a message of encouragement to gather votes and make your request
+        one of the most popular!
+      value: |-
+        Hey folks!
+
+        Please upvote ⬆️ this discussion to show your interest in this request! 
+
+        Thanks ⛺
+  - type: markdown
+    attributes:
+      value: >-
+        This template was generated with [Issue Forms
+        Creator](https://issue-forms-creator.netlify.app)

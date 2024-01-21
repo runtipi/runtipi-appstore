@@ -17,7 +17,6 @@ services:
       - ${APP_DATA_DIR}/data/authentik-media:/media
       - ${APP_DATA_DIR}/data/authentik-custom-templates:/templates
     ports:
-      - "8769:9000"
       - "${APP_PORT}:9443"
     depends_on:
       - authentik-db

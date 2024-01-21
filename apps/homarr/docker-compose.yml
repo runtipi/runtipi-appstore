@@ -2,7 +2,7 @@ version: "3.7"
 services:
   homarr:
     container_name: homarr
-    image: ghcr.io/ajnart/homarr:0.14.3
+    image: ghcr.io/ajnart/homarr:0.14.4
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/config:/app/data/configs

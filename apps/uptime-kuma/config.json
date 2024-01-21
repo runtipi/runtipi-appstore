@@ -5,7 +5,7 @@
   "exposable": true,
   "port": 8125,
   "id": "uptime-kuma",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "1",
   "categories": [
     "utilities"
