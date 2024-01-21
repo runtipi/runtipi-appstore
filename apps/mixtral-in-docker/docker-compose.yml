@@ -1,0 +1,39 @@
+version: "3.5"
+services:
+  mixtral-in-docker:
+    container_name: mixtral-in-docker
+    restart: always
+    image: ghcr.io/cori/dlamafiles/mixtral-docker:latest
+    # command: server start
+    volumes:
+      - "${APP_DATA_DIR}:/config"
+      - "/home/cori/code/models:/models"
+    ports:
+      - 8900:8900
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.mixtral-in-docker-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.mixtral-in-docker.loadbalancer.server.port: 8900
+      # Web
+      traefik.http.routers.mixtral-in-docker-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mixtral-in-docker-insecure.entrypoints: web
+      traefik.http.routers.mixtral-in-docker-insecure.service: mixtral-in-docker
+      traefik.http.routers.mixtral-in-docker-insecure.middlewares: mixtral-in-docker-web-redirect
+      # Websecure
+      traefik.http.routers.mixtral-in-docker.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mixtral-in-docker.entrypoints: websecure
+      traefik.http.routers.mixtral-in-docker.service: mixtral-in-docker
+      traefik.http.routers.mixtral-in-docker.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.mixtral-in-docker-local-insecure.rule: Host(`mixtral-in-docker.${LOCAL_DOMAIN}`)
+      traefik.http.routers.mixtral-in-docker-local-insecure.entrypoints: web
+      traefik.http.routers.mixtral-in-docker-local-insecure.service: mixtral-in-docker
+      traefik.http.routers.mixtral-in-docker-local-insecure.middlewares: mixtral-in-docker-web-redirect
+      # Local domain secure
+      traefik.http.routers.mixtral-in-docker-local.rule: Host(`mixtral-in-docker.${LOCAL_DOMAIN}`)
+      traefik.http.routers.mixtral-in-docker-local.entrypoints: websecure
+      traefik.http.routers.mixtral-in-docker-local.service: mixtral-in-docker
+      traefik.http.routers.mixtral-in-docker-local.tls: true

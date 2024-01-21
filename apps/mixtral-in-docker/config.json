@@ -1,0 +1,23 @@
+{
+  "$schema": "../schema.json",
+  "name": "Mixtral In Docker",
+  "available": true,
+  "exposable": true,
+  "port": 8900,
+  "id": "mixtral-in-docker",
+  "tipi_version": 1,
+  "version": "latest",
+  "categories": [
+    "utilities",
+    "development"
+  ],
+  "description": "Mixtral 8x7b API in Docker",
+  "short_desc": "Mixtral 8x7b API in Docker",
+  "author": "https://github.com/cori",
+  "source": "https://github.com/cori/DLaMaFiles",
+  "no_gui": true,
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ]
+}
