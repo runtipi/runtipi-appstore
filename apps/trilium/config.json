@@ -5,8 +5,8 @@
   "exposable": true,
   "id": "trilium",
   "description": "Trilium Notes is a hierarchical note taking application with focus on building large personal knowledge bases. ",
-  "tipi_version": 10,
-  "version": "0.63.1-beta",
+  "tipi_version": 11,
+  "version": "0.62.5",
   "categories": [
     "utilities"
   ],
