@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "dashdot",
-  "tipi_version": 12,
-  "version": "5.7.0",
+  "tipi_version": 13,
+  "version": "5.8.0",
   "categories": [
     "utilities"
   ],
