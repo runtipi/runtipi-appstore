@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "dockge",
-  "tipi_version": 9,
-  "version": "1.4.1",
+  "tipi_version": 10,
+  "version": "1.4.2",
   "categories": [
     "utilities"
   ],
