@@ -42,7 +42,7 @@ services:
       traefik.http.routers.invoice-ninja-local.tls: true
 
   invoice-ninja-server:
-    image: invoiceninja/invoiceninja:5.8.10
+    image: invoiceninja/invoiceninja:5.8.14
     container_name: invoice-ninja-server
     restart: unless-stopped
     user: 1500:1500
