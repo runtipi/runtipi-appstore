@@ -13,6 +13,7 @@
   ],
   "description": "Mixtral 8x7b API in Docker",
   "short_desc": "Mixtral 8x7b API in Docker",
+  "form_fields": [],
   "author": "https://github.com/cori",
   "source": "https://github.com/cori/DLaMaFiles",
   "no_gui": true,
