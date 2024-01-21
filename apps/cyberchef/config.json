@@ -13,6 +13,7 @@
   ],
   "description": "CyberChef is a simple, intuitive web app for carrying out all manner of \"cyber\" operations within a web browser.",
   "short_desc": "The Cyber Swiss Army Knife",
+  "form_fields": [],
   "author": "https://github.com/gchq",
   "source": "https://github.com/mpepping/docker-cyberchef",
   "website": "https://gchq.github.io/CyberChef",
