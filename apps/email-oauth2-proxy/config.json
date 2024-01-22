@@ -6,8 +6,8 @@
   "no_gui": true,
   "port": 1999,
   "id": "email-oauth2-proxy",
-  "tipi_version": 1,
-  "version": "2024.01.04",
+  "tipi_version": 2,
+  "version": "2024.01.22",
   "categories": [
     "utilities",
     "security"
@@ -17,5 +17,8 @@
   "author": "simonrob",
   "source": "https://github.com/simonrob/email-oauth2-proxy",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
