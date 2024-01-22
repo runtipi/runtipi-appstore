@@ -44,7 +44,10 @@ const appToReadme = async (app) => {
 };
 
 const writeToReadme = (appsList) => {
-  const baseReadme = fs.readFileSync(__dirname + "/../../README.md", "utf8");
+  const baseReadme = fs.readFileSync(
+    __dirname + "/../../templates/README.md",
+    "utf8"
+  );
   const finalReadme = baseReadme.replace("<!appsList>", appsList);
   fs.writeFileSync(__dirname + "/../../README.md", finalReadme);
 };
@@ -52,7 +55,7 @@ const writeToReadme = (appsList) => {
 const main = async () => {
   const apps = await getAppsList();
   const appKeys = Object.keys(apps["apps"]);
-  let appsList: string = "";
+  let appsList = "";
 
   for (let i = 0; i < appKeys.length; i++) {
     const appFinal = await appToReadme(apps["apps"][appKeys[i]]);
