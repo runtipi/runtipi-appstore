@@ -1,9 +1,9 @@
 # Tipi App Store ⛺️
 
-This is the official repository for the Tipi App Store. It contains all the apps that are available for download on [Tipi](https://github.com/meienberger/runtipi).
-    
+This is the official repository for the Tipi App Store. It contains all the apps that are available for download on [Tipi](https://github.com/runtipi/runtipi).
+
 ## Apps available
-    
+
 - [2FAuth](https://github.com/Bubka/2FAuth) - Manage your Two-Factor Authentication codes.
 - [Activepieces](https://github.com/activepieces/activepieces) - True zapier alternative.
 - [Actual Budget](https://github.com/actualbudget/actual-server) - Local-first OpenSource Budget tool
@@ -103,7 +103,6 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Mastodon](https://github.com/mastodon/mastodon) - Your self-hosted, globally interconnected microblogging community
 - [Conduit](https://gitlab.com/famedly/conduit) - Conduit is a simple, fast and reliable chat server written in Rust
 - [Mealie](https://github.com/hay-kot/mealie) - Mealie is a self-hosted recipe manager and meal planner.
-- [Mealie v0.5.6](https://github.com/hay-kot/mealie) - Mealie is a self-hosted recipe manager and meal planner.
 - [Memos](https://github.com/usememos/memos) - Memo hub for knowledge management and collaboration.
 - [MeTube](https://github.com/alexta69/metube) - youtube-dl web UI
 - [Mind](https://github.com/Casvt/MIND) - A simple self hosted reminder platform that uses push to send notifications to your device.
@@ -183,7 +182,6 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Tandoor](https://github.com/TandoorRecipes/recipes) - Recipe collection manager.
 - [Tasks.md](https://github.com/BaldissaraMatheus/Tasks.md) - A self-hosted, file based task management board.
 - [Tautulli](https://github.com/Tautulli/Tautulli) - Monitoring and tracking tool for Plex Media Server.
-- [teddit](https://codeberg.org/teddit/teddit) - Alternative Reddit front-end focused on privacy https://teddit.net
 - [Tooljet](https://github.com/ToolJet/ToolJet) - Alternative to retool to construct CRM dashboard
 - [Traefik Certs Dumper](https://github.com/kereis/traefik-certs-dumper) - Dumps Let's Encrypt certificates of a specified domain which Traefik stores in acme.json.
 - [Transmission (VPN)](https://github.com/haugene/docker-transmission-openvpn) - BitTorrent client with VPN support.
@@ -206,11 +204,11 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Your Spotify](https://github.com/Yooooomi/your_spotify) - Self hosted Spotify tracking dashboard.
 - [ZeroTier](https://github.com/zerotier/ZeroTierOne) - Easy to use zero configuration VPN.
 - [Zipline](https://github.com/diced/zipline) - A ShareX/file upload server that is easy to use, packed with features, and with an easy setup!  
-    
+
 ## How to sumbit an app
-    
+
 If you want to see new apps on Tipi you can either:
-    
-- [Open an issue](https://github.com/meienberger/runtipi-appstore/issues) on this repository and members of the community will add it
+
+- [Create a discussion](https://github.com/runtipi/runtipi-appstore/discussions) on this repository and members of the community will add it
 - [Join the Discord](https://discord.gg/Bu9qEPnHsc) members of the community will add it.
-- Fork this repo and create the necessary files for a Tipi app. Follow this [guide](<[https://github.com/meienberger/runtipi/wiki/Adding-your-own-app](https://www.runtipi.io/docs/contributing/adding-a-new-app)>)
+- Fork this repo and create the necessary files for a Tipi app. Follow this [guide](https://www.runtipi.io/docs/contributing/adding-a-new-app)`
