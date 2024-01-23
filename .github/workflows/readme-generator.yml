@@ -14,7 +14,7 @@ jobs:
         uses: oven-sh/setup-bun@v1
 
       - name: Generate new README.md file
-        run: bun readme-generator.ts
+        run: bun .github/scripts/readme-generator.ts
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
