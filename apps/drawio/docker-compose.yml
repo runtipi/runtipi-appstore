@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   drawio:
-    image: jgraph/drawio:22.1.21
+    image: jgraph/drawio:22.1.22
     ports:
       - ${APP_PORT}:8080
     container_name: drawio
