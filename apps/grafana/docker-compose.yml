@@ -3,7 +3,7 @@ version: "3"
 services:
   grafana:
     container_name: grafana
-    image: grafana/grafana-oss:10.2.3
+    image: grafana/grafana-oss:10.3.1
     ports:
       - ${APP_PORT}:3000
     volumes:
