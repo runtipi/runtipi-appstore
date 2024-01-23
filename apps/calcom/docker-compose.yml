@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+
+  calcom:
+    image: calcom/cal.com
+    restart: always
+    ports:
+      - ${APP_PORT}:3000
+    networks:
+      - tipi_main_network
+    environment:
+      - DATABASE_HOST=${POSTGRES_HOST}
+      - DATABASE_URL=postgresql://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}/calcom
+      - POSTGRES_USER=${POSTGRES_USERNAME}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=calcom
+      - LICENSE=agree
+      - NEXT_PUBLIC_LICENSE_CONSENT=agree
+      - NEXT_PUBLIC_WEBAPP_URL=http://${APP_DOMAIN}
+      - NEXTAUTH_SECRET=${CALCOM_NEXTAUTH_SECRET}
+      - CALENDSO_ENCRYPTION_KEY=${CALENDSO_ENCRYPTION_KEY}
+      - MS_GRAPH_CLIENT_ID=${MS_GRAPH_CLIENT_ID}
+      - MS_GRAPH_CLIENT_SECRET=${MS_GRAPH_CLIENT_SECRET}
+      - ZOOM_CLIENT_ID=${ZOOM_CLIENT_ID}
+      - ZOOM_CLIENT_SECRET=${ZOOM_CLIENT_SECRET}
+      - EMAIL_FROM=${EMAIL_FROM}
+      - EMAIL_SERVER_HOST=${EMAIL_SERVER_HOST}
+      - EMAIL_SERVER_PORT=${EMAIL_SERVER_PORT}
+      - EMAIL_SERVER_PASSWORD=${EMAIL_SERVER_PASSWORD}
+      - NODE_ENV={CALCOM_NODE_ENV}
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.calcom-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.calcom.loadbalancer.server.port: 3000
+      # Web
+      traefik.http.routers.calcom-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.calcom-insecure.entrypoints: web
+      traefik.http.routers.calcom-insecure.service: calcom
+      traefik.http.routers.calcom-insecure.middlewares: calcom-web-redirect
+      # Websecure
+      traefik.http.routers.calcom.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.calcom.entrypoints: websecure
+      traefik.http.routers.calcom.service: calcom
+      traefik.http.routers.calcom.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.calcom-local-insecure.rule: Host(`calcom.${LOCAL_DOMAIN}`)
+      traefik.http.routers.calcom-local-insecure.entrypoints: web
+      traefik.http.routers.calcom-local-insecure.service: calcom
+      traefik.http.routers.calcom-local-insecure.middlewares: calcom-web-redirect
+      # Local domain secure
+      traefik.http.routers.calcom-local.rule: Host(`calcom.${LOCAL_DOMAIN}`)
+      traefik.http.routers.calcom-local.entrypoints: websecure
+      traefik.http.routers.calcom-local.service: calcom
+      traefik.http.routers.calcom-local.tls: true
