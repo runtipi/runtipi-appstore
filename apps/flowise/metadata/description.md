@@ -1,6 +1,6 @@
 # Flowise - Build LLM Apps Easily
 
-[Flowise AI](https://github.com/FlowiseAI/Flowise) is an Open source UI visual tool to build your customized LLM ochestration flow & AI agents. Developing LLM apps takes countless iterations. With low code approach, Flowise AI enable quick iterations to go from testing to production.
+[Flowise AI](https://github.com/FlowiseAI/Flowise) is an Open source UI visual tool to build your customized LLM orchestration flow & AI agents. Developing LLM apps takes countless iterations. With low code approach, Flowise AI enable quick iterations to go from testing to production.
 
 ---
 
