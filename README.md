@@ -50,7 +50,6 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Fireshare](https://github.com/ShaneIsrael/fireshare) - Self host your media and share with unique links
 - [Flaresolverr](https://github.com/FlareSolverr/FlareSolverr) - Bypass Cloudflare and DDoS-GuARD.
 - [flatnotes](https://github.com/Dullage/flatnotes) - A self-hosted, database-less note taking web app
-- [Flowise](https://github.com/FlowiseAI/Flowise) - Drag & drop UI to build your customized LLM flow
 - [Forgejo](https://codeberg.org/forgejo/forgejo/) - Beyond coding. We forge. · Lightweight and performant · Guaranteed 100% Free Software
 - [FreshRSS](https://github.com/FreshRSS/FreshRSS) - A free, self-hostable aggregator… 
 - [gandi-livedns](https://github.com/jbbodart/gandi-livedns) - Update your Gandi DNS zone records with your WAN IP
