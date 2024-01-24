@@ -34,7 +34,6 @@
       "type": "random",
       "label": "Flowise Secret",
       "min": 16,
-      "required": true,
       "env_variable": "FLOWISE_SECRETKEY_OVERWRITE"
     },
     {
