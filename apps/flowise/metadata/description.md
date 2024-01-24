@@ -38,7 +38,7 @@ Extend and integrate to your applications using APIs, SDK and Embedded Chat
 ---
 
 ### Open source LLMs
-Run in air-gapped environment with local LLMs, embeddings and vector databases
+Run in an air-gapped environment with local LLMs, embeddings, and vector databases
 - HuggingFace, Ollama, LocalAI, Replicate
 - Llama2, Mistral, Vicuna, Orca, Llava
 - Self host on AWS, Azure, GCP
