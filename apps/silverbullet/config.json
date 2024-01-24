@@ -1,1 +1,40 @@
-
+{
+  "$schema": "../schema.json",
+  "name": "Silverbullet",
+  "port": 8214,
+  "available": true,
+  "exposable": true,
+  "id": "silverbullet",
+  "tipi_version": 1,
+  "version": "0.6.0",
+  "categories": [
+    "utilities"
+  ],
+  "description": "SilverBullet aims to be your workshop for the mind",
+  "short_desc": "SilverBullet is a creative space where you collect, create and expand your personal knowledge, while also letting you constantly evolve the tools you use to do so.",
+  "author": "zefhemel",
+  "source": "https://github.com/silverbulletmd/silverbullet",
+  "website": "https://silverbullet.md",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Username",
+      "max": 50,
+      "min": 3,
+      "required": false,
+      "env_variable": "SB_USER"
+    },
+    {
+      "type": "password",
+      "label": "Password",
+      "max": 50, 
+      "min": 3,
+      "required": false, 
+      "env_variable": "SB_PASSWORD"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}
