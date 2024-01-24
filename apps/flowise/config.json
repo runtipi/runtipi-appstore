@@ -33,8 +33,6 @@
     {
       "type": "random",
       "label": "Flowise Secret",
-      "hint": "Flowise store your third party API keys as encrypted credentials using an encryption key",
-      "max": 32,
       "min": 16,
       "required": true,
       "env_variable": "FLOWISE_SECRETKEY_OVERWRITE"
