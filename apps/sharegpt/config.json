@@ -1,0 +1,91 @@
+{
+  "$schema": "../schema.json",
+  "name": "ShareGPT",
+  "available": true,
+  "exposable": true,
+  "port": 8800,
+  "id": "sharegpt",
+  "tipi_version": 1,
+  "version": "latest",
+  "categories": [
+    "utilities",
+    "development"
+  ],
+  "description": "Share your wildest ChatGPT conversations with one click.",
+  "short_desc": "Share your ChatGPT conversations.",
+  "author": "https://github.com/domeccleston",
+  "source": "https://github.com/domeccleston/sharegpt",
+  "website": "https://sharegpt.com",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "DB Password",
+      "required": true,
+      "env_variable": "SHAREGPT_DB_PASSWORD"
+    }
+    {
+      "type": "password",
+      "label": "DB Root Password",
+      "required": true,
+      "env_variable": "SHAREGPT_DB_ROOT_PASSWORD"
+    }
+    {
+      "type": "nextauth_url",
+      "label": "NextJS Auth Callback URL",
+      "required": false,
+      "env_variable": "NEXTJS_AUTH_CALLBACK_URL"
+    }
+    {
+      "type": "password",
+      "label": "Google Auth ClientID",
+      "required": false,
+      "env_variable": "SHAREGPT_GOOGLE_AUTH_CLIENT_ID"
+    }
+    {
+      "type": "password",
+      "label": "Google Auth Secret",
+      "required": false,
+      "env_variable": "SHAREGPT_GOOGLE_AUTH_CLIENT_SECRET"
+    }
+    {
+      "type": "password",
+      "label": "Xitter Auth Token",
+      "required": false,
+      "env_variable": "SHAREGPT_XITTER_AUTH_CLIENT_TOKEN"
+    }
+    {
+      "type": "password",
+      "label": "Google Auth Client ID",
+      "required": false,
+      "env_variable": "SHAREGPT_XITTER_AUTH_CLIENT_ID"
+    }
+    {
+      "type": "password",
+      "label": "Xitter Auth Secret",
+      "required": false,
+      "env_variable": "SHAREGPT_XITTER_AUTH_CLIENT_SECRET"
+    }
+    {
+      "type": "password",
+      "label": "NextJS Auth Secret",
+      "required": false,
+      "env_variable": "SHAREGPT_NEXTJS_AUTH_SECRET"
+    }
+    {
+      "type": "password",
+      "label": "Upstash Token",
+      "required": false,
+      "env_variable": "SHAREGPT_UPSTASH_TOKEN"
+    }
+    {
+      "type": "text",
+      "label": "Upstash Redis URL",
+      "required": false,
+      "env_variable": "SHAREGPT_UPSTASH_URL"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ]
+}

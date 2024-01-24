@@ -1,0 +1,80 @@
+version: "3.9"
+services:
+  sharegpt:
+    container_name: sharegpt
+    restart: unless-stopped
+    image: ghcr.io/cori/sharegpt/sharegpt-docker:latest
+    volumes:
+      - "${APP_DATA_DIR}:/config"
+    depends_on:
+      - db
+    ports:
+      - 8800:3000
+    environment:
+      - DATABASE_URL=mysql://sharegpt:${MYSQL_PASSWORD}@db:3306/sharegpt
+      - GOOGLE_CLIENT_ID=${SHAREGPT_GOOGLE_AUTH_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRET=${SHAREGPT_GOOGLE_AUTH_CLIENT_SECRET}
+      - NEXTAUTH_URL=${NEXTJS_AUTH_CALLBACK_URL}
+      - NEXTAUTH_SECRET=${SHAREGPT_NEXTJS_AUTH_SECRET}
+      - TWITTER_CLIENT_ID=${SHAREGPT_XITTER_AUTH_CLIENT_ID}
+      - TWITTER_CLIENT_SECRET=${SHAREGPT_XITTER_AUTH_CLIENT_SECRET}
+      - TWITTER_AUTH_TOKEN=${SHAREGPT_XITTER_AUTH_CLIENT_TOKEN}
+      - UPSTASH_REDIS_REST_TOKEN=${SHAREGPT_UPSTASH_TOKEN}
+      - UPSTASH_REDIS_REST_URL=${SHAREGPT_UPSTASH_URL}
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.sharegpt-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.sharegpt.loadbalancer.server.port: 8800
+      # Web
+      traefik.http.routers.sharegpt-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.sharegpt-insecure.entrypoints: web
+      traefik.http.routers.sharegpt-insecure.service: sharegpt
+      traefik.http.routers.sharegpt-insecure.middlewares: sharegpt-web-redirect
+      # Websecure
+      traefik.http.routers.sharegpt.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.sharegpt.entrypoints: websecure
+      traefik.http.routers.sharegpt.service: sharegpt
+      traefik.http.routers.sharegpt.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.sharegpt-local-insecure.rule: Host(`sharegpt.${LOCAL_DOMAIN}`)
+      traefik.http.routers.sharegpt-local-insecure.entrypoints: web
+      traefik.http.routers.sharegpt-local-insecure.service: sharegpt
+      traefik.http.routers.sharegpt-local-insecure.middlewares: sharegpt-web-redirect
+      # Local domain secure
+      traefik.http.routers.sharegpt-local.rule: Host(`sharegpt.${LOCAL_DOMAIN}`)
+      traefik.http.routers.sharegpt-local.entrypoints: websecure
+      traefik.http.routers.sharegpt-local.service: sharegpt
+      traefik.http.routers.sharegpt-local.tls: true
+
+  prisma-migrate:
+    image: ghcr.io/cori/sharegpt/sharegpt-docker:latest
+    depends_on:
+      - db
+    volumes:
+      - ./:/app
+    working_dir: /app
+    command: npx prisma migrate deploy
+    environment:
+      - DATABASE_URL=mysql://root:${SHAREGPT_DB_ROOT_PASSWORD}@db:3306/sharegpt
+    networks:
+      - tipi_main_network
+
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    volumes:
+      - "${APP_DATA_DIR}/data:/var/lib/mysql"
+    environment:
+      - MYSQL_DATABASE=sharegpt
+      - MYSQL_USER=sharegpt
+      - MYSQL_PASSWORD=${SHAREGPT_DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${SHAREGPT_DB_ROOT_PASSWORD}
+    networks:
+      - tipi_main_network
+      
