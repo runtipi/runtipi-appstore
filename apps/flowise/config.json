@@ -26,25 +26,23 @@
       "type": "password",
       "label": "Flowise Password",
       "max": 50,
-      "min": 3,
+      "min": 12,
       "required": true,
       "env_variable": "FLOWISE_PASSWORD"
     },
     {
-      "type": "password",
+      "type": "random",
       "label": "Flowise Secret",
       "hint": "Flowise store your third party API keys as encrypted credentials using an encryption key",
-      "max": 50,
-      "min": 3,
+      "max": 32,
+      "min": 16,
       "required": true,
       "env_variable": "FLOWISE_SECRETKEY_OVERWRITE"
     },
     {
-      "type": "text",
+      "type": "url",
       "label": "(Optional) Langchain Endpoint",
       "hint": "URL of your langhchain endpoint",
-      "max": 50,
-      "min": 3,
       "required": false,
       "env_variable": "LANGCHAIN_ENDPOINT"
     },
