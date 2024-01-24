@@ -22,7 +22,7 @@ Connect LLMs with memory, data loaders, cache, moderation and many more
 ---
 
 ### Agents & Assistants
-Create autonomous agent that can uses tools to execute different tasks
+Create an autonomous agent that can use tools to execute different tasks
 - Custom Tools
 - OpenAI Assistant
 - Function Agent
