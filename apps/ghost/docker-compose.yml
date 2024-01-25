@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   ghost:
-    image: ghost:5.76.1
+    image: ghost:5.76.2
     container_name: ghost
     depends_on:
       - ghostdb
