@@ -3,7 +3,7 @@
   "name": "ShareGPT",
   "available": true,
   "exposable": true,
-  "port": 8800,
+  "port": 8805,
   "id": "sharegpt",
   "tipi_version": 1,
   "version": "latest",

@@ -9,7 +9,7 @@ services:
     depends_on:
       - db
     ports:
-      - 8800:3000
+      - 8805:3000
     environment:
       - DATABASE_URL=mysql://sharegpt:${MYSQL_PASSWORD}@db:3306/sharegpt
       - GOOGLE_CLIENT_ID=${SHAREGPT_GOOGLE_AUTH_CLIENT_ID}
@@ -27,7 +27,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.sharegpt-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.sharegpt.loadbalancer.server.port: 8800
+      traefik.http.services.sharegpt.loadbalancer.server.port: 8805
       # Web
       traefik.http.routers.sharegpt-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.sharegpt-insecure.entrypoints: web
