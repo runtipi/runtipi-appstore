@@ -6,7 +6,7 @@ services:
     container_name: maintainerr
 #    user: 1000:1000 # only use this with release 2.0 and up
     volumes:
-      - ${ROOT_FOLDER_HOST}/media/data:/media
+      - ${APP_DATA_DIR}/data/config:/opt/data
     environment:
       - TZ=${TZ}
 #      - DEBUG=true # uncomment to enable verbose logs

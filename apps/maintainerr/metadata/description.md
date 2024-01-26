@@ -30,7 +30,7 @@ Currently, <b>Maintainerr</b> supports rule parameters from these apps :
 
 # Preview
 
-![image](./ui/public/screenshots/overview_screenshot.png)
-![image](./ui/public/screenshots/rules_screenshot.png)
-![image](./ui/public/screenshots/collections_screenshot.png)
-![image](./ui/public/screenshots/rule_example_screenshot.png)
+![image](https://raw.githubusercontent.com/jorenn92/Maintainerr/main/ui/public/screenshots/overview_screenshot.png)
+![image](https://raw.githubusercontent.com/jorenn92/Maintainerr/main/ui/public/screenshots/rules_screenshot.png)
+![image](https://raw.githubusercontent.com/jorenn92/Maintainerr/main/ui/public/screenshots/collections_screenshot.png)
+![image](https://raw.githubusercontent.com/jorenn92/Maintainerr/main/ui/public/screenshots/rule_example_screenshot.png)
