@@ -1,0 +1,18 @@
+{
+  "$schema": "../schema.json",
+  "name": "Anse",
+  "available": true,
+  "exposable": true,
+  "port": 8014,
+  "id": "anse",
+  "tipi_version": 1,
+  "version": "1.1.11",
+  "categories": ["ai"],
+  "description": "Anse is a fully optimized UI for AI Chats. Supercharged experience for multiple models such as ChatGPT, DALL-E and Stable Diffusion.",
+  "short_desc": "Fully optimized UI for AI Chats.",
+  "author": "anse",
+  "source": "https://github.com/anse-app/anse",
+  "website": "https://anse.app",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

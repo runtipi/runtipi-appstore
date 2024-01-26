@@ -1,0 +1,38 @@
+version: '3.7'
+
+services:
+    anse-demo:
+        image: ddiu8081/anse:v1.1.11
+        restart: unless-stopped
+        container_name: anse
+        environment:
+            - PORT=8014
+        ports:
+            - "${APP_PORT}:8014"
+        networks:
+            - tipi_main_network
+        labels:
+            # Main
+            traefik.enable: true
+            traefik.http.middlewares.anse-web-redirect.redirectscheme.scheme: https
+            traefik.http.services.anse.loadbalancer.server.port: 8014
+            # Web
+            traefik.http.routers.anse-insecure.rule: Host(`${APP_DOMAIN}`)
+            traefik.http.routers.anse-insecure.entrypoints: web
+            traefik.http.routers.anse-insecure.service: anse
+            traefik.http.routers.anse-insecure.middlewares: anse-web-redirect
+            # Websecure
+            traefik.http.routers.anse.rule: Host(`${APP_DOMAIN}`)
+            traefik.http.routers.anse.entrypoints: websecure
+            traefik.http.routers.anse.service: anse
+            traefik.http.routers.anse.tls.certresolver: myresolver
+            # Local domain
+            traefik.http.routers.anse-local-insecure.rule: Host(`anse.${LOCAL_DOMAIN}`)
+            traefik.http.routers.anse-local-insecure.entrypoints: web
+            traefik.http.routers.anse-local-insecure.service: anse
+            traefik.http.routers.anse-local-insecure.middlewares: anse-web-redirect
+            # Local domain secure
+            traefik.http.routers.anse-local.rule: Host(`anse.${LOCAL_DOMAIN}`)
+            traefik.http.routers.anse-local.entrypoints: websecure
+            traefik.http.routers.anse-local.service: anse
+            traefik.http.routers.anse-local.tls: true
