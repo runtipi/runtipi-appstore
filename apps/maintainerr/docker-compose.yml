@@ -19,7 +19,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.maintainerr-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.maintainerr.loadbalancer.server.port: 8030
+      traefik.http.services.maintainerr.loadbalancer.server.port: 8154
       # Web
       traefik.http.routers.maintainerr-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.maintainerr-insecure.entrypoints: web
