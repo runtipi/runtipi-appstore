@@ -2,7 +2,7 @@
   "name": "Maintainerr",
   "available": true,
   "exposable": true,
-  "port": 8003,
+  "port": 8030,
   "id": "maintainerr",
   "tipi_version": 1,
   "version": "1.7.1",

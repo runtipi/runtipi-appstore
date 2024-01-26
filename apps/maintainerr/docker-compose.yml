@@ -11,7 +11,7 @@ services:
       - TZ=${TZ}
 #      - DEBUG=true # uncomment to enable verbose logs
     ports:
-      - ${APP_PORT}:8003
+      - ${APP_PORT}:8154
     restart: unless-stopped
     networks:
       - tipi_main_network
@@ -19,7 +19,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.maintainerr-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.maintainerr.loadbalancer.server.port: 8003
+      traefik.http.services.maintainerr.loadbalancer.server.port: 8030
       # Web
       traefik.http.routers.maintainerr-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.maintainerr-insecure.entrypoints: web
