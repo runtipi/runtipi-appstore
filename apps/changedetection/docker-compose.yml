@@ -14,21 +14,26 @@ services:
     # environment:
     #   - PLAYWRIGHT_DRIVER_URL=ws://playwright-chrome:3000/
     labels:
+      # Main
       traefik.enable: true
       traefik.http.middlewares.changedetection-web-web-redirect.redirectscheme.scheme: https
       traefik.http.services.changedetection-web.loadbalancer.server.port: 5000
+      # Web
       traefik.http.routers.changedetection-web-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.changedetection-web-insecure.entrypoints: web
       traefik.http.routers.changedetection-web-insecure.service: changedetection-web
       traefik.http.routers.changedetection-web-insecure.middlewares: changedetection-web-web-redirect
+      # Websecure
       traefik.http.routers.changedetection-web.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.changedetection-web.entrypoints: websecure
       traefik.http.routers.changedetection-web.service: changedetection-web
       traefik.http.routers.changedetection-web.tls.certresolver: myresolver
+      # Local domain
       traefik.http.routers.changedetection-web-local-insecure.rule: Host(`changedetection-web.${LOCAL_DOMAIN}`)
       traefik.http.routers.changedetection-web-local-insecure.entrypoints: web
       traefik.http.routers.changedetection-web-local-insecure.service: changedetection-web
       traefik.http.routers.changedetection-web-local-insecure.middlewares: changedetection-web-web-redirect
+      # Local domain secure
       traefik.http.routers.changedetection-web-local.rule: Host(`changedetection-web.${LOCAL_DOMAIN}`)
       traefik.http.routers.changedetection-web-local.entrypoints: websecure
       traefik.http.routers.changedetection-web-local.service: changedetection-web
