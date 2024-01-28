@@ -36,7 +36,7 @@ services:
     networks:
       - tipi_main_network
   vikunja:
-    image: vikunja/frontend:0.22.0
+    image: vikunja/frontend:0.22.1
     restart: unless-stopped
     container_name: vikunja
     networks:
