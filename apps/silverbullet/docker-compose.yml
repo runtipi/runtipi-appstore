@@ -1,0 +1,16 @@
+version: '0.5'
+
+services:
+    silverbullet:
+        image: zefhemel/silverbullet:0.6.0
+        container_name: 'silverbullet'
+        restart: unless-stopped
+        volumes:
+        - /etc/localtime:/etc/localtime:ro
+        - ${APP_DATA_DIR}/space:/space
+        environment:
+        - SB_USER=${SB_USER}:${SB_PASSWORD}
+        ports:
+        - ${APP_PORT}:3000
+        networks:
+        - tipi_main_network
