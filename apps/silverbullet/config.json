@@ -21,15 +21,15 @@
       "label": "Username",
       "max": 50,
       "min": 3,
-      "required": false,
+      "required": true,
       "env_variable": "SB_USER"
     },
     {
       "type": "password",
       "label": "Password",
-      "max": 50, 
-      "min": 3,
-      "required": false, 
+      "max": 50,
+      "min": 8,
+      "required": true,
       "env_variable": "SB_PASSWORD"
     }
   ],
