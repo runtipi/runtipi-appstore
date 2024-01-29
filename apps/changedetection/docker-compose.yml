@@ -1,47 +1,61 @@
 version: "3.7"
 services:
-    changedetection:
-      image: ghcr.io/dgtlmoon/changedetection.io:0.45.13
-      container_name: changedetection
-      hostname: changedetection
-      volumes:
-        - ${APP_DATA_DIR}/data:/datastore
-      ports:
-        - ${APP_PORT}:5000
-      restart: unless-stopped
-      networks:
-        - tipi_main_network
-      labels:
-        # Main
-        traefik.enable: true
-        traefik.http.middlewares.changedetection-web-web-redirect.redirectscheme.scheme: https
-        traefik.http.services.changedetection-web.loadbalancer.server.port: 5000
-        # Web
-        traefik.http.routers.changedetection-web-insecure.rule: Host(`${APP_DOMAIN}`)
-        traefik.http.routers.changedetection-web-insecure.entrypoints: web
-        traefik.http.routers.changedetection-web-insecure.service: changedetection-web
-        traefik.http.routers.changedetection-web-insecure.middlewares: changedetection-web-web-redirect
-        # Websecure
-        traefik.http.routers.changedetection-web.rule: Host(`${APP_DOMAIN}`)
-        traefik.http.routers.changedetection-web.entrypoints: websecure
-        traefik.http.routers.changedetection-web.service: changedetection-web
-        traefik.http.routers.changedetection-web.tls.certresolver: myresolver
-        # Local domain
-        traefik.http.routers.changedetection-web-local-insecure.rule: Host(`changedetection-web.${LOCAL_DOMAIN}`)
-        traefik.http.routers.changedetection-web-local-insecure.entrypoints: web
-        traefik.http.routers.changedetection-web-local-insecure.service: changedetection-web
-        traefik.http.routers.changedetection-web-local-insecure.middlewares: changedetection-web-web-redirect
-        # Local domain secure
-        traefik.http.routers.changedetection-web-local.rule: Host(`changedetection-web.${LOCAL_DOMAIN}`)
-        traefik.http.routers.changedetection-web-local.entrypoints: websecure
-        traefik.http.routers.changedetection-web-local.service: changedetection-web
-        traefik.http.routers.changedetection-web-local.tls: true
+  changedetection:
+    image: ghcr.io/dgtlmoon/changedetection.io:0.45.13
+    container_name: changedetection
+    hostname: changedetection
+    volumes:
+      - ${APP_DATA_DIR}/data:/datastore
+    ports:
+      - ${APP_PORT}:5000
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    # environment:
+    #   - PLAYWRIGHT_DRIVER_URL=ws://playwright-chrome:3000/
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.changedetection-web-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.changedetection-web.loadbalancer.server.port: 5000
+      # Web
+      traefik.http.routers.changedetection-web-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.changedetection-web-insecure.entrypoints: web
+      traefik.http.routers.changedetection-web-insecure.service: changedetection-web
+      traefik.http.routers.changedetection-web-insecure.middlewares: changedetection-web-web-redirect
+      # Websecure
+      traefik.http.routers.changedetection-web.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.changedetection-web.entrypoints: websecure
+      traefik.http.routers.changedetection-web.service: changedetection-web
+      traefik.http.routers.changedetection-web.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.changedetection-web-local-insecure.rule: Host(`changedetection-web.${LOCAL_DOMAIN}`)
+      traefik.http.routers.changedetection-web-local-insecure.entrypoints: web
+      traefik.http.routers.changedetection-web-local-insecure.service: changedetection-web
+      traefik.http.routers.changedetection-web-local-insecure.middlewares: changedetection-web-web-redirect
+      # Local domain secure
+      traefik.http.routers.changedetection-web-local.rule: Host(`changedetection-web.${LOCAL_DOMAIN}`)
+      traefik.http.routers.changedetection-web-local.entrypoints: websecure
+      traefik.http.routers.changedetection-web-local.service: changedetection-web
+      traefik.http.routers.changedetection-web-local.tls: true
 
-
-    # chnagedetection-chrome:
-    #   hostname: chnagedetection-chrome
-    #   image: browserless/chrome:latest
-    #   restart: unless-stopped
-    #   container_name: chnagedetection-chrome
-    #   networks:
-    #     - tipi_main_network
+  # playwright-chrome:
+  #   hostname: playwright-chrome
+  #   container_name: playwright-chrome
+  #   image: browserless/chrome
+  #   restart: unless-stopped
+  #   networks:
+  #     - tipi_main_network
+  #   ports:
+  #     - 1337:3000
+  #   environment:
+  #     - SCREEN_WIDTH=1920
+  #     - SCREEN_HEIGHT=1024
+  #     - SCREEN_DEPTH=16
+  #     - ENABLE_DEBUGGER=false
+  #     - PREBOOT_CHROME=true
+  #     - CONNECTION_TIMEOUT=300000
+  #     - MAX_CONCURRENT_SESSIONS=10
+  #     - CHROME_REFRESH_TIME=600000
+  #     - DEFAULT_BLOCK_ADS=true
+  #     - DEFAULT_STEALTH=true
