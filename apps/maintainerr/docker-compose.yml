@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  maintainerr:
+    image: ghcr.io/jorenn92/maintainerr:1.7.1 # or jorenn92/maintainerr:1.7.1
+    container_name: maintainerr
+#    user: 1000:1000 # only use this with release 2.0 and up
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/opt/data
+    environment:
+      - TZ=${TZ}
+#      - DEBUG=true # uncomment to enable verbose logs
+    ports:
+      - ${APP_PORT}:80
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.maintainerr-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.maintainerr.loadbalancer.server.port: 8030
+      # Web
+      traefik.http.routers.maintainerr-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.maintainerr-insecure.entrypoints: web
+      traefik.http.routers.maintainerr-insecure.service: maintainerr
+      traefik.http.routers.maintainerr-insecure.middlewares: maintainerr-web-redirect
+      # Websecure
+      traefik.http.routers.maintainerr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.maintainerr.entrypoints: websecure
+      traefik.http.routers.maintainerr.service: maintainerr
+      traefik.http.routers.maintainerr.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.maintainerr-local-insecure.rule: Host(`maintainerr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.maintainerr-local-insecure.entrypoints: web
+      traefik.http.routers.maintainerr-local-insecure.service: maintainerr
+      traefik.http.routers.maintainerr-local-insecure.middlewares: maintainerr-web-redirect
+      # Local domain secure
+      traefik.http.routers.maintainerr-local.rule: Host(`maintainerr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.maintainerr-local.entrypoints: websecure
+      traefik.http.routers.maintainerr-local.service: maintainerr
+      traefik.http.routers.maintainerr-local.tls: true
