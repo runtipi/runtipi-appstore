@@ -3,8 +3,9 @@ version: '3.8'
 services:
 
   calcom:
+    container_name: calcom
     image: calcom/cal.com:v3.7.9
-    restart: always
+    restart: unless-stopped
     ports:
       - ${APP_PORT}:3000
     networks:
