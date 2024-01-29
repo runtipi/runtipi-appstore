@@ -1,5 +1,7 @@
 # Atuin Server
 
+Once installed, [configure your client](https://docs.atuin.sh/self-hosting/usage/) to use `<your-tipi-ip>:8888` as sync address.
+
 ## Making your shell magical
 
 Sync, search and backup shell history with Atuin

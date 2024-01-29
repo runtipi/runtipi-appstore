@@ -6,14 +6,14 @@ services:
     image: ghcr.io/atuinsh/atuin:latest
     command: server start
     volumes:
-      - "${APP_DATA_DIR}:/config"
+      - "${APP_DATA_DIR}/data/config:/config"
     links:
       - postgresql:db
     ports:
-      - 8888:8888
+      - ${APP_PORT}:8888
     environment:
       ATUIN_HOST: "0.0.0.0"
-      ATUIN_OPEN_REGISTRATION: "true"
+      ATUIN_OPEN_REGISTRATION: ${ATUIN_ALLOW_REGISTRATION}
       ATUIN_DB_URI: "postgres://atuin:${ATUIN_DB_PASSWORD}@db/atuin"
     networks:
       - tipi_main_network

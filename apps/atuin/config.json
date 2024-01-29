@@ -19,11 +19,22 @@
   "no_gui": true,
   "form_fields": [
     {
-      "type": "password",
+      "type": "random",
       "label": "Atuin DB Password",
-      "required": true,
+      "min": 50,
       "env_variable": "ATUIN_DB_PASSWORD"
+    },
+    {
+      "type": "boolean",
+      "label": "Allow User Registrastion",
+      "hint": "Set it to true intially to create the first user.",
+      "placeholder": "true",
+      "default": true,
+      "env_variable": "ATUIN_ALLOW_REGISTRATION"
     }
   ],
-  "supported_architectures": ["amd64","arm64"]
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ]
 }
