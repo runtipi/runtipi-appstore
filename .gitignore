@@ -3,3 +3,4 @@ package-lock.json
 github.secrets
 .DS_Store
 .nova
+.vscode/

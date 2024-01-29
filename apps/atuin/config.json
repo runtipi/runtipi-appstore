@@ -1,0 +1,29 @@
+{
+  "$schema": "../schema.json",
+  "name": "Atuin Server",
+  "available": true,
+  "exposable": true,
+  "port": 8888,
+  "id": "atuin",
+  "tipi_version": 1,
+  "version": "latest",
+  "categories": [
+    "utilities",
+    "development"
+  ],
+  "description": "Making your shell magical",
+  "short_desc": "Magical Shell History",
+  "author": "https://github.com/atuinsh",
+  "source": "https://github.com/atuinsh/atuin",
+  "website": "https://atuin.sh",
+  "no_gui": true,
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "Atuin DB Password",
+      "required": true,
+      "env_variable": "ATUIN_DB_PASSWORD"
+    }
+  ],
+  "supported_architectures": ["amd64","arm64"]
+}
