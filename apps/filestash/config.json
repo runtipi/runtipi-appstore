@@ -5,7 +5,7 @@
   "available": true,
   "exposable": true,
   "id": "filestash",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "latest",
   "categories": ["utilities"],
   "description": "A modern web client for SFTP, S3, FTP, WebDAV, Git, Minio, LDAP, CalDAV, CardDAV, Mysql, Backblaze",
