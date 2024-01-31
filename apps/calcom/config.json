@@ -83,7 +83,7 @@
             "label": "Email server port (SMTP)",
             "required": true,
             "min": 1,
-            "max": 8,
+            "max": 65535,
             "env_variable": "EMAIL_SERVER_PORT"
         },
         {
