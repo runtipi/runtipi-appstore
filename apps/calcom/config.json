@@ -15,10 +15,10 @@
     "supported_architectures": ["amd64"],
     "form_fields": [
         {
-            "type": "random",
-            "label": "Next.js Auth secret",
+            "type": "password",
+            "label": "Next.js Auth secret. Generate one with `openssl rand -base64 32`",
             "required": true,
-            "min": 50,
+            "min": 1,
             "max": 1024,
             "env_variable": "CALCOM_NEXTAUTH_SECRET"
         },
