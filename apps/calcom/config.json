@@ -23,10 +23,10 @@
             "env_variable": "CALCOM_NEXTAUTH_SECRET"
         },
         {
-            "type": "password",
+            "type": "random",
             "label": "Calendso Encryption Key. Encryption key that will be used to encrypt CalDAV credentials, choose a random string, for example with `dd if=/dev/urandom bs=1K count=1 | md5sum`",
             "required": true,
-            "min": 1,
+            "min": 32,
             "max": 1024,
             "env_variable": "CALENDSO_ENCRYPTION_KEY"
         },
