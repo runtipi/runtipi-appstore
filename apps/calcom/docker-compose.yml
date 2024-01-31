@@ -29,7 +29,7 @@ services:
       - EMAIL_SERVER_HOST=${EMAIL_SERVER_HOST}
       - EMAIL_SERVER_PORT=${EMAIL_SERVER_PORT}
       - EMAIL_SERVER_PASSWORD=${EMAIL_SERVER_PASSWORD}
-      - NODE_ENV={CALCOM_NODE_ENV}
+      - NODE_ENV=production
     labels:
       # Main
       traefik.enable: true
