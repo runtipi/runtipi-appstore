@@ -3,7 +3,7 @@ services:
       
   wordpress:
     container_name: wordpress
-    image: wordpress:6.4.2
+    image: wordpress:6.4.3
     environment:
       - WORDPRESS_DB_HOST=wordpress-db
       - WORDPRESS_DB_NAME=wordpress
