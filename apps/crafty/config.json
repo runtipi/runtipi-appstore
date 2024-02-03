@@ -1,25 +1,24 @@
 {
-    "$schema": "../schema.json",
-    "name": "Crafty",
-    "available": true,
-    "exposable": true,
-    "port": 8456,
-    "id": "crafty",
-    "https": true,
-    "tipi_version": 1,
-    "version": "4.2.2",
-    "categories": [
-        "gaming"
-    ],
-    "description": "Crafty 4 is the next iteration of our Minecraft Server Wrapper / Controller / Launcher.",
-    "short_desc": "Python based Control Panel for your Minecraft Server",
-    "author": "Crafty Controller",
-    "source": "https://gitlab.com/crafty-controller/crafty-4",
-    "website": "https://craftycontrol.com/",
-    "form_fields": [],
-    "supported_architectures": [
-        "arm64", 
-        "amd64"
-    ]
-  }
-  
+  "$schema": "../schema.json",
+  "name": "Crafty",
+  "available": true,
+  "exposable": true,
+  "port": 8456,
+  "id": "crafty",
+  "https": true,
+  "tipi_version": 2,
+  "version": "4.2.3",
+  "categories": [
+    "gaming"
+  ],
+  "description": "Crafty 4 is the next iteration of our Minecraft Server Wrapper / Controller / Launcher.",
+  "short_desc": "Python based Control Panel for your Minecraft Server",
+  "author": "Crafty Controller",
+  "source": "https://gitlab.com/crafty-controller/crafty-4",
+  "website": "https://craftycontrol.com/",
+  "form_fields": [],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}
