@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "tasks-md",
-  "tipi_version": 6,
-  "version": "1.10.1",
+  "tipi_version": 7,
+  "version": "2.0.0",
   "categories": [
     "development"
   ],
@@ -23,5 +23,8 @@
       "env_variable": "TASKS_MD_TITLE"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
