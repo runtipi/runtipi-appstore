@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "tandoor",
-  "tipi_version": 7,
-  "version": "1.5.11",
+  "tipi_version": 8,
+  "version": "1.5.12",
   "categories": [
     "data"
   ],

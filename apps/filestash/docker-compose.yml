@@ -12,6 +12,8 @@ services:
       - ONLYOFFICE_URL=http://filestash-onlyoffice
     ports:
       - ${APP_PORT}:8334
+    volumes:
+      - ${APP_DATA_DIR}/data:/app/data/state/
     depends_on:
       - filestash-onlyoffice
     networks:
