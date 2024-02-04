@@ -8,6 +8,9 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Activepieces](https://github.com/activepieces/activepieces) - True zapier alternative.
 - [Actual Budget](https://github.com/actualbudget/actual-server) - Local-first OpenSource Budget tool
 - [Adguard](https://github.com/AdguardTeam) - World's most advanced adblocker!
+- [Anse](https://github.com/anse-app/anse) - Fully optimized UI for AI Chats.
+- [ArchiveBox](https://github.com/ArchiveBox/ArchiveBox) - Open source self-hosted web archiving.
+- [Atuin Server](https://github.com/atuinsh/atuin) - Magical Shell History
 - [Audiobookshelf](https://github.com/advplyr/audiobookshelf) - Audiobookshelf is a self-hosted audiobook and podcast server.
 - [Authentik](https://github.com/goauthentik/authentik) - The authentication glue you need.
 - [autobrr](https://github.com/autobrr/autobrr) - Automation for downloads.
@@ -101,6 +104,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Lobe Chat](https://github.com/lobehub/lobe-chat) - LLM chatbot framework
 - [Lodestone Core](https://github.com/Lodestone-Team/lodestone_core) - Server hosting tool for Minecraft and other multiplayers
 - [Logto](https://github.com/logto-io/logto) - Logto is a cost-effective open-source alternative to Auth0. 
+- [Maintainerr](https://github.com/jorenn92/Maintainerr) - Maintainerr will manage the storage space on your plex server, launching automated actions to delete your files.
 - [Mastodon](https://github.com/mastodon/mastodon) - Your self-hosted, globally interconnected microblogging community
 - [Conduit](https://gitlab.com/famedly/conduit) - Conduit is a simple, fast and reliable chat server written in Rust
 - [Mealie](https://github.com/hay-kot/mealie) - Mealie is a self-hosted recipe manager and meal planner.
@@ -173,6 +177,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Serge](https://github.com/serge-chat/serge) - LLaMA made easy
 - [SFTPGo](https://github.com/drakkan/sftpgo) - Fully featured and highly configurable SFTP server
 - [Shlink](https://github.com/shlinkio/shlink) - Shlink is a self-hosted URL shortener
+- [Silverbullet](https://github.com/silverbulletmd/silverbullet) - SilverBullet is a creative space where you collect, create and expand your personal knowledge, while also letting you constantly evolve the tools you use to do so.
 - [SimpleX SMP](https://github.com/simplex-chat/simplexmq) - A reference implementation of the SimpleX Messaging Protocol for simplex queues over public networks.
 - [Sonarr](https://github.com/Sonarr/Sonarr) - TV show manager for Usenet and BitTorrent
 - [Speedtest Tracker](https://github.com/alexjustesen/speedtest-tracker) - Internet performance tracking application.
