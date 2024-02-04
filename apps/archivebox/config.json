@@ -1,0 +1,35 @@
+{
+  "$schema": "../schema.json",
+  "name": "ArchiveBox",
+  "available": true,
+  "exposable": true,
+  "port": 8015,
+  "id": "archivebox",
+  "tipi_version": 1,
+  "version": "0.7.3",
+  "categories": ["media"],
+  "description": "ArchiveBox is a powerful, self-hosted internet archiving solution to collect, save, and view websites offline.",
+  "short_desc": "Open source self-hosted web archiving.",
+  "author": "archivebox",
+  "source": "https://github.com/ArchiveBox/ArchiveBox",
+  "website": "https://archivebox.io",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "ArchiveBox Username",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "ARCHIVEBOX_USERNAME"
+    },
+    {
+      "type": "password",
+      "label": "ArchiveBox Password",
+      "max": 50,
+      "min": 12,
+      "required": true,
+      "env_variable": "ARCHIVEBOX_PASSWORD"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}
