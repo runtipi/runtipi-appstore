@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   archivebox:
     image: archivebox/archivebox:0.7.3
@@ -8,8 +6,20 @@ services:
     command: server --quick-init 0.0.0.0:8015
     environment:
       - PORT=8015
-      - ADMIN_USERNAME=${ARCHIVEBOX_USERNAME}
+      - PUBLIC_INDEX=${ARCHIVEBOX_PUBLIC_INDEX-true} # set to False to prevent anonymous users from viewing snapshot list
+      - PUBLIC_SNAPSHOTS=${ARCHIVEBOX_PUBLIC_SNAPSHOTS-true} # set to False to prevent anonymous users from viewing snapshot content
+      - PUBLIC_ADD_VIEW=${ARCHIVEBOX_PUBLIC_ADD_VIEW-false} # set to True to allow anonymous users to submit new URLs to archive
+      - ADMIN_USERNAME=${ARCHIVEBOX_USERNAME} # create an admin user on first run with the given user/pass combo
       - ADMIN_PASSWORD=${ARCHIVEBOX_PASSWORD}
+      - PUID=1000 # set to your host user's UID & GID if you encounter permissions issues
+      - PGID=1000
+      - SEARCH_BACKEND_ENGINE=${ARCHIVEBOX_SEARCH_BACKEND_ENGINE} # uncomment these and sonic container below for better full-text search
+      - SEARCH_BACKEND_HOST_NAME=${ARCHIVEBOX_SEARCH_BACKEND_HOST_NAME}
+      - SEARCH_BACKEND_PASSWORD=${ARCHIVEBOX_SEARCH_BACKEND_PASSWORD}
+      - MEDIA_MAX_SIZE=${ARCHIVEBOX_MEDIA_MAX_SIZE-750m} # increase this filesize limit to allow archiving larger audio/video files
+      - TIMEOUT=${ARCHIVEBOX_TIMEOUT-60} # increase this number to 120+ seconds if you see many slow downloads timing out
+      - CHECK_SSL_VALIDITY=${ARCHIVEBOX_CHECK_SSL_VALIDITY-true} # set to False to disable strict SSL checking (allows saving URLs w/ broken certs)
+      - SAVE_ARCHIVE_DOT_ORG=${ARCHIVEBOX_SAVE_ARCHIVE_DOT_ORGE-true} # set to False to disable submitting all URLs to Archive.org when archiving
     networks:
       - tipi_main_network
     ports:
