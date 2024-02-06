@@ -11,7 +11,7 @@ services:
       - TZ=${TZ}
 #      - DEBUG=true # uncomment to enable verbose logs
     ports:
-      - ${APP_PORT}:6246
+      - ${APP_PORT}:8030
     restart: unless-stopped
     networks:
       - tipi_main_network
