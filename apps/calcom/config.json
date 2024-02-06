@@ -63,6 +63,12 @@
             "env_variable": "ZOOM_CLIENT_SECRET"
         },
         {
+            "text": "text",
+            "label": "Google API Credentials in JSON form. Used for the Google Calendar integration. See https://github.com/calcom/cal.com?tab=readme-ov-file#obtaining-the-google-api-credentials",
+            "required": false,
+            "env_variable": "CALCOM_GOOGLE_API_CREDENTIALS"
+        },
+        {
             "type": "email",
             "label": "Configures the global From: header whilst sending emails.",
             "required": true,
