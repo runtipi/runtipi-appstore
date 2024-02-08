@@ -1,104 +1,102 @@
 {
-    "name": "Cal.com",
-    "available": true,
-    "port": 8294,
-    "exposable": true,
-    "id": "calcom",
-    "description": "The open source Calendly successor. You are in charge of your own data, workflow, and appearance.\nCalendly and other scheduling tools are awesome. It made our lives massively easier. We're using it for business meetings, seminars, yoga classes, and even calls with our families. However, most tools are very limited in terms of control and customization.\n    That's where Cal.com comes in. Self-hosted or hosted by us. White-label by design. API-driven and ready to be deployed on your own domain. Full control of your events and data.",
-    "tipi_version": 2,
-    "version": "3.7.11",
-    "categories": ["calendar", "social"],
-    "short_desc": "Scheduling infrastructure for absolutely everyone.",
-    "author": "cal.com",
-    "source": "https://github.com/calcom/cal.com",
-    "website": "https://cal.com/",
-    "supported_architectures": ["amd64"],
-    "form_fields": [
-        {
-            "type": "password",
-            "label": "Next.js Auth secret. Generate one with `openssl rand -base64 32`",
-            "required": true,
-            "min": 1,
-            "max": 1024,
-            "env_variable": "CALCOM_NEXTAUTH_SECRET"
-        },
-        {
-            "type": "password",
-            "label": "Calendso Encryption Key. Encryption key that will be used to encrypt CalDAV credentials, choose a random string, for example with `dd if=/dev/urandom bs=1K count=1 | md5sum`",
-            "required": true,
-            "min": 1,
-            "max": 1024,
-            "env_variable": "CALENDSO_ENCRYPTION_KEY"
-        },
-        {
-            "type": "text",
-            "label": "MS Graph Client ID. Used for the Office 365 / Outlook.com Calendar integration",
-            "required": false,
-            "min": 1,
-            "max": 1024,
-            "env_variable": "MS_GRAPH_CLIENT_ID"
-        },
-        {
-            "type": "password",
-            "label": "MS Graph Client Secret. Used for the Office 365 / Outlook.com Calendar integration",
-            "required": false,
-            "min": 1,
-            "max": 1024,
-            "env_variable": "MS_GRAPH_CLIENT_SECRET"
-        },
-        {
-            "type": "text",
-            "label": "Zoom Client ID. Used for the Zoom integration",
-            "required": false,
-            "min": 1,
-            "max": 1024,
-            "env_variable": "ZOOM_CLIENT_ID"
-        },
-        {
-            "type": "password",
-            "label": "Zoom Client Secret. Used for the Zoom integration",
-            "required": false,
-            "min": 1,
-            "max": 1024,
-            "env_variable": "ZOOM_CLIENT_SECRET"
-        },
-        {
-            "text": "text",
-            "label": "Google API Credentials in JSON form. Used for the Google Calendar integration. See https://github.com/calcom/cal.com?tab=readme-ov-file#obtaining-the-google-api-credentials",
-            "required": false,
-            "env_variable": "CALCOM_GOOGLE_API_CREDENTIALS"
-        },
-        {
-            "type": "email",
-            "label": "Configures the global From: header whilst sending emails.",
-            "required": true,
-            "min": 1,
-            "max": 1024,
-            "env_variable": "EMAIL_FROM"
-        },
-        {
-            "type": "fqdn",
-            "label": "Email server host (SMTP)",
-            "required": true,
-            "min": 1,
-            "max": 1024,
-            "env_variable": "EMAIL_SERVER_HOST"
-        },
-        {
-            "type": "number",
-            "label": "Email server port (SMTP)",
-            "required": true,
-            "min": 1,
-            "max": 65535,
-            "env_variable": "EMAIL_SERVER_PORT"
-        },
-        {
-            "type": "password",
-            "label": "Email server password (SMTP)",
-            "required": true,
-            "min": 1,
-            "max": 1024,
-            "env_variable": "EMAIL_SERVER_PASSWORD"
-        }
-    ]
+  "author": "cal.com",
+  "available": true,
+  "categories": ["calendar", "social"],
+  "description": "The open source Calendly successor. You are in charge of your own data, workflow, and appearance.\nCalendly and other scheduling tools are awesome. It made our lives massively easier. We're using it for business meetings, seminars, yoga classes, and even calls with our families. However, most tools are very limited in terms of control and customization.\n    That's where Cal.com comes in. Self-hosted or hosted by us. White-label by design. API-driven and ready to be deployed on your own domain. Full control of your events and data.",
+  "exposable": true,
+  "form_fields": [
+    {
+      "env_variable": "CALCOM_NEXTAUTH_SECRET",
+      "label": "Next.js Auth secret. Generate one with `openssl rand -base64 32`",
+      "max": 1024,
+      "min": 1,
+      "required": true,
+      "type": "password"
+    },
+    {
+      "env_variable": "CALENDSO_ENCRYPTION_KEY",
+      "max": 50,
+      "min": 50,
+      "type": "random"
+    },
+    {
+      "env_variable": "MS_GRAPH_CLIENT_ID",
+      "label": "MS Graph Client ID. Used for the Office 365 / Outlook.com Calendar integration",
+      "max": 1024,
+      "min": 1,
+      "required": false,
+      "type": "text"
+    },
+    {
+      "env_variable": "MS_GRAPH_CLIENT_SECRET",
+      "label": "MS Graph Client Secret. Used for the Office 365 / Outlook.com Calendar integration",
+      "max": 1024,
+      "min": 1,
+      "required": false,
+      "type": "password"
+    },
+    {
+      "env_variable": "ZOOM_CLIENT_ID",
+      "label": "Zoom Client ID. Used for the Zoom integration",
+      "max": 1024,
+      "min": 1,
+      "required": false,
+      "type": "text"
+    },
+    {
+      "env_variable": "ZOOM_CLIENT_SECRET",
+      "label": "Zoom Client Secret. Used for the Zoom integration",
+      "max": 1024,
+      "min": 1,
+      "required": false,
+      "type": "password"
+    },
+    {
+      "env_variable": "CALCOM_GOOGLE_API_CREDENTIALS",
+      "label": "Google API Credentials in JSON form. Used for the Google Calendar integration. See https://github.com/calcom/cal.com?tab=readme-ov-file#obtaining-the-google-api-credentials",
+      "required": false,
+      "text": "text"
+    },
+    {
+      "env_variable": "EMAIL_FROM",
+      "label": "Configures the global From: header whilst sending emails.",
+      "max": 1024,
+      "min": 1,
+      "required": true,
+      "type": "email"
+    },
+    {
+      "env_variable": "EMAIL_SERVER_HOST",
+      "label": "Email server host (SMTP)",
+      "max": 1024,
+      "min": 1,
+      "required": true,
+      "type": "fqdn"
+    },
+    {
+      "env_variable": "EMAIL_SERVER_PORT",
+      "label": "Email server port (SMTP)",
+      "max": 65535,
+      "min": 1,
+      "required": true,
+      "type": "number"
+    },
+    {
+      "env_variable": "EMAIL_SERVER_PASSWORD",
+      "label": "Email server password (SMTP)",
+      "max": 1024,
+      "min": 1,
+      "required": true,
+      "type": "password"
+    }
+  ],
+  "id": "calcom",
+  "name": "Cal.com",
+  "port": 8294,
+  "short_desc": "Scheduling infrastructure for absolutely everyone.",
+  "source": "https://github.com/calcom/cal.com",
+  "supported_architectures": ["amd64"],
+  "tipi_version": 2,
+  "version": "3.7.11",
+  "website": "https://cal.com/"
 }
