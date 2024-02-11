@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 5230,
   "id": "memos",
-  "tipi_version": 25,
-  "version": "0.19.1",
+  "tipi_version": 26,
+  "version": "0.20.0",
   "categories": [
     "utilities"
   ],
