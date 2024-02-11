@@ -1,7 +1,10 @@
 {
   "author": "cal.com",
   "available": true,
-  "categories": ["calendar", "social"],
+  "categories": [
+    "calendar",
+    "social"
+  ],
   "description": "The open source Calendly successor. You are in charge of your own data, workflow, and appearance.\nCalendly and other scheduling tools are awesome. It made our lives massively easier. We're using it for business meetings, seminars, yoga classes, and even calls with our families. However, most tools are very limited in terms of control and customization.\n    That's where Cal.com comes in. Self-hosted or hosted by us. White-label by design. API-driven and ready to be deployed on your own domain. Full control of your events and data.",
   "exposable": true,
   "form_fields": [
@@ -96,8 +99,10 @@
   "port": 8294,
   "short_desc": "Scheduling infrastructure for absolutely everyone.",
   "source": "https://github.com/calcom/cal.com",
-  "supported_architectures": ["amd64"],
-  "tipi_version": 2,
-  "version": "3.7.11",
+  "supported_architectures": [
+    "amd64"
+  ],
+  "tipi_version": 3,
+  "version": "3.7.15",
   "website": "https://cal.com/"
 }
