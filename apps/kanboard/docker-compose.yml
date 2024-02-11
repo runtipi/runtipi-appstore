@@ -3,7 +3,7 @@ version: "3.9"
 services:
   kanboard:
     container_name: kanboard
-    image: kanboard/kanboard:v1.2.34
+    image: kanboard/kanboard:v1.2.35
     environment:
       - PLUGIN_INSTALLER=${PLUGIN_INSTALLER}
     ports:
