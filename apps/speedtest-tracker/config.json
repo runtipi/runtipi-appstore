@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "speedtest-tracker",
-  "tipi_version": 10,
-  "version": "0.14.5",
+  "tipi_version": 11,
+  "version": "0.15.2",
   "categories": [
     "utilities"
   ],
