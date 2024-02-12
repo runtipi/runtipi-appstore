@@ -25,5 +25,6 @@ This version of Home Assistant can be exposed. To migrate from the previous, non
     - 172.16.0.0/12
     - ::1
   ```
+- change `APP_ID=homeassistant` to `APP_ID=homeassistant-1` in `runtipi/app-data/homeassistant/app.env`
 - change `APP_DATA_DIR={{ROOT_FOLDER_HOST}}/app-data/homeassistant` to `APP_DATA_DIR={{ROOT_FOLDER_HOST}}/app-data/homeassistant-1` in `runtipi/app-data/homeassistant/app.env`
 - start the app
