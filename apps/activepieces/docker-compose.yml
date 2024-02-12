@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   activepieces:
-    image: activepieces/activepieces:0.18.2
+    image: activepieces/activepieces:0.19.0
     container_name: activepieces
     restart: unless-stopped
     ports:

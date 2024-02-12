@@ -6,10 +6,10 @@
   "exposable": true,
   "force_expose": true,
   "id": "gotosocial",
-  "tipi_version": 13,
+  "tipi_version": 14,
   "uid": 1000,
   "gid": 1000,
-  "version": "0.13.1",
+  "version": "0.13.2",
   "categories": [
     "social"
   ],
