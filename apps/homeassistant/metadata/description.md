@@ -29,5 +29,6 @@ This version of Home Assistant can not be exposed. To migrate to the exposable a
     - ::1
   ```
 - change `APP_ID=homeassistant` to `APP_ID=homeassistant-1` in `runtipi/app-data/homeassistant/app.env`
+- change `APP_PORT=8123` to `APP_PORT=8209` in `runtipi/app-data/homeassistant/app.env`
 - change `APP_DATA_DIR={{ROOT_FOLDER_HOST}}/app-data/homeassistant` to `APP_DATA_DIR={{ROOT_FOLDER_HOST}}/app-data/homeassistant-1` in `runtipi/app-data/homeassistant/app.env`
 - start the app
