@@ -3,7 +3,7 @@
   "name": "qBittorrent Nordvpn",
   "available": true,
   "exposable": true,
-  "port": 8133,
+  "port": 8153,
   "id": "qbittorrent-nordvpn",
   "tipi_version": 1,
   "version": "4.6.3",

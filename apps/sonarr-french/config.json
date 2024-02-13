@@ -3,7 +3,7 @@
   "name": "Sonarr FR",
   "available": true,
   "exposable": true,
-  "port": 8098,
+  "port": 8165,
   "id": "sonarr-french",
   "tipi_version": 1,
   "version": "4.0.1",
