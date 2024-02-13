@@ -13,8 +13,8 @@ This version of Home Assistant can be exposed. To migrate from the non-exposable
 - stop the installed app
 - rename `runtipi/app-data/homeassistant` to `runtipi/app-data/__homeassistant`
 - uninstall the app
-- install Home Assiatant from the App Store
-- do NOT start the app
+- install Home Assistant from the App Store
+- do stop the app
 - remove `runtipi/app-data/homeassistant-1`
 - rename `runtipi/app-data/__homeassistant` to `runtipi/app-data/homeassistant-1`
 - add the following section to `runtipi/app-data/homeassistant/data/config/configuration.yaml`
