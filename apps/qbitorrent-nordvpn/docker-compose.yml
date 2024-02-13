@@ -1,0 +1,58 @@
+version: "3.7"
+services:
+  gluetun:
+    image: qmcgaw/gluetun
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PGID=1000
+      - PUID=1000
+      - VPN_SERVICE_PROVIDER=${VPN_SERVICE_PROVIDER}
+      - VPN_TYPE=${VPN_TYPE}
+      - OPENVPN_USER=${OPENVPN_USER}
+      - OPENVPN_PASSWORD=${OPENVPN_PASSWORD}
+      - SERVER_COUNTRIES=${SERVER_COUNTRIES}
+    ports:
+      - ${APP_PORT}:${APP_PORT} # qBittorrent Web GUI
+      - 6881:6881 # qBittorrent
+      - 6881:6881/udp # qBittorrent
+    restart: unless-stopped
+
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:4.6.2
+    container_name: qbittorrent
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+      - WEBUI_PORT=${APP_PORT}
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${ROOT_FOLDER_HOST}/media/torrents:/media/torrents
+    restart: unless-stopped
+    network_mode: "service:gluetun"
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.qbittorrent-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.qbittorrent.loadbalancer.server.port: ${APP_PORT}
+      # Web
+      traefik.http.routers.qbittorrent-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.qbittorrent-insecure.entrypoints: web
+      traefik.http.routers.qbittorrent-insecure.service: qbittorrent
+      traefik.http.routers.qbittorrent-insecure.middlewares: qbittorrent-web-redirect
+      # Websecure
+      traefik.http.routers.qbittorrent.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.qbittorrent.entrypoints: websecure
+      traefik.http.routers.qbittorrent.service: qbittorrent
+      traefik.http.routers.qbittorrent.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.qbittorrent-local-insecure.rule: Host(`qbittorrent.${LOCAL_DOMAIN}`)
+      traefik.http.routers.qbittorrent-local-insecure.entrypoints: web
+      traefik.http.routers.qbittorrent-local-insecure.service: qbittorrent
+      traefik.http.routers.qbittorrent-local-insecure.middlewares: qbittorrent-web-redirect
+      # Local domain secure
+      traefik.http.routers.qbittorrent-local.rule: Host(`qbittorrent.${LOCAL_DOMAIN}`)
+      traefik.http.routers.qbittorrent-local.entrypoints: websecure
+      traefik.http.routers.qbittorrent-local.service: qbittorrent
+      traefik.http.routers.qbittorrent-local.tls: true

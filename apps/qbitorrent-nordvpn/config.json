@@ -1,0 +1,53 @@
+{
+  "$schema": "../schema.json",
+  "name": "qBittorrent",
+  "available": true,
+  "exposable": true,
+  "port": 8133,
+  "id": "qbittorrent",
+  "tipi_version": 11,
+  "version": "4.6.2",
+  "categories": [
+    "utilities"
+  ],
+  "description": "qBittorrent is a fast, easy, and free BitTorrent client.",
+  "short_desc": "Fast, easy, and free BitTorrent client",
+  "author": "qBittorrent project",
+  "source": "https://github.com/qbittorrent/qBittorrent",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "VPN Service Provider",
+      "required": true,
+      "env_variable": "VPN_SERVICE_PROVIDER"
+    },
+    {
+      "type": "text",
+      "label": "VPN Type",
+      "required": true,
+      "env_variable": "VPN_TYPE"
+    },
+    {
+      "type": "text",
+      "label": "OpenVPN User",
+      "required": false,
+      "env_variable": "OPENVPN_USER"
+    },
+    {
+      "type": "text",
+      "label": "OpenVPN Password",
+      "required": false,
+      "env_variable": "OPENVPN_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Server Countries",
+      "required": true,
+      "env_variable": "SERVER_COUNTRIES"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}
