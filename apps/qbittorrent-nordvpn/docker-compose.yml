@@ -20,7 +20,7 @@ services:
 
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent:4.6.2
-    container_name: qbittorrent
+    container_name: qbittorrent-nordvpn
     environment:
       - PUID=1000
       - PGID=1000

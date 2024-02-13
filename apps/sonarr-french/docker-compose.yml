@@ -2,7 +2,7 @@ version: "3.7"
 services:
   sonarr:
     image: lscr.io/linuxserver/sonarr:3.0.10
-    container_name: sonarr
+    container_name: sonarr-french
     environment:
       - PUID=1000
       - PGID=1000
