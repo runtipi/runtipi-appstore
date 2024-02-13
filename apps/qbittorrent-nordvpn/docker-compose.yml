@@ -13,7 +13,7 @@ services:
       - OPENVPN_PASSWORD=${OPENVPN_PASSWORD}
       - SERVER_COUNTRIES=${SERVER_COUNTRIES}
     ports:
-      - ${APP_PORT}:${APP_PORT} # qBittorrent Web GUI
+      - ${APP_PORT}:${APP_PORT} # qBittorrent Web
       - 6881:6881 # qBittorrent
       - 6881:6881/udp # qBittorrent
     restart: unless-stopped
