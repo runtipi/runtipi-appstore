@@ -2,8 +2,8 @@ version: '3'
 
 services:
   homeassistant:
-    image: "ghcr.io/home-assistant/home-assistant:2024.2.1"
-    container_name: homeassistant
+    image: ghcr.io/home-assistant/home-assistant:2024.2.1
+    container_name: homeassistant-1
     environment:
       - TZ=${TZ}
     restart: unless-stopped
