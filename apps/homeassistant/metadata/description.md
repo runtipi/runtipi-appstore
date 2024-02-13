@@ -5,3 +5,29 @@ Open source home automation that puts local control and privacy first. Powered b
 Check out [home-assistant.io](https://home-assistant.io) for a [demo](https://home-assistant.io/demo/), installation [instructions](https://home-assistant.io/getting-started/), [tutorials](https://home-assistant.io/getting-started/automation/) and [documentation](https://home-assistant.io/docs/)
 
 ![Screenshot](https://raw.githubusercontent.com/home-assistant/core/master/docs/screenshots.png)
+
+## Migration
+
+February 2024
+
+This version of Home Assistant can not be exposed. To migrate to the exposable app, follow these steps:
+
+- stop the installed app
+- rename `runtipi/app-data/homeassistant` to `runtipi/app-data/__homeassistant`
+- uninstall the app
+- install Home Assiatant from the App Store
+- do NOT start the app
+- remove `runtipi/app-data/homeassistant-1`
+- rename `runtipi/app-data/__homeassistant` to `runtipi/app-data/homeassistant-1`
+- add the following section to `runtipi/app-data/homeassistant/data/config/configuration.yaml`
+  ```
+  http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 127.0.0.1
+    - 172.16.0.0/12
+    - ::1
+  ```
+- change `APP_ID=homeassistant` to `APP_ID=homeassistant-1` in `runtipi/app-data/homeassistant/app.env`
+- change `APP_DATA_DIR={{ROOT_FOLDER_HOST}}/app-data/homeassistant` to `APP_DATA_DIR={{ROOT_FOLDER_HOST}}/app-data/homeassistant-1` in `runtipi/app-data/homeassistant/app.env`
+- start the app

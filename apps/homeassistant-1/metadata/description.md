@@ -8,14 +8,15 @@ Check out [home-assistant.io](https://home-assistant.io) for a [demo](https://ho
 
 February 2024
 
-This version of Home Assistant can be exposed. To migrate from the previous, non exposable app, follow these steps:
+This version of Home Assistant can be exposed. To migrate from the non-exposable app, follow these steps:
 
-- stop the previous app
+- stop the installed app
 - rename `runtipi/app-data/homeassistant` to `runtipi/app-data/__homeassistant`
-- remove the (previous) app
-- install the (the current) app
-- remove `runtipi/app-data/homeassistant`
-- rename `runtipi/app-data/__homeassistant` to `runtipi/app-data/homeassistant`
+- uninstall the app
+- install Home Assiatant from the App Store
+- do NOT start the app
+- remove `runtipi/app-data/homeassistant-1`
+- rename `runtipi/app-data/__homeassistant` to `runtipi/app-data/homeassistant-1`
 - add the following section to `runtipi/app-data/homeassistant/data/config/configuration.yaml`
   ```
   http:

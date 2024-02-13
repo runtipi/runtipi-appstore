@@ -4,7 +4,7 @@
   "available": true,
   "deprecated": true,
   "port": 8123,
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "stable",
   "id": "homeassistant",
   "categories": [
