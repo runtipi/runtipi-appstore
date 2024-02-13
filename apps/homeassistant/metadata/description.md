@@ -22,7 +22,6 @@ This version of Home Assistant can not be exposed. To migrate to the exposable a
 - add the following section to `runtipi/app-data/homeassistant/data/config/configuration.yaml`
   ```
   http:
-    server_port: 8209
     use_x_forwarded_for: true
     trusted_proxies:
       - 127.0.0.1

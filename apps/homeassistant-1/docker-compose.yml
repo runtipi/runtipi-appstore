@@ -8,7 +8,7 @@ services:
       - TZ=${TZ}
     restart: unless-stopped
     ports:
-      - ${APP_PORT}:8209
+      - ${APP_PORT}:8123
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${APP_DATA_DIR}/data/config:/config
@@ -18,7 +18,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.homeassistant-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.homeassistant.loadbalancer.server.port: 8209
+      traefik.http.services.homeassistant.loadbalancer.server.port: 8123
       # Web
       traefik.http.routers.homeassistant-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.homeassistant-insecure.entrypoints: web
