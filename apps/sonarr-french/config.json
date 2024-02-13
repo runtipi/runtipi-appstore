@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8099,
   "id": "sonarrfr",
-  "tipi_version": 5,
-  "version": "3.0.10",
+  "tipi_version": 7,
+  "version": "4.0.1",
   "categories": [
     "media",
     "utilities"

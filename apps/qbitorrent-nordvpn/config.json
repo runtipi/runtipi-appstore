@@ -1,12 +1,12 @@
 {
   "$schema": "../schema.json",
-  "name": "qBittorrent",
+  "name": "qBittorrent X NordVPN",
   "available": true,
   "exposable": true,
   "port": 8133,
-  "id": "qbittorrent",
-  "tipi_version": 11,
-  "version": "4.6.2",
+  "id": "qbittorrentnordvpn",
+  "tipi_version": 12,
+  "version": "4.6.3",
   "categories": [
     "utilities"
   ],
