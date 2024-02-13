@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   speedtest-tracker:
-    image: ghcr.io/alexjustesen/speedtest-tracker:v0.15.2
+    image: ghcr.io/alexjustesen/speedtest-tracker:v0.15.3
     container_name: speedtest-tracker
     environment:
       - PUID=1000
