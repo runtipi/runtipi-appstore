@@ -1,11 +1,11 @@
 {
   "$schema": "../schema.json",
-  "name": "SonarrFrench",
+  "name": "Sonarr FR",
   "available": true,
   "exposable": true,
-  "port": 8099,
-  "id": "sonarrfr",
-  "tipi_version": 7,
+  "port": 8098,
+  "id": "sonarr-french",
+  "tipi_version": 1,
   "version": "4.0.1",
   "categories": [
     "media",
