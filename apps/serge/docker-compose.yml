@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   serge:
-    image: ghcr.io/serge-chat/serge:0.8.2
+    image: ghcr.io/serge-chat/serge:0.9.0
     container_name: serge
     restart: unless-stopped
     ports:
