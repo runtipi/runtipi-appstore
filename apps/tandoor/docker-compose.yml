@@ -2,7 +2,7 @@ version: "3.7"
 services:
   tandoor:
     container_name: tandoor
-    image: ghcr.io/tandoorrecipes/recipes:1.5.12
+    image: ghcr.io/tandoorrecipes/recipes:1.5.13
     volumes:
       - ${APP_DATA_DIR}/data/staticfiles:/opt/recipes/staticfiles
       - ${APP_DATA_DIR}/data/mediafiles:/opt/recipes/mediafiles

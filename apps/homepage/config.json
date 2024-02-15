@@ -4,8 +4,8 @@
   "available": true,
   "exposable": true,
   "port": 8756,
-  "tipi_version": 5,
-  "version": "0.8.7",
+  "tipi_version": 6,
+  "version": "0.8.8",
   "id": "homepage",
   "categories": [
     "utilities"
