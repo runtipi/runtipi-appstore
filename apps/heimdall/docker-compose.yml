@@ -2,17 +2,41 @@ version: '3.9'
 
 services:
   heimdall:
-    image: lscr.io/linuxserver/heimdall:latest
+    image: lscr.io/linuxserver/heimdall:2.5.8
     container_name: heimdall
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=${TZ}
     volumes:
-      - /${APP_DATA_DIR}/data/config:/config
+      - ${APP_DATA_DIR}/data/config:/config
     ports:
       - ${APP_PORT}:80
-#      - ${APP_PORT}:443
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.heimdall-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.heimdall.loadbalancer.server.port: 3000
+      # Web
+      traefik.http.routers.heimdall-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.heimdall-insecure.entrypoints: web
+      traefik.http.routers.heimdall-insecure.service: heimdall
+      traefik.http.routers.heimdall-insecure.middlewares: heimdall-web-redirect
+      # Websecure
+      traefik.http.routers.heimdall.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.heimdall.entrypoints: websecure
+      traefik.http.routers.heimdall.service: heimdall
+      traefik.http.routers.heimdall.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.heimdall-local-insecure.rule: Host(`heimdall.${LOCAL_DOMAIN}`)
+      traefik.http.routers.heimdall-local-insecure.entrypoints: web
+      traefik.http.routers.heimdall-local-insecure.service: heimdall
+      traefik.http.routers.heimdall-local-insecure.middlewares: heimdall-web-redirect
+      # Local domain secure
+      traefik.http.routers.heimdall-local.rule: Host(`heimdall.${LOCAL_DOMAIN}`)
+      traefik.http.routers.heimdall-local.entrypoints: websecure
+      traefik.http.routers.heimdall-local.service: heimdall
+      traefik.http.routers.heimdall-local.tls: true
