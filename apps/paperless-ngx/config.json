@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8012,
   "id": "paperless-ngx",
-  "tipi_version": 20,
-  "version": "2.5.1",
+  "tipi_version": 21,
+  "version": "2.5.3",
   "categories": [
     "utilities"
   ],
