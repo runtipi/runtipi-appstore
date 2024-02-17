@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "autobrr",
-  "tipi_version": 20,
-  "version": "1.38.0",
+  "tipi_version": 21,
+  "version": "1.38.1",
   "categories": [
     "media"
   ],
