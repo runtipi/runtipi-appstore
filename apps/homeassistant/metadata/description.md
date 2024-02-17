@@ -1,4 +1,3 @@
-
 ## Open source home automation that puts local control and privacy first
 
 Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server.
@@ -14,8 +13,9 @@ This version of Home Assistant can not be exposed. To migrate to the exposable a
 
 - stop the installed app
 - rename `runtipi/app-data/homeassistant` to `runtipi/app-data/__homeassistant`
+- make a backup of `runtipi/app-data/__homeassistant` to a safe location
 - uninstall the app
-- install Home Assistant from the App Store
+- install the new Home Assistant from the App Store
 - stop the app
 - remove `runtipi/app-data/homeassistant-1`
 - rename `runtipi/app-data/__homeassistant` to `runtipi/app-data/homeassistant-1`
@@ -28,7 +28,4 @@ This version of Home Assistant can not be exposed. To migrate to the exposable a
       - 172.16.0.0/12
       - ::1
   ```
-- change `APP_ID=homeassistant` to `APP_ID=homeassistant-1` in `runtipi/app-data/homeassistant/app.env`
-- change `APP_PORT=8123` to `APP_PORT=8209` in `runtipi/app-data/homeassistant/app.env`
-- change `APP_DATA_DIR={{ROOT_FOLDER_HOST}}/app-data/homeassistant` to `APP_DATA_DIR={{ROOT_FOLDER_HOST}}/app-data/homeassistant-1` in `runtipi/app-data/homeassistant/app.env`
 - start the app
