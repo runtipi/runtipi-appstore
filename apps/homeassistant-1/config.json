@@ -1,18 +1,18 @@
 {
   "$schema": "../schema.json",
-  "name": "Home Assistant non exposed",
+  "name": "Home Assistant",
+  "port": 8209,
   "available": true,
-  "deprecated": true,
-  "port": 8123,
-  "tipi_version": 3,
-  "version": "stable",
-  "id": "homeassistant",
+  "exposable": true,
+  "id": "homeassistant-1",
+  "tipi_version": 1,
+  "version": "2024.2.1",
   "categories": [
     "automation"
   ],
   "description": "Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server.",
   "short_desc": "Open source home automation that puts local control and privacy first",
-  "author": "ArneNaessens",
+  "author": "Home Assistant",
   "source": "https://github.com/home-assistant/core",
   "form_fields": [],
   "supported_architectures": [
