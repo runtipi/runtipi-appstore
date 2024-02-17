@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  homeassistant-1:
+    image: ghcr.io/home-assistant/home-assistant:2024.2.1
+    container_name: homeassistant-1
+    environment:
+      - TZ=${TZ}
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:8123
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${APP_DATA_DIR}/data/config:/config
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.homeassistant-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.homeassistant.loadbalancer.server.port: 8123
+      # Web
+      traefik.http.routers.homeassistant-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.homeassistant-insecure.entrypoints: web
+      traefik.http.routers.homeassistant-insecure.service: homeassistant
+      traefik.http.routers.homeassistant-insecure.middlewares: homeassistant-web-redirect
+      # Websecure
+      traefik.http.routers.homeassistant.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.homeassistant.entrypoints: websecure
+      traefik.http.routers.homeassistant.service: homeassistant
+      traefik.http.routers.homeassistant.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.homeassistant-local-insecure.rule: Host(`homeassistant.${LOCAL_DOMAIN}`)
+      traefik.http.routers.homeassistant-local-insecure.entrypoints: web
+      traefik.http.routers.homeassistant-local-insecure.service: homeassistant
+      traefik.http.routers.homeassistant-local-insecure.middlewares: homeassistant-web-redirect
+      # Local domain secure
+      traefik.http.routers.homeassistant-local.rule: Host(`homeassistant.${LOCAL_DOMAIN}`)
+      traefik.http.routers.homeassistant-local.entrypoints: websecure
+      traefik.http.routers.homeassistant-local.service: homeassistant
+      traefik.http.routers.homeassistant-local.tls: true
