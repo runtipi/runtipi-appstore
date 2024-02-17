@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   heimdall:
-    image: lscr.io/linuxserver/heimdall:2.5.8
+    image: lscr.io/linuxserver/heimdall:2021.11.28
     container_name: heimdall
     environment:
       - PUID=1000
