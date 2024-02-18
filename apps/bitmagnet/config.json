@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "bitmagnet",
-  "tipi_version": 9,
-  "version": "0.7.1",
+  "tipi_version": 10,
+  "version": "0.7.2",
   "categories": [
     "media"
   ],
