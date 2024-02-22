@@ -15,6 +15,7 @@ services:
     environment:
       - DATABASE_HOST=db-calcom
       - DATABASE_URL=postgresql://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@db-calcom/calcom
+      - DATABASE_DIRECT_URL=postgresql://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@db-calcom/calcom
       - POSTGRES_USER=${POSTGRES_USERNAME}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=calcom
