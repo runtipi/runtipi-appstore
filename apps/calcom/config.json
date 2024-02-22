@@ -19,8 +19,8 @@
     {
       "env_variable": "CALENDSO_ENCRYPTION_KEY",
       "label": "Random string",
-      "max": 50,
-      "min": 50,
+      "max": 32,
+      "min": 32,
       "type": "random"
     },
     {
