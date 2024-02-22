@@ -10,7 +10,7 @@ services:
     environment:
       - NODE_ENV=production
     networks:
-      - runtipi_main_network
+      - tipi_main_network
     volumes:
       - ${APP_DATA_DIR}/data/games:/data/games
     labels:
