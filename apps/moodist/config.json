@@ -1,0 +1,20 @@
+{
+  "$schema": "../schema.json",
+  "name": "Moodist",
+  "port": 8210,
+  "available": true,
+  "exposable": true,
+  "id": "moodist",
+  "tipi_version": 1,
+  "version": "v1.3.1",
+  "categories": [
+    "media"
+  ],
+  "description": "Ambient sounds for focus and calm.",
+  "short_desc": "Ambient sounds for focus and calm.",
+  "author": "remvze",
+  "source": "https://github.com/remvze/moodist",
+  "supported_architectures": [
+    "amd64"
+  ]
+}
