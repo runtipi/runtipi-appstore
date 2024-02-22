@@ -2,6 +2,6 @@
 
 > 💡 NextGBA is built with next js, emulator js and shadcn/ui!
 
-Have you ever wanted to play your favorite gameboy games in a self hosted web app that can save the game state and not be complicated to run? NextGBA is your friend here! With NextGBA you can spin it up very fast with a docker compose file or through [runtipi](https://github.com/runtipi/runtipi). It has a very simple ui with all the features you could ever need since its based on the very famous project [emulator js](https://emulatorjs.org/), including support for controllers and game states through the ui!
+Have you ever wanted to play your favorite Gameboy games in a self-hosted web app? A web app that can save the game state and is not complicated to run? NextGBA is your solution! With NextGBA, you can quickly spin it up using a Docker Compose file or through [runtipi](https://github.com/runtipi/runtipi). It features a very simple UI, based on the renowned project [Emulator.js](https://emulatorjs.org/), with all the features you could ever need. This includes support for controllers and game states directly through the UI!
 
 ![Preview](https://raw.githubusercontent.com/meienberger/nextgba/main/screenshots/screenshot_main.png)
