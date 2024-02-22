@@ -15,6 +15,7 @@ services:
     environment:
       - DATABASE_HOST=db-calcom
       - DATABASE_URL=postgresql://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@db-calcom/calcom
+      - DATABASE_DIRECT_URL=postgresql://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@db-calcom/calcom
       - POSTGRES_USER=${POSTGRES_USERNAME}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=calcom
@@ -32,6 +33,7 @@ services:
       - EMAIL_SERVER_HOST=${EMAIL_SERVER_HOST}
       - EMAIL_SERVER_PORT=${EMAIL_SERVER_PORT}
       - EMAIL_SERVER_PASSWORD=${EMAIL_SERVER_PASSWORD}
+      - EMAIL_SERVER_USER=${EMAIL_SERVER_USER}
       - NODE_ENV=production
     labels:
       # Main
