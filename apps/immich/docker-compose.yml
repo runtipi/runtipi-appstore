@@ -1,10 +1,10 @@
-version: '3.7'
+version: "3.7"
 
 services:
   immich:
     container_name: immich
     image: ghcr.io/immich-app/immich-server:v1.95.1
-    command: ['start-server.sh']
+    command: ["start-server.sh"]
     volumes:
       - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
     environment:
@@ -53,7 +53,7 @@ services:
   immich-microservices:
     container_name: immich-microservices
     image: ghcr.io/immich-app/immich-server:v1.95.1
-    command: ['start-microservices.sh']
+    command: ["start-microservices.sh"]
     volumes:
       - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
     environment:
@@ -100,7 +100,7 @@ services:
 
   immich-db:
     container_name: immich-db
-    image: tensorchord/pgvecto-rs:pg14-v0.1.11
+    image: tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:90724186f0a3517cf6914295b5ab410db9ce23190a2d9d0b9dd6463e3fa298f0
     environment:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_USER: tipi
