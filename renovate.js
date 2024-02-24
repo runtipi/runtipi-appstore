@@ -22,7 +22,7 @@ module.exports = {
     {
       managers: ["docker-compose", "dockerfile"],
       packagePatterns: [
-        "^([^\\/]+\\/)?(mysql|mariadb|mongodb|mongo|postgres|redis)(:|$)",
+        "^([^\\/]+\\/)?(mysql|mariadb|mongodb|mongo|postgres|redis|immich-.*)(:|$)",
       ],
       enabled: false,
     },

@@ -5,12 +5,9 @@
   "exposable": true,
   "port": 8128,
   "id": "immich",
-  "tipi_version": 73,
-  "version": "1.94.1",
-  "categories": [
-    "data",
-    "photography"
-  ],
+  "tipi_version": 75,
+  "version": "1.95.1",
+  "categories": ["data", "photography"],
   "description": "Photo and video backup solution directly from your mobile phone.",
   "short_desc": "Photo and video backup solution directly from your mobile phone.",
   "author": "Alex Tran",
@@ -36,8 +33,5 @@
       "env_variable": "IMMICH_TYPESENSE_API_KEY"
     }
   ],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"]
 }
