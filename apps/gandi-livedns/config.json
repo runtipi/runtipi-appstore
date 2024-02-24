@@ -16,11 +16,11 @@
   "form_fields": [
     {
       "type": "text",
-      "label": "Gandi API key",
-      "max": 24,
-      "min": 24,
+      "label": "Record list",
+      "hint": "DNS records separated by ;",
+      "placeholder": "blog;www;@",
       "required": true,
-      "env_variable": "GANDI_LIVEDNS_APIKEY"
+      "env_variable": "GANDI_LIVEDNS_RECORD_LIST"
     },
     {
       "type": "text",
