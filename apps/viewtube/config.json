@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "viewtube",
-  "tipi_version": 8,
-  "version": "0.15.1",
+  "tipi_version": 9,
+  "version": "0.15.2",
   "categories": [
     "media"
   ],
