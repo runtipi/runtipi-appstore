@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   bazarr:
-    image: lscr.io/linuxserver/bazarr:1.4.1
+    image: lscr.io/linuxserver/bazarr:1.4.2
     container_name: bazarr
     environment:
       - PUID=1000
