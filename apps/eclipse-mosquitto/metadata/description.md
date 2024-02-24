@@ -19,7 +19,7 @@ protocol websockets
 
 ## Cedalo Management Center
 
-[Caledo Management Center](https://github.com/cedalo/management-center) allows to easily manage, monitor and inspect instances of Eclipse Mosquitto. There are some pro features that can only be activated by getting a license from cedalo.
+[Cedalo Management Center](https://github.com/cedalo/management-center) allows to easily manage, monitor and inspect instances of Eclipse Mosquitto. There are some pro features that can only be activated by getting a license from cedalo.
 
 ![caledo_mgm_center.png](caledo_mgm_center.png)
 
