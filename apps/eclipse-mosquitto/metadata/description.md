@@ -3,6 +3,7 @@
 this app consists of two images providing an mqtt broker and an UI for managing access to the broker.
 The configuration is adapted from the github repo: [shantanoo-desai/mqtt-rbac-docker-init](https://github.com/shantanoo-desai/mqtt-rbac-docker-init)
 
+
 ## Eclipse Mosquitto
 
 [Eclipse Mosquitto](https://mosquitto.org/) is an open source (EPL/EDL licensed) message broker that implements the MQTT protocol versions 5.0, 3.1.1 and 3.1. Mosquitto is lightweight and is suitable for use on all devices from low power single board computers to full servers.
@@ -16,6 +17,11 @@ To also use websocket connection you can enable it by edit the `/runtipi/app-dat
 listener 9001
 protocol websockets
 ```
+
+**Note**
+WebSockets, while powerful, can introduce vulnerabilities if left unsecured. They should be secured using TLS/encryption.
+For more detailed information the [mosquitto documentation](https://mosquitto.org/man/mosquitto-conf-5.html). 
+
 
 ## Cedalo Management Center
 
@@ -33,7 +39,6 @@ By default the following features are provided:
 - Management Center infos and settings
 
 The access to the broker is handled by the [dynamic-security plugin](https://mosquitto.org/documentation/dynamic-security/) in the mosquitto broker. The configuration is stored in the file `/runtipi/app-date/eclipse-mosquitto/data/config/dynamic-security.json`. This file is generated during the first launch of the the mosquitto image.
-
 
 
 ## Links
