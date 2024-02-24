@@ -3,7 +3,7 @@ version: "3.9"
 services:
   nextgba:
     container_name: nextgba
-    image: ghcr.io/meienberger/nextgba:v0.0.3
+    image: ghcr.io/meienberger/nextgba:v0.0.4
     restart: unless-stopped
     ports:
       - ${APP_PORT}:3000
