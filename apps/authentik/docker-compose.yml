@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   authentik:
-    image: ghcr.io/goauthentik/server:2024.2.0
+    image: ghcr.io/goauthentik/server:2024.2.1
     restart: unless-stopped
     command: server
     container_name: authentik
@@ -49,7 +49,7 @@ services:
       traefik.http.routers.authentik-local.service: authentik
       traefik.http.routers.authentik-local.tls: true
   authentik-worker:
-    image: ghcr.io/goauthentik/server:2024.2.0
+    image: ghcr.io/goauthentik/server:2024.2.1
     restart: unless-stopped
     command: worker
     container_name: authentik-worker
