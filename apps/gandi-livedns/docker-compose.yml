@@ -5,7 +5,7 @@ services:
     container_name: gandi-livedns
     restart: unless-stopped
     environment:
-      APIKEY: ${GANDI_LIVEDNS_APIKEY}
+      GANDI_PAT: ${GANDI_LIVEDNS_PAT}
       RECORD_LIST: ${GANDI_LIVEDNS_RECORD_LIST}
       DOMAIN: ${GANDI_LIVEDNS_DOMAIN}
       REFRESH_INTERVAL: ${GANDI_LIVEDNS_REFRESH_INTERVAL}
