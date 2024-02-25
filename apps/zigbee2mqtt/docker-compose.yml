@@ -1,0 +1,44 @@
+version: '3.7'
+
+services:
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: koenkk/zigbee2mqtt:1.35.3
+    environment:
+      - TZ=${TZ}
+    volumes:
+      - ${APP_DATA_DIR}/data/:/app/data
+    devices:
+      - ${Z2M_DEVICE}:/dev/ttyACM0
+    ports:
+      - ${APP_PORT}:8080
+    expose:
+      - 8080
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.zigbee2mqtt-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.zigbee2mqtt.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.zigbee2mqtt-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.zigbee2mqtt-insecure.entrypoints: web
+      traefik.http.routers.zigbee2mqtt-insecure.service: zigbee2mqtt-web
+      traefik.http.routers.zigbee2mqtt-insecure.middlewares: zigbee2mqtt-web-redirect
+      # Websecure
+      traefik.http.routers.zigbee2mqtt.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.zigbee2mqtt.entrypoints: websecure
+      traefik.http.routers.zigbee2mqtt.service: zigbee2mqtt-web
+      traefik.http.routers.zigbee2mqtt.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.zigbee2mqtt-local-insecure.rule: Host(`zigbee2mqtt.${LOCAL_DOMAIN}`)
+      traefik.http.routers.zigbee2mqtt-local-insecure.entrypoints: web
+      traefik.http.routers.zigbee2mqtt-local-insecure.service: zigbee2mqtt-web
+      traefik.http.routers.zigbee2mqtt-local-insecure.middlewares: zigbee2mqtt-web-redirect
+      # Local domain secure
+      traefik.http.routers.zigbee2mqtt-local.rule: Host(`zigbee2mqtt.${LOCAL_DOMAIN}`)
+      traefik.http.routers.zigbee2mqtt-local.entrypoints: websecure
+      traefik.http.routers.zigbee2mqtt-local.service: zigbee2mqtt-web
+      traefik.http.routers.zigbee2mqtt-local.tls: true

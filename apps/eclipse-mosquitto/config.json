@@ -1,0 +1,34 @@
+{
+  "$schema": "../schema.json",
+  "name": "Eclipse Mosquitto",
+  "port": 8288,
+  "available": true,
+  "exposable": true,
+  "id": "eclipse-mosquitto",
+  "tipi_version": 1,
+  "version": "2.0.18",
+  "categories": [
+    "utilities", 
+    "automation"
+  ],
+  "description": "Eclipse Mosquitto is an open source message broker that implements the MQTT protocol.",
+  "short_desc": "open source message broker",
+  "author": "Eclipse Foundation",
+  "source": "https://github.com/eclipse/mosquitto/",
+  "website": "https://mosquitto.org/",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "MQTT Broker Admin Password",
+      "max": 50,
+      "min": 6,
+      "required": true,
+      "env_variable": "MQTT_ADMIN_PASSWORD"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}
+
