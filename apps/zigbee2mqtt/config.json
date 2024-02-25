@@ -6,11 +6,8 @@
   "exposable": true,
   "id": "zigbee2mqtt",
   "tipi_version": 1,
-  "version": "1.35",
-  "categories": [
-    "utilities", 
-    "automation"
-  ],
+  "version": "1.35.3",
+  "categories": ["utilities", "automation"],
   "description": "Zigbee to MQTT bridge, get rid of your proprietary Zigbee bridges",
   "short_desc": "Zigbee to MQTT bridge",
   "author": "@Koenkk",
@@ -25,8 +22,5 @@
       "env_variable": "Z2M_DEVICE"
     }
   ],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"]
 }

@@ -1,21 +1,22 @@
-version: "3.7"
+version: '3.7'
 
 services:
-
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:1.35
+    image: koenkk/zigbee2mqtt:1.35.3
     environment:
       - TZ=${TZ}
     volumes:
       - ${APP_DATA_DIR}/data/:/app/data
     devices:
       - ${Z2M_DEVICE}:/dev/ttyACM0
-    ports: 
+    ports:
       - ${APP_PORT}:8080
     expose:
       - 8080
     restart: unless-stopped
+    networks:
+      - tipi_main_network
     labels:
       # Main
       traefik.enable: true

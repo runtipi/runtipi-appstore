@@ -1,6 +1,26 @@
 version: '3.7'
 
 services:
+  eclipse-mosquitto:
+    image: eclipse-mosquitto:2.0.18
+    container_name: eclipse-mosquitto
+    environment:
+      - TZ=${TZ}
+      - MQTT_DYNSEC_ADMIN_USER=admin
+      - MQTT_DYNSEC_ADMIN_PASSWORD=${MQTT_ADMIN_PASSWORD}
+    ports:
+      - 1883:1883
+    command: ['/dynsec-setup.sh', '/usr/sbin/mosquitto', '-c', '/mosquitto/config/mosquitto.conf']
+    expose:
+      - 1883
+    volumes:
+      - ${APP_DATA_DIR}/data/data:/mosquitto/data
+      - ${APP_DATA_DIR}/data/config:/mosquitto/config
+      - ${APP_DATA_DIR}/data/scripts/dynsec-setup.sh:/dynsec-setup.sh
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+
   mosquitto-management-center:
     image: cedalo/management-center:dev
     container_name: mosquitto-management-center
@@ -18,7 +38,7 @@ services:
     expose:
       - 8088
     depends_on:
-      - mosquitto-broker
+      - eclipse-mosquitto
     networks:
       - tipi_main_network
     restart: unless-stopped
@@ -47,22 +67,3 @@ services:
       traefik.http.routers.mosquitto-local.entrypoints: websecure
       traefik.http.routers.mosquitto-local.service: mosquitto-web
       traefik.http.routers.mosquitto-local.tls: true
-  mosquitto-broker:
-    image: eclipse-mosquitto:2.0.18
-    container_name: mosquitto-broker
-    environment:
-      - TZ=${TZ}
-      - MQTT_DYNSEC_ADMIN_USER=admin
-      - MQTT_DYNSEC_ADMIN_PASSWORD=${MQTT_ADMIN_PASSWORD}
-    ports:
-      - 1883:1883
-    command: ["/dynsec-setup.sh",  "/usr/sbin/mosquitto", "-c", "/mosquitto/config/mosquitto.conf"]
-    expose:
-      - 1883
-    volumes:
-      - ${APP_DATA_DIR}/data/data:/mosquitto/data
-      - ${APP_DATA_DIR}/data/config:/mosquitto/config
-      - ${APP_DATA_DIR}/data/scripts/dynsec-setup.sh:/dynsec-setup.sh
-    restart: unless-stopped
-    networks:
-      - tipi_main_network
