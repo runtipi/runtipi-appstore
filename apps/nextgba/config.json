@@ -5,7 +5,7 @@
   "exposable": true,
   "id": "nextgba",
   "description": "All of your favorite gameboy games in your browser",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "0.0.5",
   "categories": [
     "gaming"
