@@ -3,7 +3,7 @@ version: "3"
 services:
   grav:
     container_name: grav
-    image: lscr.io/linuxserver/grav:1.7.39.4-ls97
+    image: lscr.io/linuxserver/grav:1.7.44
     ports:
       - ${APP_PORT}:80
     volumes:
