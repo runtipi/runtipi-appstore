@@ -5,13 +5,19 @@
   "exposable": true,
   "port": 8131,
   "id": "lidarr",
-  "tipi_version": 7,
-  "version": "2.1.7",
-  "categories": ["media", "music"],
+  "tipi_version": 8,
+  "version": "8.1.2135",
+  "categories": [
+    "media",
+    "music"
+  ],
   "description": "Lidarr is a music collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new tracks from your favorite artists and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.",
   "short_desc": " Looks and smells like Sonarr but made for music.",
   "author": "lidarr.audio",
   "source": "https://github.com/Lidarr/Lidarr",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
