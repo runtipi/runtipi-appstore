@@ -1,43 +1,42 @@
 {
-    "$schema": "../schema.json",
-    "name": "CTFd",
-    "port": 8546,
-    "available": true,
-    "exposable": true,
-    "id": "ctfd",
-    "tipi_version": 1,
-    "version": "3.6.1",
-    "categories": [
-      "utilities"
-    ],
-    "description": "CTFd is a Capture The Flag framework focusing on ease of use and customizability.",
-    "short_desc": "Cyber Security Training made simple.",
-    "author": "CTFd",
-    "source": "https://github.com/CTFd/CTFd",
-    "website": "https://ctfd.io/",
-    "form_fields": [
-        {
-            "type": "random",
-            "label": "CTFD_MYSQL_DB_PASSWORD",
-            "min": 32,
-            "env_variable": "CTFD_MYSQL_DB_PASSWORD"
-        },
-        {
-            "type": "random",
-            "label": "CTFD_SECRET_KEY",
-            "min": 32,
-            "env_variable": "CTFD_SECRET_KEY"
-        },
-        {
-            "type": "random",
-            "label": "CTFD_MYSQL_ROOT_PASSWORD",
-            "min": 32,
-            "env_variable": "CTFD_MYSQL_ROOT_PASSWORD"
-        }
-    ],
-    "supported_architectures": [
-      "arm64",
-      "amd64"
-    ]
-  }
-  
+  "$schema": "../schema.json",
+  "name": "CTFd",
+  "port": 8546,
+  "available": true,
+  "exposable": true,
+  "id": "ctfd",
+  "tipi_version": 2,
+  "version": "3.7.0",
+  "categories": [
+    "utilities"
+  ],
+  "description": "CTFd is a Capture The Flag framework focusing on ease of use and customizability.",
+  "short_desc": "Cyber Security Training made simple.",
+  "author": "CTFd",
+  "source": "https://github.com/CTFd/CTFd",
+  "website": "https://ctfd.io/",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "CTFD_MYSQL_DB_PASSWORD",
+      "min": 32,
+      "env_variable": "CTFD_MYSQL_DB_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "CTFD_SECRET_KEY",
+      "min": 32,
+      "env_variable": "CTFD_SECRET_KEY"
+    },
+    {
+      "type": "random",
+      "label": "CTFD_MYSQL_ROOT_PASSWORD",
+      "min": 32,
+      "env_variable": "CTFD_MYSQL_ROOT_PASSWORD"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}
