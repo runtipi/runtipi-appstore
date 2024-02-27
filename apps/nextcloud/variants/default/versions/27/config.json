@@ -1,0 +1,35 @@
+{
+  "$schema": "../schema.json",
+  "name": "Nextcloud",
+  "available": true,
+  "exposable": true,
+  "port": 8083,
+  "id": "nextcloud",
+  "tipi_version": 1,
+  "tipi_breaking_version": 27,
+  "version": "27.0.11-apache",
+  "categories": ["data"],
+  "description": "Nextcloud is a self-hosted, open source, and fully-featured cloud storage solution for your personal files, office documents, and photos.",
+  "short_desc": "Productivity platform that keeps you in control",
+  "author": "Nextcloud GmbH",
+  "source": "https://github.com/nextcloud/server",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Username",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "NEXTCLOUD_ADMIN_USER"
+    },
+    {
+      "type": "password",
+      "label": "Password",
+      "max": 50,
+      "min": 10,
+      "required": true,
+      "env_variable": "NEXTCLOUD_ADMIN_PASSWORD"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}
