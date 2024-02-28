@@ -13,8 +13,6 @@
     "source": "https://github.com/linuxserver/docker-duckdns",
     "website": "https://docs.linuxserver.io/images/docker-duckdns/",
     "supported_architectures": ["arm64", "amd64"],
-    "uid": 1000,
-    "gid": 1000,
     "form_fields": [
         {
             "type": "text",
