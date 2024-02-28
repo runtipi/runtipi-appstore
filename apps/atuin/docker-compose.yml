@@ -47,7 +47,7 @@ services:
     image: postgres:14
     restart: unless-stopped
     volumes: # Don't remove permanent storage for index database files!
-      - "${APP_DATA_DIR}/data:/var/lib/postgresql/data/"
+      - "${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data/"
     environment:
       POSTGRES_USER: atuin
       POSTGRES_PASSWORD: "${ATUIN_DB_PASSWORD}"
