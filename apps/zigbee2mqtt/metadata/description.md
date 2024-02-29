@@ -14,7 +14,7 @@ You need to have a mqtt broker like [eclipse mosquitto](/apps/eclipse-mosquitto)
 
 ###  Configuration of the Zigbee adapter
 
-For USB apdaters you can use dmesg command on Linux hosts to find the mounted device. Where possible you should use the `/dev/serial/by-id/` path of the stick, instead of `/dev/tty*`. This is because the `/dev/tty*` path can change - for example ´/dev/ttyACM0` may become `/dev/ttyACM1` and then later back to `/dev/ttyACM0`. The `/dev/serial/by-id/` path won't change.
+For USB apdaters you can use dmesg command on Linux hosts to find the mounted device. Where possible you should use the `/dev/serial/by-id/` path of the stick, instead of `/dev/tty*`. This is because the `/dev/tty*` path can change - for example `/dev/ttyACM0` may become `/dev/ttyACM1` and then later back to `/dev/ttyACM0`. The `/dev/serial/by-id/` path won't change.
 
 The **usb device path** must be set in the settings of the app before installing.
 
