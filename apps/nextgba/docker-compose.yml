@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  nextgba:
+    container_name: nextgba
+    image: ghcr.io/meienberger/nextgba:v0.0.5
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:3000
+    environment:
+      - NODE_ENV=production
+    networks:
+      - tipi_main_network
+    volumes:
+      - ${APP_DATA_DIR}/data/games:/data/games
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.nextgba-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.nextgba.loadbalancer.server.port: 3000
+      # Web
+      traefik.http.routers.nextgba-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nextgba-insecure.entrypoints: web
+      traefik.http.routers.nextgba-insecure.service: nextgba
+      traefik.http.routers.nextgba-insecure.middlewares: nextgba-web-redirect
+      # Websecure
+      traefik.http.routers.nextgba.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nextgba.entrypoints: websecure
+      traefik.http.routers.nextgba.service: nextgba
+      traefik.http.routers.nextgba.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.nextgba-local-insecure.rule: Host(`nextgba.${LOCAL_DOMAIN}`)
+      traefik.http.routers.nextgba-local-insecure.entrypoints: web
+      traefik.http.routers.nextgba-local-insecure.service: nextgba
+      traefik.http.routers.nextgba-local-insecure.middlewares: nextgba-web-redirect
+      # Local domain secure
+      traefik.http.routers.nextgba-local.rule: Host(`nextgba.${LOCAL_DOMAIN}`)
+      traefik.http.routers.nextgba-local.entrypoints: websecure
+      traefik.http.routers.nextgba-local.service: nextgba
+      traefik.http.routers.nextgba-local.tls: true

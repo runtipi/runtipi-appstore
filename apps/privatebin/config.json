@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8122,
   "id": "privatebin",
-  "tipi_version": 7,
-  "version": "1.6.2",
+  "tipi_version": 8,
+  "version": "1.7.1",
   "categories": [
     "utilities"
   ],

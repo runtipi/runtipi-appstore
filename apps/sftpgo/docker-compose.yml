@@ -67,7 +67,7 @@ services:
   # Postgres SQL
   sftpgo-db:
     container_name: sftpgo-db
-    image: docker.io/library/postgres:16.1-alpine
+    image: docker.io/library/postgres:16.2-alpine
     restart: unless-stopped
     networks:
       - tipi_main_network

@@ -1,13 +1,14 @@
-version: "3"
+version: '3'
 
 services:
   tasks-md:
     container_name: tasks-md
-    image: baldissaramatheus/tasks.md:1.10.1
+    image: baldissaramatheus/tasks.md:2.3.2
     ports:
       - ${APP_PORT}:8080
     volumes:
-      - ${APP_DATA_DIR}/data/files:/api/files/
+      - ${APP_DATA_DIR}/data/files:/tasks/
+      - ${APP_DATA_DIR}/data/config:/config/
       - ${APP_DATA_DIR}/data/stylesheets:/usr/share/nginx/html/stylesheets/
     environment:
       - TITLE="${TASKS_MD_TITLE}"

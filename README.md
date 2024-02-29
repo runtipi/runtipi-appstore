@@ -21,6 +21,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Booksonic](https://github.com/popeen/Booksonic-Air) - The selfhosted audiobook server
 - [Bookstack](https://github.com/BookStackApp/BookStack) - BookStack is a self-hosted platform for organising and storing information.
 - [Budibase](https://github.com/Budibase/budibase) - Internal tools made easy.
+- [Cal.com](https://github.com/calcom/cal.com) - Scheduling infrastructure for absolutely everyone.
 - [Calibre-Web - EBook Reader](https://github.com/janeczku/calibre-web) - Calibre-web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database.
 - [ChangeDetection](https://github.com/dgtlmoon/changedetection.io) - Website change detection.
 - [ChatGPT UI](https://github.com/WongSaang/chatgpt-ui) - A ChatGPT web client that supports multiple users, multiple languages, and multiple database connections for persistent data storage
@@ -72,6 +73,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Hammond](https://github.com/alfhou/hammond) - Self hosted vehicle and expense management system. Like Clarkson, but better
 - [Haven](https://github.com/havenweb/haven) - Self-hostable private blogging
 - [HedgeDoc](https://github.com/hedgedoc/hedgedoc) - A Collaborative Markdown and Note Taking App
+- [Heimdall](https://github.com/linuxserver/Heimdall) - Application Dashboard
 - [Hello World](https://github.com/crccheck/docker-hello-world) - Hello World web server in under 2 MB
 - [Homarr](https://github.com/ajnart/homarr) - Homarr is a simple and lightweight homepage for your server, that helps you easily access all of your services in one place.
 - [Home Assistant](https://github.com/home-assistant/core) - Open source home automation that puts local control and privacy first
@@ -128,6 +130,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Netboot.xyz](https://github.com/netbootxyz/netboot.xyz) - Your favorite operating systems in one place.
 - [Netdata](https://github.com/netdata/netdata) - Open-source, real-time, performance and health monitoring.
 - [Nextcloud](https://github.com/nextcloud/server) - Productivity platform that keeps you in control
+- [NextGBA](https://github.com/meienberger/nextgba) - Gameboy in your browser
 - [Nginx](https://github.com/nginx/nginx) - Open-source simple and fast web server.
 - [Nitter](https://github.com/zedeus/nitter) - Twitter without annoyances!
 - [NocoDB](https://github.com/nocodb/nocodb) - Open Source Airtable Alternative

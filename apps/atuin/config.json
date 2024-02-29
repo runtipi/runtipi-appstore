@@ -5,12 +5,9 @@
   "exposable": true,
   "port": 8888,
   "id": "atuin",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "latest",
-  "categories": [
-    "utilities",
-    "development"
-  ],
+  "categories": ["utilities", "development"],
   "description": "Making your shell magical",
   "short_desc": "Magical Shell History",
   "author": "https://github.com/atuinsh",
@@ -33,8 +30,5 @@
       "env_variable": "ATUIN_ALLOW_REGISTRATION"
     }
   ],
-  "supported_architectures": [
-    "amd64",
-    "arm64"
-  ]
+  "supported_architectures": ["amd64", "arm64"]
 }

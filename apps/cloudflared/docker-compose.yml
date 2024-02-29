@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   cloudflared:
-    image: wisdomsky/cloudflared-web:2024.1.5
+    image: wisdomsky/cloudflared-web:2024.2.1
     container_name: cloudflared
     restart: unless-stopped
     network_mode: host

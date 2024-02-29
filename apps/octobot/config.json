@@ -4,8 +4,8 @@
   "available": true,
   "exposable": true,
   "id": "octobot",
-  "tipi_version": 5,
-  "version": "1.0.7",
+  "tipi_version": 6,
+  "version": "1.0.8",
   "categories": [
     "automation",
     "finance"

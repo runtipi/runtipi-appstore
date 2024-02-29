@@ -5,8 +5,8 @@
   "exposable": true,
   "id": "navidrome",
   "description": "Modern Music Server and Streamer compatible with Subsonic/Airsonic",
-  "tipi_version": 9,
-  "version": "0.51.0",
+  "tipi_version": 10,
+  "version": "0.51.1",
   "categories": [
     "media",
     "music"

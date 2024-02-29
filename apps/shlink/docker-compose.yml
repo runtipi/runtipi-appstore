@@ -46,7 +46,7 @@ services:
       traefik.http.routers.shlink-local.tls: true
   shlink-db:
     container_name: shlink-db
-    image: docker.io/library/postgres:16.1-alpine
+    image: docker.io/library/postgres:16.2-alpine
     restart: unless-stopped
     networks:
       - tipi_main_network

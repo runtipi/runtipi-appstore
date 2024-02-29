@@ -4,8 +4,10 @@ services:
     container_name: trilium
     ports:
       - ${APP_PORT}:8080
+    environment:
+      - TRILIUM_DATA_DIR=/home/node/trilium-data
     volumes:
-      - ${APP_DATA_DIR}/home/node/trilium-data
+      - ${APP_DATA_DIR}/data:/home/node/trilium-data
     networks:
       - tipi_main_network
     labels:

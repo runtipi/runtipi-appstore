@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "stirling-pdf",
-  "tipi_version": 19,
-  "version": "0.20.1",
+  "tipi_version": 21,
+  "version": "0.21.0",
   "categories": [
     "data",
     "utilities"

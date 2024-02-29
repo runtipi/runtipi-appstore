@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   silverbullet:
-    image: zefhemel/silverbullet:0.7.0
+    image: zefhemel/silverbullet:0.7.3
     container_name: 'silverbullet'
     restart: unless-stopped
     volumes:

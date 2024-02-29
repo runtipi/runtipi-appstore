@@ -1,0 +1,69 @@
+version: '3.7'
+
+services:
+  eclipse-mosquitto:
+    image: eclipse-mosquitto:2.0.18
+    container_name: eclipse-mosquitto
+    environment:
+      - TZ=${TZ}
+      - MQTT_DYNSEC_ADMIN_USER=admin
+      - MQTT_DYNSEC_ADMIN_PASSWORD=${MQTT_ADMIN_PASSWORD}
+    ports:
+      - 1883:1883
+    command: ['/dynsec-setup.sh', '/usr/sbin/mosquitto', '-c', '/mosquitto/config/mosquitto.conf']
+    expose:
+      - 1883
+    volumes:
+      - ${APP_DATA_DIR}/data/data:/mosquitto/data
+      - ${APP_DATA_DIR}/data/config:/mosquitto/config
+      - ${APP_DATA_DIR}/data/scripts/dynsec-setup.sh:/dynsec-setup.sh
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+
+  mosquitto-management-center:
+    image: cedalo/management-center:dev
+    container_name: mosquitto-management-center
+    environment:
+      - TZ=${TZ}
+      - CEDALO_MC_BROKER_ID=mosquitto-broker
+      - CEDALO_MC_BROKER_NAME=mosquitto-broker-2
+      - CEDALO_MC_BROKER_URL=mqtt://mosquitto-broker:1883
+      - CEDALO_MC_BROKER_USERNAME=admin
+      - CEDALO_MC_BROKER_PASSWORD=${MQTT_ADMIN_PASSWORD}
+      - CEDALO_MC_USERNAME=admin
+      - CEDALO_MC_PASSWORD=admin
+    ports:
+      - ${APP_PORT}:8088
+    expose:
+      - 8088
+    depends_on:
+      - eclipse-mosquitto
+    networks:
+      - tipi_main_network
+    restart: unless-stopped
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.mosquitto-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.mosquitto.loadbalancer.server.port: 8088
+      # Web
+      traefik.http.routers.mosquitto-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mosquitto-insecure.entrypoints: web
+      traefik.http.routers.mosquitto-insecure.service: mosquitto-web
+      traefik.http.routers.mosquitto-insecure.middlewares: mosquitto-web-redirect
+      # Websecure
+      traefik.http.routers.mosquitto.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mosquitto.entrypoints: websecure
+      traefik.http.routers.mosquitto.service: mosquitto-web
+      traefik.http.routers.mosquitto.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.mosquitto-local-insecure.rule: Host(`mosquitto.${LOCAL_DOMAIN}`)
+      traefik.http.routers.mosquitto-local-insecure.entrypoints: web
+      traefik.http.routers.mosquitto-local-insecure.service: mosquitto-web
+      traefik.http.routers.mosquitto-local-insecure.middlewares: mosquitto-web-redirect
+      # Local domain secure
+      traefik.http.routers.mosquitto-local.rule: Host(`mosquitto.${LOCAL_DOMAIN}`)
+      traefik.http.routers.mosquitto-local.entrypoints: websecure
+      traefik.http.routers.mosquitto-local.service: mosquitto-web
+      traefik.http.routers.mosquitto-local.tls: true

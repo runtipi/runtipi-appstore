@@ -3,7 +3,7 @@ version: '3.9'
 services:
   minio:
     container_name: minio
-    image: minio/minio:RELEASE.2023-05-04T21-44-30Z
+    image: minio/minio:RELEASE.2024-02-24T17-11-14Z
     environment:
       - MINIO_ROOT_USER=${MINIO_ROOT_USER}
       - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD}
@@ -17,7 +17,7 @@ services:
       - ${APP_DATA_DIR}/data/minio/data:/data
     networks:
       - tipi_main_network
-    command: "server --console-address :9001 /data"
+    command: 'server --console-address :9001 /data'
     labels:
       traefik.enable: ${APP_EXPOSED}
       # Console

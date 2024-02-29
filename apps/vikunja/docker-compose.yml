@@ -16,9 +16,10 @@ services:
       retries: 5
     networks:
       - tipi_main_network
+
   vikunja-api:
     container_name: vikunja-api
-    image: vikunja/api:0.22.0
+    image: vikunja/api:0.22.1
     environment:
       VIKUNJA_DATABASE_HOST: vikunja-db
       VIKUNJA_DATABASE_PASSWORD: ${VIKUNJA_DB_PASSWORD}
@@ -35,12 +36,14 @@ services:
         condition: service_healthy
     networks:
       - tipi_main_network
+
   vikunja:
-    image: vikunja/frontend:0.22.0
+    image: vikunja/frontend:0.22.1
     restart: unless-stopped
     container_name: vikunja
     networks:
       - tipi_main_network
+
   vikunja-proxy:
     image: nginx
     container_name: vikunja-proxy

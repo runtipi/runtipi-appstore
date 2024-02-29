@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "logto",
-  "tipi_version": 13,
-  "version": "1.12.0",
+  "tipi_version": 15,
+  "version": "1.13.1",
   "force_expose": true,
   "categories": [
     "security"
