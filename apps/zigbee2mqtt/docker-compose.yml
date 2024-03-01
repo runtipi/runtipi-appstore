@@ -3,7 +3,7 @@ version: '3.7'
 services:
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:1.35.3
+    image: koenkk/zigbee2mqtt:1.36.0
     environment:
       - TZ=${TZ}
     volumes:
