@@ -1,0 +1,95 @@
+version: "3.8"
+
+services:
+  outline:
+    container_name: outline-outline
+    image: docker.getoutline.com/outlinewiki/outline:0.75.2
+    restart: unless-stopped
+    environment:
+      - "DATABASE_URL=postgres://outline:${PG_PASSWORD}@postgres:5432/outline"
+      - "REDIS_URL=redis://redis:6379"
+      - "SECRET_KEY=${OUTLINE_SECRET_KEY}"
+      - "UTILS_SECRET=${OUTLINE_UTILS_SECRET}"
+      - "URL=https://${APP_DOMAIN}"
+      - "FORCE_HTTPS=false"
+      - "FILE_STORAGE=local"
+      - "FILE_STORAGE_UPLOAD_MAX_SIZE=26214400"
+      - "PGSSLMODE=disable"
+      - "OIDC_CLIENT_ID=${OIDC_CLID}"
+      - "OIDC_CLIENT_SECRET=${OIDC_CLKEY}"
+      - "OIDC_AUTH_URI=https://${APP_DOMAIN}/uc/oauth/authorize/"
+      - "OIDC_TOKEN_URI=https://${APP_DOMAIN}/uc/oauth/token/"
+      - "OIDC_USERINFO_URI=https://${APP_DOMAIN}/uc/oauth/userinfo/"
+      - "OIDC_USERNAME_CLAIM=preferred_username"
+      - "OIDC_DISPLAY_NAME=OpenID"
+      - "OIDC_SCOPES=openid profile email"
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - tipi_main_network
+
+  postgres:
+    container_name: outline-postgres
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      - "POSTGRES_USER=outline"
+      - "POSTGRES_PASSWORD=${PG_PASSWORD}"
+      - "POSTGRES_DB=outline"
+    volumes:
+      - ${APP_DATA_DIR}/data/pgdata:/var/lib/postgresql/data
+    networks:
+      - tipi_main_network
+
+  redis:
+    container_name: outline-redis
+    image: redis:7-alpine
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+
+  oidc:
+    container_name: outline-oidc
+    image: ghcr.io/hex-developer/oidc-provider:v0.2.0
+    restart: unless-stopped
+    environment:
+      - "LANGUAGE_CODE=en-us"
+      - "TIME_ZONE=UTC"
+      - "FORCE_SCRIPT_NAME=/uc"
+      - "SECRET_KEY=${OIDC_SECRET}"
+      - "DJANGO_SUPERUSER_PASSWORD=${OUTLINE_PASSWORD}"
+      - "DJANGO_SUPERUSER_USERNAME=${OUTLINE_USER}"
+      - "DJANGO_SUPERUSER_EMAIL=user@outline.localhost"
+      - "INITIAL_DATA=oidc-config.json"
+      - "DOMAIN=https://${APP_DOMAIN}"
+    volumes:
+      - ${APP_DATA_DIR}/data/oidc-config.json:/app/oidc-config.json:ro
+      - ${APP_DATA_DIR}/data/uc/db:/app/db:z
+      - ${APP_DATA_DIR}/data/uc/static_root:/app/static_root:z
+    networks:
+      - tipi_main_network
+
+  nginx:
+    container_name: outline-nginx
+    image: nginx:alpine
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:80
+    volumes:
+      - ${APP_DATA_DIR}/data/nginx/:/etc/nginx/conf.d/:ro
+      - ${APP_DATA_DIR}/data/uc/static_root:/uc/static_root:ro
+    depends_on:
+      - outline
+      - oidc
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.outline-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.outline.loadbalancer.server.port: 80
+      traefik.http.routers.outline.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.outline.entrypoints: websecure
+      traefik.http.routers.outline.service: outline
+      traefik.http.routers.outline.tls.certresolver: myresolver
