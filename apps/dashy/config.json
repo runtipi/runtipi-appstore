@@ -5,13 +5,18 @@
   "available": true,
   "exposable": false,
   "id": "dashy",
-  "tipi_version": 1,
-  "version": "2.1.1",
-  "categories": ["utilities"],
+  "tipi_version": 2,
+  "version": "2.1.2",
+  "categories": [
+    "utilities"
+  ],
   "description": "A self-hostable personal dashboard built for you. Includes status-checking, widgets, themes, icon packs, a UI editor and tons more!",
   "short_desc": "A self-hostable personal dashboard built for you.",
   "author": "lissy93",
   "source": "https://github.com/lissy93/dashy",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
