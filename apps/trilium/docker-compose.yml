@@ -1,6 +1,6 @@
 services:
   trilium:
-    image: ghcr.io/zadam/trilium:0.62.6
+    image: ghcr.io/zadam/trilium:0.63.3
     container_name: trilium
     ports:
       - ${APP_PORT}:8080
