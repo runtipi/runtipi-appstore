@@ -1,83 +1,87 @@
 {
-    "name": "Outline",
-    "id": "outline",
-    "available": true,
-    "short_desc": "A home for all your docs",
-    "author": "outline",
-    "port": 8404,
-    "categories": ["utilities"],
-    "description": "Outline is a knowledge base designed for teams. It's goals are to be fast, intuitive and support many integrations.",
-    "tipi_version": 1,
-    "version": "0.75.2",
-    "source": "https://github.com/outline/outline",
-    "website": "https://getoutline.com",
-    "exposable": true,
-    "force_expose":true,
-    "form_fields": [
-      {
-        "type": "random",
-        "label": "Outline secret key",
-        "min": 64,
-        "env_variable": "OUTLINE_SECRET_KEY"
-      },
-      {
-        "type": "random",
-        "label": "Outline utils secret",
-        "min": 32,
-        "env_variable": "OUTLINE_UTILS_SECRET"
-      },
-      {
-        "type": "random",
-        "label": "Minio access key",
-        "min": 32,
-        "env_variable": "MINIO_ACCESS_KEY"
-      },
-      {
-        "type": "random",
-        "label": "Minio secret key",
-        "min": 32,
-        "env_variable": "MINIO_SECRET_KEY"
-      },
-      {
-        "type": "random",
-        "label": "OIDC client ID",
-        "min": 32,
-        "env_variable": "OIDC_CLID"
-      },
-      {
-        "type": "random",
-        "label": "OIDC client secret",
-        "min": 32,
-        "env_variable": "OIDC_CLKEY"
-      },
-      {
-        "type": "random",
-        "label": "Database password",
-        "min": 32,
-        "env_variable": "PG_PASSWORD"
-      },
-      {
-        "type": "random",
-        "label": "OIDC secret",
-        "min": 32,
-        "env_variable": "OIDC_SECRET"
-      },
-      {
-        "type": "text",
-        "label": "Username",
-        "max": 50,
-        "min": 3,
-        "required": true,
-        "env_variable": "OUTLINE_USER"
-      },
-      {
-        "type": "password",
-        "label": "Password",
-        "min": 12,
-        "required": true,
-        "env_variable": "OUTLINE_PASSWORD"
-      }
-    ],
-    "supported_architectures": ["arm64", "amd64"]
-  }
-  
+  "name": "Outline",
+  "id": "outline",
+  "available": true,
+  "short_desc": "A home for all your docs",
+  "author": "outline",
+  "port": 8404,
+  "categories": [
+    "utilities"
+  ],
+  "description": "Outline is a knowledge base designed for teams. It's goals are to be fast, intuitive and support many integrations.",
+  "tipi_version": 1,
+  "version": "0.75.2",
+  "source": "https://github.com/outline/outline",
+  "website": "https://getoutline.com",
+  "exposable": true,
+  "force_expose": true,
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Outline secret key",
+      "min": 64,
+      "env_variable": "OUTLINE_SECRET_KEY"
+    },
+    {
+      "type": "random",
+      "label": "Outline utils secret",
+      "min": 32,
+      "env_variable": "OUTLINE_UTILS_SECRET"
+    },
+    {
+      "type": "random",
+      "label": "Minio access key",
+      "min": 32,
+      "env_variable": "MINIO_ACCESS_KEY"
+    },
+    {
+      "type": "random",
+      "label": "Minio secret key",
+      "min": 32,
+      "env_variable": "MINIO_SECRET_KEY"
+    },
+    {
+      "type": "random",
+      "label": "OIDC client ID",
+      "min": 32,
+      "env_variable": "OIDC_CLID"
+    },
+    {
+      "type": "random",
+      "label": "OIDC client secret",
+      "min": 32,
+      "env_variable": "OIDC_CLKEY"
+    },
+    {
+      "type": "random",
+      "label": "Database password",
+      "min": 32,
+      "env_variable": "PG_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "OIDC secret",
+      "min": 32,
+      "env_variable": "OIDC_SECRET"
+    },
+    {
+      "type": "text",
+      "label": "Username",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "OUTLINE_USER"
+    },
+    {
+      "type": "password",
+      "label": "Password",
+      "min": 12,
+      "required": true,
+      "env_variable": "OUTLINE_PASSWORD"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}
