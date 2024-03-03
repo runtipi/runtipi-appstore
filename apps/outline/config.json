@@ -30,18 +30,6 @@
     },
     {
       "type": "random",
-      "label": "Minio access key",
-      "min": 32,
-      "env_variable": "MINIO_ACCESS_KEY"
-    },
-    {
-      "type": "random",
-      "label": "Minio secret key",
-      "min": 32,
-      "env_variable": "MINIO_SECRET_KEY"
-    },
-    {
-      "type": "random",
       "label": "OIDC client ID",
       "min": 32,
       "env_variable": "OIDC_CLID"
