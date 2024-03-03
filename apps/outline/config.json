@@ -32,25 +32,25 @@
       "type": "random",
       "label": "OIDC client ID",
       "min": 32,
-      "env_variable": "OIDC_CLID"
+      "env_variable": "OUTLINE_OIDC_CLID"
     },
     {
       "type": "random",
       "label": "OIDC client secret",
       "min": 32,
-      "env_variable": "OIDC_CLKEY"
+      "env_variable": "OUTLINE_OIDC_CLKEY"
     },
     {
       "type": "random",
       "label": "Database password",
       "min": 32,
-      "env_variable": "PG_PASSWORD"
+      "env_variable": "OUTLINE_PG_PASSWORD"
     },
     {
       "type": "random",
       "label": "OIDC secret",
       "min": 32,
-      "env_variable": "OIDC_SECRET"
+      "env_variable": "OUTLINE_OIDC_SECRET"
     },
     {
       "type": "text",

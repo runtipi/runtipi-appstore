@@ -6,7 +6,7 @@ services:
     image: docker.getoutline.com/outlinewiki/outline:0.75.2
     restart: unless-stopped
     environment:
-      - DATABASE_URL=postgres://outline:${PG_PASSWORD}@postgres:5432/outline
+      - DATABASE_URL=postgres://outline:${OUTLINE_PG_PASSWORD}@postgres:5432/outline
       - REDIS_URL=redis://redis:6379
       - SECRET_KEY=${OUTLINE_SECRET_KEY}
       - UTILS_SECRET=${OUTLINE_UTILS_SECRET}
@@ -15,8 +15,8 @@ services:
       - FILE_STORAGE=local
       - FILE_STORAGE_UPLOAD_MAX_SIZE=26214400
       - PGSSLMODE=disable
-      - OIDC_CLIENT_ID=${OIDC_CLID}
-      - OIDC_CLIENT_SECRET=${OIDC_CLKEY}
+      - OIDC_CLIENT_ID=${OUTLINE_OIDC_CLID}
+      - OIDC_CLIENT_SECRET=${OUTLINE_OIDC_CLKEY}
       - OIDC_AUTH_URI=https://${APP_DOMAIN}/uc/oauth/authorize/
       - OIDC_TOKEN_URI=https://${APP_DOMAIN}/uc/oauth/token/
       - OIDC_USERINFO_URI=https://${APP_DOMAIN}/uc/oauth/userinfo/
@@ -35,7 +35,7 @@ services:
     restart: unless-stopped
     environment:
       - POSTGRES_USER=outline
-      - POSTGRES_PASSWORD=${PG_PASSWORD}
+      - POSTGRES_PASSWORD=${OUTLINE_PG_PASSWORD}
       - POSTGRES_DB=outline
     volumes:
       - ${APP_DATA_DIR}/data/pgdata:/var/lib/postgresql/data
@@ -57,7 +57,7 @@ services:
       - LANGUAGE_CODE=en-us
       - TIME_ZONE=UTC
       - FORCE_SCRIPT_NAME=/uc
-      - SECRET_KEY=${OIDC_SECRET}
+      - SECRET_KEY=${OUTLINE_OIDC_SECRET}
       - DJANGO_SUPERUSER_PASSWORD=${OUTLINE_PASSWORD}
       - DJANGO_SUPERUSER_USERNAME=${OUTLINE_USER}
       - DJANGO_SUPERUSER_EMAIL=user@outline.localhost
