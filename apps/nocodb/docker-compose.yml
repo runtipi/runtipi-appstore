@@ -12,7 +12,7 @@ services:
       - NC_AUTH_JWT_SECRET=${NOCODB_JWT_SECRET}
       - NC_REDIS_URL=redis://default:${NOCODB_REDIS_PASSWORD}@nocodb-redis:6379
       - DB_QUERY_LIMIT_DEFAULT=${NOCODB_TABLE_ROWS-25}
-    image: "nocodb/nocodb:0.204.3"
+    image: "nocodb/nocodb:0.204.4"
     ports:
       - "${APP_PORT}:8080"
     restart: always
