@@ -24,8 +24,8 @@ devDependencies:
     specifier: ^18.6.2
     version: 18.6.2
   '@types/semver':
-    specifier: ^7.5.0
-    version: 7.5.0
+    specifier: ^7.5.8
+    version: 7.5.8
   commitizen:
     specifier: ^4.2.5
     version: 4.2.5
@@ -51,8 +51,8 @@ devDependencies:
     specifier: ^2.8.8
     version: 2.8.8
   semver:
-    specifier: ^7.5.2
-    version: 7.5.2
+    specifier: ^7.6.0
+    version: 7.6.0
   ts-jest:
     specifier: ^28.0.7
     version: 28.0.7(@babel/core@7.18.9)(jest@28.1.3)(typescript@4.7.4)
@@ -1033,8 +1033,8 @@ packages:
     resolution: {integrity: sha512-fOwvpvQYStpb/zHMx0Cauwywu9yLDmzWiiQBC7gJyq5tYLUXFZvDG7VK1B7WBxxjBJNKFOZ0zLoOQn8vmATbhw==}
     dev: true
 
-  /@types/semver@7.5.0:
-    resolution: {integrity: sha512-G8hZ6XJiHnuhQKR7ZmysCeJWE08o8T0AXtk5darsCaTVsYZhhgUrq53jizaR2FvsoeCwJhlmwTjkXBY5Pn/ZHw==}
+  /@types/semver@7.5.8:
+    resolution: {integrity: sha512-I8EUhyrgfLrcTkzV3TSsGyl1tSuPrEDzr0yd5m90UgNxQkyDXULk3b6MlQqTCpZpNtWe1K0hzclnZkTcLBe2UQ==}
     dev: true
 
   /@types/stack-utils@2.0.1:
@@ -2767,7 +2767,7 @@ packages:
       jest-util: 28.1.3
       natural-compare: 1.4.0
       pretty-format: 28.1.3
-      semver: 7.5.2
+      semver: 7.6.0
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -2899,7 +2899,7 @@ packages:
       acorn: 8.8.0
       eslint-visitor-keys: 3.3.0
       espree: 9.3.3
-      semver: 7.5.2
+      semver: 7.6.0
     dev: true
 
   /jsonfile@6.1.0:
@@ -3128,7 +3128,7 @@ packages:
     dependencies:
       hosted-git-info: 4.1.0
       is-core-module: 2.9.0
-      semver: 7.5.2
+      semver: 7.6.0
       validate-npm-package-license: 3.0.4
     dev: true
 
@@ -3505,14 +3505,6 @@ packages:
       lru-cache: 6.0.0
     dev: true
 
-  /semver@7.5.2:
-    resolution: {integrity: sha512-SoftuTROv/cRjCze/scjGyiDtcUyxw1rgYQSZY7XTmtR5hX+dm76iDbTH8TkLPHCQmlbQVSSbNZCPM2hb0knnQ==}
-    engines: {node: '>=10'}
-    hasBin: true
-    dependencies:
-      lru-cache: 6.0.0
-    dev: true
-
   /semver@7.6.0:
     resolution: {integrity: sha512-EnwXhrlwXMk9gKu5/flx5sv/an57AkRplG3hTK68W7FRDN+k+OWBj65M7719OkA82XLBxrcX0KSHj+X5COhOVg==}
     engines: {node: '>=10'}
@@ -3791,7 +3783,7 @@ packages:
       json5: 2.2.1
       lodash.memoize: 4.1.2
       make-error: 1.3.6
-      semver: 7.5.2
+      semver: 7.6.0
       typescript: 4.7.4
       yargs-parser: 21.0.1
     dev: true
