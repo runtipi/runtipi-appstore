@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8103,
   "id": "your-spotify",
-  "tipi_version": 8,
-  "version": "1.7.3",
+  "tipi_version": 9,
+  "version": "1.8.0",
   "categories": [
     "music",
     "utilities"

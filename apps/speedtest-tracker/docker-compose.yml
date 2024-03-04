@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   speedtest-tracker:
-    image: ghcr.io/alexjustesen/speedtest-tracker:v0.18.0
+    image: ghcr.io/alexjustesen/speedtest-tracker:v0.18.2
     container_name: speedtest-tracker
     environment:
       - PUID=1000
@@ -17,7 +17,6 @@ services:
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/speedtest-tracker/config:/config
-      - /etc/localtime:/etc/localtime:ro
     ports:
       - ${APP_PORT}:80
       - 8212:443
