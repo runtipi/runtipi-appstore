@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/meienberger/runtipi-appstore#readme",
   "devDependencies": {
-    "@commitlint/cli": "^17.0.3",
+    "@commitlint/cli": "^19.0.3",
     "@commitlint/config-conventional": "^19.0.3",
     "@commitlint/cz-commitlint": "^19.0.3",
     "@types/jest": "^28.1.6",
