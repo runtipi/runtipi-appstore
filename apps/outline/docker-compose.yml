@@ -23,6 +23,8 @@ services:
       - OIDC_USERNAME_CLAIM=preferred_username
       - OIDC_DISPLAY_NAME=OpenID
       - OIDC_SCOPES=openid profile email
+    volumes:
+      - ${APP_DATA_DIR}/data/storage:/var/lib/outline/data 
     depends_on:
       - postgres
       - redis
