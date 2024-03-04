@@ -5,11 +5,9 @@
   "available": true,
   "exposable": true,
   "id": "speedtest-tracker",
-  "tipi_version": 18,
+  "tipi_version": 19,
   "version": "0.18.0",
-  "categories": [
-    "utilities"
-  ],
+  "categories": ["utilities"],
   "description": "Speedtest Tracker is a self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.",
   "short_desc": "Internet performance tracking application.",
   "author": "alexjustesen",
@@ -22,8 +20,5 @@
       "env_variable": "SPEEDTEST_TRACKER_DB_PASSWORD"
     }
   ],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"]
 }
