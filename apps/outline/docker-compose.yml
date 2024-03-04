@@ -6,8 +6,8 @@ services:
     image: docker.getoutline.com/outlinewiki/outline:0.75.2
     restart: unless-stopped
     environment:
-      - DATABASE_URL=postgres://outline:${OUTLINE_PG_PASSWORD}@postgres:5432/outline
-      - REDIS_URL=redis://redis:6379
+      - DATABASE_URL=postgres://outline:${OUTLINE_PG_PASSWORD}@outline-postgres:5432/outline
+      - REDIS_URL=redis://outline-redis:6379
       - SECRET_KEY=${OUTLINE_SECRET_KEY}
       - UTILS_SECRET=${OUTLINE_UTILS_SECRET}
       - URL=https://${APP_DOMAIN}
@@ -24,7 +24,7 @@ services:
       - OIDC_DISPLAY_NAME=OpenID
       - OIDC_SCOPES=openid profile email
     volumes:
-      - ${APP_DATA_DIR}/data/storage:/var/lib/outline/data 
+      - ${APP_DATA_DIR}/data/outline:/var/lib/outline/data 
     depends_on:
       - outline-postgres
       - outline-redis
@@ -40,7 +40,7 @@ services:
       - POSTGRES_PASSWORD=${OUTLINE_PG_PASSWORD}
       - POSTGRES_DB=outline
     volumes:
-      - ${APP_DATA_DIR}/data/pgdata:/var/lib/postgresql/data
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
     networks:
       - tipi_main_network
 
