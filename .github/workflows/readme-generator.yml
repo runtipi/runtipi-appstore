@@ -17,7 +17,7 @@ jobs:
         run: bun .github/scripts/readme-generator.ts
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: |
