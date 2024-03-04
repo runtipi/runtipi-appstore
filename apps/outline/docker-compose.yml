@@ -23,7 +23,6 @@ services:
       - OIDC_USERNAME_CLAIM=preferred_username
       - OIDC_DISPLAY_NAME=OpenID
       - OIDC_SCOPES=openid profile email
-      - NODE_TLS_REJECT_UNAUTHORIZED=${OUTLINE_SELF_SIGNED_CERT}
     volumes:
       - ${APP_DATA_DIR}/data/outline:/var/lib/outline/data
     depends_on:
