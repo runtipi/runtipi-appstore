@@ -3,7 +3,7 @@ version: '3.7'
 services:
   n8n:
     container_name: n8n
-    image: n8nio/n8n:0.237.0
+    image: n8nio/n8n:1.31.0
     restart: unless-stopped
     ports:
       - ${APP_PORT}:5678
