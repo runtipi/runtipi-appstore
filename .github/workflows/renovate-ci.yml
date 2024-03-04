@@ -128,7 +128,7 @@ jobs:
               });
               const baseConfig = JSON.parse(Buffer.from(baseContent.data.content, 'base64').toString('utf-8'))
 
-              const currentContent = await github..rest.repos.getContent({
+              const currentContent = await github.rest.repos.getContent({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 path: configFile,
