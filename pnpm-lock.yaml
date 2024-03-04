@@ -13,7 +13,7 @@ devDependencies:
     version: 19.0.3
   '@commitlint/cz-commitlint':
     specifier: ^19.0.3
-    version: 19.0.3(@types/node@20.11.24)(commitizen@4.2.5)(inquirer@9.2.15)(typescript@5.3.3)
+    version: 19.0.3(@types/node@20.11.24)(commitizen@4.3.0)(inquirer@9.2.15)(typescript@5.3.3)
   '@types/jest':
     specifier: ^28.1.6
     version: 28.1.6
@@ -27,8 +27,8 @@ devDependencies:
     specifier: ^7.5.8
     version: 7.5.8
   commitizen:
-    specifier: ^4.2.5
-    version: 4.2.5(@types/node@20.11.24)(typescript@5.3.3)
+    specifier: ^4.3.0
+    version: 4.3.0(@types/node@20.11.24)(typescript@5.3.3)
   eslint:
     specifier: ^8.57.0
     version: 8.57.0
@@ -423,7 +423,7 @@ packages:
       ajv: 8.11.0
     dev: true
 
-  /@commitlint/cz-commitlint@19.0.3(@types/node@20.11.24)(commitizen@4.2.5)(inquirer@9.2.15)(typescript@5.3.3):
+  /@commitlint/cz-commitlint@19.0.3(@types/node@20.11.24)(commitizen@4.3.0)(inquirer@9.2.15)(typescript@5.3.3):
     resolution: {integrity: sha512-DarzAFzoE5dAiEgVikE7odwSglfvxN1GfCg+R/nwsCZKNS3j7dzEy85NQMmQ6C5y2YmbQAjZ0/nM47W8gRzkzw==}
     engines: {node: '>=v18'}
     peerDependencies:
@@ -434,7 +434,7 @@ packages:
       '@commitlint/load': 19.0.3(@types/node@20.11.24)(typescript@5.3.3)
       '@commitlint/types': 19.0.3
       chalk: 5.3.0
-      commitizen: 4.2.5(@types/node@20.11.24)(typescript@5.3.3)
+      commitizen: 4.3.0(@types/node@20.11.24)(typescript@5.3.3)
       inquirer: 9.2.15
       lodash.isplainobject: 4.0.6
       word-wrap: 1.2.5
@@ -1430,8 +1430,8 @@ packages:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
     dev: true
 
-  /commitizen@4.2.5(@types/node@20.11.24)(typescript@5.3.3):
-    resolution: {integrity: sha512-9sXju8Qrz1B4Tw7kC5KhnvwYQN88qs2zbiB8oyMsnXZyJ24PPGiNM3nHr73d32dnE3i8VJEXddBFIbOgYSEXtQ==}
+  /commitizen@4.3.0(@types/node@20.11.24)(typescript@5.3.3):
+    resolution: {integrity: sha512-H0iNtClNEhT0fotHvGV3E9tDejDeS04sN1veIebsKYGMuGscFaswRoYJKmT3eW85eIJAs0F28bG2+a/9wCOfPw==}
     engines: {node: '>= 12'}
     hasBin: true
     dependencies:
@@ -1443,10 +1443,10 @@ packages:
       find-root: 1.1.0
       fs-extra: 9.1.0
       glob: 7.2.3
-      inquirer: 8.2.4
+      inquirer: 8.2.5
       is-utf8: 0.2.1
       lodash: 4.17.21
-      minimist: 1.2.6
+      minimist: 1.2.7
       strip-bom: 4.0.0
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
@@ -1544,11 +1544,11 @@ packages:
     engines: {node: '>= 10'}
     dependencies:
       chalk: 2.4.2
-      commitizen: 4.2.5(@types/node@20.11.24)(typescript@5.3.3)
+      commitizen: 4.3.0(@types/node@20.11.24)(typescript@5.3.3)
       conventional-commit-types: 3.0.0
       lodash.map: 4.6.0
       longest: 2.0.1
-      word-wrap: 1.2.3
+      word-wrap: 1.2.5
     optionalDependencies:
       '@commitlint/load': 19.0.3(@types/node@20.11.24)(typescript@5.3.3)
     transitivePeerDependencies:
@@ -2274,8 +2274,8 @@ packages:
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
     dev: true
 
-  /inquirer@8.2.4:
-    resolution: {integrity: sha512-nn4F01dxU8VeKfq192IjLsxu0/OmMZ4Lg3xKAns148rCaXP6ntAoEkVYZThWjwON8AlzdZZi6oqnhNbxUG9hVg==}
+  /inquirer@8.2.5:
+    resolution: {integrity: sha512-QAgPDQMEgrDssk1XiwwHoOGYF9BAbUcc1+j+FhEvaOt8/cKRqyLn0U5qA6F74fGhTMGxf92pOvPBeh29jQJDTQ==}
     engines: {node: '>=12.0.0'}
     dependencies:
       ansi-escapes: 4.3.2
@@ -2288,7 +2288,7 @@ packages:
       mute-stream: 0.0.8
       ora: 5.4.1
       run-async: 2.4.1
-      rxjs: 7.5.6
+      rxjs: 7.8.1
       string-width: 4.2.3
       strip-ansi: 6.0.1
       through: 2.3.8
@@ -3147,8 +3147,8 @@ packages:
       brace-expansion: 2.0.1
     dev: true
 
-  /minimist@1.2.6:
-    resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
+  /minimist@1.2.7:
+    resolution: {integrity: sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==}
     dev: true
 
   /minimist@1.2.8:
@@ -3509,12 +3509,6 @@ packages:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
     dependencies:
       queue-microtask: 1.2.3
-    dev: true
-
-  /rxjs@7.5.6:
-    resolution: {integrity: sha512-dnyv2/YsXhnm461G+R/Pe5bWP41Nm6LBXEYWI6eiFP4fiwx6WRI/CD0zbdVAudd9xwLEF2IDcKXLHit0FYjUzw==}
-    dependencies:
-      tslib: 2.6.2
     dev: true
 
   /rxjs@7.8.1:
@@ -3918,11 +3912,6 @@ packages:
     hasBin: true
     dependencies:
       isexe: 2.0.0
-    dev: true
-
-  /word-wrap@1.2.3:
-    resolution: {integrity: sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==}
-    engines: {node: '>=0.10.0'}
     dev: true
 
   /word-wrap@1.2.5:
