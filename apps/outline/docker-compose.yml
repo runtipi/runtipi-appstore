@@ -26,8 +26,8 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/storage:/var/lib/outline/data 
     depends_on:
-      - postgres
-      - redis
+      - outline-postgres
+      - outline-redis
     networks:
       - tipi_main_network
 
@@ -73,7 +73,7 @@ services:
       - tipi_main_network
 
   outline-nginx:
-    container_name: outline-nginx
+    container_name: outline-reverse-proxy
     image: nginx:alpine
     restart: unless-stopped
     ports:
@@ -83,7 +83,7 @@ services:
       - ${APP_DATA_DIR}/data/uc/static_root:/uc/static_root:ro
     depends_on:
       - outline
-      - oidc
+      - outline-oidc
     networks:
       - tipi_main_network
     labels:
