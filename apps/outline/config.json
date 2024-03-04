@@ -66,6 +66,22 @@
       "min": 12,
       "required": true,
       "env_variable": "OUTLINE_PASSWORD"
+    },
+    {
+      "label": "Is your certificate self-signed?",
+      "type": "text",
+      "required": true,
+      "options": [
+        {
+          "label": "Yes",
+          "value": "0"
+        },
+        {
+          "label": "No",
+          "value": "1"
+        }
+      ],
+      "env_variable": "OUTLINE_SELF_SIGNED_CERT"
     }
   ],
   "supported_architectures": [

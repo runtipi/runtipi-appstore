@@ -18,13 +18,14 @@ services:
       - OIDC_CLIENT_ID=${OUTLINE_OIDC_CLID}
       - OIDC_CLIENT_SECRET=${OUTLINE_OIDC_CLKEY}
       - OIDC_AUTH_URI=https://${APP_DOMAIN}/uc/oauth/authorize/
-      - OIDC_TOKEN_URI=https://${APP_DOMAIN}/uc/oauth/token/
-      - OIDC_USERINFO_URI=https://${APP_DOMAIN}/uc/oauth/userinfo/
+      - OIDC_TOKEN_URI=https://outline-oidc:8000/uc/oauth/token/
+      - OIDC_USERINFO_URI=https://outline-oidc:8000/uc/oauth/userinfo/
       - OIDC_USERNAME_CLAIM=preferred_username
       - OIDC_DISPLAY_NAME=OpenID
       - OIDC_SCOPES=openid profile email
+      - NODE_TLS_REJECT_UNAUTHORIZED=${OUTLINE_SELF_SIGNED_CERT}
     volumes:
-      - ${APP_DATA_DIR}/data/outline:/var/lib/outline/data 
+      - ${APP_DATA_DIR}/data/outline:/var/lib/outline/data
     depends_on:
       - outline-postgres
       - outline-redis
