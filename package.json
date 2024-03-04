@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "commit": "git-cz",
-    "lint": "eslint . --ext .json",
+    "lint": "eslint ./apps --ext .json",
     "test": "jest",
     "prepare": "husky install"
   },
