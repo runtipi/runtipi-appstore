@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "silverbullet",
-  "tipi_version": 5,
-  "version": "0.7.3",
+  "tipi_version": 6,
+  "version": "0.7.5",
   "categories": [
     "utilities"
   ],

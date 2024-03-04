@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   bookstack:
-    image: lscr.io/linuxserver/bookstack:23.12.20240115
+    image: lscr.io/linuxserver/bookstack:24.02.20240228
     container_name: bookstack
     environment:
       - APP_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}

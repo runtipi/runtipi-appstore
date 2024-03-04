@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "commit": "git-cz",
-    "lint": "eslint . --ext .json",
+    "lint": "eslint ./apps --ext .json",
     "test": "jest",
     "prepare": "husky install"
   },
@@ -20,24 +20,24 @@
   },
   "homepage": "https://github.com/meienberger/runtipi-appstore#readme",
   "devDependencies": {
-    "@commitlint/cli": "^17.0.3",
-    "@commitlint/config-conventional": "^17.0.3",
-    "@commitlint/cz-commitlint": "^17.0.3",
+    "@commitlint/cli": "^19.0.3",
+    "@commitlint/config-conventional": "^19.0.3",
+    "@commitlint/cz-commitlint": "^19.0.3",
     "@types/jest": "^28.1.6",
-    "@types/js-yaml": "^4.0.5",
-    "@types/node": "^18.6.2",
-    "@types/semver": "^7.5.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.11.24",
+    "@types/semver": "^7.5.8",
     "commitizen": "^4.2.5",
-    "eslint": "^8.22.0",
-    "eslint-plugin-json-schema-validator": "^4.0.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-json-schema-validator": "^4.8.3",
     "eslint-plugin-jsonc": "^2.4.0",
-    "husky": "^8.0.1",
+    "husky": "^9.0.11",
     "jest": "^28.1.3",
     "js-yaml": "^4.1.0",
-    "prettier": "^2.8.8",
-    "semver": "^7.5.2",
+    "prettier": "^3.2.5",
+    "semver": "^7.6.0",
     "ts-jest": "^28.0.7",
-    "typescript": "^4.7.4"
+    "typescript": "^5.3.3"
   },
   "config": {
     "commitizen": {

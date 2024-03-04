@@ -3,7 +3,7 @@ version: "3.7"
 services:
   immich:
     container_name: immich
-    image: ghcr.io/immich-app/immich-server:v1.95.1
+    image: ghcr.io/immich-app/immich-server:v1.97.0
     command: ["start-server.sh"]
     volumes:
       - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
@@ -52,7 +52,7 @@ services:
 
   immich-microservices:
     container_name: immich-microservices
-    image: ghcr.io/immich-app/immich-server:v1.95.1
+    image: ghcr.io/immich-app/immich-server:v1.97.0
     command: ["start-microservices.sh"]
     volumes:
       - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
@@ -74,7 +74,7 @@ services:
 
   immich-machine-learning:
     container_name: immich-machine-learning
-    image: ghcr.io/immich-app/immich-machine-learning:v1.95.1
+    image: ghcr.io/immich-app/immich-machine-learning:v1.97.0
     volumes:
       - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
       - ${APP_DATA_DIR}/data/immich-ml-cache:/cache
