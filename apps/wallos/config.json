@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "wallos",
-  "tipi_version": 2,
-  "version": "1.11.3",
+  "tipi_version": 3,
+  "version": "1.12.0",
   "categories": [
     "finance"
   ],
