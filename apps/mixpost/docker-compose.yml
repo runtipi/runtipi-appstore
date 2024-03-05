@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   mixpost:
-    image: inovector/mixpost:v1.4.0
+    image: inovector/mixpost:v1.5.0
     container_name: mixpost
     environment:
       - APP_NAME='Mixpost'
