@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "mixpost",
-  "tipi_version": 8,
-  "version": "1.4.0",
+  "tipi_version": 9,
+  "version": "1.5.0",
   "categories": [
     "social"
   ],
