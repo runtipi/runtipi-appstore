@@ -1,0 +1,54 @@
+{
+    "name": "Windows",
+    "available": true,
+    "port": 8006,
+    "exposable": true,
+    "id": "windows",
+    "description": "Run windows in docker...because why not?",
+    "tipi_version": 1,
+    "version": "2.04",
+    "categories": ["utilities"],
+    "short_desc": "Full windows vm in your browser",
+    "author": "dockurr",
+    "source": "https://github.com/dockur/windows/",
+    "form_fields": [
+        {
+            "type": "number",
+            "label": "RAM",
+            "hint": "RAM to asign in the VM (in gigabytes)",
+            "default": 4,
+            "required": false,
+            "env_variable": "WINDOWS_RAM_GB"
+
+        },
+        {
+            "type": "number",
+            "label": "CPU Cores",
+            "hint": "CPU cores to asign in the VM",
+            "default": 4,
+            "required": false,
+            "env_variable": "WINDOWS_CPU_CORES"
+
+        },
+        {
+            "type": "number",
+            "label": "Disk Size",
+            "hint": "Disk size for the VM, it will be used dynamically (in gigabytes)",
+            "default": 16,
+            "required": false,
+            "env_variable": "WINDOWS_DISK_SIZE_GB"
+
+        },
+        {
+            "type": "text",
+            "label": "Windows Version",
+            "hint": "The windows version to use, see the description for available versions",
+            "default": "win11",
+            "required": false,
+            "env_variable": "WINDOWS_VERSION"
+
+        }
+    ],
+    "supported_architectures": ["arm64", "amd64"]
+  }
+  
