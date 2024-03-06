@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  wallos:
+    image: bellamy/wallos:1.12.1
+    container_name: wallos
+    environment:
+      - TZ=${TZ}
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:80
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${APP_DATA_DIR}/data/db:/var/www/html/db
+      - ${APP_DATA_DIR}/data/logos:/var/www/html/images/uploads/logos
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.wallos-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.wallos.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.wallos-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wallos-insecure.entrypoints: web
+      traefik.http.routers.wallos-insecure.service: wallos
+      traefik.http.routers.wallos-insecure.middlewares: wallos-web-redirect
+      # Websecure
+      traefik.http.routers.wallos.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wallos.entrypoints: websecure
+      traefik.http.routers.wallos.service: wallos
+      traefik.http.routers.wallos.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.wallos-local-insecure.rule: Host(`wallos.${LOCAL_DOMAIN}`)
+      traefik.http.routers.wallos-local-insecure.entrypoints: web
+      traefik.http.routers.wallos-local-insecure.service: wallos
+      traefik.http.routers.wallos-local-insecure.middlewares: wallos-web-redirect
+      # Local domain secure
+      traefik.http.routers.wallos-local.rule: Host(`wallos.${LOCAL_DOMAIN}`)
+      traefik.http.routers.wallos-local.entrypoints: websecure
+      traefik.http.routers.wallos-local.service: wallos
+      traefik.http.routers.wallos-local.tls: true

@@ -1,0 +1,21 @@
+{
+  "$schema": "../schema.json",
+  "name": "Wallos",
+  "port": 8222,
+  "available": true,
+  "exposable": true,
+  "id": "wallos",
+  "tipi_version": 4,
+  "version": "1.12.1",
+  "categories": [
+    "finance"
+  ],
+  "description": "Open-Source Personal Subscription Tracker",
+  "short_desc": "Open-Source Personal Subscription Tracker",
+  "author": "Miguel Ribeiro",
+  "source": "https://github.com/ellite/Wallos",
+  "form_fields": [],
+  "supported_architectures": [
+    "amd64"
+  ]
+}

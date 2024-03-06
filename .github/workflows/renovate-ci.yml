@@ -61,7 +61,7 @@ jobs:
         uses: actions/checkout@v4.1.1
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
@@ -101,7 +101,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const semver = require('semver')
-            const { data } = await github.pulls.listFiles({
+            const { data } = await github.rest.pulls.listFiles({
               owner: context.repo.owner,
               repo: context.repo.repo,
               pull_number: context.issue.number
@@ -120,7 +120,7 @@ jobs:
             let majorBump = 'false'
 
             for (const configFile of configs) {
-              const baseContent = await github.repos.getContent({
+              const baseContent = await github.rest.repos.getContent({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 path: configFile,
@@ -128,7 +128,7 @@ jobs:
               });
               const baseConfig = JSON.parse(Buffer.from(baseContent.data.content, 'base64').toString('utf-8'))
 
-              const currentContent = await github.repos.getContent({
+              const currentContent = await github.rest.repos.getContent({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 path: configFile,
@@ -154,7 +154,7 @@ jobs:
         with:
           github-token: ${{ secrets.PERSONAL_TOKEN }}
           script: |
-            github.issues.addLabels({
+            github.rest.issues.addLabels({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
