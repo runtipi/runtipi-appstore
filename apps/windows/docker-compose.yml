@@ -19,7 +19,7 @@ services:
       - DISK_SIZE=${WINDOWS_DISK_SIZE_GB}G
       - VERSION=${WINDOWS_VERSION}
     volumes:
-      - ${APP_DATA_DIR}/data:/storage
+      - ${APP_DATA_DIR}/data/storage:/storage
     networks:
       - tipi_main_network
     labels:
