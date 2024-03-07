@@ -7,7 +7,7 @@ services:
     privileged: true
     volumes:
       - ${APP_DATA_DIR}/data/scrypted/database:/server/volume
-      - ${ROOT_FOLDER_HOST}/media/data/NVR/scrypted:/nvr
+      - ${ROOT_FOLDER}/media/data/NVR/scrypted:/nvr
       #- /var/run/dbus:/var/run/dbus
       #- /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
     environment:

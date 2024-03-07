@@ -5,7 +5,7 @@
   "available": true,
   "exposable": true,
   "id": "deemix",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "latest",
   "categories": ["media", "music"],
   "description": "deemix is a barebone deezer downloader library built from the ashes of Deezloader Remix.",

@@ -4,7 +4,7 @@
   "available": true,
   "exposable": true,
   "port": 8040,
-  "tipi_version": 5,
+  "tipi_version": 6,
   "version": "2201.1.0",
   "id": "booksonic",
   "categories": ["books", "media"],

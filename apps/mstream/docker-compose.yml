@@ -9,7 +9,7 @@ services:
       - ${APP_PORT}:3000
     volumes:
       - ${APP_DATA_DIR}/data/mstream-config:/data
-      - ${ROOT_FOLDER_HOST}/media/data/music:/music
+      - ${ROOT_FOLDER}/media/data/music:/music
     environment:
       - PUID=1000
       - PGID=1000

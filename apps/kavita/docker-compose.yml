@@ -8,9 +8,9 @@ services:
       - ${APP_PORT}:5000
     volumes:
       - ${APP_DATA_DIR}/data/kavita-config:/kavita/config
-      - ${ROOT_FOLDER_HOST}/media/data/books:/books
-      - ${ROOT_FOLDER_HOST}/media/data/comics:/comics
-      - ${ROOT_FOLDER_HOST}/media/data/manga:/manga
+      - ${ROOT_FOLDER}/media/data/books:/books
+      - ${ROOT_FOLDER}/media/data/comics:/comics
+      - ${ROOT_FOLDER}/media/data/manga:/manga
     environment:
       - TZ=${TZ}
     restart: unless-stopped

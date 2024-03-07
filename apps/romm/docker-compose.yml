@@ -16,7 +16,7 @@ services:
       - STEAMGRIDDB_API_KEY="${ROMM_STEAMGRIDDB_API_KEY}"
     restart: unless-stopped
     volumes:
-      - ${ROOT_FOLDER_HOST}/media/data/roms:/romm/library
+      - ${ROOT_FOLDER}/media/data/roms:/romm/library
       - ${APP_DATA_DIR}/data/romm-resources:/romm/resources
       - ${APP_DATA_DIR}/data/config.yml:/romm/config.yml
     ports:

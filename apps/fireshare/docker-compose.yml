@@ -9,7 +9,7 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/fireshare_data:/data
       - ${APP_DATA_DIR}/data/fireshare_processed:/processed
-      - ${ROOT_FOLDER_HOST}/media/data/videos/fireshare_videos:/videos
+      - ${ROOT_FOLDER}/media/data/videos/fireshare_videos:/videos
     environment:
       - ADMIN_USERNAME=${FIRESHARE_USERNAME}
       - ADMIN_PASSWORD=${FIRESHARE_PASSWORD}

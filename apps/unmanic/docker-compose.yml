@@ -14,7 +14,7 @@ services:
         - PGID=${TIPI_GID}
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
-      - ${ROOT_FOLDER_HOST}/media/data:/library
+      - ${ROOT_FOLDER}/media/data:/library
       - ${APP_DATA_DIR}/data/temp:/tmp/unmanic
     labels:
       # Main

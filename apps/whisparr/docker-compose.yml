@@ -17,7 +17,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
       - ${APP_DATA_DIR}/data:/config
-      - ${ROOT_FOLDER_HOST}/media:/media
+      - ${ROOT_FOLDER}/media:/media
     healthcheck:
       test: timeout 5s bash -c ':> /dev/tcp/127.0.0.1/6969' || exit 1
       interval: 10s

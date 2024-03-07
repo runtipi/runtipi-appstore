@@ -6,7 +6,7 @@
   "no_gui": true,
   "port": 9999,
   "id": "traefik-certs-dumper",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "1.6.1",
   "categories": [
     "utilities",

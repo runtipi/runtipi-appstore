@@ -10,7 +10,7 @@ services:
     dns:
       - ${DNS_IP}
     volumes:
-      - ${ROOT_FOLDER_HOST}/media/data/youtube:/youtube 
+      - ${ROOT_FOLDER}/media/data/youtube:/youtube 
       - ${APP_DATA_DIR}/data/cache:/cache
     environment:
       - ES_URL=http://tubearchivist-es:9200

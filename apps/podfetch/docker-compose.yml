@@ -8,7 +8,7 @@ services:
       - ${APP_PORT}:8000
     volumes:
       - ${APP_DATA_DIR}/data/podfetch-db:/app/db
-      - ${ROOT_FOLDER_HOST}/media/data/podcasts:/app/podcasts
+      - ${ROOT_FOLDER}/media/data/podcasts:/app/podcasts
     environment:
       - BASIC_AUTH=true
       - USERNAME=${PODFETCH_USERNAME}

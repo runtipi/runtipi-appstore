@@ -13,7 +13,7 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
       - ${APP_DATA_DIR}/data/transcode:/transcode
-      - ${ROOT_FOLDER_HOST}/media/data:/media
+      - ${ROOT_FOLDER}/media/data:/media
     restart: unless-stopped
     labels:
       # Main

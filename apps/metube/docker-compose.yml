@@ -8,7 +8,7 @@ services:
     ports:
       - ${APP_PORT}:8081
     volumes:
-      - ${ROOT_FOLDER_HOST}/media/downloads/complete/:/downloads
+      - ${ROOT_FOLDER}/media/downloads/complete/:/downloads
     networks:
       - tipi_main_network
     labels:

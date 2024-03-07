@@ -6,8 +6,8 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${APP_DATA_DIR}/data/kapowarr-db:/app/db
-      - ${ROOT_FOLDER_HOST}/media/downloads/kapowarr:/app/temp_downloads
-      - ${ROOT_FOLDER_HOST}/media:/media
+      - ${ROOT_FOLDER}/media/downloads/kapowarr:/app/temp_downloads
+      - ${ROOT_FOLDER}/media:/media
     ports:
       - ${APP_PORT}:5656
     restart: unless-stopped

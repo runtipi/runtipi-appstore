@@ -8,9 +8,9 @@ services:
       - ${APP_PORT}:6595
     volumes:
       - ${APP_DATA_DIR}/data/deemix-config:/config
-      - ${ROOT_FOLDER_HOST}/media:/media
-      - ${ROOT_FOLDER_HOST}/media/data/torrents/deemix:/downloads
-      - ${ROOT_FOLDER_HOST}/media/data/music:/music
+      - ${ROOT_FOLDER}/media:/media
+      - ${ROOT_FOLDER}/media/data/torrents/deemix:/downloads
+      - ${ROOT_FOLDER}/media/data/music:/music
     environment:
       - PUID=1000
       - PGID=1000

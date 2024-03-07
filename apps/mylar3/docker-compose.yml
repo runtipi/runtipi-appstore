@@ -8,8 +8,8 @@ services:
       - ${APP_PORT}:8090
     volumes:
       - ${APP_DATA_DIR}/data/mylar3-config:/config
-      - ${ROOT_FOLDER_HOST}/media/data/comics:/comics
-      - ${ROOT_FOLDER_HOST}/media/downloads/mylar3:/downloads
+      - ${ROOT_FOLDER}/media/data/comics:/comics
+      - ${ROOT_FOLDER}/media/downloads/mylar3:/downloads
     environment:
       - PUID=1000
       - PGID=1000

@@ -10,8 +10,8 @@ services:
       - CONTEXT_PATH={APP_PROTOCOL:-http}://${APP_DOMAIN}
     volumes:
       - ${APP_DATA_DIR}/config:/config
-      - ${ROOT_FOLDER_HOST}/media/data/books/spoken:/audiobooks
-      - ${ROOT_FOLDER_HOST}/media/data/podcasts:/podcasts
+      - ${ROOT_FOLDER}/media/data/books/spoken:/audiobooks
+      - ${ROOT_FOLDER}/media/data/podcasts:/podcasts
     ports:
       - ${APP_PORT}:4040
     restart: unless-stopped

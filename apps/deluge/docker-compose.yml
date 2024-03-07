@@ -10,7 +10,7 @@ services:
       - DELUGE_LOGLEVEL=error #optional
     volumes:
       - ${APP_DATA_DIR}/data/deluge/config:/config
-      - ${ROOT_FOLDER_HOST}/media/torrents:/media/torrents
+      - ${ROOT_FOLDER}/media/torrents:/media/torrents
     ports:
       - ${APP_PORT}:8112
       - 6881:6881

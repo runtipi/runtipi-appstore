@@ -6,7 +6,7 @@ services:
     image: ghcr.io/immich-app/immich-server:v1.97.0
     command: ["start-server.sh"]
     volumes:
-      - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
+      - ${ROOT_FOLDER}/media/data/images/immich:/usr/src/app/upload
     environment:
       - NODE_ENV=production
       - DB_HOSTNAME=immich-db
@@ -55,7 +55,7 @@ services:
     image: ghcr.io/immich-app/immich-server:v1.97.0
     command: ["start-microservices.sh"]
     volumes:
-      - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
+      - ${ROOT_FOLDER}/media/data/images/immich:/usr/src/app/upload
     environment:
       - NODE_ENV=production
       - DB_HOSTNAME=immich-db
@@ -76,7 +76,7 @@ services:
     container_name: immich-machine-learning
     image: ghcr.io/immich-app/immich-machine-learning:v1.97.0
     volumes:
-      - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
+      - ${ROOT_FOLDER}/media/data/images/immich:/usr/src/app/upload
       - ${APP_DATA_DIR}/data/immich-ml-cache:/cache
     environment:
       - NODE_ENV=production

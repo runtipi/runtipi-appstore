@@ -6,7 +6,7 @@
   "exposable": false,
   "https": true,
   "id": "scrypted",
-  "tipi_version": 7,
+  "tipi_version": 8,
   "version": "18-jammy-full.s6-v0.88.0",
   "categories": [
     "security"

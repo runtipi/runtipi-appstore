@@ -5,7 +5,7 @@
   "exposable": true,
   "port": 8194,
   "id": "kapowarr",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "v1.0.0-beta-3",
   "categories": ["media", "utilities"],
   "description": "Kapowarr is a software to build and manage a comic book library, fitting in the *arr suite of software.",

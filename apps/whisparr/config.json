@@ -5,7 +5,7 @@
   "exposable": true,
   "port": 6969,
   "id": "whisparr",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "nightly-2.0.0.313",
   "categories": [
     "media",

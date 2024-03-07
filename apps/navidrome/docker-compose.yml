@@ -13,7 +13,7 @@ services:
       ND_BASEURL: ""
     volumes:
       - ${APP_DATA_DIR}/navidrome/data:/data
-      - ${ROOT_FOLDER_HOST}/media/data/music:/music:ro
+      - ${ROOT_FOLDER}/media/data/music:/music:ro
     networks:
       - tipi_main_network
     labels:

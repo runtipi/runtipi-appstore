@@ -9,8 +9,8 @@ services:
       - TZ=${TZ}
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
-      - ${ROOT_FOLDER_HOST}/app-data/transmission-vpn/data/config/transmission-home/torrents:/torrents:ro
-      - ${ROOT_FOLDER_HOST}/media/torrents/watch:/cross-seeds
+      - ${ROOT_FOLDER}/app-data/transmission-vpn/data/config/transmission-home/torrents:/torrents:ro
+      - ${ROOT_FOLDER}/media/torrents/watch:/cross-seeds
     networks:
       - tipi_main_network
     labels:

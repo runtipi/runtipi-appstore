@@ -5,7 +5,7 @@
   "available": true,
   "exposable": true,
   "id": "mylar3",
-  "tipi_version": 2,
+  "tipi_version": 4,
   "version": "v0.7.1-ls84",
   "categories": ["media"],
   "description": "Mylar3 is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python.",

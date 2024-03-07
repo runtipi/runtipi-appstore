@@ -10,7 +10,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${APP_DATA_DIR}/data:/config
-      - ${ROOT_FOLDER_HOST}/media:/media
+      - ${ROOT_FOLDER}/media:/media
     ports:
       - ${APP_PORT}:8686
     restart: unless-stopped

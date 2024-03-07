@@ -11,7 +11,7 @@ services:
       - PGID=1000
     volumes:
       - ${APP_DATA_DIR}/data:/var/syncthing
-      - ${ROOT_FOLDER_HOST}/media/data/syncthing:/media/data/syncthing
+      - ${ROOT_FOLDER}/media/data/syncthing:/media/data/syncthing
     ports:
       - ${APP_PORT}:8384
       - 22000:22000/tcp # TCP file transfers

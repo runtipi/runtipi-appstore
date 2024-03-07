@@ -37,7 +37,7 @@ services:
       PHOTOPRISM_SITE_CAPTION: "AI-Powered Photos App"
     working_dir: "/photoprism"
     volumes:
-      - "${ROOT_FOLDER_HOST}/media/data/images:/photoprism/originals"
+      - "${ROOT_FOLDER}/media/data/images:/photoprism/originals"
       - "${APP_DATA_DIR}/data/photoprism/storage:/photoprism/storage"
     networks:
       - tipi_main_network

@@ -5,7 +5,7 @@
   "exposable": true,
   "port": 9091,
   "id": "transmission-vpn",
-  "tipi_version": 8,
+  "tipi_version": 9,
   "version": "5.3.1",
   "categories": [
     "utilities",
