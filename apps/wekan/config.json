@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "wekan",
-  "tipi_version": 10,
-  "version": "7.36",
+  "tipi_version": 11,
+  "version": "7.37",
   "categories": [
     "development"
   ],
