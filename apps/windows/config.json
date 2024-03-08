@@ -5,7 +5,7 @@
     "exposable": true,
     "id": "windows",
     "description": "Run windows in docker...because why not?",
-    "tipi_version": 2,
+    "tipi_version": 3,
     "version": "2.04",
     "categories": ["utilities"],
     "short_desc": "Full windows vm in your browser",
