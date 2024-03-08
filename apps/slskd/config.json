@@ -1,0 +1,54 @@
+{
+  "name": "SLSKD",
+  "available": true,
+  "port": 5031,
+  "exposable": true,
+  "id": "slskd",
+  "description": "A modern client-server application for the Soulseek file-sharing network.",
+  "tipi_version": 1,
+  "version": "0.20.0",
+  "categories": ["utilities"],
+  "short_desc": "P2P media downloads",
+  "author": "jpdillingham",
+  "source": "https://github.com/slskd/slskd",
+  "website": "https://github.com/slskd/slskd",
+  "form_fields": [{
+      "type": "text",
+      "label": "WebUI Username",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "SLSKD_WEB_USER"
+    },
+    {
+        "type": "password",
+        "label": "WebUI Password",
+        "max": 50,
+        "min": 3,
+        "required": true,
+        "env_variable": "SLSKD_WEB_PASSWORD"
+    },
+    {
+        "type": "text",
+        "label": "Soulseek username",
+        "max": 50,
+        "min": 3,
+        "required": true,
+        "env_variable": "SLSKD_USER"
+    },
+    {
+        "type": "password",
+        "label": "Soulseek password",
+        "max": 50,
+        "min": 3,
+        "required": true,
+        "env_variable": "SLSKD_PASSWORD"
+    },
+    {
+        "type": "boolean",
+        "label": "Allow remote configuration",
+        "required": true,
+        "env_variable": "SLSKD_REMOTE_CONFIGURATION"
+    }
+  ]
+}

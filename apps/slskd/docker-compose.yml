@@ -1,0 +1,46 @@
+version: '3.9'
+services:
+  slskd:
+    container_name: slskd
+    image: slskd/slskd:0.20.0
+    environment:
+        - SLSKD_WEB_USER=${SLSKD_WEB_USER}
+        - SLSKD_WEB_PASSWORD=${SLSKD_WEB_PASSWORD}
+        - SLSKD_USER=${SLSKD_USER}
+        - SLSKD_PASSWORD=${SLSKD_PASSWORD}
+        - SLSKD_REMOTE_CONFIGURATION=${SLSKD_REMOTE_CONFIGURATION}
+        - SLSKD_SHARED_DIR=${ROOT_FOLDER_HOST}/media/downloads/complete
+    volumes:
+        - ${APP_DATA_DIR}:/app:rw
+        - ${ROOT_FOLDER_HOST}/media/downloads:/downloads:rw
+    ports:
+        - ${APP_PORT}:5031
+    restart: unless-stopped
+    networks:
+        -tipi_main_network
+    labels:
+        # Main
+        traefik.enable: true
+        traefik.http.middlewares.slskd-web-redirect.redirectscheme.scheme: https
+        traefik.http.services.slskd.loadbalancer.server.port: 5031
+        # Web
+        traefik.http.routers.slskd-insecure.rule: Host(`${APP_DOMAIN}`)
+        traefik.http.routers.slskd-insecure.entrypoints: web
+        traefik.http.routers.slskd-insecure.service: slskd
+        traefik.http.routers.slskd-insecure.middlewares: slskd-web-redirect
+        # Websecure
+        traefik.http.routers.slskd.rule: Host(`${APP_DOMAIN}`)
+        traefik.http.routers.slskd.entrypoints: websecure
+        traefik.http.routers.slskd.service: slskd
+        traefik.http.routers.slskd.tls.certresolver: myresolver
+        # Local domain
+        traefik.http.routers.slskd-local-insecure.rule: Host(`slskd.${LOCAL_DOMAIN}`)
+        traefik.http.routers.slskd-local-insecure.entrypoints: web
+        traefik.http.routers.slskd-local-insecure.service: slskd
+        traefik.http.routers.slskd-local-insecure.middlewares: slskd-web-redirect
+        # Local domain secure
+        traefik.http.routers.slskd-local.rule: Host(`slskd.${LOCAL_DOMAIN}`)
+        traefik.http.routers.slskd-local.entrypoints: websecure
+        traefik.http.routers.slskd-local.service: slskd
+        traefik.http.routers.slskd-local.tls: true
+
