@@ -5,7 +5,7 @@
   "exposable": true,
   "port": 8116,
   "id": "overseerr",
-  "tipi_version": 9,
+  "tipi_version": 10,
   "version": "1.33.2",
   "categories": [
     "media",
