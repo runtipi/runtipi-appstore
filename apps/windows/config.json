@@ -5,7 +5,7 @@
     "exposable": true,
     "id": "windows",
     "description": "Run windows in docker...because why not?",
-    "tipi_version": 1,
+    "tipi_version": 2,
     "version": "2.04",
     "categories": ["utilities"],
     "short_desc": "Full windows vm in your browser",
@@ -15,7 +15,7 @@
         {
             "type": "number",
             "label": "RAM",
-            "hint": "RAM to asign in the VM (in gigabytes)",
+            "hint": "RAM to asign to the VM (in gigabytes)",
             "placeholder": "4",
             "required": true,
             "env_variable": "WINDOWS_RAM_GB"
@@ -24,7 +24,7 @@
         {
             "type": "number",
             "label": "CPU Cores",
-            "hint": "CPU cores to asign in the VM",
+            "hint": "CPU cores to asign to the VM",
             "placeholder": "4",
             "required": true,
             "env_variable": "WINDOWS_CPU_CORES"
@@ -42,11 +42,26 @@
         {
             "type": "text",
             "label": "Windows Version",
-            "hint": "The windows version to use, see the description for available versions",
-            "placeholder": "win11",
+            "hint": "The windows version to use",
             "required": true,
+            "options": [
+              { "label": "Windows 10", "value": "win10" },
+              { "label": "Windows 11", "value": "win11" },
+              { "label": "Windows 10 LTSC", "value": "ltsc10" },
+              { "label": "Windows 8.1", "value": "win81" },
+              { "label": "Windows 7", "value": "win7" },
+              { "label": "Windows Vista", "value": "vista" },
+              { "label": "Windows XP", "value": "winxp" },
+              { "label": "Windows Server 2022", "value": "2022" },
+              { "label": "Windows Server 2019", "value": "2019" },
+              { "label": "Windows Server 2016", "value": "2016" },
+              { "label": "Windows Server 2012", "value": "2012" },
+              { "label": "Windows Server 2008", "value": "2008" },
+              { "label": "Windows Tiny 11 Core", "value": "core11" },
+              { "label": "Windows Tiny 11", "value": "tiny11" },
+              { "label": "Windows Tiny 10", "value": "tiny10" }
+            ],
             "env_variable": "WINDOWS_VERSION"
-
         }
     ],
     "supported_architectures": ["arm64", "amd64"]
