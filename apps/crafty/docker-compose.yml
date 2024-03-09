@@ -2,7 +2,7 @@ version: "3.7"
 services:
   crafty:
     container_name: crafty
-    image: registry.gitlab.com/crafty-controller/crafty-4:4.2.3
+    image: registry.gitlab.com/crafty-controller/crafty-4:4.3.0
     restart: unless-stopped
     environment:
         - TZ=${TZ}
