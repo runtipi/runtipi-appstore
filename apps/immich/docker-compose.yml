@@ -3,7 +3,7 @@ version: "3.7"
 services:
   immich:
     container_name: immich
-    image: ghcr.io/immich-app/immich-server:v1.98.0
+    image: ghcr.io/immich-app/immich-server:v1.98.1
     command: ["start-server.sh"]
     volumes:
       - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
@@ -52,7 +52,7 @@ services:
 
   immich-microservices:
     container_name: immich-microservices
-    image: ghcr.io/immich-app/immich-server:v1.98.0
+    image: ghcr.io/immich-app/immich-server:v1.98.1
     command: ["start-microservices.sh"]
     volumes:
       - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
