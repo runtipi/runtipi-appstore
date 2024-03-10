@@ -3,7 +3,7 @@ version: "3.3"
 services:
   mind:
     container_name: mind
-    image: mrcas/mind:v1.3.3
+    image: mrcas/mind:v1.4.0
     volumes:
       - ${APP_DATA_DIR}/data/mind-db:/app/db
     environment:
