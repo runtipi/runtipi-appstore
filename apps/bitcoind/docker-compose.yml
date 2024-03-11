@@ -18,9 +18,5 @@ services:
       --maxmempool=${MAX_MEMPOOL:-300}
       --listen=${LISTEN:-0}
       --maxconnections=${MAXPEERS:-125}
-      --server=${RPCSERVER:-0}
-      --rpcauth=${RPCAUTH}
-      --rpcallowip=${RPCALLOWIP}
-      --rpcbind=0.0.0.0
     networks:
       - tipi_main_network

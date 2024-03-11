@@ -42,28 +42,6 @@
          "hint": "Maintain at most N connections to peers. Default 125.",
          "required": false,
          "env_variable": "MAXPEERS"
-      },
-      {
-         "type": "number",
-         "label": "Enable RPC Server (0 disabled / 1 enabled)",
-         "hint": "Accept command line and JSON-RPC commands. Default disabled.",
-         "regex": "^[01]$",
-         "required": false,
-         "env_variable": "RPCSERVER"
-      },
-      {
-         "type": "text",
-         "label": "RPC Auth",
-         "hint": "Username and hashed password for JSON-RPC connections. The field <userpw> comes in the format: <USERNAME>:<SALT>$<HASH>. RPC clients connect using rpcuser=<USERNAME>/rpcpassword=<PASSWORD> arguments. You can generate this value at https://jlopp.github.io/bitcoin-core-rpc-auth-generator/.",
-         "required": false,
-         "env_variable": "RPCAUTH"
-      },
-      {
-         "type": "text",
-         "label": "RPC Allow IP Address",
-         "hint": "Allow JSON-RPC connections from specified source. Valid for <ip> are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24).",
-         "required": false,
-         "env_variable": "RPCALLOWIP"
       }
 
    ],
