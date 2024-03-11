@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+  bitcoind:
+    container_name: bitcoind
+    image: lncm/bitcoind:v26.0
+    user: 1000:1000
+    volumes:
+      - ${APP_DATA_DIR}/data:/data/.bitcoin
+    ports:
+      - ${APP_PORT}:8333
+      - 8332:8332
+      - 28332:28332
+      - 28333:28333
+    restart: unless-stopped
+    stop_grace_period: 15m30s
+    command: >-
+      --dbcache=${DB_CACHE:-450}
+      --maxmempool=${MAX_MEMPOOL:-300}
+      --listen=${LISTEN:-0}
+      --maxconnections=${MAXPEERS:-125}
+      --server=${RPCSERVER:-0}
+      --rpcauth=${RPCAUTH}
+      --rpcallowip=${RPCALLOWIP}
+      --rpcbind=0.0.0.0
+    networks:
+      - tipi_main_network
