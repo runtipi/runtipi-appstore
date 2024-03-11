@@ -3,7 +3,7 @@ services:
   bitcoind:
     container_name: bitcoind
     image: lncm/bitcoind:v26.0
-    user: 1000:1000
+    user: 0:0
     volumes:
       - ${APP_DATA_DIR}/data:/data/.bitcoin
     ports:
