@@ -33,6 +33,7 @@ services:
         traefik.http.routers.slskd.entrypoints: websecure
         traefik.http.routers.slskd.service: slskd
         traefik.http.routers.slskd.tls.certresolver: myresolver
+        traefik.http.routers.slskd.tls: true
         # Local domain
         traefik.http.routers.slskd-local-insecure.rule: Host(`slskd.${LOCAL_DOMAIN}`)
         traefik.http.routers.slskd-local-insecure.entrypoints: web
