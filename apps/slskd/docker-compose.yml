@@ -11,7 +11,7 @@ services:
         - SLSKD_REMOTE_CONFIGURATION=${SLSKD_REMOTE_CONFIGURATION}
         - SLSKD_SHARED_DIR=${ROOT_FOLDER_HOST}/media/downloads/complete
     volumes:
-        - ${APP_DATA_DIR}:/app:rw
+        - ${APP_DATA_DIR}/data:/app:rw
         - ${ROOT_FOLDER_HOST}/media/downloads:/downloads:rw
     ports:
         - ${APP_PORT}:5031
