@@ -5,8 +5,8 @@
   "exposable": true,
   "id": "windows",
   "description": "Run windows in docker...because why not?",
-  "tipi_version": 4,
-  "version": "2.05",
+  "tipi_version": 5,
+  "version": "2.06",
   "categories": [
     "utilities"
   ],
