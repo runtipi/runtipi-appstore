@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
     flowise:
-        image: flowiseai/flowise:1.6.0
+        image: flowiseai/flowise:1.6.1
         restart: unless-stopped
         command: /bin/sh -c "sleep 3; flowise start"
         container_name: flowise
