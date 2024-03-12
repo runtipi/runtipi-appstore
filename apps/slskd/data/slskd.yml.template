@@ -124,12 +124,12 @@ shares:
 #     request:
 #       - ^.{1,2}$
 web:
-  port: 5031
-#   https:
-#     disabled: false
-#     port: 5031
-#     force: false
-#     certificate:
+  port: 5030
+   https:
+     disabled: false
+     port: 5031
+     force: false
+     certificate:
 #       pfx: ~
 #       password: ~
   url_base: /

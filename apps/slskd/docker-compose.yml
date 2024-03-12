@@ -11,10 +11,10 @@ services:
         - SLSKD_REMOTE_CONFIGURATION=${SLSKD_REMOTE_CONFIGURATION}
         - SLSKD_SHARED_DIR=${ROOT_FOLDER_HOST}/media/downloads/complete
     volumes:
-        - ${APP_DATA_DIR}/data:/app:rw
+        - ${APP_DATA_DIR}:/app:rw
         - ${ROOT_FOLDER_HOST}/media/downloads:/downloads:rw
     ports:
-        - ${APP_PORT}:5031
+        - ${APP_PORT}:5030
     restart: unless-stopped
     networks:
         - tipi_main_network
@@ -22,7 +22,7 @@ services:
         # Main
         traefik.enable: true
         traefik.http.middlewares.slskd-web-redirect.redirectscheme.scheme: https
-        traefik.http.services.slskd.loadbalancer.server.port: 5031
+        traefik.http.services.slskd.loadbalancer.server.port: 5030
         # Web
         traefik.http.routers.slskd-insecure.rule: Host(`${APP_DOMAIN}`)
         traefik.http.routers.slskd-insecure.entrypoints: web
