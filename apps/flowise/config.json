@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8009,
   "id": "flowise",
-  "tipi_version": 6,
-  "version": "1.6.0",
+  "tipi_version": 7,
+  "version": "1.6.1",
   "categories": [
     "ai",
     "automation"
