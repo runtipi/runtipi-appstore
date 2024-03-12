@@ -17,7 +17,7 @@ services:
         - ${APP_PORT}:5031
     restart: unless-stopped
     networks:
-        -tipi_main_network
+        - tipi_main_network
     labels:
         # Main
         traefik.enable: true
