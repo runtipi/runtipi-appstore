@@ -2,7 +2,7 @@ version: "3.9"
 services:
   windows:
     container_name: windows
-    image: dockurr/windows:2.05
+    image: dockurr/windows:2.06
     restart: unless-stopped
     devices:
       - /dev/kvm
