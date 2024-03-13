@@ -2,6 +2,9 @@
 
 Bitcoin Core is free and open-source software that serves as a bitcoin node.
 
+### Warning
+The current size of the bitcoin blockchain is [more than 500 GB.](https://ycharts.com/indicators/bitcoin_blockchain_size)
+
 
 ## What Is A Full Node?
 
