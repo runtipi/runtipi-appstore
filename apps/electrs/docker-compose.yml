@@ -4,14 +4,15 @@ services:
     container_name: electrs
     image: getumbrel/electrs:v0.10.2@sha256:bcd3066e795b0f242540481736705b5e86fa159b539fdd562f08007bd112faf9
     stop_grace_period: 15m
+    user: 0:0
     volumes:
-      - ${APP_DATA_DIR}/data:/data
       - ~/projects/runtipi/app-data/bitcoind/data:/data/.bitcoin:ro
+      - ${APP_DATA_DIR}/data:/data
     ports:
       - ${APP_PORT}:50001
     environment:
       - ELECTRS_COOKIE_FILE=/data/.bitcoin/.cookie
-      - ELECTRS_DB_DIR=/data
+      - ELECTRS_DB_DIR=/data/db
       - ELECTRS_NETWORK=bitcoin
       - ELECTRS_ELECTRUM_RPC_ADDR=0.0.0.0:50001
       - ELECTRS_LOG_FILTERS=INFO
