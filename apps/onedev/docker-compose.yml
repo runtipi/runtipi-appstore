@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   onedev:
-    image: 1dev/server:10.3.0
+    image: 1dev/server:10.3.2
     container_name: onedev
     environment:
       - hibernate_dialect=io.onedev.server.persistence.PostgreSQLDialect

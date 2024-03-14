@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "homeassistant-1",
-  "tipi_version": 5,
-  "version": "2024.2.5",
+  "tipi_version": 6,
+  "version": "2024.3.0",
   "categories": [
     "automation"
   ],

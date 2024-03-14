@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   wekan:
-    image: ghcr.io/wekan/wekan:v7.35
+    image: ghcr.io/wekan/wekan:v7.38
     container_name: wekan
     environment:
       # https://github.com/wekan/wekan/blob/main/docker-compose.yml

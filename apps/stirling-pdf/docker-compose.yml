@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   stirling-pdf:
-    image: frooodle/s-pdf:0.21.0
+    image: frooodle/s-pdf:0.22.2
     restart: unless-stopped
     container_name: stirling-pdf
     privileged: true

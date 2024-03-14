@@ -3,7 +3,7 @@ version: "3"
 services:
   your-spotify:
     container_name: your-spotify
-    image: yooooomi/your_spotify_client:1.8.0
+    image: yooooomi/your_spotify_client:1.9.0
     depends_on:
       - your-spotify-server
     restart: unless-stopped
