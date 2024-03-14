@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  electrs:
+    container_name: electrs
+    image: getumbrel/electrs:v0.10.2@sha256:bcd3066e795b0f242540481736705b5e86fa159b539fdd562f08007bd112faf9
+    stop_grace_period: 15m
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+      - ~/projects/runtipi/app-data/bitcoind/data:/data/.bitcoin:ro
+    ports:
+      - ${APP_PORT}:50001
+    environment:
+      - ELECTRS_COOKIE_FILE=/data/.bitcoin/.cookie
+      - ELECTRS_DB_DIR=/data
+      - ELECTRS_NETWORK=bitcoin
+      - ELECTRS_ELECTRUM_RPC_ADDR=0.0.0.0:50001
+      - ELECTRS_LOG_FILTERS=INFO
+      - ELECTRS_DAEMON_RPC_ADDR=bitcoind:8332
+      - ELECTRS_DAEMON_P2P_ADDR=bitcoind:8333
+    networks:
+      - tipi_main_network

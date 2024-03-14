@@ -1,0 +1,18 @@
+{
+   "$schema": "../schema.json",
+   "name": "Electrs",
+   "available": true,
+   "exposable": false,
+   "no_gui": true,
+   "port": 50001,
+   "id": "electrs",
+   "description": "Electrs",
+   "tipi_version": 1,
+   "version": "0.10.2",
+   "categories": ["finance"],
+   "short_desc": "Electrs",
+   "author": "Bitcoin developers",
+   "source": "https://github.com/lncm/docker-bitcoind",
+   "form_fields": [],
+   "supported_architectures": ["amd64","arm64","arm"]
+}
