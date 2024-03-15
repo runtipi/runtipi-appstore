@@ -6,8 +6,8 @@
   "exposable": true,
   "id": "koillection",
   "description": "Koillection is a self-hosted service allowing users to manage any kind of collections.",
-  "tipi_version": 8,
-  "version": "1.5.6",
+  "tipi_version": 9,
+  "version": "1.5.7",
   "categories": [
     "utilities"
   ],
