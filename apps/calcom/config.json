@@ -110,7 +110,7 @@
   "supported_architectures": [
     "amd64"
   ],
-  "tipi_version": 8,
-  "version": "3.8.7",
+  "tipi_version": 9,
+  "version": "3.9.0",
   "website": "https://cal.com/"
 }
