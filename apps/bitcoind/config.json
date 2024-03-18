@@ -1,0 +1,62 @@
+{
+  "$schema": "../schema.json",
+  "name": "Bitcoin",
+  "available": true,
+  "exposable": false,
+  "no_gui": true,
+  "port": 8333,
+  "id": "bitcoind",
+  "description": "Bitcoin core node",
+  "tipi_version": 1,
+  "version": "26.0",
+  "categories": [
+    "finance"
+  ],
+  "short_desc": "Bitcoin core node",
+  "author": "Bitcoin developers",
+  "source": "https://github.com/lncm/docker-bitcoind",
+  "form_fields": [
+    {
+      "type": "number",
+      "label": "DB Cache Size (In mb)",
+      "hint": "Set database cache size in megabytes; machines sync faster with a larger cache. Recommend setting as high as possible based upon machine's available RAM. Default 450 Mb.",
+      "required": false,
+      "env_variable": "BITCOIND_DB_CACHE"
+    },
+    {
+      "type": "number",
+      "label": "Max Mempool Size (In mb)",
+      "hint": "Keep the transaction memory pool below <n> megabytes. Default 300 Mb.",
+      "required": false,
+      "env_variable": "BITCOIND_MAX_MEMPOOL"
+    },
+    {
+      "type": "text",
+      "label": "Listen for Incoming Connections",
+      "hint": "Accept incoming connections from peers.",
+      "required": false,
+      "env_variable": "BITCOIND_LISTEN",
+      "options": [
+        {
+          "label": "Yes",
+          "value": "1"
+        },
+        {
+          "label": "No",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "label": "Max Peer Connections",
+      "hint": "Maintain at most N connections to peers. Leave empty for default 125.",
+      "required": false,
+      "env_variable": "BITCOIND_MAXPEERS"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ]
+}
