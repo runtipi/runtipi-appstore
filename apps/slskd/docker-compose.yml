@@ -2,13 +2,14 @@ version: '3.9'
 services:
   slskd:
     container_name: slskd
-    image: slskd/slskd:0.20.0
+    image: slskd/slskd:0.20.1
     environment:
         - SLSKD_WEB_USER=${SLSKD_WEB_USER}
         - SLSKD_WEB_PASSWORD=${SLSKD_WEB_PASSWORD}
         - SLSKD_USER=${SLSKD_USER}
         - SLSKD_PASSWORD=${SLSKD_PASSWORD}
         - SLSKD_REMOTE_CONFIGURATION=${SLSKD_REMOTE_CONFIGURATION}
+        - SLSKD_CONFIG={APP_DATA_DIR}/config
         - SLSKD_SHARED_DIR=${ROOT_FOLDER_HOST}/media/downloads/complete
     volumes:
         - ${APP_DATA_DIR}:/app:rw
@@ -44,4 +45,3 @@ services:
         traefik.http.routers.slskd-local.entrypoints: websecure
         traefik.http.routers.slskd-local.service: slskd
         traefik.http.routers.slskd-local.tls: true
-
