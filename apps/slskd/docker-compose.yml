@@ -15,7 +15,7 @@ services:
         - ${APP_DATA_DIR}:/app:rw
         - ${ROOT_FOLDER_HOST}/media/downloads:/downloads:rw
     ports:
-        - ${APP_PORT}:5030
+        - ${APP_PORT}:5031
     restart: unless-stopped
     networks:
         - tipi_main_network
@@ -23,7 +23,7 @@ services:
         # Main
         traefik.enable: true
         traefik.http.middlewares.slskd-web-redirect.redirectscheme.scheme: https
-        traefik.http.services.slskd.loadbalancer.server.port: 5030
+        traefik.http.services.slskd.loadbalancer.server.port: 5031
         # Web
         traefik.http.routers.slskd-insecure.rule: Host(`${APP_DOMAIN}`)
         traefik.http.routers.slskd-insecure.entrypoints: web

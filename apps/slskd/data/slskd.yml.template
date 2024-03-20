@@ -124,7 +124,7 @@ shares:
 #     request:
 #       - ^.{1,2}$
 web:
-  port: 5030
+  port: 5031
    https:
      disabled: true
 #     port: 5031
