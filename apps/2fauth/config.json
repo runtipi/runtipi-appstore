@@ -7,8 +7,8 @@
   "available": true,
   "exposable": true,
   "id": "2fauth",
-  "tipi_version": 14,
-  "version": "5.1.0",
+  "tipi_version": 15,
+  "version": "5.1.1",
   "categories": [
     "security"
   ],
