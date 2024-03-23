@@ -5,8 +5,8 @@
   "available": true,
   "exposable": false,
   "id": "glances",
-  "tipi_version": 2,
-  "version": "3.4.0.4-full",
+  "tipi_version": 3,
+  "version": "3.4.0.5-full",
   "categories": [
     "utilities"
   ],
