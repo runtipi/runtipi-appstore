@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "forgejo",
-  "tipi_version": 15,
-  "version": "1.21.7-0",
+  "tipi_version": 16,
+  "version": "1.21.8-0",
   "categories": [
     "development"
   ],
