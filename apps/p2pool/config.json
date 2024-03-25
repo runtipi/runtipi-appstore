@@ -1,0 +1,24 @@
+{
+  "$schema": "../schema.json",
+  "name": "Monero p2pool",
+  "available": true,
+  "port": 3333,
+  "id": "p2pool",
+  "tipi_version": 1,
+  "version": "latest",
+  "categories": ["utilities"],
+  "description": "NOTE: In order for p2pool to work, you also need to install and start monerod. While pool mining is the easiest to setup, it centralizes Monero network and pool admin gets full power over your hashrate and your unpaid funds. Solo mining is 100% independent and the best for the network. P2Pool mining has all the advantages of solo mining, but also makes regular payouts possible.",
+  "short_desc": "Decentralized pool for Monero mining",
+  "author": "SChernykh",
+  "source": "https://github.com/SChernykh/p2pool",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "You Monero wallet address to mine to",
+      "max": 120,
+      "min": 96,
+      "required": true,
+      "env_variable": "WALLET_ADDRESS"
+    }
+  ]
+}
