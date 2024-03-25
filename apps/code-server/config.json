@@ -24,7 +24,7 @@
       "env_variable": "CODESERVER_PASSWORD"
     },
     {
-      "type": "sudo-password",
+      "type": "password",
       "label": "Sudo Password",
       "max": 50,
       "min": 3,
