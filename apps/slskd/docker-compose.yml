@@ -1,8 +1,11 @@
-version: '3.9'
+version: "3.9"
 services:
   slskd:
-    container_name: slskd
     image: slskd/slskd:0.20.1
+    container_name: slskd
+    volumes:
+        - "${APP_DATA_DIR}/app:/app"
+        - "${ROOT_FOLDER_HOST}/media/downloads:/downloads"
     environment:
         - SLSKD_WEB_USER=${SLSKD_WEB_USER}
         - SLSKD_WEB_PASSWORD=${SLSKD_WEB_PASSWORD}
@@ -11,11 +14,8 @@ services:
         - SLSKD_REMOTE_CONFIGURATION=${SLSKD_REMOTE_CONFIGURATION}
         - SLSKD_CONFIG=${APP_DATA_DIR}/data/slskd.yml
         - SLSKD_SHARED_DIR=${ROOT_FOLDER_HOST}/media/downloads/complete
-    volumes:
-        - ${APP_DATA_DIR}:/app:rw
-        - ${ROOT_FOLDER_HOST}/media/downloads:/downloads:rw
-    ports:
-        - ${APP_PORT}:5031
     restart: unless-stopped
     networks:
         - tipi_main_network
+    ports:
+        - ${APP_PORT}:5031
