@@ -37,7 +37,7 @@
     "prettier": "^3.2.5",
     "semver": "^7.6.0",
     "ts-jest": "^28.0.7",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.3"
   },
   "config": {
     "commitizen": {
