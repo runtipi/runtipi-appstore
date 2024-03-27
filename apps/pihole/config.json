@@ -10,8 +10,8 @@
     ]
   },
   "id": "pihole",
-  "tipi_version": 14,
-  "version": "2024.02.2",
+  "tipi_version": 15,
+  "version": "2024.03.1",
   "url_suffix": "/admin",
   "categories": [
     "network",
