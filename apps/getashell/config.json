@@ -5,7 +5,7 @@
     "exposable": true,
     "port": 8281,
     "id": "getashell",
-    "tipi_version": 4,
+    "tipi_version": 5,
     "version": "v0.1.5",
     "categories": ["utilities"],
     "description": "Simple web ui to create ssh shells for testing.",
