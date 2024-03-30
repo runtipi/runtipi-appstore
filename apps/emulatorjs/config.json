@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "emulatorjs",
-  "tipi_version": 13,
-  "version": "1.8.9",
+  "tipi_version": 14,
+  "version": "1.9.0",
   "categories": [
     "gaming"
   ],
