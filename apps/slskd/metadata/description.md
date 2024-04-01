@@ -2,9 +2,12 @@ A modern client-server application for the [Soulseek](https://www.slsknet.org/ne
 
 ## Features
 
+### Credentials
+Upon installing the app will ask for a username and password for both the web interface and the Soulseek network. If another Soulseek user already exists with that name, the app will still install correctly but won't login. A new username can be configured in the settings.
+
 ### Secure access
 
-slskd runs as a daemon or Docker container in your network (or in the cloud!) and is accessible from a web browser.  It's designed to be exposed to the internet, and everything is secured with a token that [you can control](https://github.com/slskd/slskd/blob/master/docs/config.md#authentication).  It also supports [reverse proxies](https://github.com/slskd/slskd/blob/master/docs/reverse_proxy.md), making it work well with other self-hosted tools.
+slskd runs as a daemon or Docker container in your network (or in the cloud!) and is accessible from a web browser.  It's designed to be exposed to the internet, and everything is secured with a token that [you can control](https://github.com/slskd/slskd/blob/master/docs/config.md#authentication).
 
 ![image](https://user-images.githubusercontent.com/17145758/193290217-0e6d87f5-a547-4451-8d90-d554a902716c.png)
 
