@@ -6,15 +6,15 @@ services:
     user: 1000:1000
     volumes:
         - "${APP_DATA_DIR}:/app"
-        - "${ROOT_FOLDER_HOST}/media/downloads/complete:/downloads:rw"
-        - "${ROOT_FOLDER_HOST}/media/downloads/incomplete:/incomplete:rw"
+        - "${ROOT_FOLDER_HOST}/media/downloads/complete:/downloads"
+        - "${ROOT_FOLDER_HOST}/media/downloads/incomplete:/incomplete"
     environment:
         - SLSKD_WEB_USER=${SLSKD_WEB_USER}
         - SLSKD_WEB_PASSWORD=${SLSKD_WEB_PASSWORD}
         - SLSKD_USER=${SLSKD_USER}
         - SLSKD_PASSWORD=${SLSKD_PASSWORD}
         - SLSKD_REMOTE_CONFIGURATION=${SLSKD_REMOTE_CONFIGURATION}
-        - SLSKD_CONFIG=${APP_DATA_DIR}/slskd.yml
+        - SLSKD_CONFIG=/app/data/slskd.yml
 ##        - SLSKD_SHARED_DIR=${ROOT_FOLDER_HOST}/media/downloads/complete
     restart: unless-stopped
     networks:

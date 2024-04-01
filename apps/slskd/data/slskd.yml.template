@@ -137,8 +137,8 @@ web:
 #   logging: false
   authentication:
     disabled: false
-    username: slskd
-    password: slskd
+    username: {{SLSKD_WEB_USER}}
+    password: {{SLSKD_WEB_PASSWORD}}
 #     jwt:
 #       key: ~
 #       ttl: 604800000
