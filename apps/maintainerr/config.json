@@ -4,8 +4,8 @@
   "exposable": true,
   "port": 8030,
   "id": "maintainerr",
-  "tipi_version": 3,
-  "version": "2.0.2",
+  "tipi_version": 4,
+  "version": "2.0.3",
   "categories": [
     "media",
     "utilities"
