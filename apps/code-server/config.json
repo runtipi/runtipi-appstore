@@ -23,6 +23,14 @@
       "required": true,
       "env_variable": "CODESERVER_PASSWORD"
     }
+    {
+      "type": "password",
+      "label": "Sudo Password",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "SUDO_PASSWORD"
+    }
   ],
   "supported_architectures": [
     "arm64",
