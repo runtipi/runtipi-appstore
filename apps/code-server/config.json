@@ -22,7 +22,7 @@
       "min": 3,
       "required": true,
       "env_variable": "CODESERVER_PASSWORD"
-    }
+    },
     {
       "type": "password",
       "label": "Sudo Password",
