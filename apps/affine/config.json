@@ -1,0 +1,35 @@
+{
+    "name": "AFFiNE",
+    "id": "affine",
+    "available": true,
+    "short_desc": "AFFiNE is a workspace with fully merged docs, whiteboards and databases.",
+    "author": "https://github.com/toeverything",
+    "port": 3010,
+    "categories": [
+        "utilities"
+    ],
+    "description": "AFFiNE is a workspace with fully merged docs, whiteboards and databases. A privacy-focused, local-first, open-source, and ready-to-use alternative for Notion & Miro. Docs, canvas and tables are hyper-merged with AFFiNE - just like the word affine",
+    "tipi_version": 1,
+    "version": "0.13.4",
+    "source": "https://github.com/toeverything/affine",
+    "website": "https://affine.pro",
+    "exposable": true,
+    "form_fields": [
+        {
+            "env_variable": "AFFINE_ADMIN_EMAIL",
+            "label": "Admin Email",
+            "pattern_error": "Invalid email",
+            "regex": "^[\\w\\-\\.]+@([\\w-]+\\.)+[\\w-]{2,}$",
+            "required": true,
+            "type": "text"
+        },
+        {
+            "env_variable": "AFFINE_ADMIN_PASSWORD",
+            "label": "Admin Password",
+            "pattern_error": "Invalid email",
+            "regex": "^((?=\\S*?[A-Z])(?=\\S*?[a-z])(?=\\S*?[0-9]).{6,})\\S$",
+            "required": true,
+            "type": "password"
+        }
+    ]
+}
