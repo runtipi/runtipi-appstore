@@ -29,7 +29,9 @@
             "pattern_error": "Invalid email",
             "regex": "^((?=\\S*?[A-Z])(?=\\S*?[a-z])(?=\\S*?[0-9]).{6,})\\S$",
             "required": true,
-            "type": "password"
+            "type": "password",
+            "min": 6,
+            "max": 50
         }
     ]
 }
