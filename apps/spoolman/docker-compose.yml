@@ -1,0 +1,43 @@
+version: '3.8'
+services:
+  spoolman:
+    image: ghcr.io/donkie/spoolman:latest
+    restart: unless-stopped
+    volumes:
+      # Mount the host machine's ./data directory into the container's /home/app/.local/share/spoolman directory
+      - type: bind
+        source: ${APP_DATA_DIR}/data
+        target: /home/app/.local/share/spoolman # Do NOT change this line
+    ports:
+      - ${APP_PORT}:8000
+      # - 7912:8000
+    environment:
+      - TZ=${TZ}
+      - PUID=1000
+      - PGID=1000
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: true
+      traefik.http.middlewares.spoolman-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.spoolman.loadbalancer.server.port: 8000
+      # Web
+      traefik.http.routers.spoolman-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.spoolman-insecure.entrypoints: web
+      traefik.http.routers.spoolman-insecure.service: spoolman
+      traefik.http.routers.spoolman-insecure.middlewares: spoolman-web-redirect
+      # Websecure
+      traefik.http.routers.spoolman.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.spoolman.entrypoints: websecure
+      traefik.http.routers.spoolman.service: spoolman
+      traefik.http.routers.spoolman.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.spoolman-local-insecure.rule: Host(`spoolman.${LOCAL_DOMAIN}`)
+      traefik.http.routers.spoolman-local-insecure.entrypoints: web
+      traefik.http.routers.spoolman-local-insecure.service: spoolman
+      traefik.http.routers.spoolman-local-insecure.middlewares: spoolman-web-redirect
+      # Local domain secure
+      traefik.http.routers.spoolman-local.rule: Host(`spoolman.${LOCAL_DOMAIN}`)
+      traefik.http.routers.spoolman-local.entrypoints: websecure
+      traefik.http.routers.spoolman-local.service: spoolman
+      traefik.http.routers.spoolman-local.tls: true
