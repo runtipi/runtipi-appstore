@@ -14,6 +14,7 @@
   "author": "jpdillingham",
   "source": "https://github.com/slskd/slskd",
   "website": "https://github.com/slskd/slskd",
+  "supported_architectures": ["amd64", "arm64"],
   "form_fields": [{
       "type": "text",
       "label": "WebUI username",
