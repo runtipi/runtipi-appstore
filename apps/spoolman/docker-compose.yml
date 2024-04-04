@@ -4,13 +4,9 @@ services:
     image: ghcr.io/donkie/spoolman:0.16.1
     restart: unless-stopped
     volumes:
-      # Mount the host machine's ./data directory into the container's /home/app/.local/share/spoolman directory
-      - type: bind
-        source: ${APP_DATA_DIR}/data
-        target: /home/app/.local/share/spoolman # Do NOT change this line
+      - ${APP_DATA_DIR}/data:/home/app/.local/share/spoolman 
     ports:
       - ${APP_PORT}:8000
-      # - 7912:8000
     environment:
       - TZ=${TZ}
       - PUID=1000
