@@ -1,32 +1,40 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Donkie/Spoolman/assets/2332094/4e6e80ac-c7be-4ad2-9a33-dedc1b5ba30e">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/Donkie/Spoolman/assets/2332094/3c120b3a-1422-42f6-a16b-8d5a07c33000">
+  <img alt="Icon of a filament spool" src="https://github.com/Donkie/Spoolman/assets/2332094/3c120b3a-1422-42f6-a16b-8d5a07c33000">
+</picture>
 
-## Authentication
+<br/><br/>
 
-Speedtest Tracker uses Filament for the admin panel. During the install process an admin account is created for you.
+_Keep track of your inventory of 3D-printer filament spools._
 
-Default User Account
-| Username | Password |
-| --- | --- |
-| `admin@example.com`| `password` |
+Spoolman is a web service that helps you keep track of your filament spools and how they are being used.
 
----
+It acts as a database, where other printer software such as Octoprint and Moonraker can interact with to have a centralized place for spool information.
+For example, if used together with Moonraker, your spool weight will automatically be reduced as your print is progressing.
 
-## About
+It exposes a HTTP API which services can interact with. See the [OpenAPI description](https://donkie.github.io/Spoolman/) for more information.
 
-A Docker image to check your internet speed using Ookla's Speedtest service. Build using Laravel and the Speedtest CLI.
-These docs are up-to-date for version: `v0.12.1`
+## Client
+Spoolman includes a web-client that lets you directly manipulate all the data. It also has a few additional nice features such as label printing.
 
-![](https://834071469-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2Fvtb3s6TB12XY9iIx8YyJ%2Fuploads%2FrOKoxV0cH35wwjkbAgvE%2Fdashboard_screenshot.jpg?alt=media&token=121f5175-4008-4b26-9655-bc67d1369710)
+![image](https://github.com/Donkie/Spoolman/assets/2332094/33928d5e-440f-4445-aca9-456c4370ad0d)
 
-### 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://hosted.weblate.org/widget/spoolman/287x66-black.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://hosted.weblate.org/widget/spoolman/287x66-white.png">
+  <img alt="Icon of a filament spool" src="https://hosted.weblate.org/widget/spoolman/287x66-white.png">
+</picture>
 
-Introduction
+_The web client is translated by the community using [Weblate](https://hosted.weblate.org/projects/spoolman/)._
 
-Speedtest Tracker is a self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.
+## Integration status
+Spoolman doesn't depend on any specific printer software, but to make the most out of it, you should use it together with a frontend that supports it.
+It is currently only supported in the Klipper ecosystem, with official support for the major frontends. Support for other ecosystems like Octoprint is ongoing.
 
-#### 
-
-Why might I want this?
-
-The main use case for Speedtest Tracker is to build a history of your internet's performance so that you can be informed when you're not receiving your ISP's advertised rates.
-
-_...also some of us just like a lot of data._
+* ✔️ Moonraker - See the [Moonraker Documentation](https://moonraker.readthedocs.io/en/latest/configuration/#spoolman)
+  * ✔️ Fluidd
+  * ✔️ KlipperScreen
+  * ✔️ Mainsail
+* ✖️ Octoprint - A plugin is in progress: [OctoPrint-Spoolman](https://github.com/mkevenaar/OctoPrint-Spoolman)
+* ✔️ Home Assistant integration (https://github.com/Disane87/spoolman-homeassistant)
