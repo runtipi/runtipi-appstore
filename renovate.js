@@ -20,6 +20,10 @@ module.exports = {
   ],
   packageRules: [
     {
+      packagePatterns: ["^ghcr.io\\/linuxserver\\/"],
+      versionScheme: "regex:^(?<compatibility>.*?)-(?<major>v?\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)[\\.-]*r?(?<build>\\d+)*-*r?(?<release>\\w+)*"
+    },
+    {
       managers: ["docker-compose", "dockerfile"],
       packagePatterns: [
         "^([^\\/]+\\/)?(mysql|mariadb|mongodb|mongo|postgres|redis|immich-.*)(:|$)",
