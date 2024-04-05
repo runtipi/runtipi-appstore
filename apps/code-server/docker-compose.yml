@@ -8,6 +8,7 @@ services:
       - PGID=1000
       - TZ=${TZ}
       - PASSWORD=${CODESERVER_PASSWORD}
+      - SUDO_PASSWORD=${CODESERVER_SUDO_PASSWORD}
       - DEFAULT_WORKSPACE=/config/workspace #optional
     volumes:
       - ${APP_DATA_DIR}/data/config:/config #config dir
