@@ -1,6 +1,7 @@
 version: '3.8'
 services:
   spoolman:
+    container_name: spoolman
     image: ghcr.io/donkie/spoolman:0.16.1
     restart: unless-stopped
     volumes:
@@ -9,8 +10,6 @@ services:
       - ${APP_PORT}:8000
     environment:
       - TZ=${TZ}
-      - PUID=1000
-      - PGID=1000
     networks:
       - tipi_main_network
     labels:
