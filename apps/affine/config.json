@@ -26,7 +26,7 @@
         {
             "env_variable": "AFFINE_ADMIN_PASSWORD",
             "label": "Admin Password",
-            "pattern_error": "Invalid email",
+            "pattern_error": "Invalid password",
             "regex": "^((?=\\S*?[A-Z])(?=\\S*?[a-z])(?=\\S*?[0-9]).{6,})\\S$",
             "required": true,
             "type": "password",
