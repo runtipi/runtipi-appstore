@@ -26,8 +26,8 @@
         {
             "env_variable": "AFFINE_ADMIN_PASSWORD",
             "label": "Admin Password",
-            "pattern_error": "Invalid password",
-            "regex": "^((?=\\S*?[A-Z])(?=\\S*?[a-z])(?=\\S*?[0-9]).{6,})\\S$",
+            "pattern_error": "Invalid password: Must have 1 lowercase, 1 uppercase, 1 special character, 1 digit and no $.",
+            "regex": "^(?=.*\\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\\w\\d\\s:])([^\\s$]){8,128}$",
             "required": true,
             "type": "password",
             "min": 6,
