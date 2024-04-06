@@ -1,0 +1,4 @@
+users:
+  admin:
+    name: "{{DOZZLE_USERNAME}}"
+    password: "{{DOZZLE_PASSWORD}}"

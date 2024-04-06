@@ -16,6 +16,22 @@
   "source": "https://github.com/amir20/dozzle",
   "form_fields": [
     {
+      "env_variable": "DOZZLE_USERNAME",
+      "label": "Username",
+      "min": 1,
+      "max": 128,
+      "type": "text"
+    },
+    {
+      "env_variable": "DOZZLE_PASSWORD",
+      "label": "Password",
+      "pattern_error": "Invalid password: Must have 1 lowercase, 1 uppercase, 1 special character, 1 digit and no $.",
+      "regex": "^(?=.*\\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\\w\\d\\s:])([^\\s$]){8,128}$",
+      "type": "password",
+      "min": 8,
+      "max": 128
+    },
+    {
       "type": "boolean",
       "label": "Disable Google Analytics",
       "required": false,
