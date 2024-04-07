@@ -1,0 +1,23 @@
+{
+    "name": "Drupal",
+    "available": true,
+    "port": 8658,
+    "exposable": true,
+    "id": "drupal",
+    "description": "Drupal is an open source content management platform supporting a variety of websites ranging from personal weblogs to large community-driven websites.",
+    "tipi_version": 1,
+    "version": "10.2.5",
+    "categories": [
+      "utilities"
+    ],
+    "short_desc": "Open source content management system",
+    "author": "drupal",
+    "source": "https://github.com/drupal/drupal",
+    "website": "https://drupal.org",
+    "form_fields": [],
+    "supported_architectures": [
+      "arm64",
+      "amd64"
+    ]
+  }
+  

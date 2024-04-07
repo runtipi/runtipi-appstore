@@ -1,0 +1,40 @@
+version: "3.9"
+services:
+  drupal:
+    image: drupal:10.2.5
+    container_name: drupal
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:80
+    volumes:
+      - ${APP_DATA_DIR}/data/modules:/var/www/html/modules
+      - ${APP_DATA_DIR}/data/sites:/var/www/html/sites
+      - ${APP_DATA_DIR}/data/themes:/var/www/html/themess
+      - ${APP_DATA_DIR}/data/profiles:/var/www/html/profiles
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.drupal-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.drupal.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.drupal-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.drupal-insecure.entrypoints: web
+      traefik.http.routers.drupal-insecure.service: drupal
+      traefik.http.routers.drupal-insecure.middlewares: drupal-web-redirect
+      # Websecure
+      traefik.http.routers.drupal.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.drupal.entrypoints: websecure
+      traefik.http.routers.drupal.service: drupal
+      traefik.http.routers.drupal.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.drupal-local-insecure.rule: Host(`drupal.${LOCAL_DOMAIN}`)
+      traefik.http.routers.drupal-local-insecure.entrypoints: web
+      traefik.http.routers.drupal-local-insecure.service: drupal
+      traefik.http.routers.drupal-local-insecure.middlewares: drupal-web-redirect
+      # Local domain secure
+      traefik.http.routers.drupal-local.rule: Host(`drupal.${LOCAL_DOMAIN}`)
+      traefik.http.routers.drupal-local.entrypoints: websecure
+      traefik.http.routers.drupal-local.service: drupal
+      traefik.http.routers.drupal-local.tls: true
