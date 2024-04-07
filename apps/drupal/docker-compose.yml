@@ -9,7 +9,7 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/modules:/var/www/html/modules
       - ${APP_DATA_DIR}/data/sites:/var/www/html/sites
-      - ${APP_DATA_DIR}/data/themes:/var/www/html/themess
+      - ${APP_DATA_DIR}/data/themes:/var/www/html/themes
       - ${APP_DATA_DIR}/data/profiles:/var/www/html/profiles
     networks:
       - tipi_main_network

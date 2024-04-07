@@ -3,5 +3,5 @@
 
 Drupal is an open source content management platform supporting a variety of
 websites ranging from personal weblogs to large community-driven websites. For
-more information, visit the Drupal website, [Drupal.org](Drupal.org), and join
+more information, visit the Drupal website, [Drupal.org](https://drupal.org), and join
 the Drupal community.
