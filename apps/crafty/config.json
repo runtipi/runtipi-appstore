@@ -6,8 +6,8 @@
   "port": 8456,
   "id": "crafty",
   "https": true,
-  "tipi_version": 4,
-  "version": "4.3.1",
+  "tipi_version": 5,
+  "version": "4.3.2",
   "categories": [
     "gaming"
   ],
