@@ -3,7 +3,6 @@ services:
   slskd:
     image: slskd/slskd:0.20.1
     container_name: slskd
-    user: 1000:1000
     volumes:
         - "${APP_DATA_DIR}:/app"
         - "${ROOT_FOLDER_HOST}/media/downloads/complete:/downloads"
