@@ -10,6 +10,8 @@ services:
       - ${APP_PORT}:8000
     environment:
       - TZ=${TZ}
+      - PUID=0
+      - PGID=0
     networks:
       - tipi_main_network
     labels:
