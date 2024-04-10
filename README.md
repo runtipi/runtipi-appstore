@@ -191,6 +191,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Sonarr](https://github.com/Sonarr/Sonarr) - TV show manager for Usenet and BitTorrent
 - [Speedtest Tracker](https://github.com/alexjustesen/speedtest-tracker) - Internet performance tracking application.
 - [Sshwifty](https://github.com/nirui/sshwifty) - Web SSH & Telnet (WebSSH & WebTelnet client)
+- [Stalwart Mail Server](https://github.com/stalwartlabs/mail-server) - Secure & Modern All-in-One Mail Server (IMAP, JMAP, SMTP)
 - [Stirling-PDF](https://github.com/Frooodle/Stirling-PDF/) - Powerful locally hosted web based PDF manipulation tool.
 - [Syncthing](https://github.com/syncthing) - Peer-to-peer file synchronization between your devices
 - [Tailscale](https://github.com/tailscale/tailscale) - The easiest, most secure way to use WireGuard and 2FA.
