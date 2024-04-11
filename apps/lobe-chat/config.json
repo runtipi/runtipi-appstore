@@ -5,8 +5,8 @@
   "exposable": true,
   "id": "lobe-chat",
   "description": "LobeChat is an open-source, high-performance chatbot framework that supports speech synthesis, multimodal, and extensible (Function Call) plugin system.",
-  "tipi_version": 88,
-  "version": "0.147.2",
+  "tipi_version": 89,
+  "version": "0.147.6",
   "categories": [
     "ai"
   ],
