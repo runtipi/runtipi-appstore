@@ -6,7 +6,7 @@
   "port": 8934,
   "id": "flightlog",
   "tipi_version": 1,
-  "version": "2.1.0",
+  "version": "2.0.1",
   "categories": [
     "utilities", "data"
   ],
