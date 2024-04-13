@@ -5,9 +5,9 @@ services:
     container_name: flightlog
     image: perdian/flightlog:v2.0.1
     environment:
-      - 'FLIGHTLOG_SERVER_CONTEXT_PATH=/'
+      - FLIGHTLOG_SERVER_CONTEXT_PATH=/
     volumes:
-      - '${APP_DATA_DIR}/data/db:/var/flightlog/database'
+      - ${APP_DATA_DIR}/data/db:/var/flightlog/database
     ports:
       - ${APP_PORT}:8080
     networks:
