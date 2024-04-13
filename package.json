@@ -29,7 +29,7 @@
     "@types/semver": "^7.5.8",
     "commitizen": "^4.3.0",
     "eslint": "^8.57.0",
-    "eslint-plugin-json-schema-validator": "^4.8.3",
+    "eslint-plugin-json-schema-validator": "^5.1.0",
     "eslint-plugin-jsonc": "^2.15.1",
     "husky": "^9.0.11",
     "jest": "^28.1.3",
