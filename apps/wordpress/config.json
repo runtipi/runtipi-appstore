@@ -5,8 +5,8 @@
   "exposable": true,
   "id": "wordpress",
   "description": "WordPress is a popular content management system for creating websites and blogs.",
-  "tipi_version": 4,
-  "version": "6.5.0",
+  "tipi_version": 5,
+  "version": "6.5.2",
   "categories": [
     "social"
   ],

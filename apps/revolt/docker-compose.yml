@@ -139,7 +139,7 @@ services:
 
   # API server (delta)
   revolt-api:
-    image: ghcr.io/revoltchat/server:20230810-3
+    image: ghcr.io/revoltchat/server:20240408-3
     container_name: revolt-api
     depends_on:
       - revolt-database
@@ -176,7 +176,7 @@ services:
 
   # Events service (quark)
   revolt-events:
-    image: ghcr.io/revoltchat/bonfire:20230810-3
+    image: ghcr.io/revoltchat/bonfire:20240408-3
     container_name: revolt-events
     depends_on:
       - revolt-database
