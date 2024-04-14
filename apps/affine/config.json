@@ -33,5 +33,9 @@
             "min": 8,
             "max": 128
         }
+    ],
+    "supported_architectures": [
+        "arm64",
+        "amd64"
     ]
 }
