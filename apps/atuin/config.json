@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8888,
   "id": "atuin",
-  "tipi_version": 3,
-  "version": "18.1.0",
+  "tipi_version": 4,
+  "version": "18.2.0",
   "categories": [
     "utilities",
     "development"
