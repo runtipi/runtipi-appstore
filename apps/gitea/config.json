@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "gitea",
-  "tipi_version": 26,
-  "version": "1.21.10",
+  "tipi_version": 27,
+  "version": "1.21.11",
   "categories": [
     "development"
   ],
