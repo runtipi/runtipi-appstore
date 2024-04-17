@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8163,
   "id": "jellyseerr",
-  "tipi_version": 6,
-  "version": "1.8.0",
+  "tipi_version": 7,
+  "version": "1.8.1",
   "categories": [
     "media",
     "utilities"
