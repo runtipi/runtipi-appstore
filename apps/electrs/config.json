@@ -11,8 +11,8 @@
    "version": "0.10.2",
    "categories": ["finance"],
    "short_desc": "Electrs",
-   "author": "Bitcoin developers",
-   "source": "https://github.com/lncm/docker-bitcoind",
+   "author": "romanz",
+   "source": "https://github.com/romanz/electrs",
    "form_fields": [],
-   "supported_architectures": ["amd64","arm64","arm"]
+   "supported_architectures": ["amd64","arm64"]
 }
