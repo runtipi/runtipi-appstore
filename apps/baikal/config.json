@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 6556,
   "id": "baikal",
-  "tipi_version": 2,
-  "version": "0.9.4-nginx",
+  "tipi_version": 3,
+  "version": "0.9.5-nginx",
   "categories": [
     "data",
     "utilities"
