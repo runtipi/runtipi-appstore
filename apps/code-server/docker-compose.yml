@@ -1,13 +1,14 @@
 version: "3.7"
 services:
   code-server:
-    image: lscr.io/linuxserver/code-server:4.22.0
+    image: lscr.io/linuxserver/code-server:4.23.1
     container_name: code-server
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=${TZ}
       - PASSWORD=${CODESERVER_PASSWORD}
+      - SUDO_PASSWORD=${CODESERVER_SUDO_PASSWORD}
       - DEFAULT_WORKSPACE=/config/workspace #optional
     volumes:
       - ${APP_DATA_DIR}/data/config:/config #config dir

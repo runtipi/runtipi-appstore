@@ -1,0 +1,22 @@
+{
+  "$schema": "../schema.json",
+  "name": "Get A Shell",
+  "available": true,
+  "exposable": true,
+  "port": 8281,
+  "id": "getashell",
+  "tipi_version": 7,
+  "version": "0.2.0",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Simple web ui to create ssh shells for testing.",
+  "short_desc": "SSH shells from a Web UI",
+  "author": "steveiliop56",
+  "source": "https://github.com/steveiliop56/getashell",
+  "form_fields": [],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}

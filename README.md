@@ -17,6 +17,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Baïkal](https://github.com/ckulka/baikal-docker) - Baïkal is a Calendar+Contacts server
 - [Barrage](https://github.com/maulik9898/barrage) - Minimal Deluge WebUI with full mobile support
 - [Bazarr](https://github.com/morpheus65535/bazarr) - A companion application to Sonarr and Radarr that manages and downloads subtitles
+- [Bitcoin](https://github.com/lncm/docker-bitcoind) - Bitcoin core node
 - [Bitmagnet](https://github.com/bitmagnet-io/bitmagnet) - A self-hosted BitTorrent indexer.
 - [Booksonic](https://github.com/popeen/Booksonic-Air) - The selfhosted audiobook server
 - [Bookstack](https://github.com/BookStackApp/BookStack) - BookStack is a self-hosted platform for organising and storing information.
@@ -43,7 +44,9 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [DokuWiki](https://github.com/dokuwiki/dokuwiki) - DokuWiki is a simple to use and highly versatile Open Source wiki software 
 - [Dozzle](https://github.com/amir20/dozzle) - Dozzle is a small web based app to monitor Docker logs
 - [Draw.io](https://github.com/jgraph/drawio) - Diagramming and whiteboarding app.
+- [Duck DNS](https://github.com/linuxserver/docker-duckdns) - Duck DNS is a free Dynamic DNS service
 - [Duplicati](https://github.com/linuxserver/docker-duplicati) - Store securely encrypted backups in the cloud!
+- [Eclipse Mosquitto](https://github.com/eclipse/mosquitto/) - open source message broker
 - [Email OAuth2 Proxy](https://github.com/simonrob/email-oauth2-proxy) - OAuth Proxy for IMAP/POP/SMTP.
 - [Emulatorjs](https://github.com/EmulatorJS/EmulatorJS) - Self-hosted Javascript emulation for various system.
 - [Excalidraw](https://github.com/excalidraw/excalidraw) - Online whiteboard collaboration made easy
@@ -58,6 +61,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Forgejo](https://codeberg.org/forgejo/forgejo/) - Beyond coding. We forge. · Lightweight and performant · Guaranteed 100% Free Software
 - [FreshRSS](https://github.com/FreshRSS/FreshRSS) - A free, self-hostable aggregator… 
 - [gandi-livedns](https://github.com/jbbodart/gandi-livedns) - Update your Gandi DNS zone records with your WAN IP
+- [Get A Shell](https://github.com/steveiliop56/getashell) - SSH shells from a Web UI
 - [Ghost](https://github.com/TryGhost/Ghost) - Ghost - Turn your audience into a business.
 - [Ghostfolio](https://github.com/ghostfolio/ghostfolio) - Open Source Wealth Management Software.
 - [Gitea](https://github.com/go-gitea/gitea) - Gitea - Git with a cup of tea · A painless self-hosted Git service. · Cross-platform · Easy to install · Lightweight · Open Source.
@@ -122,6 +126,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Mongo Express](https://github.com/mongo-express/mongo-express) - Web-based MongoDB admin interface, written with Node.js and Express
 - [MongoDB](https://github.com/mongodb/mongo) - MongoDB is an open-source NoSQL database
 - [Monica](https://github.com/monicahq/monica) - A Personal Relationship Management tool to help you document your social life.
+- [Moodist](https://github.com/remvze/moodist) - Ambient sounds for focus and calm.
 - [Movary](https://github.com/leepeuker/movary) - Movary is a self-hosted web application to track and rate your watched movies. 
 - [mStream Music](https://github.com/IrosTheBeggar/mStream) - The easiest music streaming server available
 - [Mylar3](https://github.com/mylar3/mylar3) - Mylar3 is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python.
@@ -142,6 +147,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Odoo](https://github.com/odoo/odoo) - Open-source business management software with modular applications for streamlined operations.
 - [OneDev](https://code.onedev.io/onedev/server) - Self-hosted Git Server with Kanban and CI/CD
 - [openbooks](https://github.com/evan-buss/openbooks) - Search and Download eBooks
+- [Outline](https://github.com/outline/outline) - A home for all your docs
 - [Overseerr](https://github.com/sct/overseerr) - Request management and media discovery tool for the Plex ecosystem
 - [Owncast](https://github.com/owncast/owncast) -  Take control over your live stream video by running it yourself. Streaming + chat out of the box. 
 - [Owncloud](https://github.com/owncloud/core) - A personal cloud which runs on your own server. 
@@ -203,15 +209,18 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [VaultWarden](https://github.com/dani-garcia/vaultwarden) - All your passwords in your control!
 - [ViewTube](https://github.com/ViewTube/viewtube) - The open source, privacy-conscious way to enjoy your favorite YouTube content.
 - [Vikunja](https://kolaente.dev/vikunja) - The Todo-app to organize your life.
+- [Wallos](https://github.com/ellite/Wallos) - Open-Source Personal Subscription Tracker
 - [Wekan](https://github.com/wekan/wekan) - Open-Source, customizable, and privacy-focused kanban
 - [Wireguard](https://github.com/WeeJeWel/wg-easy/) - VPN server for your homeserver
 - [Whisparr](https://github.com/Whisparr/Whisparr) - Adult movie collection manager.
 - [Whoogle Search](https://github.com/benbusby/whoogle-search) - A self-hosted, ad-free, privacy-respecting metasearch engine.
 - [WikiJS](https://github.com/requarks/wiki) - A modern and powerful wiki app built on Node.js
+- [Windows](https://github.com/dockur/windows/) - Full windows vm in your browser
 - [Wizarr](https://github.com/Wizarrrr/wizarr) - Wizarr is an automatic user invitation system for Plex and Jellyfin.
 - [WordPress](https://github.com/WordPress/WordPress) - Popular CMS for websites and blogs
 - [Your Spotify](https://github.com/Yooooomi/your_spotify) - Self hosted Spotify tracking dashboard.
 - [ZeroTier](https://github.com/zerotier/ZeroTierOne) - Easy to use zero configuration VPN.
+- [Zigbee2MQTT](https://github.com/Koenkk/zigbee2mqtt) - Zigbee to MQTT bridge
 - [Zipline](https://github.com/diced/zipline) - A ShareX/file upload server that is easy to use, packed with features, and with an easy setup!  
 
 ## How to sumbit an app
