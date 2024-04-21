@@ -1,0 +1,21 @@
+{
+  "$schema": "../schema.json",
+  "name": "Pinchflat",
+  "port": 8945,
+  "available": true,
+  "exposable": true,
+  "id": "pinchflat",
+  "tipi_version": 1,
+  "version": "v0.1.14",
+  "categories": [
+    "media"
+  ],
+  "description": "Your next YouTube media manager",
+  "short_desc": "Your next YouTube media manager",
+  "author": "Kieran Eglin ",
+  "source": "https://github.com/kieraneglin/pinchflat",
+  "form_fields": [],
+  "supported_architectures": [
+    "amd64"
+  ]
+}
