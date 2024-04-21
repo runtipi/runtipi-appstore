@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8281,
   "id": "getashell",
-  "tipi_version": 6,
-  "version": "0.1.6",
+  "tipi_version": 7,
+  "version": "0.2.0",
   "categories": [
     "utilities"
   ],

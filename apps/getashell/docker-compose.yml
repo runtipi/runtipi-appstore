@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   getashell:
-    image: ghcr.io/steveiliop56/getashell:v0.1.6
+    image: ghcr.io/steveiliop56/getashell:v0.2.0
     container_name: getashell
     restart: unless-stopped
     volumes:
