@@ -57,6 +57,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Fireshare](https://github.com/ShaneIsrael/fireshare) - Self host your media and share with unique links
 - [Flaresolverr](https://github.com/FlareSolverr/FlareSolverr) - Bypass Cloudflare and DDoS-GuARD.
 - [flatnotes](https://github.com/Dullage/flatnotes) - A self-hosted, database-less note taking web app
+- [Flightlog](https://github.com/perdian/flightlog/) - Flightlog, a web application that keeps track of your personal flight history
 - [Flowise AI](https://github.com/FlowiseAI/Flowise) - Build LLM Apps Easily
 - [Forgejo](https://codeberg.org/forgejo/forgejo/) - Beyond coding. We forge. · Lightweight and performant · Guaranteed 100% Free Software
 - [FreshRSS](https://github.com/FreshRSS/FreshRSS) - A free, self-hostable aggregator… 
@@ -188,8 +189,10 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Shlink](https://github.com/shlinkio/shlink) - Shlink is a self-hosted URL shortener
 - [Silverbullet](https://github.com/silverbulletmd/silverbullet) - SilverBullet is a creative space where you collect, create and expand your personal knowledge, while also letting you constantly evolve the tools you use to do so.
 - [SimpleX SMP](https://github.com/simplex-chat/simplexmq) - A reference implementation of the SimpleX Messaging Protocol for simplex queues over public networks.
+- [SLSKD](https://github.com/slskd/slskd) - P2P downloads
 - [Sonarr](https://github.com/Sonarr/Sonarr) - TV show manager for Usenet and BitTorrent
 - [Speedtest Tracker](https://github.com/alexjustesen/speedtest-tracker) - Internet performance tracking application.
+- [Spoolman](https://github.com/Donkie/Spoolman) - Keep track of your inventory of 3D-printer filament spools
 - [Sshwifty](https://github.com/nirui/sshwifty) - Web SSH & Telnet (WebSSH & WebTelnet client)
 - [Stirling-PDF](https://github.com/Frooodle/Stirling-PDF/) - Powerful locally hosted web based PDF manipulation tool.
 - [Syncthing](https://github.com/syncthing) - Peer-to-peer file synchronization between your devices
