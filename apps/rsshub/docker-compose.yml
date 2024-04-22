@@ -10,7 +10,7 @@ services:
         environment:
             TZ: ${TZ}
         env_file:
-            - ${APP_DATA_DIR}/data/app.env
+            - /app-data/rsshub/data/app.env
         networks:
             - tipi_main_network
         depends_on:
