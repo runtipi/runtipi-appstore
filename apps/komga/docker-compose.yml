@@ -7,7 +7,7 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
       - ${KOMGA_DATA_DIR}:/data
-    user: ${KOMGA_USER_ID}:${KOMGA_USER_ID}
+    user: "${KOMGA_USER_ID}:${KOMGA_USER_ID}"
     environment:
       - TZ=${TZ}
     ports:
