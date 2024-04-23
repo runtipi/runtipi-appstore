@@ -2,7 +2,7 @@
 
 Komga is a media server for your comics, mangas, BDs, magazines and eBooks.
 
-#### Chat on [Discord](https://discord.gg/TdRpkDu)
+## Chat on [Discord](https://discord.gg/TdRpkDu)
 
 ## Features
 
@@ -33,4 +33,4 @@ Check the [development guidelines](./DEVELOPING.md).
 
 ## Credits
 
-The Komga icon is based on an icon made by [Freepik](https://www.freepik.com/home) from www.flaticon.com
+The Komga icon is based on an icon made by [Freepik](https://www.freepik.com/home) from [Flaticon](https://www.flaticon.com).
