@@ -5,10 +5,11 @@ services:
     image: ghcr.io/gotson/komga:1.11.0
     container_name: komga
     volumes:
-      - {APP_DATA_DIR}/data:/config
-      - {KOMGA_DATA_DIR}:/data
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${KOMGA_DATA_DIR}:/data
+    user: ${KOMGA_USER_ID}:${KOMGA_USER_ID}
     environment:
-      - TZ={TZ}
+      - TZ=${TZ}
     ports:
-      - 25600:25600
+      - ${APP_PORT}:25600
     restart: unless-stopped
