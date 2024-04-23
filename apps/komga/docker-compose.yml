@@ -1,0 +1,14 @@
+version: "3.3"
+
+services:
+  komga:
+    image: ghcr.io/gotson/komga:1.11.0
+    container_name: komga
+    volumes:
+      - {APP_DATA_DIR}/data:/config
+      - {KOMGA_DATA_DIR}:/data
+    environment:
+      - TZ={TZ}
+    ports:
+      - 25600:25600
+    restart: unless-stopped
