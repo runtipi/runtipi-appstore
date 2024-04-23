@@ -6,8 +6,8 @@
   "exposable": false,
   "no_gui": true,
   "id": "flaresolverr",
-  "tipi_version": 12,
-  "version": "3.3.16",
+  "tipi_version": 13,
+  "version": "3.3.17",
   "categories": [
     "media",
     "security",

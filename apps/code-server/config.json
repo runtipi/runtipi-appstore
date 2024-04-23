@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8138,
   "id": "code-server",
-  "tipi_version": 26,
-  "version": "4.22.1",
+  "tipi_version": 28,
+  "version": "4.23.1",
   "categories": [
     "development"
   ],

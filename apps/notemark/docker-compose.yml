@@ -1,14 +1,14 @@
 version: "3.7"
 services:
   notemark:
-    image: ghcr.io/enchant97/note-mark-frontend:0.12.1
+    image: ghcr.io/enchant97/note-mark-frontend:0.12.2
     container_name: notemark
     restart: unless-stopped
     networks:
       - tipi_main_network
 
   notemark-backend:
-    image: ghcr.io/enchant97/note-mark-backend:0.12.1
+    image: ghcr.io/enchant97/note-mark-backend:0.12.2
     container_name: notemark-backend
     restart: unless-stopped
     networks:

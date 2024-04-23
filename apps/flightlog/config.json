@@ -1,0 +1,23 @@
+{
+  "$schema": "../schema.json",
+  "name": "Flightlog",
+  "available": true,
+  "exposable": true,
+  "port": 8934,
+  "id": "flightlog",
+  "tipi_version": 1,
+  "version": "2.0.1",
+  "categories": [
+    "utilities", 
+    "data"
+  ],
+  "description": "Easily keep track of your flight history",
+  "short_desc": "Flightlog, a web application that keeps track of your personal flight history",
+  "author": "perdian",
+  "source": "https://github.com/perdian/flightlog/",
+  "form_fields": [],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}
