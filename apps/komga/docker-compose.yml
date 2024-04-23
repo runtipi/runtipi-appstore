@@ -12,4 +12,6 @@ services:
       - TZ=${TZ}
     ports:
       - ${APP_PORT}:25600
+    networks:
+      - tipi_main_network
     restart: unless-stopped
