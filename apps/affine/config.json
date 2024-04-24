@@ -32,6 +32,18 @@
             "type": "password",
             "min": 8,
             "max": 128
+        },
+        {
+            "env_variable": "AFFINE_TELEMETRY_ENABLE",
+            "label": "Enable affine telemetry?",
+            "required": false,
+            "type": "boolean"
+        },
+        {
+            "env_variable": "AFFINE_POSTGRES_PASSWORD",
+            "label": "Affine postgres password",
+            "type": "random",
+            "min": 32
         }
     ],
     "supported_architectures": [

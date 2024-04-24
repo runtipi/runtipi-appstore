@@ -1,41 +1,35 @@
+version: "3.9"
 services:
   affine:
     image: ghcr.io/toeverything/affine-graphql:stable
     container_name: affine
-    command:
-      [
-        'sh',
-        '-c',
-        'node ./scripts/self-host-predeploy && node ./dist/index.js'
-      ]
+    command: ["sh", "-c", "node ./scripts/self-host-predeploy && node ./dist/index.js"]
     ports:
       - ${APP_PORT}:3010
     depends_on:
-      redis:
+      affine-redis:
         condition: service_healthy
-      postgres:
+      affine-postgres:
         condition: service_healthy
     volumes:
-      # custom configurations
-      - ${APP_DATA_DIR}/config:/root/.affine/config
-      # blob storage
-      - ${APP_DATA_DIR}/storage:/root/.affine/storage
+      # Custom configurations
+      - ${APP_DATA_DIR}/data/config:/root/.affine/config
+      # Blob storage
+      - ${APP_DATA_DIR}/data/storage:/root/.affine/storage
     logging:
-      driver: 'json-file'
+      driver: "json-file"
       options:
-        max-size: '1000m'
+        max-size: "1000m"
     restart: unless-stopped
     environment:
       - NODE_OPTIONS="--import=./scripts/register.js"
       - AFFINE_CONFIG_PATH=/root/.affine/config
       - REDIS_SERVER_HOST=redis
-      - DATABASE_URL=postgres://affine:affine@postgres:5432/affine
+      - DATABASE_URL=postgres://tipi:${AFFINE_POSTGRES_PASSWORD}@postgres:5432/affine
       - NODE_ENV=production
       - AFFINE_ADMIN_EMAIL=${AFFINE_ADMIN_EMAIL}
       - AFFINE_ADMIN_PASSWORD=${AFFINE_ADMIN_PASSWORD}
-      # Telemetry allows us to collect data on how you use the affine. This data will helps us improve the app and provide better features.
-      # Uncomment next line if you wish to quit telemetry.
-      # - TELEMETRY_ENABLE=false
+      - TELEMETRY_ENABLE=${AFFINE_TELEMETRY_ENABLE}
     networks:
       - tipi_main_network
     labels:
@@ -63,34 +57,35 @@ services:
       traefik.http.routers.affine-local.entrypoints: websecure
       traefik.http.routers.affine-local.service: affine
       traefik.http.routers.affine-local.tls: true
-  redis:
+
+  affine-redis:
     image: redis
-    container_name: affine_redis
+    container_name: affine-redis
     restart: unless-stopped
     volumes:
-      - ${APP_DATA_DIR}/redis:/data
+      - ${APP_DATA_DIR}/data/redis:/data
     healthcheck:
-      test: [ 'CMD', 'redis-cli', '--raw', 'incr', 'ping' ]
+      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
       interval: 10s
       timeout: 5s
       retries: 5
     networks:
       - tipi_main_network
-  postgres:
+
+  affine-postgres:
     image: postgres
-    container_name: affine_postgres
+    container_name: affinepostgres
     restart: unless-stopped
     volumes:
-      - ${APP_DATA_DIR}/postgres:/var/lib/postgresql/data
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
     healthcheck:
-      test: [ 'CMD-SHELL', 'pg_isready -U affine' ]
+      test: [ "CMD-SHELL", "pg_isready -U affine" ]
       interval: 10s
       timeout: 5s
       retries: 5
     environment:
-      POSTGRES_USER: affine
-      POSTGRES_PASSWORD: affine
+      POSTGRES_USER: tipi
+      POSTGRES_PASSWORD: ${AFFINE_POSTGRES_PASSWORD}
       POSTGRES_DB: affine
-      PGDATA: /var/lib/postgresql/data/pgdata
     networks:
       - tipi_main_network
