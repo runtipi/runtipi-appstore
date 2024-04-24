@@ -1,7 +1,7 @@
 {
   "$schema": "../schema.json",
   "name": "Komga",
-  "port": 25600,
+  "port": 2560,
   "available": true,
   "exposable": true,
   "id": "komga",
@@ -15,24 +15,7 @@
   "author": "gotson",
   "source": "https://github.com/gotson/komga",
   "website": "https://komga.org/",
-  "form_fields": [
-    {
-      "type": "text",
-      "label": "Location of Files",
-      "max": 80,
-      "min": 3,
-      "required": true,
-      "env_variable": "KOMGA_DATA_DIR"
-    },
-    {
-      "type": "number",
-      "label": "User ID (Run 'id <your_user>' to find this)",
-      "max": 20,
-      "min": 1,
-      "required": true,
-      "env_variable": "KOMGA_USER_ID"
-    }
-  ],
+  "form_fields": [],
   "supported_architectures": [
     "arm64",
     "amd64"

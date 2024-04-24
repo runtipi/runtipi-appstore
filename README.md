@@ -101,7 +101,6 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Kimai](https://github.com/kimai/kimai) - Open source time-tracker
 - [Kiwix Server](https://github.com/kiwix/kiwix-tools/) - Kiwix Server is a web server for hosting .zim files
 - [Koillection](https://github.com/benjaminjonard/koillection) - Koillection allow you to manage any kind of collections.
-- [Komga](https://github.com/gotson/komga/) - Komga is a media server for your comics, mangas, BDs, magazines and eBooks.
 - [LibReddit](https://github.com/spikecodes/libreddit) - Browse reddit without problems!
 - [LibrePhotos](https://github.com/LibrePhotos/librephotos) - Complete photo management service
 - [LibreTranslate](https://github.com/LibreTranslate/LibreTranslate) - Free and Open Source Machine Translation API. 100% self-hosted, offline capable and easy to setup.
