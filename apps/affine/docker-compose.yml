@@ -1,0 +1,91 @@
+version: "3.9"
+services:
+  affine:
+    image: ghcr.io/toeverything/affine-graphql:stable
+    container_name: affine
+    command: ["sh", "-c", "node ./scripts/self-host-predeploy && node ./dist/index.js"]
+    ports:
+      - ${APP_PORT}:3010
+    depends_on:
+      affine-redis:
+        condition: service_healthy
+      affine-postgres:
+        condition: service_healthy
+    volumes:
+      # Custom configurations
+      - ${APP_DATA_DIR}/data/config:/root/.affine/config
+      # Blob storage
+      - ${APP_DATA_DIR}/data/storage:/root/.affine/storage
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1000m"
+    restart: unless-stopped
+    environment:
+      - NODE_OPTIONS="--import=./scripts/register.js"
+      - AFFINE_CONFIG_PATH=/root/.affine/config
+      - REDIS_SERVER_HOST=affine-redis
+      - DATABASE_URL=postgres://tipi:${AFFINE_POSTGRES_PASSWORD}@affine-postgres:5432/affine
+      - NODE_ENV=production
+      - AFFINE_ADMIN_EMAIL=${AFFINE_ADMIN_EMAIL}
+      - AFFINE_ADMIN_PASSWORD=${AFFINE_ADMIN_PASSWORD}
+      - TELEMETRY_ENABLE=${AFFINE_TELEMETRY_ENABLE}
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.affine-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.affine.loadbalancer.server.port: 3010
+      # Web
+      traefik.http.routers.affine-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.affine-insecure.entrypoints: web
+      traefik.http.routers.affine-insecure.service: affine
+      traefik.http.routers.affine-insecure.middlewares: affine-web-redirect
+      # Websecure
+      traefik.http.routers.affine.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.affine.entrypoints: websecure
+      traefik.http.routers.affine.service: affine
+      traefik.http.routers.affine.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.affine-local-insecure.rule: Host(`affine.${LOCAL_DOMAIN}`)
+      traefik.http.routers.affine-local-insecure.entrypoints: web
+      traefik.http.routers.affine-local-insecure.service: affine
+      traefik.http.routers.affine-local-insecure.middlewares: affine-web-redirect
+      # Local domain secure
+      traefik.http.routers.affine-local.rule: Host(`affine.${LOCAL_DOMAIN}`)
+      traefik.http.routers.affine-local.entrypoints: websecure
+      traefik.http.routers.affine-local.service: affine
+      traefik.http.routers.affine-local.tls: true
+
+  affine-redis:
+    image: redis
+    container_name: affine-redis
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data
+    healthcheck:
+      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - tipi_main_network
+
+  affine-postgres:
+    image: postgres
+    container_name: affinepostgres
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U affine" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    environment:
+      POSTGRES_USER: tipi
+      POSTGRES_PASSWORD: ${AFFINE_POSTGRES_PASSWORD}
+      POSTGRES_DB: affine
+    networks:
+      - tipi_main_network

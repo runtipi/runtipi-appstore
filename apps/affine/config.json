@@ -1,0 +1,53 @@
+{
+    "name": "AFFiNE",
+    "id": "affine",
+    "available": true,
+    "short_desc": "AFFiNE is a workspace with fully merged docs, whiteboards and databases.",
+    "author": "https://github.com/toeverything",
+    "port": 3010,
+    "categories": [
+        "utilities"
+    ],
+    "description": "AFFiNE is a workspace with fully merged docs, whiteboards and databases. A privacy-focused, local-first, open-source, and ready-to-use alternative for Notion & Miro. Docs, canvas and tables are hyper-merged with AFFiNE - just like the word affine",
+    "tipi_version": 1,
+    "version": "stable",
+    "source": "https://github.com/toeverything/affine",
+    "website": "https://affine.pro",
+    "exposable": true,
+    "form_fields": [
+        {
+            "env_variable": "AFFINE_ADMIN_EMAIL",
+            "label": "Admin Email",
+            "pattern_error": "Invalid email",
+            "regex": "^[\\w\\-\\.]+@([\\w-]+\\.)+[\\w-]{2,}$",
+            "required": true,
+            "type": "text"
+        },
+        {
+            "env_variable": "AFFINE_ADMIN_PASSWORD",
+            "label": "Admin Password",
+            "pattern_error": "Invalid password: Must have 1 lowercase, 1 uppercase, 1 special character, 1 digit and no $.",
+            "regex": "^(?=.*\\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\\w\\d\\s:])([^\\s$]){8,128}$",
+            "required": true,
+            "type": "password",
+            "min": 8,
+            "max": 128
+        },
+        {
+            "env_variable": "AFFINE_TELEMETRY_ENABLE",
+            "label": "Enable affine telemetry?",
+            "required": false,
+            "type": "boolean"
+        },
+        {
+            "env_variable": "AFFINE_POSTGRES_PASSWORD",
+            "label": "Affine postgres password",
+            "type": "random",
+            "min": 32
+        }
+    ],
+    "supported_architectures": [
+        "arm64",
+        "amd64"
+    ]
+}
