@@ -24,8 +24,8 @@ services:
     environment:
       - NODE_OPTIONS="--import=./scripts/register.js"
       - AFFINE_CONFIG_PATH=/root/.affine/config
-      - REDIS_SERVER_HOST=redis
-      - DATABASE_URL=postgres://tipi:${AFFINE_POSTGRES_PASSWORD}@postgres:5432/affine
+      - REDIS_SERVER_HOST=affine-redis
+      - DATABASE_URL=postgres://tipi:${AFFINE_POSTGRES_PASSWORD}@affine-postgres:5432/affine
       - NODE_ENV=production
       - AFFINE_ADMIN_EMAIL=${AFFINE_ADMIN_EMAIL}
       - AFFINE_ADMIN_PASSWORD=${AFFINE_ADMIN_PASSWORD}
