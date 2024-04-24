@@ -1,11 +1,11 @@
 {
   "$schema": "../schema.json",
-  "name": "Stalwart-mail",
+  "name": "Stalwart Mail",
   "available": true,
   "exposable": true,
-  "tipi_version": 28,
+  "tipi_version": 1,
   "version": "0.7.0",
-  "port": 8080,
+  "port": 8677,
   "id": "stalwart-mail",
   "categories": [
     "media",
@@ -16,6 +16,7 @@
   "short_desc": "Open-source mail server solution with JMAP, IMAP4, and SMTP support",
   "author": "Stalwart Labs",
   "source": "https://github.com/stalwartlabs",
+  "website": "https://stalw.art",
   "requirements": {
     "ports": [
       25,

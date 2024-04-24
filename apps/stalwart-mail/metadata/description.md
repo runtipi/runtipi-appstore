@@ -1,16 +1,16 @@
-# Stalwart Mail server
+## Stalwart Mail server
 
 Stalwart is a scalable, secure and robust open-source mail server software designed for the 21st century.
 
-## Admin Password
+### Admin Password
 
 See [Log in to the web interface](https://stalw.art/docs/install/docker#log-in-to-the-web-interface) to know how to get the admin password.
 
-## Screenshots
+### Screenshots
 
 <img src="https://github.com/stalwartlabs/mail-server/blob/main/img/screencast-setup.gif?raw=true" alt="Stalwart Mail Server setup screencast"><br>
 
-## Features
+### Features
 
 **Stalwart Mail Server** is an open-source mail server solution with JMAP, IMAP4, and SMTP support and a wide range of modern features. It is written in Rust and designed to be secure, fast, robust and scalable.
 
