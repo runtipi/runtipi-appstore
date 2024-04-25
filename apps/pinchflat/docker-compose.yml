@@ -4,6 +4,11 @@ services:
   pinchflat:
     image: keglin/pinchflat:v0.1.14
     container_name: pinchflat
+    environment:
+      # Setting BASIC_AUTH_USERNAME and BASIC_AUTH_PASSWORD implies you want to use basic auth.
+      # If either is unset, basic auth will not be used.
+      - BASIC_AUTH_USERNAME=${BASIC_AUTH_USERNAME}
+      - BASIC_AUTH_PASSWORD=${BASIC_AUTH_PASSWORD}
     restart: unless-stopped
     ports:
       - ${APP_PORT}:8945
