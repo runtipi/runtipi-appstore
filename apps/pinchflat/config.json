@@ -12,12 +12,12 @@
   ],
   "description": "Your next YouTube media manager",
   "short_desc": "Your next YouTube media manager",
-  "author": "Kieran Eglin ",
+  "author": "Kieran Eglin",
   "source": "https://github.com/kieraneglin/pinchflat",
   "form_fields": [
     {
       "type": "string",
-      "label": "Basic Auth Username (optional. if not set, no basic auth is used).",
+      "label": "Basic Auth Username (optional; if not set, no basic auth is used).",
       "max": 50,
       "min": 3,
       "required": false,
@@ -25,7 +25,7 @@
     },
     {
       "type": "password",
-      "label": "Basic Auth Password (optional. if not set, no basic auth is used)",
+      "label": "Basic Auth Password (optional; if not set, no basic auth is used)",
       "required": false,
       "env_variable": "BASIC_AUTH_PASSWORD"
     }
