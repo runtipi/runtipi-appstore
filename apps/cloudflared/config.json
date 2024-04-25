@@ -5,8 +5,8 @@
   "available": true,
   "exposable": false,
   "id": "cloudflared",
-  "tipi_version": 9,
-  "version": "2024.4.0",
+  "tipi_version": 10,
+  "version": "2024.4.1",
   "categories": [
     "utilities"
   ],
