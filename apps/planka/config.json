@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "planka",
-  "tipi_version": 18,
-  "version": "1.16.4",
+  "tipi_version": 20,
+  "version": "1.17.1",
   "categories": [
     "development"
   ],
