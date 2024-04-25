@@ -3,7 +3,7 @@ version: "3.7"
 services:
   matrix-conduit:
     container_name: matrix-conduit
-    image: matrixconduit/matrix-conduit:v0.6.0
+    image: matrixconduit/matrix-conduit:v0.7.0
     environment:
       CONDUIT_SERVER_NAME: ${APP_DOMAIN}
       CONDUIT_DATABASE_PATH: /var/lib/matrix-conduit/
