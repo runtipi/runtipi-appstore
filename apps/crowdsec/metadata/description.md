@@ -34,6 +34,24 @@ Please keep this key since you will not be able to retrieve it!
 
 to get the Bouncer API Key. Use this Key in the settings of the app instead of dummy Bouncer API Key and restart the app.
 
+check for metrics with:
+
+## Check Metrics
+
+```bash
+docker exec crowdsec cscli metrics
+```
+
+## Integrate in crowdsec Console
+
+https://app.crowdsec.net/security-engines
+
+With the key from the command line execute:
+
+```bash
+docker exec crowdsec cscli console enroll cls3dg01i1000ju08fh24oj6j
+```
+
 ## Traefik Integration
 
 add the following files and / or settings:
@@ -55,6 +73,13 @@ add the following files and / or settings:
       http:
         middlewares:
           - crowdsec-bouncer@file
+  log:
+    filePath: "/var/log/traefik.log"
+    level: INFO
+
+  accessLog:
+    filePath: "/var/log/access.log"
+    bufferingSize: 100
   ```
 
 - dynamic.yml

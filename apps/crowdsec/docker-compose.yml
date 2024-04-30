@@ -18,6 +18,7 @@ services:
       - /var/log/crowdsec:/var/log/crowdsec:ro
     environment:
       - COLLECTIONS=crowdsecurity/linux crowdsecurity/traefik crowdsecurity/http-cve crowdsecurity/whitelist-good-actors crowdsecurity/sshd
+      - GID=${GID-1000}
     networks:
       - tipi_main_network
 
@@ -45,6 +46,7 @@ services:
       - ${APP_PORT}:3000
     environment:
       - MB_DB_FILE=/data/metabase.db
+      - MGID=${GID-1000}
     depends_on:
       - crowdsec
     volumes:
