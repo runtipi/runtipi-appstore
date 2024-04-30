@@ -34,8 +34,6 @@ Please keep this key since you will not be able to retrieve it!
 
 to get the Bouncer API Key. Use this Key in the settings of the app instead of dummy Bouncer API Key and restart the app.
 
-check for metrics with:
-
 ## Check Metrics
 
 ```bash
