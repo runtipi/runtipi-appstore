@@ -5,8 +5,6 @@ services:
     container_name: crowdsec
     image: crowdsecurity/crowdsec:latest
     restart: unless-stopped
-    depends_on:
-      - runtipi-reverse-proxy
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
