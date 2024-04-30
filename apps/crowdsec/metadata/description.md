@@ -46,11 +46,20 @@ docker exec crowdsec cscli metrics
 
 https://app.crowdsec.net/security-engines
 
-With the key from the command line execute:
+With the key from the command line in the section `Enroll your CrowdSec Security Engine`execute:
 
 ```bash
-docker exec crowdsec cscli console enroll cls3dg01i1000ju08fh24oj6j
+docker exec crowdsec cscli console enroll {{ KEY }}
 ```
+
+## Dashboard
+
+The dashboard comes with a preconfigured user:
+
+Email address: crowdsec@crowdsec.net
+
+Password: !!Cr0wdS3c_M3t4b4s3??
+
 
 ## Traefik Integration
 
