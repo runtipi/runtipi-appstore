@@ -17,7 +17,18 @@ CrowdSec is a free, modern & collaborative behavior detection engine, coupled wi
 The app stack contains the crowdsec service and a bouncer. The bouncer needs an API Key to connect to the service.
 Since the API Key needs to be generated after the initial start, you must provide a temporary dummy Bouncer API Key for the stack to run.
 
-After you started the app, head to a console and use `docker compose exec -t crowdsec cscli bouncers add crowdsec-bouncer-traefik` to get the Bouncer API Key. Use this Key in the settings of the app instead of dummy Bouncer API Key and restart the app.
+After you started the app, head to a console and use 
+
+```bash
+# docker exec -t crowdsec cscli bouncers add crowdsec-bouncer-traefik
+API key for 'crowdsec-bouncer-traefik':
+
+   djC0YxRO3xzKG1mctemSzaUfs2yj4vG7cQ7fliTOJR0
+
+Please keep this key since you will not be able to retrieve it!
+```
+
+to get the Bouncer API Key. Use this Key in the settings of the app instead of dummy Bouncer API Key and restart the app.
 
 ## Traefik Integration
 
