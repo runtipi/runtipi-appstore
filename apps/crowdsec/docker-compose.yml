@@ -45,7 +45,6 @@ services:
       - ${APP_PORT}:3000
     environment:
       - MB_DB_FILE=/data/metabase.db
-      - MGID=${GID-1000}
     depends_on:
       - crowdsec
     volumes:

@@ -20,6 +20,10 @@ Since the API Key needs to be generated after the initial start, you must provid
 After you started the app, head to a console and use 
 
 ```bash
+docker exec -t crowdsec cscli bouncers add crowdsec-bouncer-traefik
+```
+
+```bash
 # docker exec -t crowdsec cscli bouncers add crowdsec-bouncer-traefik
 API key for 'crowdsec-bouncer-traefik':
 
