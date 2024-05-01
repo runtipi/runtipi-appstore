@@ -35,7 +35,8 @@ services:
       - crowdsec
     environment:
       # the CROWDSEC_BOUNCER_API_KEY needs to be created of the crowdsec container with:
-      # `docker compose exec -t crowdsec cscli bouncers add crowdsec-bouncer-traefik`
+      # To create the CROWDSEC_BOUNCER_API_KEY, execute the following command in the crowdsec container:
+      # docker compose exec -t crowdsec cscli bouncers add crowdsec-bouncer-traefik
       - CROWDSEC_BOUNCER_API_KEY=${CROWDSEC_BOUNCER_API_KEY}
       - CROWDSEC_AGENT_HOST=crowdsec:8080
     networks:
