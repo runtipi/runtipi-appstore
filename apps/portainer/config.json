@@ -6,8 +6,8 @@
   "exposable": true,
   "https": true,
   "id": "portainer",
-  "tipi_version": 20,
-  "version": "2.20.1-alpine",
+  "tipi_version": 21,
+  "version": "2.20.2-alpine",
   "categories": [
     "utilities"
   ],
