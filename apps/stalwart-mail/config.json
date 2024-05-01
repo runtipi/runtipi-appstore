@@ -3,8 +3,8 @@
   "name": "Stalwart Mail",
   "available": true,
   "exposable": true,
-  "tipi_version": 2,
-  "version": "0.7.2",
+  "tipi_version": 3,
+  "version": "0.7.3",
   "port": 8677,
   "id": "stalwart-mail",
   "categories": [
