@@ -99,5 +99,4 @@ add the following files and / or settings:
           address: http://crowdsec-bouncer-traefik:8080/api/v1/forwardAuth
           trustForwardHeader: true
   ```
-
 restart runtipi to apply the settings.
