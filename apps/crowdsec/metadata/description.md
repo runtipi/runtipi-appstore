@@ -32,7 +32,7 @@ API key for 'crowdsec-bouncer-traefik':
 Please keep this key since you will not be able to retrieve it!
 ```
 To get the Bouncer API Key, use this Key in the settings of the app instead of the dummy Bouncer API Key and restart the app.
-to get the Bouncer API Key. Use this Key in the settings of the app instead of dummy Bouncer API Key and restart the app.
+To get the Bouncer API Key, use this Key in the settings of the app instead of the dummy Bouncer API Key and restart the app.
 
 ## Check Metrics
 
