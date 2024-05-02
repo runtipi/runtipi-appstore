@@ -9,6 +9,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ${APP_DATA_DIR}/data/crowdsec/acquis.yaml:/etc/crowdsec/acquis.yaml
+      - ${APP_DATA_DIR}/data/crowdsec:/etc/crowdsec
       - ${APP_DATA_DIR}/data/crowdsec/db:/var/lib/crowdsec/data
       - /var/log/auth.log:/var/log/auth.log:ro
       - /var/log/traefik:/var/log/traefik:ro
