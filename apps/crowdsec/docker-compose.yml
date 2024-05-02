@@ -11,7 +11,6 @@ services:
       - ${APP_DATA_DIR}/data/crowdsec/acquis.yaml:/etc/crowdsec/acquis.yaml
       - ${APP_DATA_DIR}/data/crowdsec/db:/var/lib/crowdsec/data
       - /var/log/auth.log:/var/log/auth.log:ro
-      - /var/log/syslog.log:/var/log/syslog.log:ro
       - /var/log/traefik:/var/log/traefik:ro
       # other containers will output their log files too
       # sudo mkdir /var/log/crowdsec
