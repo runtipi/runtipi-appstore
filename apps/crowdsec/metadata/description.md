@@ -1,4 +1,4 @@
-# Crowdsec
+# CrowdSec
 
 CrowdSec - the open-source and participative security solution offering crowdsourced protection against malicious IPs and access to the most advanced real-world CTI
 
