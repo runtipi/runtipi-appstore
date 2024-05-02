@@ -31,7 +31,7 @@ API key for 'crowdsec-bouncer-traefik':
 
 Please keep this key since you will not be able to retrieve it!
 ```
-To get the Bouncer API Key, use this Key in the settings of the app instead of the dummy Bouncer API Key and restart the app.
+
 To get the Bouncer API Key, use this Key in the settings of the app instead of the dummy Bouncer API Key and restart the app.
 
 ## Check Metrics
@@ -99,4 +99,5 @@ add the following files and / or settings:
           address: http://crowdsec-bouncer-traefik:8080/api/v1/forwardAuth
           trustForwardHeader: true
   ```
+
 restart runtipi to apply the settings.
