@@ -18,6 +18,10 @@ services:
       --maxmempool=${BITCOIND_MAX_MEMPOOL:-300}
       --listen=${BITCOIND_LISTEN:-0}
       --maxconnections=${BITCOIND_MAXPEERS:-125}
+      --txindex=${BITCOIND_TXINDEX:-1}
+      --peerbloomfilters=${BITCOIND_BLOOM_FILTERS:-1}
+      --blockfilterindex=${BITCOIND_BLOCK_FILTER:-1}
+      --peerblockfilters=${BITCOIND_BLOCK_FILTER:-1}
     networks:
       - tipi_main_network
     labels:
