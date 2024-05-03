@@ -6,8 +6,8 @@
   "exposable": true,
   "no_gui": true,
   "id": "simplex-smp",
-  "tipi_version": 17,
-  "version": "5.7.0",
+  "tipi_version": 18,
+  "version": "5.7.1",
   "categories": [
     "social"
   ],
