@@ -24,6 +24,7 @@
     }
   ],
   "supported_architectures": [
+    "arm64",
     "amd64"
   ]
 }
