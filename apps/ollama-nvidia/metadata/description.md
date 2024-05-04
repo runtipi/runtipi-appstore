@@ -1,5 +1,5 @@
 # Ollama - Nvidia
-[Ollama](https://github.com/ollama/ollama) allows you to run open-source large language models, such as Llama 3 & , locally. Ollama bundles model weights, configuration, and data into a single package, defined by a Modelfile.
+[Ollama](https://github.com/ollama/ollama) allows you to run open-source large language models, such as Llama 3 & Mistral, locally. Ollama bundles model weights, configuration, and data into a single package, defined by a Modelfile.
 
 ---
 
