@@ -1,4 +1,4 @@
-# Ollama - AMD
+# Ollama AMD
 [Ollama](https://github.com/ollama/ollama) allows you to run open-source large language models, such as Llama3 and Mistral, locally. Ollama bundles model weights, configuration, and data into a single package, defined by a Modelfile.
 
 ---
