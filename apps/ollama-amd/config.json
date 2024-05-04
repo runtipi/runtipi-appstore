@@ -1,6 +1,6 @@
 {
   "$schema": "../schema.json",
-  "name": "Ollama AMD",
+  "name": "Ollama - AMD",
   "available": true,
   "exposable": true,
   "port": 11434,
