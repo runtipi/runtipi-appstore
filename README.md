@@ -8,6 +8,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Activepieces](https://github.com/activepieces/activepieces) - True zapier alternative.
 - [Actual Budget](https://github.com/actualbudget/actual-server) - Local-first OpenSource Budget tool
 - [Adguard](https://github.com/AdguardTeam) - World's most advanced adblocker!
+- [AFFiNE](https://github.com/toeverything/affine) - AFFiNE is a workspace with fully merged docs, whiteboards and databases.
 - [Anse](https://github.com/anse-app/anse) - Fully optimized UI for AI Chats.
 - [ArchiveBox](https://github.com/ArchiveBox/ArchiveBox) - Open source self-hosted web archiving.
 - [Atuin Server](https://github.com/atuinsh/atuin) - Magical Shell History
@@ -27,6 +28,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [ChangeDetection](https://github.com/dgtlmoon/changedetection.io) - Website change detection.
 - [ChatGPT UI](https://github.com/WongSaang/chatgpt-ui) - A ChatGPT web client that supports multiple users, multiple languages, and multiple database connections for persistent data storage
 - [Chatpad AI](https://github.com/deiucanta/chatpad) - Not just another ChatGPT user-interface!
+- [Cheshire Cat AI](https://github.com/cheshire-cat-ai/core) - A production-ready AI framework to develop AI agents.
 - [Cloudflare DDNS](https://github.com/joshuaavalon/docker-cloudflare) - Update DNS records on Cloudflare.
 - [Cloudflared](https://github.com/WisdomSky/Cloudflared-web) - Cloudflare Tunnels in a Web UI
 - [Code-Server - Web VS Code](https://github.com/linuxserver/docker-code-server) - Code-server is VS Code running on a remote server, accessible through the browser.
@@ -101,6 +103,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Kimai](https://github.com/kimai/kimai) - Open source time-tracker
 - [Kiwix Server](https://github.com/kiwix/kiwix-tools/) - Kiwix Server is a web server for hosting .zim files
 - [Koillection](https://github.com/benjaminjonard/koillection) - Koillection allow you to manage any kind of collections.
+- [Komga](https://github.com/gotson/komga) - A media server for your comics, mangas, BDs, magazines and eBooks.
 - [LibReddit](https://github.com/spikecodes/libreddit) - Browse reddit without problems!
 - [LibrePhotos](https://github.com/LibrePhotos/librephotos) - Complete photo management service
 - [LibreTranslate](https://github.com/LibreTranslate/LibreTranslate) - Free and Open Source Machine Translation API. 100% self-hosted, offline capable and easy to setup.
@@ -194,6 +197,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 - [Speedtest Tracker](https://github.com/alexjustesen/speedtest-tracker) - Internet performance tracking application.
 - [Spoolman](https://github.com/Donkie/Spoolman) - Keep track of your inventory of 3D-printer filament spools
 - [Sshwifty](https://github.com/nirui/sshwifty) - Web SSH & Telnet (WebSSH & WebTelnet client)
+- [Stalwart Mail](https://github.com/stalwartlabs) - Open-source mail server solution with JMAP, IMAP4, and SMTP support
 - [Stirling-PDF](https://github.com/Frooodle/Stirling-PDF/) - Powerful locally hosted web based PDF manipulation tool.
 - [Syncthing](https://github.com/syncthing) - Peer-to-peer file synchronization between your devices
 - [Tailscale](https://github.com/tailscale/tailscale) - The easiest, most secure way to use WireGuard and 2FA.
