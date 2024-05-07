@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  pinchflat:
+    image: keglin/pinchflat:v0.1.14
+    container_name: pinchflat
+    environment:
+      # Setting BASIC_AUTH_USERNAME and BASIC_AUTH_PASSWORD implies you want to use basic auth.
+      # If either is unset, basic auth will not be used.
+      - BASIC_AUTH_USERNAME=${BASIC_AUTH_USERNAME}
+      - BASIC_AUTH_PASSWORD=${BASIC_AUTH_PASSWORD}
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:8945
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${ROOT_FOLDER_HOST}/media/downloads/complete/:/downloads
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.pinchflat-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.pinchflat.loadbalancer.server.port: 8945
+      # Web
+      traefik.http.routers.pinchflat-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.pinchflat-insecure.entrypoints: web
+      traefik.http.routers.pinchflat-insecure.service: pinchflat
+      traefik.http.routers.pinchflat-insecure.middlewares: pinchflat-web-redirect
+      # Websecure
+      traefik.http.routers.pinchflat.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.pinchflat.entrypoints: websecure
+      traefik.http.routers.pinchflat.service: pinchflat
+      traefik.http.routers.pinchflat.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.pinchflat-local-insecure.rule: Host(`pinchflat.${LOCAL_DOMAIN}`)
+      traefik.http.routers.pinchflat-local-insecure.entrypoints: web
+      traefik.http.routers.pinchflat-local-insecure.service: pinchflat
+      traefik.http.routers.pinchflat-local-insecure.middlewares: pinchflat-web-redirect
+      # Local domain secure
+      traefik.http.routers.pinchflat-local.rule: Host(`pinchflat.${LOCAL_DOMAIN}`)
+      traefik.http.routers.pinchflat-local.entrypoints: websecure
+      traefik.http.routers.pinchflat-local.service: pinchflat
+      traefik.http.routers.pinchflat-local.tls: true

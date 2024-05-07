@@ -1,0 +1,37 @@
+{
+  "$schema": "../schema.json",
+  "name": "Pinchflat",
+  "port": 8945,
+  "available": true,
+  "exposable": true,
+  "id": "pinchflat",
+  "tipi_version": 1,
+  "version": "v0.1.14",
+  "categories": [
+    "media"
+  ],
+  "description": "Your next YouTube media manager",
+  "short_desc": "Your next YouTube media manager",
+  "author": "Kieran Eglin",
+  "source": "https://github.com/kieraneglin/pinchflat",
+  "form_fields": [
+    {
+      "type": "string",
+      "label": "Basic Auth Username (optional; if not set, no basic auth is used).",
+      "max": 50,
+      "min": 3,
+      "required": false,
+      "env_variable": "BASIC_AUTH_USERNAME"
+    },
+    {
+      "type": "password",
+      "label": "Basic Auth Password (optional; if not set, no basic auth is used)",
+      "required": false,
+      "env_variable": "BASIC_AUTH_PASSWORD"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}
