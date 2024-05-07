@@ -1,7 +1,3 @@
-# RSSHub
-
-![](https://camo.githubusercontent.com/ceaf8f7b5c2b0f5b71013f5553cd4e71dfbc47787928a2ec1cfe0e41a7a0b99c/68747470733a2f2f646f63732e7273736875622e6170702f696d672f6c6f676f2e706e67)
-
 ## Introduction
 
 Introduction
@@ -13,7 +9,6 @@ RSSHub delivers millions of contents aggregated from all kinds of sources, our v
 RSSHub can be used with browser extension [RSSHub Radar](https://github.com/DIYgod/RSSHub-Radar) and mobile auxiliary app [RSSBud (iOS)](https://github.com/Cay-Zhang/RSSBud) and [RSSAid (Android)](https://github.com/LeetaoGoooo/RSSAid)
 
 [English docs](https://docs.rsshub.app/) | [Telegram Group](https://t.me/rsshub) | [Telegram Channel](https://t.me/awesomeRSSHub) | [Twitter](https://twitter.com/intent/follow?screen_name=_RSSHub) | [中文文档](https://docs.rsshub.app/zh/)
-
 
 ## Usage
 
@@ -29,7 +24,7 @@ More info related to available configuration envvars for RSSHub can be found on 
 
 RSSHub provides an access control feature for restricting which user generates a feed within your instance. This can be enabled with the envvar `ACCESS_KEY`, which can be configured either at the installation step through Runtipi's App Store or via the envvars at `docker-compose.yml` or `app.env` for the RSSHub app. Default value is empty (`""`), which means no extra key is required in order to access a feed through the URLs.
 
-Note that `ACCESS_KEY` is enabled **globally**, but access can be controlled granularly on an app-by-app basis by only giving the specific app *access code* to a user, as explained through the diagram found on [https://docs.rsshub.app/deploy/config#access-control-configurations](https://docs.rsshub.app/deploy/config#access-control-configurations).
+Note that `ACCESS_KEY` is enabled **globally**, but access can be controlled granularly on an app-by-app basis by only giving the specific app _access code_ to a user, as explained through the diagram found on [https://docs.rsshub.app/deploy/config#access-control-configurations](https://docs.rsshub.app/deploy/config#access-control-configurations).
 
 ```
 + -----------------------------------------------------------------------------------------------------------------+

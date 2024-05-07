@@ -1,7 +1,7 @@
 {
   "name": "RSSHub",
   "available": true,
-  "port": 8220,
+  "port": 8223,
   "exposable": true,
   "id": "rsshub",
   "description": "RSSHub is an open source, easy to use, and extensible RSS feed generator. It's capable of generating RSS feeds from pretty much everything.",
@@ -22,5 +22,6 @@
       "required": false,
       "env_variable": "ACCESS_KEY"
     }
-  ]
+  ],
+  "supported_architectures": ["amd64", "arm64"]
 }
