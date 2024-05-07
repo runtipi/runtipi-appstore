@@ -1,21 +1,17 @@
-version: '3'
-
 services:
   pinchflat:
     image: keglin/pinchflat:v0.1.14
     container_name: pinchflat
     environment:
-      # Setting BASIC_AUTH_USERNAME and BASIC_AUTH_PASSWORD implies you want to use basic auth.
-      # If either is unset, basic auth will not be used.
-      - BASIC_AUTH_USERNAME=${BASIC_AUTH_USERNAME}
-      - BASIC_AUTH_PASSWORD=${BASIC_AUTH_PASSWORD}
+      - BASIC_AUTH_USERNAME=${PINCHFLAT_BASIC_AUTH_USERNAME}
+      - BASIC_AUTH_PASSWORD=${PINCHFLAT_BASIC_AUTH_PASSWORD}
     restart: unless-stopped
     ports:
       - ${APP_PORT}:8945
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${APP_DATA_DIR}/data/config:/config
-      - ${ROOT_FOLDER_HOST}/media/downloads/complete/:/downloads
+      - ${APP_DATA_DIR}/data/downloads:/downloads
     networks:
       - tipi_main_network
     labels:
