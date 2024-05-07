@@ -17,7 +17,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.komga-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.komga.loadbalancer.server.port: 8080
+      traefik.http.services.komga.loadbalancer.server.port: 25600
       # Web
       traefik.http.routers.komga-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.komga-insecure.entrypoints: web

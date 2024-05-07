@@ -5,6 +5,7 @@
   "gitIgnoredAuthors": ["githubaction@githubaction.com"],
   "dependencyDashboard": true,
   "enabledManagers": ["docker-compose", "dockerfile"],
+  "labels": ["update-image"],
   "hostRules": [
     {
       "matchHost": "index.docker.io",
