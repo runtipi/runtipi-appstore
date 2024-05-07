@@ -18,14 +18,12 @@ services:
           port: 5432
         check_tables: true
         hmac_key: ${INVIDIOUS_HMAC_KEY}
+        use_innertube_for_captions: true
     healthcheck:
-      test: wget -nv --tries=1 --spider http://127.0.0.1:3000/api/v1/comments/jNQXAC9IVRw || exit 1
+      test: wget -nv --tries=1 --spider http://127.0.0.1:3000/api/v1/trending || exit 1
       interval: 30s
       timeout: 5s
       retries: 2
-    depends_on:
-      invidious-db:
-        condition: service_healthy
     networks:
       - tipi_main_network
     labels:

@@ -6,8 +6,8 @@
   "no_gui": true,
   "port": 1999,
   "id": "email-oauth2-proxy",
-  "tipi_version": 6,
-  "version": "2024.03.26",
+  "tipi_version": 7,
+  "version": "2024.04.24",
   "categories": [
     "utilities",
     "security"

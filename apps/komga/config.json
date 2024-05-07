@@ -1,0 +1,23 @@
+{
+  "$schema": "../schema.json",
+  "name": "Komga",
+  "port": 2560,
+  "available": true,
+  "exposable": true,
+  "id": "komga",
+  "tipi_version": 3,
+  "version": "1.11.1",
+  "categories": [
+    "media"
+  ],
+  "description": "A media server for your comics, mangas, BDs, magazines and eBooks.",
+  "short_desc": "A media server for your comics, mangas, BDs, magazines and eBooks.",
+  "author": "gotson",
+  "source": "https://github.com/gotson/komga",
+  "website": "https://komga.org/",
+  "form_fields": [],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}

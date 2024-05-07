@@ -1,0 +1,45 @@
+version: '3.7'
+
+services:
+  cheshire-cat-ai:
+    networks:
+      - tipi_main_network
+    image: ghcr.io/cheshire-cat-ai/core:1.6.1
+    container_name: cheshire-cat-ai
+    ports:
+      - ${APP_PORT}:80
+    environment:
+      - PYTHONUNBUFFERED=1
+      - WATCHFILES_FORCE_POLLING=true
+    volumes:
+      - ${APP_DATA_DIR}/data/static:/app/cat/static
+      - ${APP_DATA_DIR}/data/plugins:/app/cat/plugins
+      - ${APP_DATA_DIR}/data/data:/app/cat/data
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.cheshire-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.cheshire.loadbalancer.server.port: 1865
+      # Web
+      traefik.http.routers.cheshire-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.cheshire-insecure.entrypoints: web
+      traefik.http.routers.cheshire-insecure.service: cheshire-cat-ai
+      traefik.http.routers.cheshire-insecure.middlewares: cheshire-cat-ai-web-redirect
+      # Websecure
+      traefik.http.routers.cheshire.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.cheshire.entrypoints: websecure
+      traefik.http.routers.cheshire.service: cheshire-cat-ai
+      traefik.http.routers.cheshire.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.cheshire-local-insecure.rule: Host(`cheshire-cat-ai.${LOCAL_DOMAIN}`)
+      traefik.http.routers.cheshire-local-insecure.entrypoints: web
+      traefik.http.routers.cheshire-local-insecure.service: cheshire-cat-ai
+      traefik.http.routers.cheshire-local-insecure.middlewares: cheshire-cat-ai-web-redirect
+      # Local domain secure
+      traefik.http.routers.cheshire-local.rule: Host(`cheshire-cat-ai.${LOCAL_DOMAIN}`)
+      traefik.http.routers.cheshire-local.entrypoints: websecure
+      traefik.http.routers.cheshire-local.service: cheshire-cat-ai
+      traefik.http.routers.cheshire-local.tls: true
+networks:
+  tipi-main-network:
+    driver: bridge
