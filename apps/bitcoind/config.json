@@ -8,7 +8,7 @@
   "id": "bitcoind",
   "description": "Bitcoin core node",
   "tipi_version": 2,
-  "version": "26.0",
+  "version": "27.0",
   "categories": [
     "finance"
   ],
