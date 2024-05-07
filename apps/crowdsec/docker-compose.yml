@@ -1,9 +1,7 @@
-version: "3.8"
-
 services:
   crowdsec:
     container_name: crowdsec
-    image: crowdsecurity/crowdsec:latest
+    image: crowdsecurity/crowdsec:v1.6.1-2
     restart: unless-stopped
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -58,6 +56,8 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/crowdsec-dashboard/data:/data
       - ${APP_DATA_DIR}/data/crowdsec/db:/metabase-data
+    networks:
+      - tipi_main_network
     labels:
       # Main
       traefik.enable: true
@@ -83,6 +83,3 @@ services:
       traefik.http.routers.crowdsec-local.entrypoints: websecure
       traefik.http.routers.crowdsec-local.service: crowdsec
       traefik.http.routers.crowdsec-local.tls: true
-
-networks:
-  backend_network:
