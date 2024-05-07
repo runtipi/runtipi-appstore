@@ -7,8 +7,8 @@
   "port": 8333,
   "id": "bitcoind",
   "description": "Bitcoin core node",
-  "tipi_version": 1,
-  "version": "26.0",
+  "tipi_version": 2,
+  "version": "27.0",
   "categories": [
     "finance"
   ],
@@ -53,6 +53,57 @@
       "hint": "Maintain at most N connections to peers. Leave empty for default 125.",
       "required": false,
       "env_variable": "BITCOIND_MAXPEERS"
+    },
+    {
+      "type": "text",
+      "label": "Enable txindex",
+      "hint": "Enabled by default",
+      "required": false,
+      "env_variable": "BITCOIND_TXINDEX",
+      "options": [
+        {
+          "label": "Yes",
+          "value": "1"
+        },
+        {
+          "label": "No",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "label": "Enable peer bloom filters",
+      "hint": "Enabled by default",
+      "required": false,
+      "env_variable": "BITCOIND_BLOOM_FILTERS",
+      "options": [
+        {
+          "label": "Yes",
+          "value": "1"
+        },
+        {
+          "label": "No",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "label": "Enable block filter index",
+      "hint": "Enabled by default",
+      "required": false,
+      "env_variable": "BITCOIND_BLOCK_FILTER",
+      "options": [
+        {
+          "label": "Yes",
+          "value": "1"
+        },
+        {
+          "label": "No",
+          "value": "0"
+        }
+      ]
     }
   ],
   "supported_architectures": [
