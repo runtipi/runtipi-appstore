@@ -46,7 +46,7 @@ const getAppsList = async () => {
 };
 
 const appToReadme = async (app: App) => {
-  return `| <img src="apps/${app.id}/metadata/logo.jpg" height="auto" width=50> | ${app.name} | ${app.description} | ${app.source} | ${app.port} |`;
+  return `| <img src="apps/${app.id}/metadata/logo.jpg" height="auto" width=50> | [${app.name}](${app.source}) | ${app.description} | ${app.port} |`;
 };
 
 const writeToReadme = (appsList: string) => {

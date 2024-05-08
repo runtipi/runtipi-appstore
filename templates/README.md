@@ -4,8 +4,8 @@ This is the official repository for the Tipi App Store. It contains all the apps
 
 ## Apps available
 
-| Icon | Name | Description | Source | Port |
-| ---- | ---- | ----------- | ------ | ---- |
+| Icon | Name | Description | Port |
+| ---- | ---- | ----------- | ---- |
 <!appsList>
 
 ## How to sumbit an app
