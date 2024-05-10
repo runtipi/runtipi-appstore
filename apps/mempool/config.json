@@ -7,7 +7,7 @@
    "port": 2200,
    "id": "mempool",
    "description": "Bitcoin mempool visualizer and blockchain explorer",
-   "tipi_version": 0,
+   "tipi_version": 1,
    "version": "2.5.1",
    "categories": [
       "finance"
@@ -40,6 +40,12 @@
          "hint": "You have to add it on the bitcoin.conf file",
          "required": true,
          "env_variable": "CORE_RPC_PASSWORD"
+      },
+      {
+         "type": "password",
+         "label": "DB password",
+         "min": 32,
+         "env_variable": "MEMPOOL_DB_PASSWORD"
       }
    ]
 }
