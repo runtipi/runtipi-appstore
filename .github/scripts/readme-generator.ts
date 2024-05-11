@@ -1,6 +1,5 @@
 import { exec } from "child_process";
 import fs from "fs";
-import { stderr, stdout } from "process";
 
 type App = {
   id: string;
@@ -12,20 +11,15 @@ type App = {
 
 const getAppsList = async () => {
   const apps: Record<string, App> = {};
-  // fetch apps from app store repo
-  const res = await fetch(
-    "https://api.github.com/repos/runtipi/runtipi-appstore/contents/apps",
-  );
 
-  const data = await res.json();
-  const appNames = data.map((app) => app.name);
+  const appNames = fs.readdirSync(__dirname + "/../../apps");
 
   for (const app of appNames) {
-    const config = await fetch(
-      `https://raw.githubusercontent.com/runtipi/runtipi-appstore/master/apps/${app}/config.json`,
-    );
-    const appConfig = await config.text();
     try {
+      const appConfig = fs.readFileSync(
+        `${__dirname}/../../apps/${app}/config.json`,
+        "utf8"
+      );
       const appConfigJson = JSON.parse(appConfig);
 
       if (!appConfigJson.deprecated) {
@@ -46,13 +40,13 @@ const getAppsList = async () => {
 };
 
 const appToReadme = async (app: App) => {
-  return `| <img src="apps/${app.id}/metadata/logo.jpg" height="auto" width=50> | [${app.name}](${app.source}) | ${app.description} | ${app.port} |`;
+  return `| <img src="apps/${app.id}/metadata/logo.jpg" style="border-radius: 10px;" height="auto" width=50> | [${app.name}](${app.source}) | ${app.description} | ${app.port} |`;
 };
 
 const writeToReadme = (appsList: string) => {
   const baseReadme = fs.readFileSync(
     __dirname + "/../../templates/README.md",
-    "utf8",
+    "utf8"
   );
   const finalReadme = baseReadme.replace("<!appsList>", appsList);
   fs.writeFileSync(__dirname + "/../../README.md", finalReadme);
@@ -77,7 +71,7 @@ const main = async () => {
       } else if (stdout) {
         console.log(stdout);
       }
-    },
+    }
   );
 };
 
