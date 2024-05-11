@@ -5,19 +5,17 @@ services:
     image: ollama/ollama:0.1.33
     restart: unless-stopped
     container_name: ollama-cpu
-    environment:
-      - PORT=11436
     ports:
-      - '${APP_PORT}:11436'
+      - '${APP_PORT}:11434'
     networks:
       - tipi_main_network
     volumes:
-      - ${APP_DATA_DIR}/.ollama:/root/.ollama
+      - ${APP_DATA_DIR}/data/.ollama:/root/.ollama
     labels:
       # Main
       traefik.enable: true
       traefik.http.middlewares.ollama-cpu-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.ollama-cpu.loadbalancer.server.port: 11436
+      traefik.http.services.ollama-cpu.loadbalancer.server.port: 11434
       # Web
       traefik.http.routers.ollama-cpu-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.ollama-cpu-insecure.entrypoints: web

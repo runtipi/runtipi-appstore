@@ -1,11 +1,9 @@
-# Ollama - CPU
-[Ollama](https://github.com/ollama/ollama) allows you to run open-source large language models, such as Llama 3 & Mistral, locally. Ollama bundles model weights, configuration, and data into a single package, defined by a Modelfile.
-
----
-
 ## Usage
 
+⚠️ This app runs on port **11436**. Take this into account when configuring tools connecting to the app.
+
 ### Use with a frontend
+
 - [LobeChat](https://github.com/lobehub/lobe-chat)
 - [LibreChat](https://github.com/danny-avila/LibreChat)
 - [OpenWebUI](https://github.com/open-webui/open-webui)
@@ -14,9 +12,11 @@
 ---
 
 ### Try the REST API
+
 Ollama has a REST API for running and managing models.
 
 **Generate a response**
+
 ```sh
 curl http://localhost:11434/api/generate -d '{
   "model": "llama3",
@@ -25,6 +25,7 @@ curl http://localhost:11434/api/generate -d '{
 ```
 
 **Chat with a model**
+
 ```sh
 curl http://localhost:11434/api/chat -d '{
   "model": "llama3",
@@ -33,16 +34,11 @@ curl http://localhost:11434/api/chat -d '{
   ]
 }'
 ```
----
-
-### Try in terminal
-```sh
-docker exec -it ollama-cpu ollama run llama3 --verbose
-```
 
 ---
 
 ## Model library
+
 Ollama supports a list of models available on [ollama.com/library](https://ollama.com/library 'ollama model library')
 
 Here are some example models that can be downloaded:
