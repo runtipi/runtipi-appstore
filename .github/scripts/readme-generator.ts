@@ -43,12 +43,13 @@ const appToReadme = async (app: App) => {
   return `| <img src="apps/${app.id}/metadata/logo.jpg" style="border-radius: 10px;" height="auto" width=50> | [${app.name}](${app.source}) | ${app.description} | ${app.port} |`;
 };
 
-const writeToReadme = (appsList: string) => {
+const writeToReadme = (appsList: string, count: number) => {
   const baseReadme = fs.readFileSync(
     __dirname + "/../../templates/README.md",
     "utf8"
   );
-  const finalReadme = baseReadme.replace("<!appsList>", appsList);
+  let finalReadme = baseReadme.replace("<!appsList>", appsList);
+  finalReadme = finalReadme.replace("<!appsCount>", count.toString());
   fs.writeFileSync(__dirname + "/../../README.md", finalReadme);
 };
 
@@ -62,7 +63,7 @@ const main = async () => {
     appsList = appsList + (appFinal + "\n");
   }
 
-  writeToReadme(appsList);
+  writeToReadme(appsList, appKeys.length);
   exec(
     `npx prettier ${__dirname + "/../../README.md"} --write`,
     (stdout, stderr) => {
