@@ -1,22 +1,24 @@
-# Ollama - Nvidia
-[Ollama](https://github.com/ollama/ollama) allows you to run open-source large language models, such as Llama 3 & Mistral, locally. Ollama bundles model weights, configuration, and data into a single package, defined by a Modelfile.
-
----
-
 ## Nvidia Instructions
+
 To enable your Nvidia GPU in Docker:
+
 - You need to install the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#installation)
 
 - And configure Docker to use Nvidia driver
+
 ```sh
 sudo nvidia-ctk runtime configure --runtime=docker
 sudo systemctl restart docker
 ```
+
 ---
 
 ## Usage
 
+⚠️ This app runs on port **11435**. Take this into account when configuring tools connecting to the app.
+
 ### Use with a frontend
+
 - [LobeChat](https://github.com/lobehub/lobe-chat)
 - [LibreChat](https://github.com/danny-avila/LibreChat)
 - [OpenWebUI](https://github.com/open-webui/open-webui)
@@ -25,9 +27,11 @@ sudo systemctl restart docker
 ---
 
 ### Try the REST API
+
 Ollama has a REST API for running and managing models.
 
 **Generate a response**
+
 ```sh
 curl http://localhost:11434/api/generate -d '{
   "model": "llama3",
@@ -36,6 +40,7 @@ curl http://localhost:11434/api/generate -d '{
 ```
 
 **Chat with a model**
+
 ```sh
 curl http://localhost:11434/api/chat -d '{
   "model": "llama3",
@@ -44,16 +49,11 @@ curl http://localhost:11434/api/chat -d '{
   ]
 }'
 ```
----
-
-### Try in terminal
-```sh
-docker exec -it ollama-nvidia ollama run llama3 --verbose
-```
 
 ---
 
 ## Compatible GPUs
+
 Ollama supports Nvidia GPUs with compute capability 5.0+.
 
 Check your compute compatibility to see if your card is supported:
@@ -82,10 +82,10 @@ Check your compute compatibility to see if your card is supported:
 | 5.0                | GeForce GTX         | `GTX 750 Ti` `GTX 750` `NVS 810`                                                                            |
 |                    | Quadro              | `K2200` `K1200` `K620` `M1200` `M520` `M5000M` `M4000M` `M3000M` `M2000M` `M1000M` `K620M` `M600M` `M500M`  |
 
-
 ---
 
 ## Model library
+
 Ollama supports a list of models available on [ollama.com/library](https://ollama.com/library 'ollama model library')
 
 Here are some example models that can be downloaded:

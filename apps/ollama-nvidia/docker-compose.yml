@@ -5,10 +5,8 @@ services:
     image: ollama/ollama:0.1.33
     restart: unless-stopped
     container_name: ollama-nvidia
-    environment:
-      - PORT=11435
     ports:
-      - '${APP_PORT}:11435'
+      - '${APP_PORT}:11434'
     networks:
       - tipi_main_network
     deploy:
@@ -18,14 +16,14 @@ services:
             - driver: nvidia
               count: all
               capabilities:
-              - gpu
+                - gpu
     volumes:
-      - ${APP_DATA_DIR}/.ollama:/root/.ollama
+      - ${APP_DATA_DIR}/data/.ollama:/root/.ollama
     labels:
       # Main
       traefik.enable: true
       traefik.http.middlewares.ollama-nvidia-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.ollama-nvidia.loadbalancer.server.port: 11435
+      traefik.http.services.ollama-nvidia.loadbalancer.server.port: 11434
       # Web
       traefik.http.routers.ollama-nvidia-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.ollama-nvidia-insecure.entrypoints: web
