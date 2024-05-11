@@ -12,10 +12,10 @@ services:
     networks:
       - tipi_main_network
     volumes:
-      - ${APP_DATA_DIR}/.ollama:/root/.ollama
-    devices: 
+      - ${APP_DATA_DIR}/data/.ollama:/root/.ollama
+    devices:
       # Attach GPU
-      - /dev/kfd 
+      - /dev/kfd
       - /dev/dri
     labels:
       # Main

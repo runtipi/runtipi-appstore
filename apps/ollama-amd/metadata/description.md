@@ -1,11 +1,9 @@
-# Ollama AMD
-[Ollama](https://github.com/ollama/ollama) allows you to run open-source large language models, such as Llama3 and Mistral, locally. Ollama bundles model weights, configuration, and data into a single package, defined by a Modelfile.
-
----
-
 ## Usage
 
+⚠️ This app runs on port **11434**. Take this into account when configuring tools connecting to the app.
+
 ### Use with a frontend
+
 - [LobeChat](https://github.com/lobehub/lobe-chat)
 - [LibreChat](https://github.com/danny-avila/LibreChat)
 - [OpenWebUI](https://github.com/open-webui/open-webui)
@@ -14,9 +12,11 @@
 ---
 
 ### Try the REST API
+
 Ollama has a REST API for running and managing models.
 
 **Generate a response**
+
 ```sh
 curl http://localhost:11434/api/generate -d '{
   "model": "llama3",
@@ -25,6 +25,7 @@ curl http://localhost:11434/api/generate -d '{
 ```
 
 **Chat with a model**
+
 ```sh
 curl http://localhost:11434/api/chat -d '{
   "model": "llama3",
@@ -33,26 +34,22 @@ curl http://localhost:11434/api/chat -d '{
   ]
 }'
 ```
----
-
-### Try in terminal
-```sh
-docker exec -it ollama ollama run llama3
-```
 
 ---
 
 ## Compatible GPUs
+
 Ollama supports the following AMD GPUs:
-| Family         | Cards and accelerators                                                                                                               |
+| Family | Cards and accelerators |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| AMD Radeon RX  | `7900 XTX` `7900 XT` `7900 GRE` `7800 XT` `7700 XT` `7600 XT` `7600` `6950 XT` `6900 XTX` `6900XT` `6800 XT` `6800` `Vega 64` `Vega 56`    |
+| AMD Radeon RX | `7900 XTX` `7900 XT` `7900 GRE` `7800 XT` `7700 XT` `7600 XT` `7600` `6950 XT` `6900 XTX` `6900XT` `6800 XT` `6800` `Vega 64` `Vega 56` |
 | AMD Radeon PRO | `W7900` `W7800` `W7700` `W7600` `W7500` `W6900X` `W6800X Duo` `W6800X` `W6800` `V620` `V420` `V340` `V320` `Vega II Duo` `Vega II` `VII` `SSG` |
-| AMD Instinct   | `MI300X` `MI300A` `MI300` `MI250X` `MI250` `MI210` `MI200` `MI100` `MI60` `MI50`                                                               |
+| AMD Instinct | `MI300X` `MI300A` `MI300` `MI250X` `MI250` `MI210` `MI200` `MI100` `MI60` `MI50` |
 
 ---
 
 ## Model library
+
 Ollama supports a list of models available on [ollama.com/library](https://ollama.com/library 'ollama model library')
 
 Here are some example models that can be downloaded:
