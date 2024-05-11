@@ -1,13 +1,11 @@
-version: "3"
-
 services:
   dashy:
     container_name: dashy
-    image: ghcr.io/lissy93/dashy:2.1.2
+    image: ghcr.io/lissy93/dashy:3.0.1
     ports:
-      - ${APP_PORT}:80
+      - ${APP_PORT}:8080
     volumes:
-      - ${APP_DATA_DIR}/data/dashy/conf.yml:/app/public/conf.yml
+      - ${APP_DATA_DIR}/data/dashy:/app/user-data
     restart: unless-stopped
     networks:
       - tipi_main_network
@@ -15,7 +13,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.dashy-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.dashy.loadbalancer.server.port: 80
+      traefik.http.services.dashy.loadbalancer.server.port: 8080
       # Web
       traefik.http.routers.dashy-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.dashy-insecure.entrypoints: web

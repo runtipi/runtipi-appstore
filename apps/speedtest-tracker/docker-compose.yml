@@ -1,8 +1,8 @@
-version: "3.7"
+version: '3.7'
 
 services:
   speedtest-tracker:
-    image: ghcr.io/alexjustesen/speedtest-tracker:v0.19.0
+    image: lscr.io/linuxserver/speedtest-tracker:0.19.0
     container_name: speedtest-tracker
     environment:
       - PUID=1000
