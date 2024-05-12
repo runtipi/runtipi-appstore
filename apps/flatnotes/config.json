@@ -5,8 +5,8 @@
   "exposable": true,
   "id": "flatnotes",
   "port": 8137,
-  "tipi_version": 21,
-  "version": "4.0.4",
+  "tipi_version": 22,
+  "version": "4.0.5",
   "categories": [
     "utilities"
   ],
