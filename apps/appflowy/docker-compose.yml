@@ -1,4 +1,4 @@
-version: "3.2"
+version: "3.7"
 services:
   appflowy_client:
     container_name: appflowy
