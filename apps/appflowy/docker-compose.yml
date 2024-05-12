@@ -2,6 +2,9 @@ version: "3.3"
 services:
   appflowy_client:
     image: appflowyio/appflowy_client:main
+    ports:
+    - ${APP_PORT}:80
+    - 8043:443
     volumes:
       - $HOME/.Xauthority:/root/.Xauthority:rw
       - /tmp/.X11-unix:/tmp/.X11-unix
