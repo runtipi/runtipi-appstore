@@ -71,7 +71,7 @@ To add translations, you can manually edit the JSON translation files in `/front
 ## Join the community to build AppFlowy together
 
 <a href="https://github.com/AppFlowy-IO/AppFlowy/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=AppFlowy-IO/AppFlowy" />
+  <img src="https://contrib.rocks/image?repo=AppFlowy-IO/AppFlowy" alt="Contributors to AppFlowy" />
 </a>
 
 ## License
