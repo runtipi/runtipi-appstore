@@ -1,6 +1,6 @@
 {
   "$schema": "../schema.json",
-  "name": "AppyFlowy",
+  "name": "AppFlowy",
   "available": true,
   "exposable": true,
   "port": 8042,
