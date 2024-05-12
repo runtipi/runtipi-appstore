@@ -32,7 +32,7 @@ services:
       - CEDALO_MC_BROKER_USERNAME=admin
       - CEDALO_MC_BROKER_PASSWORD=${MQTT_ADMIN_PASSWORD}
       - CEDALO_MC_USERNAME=admin
-      - CEDALO_MC_PASSWORD=admin
+      - CEDALO_MC_PASSWORD=${CEDALO_MC_PASSWORD}
     ports:
       - ${APP_PORT}:8088
     expose:
