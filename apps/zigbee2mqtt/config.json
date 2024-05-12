@@ -1,7 +1,7 @@
 {
   "$schema": "../schema.json",
   "name": "Zigbee2MQTT",
-  "port": 8183,
+  "port": 8290,
   "available": true,
   "exposable": true,
   "id": "zigbee2mqtt",
