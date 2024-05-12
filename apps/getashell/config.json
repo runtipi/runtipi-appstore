@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8281,
   "id": "getashell",
-  "tipi_version": 7,
-  "version": "0.2.0",
+  "tipi_version": 8,
+  "version": "1.0.0",
   "categories": [
     "utilities"
   ],
@@ -14,7 +14,26 @@
   "short_desc": "SSH shells from a Web UI",
   "author": "steveiliop56",
   "source": "https://github.com/steveiliop56/getashell",
-  "form_fields": [],
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Username",
+      "required": true,
+      "env_variable": "GETASHELL_USERNAME"
+    },
+    {
+      "type": "password",
+      "label": "Password",
+      "required": true,
+      "env_variable": "GETASHELL_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "GetAShell Secret Key",
+      "min": 32,
+      "env_variable": "GETASHELL_SECRET_KEY"
+    }
+  ],
   "supported_architectures": [
     "arm64",
     "amd64"
