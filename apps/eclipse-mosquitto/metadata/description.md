@@ -1,6 +1,6 @@
 # Eclipse Mosquitto MQTT Broker with UI
 
-This app consists of two images providing an MQTT broker and an UI for managing access to the broker.
+This app consists of two images providing an MQTT broker and a UI for managing access to the broker.
 The configuration is adapted from the GitHub repo: [shantanoo-desai/mqtt-rbac-docker-init](https://github.com/shantanoo-desai/mqtt-rbac-docker-init)
 
 
