@@ -1,8 +1,8 @@
-version: "3.3"
+version: "3.9"
 services:
   appflowy_client:
     container_name: appflowy
-    image: appflowyio/appflowy_client:main
+    image: appflowyio/appflowy_client:0.5.7
     ports:
     - ${APP_PORT}:80
     - 8043:443
@@ -16,4 +16,4 @@ services:
       - DISPLAY=${DISPLAY}
     restart: unless-stopped
     networks:
-    - tipi_main_network
+      - tipi_main_network
