@@ -10,7 +10,7 @@
 
 ## Usage
 
-See our [documentation](https://mqttx.app/docs) or [manual](./docs/manual.md) for details.
+See the MQTTX [documentation](https://mqttx.app/docs) or [manual](./docs/manual.md) for details.
 
 1. Get MQTT Broker Ready.
 
@@ -22,7 +22,7 @@ See our [documentation](https://mqttx.app/docs) or [manual](./docs/manual.md) fo
         Broker SSL Port: 8883
         ```
 
-    - To run MQTT Broker locally, [EMQX](https://www.emqx.com/en/products/emqx) is recommended: An Open-Source, Cloud-Native, Distributed MQTT Broker for IoT.
+    - To run MQTT Broker locally, use the [Eclipse Mosquitto](https://github.com/runtipi/runtipi-appstore/blob/master/apps/eclipse-mosquitto/) Tipi app. Follow the steps mentioned in its [description](https://github.com/runtipi/runtipi-appstore/blob/master/apps/eclipse-mosquitto/metadata/description.md) to turn on Websockets so that the MQTTX web client can connect to it.
 
 2. Connection configuration. Click the `+` button in the left menu bar and fill in the corresponding required fields in the form.
 
