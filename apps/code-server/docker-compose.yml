@@ -9,9 +9,9 @@ services:
       - TZ=${TZ}
       - PASSWORD=${CODESERVER_PASSWORD}
       - SUDO_PASSWORD=${CODESERVER_SUDO_PASSWORD}
-      - DEFAULT_WORKSPACE=/config/workspace #optional
+      - DEFAULT_WORKSPACE=/config/workspace
     volumes:
-      - ${APP_DATA_DIR}/data/config:/config #config dir
+      - ${APP_DATA_DIR}/data/config:/config
       - ${APP_DATA_DIR}/data/projects:/projects
     ports:
       - ${APP_PORT}:8443
