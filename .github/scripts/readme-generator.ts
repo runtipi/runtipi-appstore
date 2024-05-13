@@ -18,7 +18,7 @@ const getAppsList = async () => {
     try {
       const appConfig = fs.readFileSync(
         `${__dirname}/../../apps/${app}/config.json`,
-        "utf8"
+        "utf8",
       );
       const appConfigJson = JSON.parse(appConfig);
 
@@ -40,13 +40,13 @@ const getAppsList = async () => {
 };
 
 const appToReadme = async (app: App) => {
-  return `| <img src="apps/${app.id}/metadata/logo.jpg" style="border-radius: 10px;" height="auto" width=50> | [${app.name}](${app.source}) | ${app.description} | ${app.port} |`;
+  return `| [${app.name}](${app.source}) | ${app.description} | ${app.port} |`;
 };
 
 const writeToReadme = (appsList: string, count: number) => {
   const baseReadme = fs.readFileSync(
     __dirname + "/../../templates/README.md",
-    "utf8"
+    "utf8",
   );
   let finalReadme = baseReadme.replace("<!appsList>", appsList);
   finalReadme = finalReadme.replace("<!appsCount>", count.toString());
@@ -72,7 +72,7 @@ const main = async () => {
       } else if (stdout) {
         console.log(stdout);
       }
-    }
+    },
   );
 };
 
