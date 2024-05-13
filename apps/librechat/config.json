@@ -6,7 +6,7 @@
   "exposable": true,
   "id": "librechat",
   "tipi_version": 1,
-  "version": "0.7.2",
+  "version": "638ac5bba61a524cc4ae99711a91f19572c4f2a0",
   "categories": ["ai"],
   "description": "LibreChat is a free, open source AI chat platform. This Web UI offers vast customization, supporting numerous AI providers, services, and integrations.",
   "short_desc": "Opensource AI chat platform.",
