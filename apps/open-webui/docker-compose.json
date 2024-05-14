@@ -13,7 +13,5 @@
   "environment": {
     "OLLAMA_BASE_URL": "${OPENWEBUI_OLLAMA_URL}",
     "OPENAI_API_KEY": "${OPENWEBUI_OPENAI_KEY}"
-  },
-  "exposedLocal": true,
-  "exposed": true
+  }
 }
