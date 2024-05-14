@@ -15,7 +15,7 @@
   "website": "https://openwebui.com/",
   "form_fields": [
     {
-      "type": "fqdnip",
+      "type": "text",
       "label": "Ollama Api Url",
       "placeholder": "http://ollama-cpu:11434",
       "required": false,
