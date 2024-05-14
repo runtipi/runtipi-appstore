@@ -8,7 +8,7 @@ For independent creatives, hoarders and those that want to own their digital foo
 
 ---
 
-![](https://github.com/spacedriveapp/spacedrive/raw/main/apps/landing/public/github.webp?raw=true)
+![Spacedrive Interface](https://github.com/spacedriveapp/spacedrive/raw/main/apps/landing/public/github.webp?raw=true)
 
 ---
 
