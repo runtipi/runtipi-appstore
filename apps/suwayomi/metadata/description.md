@@ -4,7 +4,7 @@ A free and open-source manga reader server that runs extensions built for [Tachi
 
 Suwayomi is an independent Tachiyomi compatible software and is **not a Fork of** Tachiyomi.
 
-Suwayomi-Server is as multi-platform as you can get. Any platform that runs java and/or has a modern browser can run it. This includes Windows, Linux, macOS, chrome OS, etc.
+Suwayomi-Server is highly multi-platform. Any platform that runs Java and/or has a modern browser can run it, including Windows, Linux, macOS, Chrome OS, etc.
 
 ## Here is a list of current features:
 
