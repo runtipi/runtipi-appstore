@@ -1,6 +1,6 @@
 # What is Suwayomi?
 
-A free and open source manga reader server that runs extensions built for [Tachiyomi](https://tachiyomi.org/). 
+A free and open-source manga reader server that runs extensions built for [Tachiyomi](https://tachiyomi.org/).
 
 Suwayomi is an independent Tachiyomi compatible software and is **not a Fork of** Tachiyomi.
 
