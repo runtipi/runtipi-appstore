@@ -11,6 +11,6 @@ Suwayomi-Server is as multi-platform as you can get. Any platform that runs java
 - Adding repositories for manga sources
 - A library to save your mangas and categories to put them into
 - Searching and browsing installed sources
-- Ability to download Manga for offline read
+Ability to download manga for offline reading
 - Backup and restore support powered by Tachiyomi-compatible Backups
 - Viewing latest updated chapters.
