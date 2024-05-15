@@ -1,6 +1,6 @@
 version: '3.7'
 services:
-  mealie-1:
+  mealie:
     container_name: mealie
     image: ghcr.io/mealie-recipes/mealie:latest
     restart: unless-stopped
