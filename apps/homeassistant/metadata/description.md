@@ -1,21 +1,20 @@
-## Open source home automation that puts local control and privacy first
+# Home Assistant
 
 Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server.
-Check out [home-assistant.io](https://home-assistant.io) for a [demo](https://home-assistant.io/demo/), installation [instructions](https://home-assistant.io/getting-started/), [tutorials](https://home-assistant.io/getting-started/automation/) and [documentation](https://home-assistant.io/docs/)
 
-![Screenshot](https://raw.githubusercontent.com/home-assistant/core/master/docs/screenshots.png)
+Check out [home-assistant.io](https://home-assistant.io) for a [demo](https://home-assistant.io/demo/), installation [instructions](https://home-assistant.io/getting-started/), [tutorials](https://home-assistant.io/getting-started/automation/) and [documentation](https://home-assistant.io/docs/)
 
 ## Migration
 
 February 2024
 
-This version of Home Assistant can not be exposed. To migrate to the exposable app, follow these steps:
+This version of Home Assistant can be exposed. To migrate from the non-exposable app, follow these steps:
 
 - stop the installed app
 - rename `runtipi/app-data/homeassistant` to `runtipi/app-data/__homeassistant`
 - make a backup of `runtipi/app-data/__homeassistant` to a safe location
 - uninstall the app
-- install the new Home Assistant from the App Store
+- install Home Assistant from the App Store
 - stop the app
 - remove `runtipi/app-data/homeassistant-1`
 - rename `runtipi/app-data/__homeassistant` to `runtipi/app-data/homeassistant-1`
