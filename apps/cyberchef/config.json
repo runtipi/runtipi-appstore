@@ -8,7 +8,7 @@
   "tipi_version": 1,
   "version": "latest",
   "categories": ["utilities"],
-  "description": "CyberChef is for simple, "cyber" operations within a web browser. ",
+  "description": "CyberChef is for simple cyber operations within a web browser. ",
   "short_desc": "The Cyber Swiss Army Knife",
   "author": "gchq",
   "source": "https://github.com/gchq/CyberChef",
