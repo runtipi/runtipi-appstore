@@ -1,0 +1,21 @@
+{
+  "$schema": "../schema.json",
+  "name": "cyberchef",
+  "port": 8155,
+  "available": true,
+  "exposable": true,
+  "id": "cyberchef",
+  "tipi_version": 1,
+  "version": "latest",
+  "categories": [
+    "utilities",
+    "development",
+    "security"
+  ],
+  "description": "CyberChef is a simple, intuitive web app for carrying out all manner of "cyber" operations within a web browser. ",
+  "short_desc": "The Cyber Swiss Army Knife",
+  "author": "CorentinTh",
+  "source": "https://github.com/gchq/CyberChef",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}
