@@ -7,14 +7,10 @@
   "id": "cyberchef",
   "tipi_version": 1,
   "version": "latest",
-  "categories": [
-    "utilities",
-    "development",
-    "security"
-  ],
-  "description": "CyberChef is a simple, intuitive web app for carrying out all manner of "cyber" operations within a web browser. ",
+  "categories": ["utilities"],
+  "description": "CyberChef is for simple, "cyber" operations within a web browser. ",
   "short_desc": "The Cyber Swiss Army Knife",
-  "author": "CorentinTh",
+  "author": "gchq",
   "source": "https://github.com/gchq/CyberChef",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"]
