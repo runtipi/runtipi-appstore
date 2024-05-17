@@ -10,6 +10,8 @@ services:
       - ${APP_DATA_DIR}/data/glance.yml:/app/glance.yml
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
+    networks:
+      - tipi_main_network
     labels:
       # Main
       traefik.enable: true
