@@ -1,0 +1,39 @@
+version: "3.9"
+services:
+  glance:
+    image: glanceapp/glance:v0.4.0
+    restart: unless-stopped
+    container_name: glance
+    ports:
+      - ${APP_PORT}:8080
+    volumes:
+      - ${APP_DATA_DIR}/data/glance.yml:/app/glance.yml
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.glance-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.glance.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.glance-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.glance-insecure.entrypoints: web
+      traefik.http.routers.glance-insecure.service: glance
+      traefik.http.routers.glance-insecure.middlewares: glance-web-redirect
+      # Websecure
+      traefik.http.routers.glance.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.glance.entrypoints: websecure
+      traefik.http.routers.glance.service: glance
+      traefik.http.routers.glance.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.glance-local-insecure.rule: Host(`glance.${LOCAL_DOMAIN}`)
+      traefik.http.routers.glance-local-insecure.entrypoints: web
+      traefik.http.routers.glance-local-insecure.service: glance
+      traefik.http.routers.glance-local-insecure.middlewares: glance-web-redirect
+      # Local domain secure
+      traefik.http.routers.glance-local.rule: Host(`glance.${LOCAL_DOMAIN}`)
+      traefik.http.routers.glance-local.entrypoints: websecure
+      traefik.http.routers.glance-local.service: glance
+      traefik.http.routers.glance-local.tls: true
