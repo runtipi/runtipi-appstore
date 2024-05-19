@@ -1,0 +1,33 @@
+{
+  "$schema": "../schema.json",
+  "name": "Open WebUI",
+  "available": true,
+  "exposable": true,
+  "port": 8536,
+  "id": "open-webui",
+  "tipi_version": 2,
+  "version": "git-90503be",
+  "categories": ["ai"],
+  "description": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted WebUI designed to operate entirely offline.",
+  "short_desc": "User-friendly WebUI for LLMs",
+  "author": "open-webui",
+  "source": "https://github.com/open-webui/open-webui",
+  "website": "https://openwebui.com/",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Ollama Api Url",
+      "placeholder": "http://ollama-cpu:11434",
+      "required": false,
+      "env_variable": "OPENWEBUI_OLLAMA_URL"
+    },
+    {
+      "type": "password",
+      "label": "Openai Api Key",
+      "required": false,
+      "env_variable": "OPENWEBUI_OPENAI_KEY"
+    }
+  ],
+  "dynamic_config": true,
+  "supported_architectures": ["arm64", "amd64"]
+}
