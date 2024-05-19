@@ -43,6 +43,7 @@ do
       # apply trimmed version to docker-compose.json's main service
       contents="$(jq --arg image "$image" --arg main_service_index "$main_service_index" '.services[$main_service_index | tonumber].image=$image' "$compose_file")"
       echo "${contents}" > "$compose_file"
+      npx prettier "$compose_file" --write
     fi
     
     # ------------------- Update config.json -------------------
@@ -50,9 +51,6 @@ do
     tipi_version=$((tipi_version + 1))
     contents="$(jq --argjson tipi_version $tipi_version '.tipi_version=$tipi_version' "$config_file")"
     echo "${contents}" > "$config_file"
-
-    # ------------------- Format files with prettier -------------------
     npx prettier "$config_file" --write
-    npx prettier "$compose_file" --write
 	fi
 done
