@@ -5,11 +5,9 @@
   "available": true,
   "exposable": true,
   "id": "wikijs",
-  "tipi_version": 7,
-  "version": "2.5.302",
-  "categories": [
-    "media"
-  ],
+  "tipi_version": 8,
+  "version": "2.5.303",
+  "categories": ["media"],
   "description": "A modern, lightweight and powerful wiki app built on NodeJS ",
   "short_desc": "A modern and powerful wiki app built on Node.js",
   "author": "https://github.com/requarks",
@@ -23,8 +21,5 @@
       "env_variable": "WIKI_JS_DB_PASS"
     }
   ],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"]
 }
