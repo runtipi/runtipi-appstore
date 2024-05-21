@@ -5,13 +5,14 @@
   "available": true,
   "exposable": true,
   "id": "onedev",
-  "tipi_version": 93,
+  "tipi_version": 94,
   "version": "10.7.3",
   "categories": ["development"],
-  "description": "Self-hosted Git Server with Kanban and CI/CD",
-  "short_desc": "Self-hosted Git Server with Kanban and CI/CD",
-  "author": "https://code.onedev.io/",
+  "description": "Self-hosted Git Server with Kanban and CI/CD.",
+  "short_desc": "Self-hosted Git Server with Kanban and CI/CD.",
+  "author": "onedev",
   "source": "https://code.onedev.io/onedev/server",
+  "website": "https://onedev.io",
   "form_fields": [
     {
       "type": "random",
@@ -21,7 +22,7 @@
     },
     {
       "type": "text",
-      "label": "Onedev username",
+      "label": "Onedev Username",
       "max": 50,
       "min": 3,
       "required": true,
@@ -29,7 +30,7 @@
     },
     {
       "type": "email",
-      "label": "Onedev email",
+      "label": "Onedev Email",
       "max": 50,
       "min": 3,
       "required": true,
@@ -37,7 +38,7 @@
     },
     {
       "type": "password",
-      "label": "Onedev password",
+      "label": "Onedev Password",
       "max": 50,
       "min": 8,
       "required": true,

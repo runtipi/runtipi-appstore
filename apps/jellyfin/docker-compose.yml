@@ -1,17 +1,14 @@
-version: "3.7"
 services:
   jellyfin:
     image: lscr.io/linuxserver/jellyfin:10.9.2
     container_name: jellyfin
+    restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
       - ${ROOT_FOLDER_HOST}/media/data:/media/data
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=${TZ}
       - JELLYFIN_PublishedServerUrl=${APP_PROTOCOL:-http}://${APP_DOMAIN}/
-    restart: "unless-stopped"
     ports:
       - ${APP_PORT}:8096
     networks:

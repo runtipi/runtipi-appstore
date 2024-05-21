@@ -1,13 +1,12 @@
-version: "3.9"
 services:
   homepage:
     image: ghcr.io/gethomepage/homepage:v0.8.13
     container_name: homepage
     restart: unless-stopped
-    ports:
-      - ${APP_PORT}:3000
     volumes:
       - ${APP_DATA_DIR}/data/:/app/config
+    ports:
+      - ${APP_PORT}:3000
     networks:
       - tipi_main_network
     labels:
@@ -35,4 +34,3 @@ services:
       traefik.http.routers.homepage-local.entrypoints: websecure
       traefik.http.routers.homepage-local.service: homepage
       traefik.http.routers.homepage-local.tls: true
-    

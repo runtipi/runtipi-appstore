@@ -1,30 +1,21 @@
-version: "3.7"
 services:
   invidious:
     container_name: invidious
-    image: quay.io/invidious/invidious:latest
+    image: quay.io/invidious/invidious:2024.04.26-eda7444
     restart: unless-stopped
     ports:
-      - "${APP_PORT}:3000"
+      - ${APP_PORT}:3000
     environment:
-      # Please read the following file for a comprehensive list of all available
-      # configuration options and their associated syntax:
-      # https://github.com/iv-org/invidious/blob/master/config/config.example.yml
       INVIDIOUS_CONFIG: |
         db:
           dbname: invidious
           user: tipi
-          password: tipi
+          password: ${INVIDIOUS_DB_PASSWORD}
           host: invidious-db
           port: 5432
         check_tables: true
         hmac_key: ${INVIDIOUS_HMAC_KEY}
         use_innertube_for_captions: true
-    healthcheck:
-      test: wget -nv --tries=1 --spider http://127.0.0.1:3000/api/v1/trending || exit 1
-      interval: 30s
-      timeout: 5s
-      retries: 2
     networks:
       - tipi_main_network
     labels:
@@ -64,8 +55,6 @@ services:
     environment:
       POSTGRES_DB: invidious
       POSTGRES_USER: tipi
-      POSTGRES_PASSWORD: tipi
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      POSTGRES_PASSWORD: ${INVIDIOUS_DB_PASSWORD}
     networks:
       - tipi_main_network

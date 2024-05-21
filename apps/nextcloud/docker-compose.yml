@@ -1,81 +1,85 @@
-version: "3.7"
-
 services:
   nextcloud:
     container_name: nextcloud
     image: nextcloud:26.0.13-apache
     restart: unless-stopped
-    ports:
-      - ${APP_PORT}:80
     volumes:
       - ${APP_DATA_DIR}/data/nextcloud:/var/www/html
     environment:
-      - POSTGRES_HOST=db-nextcloud
-      - REDIS_HOST=redis-nextcloud
+      - POSTGRES_HOST=nextcloud-db
+      - REDIS_HOST=nextcloud-redis
       - POSTGRES_PASSWORD=tipi
       - POSTGRES_USER=tipi
-      - POSTGRES_DB=nextcloud
+      - POSTGRES_DB=${NEXTCLOUD_DB_PASSWORD}
       - NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_ADMIN_USER}
       - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}
       - NEXTCLOUD_TRUSTED_DOMAINS=${APP_DOMAIN}
       - TRUSTED_PROXIES=172.16.0.0/12
       - OVERWRITEPROTOCOL=${APP_PROTOCOL:-http}
     depends_on:
-      - db-nextcloud
-      - redis-nextcloud
+      - nextcloud-db
+      - nextcloud-redis
+    ports:
+      - ${APP_PORT}:80
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: ${APP_EXPOSED}
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.nextcloud-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.nextcloud.loadbalancer.server.port: 4533
+      # Web
+      traefik.http.routers.nextcloud-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nextcloud-insecure.entrypoints: web
+      traefik.http.routers.nextcloud-insecure.service: nextcloud
+      traefik.http.routers.nextcloud-insecure.middlewares: nextcloud-web-redirect
+      # Websecure
       traefik.http.routers.nextcloud.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.nextcloud.entrypoints: websecure
       traefik.http.routers.nextcloud.service: nextcloud
       traefik.http.routers.nextcloud.tls.certresolver: myresolver
-      traefik.http.services.nextcloud.loadbalancer.server.port: 80
-      traefik.http.middlewares.nextcloud.headers.browserXSSFilter: true
-      traefik.http.middlewares.nextcloud.headers.contentTypeNosniff: true
-      traefik.http.middlewares.nextcloud.headers.stsIncludeSubdomains: true
-      traefik.http.middlewares.nextcloud.headers.stsPreload: true
-      traefik.http.middlewares.nextcloud.headers.stsSeconds: 155520011
-      traefik.http.middlewares.nextcloud_redirect.redirectregex.permanent: true
-      traefik.http.middlewares.nextcloud_redirect.redirectregex.regex: https://(.*)/.well-known/(card|cal)dav
-      traefik.http.middlewares.nextcloud_redirect.redirectregex.replacement: https://$${1}/remote.php/dav/
-      traefik.http.routers.nextcloud.middlewares: nextcloud,nextcloud_redirect,nextcloud-https
-      traefik.http.middlewares.nextcloud.headers.customRequestHeaders.X-Forwarded-Proto: https
-      traefik.http.middlewares.nextcloud-https.redirectscheme.scheme: https
-      traefik.http.routers.nextcloud-http.middlewares: nextcloud-https@docker
+      # Local domain
+      traefik.http.routers.nextcloud-local-insecure.rule: Host(`nextcloud.${LOCAL_DOMAIN}`)
+      traefik.http.routers.nextcloud-local-insecure.entrypoints: web
+      traefik.http.routers.nextcloud-local-insecure.service: nextcloud
+      traefik.http.routers.nextcloud-local-insecure.middlewares: nextcloud-web-redirect
+      # Local domain secure
+      traefik.http.routers.nextcloud-local.rule: Host(`nextcloud.${LOCAL_DOMAIN}`)
+      traefik.http.routers.nextcloud-local.entrypoints: websecure
+      traefik.http.routers.nextcloud-local.service: nextcloud
+      traefik.http.routers.nextcloud-local.tls: true
 
-  db-nextcloud:
-    container_name: db-nextcloud
+  nextcloud-db:
+    container_name: nextcloud-db
     image: postgres:14.2
-    restart: on-failure
+    restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_PASSWORD=tipi
+      - POSTGRES_PASSWORD=${NEXTCLOUD_DB_PASSWORD}
       - POSTGRES_USER=tipi
       - POSTGRES_DB=nextcloud
     networks:
       - tipi_main_network
 
-  redis-nextcloud:
-    container_name: redis-nextcloud
-    user: "1000:1000"
+  nextcloud-redis:
+    container_name: nextcloud-redis
     image: redis:6.2.6
-    restart: on-failure
+    restart: unless-stopped
     volumes:
-      - "${APP_DATA_DIR}/data/redis:/data"
+      - ${APP_DATA_DIR}/data/redis:/data
     networks:
       - tipi_main_network
 
-  cron:
+  nextcloud-cron:
+    container_name: nextcloud-cron
     image: nextcloud:25.0.13-apache
     restart: on-failure
     volumes:
       - ${APP_DATA_DIR}/data/nextcloud:/var/www/html
     entrypoint: /cron.sh
     depends_on:
-      - db-nextcloud
-      - redis-nextcloud
+      - nextcloud-db
+      - nextcloud-redis
     networks:
       - tipi_main_network

@@ -1,20 +1,12 @@
-version: "3.8"
-
 services:
   tailscale:
     container_name: tailscale
-    network_mode: "host" # TODO: Find a way to remove this
+    network_mode: "host"
     image: tailscale/tailscale:v1.64.2
     privileged: true
-    restart: on-failure
+    restart: unless-stopped
     stop_grace_period: 1m
     command: "sh -c 'tailscale web --listen 0.0.0.0:${APP_PORT} & exec tailscaled --tun=userspace-networking'"
     volumes:
-      - /var/lib:/var/lib
+      - ${APP_DATA_DIR}/data/:/var/lib
       - /dev/net/tun:/dev/net/tun
-    healthcheck:
-      test: wget --no-verbose --tries=1 --spider http://localhost:${APP_PORT}
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 30s

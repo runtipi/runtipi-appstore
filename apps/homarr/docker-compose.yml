@@ -1,4 +1,3 @@
-version: "3.7"
 services:
   homarr:
     container_name: homarr
@@ -8,10 +7,9 @@ services:
       - ${APP_DATA_DIR}/data/config:/app/data/configs
       - ${APP_DATA_DIR}/data/icons:/app/public/icons
       - ${APP_DATA_DIR}/data/dashboard:/data
-      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
       - PASSWORD=${HOMARR_PASSWORD}
-      - PGID=1000
       - TZ=${TZ}
     ports:
       - ${APP_PORT}:7575

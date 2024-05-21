@@ -1,28 +1,19 @@
-version: "3.7"
 services:
   transmission:
     image: lscr.io/linuxserver/transmission:4.0.5
     container_name: transmission
-    dns:
-      - ${DNS_IP}
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=${TZ}
-      - USER=${TRANSMISSION_USERNAME}
-      - PASS=${TRANSMISSION_PASSWORD}
-      # - TRANSMISSION_WEB_HOME=/transmission-web-control/
-      # - WHITELIST=iplist #optional
-      # - PEERPORT=peerport #optional
-      # - HOST_WHITELIST=dnsnane list #optional
+    restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
       - ${ROOT_FOLDER_HOST}/media/torrents:/media/torrents
+    environment:
+      - TZ=${TZ}
+      - USER=${TRANSMISSION_USERNAME}
+      - PASS=${TRANSMISSION_PASSWORD}
     ports:
       - ${APP_PORT}:9091
       - 51413:51413
       - 51413:51413/udp
-    restart: unless-stopped
     networks:
       - tipi_main_network
     labels:

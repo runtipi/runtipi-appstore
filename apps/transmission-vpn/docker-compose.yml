@@ -1,13 +1,16 @@
 services:
   transmission-vpn:
     image: haugene/transmission-openvpn:5.3.1
+    restart: unless-stopped
     container_name: transmission-vpn
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${APP_DATA_DIR}/data/custom:/etc/openvpn/custom
+      - ${ROOT_FOLDER_HOST}/media/torrents:/media/torrents
     cap_add:
       - NET_ADMIN
-    devices: 
+    devices:
       - /dev/net/tun
-    dns:
-      - ${DNS_IP}
     environment:
       - PUID=${TRANSMISSION_PUID-1000}
       - PGID=${TRANSMISSION_PGID-1000}
@@ -34,22 +37,12 @@ services:
       - TRANSMISSION_PEX_ENABLED=${TRANSMISSION_PEX_ENABLED-false}
       - TRANSMISSION_BLOCKLIST_ENABLED=${TRANSMISSION_BLOCKLIST_ENABLED-true}
       - TRANSMISSION_BLOCKLIST_URL=${TRANSMISSION_BLOCKLIST_URL-http://list.iblocklist.com/?list=bt_level1&fileformat=p2p&archiveformat=gz}
-
-    volumes:
-      - ${APP_DATA_DIR}/data/config:/config
-      - ${APP_DATA_DIR}/data/custom:/etc/openvpn/custom
-      - ${ROOT_FOLDER_HOST}/media/torrents:/media/torrents
     ports:
       - ${APP_PORT}:9091
-    restart: unless-stopped
     networks:
       - tipi_main_network
-    sysctls :
+    sysctls:
       - net.ipv6.conf.all.disable_ipv6=0
-    logging:
-      driver: json-file
-      options:
-        max-size: 10m
     labels:
       # Main
       traefik.enable: true

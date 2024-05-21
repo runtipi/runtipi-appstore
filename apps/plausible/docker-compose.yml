@@ -1,21 +1,20 @@
-version: "3.7"
 services:
   plausible:
     container_name: plausible
     image: plausible/analytics:v1.5.1
-    restart: always
+    restart: unless-stopped
     command: sh -c "sleep 10 && /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh db init-admin && /entrypoint.sh run"
+    environment:
+      - BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - SECRET_KEY_BASE=${PLAUSIBLE_SECRET_KEY_BASE}
+      - DATABASE_URL=postgres://tipi:${PLAUSIBLE_DB_PASSWORD}@plausible-db:5432/plausible-db
+      - CLICKHOUSE_DATABASE_URL=http://plausible-events-db:8123/plausible_events_db
+      - DISABLE_REGISTRATION=${PLAUSIBLE_DISABLE_REGISTRATION}
     depends_on:
       - plausible-db
       - plausible-events-db
     ports:
-      - ${APP_PORT}:8000 
-    environment:
-      - BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN} 
-      - SECRET_KEY_BASE=${PLAUSIBLE_SECRET_KEY_BASE} 
-      - DATABASE_URL=postgres://tipi:${PLAUSIBLE_DB_PASSWORD}@plausible-db:5432/plausible-db
-      - CLICKHOUSE_DATABASE_URL=http://plausible-events-db:8123/plausible_events_db
-      - DISABLE_REGISTRATION=${PLAUSIBLE_DISABLE_REGISTRATION}
+      - ${APP_PORT}:8000
     networks:
       - tipi_main_network
     labels:
@@ -45,10 +44,9 @@ services:
       traefik.http.routers.plausible-local.tls: true
 
   plausible-db:
-    # supported versions are 12, 13, and 14
-    image: postgres:14-alpine
-    container_name: plausible-db    
-    restart: always
+    image: postgres:14
+    container_name: plausible-db
+    restart: unless-stopped
     networks:
       - tipi_main_network
     volumes:
@@ -61,9 +59,9 @@ services:
   plausible-events-db:
     container_name: plausible-events-db
     image: clickhouse/clickhouse-server:22.6-alpine
-    restart: always
+    restart: unless-stopped
     networks:
-      - tipi_main_network 
+      - tipi_main_network
     volumes:
       - ${APP_DATA_DIR}/data/plausible-event-data:/var/lib/clickhouse
       - ${APP_DATA_DIR}/data/clickhouse/clickhouse-config.xml:/etc/clickhouse-server/config.d/logging.xml:ro
@@ -72,4 +70,3 @@ services:
       nofile:
         soft: 262144
         hard: 262144
-

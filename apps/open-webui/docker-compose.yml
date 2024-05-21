@@ -1,16 +1,15 @@
-version: "3.8"
 services:
   open-webui:
     image: ghcr.io/open-webui/open-webui:git-90503be
     container_name: open-webui
+    restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data:/app/backend/data
-    ports:
-      - ${APP_PORT}:8080
     environment:
       - OLLAMA_BASE_URL=${OPENWEBUI_OLLAMA_URL}
       - OPENAI_API_KEY=${OPENWEBUI_OPENAI_KEY}
-    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:8080
     networks:
       - tipi_main_network
     labels:

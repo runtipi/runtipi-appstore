@@ -5,11 +5,9 @@
   "exposable": true,
   "port": 8125,
   "id": "uptime-kuma",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "1",
-  "categories": [
-    "utilities"
-  ],
+  "categories": ["utilities"],
   "description": "It is a self-hosted monitoring tool like Uptime Robot.",
   "short_desc": "A fancy self-hosted monitoring tool.",
   "author": "louislam",

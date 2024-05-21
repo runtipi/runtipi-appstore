@@ -1,15 +1,13 @@
-version: "3.7"
-
 services:
   portainer:
     image: portainer/portainer-ce:2.20.3-alpine
     container_name: portainer
     restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ${APP_DATA_DIR}/data:/data
     ports:
       - ${APP_PORT}:9443
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - "${APP_DATA_DIR}/data:/data"
     networks:
       - tipi_main_network
     labels:

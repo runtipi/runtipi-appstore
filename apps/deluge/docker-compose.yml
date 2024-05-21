@@ -1,21 +1,18 @@
-version: "2.1"
 services:
   deluge:
     image: lscr.io/linuxserver/deluge:2.1.1
     container_name: deluge
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=${TZ}
-      - DELUGE_LOGLEVEL=error #optional
+    restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/deluge/config:/config
       - ${ROOT_FOLDER_HOST}/media/torrents:/media/torrents
+    environment:
+      - TZ=${TZ}
+      - DELUGE_LOGLEVEL=error
     ports:
       - ${APP_PORT}:8112
       - 6881:6881
       - 6881:6881/udp
-    restart: unless-stopped
     networks:
       - tipi_main_network
     labels:

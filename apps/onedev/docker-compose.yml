@@ -1,9 +1,11 @@
-version: "3.7"
-
 services:
   onedev:
     image: 1dev/server:10.7.3
     container_name: onedev
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/onedev:/opt/onedev
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
       - hibernate_dialect=io.onedev.server.persistence.PostgreSQLDialect
       - hibernate_connection_driver_class=org.postgresql.Driver
@@ -14,15 +16,11 @@ services:
       - initial_password=${ONEDEV_PASSWORD}
       - initial_email=${ONEDEV_EMAIL}
       - initial_server_url=${APP_DOMAIN}
-    restart: unless-stopped
-    volumes:
-      - ${APP_DATA_DIR}/data/onedev:/opt/onedev
-      - /var/run/docker.sock:/var/run/docker.sock
-    ports:
-      - ${APP_PORT}:6610
-      - "6611:6611"
     depends_on:
       - onedev-db
+    ports:
+      - ${APP_PORT}:6610
+      - 6611:6611
     networks:
       - tipi_main_network
     labels:

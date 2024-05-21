@@ -1,1 +1,0 @@
-Koillection is a self-hosted service allowing users to manage any kind of collections.
