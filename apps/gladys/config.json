@@ -5,19 +5,14 @@
   "available": true,
   "exposable": false,
   "id": "gladys",
-  "tipi_version": 35,
-  "version": "4.41.0",
-  "categories": [
-    "automation"
-  ],
+  "tipi_version": 36,
+  "version": "4.42.0",
+  "categories": ["automation"],
   "description": "A privacy-first, open-source home assistant",
   "short_desc": "A privacy-first, open-source home assistant",
   "author": "Gladys Assistant",
   "source": "https://github.com/gladysassistant/gladys",
   "website": "https://gladysassistant.com/",
   "form_fields": [],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"]
 }
