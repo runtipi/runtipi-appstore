@@ -18,6 +18,6 @@
   "supported_architectures": [
     "arm64",
     "amd64",
-    "armv7"
+    "arm"
   ]
 }
