@@ -3,29 +3,18 @@
   "name": "Stalwart Mail",
   "available": true,
   "exposable": true,
-  "tipi_version": 3,
-  "version": "0.7.3",
+  "tipi_version": 4,
+  "version": "0.8.1",
   "port": 8677,
   "id": "stalwart-mail",
-  "categories": [
-    "media",
-    "network",
-    "utilities"
-  ],
+  "categories": ["media", "network", "utilities"],
   "description": "Stalwart is a scalable, secure and robust open-source mail server software designed for the 21st century.",
   "short_desc": "Open-source mail server solution with JMAP, IMAP4, and SMTP support",
   "author": "Stalwart Labs",
   "source": "https://github.com/stalwartlabs",
   "website": "https://stalw.art",
   "requirements": {
-    "ports": [
-      25,
-      143,
-      465,
-      587,
-      993,
-      4190
-    ]
+    "ports": [25, 143, 465, 587, 993, 4190]
   },
   "form_fields": [
     {
@@ -35,8 +24,5 @@
       "env_variable": "NETWORK_INTERFACE"
     }
   ],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"]
 }
