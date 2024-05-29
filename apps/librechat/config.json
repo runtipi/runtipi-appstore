@@ -1,0 +1,15 @@
+{
+  "name": "LibreChat",
+  "id": "librechat",
+  "available": true,
+  "short_desc": "LibreChat is a free, open source AI chat platform",
+  "author": "me",
+  "port": 8899,
+  "categories": ["ai"],
+  "description": "LibreChat is a free, open source AI chat platform. This Web UI offers vast customization, supporting numerous AI providers, services, and integrations. Serves all AI Conversations in one place with a familiar interface, innovative enhancements, for as many users as you need.",
+  "tipi_version": 1,
+  "version": "v0.7.2",
+  "source": "https://github.com/danny-avila/LibreChat",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"]
+}
