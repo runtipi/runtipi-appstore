@@ -14,4 +14,4 @@ services:
         network_mode: host
         restart: unless-stopped
         pull_policy: always
-        image: twingate/connector:1
+        image: twingate/connector:latest
