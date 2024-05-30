@@ -1,0 +1,24 @@
+{
+  "$schema": "../schema.json",
+  "name": "Twingate",
+  "available": true,
+  "exposable": false,
+  "id": "twingate",
+  "tipi_version": 1,
+  "version": "latest",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Twingate makes Zero Trust Network Access easy to deploy, even easier to use, and always secure. Twingate is a central Zero Trust orchestration layer, so you can create a best-in-class security ecosystem without having to recut your network.
+
+The Connector is a Twingate component that is deployed behind your firewall to provide access to private Resources.",
+  "short_desc": "Twingate Zero Trust Network Access easy to deploy, easy to use and always secure.",
+  "author": "Twingate",
+  "source": "https://github.com/Twingate",
+  "form_fields": [],
+  "supported_architectures": [
+    "arm32v7",
+    "amd64",
+    "arm64v8"
+  ]
+}

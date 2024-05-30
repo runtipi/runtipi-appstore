@@ -1,0 +1,17 @@
+version: "3.9"
+
+name: twingate
+services:
+    connector:
+        environment:
+            - TWINGATE_NETWORK="nextgenhomelab"
+            - TWINGATE_ACCESS_TOKEN="eyJhbGciOiJFUzI1NiIsImtpZCI6IjRDTkFzWTRmZnZVX05Vby0zaTlSX2VvTnZWOFY3ME5aM2F2TW5IV2lZZ1UiLCJ0eXAiOiJEQVQifQ.eyJudCI6IkFOIiwiYWlkIjoiMjg2ODE0IiwiZGlkIjoiMTQ0MzU5OSIsImp0aSI6IjE5N2ViYTg2LTk4NGQtNDU3MS1iMGExLTQ4ZDJjOTNmNTRhYyIsImlzcyI6InR3aW5nYXRlIiwiYXVkIjoibmV4dGdlbmhvbWVsYWIiLCJleHAiOjE3MTcxMDAxODAsImlhdCI6MTcxNzA5NjU4MCwidmVyIjoiNCIsInRpZCI6Ijg3MjQ1Iiwicm53IjoxNzE3MDk2ODMyLCJybmV0aWQiOiIxMTMxNzcifQ.uCe1tov2kobefo9qdipDZsc755qfBuds-ucf-djPftwzlI4g-hHh0eQIVw5bvz_Eaqro3qeMB04XPmSDF32daw"
+            - TWINGATE_REFRESH_TOKEN="pga37023WxHbiLvHP-OZwAvG1Bi3OlIH-OaGRm_niXZSQEZL5jjFf3x_1EpDI3Lz6ojZCPA5-P1ftvI6GHIsIFUJ9IRkMMjUuKB3axfMr3pXWSltQfmSm_xud5AA-WibRDKjtw"
+            - TWINGATE_LABEL_HOSTNAME=`hostname`
+            - TWINGATE_LOG_ANALYTICS=v2
+            - TWINGATE_LABEL_DEPLOYED_BY=docker
+        container_name: twingate-unbiased-basilisk
+        network_mode: host
+        restart: unless-stopped
+        pull_policy: always
+        image: twingate/connector:1
