@@ -6,19 +6,14 @@
   "exposable": true,
   "id": "koillection",
   "description": "Koillection is a self-hosted service allowing users to manage any kind of collections.",
-  "tipi_version": 11,
-  "version": "1.5.9",
-  "categories": [
-    "utilities"
-  ],
+  "tipi_version": 12,
+  "version": "1.5.10",
+  "categories": ["utilities"],
   "short_desc": "Koillection allow you to manage any kind of collections.",
   "author": "https://github.com/benjaminjonard",
   "source": "https://github.com/benjaminjonard/koillection",
   "website": "https://koillection.github.io/",
-  "supported_architectures": [
-    "amd64",
-    "arm64"
-  ],
+  "supported_architectures": ["amd64", "arm64"],
   "form_fields": [
     {
       "type": "random",
