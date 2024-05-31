@@ -1,4 +1,4 @@
-version: "3.7"
+version: '3.7'
 
 services:
   lodestone-core:
@@ -8,8 +8,8 @@ services:
       - ${APP_PORT}:16662
       - 25565-25575:25565-25575
     restart: unless-stopped
+    user: 0:0
     volumes:
-      - ${APP_DATA_DIR}/data/lodestone-data:/home/user/.lodestone
       - ${APP_DATA_DIR}/data/lodestone-data:/root/.lodestone
     networks:
       - tipi_main_network
