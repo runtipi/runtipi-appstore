@@ -5,11 +5,9 @@
   "available": true,
   "exposable": true,
   "id": "ctfd",
-  "tipi_version": 2,
-  "version": "3.7.0",
-  "categories": [
-    "utilities"
-  ],
+  "tipi_version": 3,
+  "version": "3.7.1",
+  "categories": ["utilities"],
   "description": "CTFd is a Capture The Flag framework focusing on ease of use and customizability.",
   "short_desc": "Cyber Security Training made simple.",
   "author": "CTFd",
@@ -35,8 +33,5 @@
       "env_variable": "CTFD_MYSQL_ROOT_PASSWORD"
     }
   ],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"]
 }
