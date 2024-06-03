@@ -1,6 +1,6 @@
 services:
   invoice-ninja:
-    image: invoiceninja/invoiceninja:5.8.57
+    image: invoiceninja/invoiceninja:5.9.1
     container_name: invoice-ninja
     restart: unless-stopped
     user: 1500:1500
@@ -24,8 +24,7 @@ services:
       - ${APP_DATA_DIR}/data/php/php.ini:/usr/local/etc/php/php.ini:ro
       - ${APP_DATA_DIR}/data/php/php-cli.ini:/usr/local/etc/php/php-cli.ini:ro
     depends_on:
-      invoice-ninja-db:
-        condition: service_healthy
+      - invoice-ninja-db
     networks:
       - tipi_main_network
 
@@ -85,12 +84,8 @@ services:
     depends_on:
       invoice-ninja-init:
         condition: service_completed_successfully
-    healthcheck:
-      test: ['CMD', 'healthcheck.sh', '--su-mysql', '--connect', '--innodb_initialized']
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 10s
+    # This command is required to set important mariadb defaults
+    command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --wait_timeout=28800, --log-warnings=0]
 
   invoice-ninja-init:
     image: bash:5.2.26
