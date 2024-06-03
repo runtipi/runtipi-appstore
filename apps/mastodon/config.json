@@ -7,11 +7,9 @@
   "force_expose": true,
   "generate_vapid_keys": true,
   "id": "mastodon",
-  "tipi_version": 18,
-  "version": "4.2.8",
-  "categories": [
-    "social"
-  ],
+  "tipi_version": 19,
+  "version": "4.2.9",
+  "categories": ["social"],
   "description": "Your self-hosted, globally interconnected microblogging community",
   "short_desc": "Your self-hosted, globally interconnected microblogging community",
   "author": "Mastodon",
@@ -93,8 +91,5 @@
       "env_variable": "MASTODON_LOCAL_DOMAIN"
     }
   ],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"]
 }
