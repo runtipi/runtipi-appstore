@@ -5,14 +5,15 @@
   "exposable": true,
   "id": "slskd",
   "description": "A modern client-server application for the Soulseek file-sharing network.",
-  "tipi_version": 1,
-  "version": "0.20.1",
+  "tipi_version": 2,
+  "version": "0.21.0",
   "categories": ["utilities"],
   "short_desc": "P2P downloads",
   "author": "jpdillingham",
   "source": "https://github.com/slskd/slskd",
   "supported_architectures": ["amd64", "arm64"],
-  "form_fields": [{
+  "form_fields": [
+    {
       "type": "text",
       "label": "WebUI username",
       "max": 50,
@@ -21,34 +22,34 @@
       "env_variable": "SLSKD_WEB_USER"
     },
     {
-        "type": "password",
-        "label": "WebUI password",
-        "max": 50,
-        "min": 3,
-        "required": true,
-        "env_variable": "SLSKD_WEB_PASSWORD"
+      "type": "password",
+      "label": "WebUI password",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "SLSKD_WEB_PASSWORD"
     },
     {
-        "type": "text",
-        "label": "Soulseek username",
-        "max": 50,
-        "min": 3,
-        "required": true,
-        "env_variable": "SLSKD_USER"
+      "type": "text",
+      "label": "Soulseek username",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "SLSKD_USER"
     },
     {
-        "type": "password",
-        "label": "Soulseek password",
-        "max": 50,
-        "min": 3,
-        "required": true,
-        "env_variable": "SLSKD_PASSWORD"
+      "type": "password",
+      "label": "Soulseek password",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "SLSKD_PASSWORD"
     },
     {
-        "type": "boolean",
-        "label": "Allow remote configuration",
-        "required": true,
-        "env_variable": "SLSKD_REMOTE_CONFIGURATION"
+      "type": "boolean",
+      "label": "Allow remote configuration",
+      "required": true,
+      "env_variable": "SLSKD_REMOTE_CONFIGURATION"
     }
   ]
 }

@@ -1,0 +1,35 @@
+{
+  "$schema": "../schema.json",
+  "name": "Spacedrive",
+  "available": true,
+  "exposable": true,
+  "port": 9300,
+  "id": "spacedrive",
+  "tipi_version": 2,
+  "version": "0.3.1",
+  "categories": ["utilities"],
+  "description": "Spacedrive is an open source cross-platform file explorer, powered by a virtual distributed filesystem written in Rust.",
+  "short_desc": "Cross-platform file explorer",
+  "author": "spacedriveapp",
+  "source": "https://github.com/spacedriveapp/spacedrive",
+  "website": "https://spacedrive.com/",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Spacedrive Username",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "SD_AUTH_USER"
+    },
+    {
+      "type": "password",
+      "label": "Spacedrive Password",
+      "max": 50,
+      "min": 12,
+      "required": true,
+      "env_variable": "SD_AUTH_PASSWORD"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

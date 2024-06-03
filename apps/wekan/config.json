@@ -5,11 +5,9 @@
   "available": true,
   "exposable": true,
   "id": "wekan",
-  "tipi_version": 19,
-  "version": "7.45",
-  "categories": [
-    "development"
-  ],
+  "tipi_version": 20,
+  "version": "7.47",
+  "categories": ["development"],
   "description": "Experience efficient task management with WeKan - the Open-Source, customizable, and privacy-focused kanban",
   "short_desc": "Open-Source, customizable, and privacy-focused kanban",
   "author": "Lauri Ojansivu",
@@ -30,7 +28,5 @@
       "env_variable": "MAIL_PASSWORD"
     }
   ],
-  "supported_architectures": [
-    "amd64"
-  ]
+  "supported_architectures": ["amd64"]
 }
