@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  grampsweb:
+    image: ghcr.io/gramps-project/grampsweb:latest
+    restart: always
+    ports:
+      - ${APP_PORT}:5000 # host:docker
+    environment:
+      GRAMPSWEB_TREE: ${GRAMPS_TREE} # will create a new tree if not exists
+      GUNICORN_NUM_WORKERS: 1
+    volumes:
+      - ${APP_DATA_DIR}/users:/app/users # persist user database
+      - ${APP_DATA_DIR}/index:/app/indexdir # persist search index
+      - ${APP_DATA_DIR}/thumb_cache:/app/thumbnail_cache # persist thumbnails
+      - ${APP_DATA_DIR}/cache:/app/cache # persist export and report caches
+      - ${APP_DATA_DIR}/secret:/app/secret # persist flask secret
+      - ${APP_DATA_DIR}/db:/root/.gramps/grampsdb # persist Gramps database
+      - ${APP_DATA_DIR}/media:/app/media # persist media files
+      - ${APP_DATA_DIR}/tmp:/tmp
