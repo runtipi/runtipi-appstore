@@ -6,14 +6,14 @@ Gramps Web is composed of three building blocks: at its core, the [Gramps](https
 
 ## Screenshot
 
-![](https://raw.githubusercontent.com/gramps-project/gramps-web/c616f9bfac76a613692b1c3c3582b00ca05b24d5/screenshot.png)
+![Gramps Web Screenshot](https://raw.githubusercontent.com/gramps-project/gramps-web/c616f9bfac76a613692b1c3c3582b00ca05b24d5/screenshot.png)
 
 ## Demo
 
-A demo deployment based on the Gramps example family tree is available at https://demo.grampsweb.org/. Use `owner`, `editor`, `contributor`, or `member` as username and the same as password.
+A demo deployment based on the Gramps example family tree is available at [Demo](https://demo.grampsweb.org/). Use `owner`, `editor`, `contributor`, or `member` as username and the same as password.
 
 ## Documentation
 
-- The user documentation for Gramps Web can be found at https://www.grampsweb.org/
-- The developer documentation for the frontend can be found at https://www.grampsweb.org/dev-frontend/
-- For reporting issues or giving feedback, please see https://www.grampsweb.org/help/
+- The user documentation for Gramps Web can be found at [Gramps Web Homepage](https://www.grampsweb.org/)
+- The developer documentation for the frontend can be found at [Gramps Web Developer Documentation](https://www.grampsweb.org/dev-frontend/)
+- For reporting issues or giving feedback, please see [Gramps Web Help](https://www.grampsweb.org/help/)
