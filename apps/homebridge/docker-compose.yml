@@ -3,7 +3,7 @@ version: '3'
 services:
   homebridge:
     container_name: homebridge
-    image: homebridge/homebridge:latest
+    image: homebridge/homebridge:2024-05-02
     restart: unless-stopped
     privileged: true
     network_mode: host
