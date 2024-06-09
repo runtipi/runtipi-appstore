@@ -6,7 +6,7 @@
 
 ## Preview
 
-![mqttx-preview](https://github.com/emqx/MQTTX/blob/main/assets/mqttx-web-preview.png)
+![mqttx-preview](https://raw.githubusercontent.com/emqx/MQTTX/main/assets/mqttx-web-preview.png)
 
 ## Usage
 
@@ -14,15 +14,15 @@ See the MQTTX [documentation](https://mqttx.app/docs) or [manual](./docs/manual.
 
 1. Get MQTT Broker Ready.
 
-    - If you do not need to deploy the MQTT Broker locally, you can use the [public MQTT 5.0 Broker](https://www.emqx.com/en/mqtt/public-mqtt5-broker) provided by [EMQX Cloud](https://www.emqx.com/en/cloud) for testing:
+   - If you do not need to deploy the MQTT Broker locally, you can use the [public MQTT 5.0 Broker](https://www.emqx.com/en/mqtt/public-mqtt5-broker) provided by [EMQX Cloud](https://www.emqx.com/en/cloud) for testing:
 
-        ```shell
-        Broker IP: broker.emqx.io
-        Broker TCP Port: 1883
-        Broker SSL Port: 8883
-        ```
+     ```shell
+     Broker IP: broker.emqx.io
+     Broker TCP Port: 1883
+     Broker SSL Port: 8883
+     ```
 
-    - To run MQTT Broker locally, use the [Eclipse Mosquitto](https://github.com/runtipi/runtipi-appstore/blob/master/apps/eclipse-mosquitto/) Tipi app. Follow the steps mentioned in its [description](https://github.com/runtipi/runtipi-appstore/blob/master/apps/eclipse-mosquitto/metadata/description.md) to turn on Websockets so that the MQTTX web client can connect to it.
+   - To run MQTT Broker locally, use the [Eclipse Mosquitto](https://github.com/runtipi/runtipi-appstore/blob/master/apps/eclipse-mosquitto/) Tipi app. Follow the steps mentioned in its [description](https://github.com/runtipi/runtipi-appstore/blob/master/apps/eclipse-mosquitto/metadata/description.md) to turn on Websockets so that the MQTTX web client can connect to it.
 
 2. Connection configuration. Click the `+` button in the left menu bar and fill in the corresponding required fields in the form.
 
@@ -30,7 +30,7 @@ See the MQTTX [documentation](https://mqttx.app/docs) or [manual](./docs/manual.
 
 4. After the MQTT is connected successfully, you can perform MQTT publish and subscription tests.
 
-![mqttx-gif](https://github.com/emqx/MQTTX/blob/main/assets/mqttx-gif.gif)
+![mqttx-gif](https://raw.githubusercontent.com/emqx/MQTTX/main/assets/mqttx-gif.gif)
 
 ## Get Involved
 
@@ -45,7 +45,7 @@ Recommended version for Node environment:
 
 - v16.\*.\*
 
-``` shell
+```shell
 # Clone
 git clone git@github.com:emqx/MQTTX.git
 
