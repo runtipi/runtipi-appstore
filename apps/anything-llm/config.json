@@ -3,17 +3,18 @@
   "name": "AnythingLLM",
   "available": true,
   "exposable": true,
-  "port": 3001,
+  "port": 33001,
   "id": "anything-llm",
   "tipi_version": 2,
   "version": "latest",
   "categories": [
-    "utilities"
+    "utilities",
+    "ai"
   ],
   "description": "AnythingLLM web server",
   "short_desc": "AnythingLLM web server",
-  "author": "author_name",
-  "source": "https://github.com/author_name/anything-llm",
+  "author": "Mintplex Labs",
+  "source": "https://github.com/Mintplex-Labs/anything-llm",
   "form_fields": [],
-  "supported_architectures": ["amd64"]
+  "supported_architectures": ["amd64","arm64"]
 }
