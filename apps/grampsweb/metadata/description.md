@@ -16,4 +16,4 @@ A demo deployment based on the Gramps example family tree is available at [Demo]
 
 - The user documentation for Gramps Web can be found at [Gramps Web Homepage](https://www.grampsweb.org/)
 - The developer documentation for the frontend can be found at [Gramps Web Developer Documentation](https://www.grampsweb.org/dev-frontend/)
-- For reporting issues or giving feedback, please see [Gramps Web Help](https://www.grampsweb.org/help/)
+To report issues or provide feedback, visit [Gramps Web Help](https://www.grampsweb.org/help/)
