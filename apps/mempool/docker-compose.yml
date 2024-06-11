@@ -9,7 +9,7 @@ services:
     ports:
       - 2200:8080
     depends_on:
-      - db
+      - mempool-db
     environment:
       FRONTEND_HTTP_PORT: "8080"
       BACKEND_MAINNET_HTTP_HOST: "api"
