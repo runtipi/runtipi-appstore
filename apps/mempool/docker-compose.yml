@@ -1,7 +1,7 @@
 services:
   mempool:
     container_name: mempool
-    image: mempool/frontend:v3.0.0-dev8
+    image: mempool/frontend:v3.0.0-dev2
     restart: unless-stopped
     stop_grace_period: 1m
     user: 0:0
@@ -44,7 +44,7 @@ services:
 
   mempool-api:
     container_name: mempool-api
-    image: mempool/backend:v3.0.0-dev8
+    image: mempool/backend:v3.0.0-dev2
     restart: unless-stopped
     stop_grace_period: 1m
     user: 0:0
