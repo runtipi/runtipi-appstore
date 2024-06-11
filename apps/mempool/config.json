@@ -29,21 +29,14 @@
       },
       {
          "type": "text",
-         "label": "Bitcoin node RPC username",
-         "hint": "You have to add it on the bitcoin.conf file",
-         "required": true,
-         "env_variable": "CORE_RPC_USERNAME"
+         "label": "Bitcoin data folder location (for .cookie file)",
+         "hint": "Default, tipi bitcoin folder",
+         "required": false,
+         "env_variable": "BITCOIND_DIR"
       },
       {
-         "type": "password",
-         "label": "Bitcoin node RPC password",
-         "hint": "You have to add it on the bitcoin.conf file",
-         "required": true,
-         "env_variable": "CORE_RPC_PASSWORD"
-      },
-      {
-         "type": "password",
-         "label": "DB password",
+         "type": "random",
+         "label": "Mempool DB password",
          "min": 32,
          "env_variable": "MEMPOOL_DB_PASSWORD"
       }
