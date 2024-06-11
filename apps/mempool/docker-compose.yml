@@ -50,7 +50,7 @@ services:
     user: "1000:1000"
     command: "./start.sh"
     depends_on:
-      - db
+      - mempool-db
     environment:
       MEMPOOL_BACKEND: "electrum"
       ELECTRUM_HOST: "electrs"
