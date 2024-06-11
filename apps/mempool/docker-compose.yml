@@ -1,7 +1,7 @@
 services:
   mempool:
     container_name: mempool
-    image: mempool/frontend:v2.5.1
+    image: mempool/frontend:v3.0.0-dev8
     restart: unless-stopped
     stop_grace_period: 1m
     user: 0:0
@@ -44,7 +44,7 @@ services:
 
   mempool-api:
     container_name: mempool-api
-    image: mempool/backend:v2.5.1
+    image: mempool/backend:v3.0.0-dev8
     restart: unless-stopped
     stop_grace_period: 1m
     user: 0:0
@@ -62,7 +62,7 @@ services:
       CORE_RPC_HOST: ${CORE_RPC_HOST:-bitcoind}
       CORE_RPC_PORT: "8332"
       CORE_RPC_COOKIE: true
-      CORE_RPC_COOKIE_PATH: /data/.bitcoin
+      CORE_RPC_COOKIE_PATH: /data/.bitcoin/.cookie
       CORE_RPC_TIMEOUT: "60000"
       DATABASE_ENABLED: "true"
       DATABASE_HOST: "mempool-db"
