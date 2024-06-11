@@ -4,7 +4,7 @@ services:
     image: mempool/frontend:v2.5.1
     restart: unless-stopped
     stop_grace_period: 1m
-    user: "1000:1000"
+    user: 0:0
     command: "nginx -g 'daemon off;'"
     ports:
       - 2200:8080
@@ -47,7 +47,7 @@ services:
     image: mempool/backend:v2.5.1
     restart: unless-stopped
     stop_grace_period: 1m
-    user: "1000:1000"
+    user: 0:0
     volumes:
       - ${BITCOIND_DIR:-${APP_DATA_DIR}/../bitcoind/data}:/data/.bitcoin:ro
       - ${APP_DATA_DIR}/data:/backend/cache
@@ -78,7 +78,7 @@ services:
     image: mariadb:10.5.21
     restart: unless-stopped
     stop_grace_period: 1m
-    user: "1000:1000"
+    user: 0:0
     environment:
       MYSQL_DATABASE: "mempool"
       MYSQL_USER: "mempool"
