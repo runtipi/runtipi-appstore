@@ -12,7 +12,7 @@ services:
       - mempool-db
     environment:
       FRONTEND_HTTP_PORT: "8080"
-      BACKEND_MAINNET_HTTP_HOST: "api"
+      BACKEND_MAINNET_HTTP_HOST: "mempool-api"
     networks:
       - tipi_main_network
     labels:
