@@ -7,7 +7,7 @@
   "port": 8333,
   "id": "bitcoind",
   "description": "Bitcoin core node",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "27.0",
   "categories": [
     "finance"
