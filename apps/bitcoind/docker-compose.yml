@@ -17,7 +17,7 @@ services:
       -dbcache=${BITCOIND_DB_CACHE:-450}
       -maxmempool=${BITCOIND_MAX_MEMPOOL:-300}
       -listen=${BITCOIND_LISTEN:-0}
-      -server=${BITCOIND_SERVER:-0}
+      -server=${BITCOIND_SERVER:-1}
       -prune=${BITCOIND_PRUNING:-0}
       -maxconnections=${BITCOIND_MAXPEERS:-125}
       -txindex=${BITCOIND_TXINDEX:-1}
