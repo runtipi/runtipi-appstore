@@ -29,6 +29,23 @@
       },
       {
          "type": "text",
+         "label": "Electrs host address",
+         "hint": "Default, tipi electrs host",
+         "placeholder": "172.27.0.1",
+         "required": false,
+         "env_variable": "ELECTRUM_HOST"
+      },
+      {
+         "type": "number",
+         "label": "Electrum host port",
+         "hint": "Default, tipi electrs host",
+         "placeholder": 50001,
+         "default": "50001",
+         "required": false,
+         "env_variable": "ELECTRUM_PORT"
+      },
+      {
+         "type": "text",
          "label": "Bitcoin data folder location (for .cookie file)",
          "hint": "Default, tipi bitcoin folder",
          "required": false,

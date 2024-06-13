@@ -56,8 +56,8 @@ services:
       - mempool-db
     environment:
       MEMPOOL_BACKEND: "electrum"
-      ELECTRUM_HOST: "electrs"
-      ELECTRUM_PORT: "50001"
+      ELECTRUM_HOST: ${ELECTRUM_HOST:-electrs}
+      ELECTRUM_PORT: ${ELECTRUM_PORT:-50001}
       ELECTRUM_TLS_ENABLED: "false"
       CORE_RPC_HOST: ${CORE_RPC_HOST:-bitcoind}
       CORE_RPC_PORT: "8332"
