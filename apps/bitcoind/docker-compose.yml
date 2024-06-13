@@ -16,7 +16,7 @@ services:
     command: >-
       -dbcache=${BITCOIND_DB_CACHE:-450}
       -maxmempool=${BITCOIND_MAX_MEMPOOL:-300}
-      -listen=${BITCOIND_LISTEN:-0}
+      -listen=${BITCOIND_LISTEN:-1}
       -server=${BITCOIND_SERVER:-1}
       -rpcallowip=0.0.0.0/0
       -rpcbind=0.0.0.0
