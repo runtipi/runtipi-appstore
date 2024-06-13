@@ -22,14 +22,6 @@
     },
     {
       "type": "text",
-      "label": "Domain",
-      "hint": "Your local domain name for you instance",
-      "placeholder": "example.com",
-      "required": false,
-      "env_variable": "INVIDIOUS_DOMAIN"
-    },
-    {
-      "type": "text",
       "label": "External port",
       "hint": "External port for access from proxy",
       "placeholder": "80,443",
