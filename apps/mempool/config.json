@@ -22,14 +22,14 @@
    "form_fields": [
       {
          "type": "text",
-         "label": "Bitcoin node host address",
+         "label": "Custom Bitcoin node host address",
          "hint": "Default, tipi bitcoin host",
          "required": false,
          "env_variable": "CORE_RPC_HOST"
       },
       {
          "type": "text",
-         "label": "Electrs host address",
+         "label": "Custom Electrs host address",
          "hint": "Default, tipi electrs host",
          "placeholder": "172.27.0.1",
          "required": false,
@@ -37,7 +37,7 @@
       },
       {
          "type": "number",
-         "label": "Electrum host port",
+         "label": "Custom Electrs host port",
          "hint": "Default, tipi electrs host",
          "placeholder": "50001",
          "default": "50001",
@@ -46,8 +46,9 @@
       },
       {
          "type": "text",
-         "label": "Bitcoin data folder location (for .cookie file)",
+         "label": "Custom Bitcoin data folder location (for .cookie file)",
          "hint": "Default, tipi bitcoin folder",
+         "placeholder": "/home/user/runtipi/app-data/bitcoind/data",
          "required": false,
          "env_variable": "BITCOIND_DIR"
       },
