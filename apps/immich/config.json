@@ -5,7 +5,7 @@
   "exposable": true,
   "port": 8128,
   "id": "immich",
-  "tipi_version": 92,
+  "tipi_version": 93,
   "version": "1.106.3",
   "categories": ["data", "photography"],
   "description": "Photo and video backup solution directly from your mobile phone.",
