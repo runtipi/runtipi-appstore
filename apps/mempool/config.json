@@ -39,7 +39,7 @@
          "type": "number",
          "label": "Electrum host port",
          "hint": "Default, tipi electrs host",
-         "placeholder": 50001,
+         "placeholder": "50001",
          "default": "50001",
          "required": false,
          "env_variable": "ELECTRUM_PORT"
