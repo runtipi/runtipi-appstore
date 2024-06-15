@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8109,
   "id": "prowlarr",
-  "tipi_version": 7,
-  "version": "1.15.0.4361-ls63",
+  "tipi_version": 8,
+  "version": "1.18.0.4543-ls74",
   "categories": [
     "media",
     "utilities"
