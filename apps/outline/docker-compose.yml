@@ -53,7 +53,7 @@ services:
 
   outline-oidc:
     container_name: outline-oidc
-    image: ghcr.io/hex-developer/oidc-provider:v0.2.0
+    image: ghcr.io/sergi0g/oidc-provider:v0.2.0
     restart: unless-stopped
     environment:
       - LANGUAGE_CODE=en-us
