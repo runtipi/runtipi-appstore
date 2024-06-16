@@ -46,7 +46,7 @@ services:
 
   ghost-db:
     container_name: ghost-db
-    image: mariadb:8.0
+    image: mariadb:11
     environment:
       MYSQL_ROOT_PASSWORD: ${GHOST_DATABASE_ROOT_PASSWORD}
       MYSQL_USER: tipi
