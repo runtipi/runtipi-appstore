@@ -3,8 +3,7 @@ version: "3.7"
 services:
   immich:
     container_name: immich
-    image: ghcr.io/immich-app/immich-server:v1.105.1
-    command: ["start-server.sh"]
+    image: ghcr.io/immich-app/immich-server:v1.106.4
     volumes:
       - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
     environment:
@@ -50,31 +49,9 @@ services:
       traefik.http.routers.immich-local.service: immich
       traefik.http.routers.immich-local.tls: true
 
-  immich-microservices:
-    container_name: immich-microservices
-    image: ghcr.io/immich-app/immich-server:v1.105.1
-    command: ["start-microservices.sh"]
-    volumes:
-      - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
-    environment:
-      - NODE_ENV=production
-      - DB_HOSTNAME=immich-db
-      - DB_USERNAME=tipi
-      - DB_PASSWORD=${DB_PASSWORD}
-      - DB_DATABASE_NAME=immich
-      - REDIS_HOSTNAME=immich-redis
-      - JWT_SECRET=${JWT_SECRET}
-      - ENABLE_MAPBOX=false
-    depends_on:
-      - immich-redis
-      - immich-db
-    restart: unless-stopped
-    networks:
-      - tipi_main_network
-
   immich-machine-learning:
     container_name: immich-machine-learning
-    image: ghcr.io/immich-app/immich-machine-learning:v1.105.1
+    image: ghcr.io/immich-app/immich-machine-learning:v1.106.4
     volumes:
       - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
       - ${APP_DATA_DIR}/data/immich-ml-cache:/cache
@@ -97,6 +74,8 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    healthcheck:
+      test: redis-cli ping || exit 1
 
   immich-db:
     container_name: immich-db
@@ -111,3 +90,9 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    healthcheck:
+      test: pg_isready --dbname='${DB_DATABASE_NAME}' || exit 1; Chksum="$$(psql --dbname='${DB_DATABASE_NAME}' --username='${DB_USERNAME}' --tuples-only --no-align --command='SELECT COALESCE(SUM(checksum_failures), 0) FROM pg_stat_database')"; echo "checksum failure count is $$Chksum"; [ "$$Chksum" = '0' ] || exit 1
+      interval: 5m
+      start_interval: 30s
+      start_period: 5m
+    command: ["postgres", "-c" ,"shared_preload_libraries=vectors.so", "-c", 'search_path="$$user", public, vectors', "-c", "logging_collector=on", "-c", "max_wal_size=2GB", "-c", "shared_buffers=512MB", "-c", "wal_compression=on"]
