@@ -7,8 +7,6 @@ services:
     environment:
     - hostNIC=${MDNS_HOST_NIC}
     - dockerNIC=${MDNS_DOCKER_NIC}
-    networks:
-      - tipi_main_network
     labels:
       # Main
       traefik.enable: false
