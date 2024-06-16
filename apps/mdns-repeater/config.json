@@ -12,8 +12,9 @@
     "utilities",
     "automation"
   ],
-  "description": "This program re-broadcast mDNS packets from one interface to other interfaces.",
   "author": "angelnu",
+  "description": "This program re-broadcast mDNS packets from one interface to other interfaces.",
+  "short_desc": "Re-broadcast mDNS packets.",
   "source": "https://github.com/angelnu/docker-mdns_repeater",
   "form_fields": [
     {
