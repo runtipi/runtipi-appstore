@@ -1,0 +1,38 @@
+{
+  "$schema": "../schema.json",
+  "name": "MDNS Repeater",
+  "available": true,
+  "exposable": false,
+  "no_gui": true,
+  "port": 9998,
+  "id": "mdns-repeater",
+  "tipi_version": 1,
+  "version": "latest",
+  "categories": [
+    "utilities",
+    "automation"
+  ],
+  "description": "This program re-broadcast mDNS packets from one interface to other interfaces.",
+  "author": "angelnu",
+  "source": "https://github.com/angelnu/docker-mdns_repeater",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "MDNS > hostNIC (FROM network)",
+      "required": true,
+      "placeholder": "eth0",
+      "env_variable": "MDNS_HOST_NIC"
+    },
+    {
+      "type": "text",
+      "label": "MDNS > dockerNIC (TO network)",
+      "required": true,
+      "placeholder": "br-5813ba86106f",
+      "env_variable": "MDNS_DOCKER_NIC"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}
