@@ -27,6 +27,7 @@ interface AppConfig {
 }
 
 const networkExceptions = [
+  "matter-server",
   "pihole",
   "tailscale",
   "homeassistant",
