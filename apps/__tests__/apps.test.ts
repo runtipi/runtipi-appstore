@@ -27,6 +27,7 @@ interface AppConfig {
 }
 
 const networkExceptions = [
+  "mdns-repeater",
   "pihole",
   "tailscale",
   "homeassistant",
