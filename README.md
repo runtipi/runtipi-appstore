@@ -10,7 +10,7 @@ If you want to see new apps on Tipi you can either:
 - [Join the Discord](https://discord.gg/Bu9qEPnHsc) members of the community will add it.
 - Fork this repo and create the necessary files for a Tipi app. Follow this [guide](https://www.runtipi.io/docs/contributing/adding-a-new-app)`
 
-## Apps available (236)
+## Apps available (239)
 
 | Name                                                                         | Description                                                                                                                                                         | Port  |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
@@ -60,6 +60,7 @@ If you want to see new apps on Tipi you can either:
 | [Duck DNS](https://github.com/linuxserver/docker-duckdns)                    | Duck DNS is a free Dynamic DNS service                                                                                                                              | 8026  |
 | [Duplicati](https://github.com/linuxserver/docker-duplicati)                 | Store securely encrypted backups in the cloud!                                                                                                                      | 8159  |
 | [Eclipse Mosquitto](https://github.com/eclipse/mosquitto/)                   | open source message broker                                                                                                                                          | 8288  |
+| [Electrs](https://github.com/romanz/electrs)                                 | Electrum server                                                                                                                                                     | 3006  |
 | [Email OAuth2 Proxy](https://github.com/simonrob/email-oauth2-proxy)         | OAuth Proxy for IMAP/POP/SMTP.                                                                                                                                      | 1999  |
 | [Emulatorjs](https://github.com/EmulatorJS/EmulatorJS)                       | Self-hosted Javascript emulation for various system.                                                                                                                | 8164  |
 | [Excalidraw](https://github.com/excalidraw/excalidraw)                       | Online whiteboard collaboration made easy                                                                                                                           | 8172  |
@@ -129,6 +130,8 @@ If you want to see new apps on Tipi you can either:
 | [Maintainerr](https://github.com/jorenn92/Maintainerr)                       | Maintainerr will manage the storage space on your plex server, launching automated actions to delete your files.                                                    | 8030  |
 | [Mastodon](https://github.com/mastodon/mastodon)                             | Your self-hosted, globally interconnected microblogging community                                                                                                   | 8210  |
 | [Conduit](https://gitlab.com/famedly/conduit)                                | Conduit is a simple, fast and reliable chat server written in Rust                                                                                                  | 6167  |
+| [Matter Server](https://github.com/home-assistant-libs/python-matter-server) | Interact with Matter. Works with HA !                                                                                                                               | 9997  |
+| [MDNS Repeater](https://github.com/angelnu/docker-mdns_repeater)             | Re-broadcast mDNS packets.                                                                                                                                          | 9998  |
 | [Mealie](https://github.com/hay-kot/mealie)                                  | Mealie is a self-hosted recipe manager and meal planner.                                                                                                            | 8220  |
 | [Memos](https://github.com/usememos/memos)                                   | Memo hub for knowledge management and collaboration.                                                                                                                | 5230  |
 | [MeTube](https://github.com/alexta69/metube)                                 | youtube-dl web UI                                                                                                                                                   | 8250  |
