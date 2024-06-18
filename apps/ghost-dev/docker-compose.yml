@@ -1,0 +1,40 @@
+version: "3.9"
+services:
+  ghost-dev:
+    container_name: ghost-dev
+    image: ghost:5.85.1
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}:/var/lib/ghost/content
+    environment:
+      - database__connection__filename=/var/lib/ghost/content/data/ghost.db
+      - NODE_ENV=development
+    ports:
+      - ${APP_PORT}:2368
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.ghost-dev-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.ghost-dev.loadbalancer.server.port: 2368
+      # Web
+      traefik.http.routers.ghost-dev-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.ghost-dev-insecure.entrypoints: web
+      traefik.http.routers.ghost-dev-insecure.service: ghost-dev
+      traefik.http.routers.ghost-dev-insecure.middlewares: ghost-dev-web-redirect
+      # Websecure
+      traefik.http.routers.ghost-dev.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.ghost-dev.entrypoints: websecure
+      traefik.http.routers.ghost-dev.service: ghost-dev
+      traefik.http.routers.ghost-dev.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.ghost-dev-local-insecure.rule: Host(`ghost-dev.${LOCAL_DOMAIN}`)
+      traefik.http.routers.ghost-dev-local-insecure.entrypoints: web
+      traefik.http.routers.ghost-dev-local-insecure.service: ghost-dev
+      traefik.http.routers.ghost-dev-local-insecure.middlewares: ghost-dev-web-redirect
+      # Local domain secure
+      traefik.http.routers.ghost-dev-local.rule: Host(`ghost-dev.${LOCAL_DOMAIN}`)
+      traefik.http.routers.ghost-dev-local.entrypoints: websecure
+      traefik.http.routers.ghost-dev-local.service: ghost-dev
+      traefik.http.routers.ghost-dev-local.tls: true

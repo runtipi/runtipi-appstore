@@ -1,6 +1,6 @@
 {
   "$schema": "../schema.json",
-  "name": "Ghost",
+  "name": "Ghost - Production",
   "port": 8117,
   "available": true,
   "exposable": true,
