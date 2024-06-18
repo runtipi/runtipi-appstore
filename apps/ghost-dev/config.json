@@ -4,7 +4,7 @@
     "port": 8225,
     "available": true,
     "exposable": true,
-    "id": "ghost",
+    "id": "ghost-dev",
     "tipi_version": 1,
     "version": "5.85.1",
     "categories": ["social", "media"],
