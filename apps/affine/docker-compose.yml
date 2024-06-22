@@ -74,7 +74,7 @@ services:
 
   affine-postgres:
     image: postgres
-    container_name: affinepostgres
+    container_name: affine-postgres
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
