@@ -5,11 +5,9 @@
   "available": true,
   "exposable": true,
   "id": "dailytxt",
-  "tipi_version": 6,
-  "version": "1.0.14",
-  "categories": [
-    "utilities"
-  ],
+  "tipi_version": 7,
+  "version": "1.0.15",
+  "categories": ["utilities"],
   "description": "DailyTxT is an encrypted Diary Web-App to write down your stories of the day and to find them again easily.",
   "short_desc": "Encrypted Diary Web-App",
   "author": "PhiTux",
@@ -30,8 +28,5 @@
       "env_variable": "DAILYTXT_ALLOW_REGISTRATION"
     }
   ],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"]
 }

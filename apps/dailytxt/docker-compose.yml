@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   dailytxt:
-    image: phitux/dailytxt:1.0.14
+    image: phitux/dailytxt:1.0.15
     container_name: dailytxt
     restart: unless-stopped
     environment:
