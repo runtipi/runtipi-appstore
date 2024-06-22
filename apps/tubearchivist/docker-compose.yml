@@ -62,7 +62,7 @@ services:
       - tubearchivist-es
 
   tubearchivist-es:
-    image: elasticsearch:8.13.4
+    image: elasticsearch:8.14.1
     container_name: tubearchivist-es
     restart: always
     environment:

@@ -2,7 +2,7 @@ version: "3.9"
 services:
   windows:
     container_name: windows
-    image: dockurr/windows:3.11
+    image: dockurr/windows:3.12
     restart: unless-stopped
     devices:
       - /dev/kvm
@@ -22,6 +22,8 @@ services:
       - ${APP_DATA_DIR}/data/storage:/storage
     networks:
       - tipi_main_network
+    sysctls:
+      - net.ipv4.ip_forward=1
     labels:
       # Main
       traefik.enable: true
