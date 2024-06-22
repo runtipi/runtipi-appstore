@@ -5,3 +5,5 @@ Create a secure network between your servers, computers, and cloud instances. Ev
 Devices only connect after signing in through your existing identity provider. Easily enforce multi-factor authentication, deauthorize employees who’ve moved on, and more.
 
 ![Screenshot](https://tailscale.com/static/images/marketing/home-illustration-2080w.webp)
+
+**Documentation:** https://tailscale.com/kb/1282/docker#parameters
