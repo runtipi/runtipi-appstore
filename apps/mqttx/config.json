@@ -1,0 +1,16 @@
+{
+  "name": "MQTTX",
+  "available": true,
+  "exposable": true,
+  "port": 8217,
+  "id": "mqttx",
+  "tipi_version": 2,
+  "version": "1.10.0",
+  "categories": ["utilities"],
+  "description": "MQTTX Web is an open-source MQTT browser client and an online MQTT WebSocket client tool.",
+  "short_desc": "MQTT websocket browser client tool",
+  "author": "EMQX",
+  "source": "https://github.com/emqx/MQTTX/",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}

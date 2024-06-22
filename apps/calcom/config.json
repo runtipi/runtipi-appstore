@@ -105,7 +105,7 @@
   "short_desc": "Scheduling infrastructure for absolutely everyone.",
   "source": "https://github.com/calcom/cal.com",
   "supported_architectures": ["amd64"],
-  "tipi_version": 12,
-  "version": "4.1.8",
+  "tipi_version": 16,
+  "version": "4.1.12",
   "website": "https://cal.com/"
 }

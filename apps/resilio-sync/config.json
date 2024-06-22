@@ -4,19 +4,13 @@
   "port": 8113,
   "available": true,
   "id": "resilio-sync",
-  "tipi_version": 3,
-  "version": "2.8.0",
-  "categories": [
-    "data",
-    "utilities"
-  ],
+  "tipi_version": 4,
+  "version": "2.8.1",
+  "categories": ["data", "utilities"],
   "description": "",
   "short_desc": "Resilio Sync is a fast, reliable, and simple file sync and share solution, powered by P2P technology",
   "author": "Resilio, Inc.",
   "source": "https://github.com/bt-sync",
   "form_fields": [],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"]
 }

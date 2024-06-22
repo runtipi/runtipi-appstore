@@ -4,19 +4,13 @@
   "exposable": true,
   "port": 8030,
   "id": "maintainerr",
-  "tipi_version": 4,
-  "version": "2.0.3",
-  "categories": [
-    "media",
-    "utilities"
-  ],
+  "tipi_version": 5,
+  "version": "2.0.4",
+  "categories": ["media", "utilities"],
   "description": "Maintainerr will manage the storage space on your plex server, launching automated actions to delete your files.",
   "short_desc": "Maintainerr will manage the storage space on your plex server, launching automated actions to delete your files.",
   "author": "jorenn92",
   "source": "https://github.com/jorenn92/Maintainerr",
   "form_fields": [],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"]
 }
