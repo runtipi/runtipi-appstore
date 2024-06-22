@@ -9,7 +9,7 @@
   "categories": ["utilities", "security"],
   "description": "CyberChef is a web app for encryption, encoding, compression, and data analysis.",
   "tipi_version": 1,
-  "version": "10.18.8",
+  "version": "10.18.9",
   "source": "https://github.com/gchq/CyberChef",
   "supported_architectures": ["arm64", "amd64"]
 }
