@@ -5,15 +5,18 @@
   "available": true,
   "exposable": true,
   "id": "homebox",
-  "tipi_version": 9,
-  "version": "0.10.3",
+  "tipi_version": 10,
+  "version": "0.11.0-rootless",
+  "uid": 1000,
+  "gid": 1000,
   "categories": [
     "utilities"
   ],
   "description": "Homebox is the inventory and organization system built for the Home User",
-  "short_desc": "Homebox is the inventory and organization system built for the Home User",
-  "author": "hay-kot",
-  "source": "https://github.com/hay-kot/homebox",
+  "short_desc": "Inventory and organization system.",
+  "author": "sysadminsmedia & hay-kot",
+  "website": "https://homebox.sysadminsmedia.com/",
+  "source": "https://github.com/sysadminsmedia/homebox",
   "form_fields": [
     {
       "type": "text",
