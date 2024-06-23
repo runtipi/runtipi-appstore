@@ -10,7 +10,7 @@ If you want to see new apps on Tipi you can either:
 - [Join the Discord](https://discord.gg/Bu9qEPnHsc) members of the community will add it.
 - Fork this repo and create the necessary files for a Tipi app. Follow this [guide](https://www.runtipi.io/docs/contributing/adding-a-new-app)`
 
-## Apps available (239)
+## Apps available (242)
 
 | Name                                                                         | Description                                                                                                                                                         | Port  |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
@@ -77,7 +77,8 @@ If you want to see new apps on Tipi you can either:
 | [FreshRSS](https://github.com/FreshRSS/FreshRSS)                             | A free, self-hostable aggregator…                                                                                                                                   | 8086  |
 | [gandi-livedns](https://github.com/jbbodart/gandi-livedns)                   | Update your Gandi DNS zone records with your WAN IP                                                                                                                 | 8134  |
 | [Get A Shell](https://github.com/steveiliop56/getashell)                     | SSH shells from a Web UI                                                                                                                                            | 8281  |
-| [Ghost](https://github.com/TryGhost/Ghost)                                   | Ghost - Turn your audience into a business.                                                                                                                         | 8117  |
+| [Ghost - Production](https://github.com/TryGhost/Ghost)                      | Ghost - Turn your audience into a business.                                                                                                                         | 8117  |
+| [Ghost - Development](https://github.com/TryGhost/Ghost)                     | Ghost - Turn your audience into a business.                                                                                                                         | 8225  |
 | [Ghostfolio](https://github.com/ghostfolio/ghostfolio)                       | Open Source Wealth Management Software.                                                                                                                             | 3333  |
 | [Gitea](https://github.com/go-gitea/gitea)                                   | Gitea - Git with a cup of tea · A painless self-hosted Git service. · Cross-platform · Easy to install · Lightweight · Open Source.                                 | 8108  |
 | [Gladys Assistant](https://github.com/gladysassistant/gladys)                | A privacy-first, open-source home assistant                                                                                                                         | 8270  |
@@ -101,6 +102,7 @@ If you want to see new apps on Tipi you can either:
 | [Home Bridge](https://github.com/homebridge/homebridge)                      | HomeKit support for the impatient.                                                                                                                                  | 8581  |
 | [Homepage](https://github.com/gethomepage/homepage)                          | A highly customizable homepage                                                                                                                                      | 8756  |
 | [Immich](https://github.com/immich-app/immich)                               | Photo and video backup solution directly from your mobile phone.                                                                                                    | 8128  |
+| [Inspircd](https://github.com/inspircd/inspircd)                             | A modular C++ IRC server.                                                                                                                                           | 6697  |
 | [Invidious](https://github.com/iv-org/invidious)                             | An alternative front-end to YouTube                                                                                                                                 | 8095  |
 | [Invoice Ninja](https://github.com/invoiceninja/invoiceninja)                | Invoices, Expenses and Tasks built with Laravel, Flutter and React.                                                                                                 | 8881  |
 | [IT-Tools](https://github.com/CorentinTh/it-tools)                           | Collection of handy online tools for developers, with great UX.                                                                                                     | 8171  |
@@ -116,6 +118,7 @@ If you want to see new apps on Tipi you can either:
 | [Kimai](https://github.com/kimai/kimai)                                      | Open source time-tracker                                                                                                                                            | 8003  |
 | [Kiwix Server](https://github.com/kiwix/kiwix-tools/)                        | Kiwix Server is a web server for hosting .zim files                                                                                                                 | 8169  |
 | [Koillection](https://github.com/benjaminjonard/koillection)                 | Koillection allow you to manage any kind of collections.                                                                                                            | 8050  |
+| [Kometa](https://github.com/Kometa-Team/Kometa)                              | Overlays, Collections & Playlists for Plex.                                                                                                                         | 9996  |
 | [Komga](https://github.com/gotson/komga)                                     | A media server for your comics, mangas, BDs, magazines and eBooks.                                                                                                  | 2560  |
 | [LibReddit](https://github.com/spikecodes/libreddit)                         | Browse reddit without problems!                                                                                                                                     | 8105  |
 | [LibrePhotos](https://github.com/LibrePhotos/librephotos)                    | Complete photo management service                                                                                                                                   | 8132  |
