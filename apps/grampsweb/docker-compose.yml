@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   grampsweb:
-    image: ghcr.io/gramps-project/grampsweb:latest
+    image: ghcr.io/gramps-project/grampsweb:v24.5.0
     container_name: grampsweb
     restart: always
     ports:
