@@ -24,5 +24,7 @@
       "hint": "Please be sure to modify, otherwise anyone can read and write your data.",
       "env_variable": "ACCESS_AUTH_CODE"
     }
-  ]
+  ],
+  "uid": 1000,
+  "gid": 1000
 }
