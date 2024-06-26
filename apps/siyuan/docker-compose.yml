@@ -8,6 +8,8 @@ services:
     restart: unless-stopped
     environment:
       - TZ=${TZ}
+      - PUID=1000
+      - PGID=1000
     volumes:
       - ${APP_DATA_DIR}/data/workspace:/siyuan/workspace/
     ports:
