@@ -22,7 +22,7 @@
       "min": 8,
       "max": 50,
       "hint": "Please be sure to modify, otherwise anyone can read and write your data.",
-      "env_variable": "ACCESS_AUTH_CODE"
+      "env_variable": "SIYUAN_ACCESS_AUTH_CODE"
     }
   ],
   "uid": 1000,
