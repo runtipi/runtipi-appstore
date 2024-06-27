@@ -41,3 +41,4 @@ services:
       traefik.http.routers.siyuan-local.entrypoints: websecure
       traefik.http.routers.siyuan-local.service: siyuan
       traefik.http.routers.siyuan-local.tls: true
+
