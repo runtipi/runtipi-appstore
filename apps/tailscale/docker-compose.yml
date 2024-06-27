@@ -20,3 +20,5 @@ services:
       - ${APP_DATA_DIR}/data/state:/var/lib/tailscale
       - ${APP_DATA_DIR}/data/config:/config
       - /dev/net/tun:/dev/net/tun
+    labels:
+      runtipi.managed: true

@@ -40,7 +40,7 @@ services:
       traefik.http.routers.umami-local.entrypoints: websecure
       traefik.http.routers.umami-local.service: umami
       traefik.http.routers.umami-local.tls: true
-
+      runtipi.managed: true
   umami-db:
     container_name: umami-db
     image: postgres:12-alpine
@@ -53,3 +53,5 @@ services:
     restart: always
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

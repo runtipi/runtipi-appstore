@@ -49,7 +49,7 @@ services:
       traefik.http.routers.tubearchivist-local.entrypoints: websecure
       traefik.http.routers.tubearchivist-local.service: tubearchivist
       traefik.http.routers.tubearchivist-local.tls: true
-
+      runtipi.managed: true
   tubearchivist-redis:
     image: redislabs/rejson:latest
     container_name: tubearchivist-redis
@@ -60,7 +60,8 @@ services:
       - ${APP_DATA_DIR}/data/redis-data:/data
     depends_on:
       - tubearchivist-es
-
+    labels:
+      runtipi.managed: true
   tubearchivist-es:
     image: elasticsearch:8.14.1
     container_name: tubearchivist-es
@@ -81,3 +82,5 @@ services:
       - ${APP_DATA_DIR}/data/es:/usr/share/elasticsearch/data
     expose:
       - "9200"
+    labels:
+      runtipi.managed: true

@@ -47,3 +47,4 @@ services:
       traefik.http.routers.pihole-local.entrypoints: websecure
       traefik.http.routers.pihole-local.service: pihole
       traefik.http.routers.pihole-local.tls: true
+      runtipi.managed: true

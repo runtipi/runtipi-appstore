@@ -41,3 +41,4 @@ services:
       traefik.http.routers.octobot-local.entrypoints: websecure
       traefik.http.routers.octobot-local.service: octobot
       traefik.http.routers.octobot-local.tls: true
+      runtipi.managed: true

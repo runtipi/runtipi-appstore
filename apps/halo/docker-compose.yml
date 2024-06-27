@@ -52,7 +52,7 @@ services:
       traefik.http.routers.halo-local.entrypoints: websecure
       traefik.http.routers.halo-local.service: halo
       traefik.http.routers.halo-local.tls: true
-
+      runtipi.managed: true
   halodb:
     image: postgres:latest
     container_name: halodb
@@ -71,3 +71,5 @@ services:
       - POSTGRES_USER=halo
       - POSTGRES_DB=halo
       - PGUSER=halo
+    labels:
+      runtipi.managed: true

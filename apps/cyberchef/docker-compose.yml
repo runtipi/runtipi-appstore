@@ -35,3 +35,4 @@ services:
       traefik.http.routers.cyberchef-local.entrypoints: websecure
       traefik.http.routers.cyberchef-local.service: cyberchef
       traefik.http.routers.cyberchef-local.tls: true
+      runtipi.managed: true

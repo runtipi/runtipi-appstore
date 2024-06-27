@@ -32,3 +32,4 @@ services:
       traefik.http.routers.minio.service: minio
       traefik.http.routers.minio.tls.certresolver: myresolver
       traefik.http.services.minio.loadbalancer.server.port: 9000
+      runtipi.managed: true

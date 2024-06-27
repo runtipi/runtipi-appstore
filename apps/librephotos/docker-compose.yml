@@ -40,7 +40,7 @@ services:
       traefik.http.routers.librephotos-local.entrypoints: websecure
       traefik.http.routers.librephotos-local.service: librephotos
       traefik.http.routers.librephotos-local.tls: true
-
+      runtipi.managed: true
   librephotos-db:
     image: postgres:14
     container_name: librephotos-db
@@ -59,7 +59,8 @@ services:
       retries: 5
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   librephotos-frontend:
     image: reallibrephotos/librephotos-frontend:2023w48
     container_name: librephotos-frontend
@@ -68,7 +69,8 @@ services:
       - librephotos-backend
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   librephotos-backend:
     image: reallibrephotos/librephotos:2023w48
     container_name: librephotos-backend
@@ -101,10 +103,13 @@ services:
         condition: service_healthy
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   librephotos-redis:
     image: redis:6
     container_name: librephotos-redis
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

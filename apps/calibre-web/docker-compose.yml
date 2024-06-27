@@ -40,3 +40,4 @@ services:
       traefik.http.routers.calibre-web-local.entrypoints: websecure
       traefik.http.routers.calibre-web-local.service: calibre-web
       traefik.http.routers.calibre-web-local.tls: true
+      runtipi.managed: true

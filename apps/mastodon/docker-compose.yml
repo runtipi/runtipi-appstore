@@ -58,6 +58,7 @@ services:
       traefik.http.services.mastodon.loadbalancer.server.port: 443
       traefik.http.services.mastodon.loadbalancer.serverstransport: insecuretransport@file
       traefik.http.services.mastodon.loadbalancer.server.scheme: https
+      runtipi.managed: true
     depends_on:
       mastodon-db:
         condition: service_healthy
@@ -82,7 +83,8 @@ services:
       test: ['CMD', 'pg_isready', '-U', 'tipi']
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
-
+    labels:
+      runtipi.managed: true
   mastodon-redis:
     restart: always
     image: redis:7-alpine
@@ -94,3 +96,5 @@ services:
       test: ['CMD', 'redis-cli', 'ping']
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
+    labels:
+      runtipi.managed: true

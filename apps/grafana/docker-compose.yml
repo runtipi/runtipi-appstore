@@ -35,3 +35,4 @@ services:
       traefik.http.routers.grafana-local.entrypoints: websecure
       traefik.http.routers.grafana-local.service: grafana
       traefik.http.routers.grafana-local.tls: true
+      runtipi.managed: true

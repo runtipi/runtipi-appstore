@@ -41,3 +41,4 @@ services:
       traefik.http.routers.duplicati-local.entrypoints: websecure
       traefik.http.routers.duplicati-local.service: duplicati
       traefik.http.routers.duplicati-local.tls: true
+      runtipi.managed: true

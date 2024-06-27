@@ -40,3 +40,4 @@ services:
       traefik.http.routers.heimdall-local.entrypoints: websecure
       traefik.http.routers.heimdall-local.service: heimdall
       traefik.http.routers.heimdall-local.tls: true
+      runtipi.managed: true

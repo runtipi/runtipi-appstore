@@ -34,3 +34,4 @@ services:
       traefik.http.routers.drawio-local.entrypoints: websecure
       traefik.http.routers.drawio-local.service: drawio
       traefik.http.routers.drawio-local.tls: true
+      runtipi.managed: true

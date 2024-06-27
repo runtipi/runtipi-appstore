@@ -34,3 +34,4 @@ services:
       traefik.http.routers.sshwifty-local.entrypoints: websecure
       traefik.http.routers.sshwifty-local.service: sshwifty
       traefik.http.routers.sshwifty-local.tls: true
+      runtipi.managed: true

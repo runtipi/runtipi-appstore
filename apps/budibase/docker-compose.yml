@@ -35,3 +35,4 @@ services:
       traefik.http.routers.budibase-local.entrypoints: websecure
       traefik.http.routers.budibase-local.service: budibase
       traefik.http.routers.budibase-local.tls: true
+      runtipi.managed: true

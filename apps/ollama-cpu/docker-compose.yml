@@ -36,3 +36,4 @@ services:
       traefik.http.routers.ollama-cpu-local.entrypoints: websecure
       traefik.http.routers.ollama-cpu-local.service: ollama-cpu
       traefik.http.routers.ollama-cpu-local.tls: true
+      runtipi.managed: true

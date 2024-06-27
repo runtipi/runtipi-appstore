@@ -51,6 +51,7 @@ services:
       traefik.http.routers.planka-local.entrypoints: websecure
       traefik.http.routers.planka-local.service: planka
       traefik.http.routers.planka-local.tls: true
+      runtipi.managed: true
     depends_on:
       - postgres
 
@@ -65,3 +66,5 @@ services:
       POSTGRES_HOST_AUTH_METHOD: "trust"
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

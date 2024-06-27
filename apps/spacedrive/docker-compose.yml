@@ -38,3 +38,4 @@ services:
       traefik.http.routers.spacedrive-local.entrypoints: websecure
       traefik.http.routers.spacedrive-local.service: spacedrive
       traefik.http.routers.spacedrive-local.tls: true
+      runtipi.managed: true

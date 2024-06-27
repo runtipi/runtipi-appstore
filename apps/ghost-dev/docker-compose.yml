@@ -38,3 +38,4 @@ services:
       traefik.http.routers.ghost-dev-local.entrypoints: websecure
       traefik.http.routers.ghost-dev-local.service: ghost-dev
       traefik.http.routers.ghost-dev-local.tls: true
+      runtipi.managed: true

@@ -45,7 +45,7 @@ services:
       traefik.http.routers.proxitok-local.entrypoints: websecure
       traefik.http.routers.proxitok-local.service: proxitok
       traefik.http.routers.proxitok-local.tls: true
-
+      runtipi.managed: true
   proxitok-redis:
     container_name: proxitok-redis
     image: redis:7-alpine
@@ -53,12 +53,14 @@ services:
     command: redis-server --save 60 1 --loglevel warning
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   proxitok-signer:
     container_name: proxitok-signer
     image: ghcr.io/pablouser1/signtok:master
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
 volumes:
   proxitok-cache:
