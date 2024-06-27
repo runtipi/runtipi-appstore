@@ -10,7 +10,7 @@
 > For the reason, please refer to [User Permissions](#user-permissions) section
 
 <p align="center">
-<img alt="SiYuan" src="https://b3log.org/images/brand/siyuan-128.png">
+<img alt="SiYuan" src="https://b3log.org/images/brand/siyuan-128.png" alt="SiYuan Logo">
 <br>
 <em>Refactor your thinking</em>
 <br><br>
