@@ -43,3 +43,4 @@ services:
       traefik.http.routers.radarr-local.entrypoints: websecure
       traefik.http.routers.radarr-local.service: radarr
       traefik.http.routers.radarr-local.tls: true
+      runtipi.managed: true

@@ -41,7 +41,7 @@ services:
       traefik.http.routers.electrs-local.entrypoints: websecure
       traefik.http.routers.electrs-local.service: electrs
       traefik.http.routers.electrs-local.tls: true
-
+      runtipi.managed: true
   electrs:
     container_name: electrs
     image: getumbrel/electrs:v0.10.2
@@ -62,3 +62,5 @@ services:
       - ELECTRS_DAEMON_P2P_ADDR=${BITCOIND_HOST:-bitcoind}:8333
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

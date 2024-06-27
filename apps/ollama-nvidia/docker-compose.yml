@@ -44,3 +44,4 @@ services:
       traefik.http.routers.ollama-nvidia-local.entrypoints: websecure
       traefik.http.routers.ollama-nvidia-local.service: ollama-nvidia
       traefik.http.routers.ollama-nvidia-local.tls: true
+      runtipi.managed: true

@@ -48,7 +48,7 @@ services:
       traefik.http.routers.immich-local.entrypoints: websecure
       traefik.http.routers.immich-local.service: immich
       traefik.http.routers.immich-local.tls: true
-
+      runtipi.managed: true
   immich-machine-learning:
     container_name: immich-machine-learning
     image: ghcr.io/immich-app/immich-machine-learning:v1.106.4
@@ -67,7 +67,8 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   immich-redis:
     container_name: immich-redis
     image: redis:6.2
@@ -76,7 +77,8 @@ services:
       - tipi_main_network
     healthcheck:
       test: redis-cli ping || exit 1
-
+    labels:
+      runtipi.managed: true
   immich-db:
     container_name: immich-db
     image: tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:90724186f0a3517cf6914295b5ab410db9ce23190a2d9d0b9dd6463e3fa298f0
@@ -96,3 +98,5 @@ services:
       start_interval: 30s
       start_period: 5m
     command: ["postgres", "-c" ,"shared_preload_libraries=vectors.so", "-c", 'search_path="$$user", public, vectors', "-c", "logging_collector=on", "-c", "max_wal_size=2GB", "-c", "shared_buffers=512MB", "-c", "wal_compression=on"]
+    labels:
+      runtipi.managed: true

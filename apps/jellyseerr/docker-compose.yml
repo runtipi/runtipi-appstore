@@ -39,3 +39,4 @@ services:
       traefik.http.routers.jellyseerr-local.entrypoints: websecure
       traefik.http.routers.jellyseerr-local.service: jellyseerr
       traefik.http.routers.jellyseerr-local.tls: true
+      runtipi.managed: true

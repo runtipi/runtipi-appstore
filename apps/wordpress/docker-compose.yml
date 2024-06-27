@@ -43,7 +43,7 @@ services:
         traefik.http.routers.wordpress-web-local.entrypoints: websecure
         traefik.http.routers.wordpress-web-local.service: wordpress-web
         traefik.http.routers.wordpress-web-local.tls: true
-
+        runtipi.managed: true
   wordpress-db:
     container_name: wordpress-db
     image: mariadb:11.1.3
@@ -57,3 +57,5 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

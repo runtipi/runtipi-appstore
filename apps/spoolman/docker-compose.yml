@@ -38,3 +38,4 @@ services:
       traefik.http.routers.spoolman-local.entrypoints: websecure
       traefik.http.routers.spoolman-local.service: spoolman
       traefik.http.routers.spoolman-local.tls: true
+      runtipi.managed: true

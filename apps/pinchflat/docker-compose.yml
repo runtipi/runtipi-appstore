@@ -39,3 +39,4 @@ services:
       traefik.http.routers.pinchflat-local.entrypoints: websecure
       traefik.http.routers.pinchflat-local.service: pinchflat
       traefik.http.routers.pinchflat-local.tls: true
+      runtipi.managed: true

@@ -16,7 +16,8 @@ services:
       retries: 5
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   vikunja-api:
     container_name: vikunja-api
     image: vikunja/api:0.22.1
@@ -36,14 +37,16 @@ services:
         condition: service_healthy
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   vikunja:
     image: vikunja/frontend:0.22.1
     restart: unless-stopped
     container_name: vikunja
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   vikunja-proxy:
     image: nginx
     container_name: vikunja-proxy
@@ -82,3 +85,4 @@ services:
       traefik.http.routers.vikunja-local.entrypoints: websecure
       traefik.http.routers.vikunja-local.service: vikunja
       traefik.http.routers.vikunja-local.tls: true
+      runtipi.managed: true

@@ -35,4 +35,4 @@ services:
       traefik.http.routers.homepage-local.entrypoints: websecure
       traefik.http.routers.homepage-local.service: homepage
       traefik.http.routers.homepage-local.tls: true
-    
+      runtipi.managed: true

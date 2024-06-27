@@ -49,7 +49,7 @@ services:
       traefik.http.routers.matrix-conduit-local.entrypoints: websecure
       traefik.http.routers.matrix-conduit-local.service: matrix-conduit
       traefik.http.routers.matrix-conduit-local.tls: true
-
+      runtipi.managed: true
   matrix-conduit-well-known:
     container_name: matrix-conduit-well-known
     build:
@@ -85,3 +85,4 @@ services:
       traefik.http.routers.matrix-well-knows-local.entrypoints: websecure
       traefik.http.routers.matrix-well-knows-local.service: matrix-well-knows
       traefik.http.routers.matrix-well-knows-local.tls: true
+      runtipi.managed: true

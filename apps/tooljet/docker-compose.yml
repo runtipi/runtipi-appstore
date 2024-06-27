@@ -40,6 +40,7 @@ services:
       traefik.http.routers.tooljet-local.entrypoints: websecure
       traefik.http.routers.tooljet-local.service: tooljet
       traefik.http.routers.tooljet-local.tls: true
+      runtipi.managed: true
     command: openresty -g "daemon off;"
 
   tooljet-server:
@@ -63,7 +64,8 @@ services:
       - CHECK_FOR_UPDATES=check_if_updates_are_available
       - DEFAULT_FROM_EMAIL=hello@tooljet.io
     command: npm run start:prod
-
+    labels:
+      runtipi.managed: true
   db-tooljet:
     container_name: db-tooljet
     image: postgres:11
@@ -77,3 +79,5 @@ services:
       - PGDATA=/data/postgres
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

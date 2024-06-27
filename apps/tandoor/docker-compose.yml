@@ -50,6 +50,7 @@ services:
       traefik.http.routers.tandoor-local.entrypoints: websecure
       traefik.http.routers.tandoor-local.service: tandoor
       traefik.http.routers.tandoor-local.tls: true
+      runtipi.managed: true
     depends_on:
       tandoor-db:
         condition: service_healthy
@@ -73,3 +74,5 @@ services:
       timeout: 5s
       retries: 5
       start_period: 30s
+    labels:
+      runtipi.managed: true

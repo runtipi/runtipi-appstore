@@ -41,3 +41,4 @@ services:
       traefik.http.routers.navidrome-local.entrypoints: websecure
       traefik.http.routers.navidrome-local.service: navidrome
       traefik.http.routers.navidrome-local.tls: true
+      runtipi.managed: true

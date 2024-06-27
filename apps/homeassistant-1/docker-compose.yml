@@ -39,3 +39,4 @@ services:
       traefik.http.routers.homeassistant-local.entrypoints: websecure
       traefik.http.routers.homeassistant-local.service: homeassistant
       traefik.http.routers.homeassistant-local.tls: true
+      runtipi.managed: true

@@ -39,3 +39,4 @@ services:
       traefik.http.routers.silverbullet-local.entrypoints: websecure
       traefik.http.routers.silverbullet-local.service: silverbullet
       traefik.http.routers.silverbullet-local.tls: true
+      runtipi.managed: true

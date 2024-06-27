@@ -38,3 +38,4 @@ services:
       traefik.http.routers.simplex-smp-local.entrypoints: websecure
       traefik.http.routers.simplex-smp-local.service: simplex-smp
       traefik.http.routers.simplex-smp-local.tls: true
+      runtipi.managed: true

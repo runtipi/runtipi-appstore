@@ -12,3 +12,4 @@ services:
     labels:
       # Main
       traefik.enable: false
+      runtipi.managed: true

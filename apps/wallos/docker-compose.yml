@@ -40,3 +40,4 @@ services:
       traefik.http.routers.wallos-local.entrypoints: websecure
       traefik.http.routers.wallos-local.service: wallos
       traefik.http.routers.wallos-local.tls: true
+      runtipi.managed: true

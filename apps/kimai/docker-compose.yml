@@ -46,7 +46,7 @@ services:
       traefik.http.routers.kimai-proxy-local.entrypoints: websecure
       traefik.http.routers.kimai-proxy-local.service: kimai-proxy
       traefik.http.routers.kimai-proxy-local.tls: true
-
+      runtipi.managed: true
   kimai:
     container_name: kimai
     image: kimai/kimai2:fpm-2.1.0-prod
@@ -63,7 +63,8 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   sqldb:
     container_name: kimai-sqldb
     image: mysql:5.7
@@ -84,3 +85,5 @@ services:
       retries: 3
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

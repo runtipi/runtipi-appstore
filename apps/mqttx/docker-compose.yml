@@ -35,3 +35,4 @@ services:
       traefik.http.routers.mqttx-local.entrypoints: websecure
       traefik.http.routers.mqttx-local.service: mqttx
       traefik.http.routers.mqttx-local.tls: true
+      runtipi.managed: true

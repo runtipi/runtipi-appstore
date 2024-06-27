@@ -39,3 +39,4 @@ services:
       traefik.http.routers.kanboard-local.entrypoints: websecure
       traefik.http.routers.kanboard-local.service: kanboard
       traefik.http.routers.kanboard-local.tls: true
+      runtipi.managed: true

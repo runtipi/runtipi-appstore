@@ -29,3 +29,4 @@ services:
             traefik.http.routers.glances-local.entrypoints: websecure
             traefik.http.routers.glances-local.service: glances
             traefik.http.routers.glances-local.tls: true
+            runtipi.managed: true

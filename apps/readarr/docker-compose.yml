@@ -43,3 +43,4 @@ services:
       traefik.http.routers.readarr-local.entrypoints: websecure
       traefik.http.routers.readarr-local.service: readarr
       traefik.http.routers.readarr-local.tls: true
+      runtipi.managed: true

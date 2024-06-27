@@ -40,3 +40,4 @@ services:
       traefik.http.routers.n8n-local.entrypoints: websecure
       traefik.http.routers.n8n-local.service: n8n
       traefik.http.routers.n8n-local.tls: true
+      runtipi.managed: true
