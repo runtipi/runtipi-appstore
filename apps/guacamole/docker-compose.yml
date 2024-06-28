@@ -39,6 +39,8 @@ services:
       traefik.http.routers.guacamole-local.entrypoints: websecure
       traefik.http.routers.guacamole-local.service: guacamole
       traefik.http.routers.guacamole-local.tls: true
+      # Runtipi Managed
+      runtipi.managed: true
 
   guacamole-guacd:
     container_name: guacamole-guacd
