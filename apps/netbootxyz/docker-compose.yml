@@ -8,7 +8,6 @@ services:
       - ${APP_DATA_DIR}/data/assets:/assets
     ports:
       - ${APP_PORT}:3000
-      - 8676:8080
       - 69:69/udp
     restart: unless-stopped
     networks:
