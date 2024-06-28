@@ -1,13 +1,14 @@
-version: "3.7"
+version: "3.9"
 services:
   netbootxyz:
-    image: lscr.io/linuxserver/netbootxyz:2.0.53
+    image: netbootxyz/netbootxyz:0.7.1-nbxyz3
     container_name: netbootxyz
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
       - ${APP_DATA_DIR}/data/assets:/assets
     ports:
       - ${APP_PORT}:3000
+      - 8676:8080
       - 69:69/udp
     restart: unless-stopped
     networks:
@@ -37,4 +38,5 @@ services:
       traefik.http.routers.netbootxyz-local.entrypoints: websecure
       traefik.http.routers.netbootxyz-local.service: netbootxyz
       traefik.http.routers.netbootxyz-local.tls: true
+      # Runtipi managed
       runtipi.managed: true
