@@ -38,3 +38,4 @@ services:
       traefik.http.routers.lodestone-core-local.entrypoints: websecure
       traefik.http.routers.lodestone-core-local.service: lodestone-core
       traefik.http.routers.lodestone-core-local.tls: true
+      runtipi.managed: true

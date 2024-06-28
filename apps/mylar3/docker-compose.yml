@@ -42,3 +42,4 @@ services:
       traefik.http.routers.mylar3-local.entrypoints: websecure
       traefik.http.routers.mylar3-local.service: mylar3
       traefik.http.routers.mylar3-local.tls: true
+      runtipi.managed: true

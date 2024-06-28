@@ -37,3 +37,4 @@ services:
       traefik.http.routers.netbootxyz-local.entrypoints: websecure
       traefik.http.routers.netbootxyz-local.service: netbootxyz
       traefik.http.routers.netbootxyz-local.tls: true
+      runtipi.managed: true

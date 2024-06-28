@@ -52,3 +52,4 @@ services:
       traefik.http.routers.whisparr-local.entrypoints: websecure
       traefik.http.routers.whisparr-local.service: whisparr
       traefik.http.routers.whisparr-local.tls: true
+      runtipi.managed: true

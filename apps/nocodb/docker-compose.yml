@@ -12,7 +12,7 @@ services:
       - NC_AUTH_JWT_SECRET=${NOCODB_JWT_SECRET}
       - NC_REDIS_URL=redis://default:${NOCODB_REDIS_PASSWORD}@nocodb-redis:6379
       - DB_QUERY_LIMIT_DEFAULT=${NOCODB_TABLE_ROWS-25}
-    image: "nocodb/nocodb:0.250.2"
+    image: "nocodb/nocodb:0.251.0"
     ports:
       - "${APP_PORT}:8080"
     restart: always
@@ -45,7 +45,7 @@ services:
       traefik.http.routers.nocodb-local.entrypoints: websecure
       traefik.http.routers.nocodb-local.service: nocodb
       traefik.http.routers.nocodb-local.tls: true
-
+      runtipi.managed: true
   nocodb-db:
     container_name: nocodb-db
     environment:
@@ -63,7 +63,8 @@ services:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   nocodb-redis:
     image: redis:alpine
     container_name: nocodb-redis
@@ -78,3 +79,5 @@ services:
       retries: 30
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

@@ -40,3 +40,4 @@ services:
       traefik.http.routers.tasks-md-local.entrypoints: websecure
       traefik.http.routers.tasks-md-local.service: tasks-md
       traefik.http.routers.tasks-md-local.tls: true
+      runtipi.managed: true

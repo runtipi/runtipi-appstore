@@ -40,3 +40,4 @@ services:
       traefik.http.routers.adguard-local.entrypoints: websecure
       traefik.http.routers.adguard-local.service: adguard
       traefik.http.routers.adguard-local.tls: true
+      runtipi.managed: true

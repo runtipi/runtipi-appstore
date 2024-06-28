@@ -38,3 +38,4 @@ services:
       traefik.http.routers.audiobookshelf-local.entrypoints: websecure
       traefik.http.routers.audiobookshelf-local.service: audiobookshelf
       traefik.http.routers.audiobookshelf-local.tls: true
+      runtipi.managed: true

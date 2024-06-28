@@ -50,7 +50,7 @@ services:
       traefik.http.routers.romm-local.entrypoints: websecure
       traefik.http.routers.romm-local.service: romm
       traefik.http.routers.romm-local.tls: true
-
+      runtipi.managed: true
   romm-db:
     image: lscr.io/linuxserver/mariadb:latest
     container_name: romm-db
@@ -64,3 +64,5 @@ services:
     restart: "unless-stopped"
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

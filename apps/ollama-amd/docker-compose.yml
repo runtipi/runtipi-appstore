@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   ollama-amd:
-    image: ollama/ollama:0.1.46-rocm
+    image: ollama/ollama:0.1.47-rocm
     restart: unless-stopped
     container_name: ollama-amd
     environment:
@@ -42,3 +42,4 @@ services:
       traefik.http.routers.ollama-amd-local.entrypoints: websecure
       traefik.http.routers.ollama-amd-local.service: ollama-amd
       traefik.http.routers.ollama-amd-local.tls: true
+      runtipi.managed: true

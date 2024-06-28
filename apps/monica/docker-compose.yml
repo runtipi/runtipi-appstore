@@ -42,7 +42,7 @@ services:
       traefik.http.routers.monica-local.entrypoints: websecure
       traefik.http.routers.monica-local.service: monica
       traefik.http.routers.monica-local.tls: true
-
+      runtipi.managed: true
   monica-db:
     image: mariadb:10.6.11
     container_name: monica-db
@@ -57,3 +57,5 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

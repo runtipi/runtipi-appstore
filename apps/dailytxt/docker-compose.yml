@@ -43,3 +43,4 @@ services:
       traefik.http.routers.dailytxt-local.entrypoints: websecure
       traefik.http.routers.dailytxt-local.service: dailytxt
       traefik.http.routers.dailytxt-local.tls: true
+      runtipi.managed: true

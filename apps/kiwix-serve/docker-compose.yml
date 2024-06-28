@@ -37,3 +37,4 @@ services:
       traefik.http.routers.kiwix-serve-local.entrypoints: websecure
       traefik.http.routers.kiwix-serve-local.service: kiwix-serve
       traefik.http.routers.kiwix-serve-local.tls: true
+      runtipi.managed: true

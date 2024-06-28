@@ -43,3 +43,4 @@ services:
       traefik.http.routers.bazarr-local.entrypoints: websecure
       traefik.http.routers.bazarr-local.service: bazarr
       traefik.http.routers.bazarr-local.tls: true
+      runtipi.managed: true

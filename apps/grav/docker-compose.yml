@@ -39,3 +39,4 @@ services:
       traefik.http.routers.grav-local.entrypoints: websecure
       traefik.http.routers.grav-local.service: grav
       traefik.http.routers.grav-local.tls: true
+      runtipi.managed: true

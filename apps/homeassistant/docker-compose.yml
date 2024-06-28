@@ -9,3 +9,5 @@ services:
     restart: unless-stopped
     privileged: true
     network_mode: host
+    labels:
+      runtipi.managed: true

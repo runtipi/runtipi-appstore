@@ -40,3 +40,4 @@ services:
       traefik.http.routers.plex-local.entrypoints: websecure
       traefik.http.routers.plex-local.service: plex
       traefik.http.routers.plex-local.tls: true
+      runtipi.managed: true

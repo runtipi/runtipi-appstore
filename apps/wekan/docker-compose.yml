@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   wekan:
-    image: ghcr.io/wekan/wekan:v7.50
+    image: ghcr.io/wekan/wekan:v7.51
     container_name: wekan
     environment:
       # https://github.com/wekan/wekan/blob/main/docker-compose.yml
@@ -47,7 +47,7 @@ services:
       traefik.http.routers.wekan-local.entrypoints: websecure
       traefik.http.routers.wekan-local.service: wekan
       traefik.http.routers.wekan-local.tls: true
-
+      runtipi.managed: true
   wekan-db:
     container_name: wekan-db
     image: mongo:6
@@ -59,6 +59,7 @@ services:
       - ${APP_DATA_DIR}/data/dump:/dump
     networks:
       - backend_network
-
+    labels:
+      runtipi.managed: true
 networks:
   backend_network:

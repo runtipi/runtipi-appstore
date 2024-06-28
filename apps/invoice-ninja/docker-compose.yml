@@ -1,6 +1,6 @@
 services:
   invoice-ninja:
-    image: invoiceninja/invoiceninja:5.10.2
+    image: invoiceninja/invoiceninja:5.10.4
     container_name: invoice-ninja
     restart: unless-stopped
     user: 1500:1500
@@ -27,7 +27,8 @@ services:
       - invoice-ninja-db
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   invoice-ninja-web:
     image: nginx:1.25
     container_name: invoice-ninja-web
@@ -67,7 +68,7 @@ services:
       traefik.http.routers.invoice-ninja-web-local.entrypoints: websecure
       traefik.http.routers.invoice-ninja-web-local.service: invoice-ninja-web
       traefik.http.routers.invoice-ninja-web-local.tls: true
-
+      runtipi.managed: true
   invoice-ninja-db:
     image: mariadb:10.4
     container_name: invoice-ninja-db
@@ -86,10 +87,13 @@ services:
         condition: service_completed_successfully
     # This command is required to set important mariadb defaults
     command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --wait_timeout=28800, --log-warnings=0]
-
+    labels:
+      runtipi.managed: true
   invoice-ninja-init:
     image: bash:5.2.26
     container_name: invoice-ninja-init
     volumes:
       - ${APP_DATA_DIR}/data:/tmp/data
     command: bash -c "chmod +x /tmp/data/init/init.sh && /tmp/data/init/init.sh "
+    labels:
+      runtipi.managed: true

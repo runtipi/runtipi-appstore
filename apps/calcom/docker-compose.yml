@@ -4,7 +4,7 @@ services:
 
   calcom:
     container_name: calcom
-    image: calcom/cal.com:v4.1.12
+    image: calcom/cal.com:v4.2.3
     restart: unless-stopped
     ports:
       - ${APP_PORT}:3000
@@ -60,7 +60,7 @@ services:
       traefik.http.routers.calcom-local.entrypoints: websecure
       traefik.http.routers.calcom-local.service: calcom
       traefik.http.routers.calcom-local.tls: true
-
+      runtipi.managed: true
   db-calcom:
     container_name: db-calcom
     image: postgres:16.1
@@ -73,3 +73,5 @@ services:
       - POSTGRES_DB=calcom
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

@@ -1,6 +1,6 @@
 services:
   matter-server:
-    image: ghcr.io/home-assistant-libs/python-matter-server:6.1.2
+    image: ghcr.io/home-assistant-libs/python-matter-server:3.7.0
     container_name: matter-server
     restart: unless-stopped
     network_mode: host
@@ -12,3 +12,4 @@ services:
     labels:
       # Main
       traefik.enable: false
+      runtipi.managed: true

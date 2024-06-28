@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   budibase:
-    image: budibase/budibase:2.29.1
+    image: budibase/budibase:2.29.4
     restart: unless-stopped
     container_name: budibase
     ports:
@@ -35,3 +35,4 @@ services:
       traefik.http.routers.budibase-local.entrypoints: websecure
       traefik.http.routers.budibase-local.service: budibase
       traefik.http.routers.budibase-local.tls: true
+      runtipi.managed: true

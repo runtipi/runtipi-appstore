@@ -36,3 +36,4 @@ services:
       traefik.http.routers.moodist-local.entrypoints: websecure
       traefik.http.routers.moodist-local.service: moodist
       traefik.http.routers.moodist-local.tls: true
+      runtipi.managed: true

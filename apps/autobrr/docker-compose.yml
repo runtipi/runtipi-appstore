@@ -39,3 +39,4 @@ services:
       traefik.http.routers.autobrr-local.entrypoints: websecure
       traefik.http.routers.autobrr-local.service: autobrr
       traefik.http.routers.autobrr-local.tls: true
+      runtipi.managed: true

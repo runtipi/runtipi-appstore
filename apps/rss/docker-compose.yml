@@ -40,3 +40,4 @@ services:
       traefik.http.routers.rss-local.entrypoints: websecure
       traefik.http.routers.rss-local.service: rss
       traefik.http.routers.rss-local.tls: true
+      runtipi.managed: true

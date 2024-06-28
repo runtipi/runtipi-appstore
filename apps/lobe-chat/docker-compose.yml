@@ -2,7 +2,7 @@ version: '3.9'
 services:
   lobe-chat:
     container_name: lobe-chat
-    image: lobehub/lobe-chat:v1.1.9
+    image: lobehub/lobe-chat:v1.1.15
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - OPENAI_PROXY_URL=${OPEANAI_PROXY_URL}
@@ -38,3 +38,4 @@ services:
       traefik.http.routers.lobe-chat-local.entrypoints: websecure
       traefik.http.routers.lobe-chat-local.service: lobe-chat
       traefik.http.routers.lobe-chat-local.tls: true
+      runtipi.managed: true

@@ -38,3 +38,4 @@ services:
       traefik.http.routers.dozzle-local.entrypoints: websecure
       traefik.http.routers.dozzle-local.service: dozzle
       traefik.http.routers.dozzle-local.tls: true
+      runtipi.managed: true

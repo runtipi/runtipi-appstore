@@ -52,3 +52,4 @@ services:
       traefik.http.routers.archivebox-local.entrypoints: websecure
       traefik.http.routers.archivebox-local.service: archivebox
       traefik.http.routers.archivebox-local.tls: true
+      runtipi.managed: true

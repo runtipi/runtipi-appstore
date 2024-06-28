@@ -40,6 +40,7 @@ services:
       traefik.http.routers.cheshire-local.entrypoints: websecure
       traefik.http.routers.cheshire-local.service: cheshire-cat-ai
       traefik.http.routers.cheshire-local.tls: true
+      runtipi.managed: true
 networks:
   tipi-main-network:
     driver: bridge

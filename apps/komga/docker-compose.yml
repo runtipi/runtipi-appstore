@@ -38,3 +38,4 @@ services:
       traefik.http.routers.komga-local.entrypoints: websecure
       traefik.http.routers.komga-local.service: komga
       traefik.http.routers.komga-local.tls: true
+      runtipi.managed: true

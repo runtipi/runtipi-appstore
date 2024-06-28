@@ -39,5 +39,4 @@ services:
       traefik.http.routers.grist-local.entrypoints: websecure
       traefik.http.routers.grist-local.service: grist
       traefik.http.routers.grist-local.tls: true
-
-
+      runtipi.managed: true

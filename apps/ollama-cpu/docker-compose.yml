@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   ollama-cpu:
-    image: ollama/ollama:0.1.46
+    image: ollama/ollama:0.1.47
     restart: unless-stopped
     container_name: ollama-cpu
     ports:
@@ -36,3 +36,4 @@ services:
       traefik.http.routers.ollama-cpu-local.entrypoints: websecure
       traefik.http.routers.ollama-cpu-local.service: ollama-cpu
       traefik.http.routers.ollama-cpu-local.tls: true
+      runtipi.managed: true

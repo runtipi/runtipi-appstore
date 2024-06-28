@@ -42,3 +42,4 @@ services:
       traefik.http.routers.getashell-local.entrypoints: websecure
       traefik.http.routers.getashell-local.service: getashell
       traefik.http.routers.getashell-local.tls: true
+      runtipi.managed: true

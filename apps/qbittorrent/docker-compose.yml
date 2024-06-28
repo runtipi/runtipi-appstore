@@ -45,3 +45,4 @@ services:
       traefik.http.routers.qbittorrent-local.entrypoints: websecure
       traefik.http.routers.qbittorrent-local.service: qbittorrent
       traefik.http.routers.qbittorrent-local.tls: true
+      runtipi.managed: true

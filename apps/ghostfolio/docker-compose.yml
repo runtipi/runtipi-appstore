@@ -3,7 +3,7 @@ version: "3.9"
 services:
   ghostfolio:
     container_name: ghostfolio
-    image: ghostfolio/ghostfolio:2.90.0
+    image: ghostfolio/ghostfolio:2.91.0
     restart: unless-stopped
     ports:
       - ${APP_PORT}:3333
@@ -52,7 +52,7 @@ services:
       traefik.http.routers.ghostfolio-local.entrypoints: websecure
       traefik.http.routers.ghostfolio-local.service: ghostfolio
       traefik.http.routers.ghostfolio-local.tls: true
-
+      runtipi.managed: true
   ghostfolio-db:
     container_name: ghostfolio-db
     image: postgres:15.4-alpine
@@ -71,7 +71,8 @@ services:
       - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   ghostfolio-redis:
     container_name: ghostfolio-redis
     image: redis:7-alpine
@@ -88,3 +89,5 @@ services:
       - ${APP_DATA_DIR}/data/redis:/data
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

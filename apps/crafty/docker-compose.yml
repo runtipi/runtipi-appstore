@@ -44,3 +44,4 @@ services:
       traefik.http.routers.crafty-docs-local.entrypoints: websecure
       traefik.http.routers.crafty-docs-local.service: crafty-docs
       traefik.http.routers.crafty-docs-local.tls: true
+      runtipi.managed: true

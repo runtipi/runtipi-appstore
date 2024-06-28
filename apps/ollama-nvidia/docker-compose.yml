@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   ollama-nvidia:
-    image: ollama/ollama:0.1.46
+    image: ollama/ollama:0.1.47
     restart: unless-stopped
     container_name: ollama-nvidia
     ports:
@@ -44,3 +44,4 @@ services:
       traefik.http.routers.ollama-nvidia-local.entrypoints: websecure
       traefik.http.routers.ollama-nvidia-local.service: ollama-nvidia
       traefik.http.routers.ollama-nvidia-local.tls: true
+      runtipi.managed: true

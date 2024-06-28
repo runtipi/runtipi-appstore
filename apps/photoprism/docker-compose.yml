@@ -66,7 +66,7 @@ services:
       traefik.http.routers.photoprism-local.entrypoints: websecure
       traefik.http.routers.photoprism-local.service: photoprism
       traefik.http.routers.photoprism-local.tls: true
-
+      runtipi.managed: true
   photoprism-db:
     restart: unless-stopped
     image: mariadb:10.8
@@ -81,3 +81,5 @@ services:
       MARIADB_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

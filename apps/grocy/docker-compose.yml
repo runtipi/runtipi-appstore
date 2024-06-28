@@ -39,3 +39,4 @@ services:
       traefik.http.routers.grocy-local.entrypoints: websecure
       traefik.http.routers.grocy-local.service: grocy
       traefik.http.routers.grocy-local.tls: true
+      runtipi.managed: true

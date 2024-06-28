@@ -52,7 +52,7 @@ services:
       traefik.http.routers.n8n-local.entrypoints: websecure
       traefik.http.routers.n8n-local.service: n8n
       traefik.http.routers.n8n-local.tls: true
-
+      runtipi.managed: true
   n8n-db:
     container_name: n8n-db
     image: postgres:11
@@ -77,9 +77,12 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
-  
+    labels:
+      runtipi.managed: true
   n8n-init:
     image: bash:5.2.26
     command: ['sh', '-c', 'chown -R 1000:1000 /home/node/.n8n']
     volumes:
       - ${APP_DATA_DIR}/data/n8n:/home/node/.n8n
+    labels:
+      runtipi.managed: true

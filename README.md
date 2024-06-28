@@ -10,7 +10,7 @@ If you want to see new apps on Tipi you can either:
 - [Join the Discord](https://discord.gg/Bu9qEPnHsc) members of the community will add it.
 - Fork this repo and create the necessary files for a Tipi app. Follow this [guide](https://www.runtipi.io/docs/contributing/adding-a-new-app)`
 
-## Apps available (242)
+## Apps available (243)
 
 | Name                                                                         | Description                                                                                                                                                         | Port  |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
@@ -47,6 +47,7 @@ If you want to see new apps on Tipi you can either:
 | [Cross-Seed](https://github.com/cross-seed/cross-seed)                       | Fully-automatic cross-seeding with Torznab.                                                                                                                         | 2468  |
 | [Crowdsec](https://github.com/crowdsecurity/crowdsec)                        | Participative security solution offering crowdsourced protection against malicious IPs and access to the most advanced real-world CTI.                              | 8679  |
 | [CTFd](https://github.com/CTFd/CTFd)                                         | Cyber Security Training made simple.                                                                                                                                | 8546  |
+| [CyberChef](https://github.com/gchq/CyberChef)                               | The Cyber Swiss Army Knife                                                                                                                                          | 9080  |
 | [DailyTxT](https://github.com/PhiTux/DailyTxT)                               | Encrypted Diary Web-App                                                                                                                                             | 8156  |
 | [Dash.](https://github.com/MauriceNino/dashdot)                              | A simple, modern server dashboard, primarily used by smaller private server                                                                                         | 8173  |
 | [Dashy](https://github.com/lissy93/dashy)                                    | A self-hostable personal dashboard built for you.                                                                                                                   | 8205  |
@@ -59,7 +60,7 @@ If you want to see new apps on Tipi you can either:
 | [Draw.io](https://github.com/jgraph/drawio)                                  | Diagramming and whiteboarding app.                                                                                                                                  | 8734  |
 | [Duck DNS](https://github.com/linuxserver/docker-duckdns)                    | Duck DNS is a free Dynamic DNS service                                                                                                                              | 8026  |
 | [Duplicati](https://github.com/linuxserver/docker-duplicati)                 | Store securely encrypted backups in the cloud!                                                                                                                      | 8159  |
-| [Eclipse Mosquitto](https://github.com/eclipse/mosquitto/)                   | open source message broker                                                                                                                                          | 8288  |
+| [Eclipse Mosquitto](https://github.com/eclipse/mosquitto/)                   | The MQTT protocol provides a lightweight method of carrying out messaging using a publish/subscribe model.                                                          | 8288  |
 | [Electrs](https://github.com/romanz/electrs)                                 | Electrum server                                                                                                                                                     | 3006  |
 | [Email OAuth2 Proxy](https://github.com/simonrob/email-oauth2-proxy)         | OAuth Proxy for IMAP/POP/SMTP.                                                                                                                                      | 1999  |
 | [Emulatorjs](https://github.com/EmulatorJS/EmulatorJS)                       | Self-hosted Javascript emulation for various system.                                                                                                                | 8164  |
@@ -98,7 +99,7 @@ If you want to see new apps on Tipi you can either:
 | [Hello World](https://github.com/crccheck/docker-hello-world)                | Hello World web server in under 2 MB                                                                                                                                | 8000  |
 | [Homarr](https://github.com/ajnart/homarr)                                   | Homarr is a simple and lightweight homepage for your server, that helps you easily access all of your services in one place.                                        | 8102  |
 | [Home Assistant](https://github.com/home-assistant/core)                     | Open source home automation that puts local control and privacy first                                                                                               | 8209  |
-| [HomeBox](https://github.com/hay-kot/homebox)                                | Homebox is the inventory and organization system built for the Home User                                                                                            | 7745  |
+| [HomeBox](https://github.com/sysadminsmedia/homebox)                         | Inventory and organization system.                                                                                                                                  | 7745  |
 | [Home Bridge](https://github.com/homebridge/homebridge)                      | HomeKit support for the impatient.                                                                                                                                  | 8581  |
 | [Homepage](https://github.com/gethomepage/homepage)                          | A highly customizable homepage                                                                                                                                      | 8756  |
 | [Immich](https://github.com/immich-app/immich)                               | Photo and video backup solution directly from your mobile phone.                                                                                                    | 8128  |
