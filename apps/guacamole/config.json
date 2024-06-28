@@ -14,5 +14,12 @@
     "website": "https://guacamole.apache.org",
     "exposable": true,
     "supported_architectures": ["arm64", "amd64"],
-    "form_fields": []
+    "form_fields": [
+      {
+        "type": "random",
+        "min": 32,
+        "label": "Guacamole postgres password",
+        "env_variable": "GUACAMOLE_DB_PASSWORD"
+      }
+    ]
   }
