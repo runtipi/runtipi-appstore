@@ -48,6 +48,9 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      # Runtipi Managed
+      runtipi.managed: true
     
   guacamole-db:
     container_name: guacamole-db
@@ -63,3 +66,6 @@ services:
       - POSTGRES_PASSWORD=${GUACAMOLE_DB_PASSWORD}
     networks:
       - tipi_main_network
+    labels:
+      # Runtipi Managed
+      runtipi.managed: true
