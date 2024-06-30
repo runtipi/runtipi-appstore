@@ -14,7 +14,7 @@
     "source": "https://github.com/apache/guacamole-server",
     "website": "https://guacamole.apache.org",
     "exposable": true,
-    "supported_architectures": ["arm64", "amd64"],
+    "supported_architectures": ["amd64"],
     "form_fields": [
       {
         "type": "random",
