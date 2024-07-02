@@ -1,0 +1,111 @@
+version: "3.7"
+
+services:
+  librechat:
+    container_name: librechat
+    ports:
+      - "${APP_PORT}:3080"
+    depends_on:
+      - mongodb
+      - rag_api
+    image: ghcr.io/danny-avila/librechat-dev:638ac5bba61a524cc4ae99711a91f19572c4f2a0
+    restart: always
+    user: 0:0
+    environment:
+      - HOST=0.0.0.0
+      - MONGO_URI=mongodb://mongodb:27017/LibreChat
+      - MEILI_HOST=http://meilisearch:7700
+      - RAG_PORT=${RAG_PORT:-8000}
+      - RAG_API_URL=http://rag_api:${RAG_PORT:-8000}
+      - JWT_SECRET=${LC_JWT_SECRET}
+      - JWT_REFRESH_SECRET=${LC_JWT_REFRESH_SECRET}
+      - CREDS_KEY=${LC_CREDS_KEY}
+      - CREDS_IV=${LC_CREDS_IV}
+    env_file:
+      - ./data/.env
+    volumes:
+      - type: bind
+        source: ${APP_DATA_DIR}/data/librechat.yaml
+        target: /app/librechat.yaml
+      - type: bind
+        source: ${APP_DATA_DIR}/data/.env
+        target: /app/.env
+      - ${APP_DATA_DIR}/data/images:/app/client/public/images
+      - ${APP_DATA_DIR}/data/logs:/app/api/logs
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.librechat-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.librechat.loadbalancer.server.port: 3080
+      # Web
+      traefik.http.routers.librechat-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.librechat-insecure.entrypoints: web
+      traefik.http.routers.librechat-insecure.service: librechat
+      traefik.http.routers.librechat-insecure.middlewares: librechat-web-redirect
+      # Websecure
+      traefik.http.routers.librechat.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.librechat.entrypoints: websecure
+      traefik.http.routers.librechat.service: librechat
+      traefik.http.routers.librechat.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.librechat-local-insecure.rule: Host(`librechat.${LOCAL_DOMAIN}`)
+      traefik.http.routers.librechat-local-insecure.entrypoints: web
+      traefik.http.routers.librechat-local-insecure.service: librechat
+      traefik.http.routers.librechat-local-insecure.middlewares: librechat-web-redirect
+      # Local domain secure
+      traefik.http.routers.librechat-local.rule: Host(`librechat.${LOCAL_DOMAIN}`)
+      traefik.http.routers.librechat-local.entrypoints: websecure
+      traefik.http.routers.librechat-local.service: librechat
+      traefik.http.routers.librechat-local.tls: true
+  mongodb:
+    container_name: chat-mongodb
+    image: mongo
+    restart: always
+    user: 0:0
+    volumes:
+      - ${APP_DATA_DIR}/data-node:/data/db
+    command: mongod --noauth
+    networks:
+      - tipi_main_network
+  meilisearch:
+    container_name: chat-meilisearch
+    image: getmeili/meilisearch:v1.7.3
+    restart: always
+    user: 0:0
+    environment:
+      - MEILI_HOST=http://meilisearch:7700
+      - MEILI_NO_ANALYTICS=true
+    volumes:
+      - ${APP_DATA_DIR}/meili_data_v1.7:/meili_data
+    networks:
+      - tipi_main_network
+  vectordb:
+    container_name: vectordb
+    image: ankane/pgvector:v0.5.1
+    environment:
+      POSTGRES_DB: librechat
+      POSTGRES_USER: tipi
+      POSTGRES_PASSWORD: ${LC_POSTGRES_PASSWORD}
+    restart: always
+    volumes:
+      - ${APP_DATA_DIR}/pgdata:/var/lib/postgresql/data
+    networks:
+      - tipi_main_network
+  rag_api:
+    container_name: rag_api
+    image: ghcr.io/danny-avila/librechat-rag-api-dev:ad107dc19b0a95ecbe5d936d26f3b46fff4494f4
+    environment:
+      - RAG_PORT=${RAG_PORT:-8000}
+      - DB_HOST=vectordb
+      - POSTGRES_DB=librechat
+      - POSTGRES_USER=tipi
+      - POSTGRES_PASSWORD=${LC_POSTGRES_PASSWORD}
+    restart: always
+    depends_on:
+      - vectordb
+    env_file:
+      - ./data/.env
+    networks:
+      - tipi_main_network
