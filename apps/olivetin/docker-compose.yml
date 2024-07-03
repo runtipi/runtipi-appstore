@@ -14,7 +14,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.olivetin-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.olivetin.loadbalancer.server.port: 11434
+      traefik.http.services.olivetin.loadbalancer.server.port: 1337
       # Web
       traefik.http.routers.olivetin-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.olivetin-insecure.entrypoints: web
