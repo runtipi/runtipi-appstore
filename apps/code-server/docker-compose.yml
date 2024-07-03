@@ -13,6 +13,8 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
       - ${APP_DATA_DIR}/data/projects:/projects
+      - ${ROOT_FOLDER_HOST}/app-data:/runtipi/app-data
+      - ${ROOT_FOLDER_HOST}/user-config:/runtipi/user-config
     ports:
       - ${APP_PORT}:8443
     restart: unless-stopped
