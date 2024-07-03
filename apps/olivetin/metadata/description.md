@@ -1,11 +1,8 @@
 ## OliveTin
 
-<img alt = "project logo" src = "https://github.com/OliveTin/OliveTin/blob/main/webui.dev/OliveTinLogo.png?raw=true" align = "right" width = "160px" />
-
 OliveTin gives **safe** and **simple** access to predefined shell commands from a web interface.
 
 <img alt = "screenshot" src = "https://github.com/OliveTin/OliveTin/blob/main/var/marketing/screenshotDesktop.png?raw=true" />
-<a href = "#screenshots">More screenshots below</a>
 
 ### Use cases
 
