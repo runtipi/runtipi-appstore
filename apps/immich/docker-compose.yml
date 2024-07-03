@@ -3,7 +3,7 @@ version: "3.7"
 services:
   immich:
     container_name: immich
-    image: ghcr.io/immich-app/immich-server:v1.106.4
+    image: ghcr.io/immich-app/immich-server:v1.107.2
     volumes:
       - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
     environment:
