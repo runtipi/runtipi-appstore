@@ -2,7 +2,7 @@ version: "3.9"
 services:
   olivetin:
     container_name: olivetin
-    image: jamesread/olivetin:2024.06.04
+    image: jamesread/olivetin:latest
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data:/config
