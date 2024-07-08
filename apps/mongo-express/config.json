@@ -11,13 +11,13 @@
     "data"
   ],
   "description": "A web-based MongoDB admin interface written with Node.js, Express, and Bootstrap3",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "1.0.2",
   "source": "https://github.com/mongo-express/mongo-express",
   "website": "https://www.mongodb.com/",
   "form_fields": [
     {
-      "type": "ip",
+      "type": "text",
       "label": "MongoDB Server IP Address",
       "max": 50,
       "min": 3,
