@@ -23,6 +23,7 @@ services:
       - tipi_main_network
     labels:
       # Main
+      runtipi.managed: true
       traefik.enable: true
       traefik.http.middlewares.grampsweb-web-redirect.redirectscheme.scheme: https
       traefik.http.services.grampsweb.loadbalancer.server.port: 80
