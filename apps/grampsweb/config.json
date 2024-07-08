@@ -6,7 +6,7 @@
   "port": 5000,
   "id": "grampsweb",
   "tipi_version": 3,
-  "version": "4.1.2",
+  "version": "24.7.0",
   "categories": [
     "data",
     "social"
@@ -22,7 +22,7 @@
       "max": 50,
       "min": 3,
       "required": true,
-      "env_variable": "GRAMPS_TREE"
+      "env_variable": "GRAMPSWEB_TREE"
     }
   ],
   "supported_architectures": [

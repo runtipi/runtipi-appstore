@@ -2,13 +2,13 @@ version: "3.7"
 
 services:
   grampsweb:
-    image: ghcr.io/gramps-project/grampsweb:v24.5.0
+    image: ghcr.io/gramps-project/grampsweb:v24.7.0
     container_name: grampsweb
     restart: unless-stopped
     ports:
       - ${APP_PORT}:5000 # host:docker
     environment:
-      GRAMPSWEB_TREE: ${GRAMPS_TREE} # will create a new tree if not exists
+      GRAMPSWEB_TREE: ${GRAMPSWEB_TREE} # will create a new tree if not exists
       GUNICORN_NUM_WORKERS: 1
     volumes:
       - ${APP_DATA_DIR}/users:/app/users # persist user database
