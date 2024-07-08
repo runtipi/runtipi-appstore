@@ -1,6 +1,6 @@
 services:
   homebox:
-    image: ghcr.io/sysadminsmedia/homebox:0.11.1-rootless
+    image: ghcr.io/sysadminsmedia/homebox:0.12.1-rootless
     container_name: homebox
     restart: unless-stopped
     environment:
