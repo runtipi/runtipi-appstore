@@ -1,0 +1,69 @@
+version: "3.9"
+services:
+  semaphore:
+    container_name: semaphore
+    image: semaphoreui/semaphore:v2.10.11
+    restart: unless-stopped
+    environment:
+      - SEMAPHORE_DB_USER=semaphore
+      - SEMAPHORE_DB_PASS=${SEMAPHORE_DB_PASSWORD}
+      - SEMAPHORE_DB_HOST=semaphore-db
+      - SEMAPHORE_DB_PORT=5432
+      - SEMAPHORE_DB_DIALECT=postgres
+      - SEMAPHORE_DB=semaphore
+      - SEMAPHORE_PLAYBOOK_PATH=/tmp/semaphore
+      - SEMAPHORE_ADMIN_PASSWORD=${SEMAPHORE_ADMIN_PASSWORD}
+      - SEMAPHORE_ADMIN_NAME=${SEMAPHORE_ADMIN_NAME}
+      - SEMAPHORE_ADMIN_EMAIL=${SEMAPHORE_ADMIN_EMAIL}
+      - SEMAPHORE_ADMIN=${SEMAPHORE_ADMIN_NAME}
+      - SEMAPHORE_ACCESS_KEY_ENCRYPTION=${SEMAPHORE_ACCESS_KEY_ENCRYPTION}
+      - SEMAPHORE_LDAP_ACTIVATED=no
+      - TZ=${TZ}
+    ports:
+      - ${APP_PORT}:3000
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.seedsync-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.seedsync.loadbalancer.server.port: 8800
+      # Web
+      traefik.http.routers.seedsync-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.seedsync-insecure.entrypoints: web
+      traefik.http.routers.seedsync-insecure.service: seedsync
+      traefik.http.routers.seedsync-insecure.middlewares: seedsync-web-redirect
+      # Websecure
+      traefik.http.routers.seedsync.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.seedsync.entrypoints: websecure
+      traefik.http.routers.seedsync.service: seedsync
+      traefik.http.routers.seedsync.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.seedsync-local-insecure.rule: Host(`seedsync.${LOCAL_DOMAIN}`)
+      traefik.http.routers.seedsync-local-insecure.entrypoints: web
+      traefik.http.routers.seedsync-local-insecure.service: seedsync
+      traefik.http.routers.seedsync-local-insecure.middlewares: seedsync-web-redirect
+      # Local domain secure
+      traefik.http.routers.seedsync-local.rule: Host(`seedsync.${LOCAL_DOMAIN}`)
+      traefik.http.routers.seedsync-local.entrypoints: websecure
+      traefik.http.routers.seedsync-local.service: seedsync
+      traefik.http.routers.seedsync-local.tls: true
+      # Runtipi managed
+      runtipi.managed: true
+
+  semaphore-db:
+    container_name: semaphore-db
+    image: postgres:14
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=semaphore
+      - POSTGRES_PASSWORD=${SEMAPHORE_DB_PASSWORD}
+      - POSTGRES_DB=semaphore
+    networks:
+      - tipi_main_network
+    labels:
+      # Runtipi managed
+      runtipi.managed: true
+  
