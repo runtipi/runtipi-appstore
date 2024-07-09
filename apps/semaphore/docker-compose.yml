@@ -26,28 +26,28 @@ services:
     labels:
       # Main
       traefik.enable: true
-      traefik.http.middlewares.seedsync-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.seedsync.loadbalancer.server.port: 3000
+      traefik.http.middlewares.semaphore-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.semaphore.loadbalancer.server.port: 3000
       # Web
-      traefik.http.routers.seedsync-insecure.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.seedsync-insecure.entrypoints: web
-      traefik.http.routers.seedsync-insecure.service: seedsync
-      traefik.http.routers.seedsync-insecure.middlewares: seedsync-web-redirect
+      traefik.http.routers.semaphore-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.semaphore-insecure.entrypoints: web
+      traefik.http.routers.semaphore-insecure.service: semaphore
+      traefik.http.routers.semaphore-insecure.middlewares: semaphore-web-redirect
       # Websecure
-      traefik.http.routers.seedsync.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.seedsync.entrypoints: websecure
-      traefik.http.routers.seedsync.service: seedsync
-      traefik.http.routers.seedsync.tls.certresolver: myresolver
+      traefik.http.routers.semaphore.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.semaphore.entrypoints: websecure
+      traefik.http.routers.semaphore.service: semaphore
+      traefik.http.routers.semaphore.tls.certresolver: myresolver
       # Local domain
-      traefik.http.routers.seedsync-local-insecure.rule: Host(`seedsync.${LOCAL_DOMAIN}`)
-      traefik.http.routers.seedsync-local-insecure.entrypoints: web
-      traefik.http.routers.seedsync-local-insecure.service: seedsync
-      traefik.http.routers.seedsync-local-insecure.middlewares: seedsync-web-redirect
+      traefik.http.routers.semaphore-local-insecure.rule: Host(`semaphore.${LOCAL_DOMAIN}`)
+      traefik.http.routers.semaphore-local-insecure.entrypoints: web
+      traefik.http.routers.semaphore-local-insecure.service: semaphore
+      traefik.http.routers.semaphore-local-insecure.middlewares: semaphore-web-redirect
       # Local domain secure
-      traefik.http.routers.seedsync-local.rule: Host(`seedsync.${LOCAL_DOMAIN}`)
-      traefik.http.routers.seedsync-local.entrypoints: websecure
-      traefik.http.routers.seedsync-local.service: seedsync
-      traefik.http.routers.seedsync-local.tls: true
+      traefik.http.routers.semaphore-local.rule: Host(`semaphore.${LOCAL_DOMAIN}`)
+      traefik.http.routers.semaphore-local.entrypoints: websecure
+      traefik.http.routers.semaphore-local.service: semaphore
+      traefik.http.routers.semaphore-local.tls: true
       # Runtipi managed
       runtipi.managed: true
 
