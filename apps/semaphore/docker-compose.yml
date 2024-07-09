@@ -27,7 +27,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.seedsync-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.seedsync.loadbalancer.server.port: 8800
+      traefik.http.services.seedsync.loadbalancer.server.port: 3000
       # Web
       traefik.http.routers.seedsync-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.seedsync-insecure.entrypoints: web
