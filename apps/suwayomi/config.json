@@ -1,0 +1,16 @@
+{
+  "name": "Suwayomi",
+  "available": true,
+  "exposable": true,
+  "port": 4567,
+  "id": "suwayomi",
+  "tipi_version": 3,
+  "version": "1.1.1",
+  "categories": ["books", "media"],
+  "description": "A free and open-source manga reader server that runs extensions",
+  "short_desc": "An open-source manga reader server with bundled Web UI",
+  "author": "Suwayomi",
+  "source": "https://github.com/Suwayomi/docker-tachidesk",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64", "arm"]
+}

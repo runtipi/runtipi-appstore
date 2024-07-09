@@ -3,7 +3,7 @@ version: "3"
 services:
   jellyseerr:
     container_name: jellyseerr
-    image: fallenbagel/jellyseerr:1.8.1
+    image: fallenbagel/jellyseerr:1.9.2
     ports:
       - ${APP_PORT}:5055
     volumes:
@@ -39,3 +39,4 @@ services:
       traefik.http.routers.jellyseerr-local.entrypoints: websecure
       traefik.http.routers.jellyseerr-local.service: jellyseerr
       traefik.http.routers.jellyseerr-local.tls: true
+      runtipi.managed: true

@@ -5,12 +5,10 @@
   "short_desc": "A home for all your docs",
   "author": "outline",
   "port": 8404,
-  "categories": [
-    "utilities"
-  ],
+  "categories": ["utilities"],
   "description": "Outline is a knowledge base designed for teams. It's goals are to be fast, intuitive and support many integrations.",
-  "tipi_version": 1,
-  "version": "0.75.2",
+  "tipi_version": 4,
+  "version": "0.77.2",
   "source": "https://github.com/outline/outline",
   "website": "https://getoutline.com",
   "exposable": true,
@@ -68,8 +66,5 @@
       "env_variable": "OUTLINE_PASSWORD"
     }
   ],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"]
 }

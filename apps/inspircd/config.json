@@ -1,0 +1,19 @@
+{
+  "$schema": "../schema.json",
+  "name": "Inspircd",
+  "id": "inspircd",
+  "available": true,
+  "short_desc": "A modular C++ IRC server.",
+  "author": "inspircd",
+  "port": 6697,
+  "no_gui": true,
+  "categories": ["social"],
+  "description": "InspIRCd is a modular C++ Internet Relay Chat (IRC) server for UNIX-like and Windows systems.",
+  "tipi_version": 2,
+  "version": "3.17.1",
+  "source": "https://github.com/inspircd/inspircd",
+  "website": "https://www.inspircd.org",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "form_fields": []
+}

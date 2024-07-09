@@ -7,7 +7,7 @@
   "port": 8333,
   "id": "bitcoind",
   "description": "Bitcoin core node",
-  "tipi_version": 2,
+  "tipi_version": 5,
   "version": "27.0",
   "categories": [
     "finance"
@@ -16,6 +16,13 @@
   "author": "Bitcoin developers",
   "source": "https://github.com/lncm/docker-bitcoind",
   "form_fields": [
+    {
+      "type": "number",
+      "label": "Reduce storage requirements by enabling pruning (deleting) of old blocks",
+      "hint": "default: 0 = disable pruning blocks, 1 = allow manual pruning via RPC, >=550 = automatically prune block files to stay under the specified target size in MiB",
+      "required": false,
+      "env_variable": "BITCOIND_PRUNING"
+    },
     {
       "type": "number",
       "label": "DB Cache Size (In mb)",
@@ -36,6 +43,23 @@
       "hint": "Accept incoming connections from peers.",
       "required": false,
       "env_variable": "BITCOIND_LISTEN",
+      "options": [
+        {
+          "label": "Yes",
+          "value": "1"
+        },
+        {
+          "label": "No",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "label": "Accept JSON-RPC requests",
+      "hint": "Allows you to use bitcoin-cli to communicate with the node",
+      "required": false,
+      "env_variable": "BITCOIND_SERVER",
       "options": [
         {
           "label": "Yes",

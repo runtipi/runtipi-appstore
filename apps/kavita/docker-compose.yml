@@ -3,7 +3,7 @@ version: "3.9"
 services:
   kavita:
     container_name: kavita
-    image: jvmilazz0/kavita:0.8.1
+    image: jvmilazz0/kavita:0.8.2
     ports:
       - ${APP_PORT}:5000
     volumes:
@@ -41,3 +41,4 @@ services:
       traefik.http.routers.kavita-local.entrypoints: websecure
       traefik.http.routers.kavita-local.service: kavita
       traefik.http.routers.kavita-local.tls: true
+      runtipi.managed: true

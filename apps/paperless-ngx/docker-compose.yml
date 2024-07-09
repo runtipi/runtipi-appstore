@@ -2,7 +2,7 @@ version: '3.7'
 services:
   paperless-ngx:
     container_name: paperless-ngx
-    image: ghcr.io/paperless-ngx/paperless-ngx:2.8.6
+    image: ghcr.io/paperless-ngx/paperless-ngx:2.10.2
     restart: unless-stopped
     depends_on:
       - db
@@ -51,6 +51,7 @@ services:
       traefik.http.routers.paperless-ngx-local.entrypoints: websecure
       traefik.http.routers.paperless-ngx-local.service: paperless-ngx
       traefik.http.routers.paperless-ngx-local.tls: true
+      runtipi.managed: true
 
   # Redis
   broker:
@@ -60,8 +61,8 @@ services:
       - ${APP_DATA_DIR}/data/redis:/data
     networks:
       - tipi_main_network
-  
-  # Postgres SQL
+    labels:
+      runtipi.managed: true
   db:
     image: docker.io/library/postgres:16
     restart: unless-stopped
@@ -73,9 +74,10 @@ services:
       POSTGRES_PASSWORD: paperless
     networks:
       - tipi_main_network
-      
+    labels:
+      runtipi.managed: true
   gotenberg:
-    image: docker.io/gotenberg/gotenberg:8.5
+    image: docker.io/gotenberg/gotenberg:8.8
     restart: unless-stopped
     # The gotenberg chromium route is used to convert .eml files. We do not
     # want to allow external content like tracking pixels or even javascript.
@@ -85,10 +87,12 @@ services:
       - "--chromium-allow-list=file:///tmp/.*"
     networks:
     - tipi_main_network
-      
+    labels:
+      runtipi.managed: true
   tika:
     image: ghcr.io/paperless-ngx/tika:latest
     restart: unless-stopped
     networks:
     - tipi_main_network
-      
+    labels:
+      runtipi.managed: true

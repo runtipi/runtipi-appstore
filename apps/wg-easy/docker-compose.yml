@@ -2,7 +2,7 @@ version: "3.7"
 services:
   wg-easy:
     container_name: wg-easy
-    image: ghcr.io/wg-easy/wg-easy:12
+    image: ghcr.io/wg-easy/wg-easy:13
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data:/etc/wireguard
@@ -47,3 +47,4 @@ services:
       traefik.http.routers.wg-easy-local.entrypoints: websecure
       traefik.http.routers.wg-easy-local.service: wg-easy
       traefik.http.routers.wg-easy-local.tls: true
+      runtipi.managed: true

@@ -3,7 +3,7 @@ version: '3.7'
 services:
   lodestone-core:
     container_name: lodestone-core
-    image: ghcr.io/lodestone-team/lodestone_core:0.4.4
+    image: ghcr.io/lodestone-team/lodestone_core:0.5.1
     ports:
       - ${APP_PORT}:16662
       - 25565-25575:25565-25575
@@ -38,3 +38,4 @@ services:
       traefik.http.routers.lodestone-core-local.entrypoints: websecure
       traefik.http.routers.lodestone-core-local.service: lodestone-core
       traefik.http.routers.lodestone-core-local.tls: true
+      runtipi.managed: true

@@ -45,3 +45,4 @@ services:
       traefik.http.routers.syncthing-local.entrypoints: websecure
       traefik.http.routers.syncthing-local.service: syncthing
       traefik.http.routers.syncthing-local.tls: true
+      runtipi.managed: true

@@ -34,3 +34,4 @@ services:
       traefik.http.routers.excalidraw-local.entrypoints: websecure
       traefik.http.routers.excalidraw-local.service: excalidraw
       traefik.http.routers.excalidraw-local.tls: true
+      runtipi.managed: true

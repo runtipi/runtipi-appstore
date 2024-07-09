@@ -35,8 +35,8 @@ services:
       - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
       - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
-
-  # Redis server
+    labels:
+      runtipi.managed: true
   revolt-redis:
     image: eqalpha/keydb
     container_name: revolt-redis
@@ -68,8 +68,8 @@ services:
       - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
       - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
-
-  # S3-compatible storage server
+    labels:
+      runtipi.managed: true
   revolt-minio:
     image: minio/minio
     container_name: revolt-minio
@@ -104,7 +104,8 @@ services:
       - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
       - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
-  # Web App (revite)
+    labels:
+      runtipi.managed: true
   revolt-web:
     image: ghcr.io/revoltchat/client:master
     container_name: revolt-web
@@ -136,10 +137,10 @@ services:
       - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
       - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
-
-  # API server (delta)
+    labels:
+      runtipi.managed: true
   revolt-api:
-    image: ghcr.io/revoltchat/server:20240408-3
+    image: ghcr.io/revoltchat/server:20240611-3
     container_name: revolt-api
     depends_on:
       - revolt-database
@@ -173,10 +174,10 @@ services:
       - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
       - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
-
-  # Events service (quark)
+    labels:
+      runtipi.managed: true
   revolt-events:
-    image: ghcr.io/revoltchat/bonfire:20240408-3
+    image: ghcr.io/revoltchat/bonfire:20240611-3
     container_name: revolt-events
     depends_on:
       - revolt-database
@@ -210,8 +211,8 @@ services:
       - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
       - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
-
-  # File server (autumn)
+    labels:
+      runtipi.managed: true
   revolt-autumn:
     image: ghcr.io/revoltchat/autumn:1.1.10
     container_name: revolt-autumn
@@ -250,8 +251,8 @@ services:
       - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
       - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
-
-  # Metadata and image proxy (january)
+    labels:
+      runtipi.managed: true
   revolt-january:
     image: ghcr.io/revoltchat/january:master
     container_name: revolt-january
@@ -285,8 +286,8 @@ services:
       - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
       - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
-
-  # Create buckets for minio.
+    labels:
+      runtipi.managed: true
   revolt-createbuckets:
     image: minio/mc
     container_name: revolt-createbuckets
@@ -331,7 +332,8 @@ services:
       - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
       - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
-
+    labels:
+      runtipi.managed: true
   revolt:
     image: caddy
     container_name: revolt
@@ -377,4 +379,4 @@ services:
       traefik.http.routers.revolt.service: revolt
       traefik.http.routers.revolt.tls.certresolver: myresolver
       traefik.http.services.revolt.loadbalancer.server.port: 80
-
+      runtipi.managed: true

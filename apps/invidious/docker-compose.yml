@@ -20,6 +20,9 @@ services:
         check_tables: true
         hmac_key: ${INVIDIOUS_HMAC_KEY}
         use_innertube_for_captions: true
+        domain: ${APP_DOMAIN}
+        external_port: ${INVIDIOUS_EXTERNAL_PORT}
+        https_only: ${INVIDIOUS_HTTPS_ONLY}
     healthcheck:
       test: wget -nv --tries=1 --spider http://127.0.0.1:3000/api/v1/trending || exit 1
       interval: 30s
@@ -52,7 +55,7 @@ services:
       traefik.http.routers.invidious-local.entrypoints: websecure
       traefik.http.routers.invidious-local.service: invidious
       traefik.http.routers.invidious-local.tls: true
-
+      runtipi.managed: true
   invidious-db:
     container_name: invidious-db
     image: postgres:14
@@ -69,3 +72,5 @@ services:
       test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

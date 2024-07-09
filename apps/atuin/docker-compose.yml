@@ -3,7 +3,7 @@ services:
   atuin:
     container_name: atuin
     restart: always
-    image: ghcr.io/atuinsh/atuin:v18.2.0
+    image: ghcr.io/atuinsh/atuin:18.3.0
     command: server start
     volumes:
       - "${APP_DATA_DIR}/data/config:/config"
@@ -42,7 +42,7 @@ services:
       traefik.http.routers.atuin-local.entrypoints: websecure
       traefik.http.routers.atuin-local.service: atuin
       traefik.http.routers.atuin-local.tls: true
-
+      runtipi.managed: true
   postgresql:
     image: postgres:14
     restart: unless-stopped
@@ -54,4 +54,5 @@ services:
       POSTGRES_DB: atuin
     networks:
       - tipi_main_network
-      
+    labels:
+      runtipi.managed: true

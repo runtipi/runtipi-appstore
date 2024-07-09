@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   stalwart-mail:
-    image: stalwartlabs/mail-server:v0.8.1
+    image: stalwartlabs/mail-server:v0.8.4
     container_name: stalwart-mail
     volumes:
       - ${APP_DATA_DIR}/data:/opt/stalwart-mail
@@ -41,3 +41,4 @@ services:
       traefik.http.routers.stalwart-mail-local.entrypoints: websecure
       traefik.http.routers.stalwart-mail-local.service: stalwart-mail
       traefik.http.routers.stalwart-mail-local.tls: true
+      runtipi.managed: true

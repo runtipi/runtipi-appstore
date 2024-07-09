@@ -3,7 +3,7 @@ version: "3"
 services:
   gotosocial:
     container_name: gotosocial
-    image: superseriousbusiness/gotosocial:0.15.0
+    image: superseriousbusiness/gotosocial:0.16.0
     user: 1000:1000
     ports:
       - ${APP_PORT}:8080
@@ -54,7 +54,7 @@ services:
       traefik.http.routers.gotosocial-local.entrypoints: websecure
       traefik.http.routers.gotosocial-local.service: gotosocial
       traefik.http.routers.gotosocial-local.tls: true
-
+      runtipi.managed: true
   gotosocial-db:
     container_name: gotosocial-db
     image: postgres:14
@@ -68,3 +68,5 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

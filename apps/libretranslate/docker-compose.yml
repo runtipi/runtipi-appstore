@@ -2,7 +2,7 @@ version: "3.7"
 services:
   libretranslate:
     container_name: libretranslate
-    image: libretranslate/libretranslate:v1.5.7
+    image: libretranslate/libretranslate:v1.6.0
     dns:
       - ${DNS_IP}
     ports:
@@ -35,3 +35,4 @@ services:
       traefik.http.routers.libretranslate-local.entrypoints: websecure
       traefik.http.routers.libretranslate-local.service: libretranslate
       traefik.http.routers.libretranslate-local.tls: true
+      runtipi.managed: true

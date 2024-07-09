@@ -44,3 +44,4 @@ services:
       traefik.http.routers.fireshare-local.entrypoints: websecure
       traefik.http.routers.fireshare-local.service: fireshare
       traefik.http.routers.fireshare-local.tls: true
+      runtipi.managed: true

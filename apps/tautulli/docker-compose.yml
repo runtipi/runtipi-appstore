@@ -2,7 +2,7 @@ version: "2.1"
 services:
   tautulli:
     container_name: tautulli
-    image: lscr.io/linuxserver/tautulli:2.14.2
+    image: lscr.io/linuxserver/tautulli:2.14.3
     environment:
       - PUID=1000
       - PGID=1000
@@ -39,3 +39,4 @@ services:
       traefik.http.routers.tautulli-local.entrypoints: websecure
       traefik.http.routers.tautulli-local.service: tautulli
       traefik.http.routers.tautulli-local.tls: true
+      runtipi.managed: true

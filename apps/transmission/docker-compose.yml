@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   transmission:
-    image: lscr.io/linuxserver/transmission:4.0.5
+    image: lscr.io/linuxserver/transmission:4.0.6
     container_name: transmission
     dns:
       - ${DNS_IP}
@@ -50,3 +50,4 @@ services:
       traefik.http.routers.transmission-local.entrypoints: websecure
       traefik.http.routers.transmission-local.service: transmission
       traefik.http.routers.transmission-local.tls: true
+      runtipi.managed: true

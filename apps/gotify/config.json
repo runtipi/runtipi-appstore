@@ -5,11 +5,9 @@
   "port": 8129,
   "id": "gotify",
   "exposable": true,
-  "tipi_version": 6,
-  "version": "2.4.0",
-  "categories": [
-    "utilities"
-  ],
+  "tipi_version": 7,
+  "version": "2.5.0",
+  "categories": ["utilities"],
   "description": "Simple server for sending and receiving notification messages.",
   "short_desc": "Gotify, a simple server for sending and receiving notification messages.",
   "author": "gotigy",

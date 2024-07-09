@@ -45,3 +45,4 @@ services:
       traefik.http.routers.firefly-iii-importer-local.entrypoints: websecure
       traefik.http.routers.firefly-iii-importer-local.service: firefly-iii-importer
       traefik.http.routers.firefly-iii-importer-local.tls: true
+      runtipi.managed: true
