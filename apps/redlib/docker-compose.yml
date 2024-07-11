@@ -14,7 +14,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.redlib-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.redlib.loadbalancer.server.port: 8443 # Should be the same as the app internal port so for this example 9443
+      traefik.http.services.redlib.loadbalancer.server.port: 8080 # Should be the same as the app internal port so for this example 8080
       # Web
       traefik.http.routers.redlib-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.redlib-insecure.entrypoints: web
