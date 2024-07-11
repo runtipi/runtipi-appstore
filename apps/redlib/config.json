@@ -8,7 +8,7 @@
     "categories": ["social"],
     "description": "Redlib is a private front-end for Reddit, designed to offer an alternative interface to the popular social media platform. This project aims to provide a more privacy-focused and streamlined user experience. It continues the work of the Libreddit project, enabling users to deploy the app on platforms like Runtipi.",
     "tipi_version": 1,
-    "version": "v0.35.1",
+    "version": "latest",
     "source": "https://github.com/redlib-org/redlib",
     "exposable": true,
     "supported_architectures": ["arm64", "amd64"]

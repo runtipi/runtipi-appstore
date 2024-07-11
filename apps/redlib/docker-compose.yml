@@ -2,7 +2,7 @@ version: "3.9"
 services:
   redlib:
     container_name: redlib
-    image: quay.io/redlib/redlib:sha-4f21388
+    image: quay.io/redlib/redlib:latest
     restart: unless-stopped
     environment:
       - TZ=${TZ}
