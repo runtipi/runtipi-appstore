@@ -4,7 +4,7 @@ services:
     container_name: cup
     image: ghcr.io/sergi0g/cup:v1.1.2
     restart: unless-stopped
-    entrypoint: serve
+    command: serve
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
