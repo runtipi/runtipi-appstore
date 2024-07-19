@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: App e2e test
 on:
   workflow_dispatch:
     inputs:
@@ -28,7 +28,7 @@ jobs:
         run: ./.github/scripts/start-tipi.sh
 
       - name: Run Playwright tests
-        run: pnpm exec playwright test
+        run: APP_NAME=${{ github.event.inputs.app }} pnpm exec playwright test
 
       - uses: actions/upload-artifact@v4
         if: always()
