@@ -12,8 +12,8 @@ services:
     environment:
       - APP_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
       - APP_SECRET=${DOCMOST_APP_SECRET}
-      - DATABASE_URL="postgresql://docmost:${DOCMOST_PG_PASSWORD}@docmost_db:5432/docmost?schema=public"
-      - REDIS_URL="redis://docmost_redis:6379"
+      - DATABASE_URL=postgresql://docmost:${DOCMOST_PG_PASSWORD}@docmost-db:5432/docmost?schema=public
+      - REDIS_URL=redis://docmost-redis:6379
     ports:
       - ${APP_PORT}:3000
     restart: unless-stopped
@@ -45,8 +45,8 @@ services:
       traefik.http.routers.docmost-local.service: docmost
       traefik.http.routers.docmost-local.tls: true
       runtipi.managed: true
-  docmost_db:
-    container_name: docmost_db
+  docmost-db:
+    container_name: docmost-db
     image: postgres:16-alpine
     environment:
       - POSTGRES_DB=docmost
@@ -60,8 +60,8 @@ services:
     labels:
       runtipi.managed: true
 
-  docmost_redis:
-    container_name: docmost_redis
+  docmost-redis:
+    container_name: docmost-redis
     image: redis:7.2-alpine
     restart: unless-stopped
     volumes:
@@ -70,4 +70,3 @@ services:
       - tipi_main_network
     labels:
       runtipi.managed: true
-
