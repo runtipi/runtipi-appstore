@@ -3,8 +3,8 @@ services:
     container_name: docmost
     image: docmost/docmost:0.2.5
     depends_on:
-      - docmost_db
-      - docmost_redis
+      - docmost-db
+      - docmost-redis
     networks:
       - tipi_main_network
     environment:
