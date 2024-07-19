@@ -43,6 +43,7 @@ services:
       traefik.http.routers.docmost-local.service: docmost
       traefik.http.routers.docmost-local.tls: true
       runtipi.managed: true
+
   docmost-db:
     container_name: docmost-db
     image: postgres:16-alpine
@@ -52,7 +53,7 @@ services:
       - POSTGRES_PASSWORD=${DOCMOST_PG_PASSWORD}
     restart: unless-stopped
     volumes:
-      - ${APP_DATA_DIR}/data/postgresql/data:/var/lib/postgresql/data
+      - ${APP_DATA_DIR}/data/postgresql:/var/lib/postgresql/data
     networks:
       - tipi_main_network
     labels:
@@ -63,7 +64,7 @@ services:
     image: redis:7.2-alpine
     restart: unless-stopped
     volumes:
-      - ${APP_DATA_DIR}/data/redis/data:/data
+      - ${APP_DATA_DIR}/data/redis:/data
     networks:
       - tipi_main_network
     labels:
