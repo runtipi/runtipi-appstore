@@ -1,0 +1,17 @@
+{
+  "$schema": "../schema.json",
+  "name": "Cup",
+  "id": "cup",
+  "available": true,
+  "short_desc": "The easiest way to check for your container updates.",
+  "author": "sergi0g",
+  "port": 8465,
+  "categories": ["utilities"],
+  "description": "Cup is the easiest way to check for container image updates.",
+  "tipi_version": 3,
+  "version": "2.0.0",
+  "source": "https://github.com/sergi0g/cup",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "form_fields": []
+}
