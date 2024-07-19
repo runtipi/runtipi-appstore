@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   docmost:
     container_name: docmost
@@ -18,7 +16,7 @@ services:
       - ${APP_PORT}:3000
     restart: unless-stopped
     volumes:
-      - ${APP_DATA_DIR}/data/storage:/app/data/storage
+      - ${APP_DATA_DIR}/data/docmost/storage:/app/data/storage
     labels:
       # Main
       traefik.enable: true
@@ -54,7 +52,7 @@ services:
       - POSTGRES_PASSWORD=${DOCMOST_PG_PASSWORD}
     restart: unless-stopped
     volumes:
-      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+      - ${APP_DATA_DIR}/data/docmost/postgresql/data:/var/lib/postgresql/data
     networks:
       - tipi_main_network
     labels:
@@ -65,7 +63,7 @@ services:
     image: redis:7.2-alpine
     restart: unless-stopped
     volumes:
-      - ${APP_DATA_DIR}/data/redis:/data
+      - ${APP_DATA_DIR}/data/docmost/redis/data:/data
     networks:
       - tipi_main_network
     labels:
