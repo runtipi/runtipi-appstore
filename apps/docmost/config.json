@@ -15,16 +15,14 @@
     "force_expose": false,
     "form_fields": [
       {
-        "type": "password",
+        "type": "random",
         "label": "App Secret",
-        "max": 64,
-        "min": 12,
-        "required": true,
+        "min": 64,
         "env_variable": "DOCMOST_APP_SECRET"
       },
       {
         "type": "random",
-        "label": "Postgres user password (docmost)",
+        "label": "Postgres database password",
         "min": 32,
         "env_variable": "DOCMOST_PG_PASSWORD"
       }
