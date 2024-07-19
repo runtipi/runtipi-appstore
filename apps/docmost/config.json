@@ -2,7 +2,7 @@
     "name": "Docmost",
     "id": "docmost",
     "available": true,
-    "short_desc": "A open-source collaborative wiki and documentation software",
+    "short_desc": "An open-source collaborative wiki and documentation software",
     "author": "docmost",
     "port": 9713,
     "categories": ["data", "utilities"],
