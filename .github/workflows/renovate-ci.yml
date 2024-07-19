@@ -37,7 +37,7 @@ jobs:
             if [[ $changed_file == *"docker-compose.yml"* ]]; then
               app_name=$(echo $changed_file | cut -d'/' -f 2)
               echo "App name: $app_name"
-              ./.github/workflows/renovate-app-version.sh $app_name
+              ./.github/scripts/renovate-app-version.sh $app_name
             fi
           done
 
@@ -46,7 +46,7 @@ jobs:
         with:
           author_name: Tipi CI
           author_email: ci@runtipi.io
-          message: "Update app version [ready]"
+          message: 'Update app version [ready]'
           commit: --no-verify
           push: origin HEAD:${{ github.head_ref }}
 
