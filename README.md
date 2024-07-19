@@ -10,7 +10,7 @@ If you want to see new apps on Tipi you can either:
 - [Join the Discord](https://discord.gg/Bu9qEPnHsc) members of the community will add it.
 - Fork this repo and create the necessary files for a Tipi app. Follow this [guide](https://www.runtipi.io/docs/contributing/adding-a-new-app)`
 
-## Apps available (247)
+## Apps available (250)
 
 | Name                                                                         | Description                                                                                                                                                         | Port  |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
@@ -47,6 +47,7 @@ If you want to see new apps on Tipi you can either:
 | [Cross-Seed](https://github.com/cross-seed/cross-seed)                       | Fully-automatic cross-seeding with Torznab.                                                                                                                         | 2468  |
 | [Crowdsec](https://github.com/crowdsecurity/crowdsec)                        | Participative security solution offering crowdsourced protection against malicious IPs and access to the most advanced real-world CTI.                              | 8679  |
 | [CTFd](https://github.com/CTFd/CTFd)                                         | Cyber Security Training made simple.                                                                                                                                | 8546  |
+| [Cup](https://github.com/sergi0g/cup)                                        | The easiest way to check for your container updates.                                                                                                                | 8465  |
 | [CyberChef](https://github.com/gchq/CyberChef)                               | The Cyber Swiss Army Knife                                                                                                                                          | 9080  |
 | [DailyTxT](https://github.com/PhiTux/DailyTxT)                               | Encrypted Diary Web-App                                                                                                                                             | 8156  |
 | [Dash.](https://github.com/MauriceNino/dashdot)                              | A simple, modern server dashboard, primarily used by smaller private server                                                                                         | 8173  |
@@ -88,6 +89,7 @@ If you want to see new apps on Tipi you can either:
 | [Gotify](https://github.com/gotify/server)                                   | Gotify, a simple server for sending and receiving notification messages.                                                                                            | 8129  |
 | [GoToSocial](https://github.com/superseriousbusiness/gotosocial)             | Fast, fun, ActivityPub server, powered by Go.                                                                                                                       | 8188  |
 | [Grafana](https://github.com/grafana/grafana)                                | The open and composable observability and data visualization platform                                                                                               | 8160  |
+| [Gramps Web](https://github.com/gramps-project/gramps-web)                   | Web app for collaborative genealogy.                                                                                                                                | 5000  |
 | [Grav](https://github.com/getgrav/grav)                                      | Grav is a Fast, Simple, and Flexible, file-based Web-platform.                                                                                                      | 8161  |
 | [Grist](https://github.com/gristlabs/grist-core)                             | Grist is the evolution of spreadsheets.                                                                                                                             | 8484  |
 | [Grocy](https://github.com/grocy/grocy)                                      | ERP beyond your fridge                                                                                                                                              | 8136  |
@@ -215,6 +217,7 @@ If you want to see new apps on Tipi you can either:
 | [Scrypted](https://github.com/koush/scrypted)                                | High performance home video integration and automation platform                                                                                                     | 10443 |
 | [SearXNG](https://github.com/searxng/searxng)                                | Privacy-respecting, hackable metasearch engine                                                                                                                      | 8127  |
 | [SeedSync](https://github.com/ipsingh06/seedsync)                            | SeedSync is a tool to sync the files on a remote Linux server.                                                                                                      | 8800  |
+| [Semaphore](https://github.com/semaphoreui/semaphore)                        | Modern UI for Ansible, Terraform, OpenTofu, Bash, Pulumi.                                                                                                           | 8526  |
 | [Send](https://gitlab.com/timvisee/send)                                     | Simple, private file sharing. https://send.vis.ee/                                                                                                                  | 8126  |
 | [Serge](https://github.com/serge-chat/serge)                                 | LLaMA made easy                                                                                                                                                     | 8008  |
 | [SFTPGo](https://github.com/drakkan/sftpgo)                                  | Fully featured and highly configurable SFTP server                                                                                                                  | 8002  |
