@@ -1,6 +1,6 @@
 services:
   invoice-ninja:
-    image: invoiceninja/invoiceninja:5.10.8
+    image: invoiceninja/invoiceninja:5.10.11
     container_name: invoice-ninja
     restart: unless-stopped
     user: 1500:1500
