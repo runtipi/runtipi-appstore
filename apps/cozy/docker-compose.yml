@@ -11,12 +11,11 @@ services:
       - ${APP_DATA_DIR}/data/cozy:/var/lib/cozy/data
       - ${APP_DATA_DIR}/data/config:/etc/cozy/
     environment:
-      - COUCHDB_HOST=db-cozy
-      - REDIS_HOST=redis-cozy
-      - COUCHDB_PASSWORD=tipi
       # CouchDB
-      - COUCHDB_USER=tipi
+      - COUCHDB_HOST=db-cozy
       - COUCHDB_DB=cozy
+      - COUCHDB_USER=tipi
+      - COUCHDB_PASSWORD=tipi
       # Stack
       # - COZY_ADMIN_PASSPHRASE=AnotherRandomlyGeneratedPassword
       # Application subdomain type for each cozy.
