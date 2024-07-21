@@ -1,0 +1,75 @@
+version: "3.7"
+
+services:
+  cozy:
+    container_name: cozy
+    image: cozy/cozy-stack:1.6.28
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:80
+    volumes:
+      - ${APP_DATA_DIR}/data/cozy:/var/lib/cozy/data
+      - ${APP_DATA_DIR}/data/config:/etc/cozy/
+    environment:
+      - COUCHDB_HOST=db-cozy
+      - REDIS_HOST=redis-cozy
+      - COUCHDB_PASSWORD=tipi
+      # CouchDB
+      - COUCHDB_USER=tipi
+      - COUCHDB_DB=cozy
+      # Stack
+      # - COZY_ADMIN_PASSPHRASE=AnotherRandomlyGeneratedPassword
+      # Application subdomain type for each cozy.
+      # could be nested (https://<app>.<instance>.<domain>)
+      # or flat (https://<instance>-<app>.<domain>)
+      - DOMAIN=${APP_DOMAIN}
+      - COZY_SUBDOMAIN_TYPE=flat
+      # Mail
+      - START_EMBEDDED_POSTFIX=true
+      - MAIL_HOST=localhost
+      - MAIL_PORT=25
+      - MAIL_USERNAME=""
+      - MAIL_PASSWORD=""
+      - MAIL_DISABLE_TLS=true
+      - MAIL_USE_SSL=false
+      - MAIL_SKIP_CERTIFICATE_VALIDATION=false
+      - MAIL_LOCAL_NAME=localhost
+      # HTTP
+      - TRUSTED_PROXIES=172.16.0.0/12
+      - OVERWRITEPROTOCOL=${APP_PROTOCOL:-http}
+    depends_on:
+      - db-cozy
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.cozy.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.cozy.entrypoints: websecure
+      traefik.http.routers.cozy.service: cozy
+      traefik.http.routers.cozy.tls.certresolver: myresolver
+      traefik.http.services.cozy.loadbalancer.server.port: 80
+      traefik.http.middlewares.cozy.headers.browserXSSFilter: true
+      traefik.http.middlewares.cozy.headers.contentTypeNosniff: true
+      traefik.http.middlewares.cozy.headers.stsIncludeSubdomains: true
+      traefik.http.middlewares.cozy.headers.stsPreload: true
+      traefik.http.middlewares.cozy.headers.stsSeconds: 155520011
+      traefik.http.middlewares.cozy_redirect.redirectregex.permanent: true
+      traefik.http.routers.cozy.middlewares: cozy,cozy_redirect,cozy-https
+      traefik.http.middlewares.cozy.headers.customRequestHeaders.X-Forwarded-Proto: https
+      traefik.http.middlewares.cozy-https.redirectscheme.scheme: https
+      traefik.http.routers.cozy-http.middlewares: cozy-https@docker
+      runtipi.managed: true
+  db-cozy:
+    container_name: db-cozy
+    image: couchdb:3.3
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/lib/couchdb/data
+    environment:
+      - COUCHDB_PASSWORD=tipi
+      - COUCHDB_USER=tipi
+      - COUCHDB_DB=cozy
+    networks:
+      - tipi_main_network
+    labels:
+      runtipi.managed: true

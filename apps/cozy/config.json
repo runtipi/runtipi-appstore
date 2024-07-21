@@ -1,0 +1,32 @@
+{
+  "$schema": "../schema.json",
+  "name": "Cozy",
+  "available": true,
+  "exposable": true,
+  "port": 8666,
+  "id": "cozy",
+  "tipi_version": 1,
+  "version": "1.6.28",
+  "categories": [
+    "data"
+  ],
+  "description": "Cozy is a platform that brings all your web services in the same private space. With it, your web apps and your devices can share data easily, providing you with a new experience.",
+  "short_desc": "Cozy on your own hardware where no one profiles you.",
+  "author": "Cozy",
+  "source": "https://github.com/cozy/cozy-stack",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Admin Passphrase",
+      "hint": "Admin passphrase for all administrative commands if undefined on first start, a random password will be chosen and shown in logs",
+      "max": 50,
+      "min": 5,
+      "required": false,
+      "env_variable": "COZY_ADMIN_PASSPHRASE"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}
