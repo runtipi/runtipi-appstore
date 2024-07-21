@@ -61,7 +61,7 @@ services:
   db-cozy:
     container_name: db-cozy
     image: couchdb:3.3
-    restart: on-failure
+    restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/db:/var/lib/couchdb/data
     environment:
