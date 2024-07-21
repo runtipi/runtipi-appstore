@@ -36,7 +36,7 @@ The Cozy-Stack also allows to access the database replication API, allowing to s
 
 Two authentication methods are available:
 
- - Web applications running on the server get a session token when the user log in;
+ - Web applications running on the server get a session token when the user logs in;
  - OAuth2 for other applications.
 
 Feel free to [open an issue](https://github.com/cozy/cozy-stack/issues/new)
