@@ -21,7 +21,7 @@ Use of a [Google Coral Accelerator](https://coral.ai/products/) is optional, but
 
 ## Documentation
 
-View the documentation at https://docs.frigate.video
+View the documentation at [https://docs.frigate.video](https://docs.frigate.video)
 
 ## Donations
 
