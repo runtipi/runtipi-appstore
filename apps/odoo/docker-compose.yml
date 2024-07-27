@@ -1,4 +1,4 @@
-version: "3.9"
+version: '3.9'
 
 services:
   odoodb:
@@ -11,7 +11,7 @@ services:
       - POSTGRES_DB=postgres
     restart: unless-stopped
     volumes:
-        - ${APP_DATA_DIR}/data/postgresql:/var/lib/postgresql/data
+      - ${APP_DATA_DIR}/data/postgresql:/var/lib/postgresql/data
     networks:
       - tipi_main_network
     labels:
@@ -41,7 +41,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.odoo-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.odoo.loadbalancer.server.port: 8017
+      traefik.http.services.odoo.loadbalancer.server.port: 8069
       # Web
       traefik.http.routers.odoo-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.odoo-insecure.entrypoints: web
