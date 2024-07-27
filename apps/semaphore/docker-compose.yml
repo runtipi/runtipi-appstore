@@ -1,8 +1,8 @@
-version: "3.9"
+version: '3.9'
 services:
   semaphore:
     container_name: semaphore
-    image: semaphoreui/semaphore:v2.19.10
+    image: semaphoreui/semaphore:v2.10.22
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/repositories:/repositories
@@ -68,4 +68,3 @@ services:
     labels:
       # Runtipi managed
       runtipi.managed: true
-  
