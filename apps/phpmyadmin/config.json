@@ -1,0 +1,14 @@
+{
+  "name": "phpMyAdmin",
+  "available": true,
+  "port": 8100,
+  "id": "phpmyadmin", # This should be the same name as the folder
+  "description": "", # Long description of the app
+  "tipi_version": 1, # Always 1 if you are adding a new app
+  "version": "5.2.1", # The actual version of the app (not the tipi version)
+  "categories": ["data"], # One or more categories for the app
+  "short_desc": "", # Short description of the app
+  "author": "", # Link or name of the author 
+  "source": "", # Link for git repo
+  "form_fields": [] # Used to ask for more info to the user before installing. Will be explained further
+}
