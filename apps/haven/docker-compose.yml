@@ -45,7 +45,6 @@ services:
       traefik.http.routers.haven-local.service: haven
       traefik.http.routers.haven-local.tls: true
       runtipi.managed: true
-      
   haven-db:
     image: postgres:13.2-alpine
     container_name: haven-db
