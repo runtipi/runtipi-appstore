@@ -1,7 +1,7 @@
-version: "3.7"
+version: "3.9"
 services:
   haven:
-    image: ghcr.io/havenweb/haven:a0280ce
+    image: ghcr.io/havenweb/haven:latest
     container_name: haven
     depends_on:
       - haven-db
