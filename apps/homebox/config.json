@@ -5,13 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "homebox",
-  "tipi_version": 11,
-  "version": "0.11.0-rootless",
+  "tipi_version": 14,
+  "version": "0.13.0-rootless",
   "uid": 1000,
   "gid": 1000,
-  "categories": [
-    "utilities"
-  ],
+  "categories": ["utilities"],
   "description": "Homebox is the inventory and organization system built for the Home User",
   "short_desc": "Inventory and organization system.",
   "author": "sysadminsmedia & hay-kot",
@@ -27,8 +25,5 @@
       "env_variable": "HBOX_OPTIONS_ALLOW_REGISTRATION"
     }
   ],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"]
 }

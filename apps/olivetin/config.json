@@ -1,0 +1,17 @@
+{
+    "$schema": "../schema.json",
+    "name": "Olivetin",
+    "id": "olivetin",
+    "available": true,
+    "short_desc": "Give safe and simple access to predefined shell commands from a web interface.",
+    "author": "OliveTin",
+    "port": 1337,
+    "categories": ["utilities"],
+    "description": "OliveTin gives safe and simple access to predefined shell commands from a web interface.",
+    "tipi_version": 3,
+    "version": "latest",
+    "source": "https://github.com/OliveTin/OliveTin",
+    "exposable": true,
+    "supported_architectures": ["arm64", "amd64"],
+    "form_fields": []
+}

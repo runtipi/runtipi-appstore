@@ -1,0 +1,26 @@
+{
+  "$schema": "../schema.json",
+  "name": "Gramps Web",
+  "available": true,
+  "exposable": true,
+  "port": 5000,
+  "id": "grampsweb",
+  "tipi_version": 4,
+  "version": "24.7.1",
+  "categories": ["data", "social"],
+  "description": "Gramps Web is a web app for collaborative genealogy. It is based on and interoperable with Gramps, the leading open source genealogy desktop application. Gramps Web is free & open source software and puts your privacy and your control of your research data first.",
+  "short_desc": "Web app for collaborative genealogy.",
+  "author": "gramps-project",
+  "source": "https://github.com/gramps-project/gramps-web",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Gramps tree",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "GRAMPSWEB_TREE"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}

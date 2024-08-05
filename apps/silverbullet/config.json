@@ -5,11 +5,9 @@
   "available": true,
   "exposable": true,
   "id": "silverbullet",
-  "tipi_version": 8,
-  "version": "0.7.7",
-  "categories": [
-    "utilities"
-  ],
+  "tipi_version": 14,
+  "version": "0.9.0",
+  "categories": ["utilities"],
   "description": "SilverBullet aims to be your workshop for the mind",
   "short_desc": "SilverBullet is a creative space where you collect, create and expand your personal knowledge, while also letting you constantly evolve the tools you use to do so.",
   "author": "zefhemel",
@@ -33,8 +31,5 @@
       "env_variable": "SB_PASSWORD"
     }
   ],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"]
 }

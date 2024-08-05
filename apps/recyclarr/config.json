@@ -8,12 +8,9 @@
   "uid": 1000,
   "gid": 1000,
   "id": "recyclarr",
-  "tipi_version": 11,
-  "version": "6.0.2",
-  "categories": [
-    "media",
-    "utilities"
-  ],
+  "tipi_version": 16,
+  "version": "7.2.1",
+  "categories": ["media", "utilities"],
   "description": "Automatically sync TRaSH Guides to your Sonarr and Radarr instances",
   "short_desc": "Sync TRaSH Guides.",
   "author": "rcdailey",

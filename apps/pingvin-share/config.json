@@ -1,0 +1,18 @@
+{
+  "$schema": "../schema.json",
+  "name": "Pingvin Share",
+  "id": "pingvin-share",
+  "available": true,
+  "short_desc": "Self-hosted file sharing platform",
+  "author": "stonith404",
+  "port": 8654,
+  "categories": ["data", "utilities"],
+  "description": "A self-hosted file sharing platform that combines lightness and beauty, perfect for seamless and efficient file sharing",
+  "tipi_version": 5,
+  "version": "0.29.0",
+  "source": "https://github.com/stonith404/pingvin-share",
+  "website": "https://pingvin-share.dev.eliasschneider.com",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "form_fields": []
+}
