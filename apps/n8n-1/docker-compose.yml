@@ -1,7 +1,7 @@
 services:
   n8n-1:
     container_name: n8n-1
-    image: n8nio/n8n:1.44.0
+    image: n8nio/n8n:1.49.0
     restart: unless-stopped
     ports:
       - ${APP_PORT}:5678
@@ -75,7 +75,7 @@ services:
     labels:
       runtipi.managed: true
   n8n-init:
-    image: bash:5.2.26
+    image: bash:5.2.32
     command: ['sh', '-c', 'chown -R 1000:1000 /home/node/.n8n']
     volumes:
       - ${APP_DATA_DIR}/data/n8n:/home/node/.n8n
