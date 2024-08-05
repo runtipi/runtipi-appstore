@@ -41,3 +41,4 @@ services:
       traefik.http.routers.anything-llm-local.entrypoints: websecure
       traefik.http.routers.anything-llm-local.service: anything-llm
       traefik.http.routers.anything-llm-local.tls: true
+      runtipi.managed: true
