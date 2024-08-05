@@ -1,0 +1,51 @@
+{
+  "$schema": "../schema.json",
+  "name": "AI Chat",
+  "available": true,
+  "exposable": true,
+  "port": 8765,
+  "id": "aichat",
+  "tipi_version": 1,
+  "version": "v0.20.0",
+  "categories": [
+    "utilities",
+    "ai"
+  ],
+  "description": "AI-powered chatbot application with a web interface",
+  "short_desc": "AI-powered chatbot application",
+  "author": "sigoden",
+  "source": "https://github.com/sigoden/aichat",
+  "form_fields": [
+    {
+      "name": "OPENAI_API_KEY",
+      "label": "OpenAI API Key",
+      "type": "password",
+      "env_variable": "OPENAI_API_KEY",
+      "required": false,
+      "placeholder": "sk-proj-iamgroot",
+      "min": 5,
+      "max": 250
+    },
+    {
+      "name": "OPENROUTER_API_KEY",
+      "label": "OpenRouter API Key",
+      "type": "password",
+      "env_variable": "OPENROUTER_API_KEY",
+      "required": false,
+      "placeholder": "sk-or-iamgroot",
+      "min": 5,
+      "max": 250
+    },
+    {
+      "name": "CLAUDE_API_KEY",
+      "label": "Claude API Key",
+      "type": "password",
+      "env_variable": "CLAUDE_API_KEY",
+      "required": false,
+      "placeholder": "sk-ant-iamgroot",
+      "min": 5,
+      "max": 250
+    }
+  ],
+  "supported_architectures": ["amd64", "arm64"]
+}
