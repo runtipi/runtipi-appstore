@@ -1,0 +1,14 @@
+{
+  "name": "phpMyAdmin",
+  "available": true,
+  "port": 8100,
+  "id": "phpmyadmin", 
+  "description": "",
+  "tipi_version": 1,
+  "version": "5.2.1",
+  "categories": ["data"],
+  "short_desc": "",
+  "author": "",
+  "source": "",
+  "form_fields": []
+}
