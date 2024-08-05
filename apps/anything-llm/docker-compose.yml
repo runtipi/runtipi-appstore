@@ -2,7 +2,7 @@ version: "3.9"
 services:
   anything-llm:
     container_name: anything-llm
-    image: ghcr.io/mintplex-labs/anything-llm:latest
+    image: ghcr.io/mintplex-labs/anything-llm:1.1.1
     restart: unless-stopped
     environment:
       - TZ=${TZ}
