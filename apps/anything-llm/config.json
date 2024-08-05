@@ -11,8 +11,8 @@
     "utilities",
     "ai"
   ],
-  "description": "AnythingLLM web server",
-  "short_desc": "AnythingLLM web server",
+  "description": "The all-in-one AI app you were looking for. Chat with your docs, use AI Agents, hyper-configurable, multi-user, & no frustrating set up required.",
+  "short_desc": "Your personal LLM trained on anything",
   "author": "Mintplex Labs",
   "source": "https://github.com/Mintplex-Labs/anything-llm",
   "form_fields": [],
