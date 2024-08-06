@@ -19,6 +19,7 @@
       "type": "text",
       "label": "Auth Provider",
       "hint": "'none' for no authentication or 'simple' for username and password authentication",
+      "default": "none",
       "required": true,
       "env_variable": "DOZZLE_AUTH_PROVIDER",
       "options": [
