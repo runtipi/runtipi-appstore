@@ -58,12 +58,14 @@
       "type": "boolean",
       "label": "Enable Actions",
       "hint": "Dozzle now supports Container Actions, which allows you to start, stop and restart container from within the UI in the dropdown menu.",
+      "default": true,
       "required": false,
       "env_variable": "DOZZLE_ENABLE_ACTIONS"
     },
     {
       "type": "boolean",
       "label": "Disable Google Analytics",
+      "default": true,
       "required": false,
       "env_variable": "DOZZLE_NO_ANALYTICS"
     }
