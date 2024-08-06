@@ -12,10 +12,10 @@ Get visibility of what's going on on your WIFI/LAN network. Schedule scans for d
   |----------------------|----------------------| ----------------------|  ----------------------| 
 
 
-  | ![Main screen][main] | ![device_details 1][device_details]  | ![Screen network][network] |
+  | ![Main screen][https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/devices_split.png] | ![device_details 1][https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/device_details.png]  | ![Screen network][https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/network.png] |
   |----------------------|----------------------| ----------------------| 
 
-  ![network_setup][network_setup] 
+  ![network_setup][https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/network_setup.gif] 
 
 
 Head to [https://netalertx.com/](https://netalertx.com/) for more gifs and screenshots 📷.
