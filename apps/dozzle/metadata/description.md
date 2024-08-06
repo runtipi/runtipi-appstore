@@ -19,9 +19,9 @@ https://github.com/amir20/dozzle
 
 ## Credentials
 
-If you choose `simple` as the `Auth provider` the defaultcredentials for the app will be Username `admin` with Password `password`.
+If you choose `simple` as the `Auth provider` the default credentials for the app will be Username `admin` with Password `password`.
 
-To chage those credentials, change the default settings in `runtipi/app-data/dozzle/data/users.yml`.
+To change those credentials, stop the app and change the default settings in `runtipi/app-data/dozzle/data/users.yml`.
 
 ```bash
 users:
