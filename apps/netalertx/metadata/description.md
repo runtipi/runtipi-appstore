@@ -12,10 +12,10 @@ Get visibility of what's going on on your WIFI/LAN network. Schedule scans for d
   |----------------------|----------------------| ----------------------|  ----------------------| 
 
 
-  | ![Main screen][https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/devices_split.png] | ![device_details 1][https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/device_details.png]  | ![Screen network][https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/network.png] |
+  | ![Main screen][main] | ![device_details 1][device_details]  | ![Screen network][network] |
   |----------------------|----------------------| ----------------------| 
 
-  ![network_setup][https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/network_setup.gif] 
+  ![network_setup][network_setup] 
 
 
 Head to [https://netalertx.com/](https://netalertx.com/) for more gifs and screenshots 📷.
@@ -138,20 +138,20 @@ Help out and suggest languages in the [online portal of Weblate](https://hosted.
 
 
 <!--- --------------------------------------------------------------------- --->
-[main]:                     ./docs/img/devices_split.png                  "Main screen"
-[device_details]:           ./docs/img/device_details.png                 "Screen 1"
-[events]:                   ./docs/img/events.png                         "Screen 2"
-[presence]:                 ./docs/img/presence.png                       "Screen 3"
-[maintenance]:              ./docs/img/maintenance.png                    "Screen 4"
-[network]:                  ./docs/img/network.png                        "Screen 5"
-[settings]:                 ./docs/img/settings.png                       "Screen 6"
-[network_setup]:            ./docs/img/network_setup.gif                  "Screen 6"
-[help_faq]:                 ./docs/img/help_faq.png                       "Screen 7"
-[sync_hub]:                 ./docs/img/sync_hub.png                       "Screen 8"
-[notification_center]:      ./docs/img/notification_center.png            "Screen 8"
-[sent_reports_text]:        ./docs/img/sent_reports_text.png              "Screen 8"
-[device_nmap]:              ./docs/img/device_nmap.png                    "Screen 9"
-[report1]:                  ./docs/img/report_sample.png                  "Report sample 1"
-[main_dark]:                /docs/img/1_devices_dark.jpg                  "Main screen dark"
-[maintain_dark]:            /docs/img/5_maintain.jpg                      "Maintain screen dark"
-[follow_star]:              /docs/img/Follow_Releases_and_Star.gif        "Follow and Star"
+[main]:                     https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/devices_split.png                  "Main screen"
+[device_details]:           https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/device_details.png                 "Screen 1"
+[events]:                   https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/events.png                         "Screen 2"
+[presence]:                 https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/presence.png                       "Screen 3"
+[maintenance]:              https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/maintenance.png                    "Screen 4"
+[network]:                  https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/network.png                        "Screen 5"
+[settings]:                 https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/settings.png                       "Screen 6"
+[network_setup]:            https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/network_setup.gif                  "Screen 6"
+[help_faq]:                 https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/help_faq.png                       "Screen 7"
+[sync_hub]:                 https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/sync_hub.png                       "Screen 8"
+[notification_center]:      https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/notification_center.png            "Screen 8"
+[sent_reports_text]:        https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/sent_reports_text.png              "Screen 8"
+[device_nmap]:              https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/device_nmap.png                    "Screen 9"
+[report1]:                  https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/report_sample.png                  "Report sample 1"
+[main_dark]:                https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/1_devices_dark.jpg                  "Main screen dark"
+[maintain_dark]:            https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/5_maintain.jpg                      "Maintain screen dark"
+[follow_star]:              https://github.com/jokob-sk/NetAlertX/raw/main/docs/img/Follow_Releases_and_Star.gif        "Follow and Star"
