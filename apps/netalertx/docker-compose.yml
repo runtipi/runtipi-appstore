@@ -11,8 +11,6 @@ services:
       - ${APP_DATA_DIR}/data/db:/app/db
       - ${APP_DATA_DIR}/data/logs:/app/front/log
     network_mode: host
-    networks:
-      - tipi_main_network
     labels:
       # Main
       traefik.enable: true
