@@ -18,7 +18,7 @@
     {
       "type": "text",
       "label": "Auth Provider",
-      "hint": "'none' for no authentication or 'simple' for username and password authentication",
+      "hint": "'Use none' for no authentication or 'simple' for username 'admin' and password 'password'. To change credentials, consult the instructions on the app description.",
       "default": "none",
       "required": true,
       "env_variable": "DOZZLE_AUTH_PROVIDER",
@@ -32,28 +32,6 @@
           "value": "simple"
         }
       ]
-    },
-    {
-      "type": "text",
-      "label": "Username",
-      "hint": "Provide if 'Auth Provider' is set to 'simple'",
-      "placeholder": "admin",
-      "min": 1,
-      "max": 128,
-      "required": false,
-      "env_variable": "DOZZLE_USERNAME"
-    },
-    {
-      "type": "password",
-      "label": "Password Hash (SHA-256)",
-      "hint": "Provide if 'Auth Provider' is set to 'simple'. Follow the 'Authentication' tutorial in the app description",
-      "placeholder": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-      "regex": "^[a-fA-F0-9]{64}$",
-      "pattern_error": "Invalid hash, make sure to follow the 'Authentication' tutorial from the app description",
-      "min": 64,
-      "max": 64,
-      "required": false,
-      "env_variable": "DOZZLE_PASSWORD_HASH"
     },
     {
       "type": "boolean",

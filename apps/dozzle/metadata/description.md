@@ -17,7 +17,20 @@ Dozzle is a small lightweight application with a web based interface to monitor 
 
 https://github.com/amir20/dozzle
 
-## Authentication
+## Credentials
+
+If you choose `simple` as the `Auth provider` the defaultcredentials for the app will be Username `admin` with Password `password`.
+
+To chage those credentials, change the default settings in `runtipi/app-data/dozzle/data/users.yml`.
+
+```bash
+users:
+  admin:
+    name: admin
+    password: "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8"
+```
+
+The password is created as follows:
 
 ### Windows
 
