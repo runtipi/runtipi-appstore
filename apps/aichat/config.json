@@ -1,9 +1,10 @@
 {
   "$schema": "../schema.json",
-  "name": "AI Chat",
+  "name": "AIChat",
   "available": true,
   "exposable": true,
   "port": 8765,
+  "url_suffix": "/playground",
   "id": "aichat",
   "tipi_version": 1,
   "version": "v0.20.0",
@@ -11,8 +12,8 @@
     "utilities",
     "ai"
   ],
-  "description": "AI-powered chatbot application with a web interface",
-  "short_desc": "AI-powered chatbot application",
+  "description": "AIChat is an all-in-one AI tool featuring an OpenAI-API-compatible API and a chat playground and arena. Alsio prirovides Chat-REPL, Shell Assistant, RAG, AI Tools & Agents, and More.",
+  "short_desc": "All-in-one AI CLI Tool",
   "author": "sigoden",
   "source": "https://github.com/sigoden/aichat",
   "form_fields": [
