@@ -11,8 +11,9 @@ services:
     networks:
       - tipi_main_network
     environment:
-      - DOZZLE_NO_ANALYTICS=${DOZZLE_NO_ANALYTICS-true}
-      - DOZZLE_AUTH_PROVIDER=simple
+      - DOZZLE_NO_ANALYTICS=${DOZZLE_NO_ANALYTICS}
+      - DOZZLE_AUTH_PROVIDER=${DOZZLE_AUTH_PROVIDER}
+      - DOZZLE_ENABLE_ACTIONS=${DOZZLE_ENABLE_ACTIONS}
     labels:
       # Main
       traefik.enable: true

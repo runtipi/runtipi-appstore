@@ -7,37 +7,50 @@
   "id": "dozzle",
   "tipi_version": 38,
   "version": "8.1.4",
-  "categories": ["development"],
+  "categories": [
+    "development"
+  ],
   "description": "Dozzle is a small web based app to monitor Docker logs.",
   "short_desc": "Dozzle is a small web based app to monitor Docker logs",
   "author": "Amir Raminfar",
   "source": "https://github.com/amir20/dozzle",
   "form_fields": [
     {
-      "env_variable": "DOZZLE_USERNAME",
-      "label": "Username",
+      "type": "text",
+      "label": "Auth Provider",
+      "hint": "'Use none' for no authentication or 'simple' for username 'admin' and password 'password'. To change credentials, consult the instructions on the app description.",
+      "default": "none",
       "required": true,
-      "min": 1,
-      "max": 128,
-      "type": "text"
+      "env_variable": "DOZZLE_AUTH_PROVIDER",
+      "options": [
+        {
+          "label": "none",
+          "value": "none"
+        },
+        {
+          "label": "simple",
+          "value": "simple"
+        }
+      ]
     },
     {
-      "env_variable": "DOZZLE_PASSWORD_HASH",
-      "label": "Password Hash (SHA-256)",
-      "hint": "Tutorial: https://gist.github.com/Hunam6/45ddf6f29e88af2d137efdded899cb25",
-      "pattern_error": "Invalid hash, make sure to follow this tutorial: https://gist.github.com/Hunam6/45ddf6f29e88af2d137efdded899cb25",
-      "regex": "^[a-fA-F0-9]{64}$",
-      "type": "password",
-      "required": true,
-      "min": 64,
-      "max": 64
+      "type": "boolean",
+      "label": "Enable Actions",
+      "hint": "Dozzle now supports Container Actions, which allows you to start, stop and restart container from within the UI in the dropdown menu.",
+      "default": true,
+      "required": false,
+      "env_variable": "DOZZLE_ENABLE_ACTIONS"
     },
     {
       "type": "boolean",
       "label": "Disable Google Analytics",
+      "default": true,
       "required": false,
       "env_variable": "DOZZLE_NO_ANALYTICS"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
 }
