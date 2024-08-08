@@ -77,7 +77,7 @@ clients:
       - name: nomic-embed-text:latest
         type: embedding
         max_input_tokens: 8192
-        default_chunk_size: 1500 
+        default_chunk_size: 1500
         max_batch_size: 100
       - name: llama3.1:latest
         max_input_tokens: 8192
@@ -87,4 +87,3 @@ clients:
         supports_function_calling: true
       - name: deepseek-coder-v2:latest
         max_input_tokens: 8192
-

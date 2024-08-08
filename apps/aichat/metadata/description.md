@@ -4,7 +4,7 @@ AIChat is an all-in-one AI tool featuring an OpenAI-API-compatible API and a cha
 
 ## Getting Started on Tipi
 
-The provided configuration file initializes clients for several of OpenRouter's, OpenAI's, and Anthropic's Claude LLMs. API Keys provided in the settings fields will be used to authenticate to those APIs. By default AIChat's playground interface on Tipi will use OpenRouter's  `auto` "model".
+The provided configuration file initializes clients for several of OpenRouter's, OpenAI's, and Anthropic's Claude LLMs. API Keys provided in the settings fields will be used to authenticate to those APIs. By default, AIChat's playground interface on Tipi will use OpenRouter's  `auto` "model".
 
 Additional clients and models may be provisioned in the config file (using a custom app store to enable access to the `config.yaml` content); see the [example config file](https://github.com/sigoden/aichat/blob/main/config.example.yaml) for guidance.
 
@@ -40,13 +40,13 @@ Effortlessly connect with over 20 leading LLM platforms through a unified interf
 - **LingYiWanWu:** Yi-Large (paid, chat, vision, function-calling)
 - **Jina:**  (free, paid, embedding, reranker)
 - **VoyageAI:**  (paid, embedding, reranker)
-- **OpenAI-Compatible Platforms** 
+- **OpenAI-Compatible Platforms**
 
 ### Local Server
 
 AIChat comes with a built-in lightweight http server.
 
-```
+```sh
 $ aichat --serve
 Chat Completions API: http://127.0.0.1:8000/v1/chat/completions
 Embeddings API:       http://127.0.0.1:8000/v1/embeddings
@@ -76,7 +76,6 @@ The LLM Playground is a webapp that allows you to interact with any LLM supporte
 
 #### LLM Arena
 
-The LLM Arena is a web-based platform where you can compare different LLMs side-by-side. 
+The LLM Arena is a web-based platform where you can compare different LLMs side-by-side.
 
 ![aichat-llm-arena](https://github.com/sigoden/aichat/assets/4012553/eb1eab0c-4685-4142-89c6-089714b4822c)
-

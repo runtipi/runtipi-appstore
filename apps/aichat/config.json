@@ -12,7 +12,7 @@
     "utilities",
     "ai"
   ],
-  "description": "AIChat is an all-in-one AI tool featuring an OpenAI-API-compatible API and a chat playground and arena. Alsio prirovides Chat-REPL, Shell Assistant, RAG, AI Tools & Agents, and More.",
+  "description": "AIChat is an all-in-one AI tool featuring an OpenAI-API-compatible API and a chat playground and arena. Also provides Chat-REPL, Shell Assistant, RAG, AI Tools & Agents, and More.",
   "short_desc": "All-in-one AI CLI Tool",
   "author": "sigoden",
   "source": "https://github.com/sigoden/aichat",
@@ -48,5 +48,8 @@
       "max": 250
     }
   ],
-  "supported_architectures": ["amd64", "arm64"]
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ]
 }
