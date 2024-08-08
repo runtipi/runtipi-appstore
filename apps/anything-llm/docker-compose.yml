@@ -7,6 +7,7 @@ services:
     environment:
       - TZ=${TZ}
       - STORAGE_DIR=/app/server/storage
+      - LLM_PROVIDER=${LLM_URL}
     ports:
       - ${APP_PORT}:3001
     cap_add:
@@ -16,6 +17,11 @@ services:
       - ${APP_DATA_DIR}/app.env:/app/server/.env
     networks:
       - tipi_main_network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://127.0.01:3001 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 20
     labels:
       # Main
       traefik.enable: true
@@ -42,3 +48,11 @@ services:
       traefik.http.routers.anything-llm-local.service: anything-llm
       traefik.http.routers.anything-llm-local.tls: true
       runtipi.managed: true
+  initializer:
+    image: curlimages/curl:latest
+    depends_on:
+      anything-llm:
+        condition: service_healthy
+    # entrypoint: [ "sh", "-c", "echo \"curl -vvv -XPOST -H 'Content-Type: application/json' -d \"{\"username\": \"${USERNAME}\", \"password\": \"${PASSWORD}\"}\" \"http://172.17.0.1:${APP_PORT}/api/system/enable-multi-user\" && curl -vvv -XPOST -H 'Content-Type: application/json' -d \"{\"username\": \"${USERNAME}\", \"password\": \"${PASSWORD}\"}\" \"http://172.17.0.1:${APP_PORT}/api/system/enable-multi-user\" && echo 'initial user created'\"" ]
+    entrypoint: [ "sh", "-c", "curl -vvv -XPOST -H 'Content-Type: application/json' -d \"{\\\"username\\\": \\\"${USERNAME}\\\", \\\"password\\\": \\\"${PASSWORD}\\\"}\" \"http://172.17.0.1:33001/api/system/enable-multi-user\""]
+    restart: no

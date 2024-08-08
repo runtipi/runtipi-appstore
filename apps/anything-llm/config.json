@@ -6,7 +6,7 @@
   "port": 33001,
   "id": "anything-llm",
   "tipi_version": 1,
-  "version": "1.1.1",
+  "version": "1.2.0",
   "categories": [
     "utilities",
     "ai"
@@ -15,6 +15,37 @@
   "short_desc": "Your personal LLM trained on anything",
   "author": "Mintplex Labs",
   "source": "https://github.com/Mintplex-Labs/anything-llm",
-  "form_fields": [],
+  "form_fields": [
+    {
+      "name": "init_account_name",
+      "label": "Initial Account Name",
+      "type": "text",
+      "env_variable": "USERNAME",
+      "required": true,
+      "placeholder": "iamgroot",
+      "min": 2,
+      "max": 256
+    },
+    {
+      "name": "init_account_pass",
+      "label": "Initial Account Password",
+      "type": "password",
+      "env_variable": "PASSWORD",
+      "required": true,
+      "placeholder": "toorgmai",
+      "min": 8,
+      "max": 250
+    },
+    {
+      "name": "init_llm_address",
+      "label": "Initial LLM host",
+      "type": "text",
+      "env_variable": "LLM_URL",
+      "required": true,
+      "placeholder": "http://127.0.0.1:11434/",
+      "min": 20,
+      "max": 256
+    }
+  ],
   "supported_architectures": ["amd64","arm64"]
 }
