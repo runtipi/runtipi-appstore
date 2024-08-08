@@ -1,6 +1,6 @@
 # AIChat: All-in-one AI tool
 
-AIChat is an all-in-one AI tool featuring an OpenAI-API-compatible API and a chat playground and arena. It also provides a Chat-REPL, Shell Assistant, RAG, AI Tools & Agents, and more in a CLI interface.
+AIChat is an all-in-one AI tool featuring an OpenAI-API-compatible API and a chat playground and arena. It also provides a Chat-REPL, Shell Assistant, RAG, AI Tools & Agents, and more in a command-line interface (CLI).
 
 ## Getting Started on Tipi
 
