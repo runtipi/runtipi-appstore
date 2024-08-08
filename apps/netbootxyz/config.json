@@ -5,7 +5,7 @@
   "exposable": true,
   "id": "netbootxyz",
   "description": "Your favorite operating systems in one place. A network-based bootable operating system installer based on iPXE.",
-  "tipi_version": 4,
+  "tipi_version": 5,
   "version": "0.7.1-nbxyz3",
   "categories": [
     "utilities"
