@@ -16,7 +16,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.netbootxyz-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.netbootxyz.loadbalancer.server.port: 19999
+      traefik.http.services.netbootxyz.loadbalancer.server.port: 3000
       # Web
       traefik.http.routers.netbootxyz-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.netbootxyz-insecure.entrypoints: web
