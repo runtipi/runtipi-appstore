@@ -1,0 +1,22 @@
+{
+  "$schema": "../schema.json",
+  "name": "NetAlertX",
+  "id": "netalertx",
+  "available": true,
+  "short_desc": "Network scanner & notification framework",
+  "author": "markoceri",
+  "port": 20211,
+  "categories": [
+    "security"
+  ],
+  "description": "Get visibility of what's going on on your WIFI/LAN network. Schedule scans for devices, port changes and get alerts if unknown devices or changes are found. Write your own Plugins with auto-generated UI and in-build notification system. Build out and easily maintain your network source of truth (NSoT).",
+  "tipi_version": 1,
+  "version": "latest",
+  "source": "https://github.com/jokob-sk/NetAlertX",
+  "website": "https://netalertx.com/",
+  "exposable": true,
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}

@@ -1,0 +1,38 @@
+services:
+  netalertx:
+    container_name: netalertx
+    image: jokobsk/netalertx:latest
+    restart: unless-stopped
+    environment:
+      - TZ=${TZ}
+      - PORT=${APP_PORT}
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/app/config
+      - ${APP_DATA_DIR}/data/db:/app/db
+      - ${APP_DATA_DIR}/data/logs:/app/front/log
+    network_mode: host
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.netalertx-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.netalertx.loadbalancer.server.port: 20211
+      # Web
+      traefik.http.routers.netalertx-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.netalertx-insecure.entrypoints: web
+      traefik.http.routers.netalertx-insecure.service: netalertx
+      traefik.http.routers.netalertx-insecure.middlewares: netalertx-web-redirect
+      # Websecure
+      traefik.http.routers.netalertx.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.netalertx.entrypoints: websecure
+      traefik.http.routers.netalertx.service: netalertx
+      traefik.http.routers.netalertx.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.netalertx-local-insecure.rule: Host(`netalertx.${LOCAL_DOMAIN}`)
+      traefik.http.routers.netalertx-local-insecure.entrypoints: web
+      traefik.http.routers.netalertx-local-insecure.service: netalertx
+      traefik.http.routers.netalertx-local-insecure.middlewares: netalertx-web-redirect
+      # Local domain secure
+      traefik.http.routers.netalertx-local.rule: Host(`netalertx.${LOCAL_DOMAIN}`)
+      traefik.http.routers.netalertx-local.entrypoints: websecure
+      traefik.http.routers.netalertx-local.service: netalertx
+      traefik.http.routers.netalertx-local.tls: true
