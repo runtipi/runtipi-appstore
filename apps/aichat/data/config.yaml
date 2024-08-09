@@ -1,0 +1,89 @@
+# ---- llm ----
+model: openrouter:auto             # Default to OpenRouter's auto model
+
+# ---- behavior ----
+stream: true
+save: true
+keybindings: vi
+wrap: auto
+wrap_code: false
+
+# ---- session ----
+save_session: true
+compress_threshold: 4000
+
+# ---- function-calling ----
+function_calling: true
+
+# ---- server ----
+serve_port: 8000                   # Port for the aichat server to listen on
+
+highlight: true
+
+# ---- clients ----
+clients:
+  - type: openai-compatible
+    name: openrouter
+    api_base: https://openrouter.ai/api/v1
+    # api_key: provided via env
+    models:
+      - name: auto
+        max_input_tokens: 32000
+      - name: meta-llama/llama-3.1-405b-instruct
+        max_input_tokens: 131072
+        max_output_tokens: 131072
+      - name: meta-llama/llama-3.1-8b-instruct:free
+        max_input_tokens: 131072
+        max_output_tokens: 131072
+      - name: openai/gpt-4o-mini-2024-07-18
+        max_input_tokens: 128000
+        max_output_tokens: 16384
+      - name: openai/gpt-4o-mini
+        max_input_tokens: 128000
+        max_output_tokens: 16384
+
+  - type: claude
+    # api_key: provided via env
+    models:
+      - name: claude-3-haiku-20240307
+        max_input_tokens: 200000
+        max_output_tokens: 4096
+        require_max_tokens: true
+      - name: claude-3-5-sonnet-20240620
+        max_input_tokens: 200000
+        max_output_tokens: 8192
+        require_max_tokens: true
+      - name: claude-3-opus-20240229
+        max_input_tokens: 200000
+        max_output_tokens: 4096
+        require_max_tokens: true
+
+  - type: openai
+    # api_key: provided via env
+    models:
+      - name: gpt-4o
+        max_input_tokens: 128000
+        max_output_tokens: 4096
+      - name: gpt-4o-mini
+        max_input_tokens: 128000
+        max_output_tokens: 16384
+
+  - type: ollama
+    #api_base: http://host.docker.internal:11434
+    api_base: http://172.17.0.1:11434
+    models:
+      - name: codestral
+        max_input_tokens: 8192
+      - name: nomic-embed-text:latest
+        type: embedding
+        max_input_tokens: 8192
+        default_chunk_size: 1500
+        max_batch_size: 100
+      - name: llama3.1:latest
+        max_input_tokens: 8192
+        supports_function_calling: true
+      - name: mistral-nemo:latest
+        max_input_tokens: 8192
+        supports_function_calling: true
+      - name: deepseek-coder-v2:latest
+        max_input_tokens: 8192

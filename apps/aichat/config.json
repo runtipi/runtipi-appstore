@@ -1,0 +1,55 @@
+{
+  "$schema": "../schema.json",
+  "name": "AIChat",
+  "available": true,
+  "exposable": true,
+  "port": 8765,
+  "url_suffix": "/playground",
+  "id": "aichat",
+  "tipi_version": 1,
+  "version": "v0.20.0",
+  "categories": [
+    "utilities",
+    "ai"
+  ],
+  "description": "AIChat is an all-in-one AI tool featuring an OpenAI-API-compatible API and a chat playground and arena. Also provides Chat-REPL, Shell Assistant, RAG, AI Tools & Agents, and More.",
+  "short_desc": "All-in-one AI CLI Tool",
+  "author": "sigoden",
+  "source": "https://github.com/sigoden/aichat",
+  "form_fields": [
+    {
+      "name": "OPENAI_API_KEY",
+      "label": "OpenAI API Key",
+      "type": "password",
+      "env_variable": "OPENAI_API_KEY",
+      "required": false,
+      "placeholder": "sk-proj-iamgroot",
+      "min": 5,
+      "max": 250
+    },
+    {
+      "name": "OPENROUTER_API_KEY",
+      "label": "OpenRouter API Key",
+      "type": "password",
+      "env_variable": "OPENROUTER_API_KEY",
+      "required": false,
+      "placeholder": "sk-or-iamgroot",
+      "min": 5,
+      "max": 250
+    },
+    {
+      "name": "CLAUDE_API_KEY",
+      "label": "Claude API Key",
+      "type": "password",
+      "env_variable": "CLAUDE_API_KEY",
+      "required": false,
+      "placeholder": "sk-ant-iamgroot",
+      "min": 5,
+      "max": 250
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ]
+}
