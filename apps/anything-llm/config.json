@@ -37,14 +37,49 @@
       "max": 250
     },
     {
-      "name": "init_llm_address",
-      "label": "Initial LLM host",
+      "name": "init_llm_provider",
+      "label": "Initial LLM Provider",
+      "type": "text",
+      "env_variable": "LLM_NAME",
+      "required": true,
+      "options": [
+        { "label": "Ollama", "value": "OLLAMA" },
+        { "label": "OpenAI", "value": "OPENAI" },
+        { "label": "Gemini", "value": "GEMINI" },
+        { "label": "Azure", "value": "AZURE" },
+        { "label": "Anthropic", "value": "ANTHROPIC" },
+        { "label": "LMStudio", "value": "LMSTUDIO" },
+        { "label": "LocalAI", "value": "LOCALAI" },
+        { "label": "TogetherAI", "value": "TOGETHER" },
+        { "label": "Perplexity", "value": "PERPLEXITY" },
+        { "label": "OpenRouter", "value": "OPENROUTER" },
+        { "label": "Mistral", "value": "MISTRAL" },
+        { "label": "HuggingFace", "value": "HUGGINGFACE" },
+        { "label": "KoboldCPP", "value": "KOBOLODCPP" },
+        { "label": "TextWebGenUI", "value": "TEXTWEBGENUI" },
+        { "label": "Generic OpenAI-compatible", "value": "GENOPENAI" },
+        { "label": "litellm", "value": "LITELLM" },
+        { "label": "Cohere", "value": "COHERE" }
+    },
+    {
+      "name": "init_llm_api_key",
+      "label": "Initial LLM API Key",
+      "type": "password",
+      "env_variable": "APIKEY",
+      "required": true,
+      "placeholder": "toorgmai",
+      "min": 8,
+      "max": 250
+    },
+    {
+      "name": "init_llm_url",
+      "label": "Initial LLM URL",
       "type": "text",
       "env_variable": "LLM_URL",
-      "required": true,
-      "placeholder": "http://127.0.0.1:11434/",
-      "min": 20,
-      "max": 256
+      "required": false,
+      "placeholder": "http://127.0.0.1:11434/v1",
+      "min": 8,
+      "max": 250
     }
   ],
   "supported_architectures": ["amd64","arm64"]
