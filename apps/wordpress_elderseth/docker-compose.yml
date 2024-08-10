@@ -10,41 +10,41 @@ services:
       - WORDPRESS_DB_USER=tipi
       - WORDPRESS_DB_PASSWORD=${DB_PASSWORD}
     volumes:
-      - ${APP_DATA_DIR}/data/elderseth:/var/www/elderseth
+      - ${APP_DATA_DIR}/data/wordpress_elderseth:/var/www/wordrpess_elderseth
     ports:
       - ${APP_PORT}:80
     restart: unless-stopped
     depends_on:
-      - wordpress-db
+      - wordpress_elderseth-db
     networks:
       - tipi_main_network
     labels:
         # Main
         traefik.enable: true
-        traefik.http.middlewares.wordpress-redirect.redirectscheme.scheme: https
-        traefik.http.services.wordpress.loadbalancer.server.port: 80
+        traefik.http.middlewares.wordpress_elderseth-redirect.redirectscheme.scheme: https
+        traefik.http.services.wordpress_elderseth.loadbalancer.server.port: 80
         # Web
-        traefik.http.routers.wordpress-insecure.rule: Host(`${APP_DOMAIN}`)
-        traefik.http.routers.wordpress-insecure.entrypoints: web
-        traefik.http.routers.wordpress-insecure.service: wordpress
-        traefik.http.routers.wordpress-insecure.middlewares: wordpress-redirect
+        traefik.http.routers.wordpress_elderseth-insecure.rule: Host(`${APP_DOMAIN}`)
+        traefik.http.routers.wordpress_elderseth-insecure.entrypoints: web
+        traefik.http.routers.wordpress_elderseth-insecure.service: wordpress_elderseth
+        traefik.http.routers.wordpress_elderseth-insecure.middlewares: wordpress_elderseth-redirect
         # Websecure
-        traefik.http.routers.wordpress.rule: Host(`${APP_DOMAIN}`)
-        traefik.http.routers.wordpress.entrypoints: websecure
-        traefik.http.routers.wordpress.service: wordpress
-        traefik.http.routers.wordpress.tls.certresolver: myresolver
+        traefik.http.routers.wordpress_elderseth.rule: Host(`${APP_DOMAIN}`)
+        traefik.http.routers.wordpress_elderseth.entrypoints: websecure
+        traefik.http.routers.wordpress_elderseth.service: wordpress_elderseth
+        traefik.http.routers.wordpress_elderseth.tls.certresolver: myresolver
         # Local domain
-        traefik.http.routers.wordpress-local-insecure.rule: Host(`wordpress.${LOCAL_DOMAIN}`)
-        traefik.http.routers.wordpress-local-insecure.entrypoints: web
-        traefik.http.routers.wordpress-local-insecure.service: wordpress
-        traefik.http.routers.wordpress-local-insecure.middlewares: wordpress-redirect
+        traefik.http.routers.wordpress_elderseth-local-insecure.rule: Host(`wordpress_elderseth.${LOCAL_DOMAIN}`)
+        traefik.http.routers.wordpress_elderseth-local-insecure.entrypoints: web
+        traefik.http.routers.wordpress_elderseth-local-insecure.service: wordpress_elderseth
+        traefik.http.routers.wordpress_elderseth-local-insecure.middlewares: wordpress_elderseth-redirect
         # Local domain secure
-        traefik.http.routers.wordpress-local.rule: Host(`wordpress.${LOCAL_DOMAIN}`)
-        traefik.http.routers.wordpress-local.entrypoints: websecure
-        traefik.http.routers.wordpress-local.service: wordpress
-        traefik.http.routers.wordpress-local.tls: true
+        traefik.http.routers.wordpress_elderseth-local.rule: Host(`wordpress_elderseth.${LOCAL_DOMAIN}`)
+        traefik.http.routers.wordpress_elderseth-local.entrypoints: websecure
+        traefik.http.routers.wordpress_elderseth-local.service: wordpress_elderseth
+        traefik.http.routers.wordpress_elderseth-local.tls: true
         runtipi.managed: true
-  elderseth-db:
+  woredpress_elderseth-db:
     container_name: wordpress-db
     image: mariadb:11.1.3
     environment:
@@ -53,7 +53,7 @@ services:
       - MYSQL_USER=tipi
       - MYSQL_PASSWORD=${DB_PASSWORD}
     volumes:
-      - ${APP_DATA_DIR}/data/elderseth-db:/var/lib/elderseth-db
+      - ${APP_DATA_DIR}/data/wordpress_elderseth-db:/var/lib/wordpress_elderseth-db
     restart: unless-stopped
     networks:
       - tipi_main_network
