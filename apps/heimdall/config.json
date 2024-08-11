@@ -4,7 +4,7 @@
   "exposable": true,
   "port": 8783,
   "id": "heimdall",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "2.6.1",
   "categories": [
     "utilities"
