@@ -10,13 +10,13 @@ importers:
     devDependencies:
       '@commitlint/cli':
         specifier: ^19.4.0
-        version: 19.4.0(@types/node@20.14.12)(typescript@5.5.4)
+        version: 19.4.0(@types/node@22.2.0)(typescript@5.5.4)
       '@commitlint/config-conventional':
         specifier: ^19.2.2
         version: 19.2.2
       '@commitlint/cz-commitlint':
         specifier: ^19.4.0
-        version: 19.4.0(@types/node@20.14.12)(commitizen@4.3.0(@types/node@20.14.12)(typescript@5.5.4))(inquirer@9.2.23)(typescript@5.5.4)
+        version: 19.4.0(@types/node@22.2.0)(commitizen@4.3.0(@types/node@22.2.0)(typescript@5.5.4))(inquirer@9.2.23)(typescript@5.5.4)
       '@playwright/test':
         specifier: ^1.46.0
         version: 1.46.0
@@ -27,14 +27,14 @@ importers:
         specifier: ^4.0.9
         version: 4.0.9
       '@types/node':
-        specifier: ^20.14.12
-        version: 20.14.12
+        specifier: ^22.2.0
+        version: 22.2.0
       '@types/semver':
         specifier: ^7.5.8
         version: 7.5.8
       commitizen:
         specifier: ^4.3.0
-        version: 4.3.0(@types/node@20.14.12)(typescript@5.5.4)
+        version: 4.3.0(@types/node@22.2.0)(typescript@5.5.4)
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -49,7 +49,7 @@ importers:
         version: 9.1.4
       jest:
         specifier: ^28.1.3
-        version: 28.1.3(@types/node@20.14.12)
+        version: 28.1.3(@types/node@22.2.0)
       js-yaml:
         specifier: ^4.1.0
         version: 4.1.0
@@ -61,7 +61,7 @@ importers:
         version: 7.6.3
       ts-jest:
         specifier: ^28.0.7
-        version: 28.0.7(@babel/core@7.18.9)(@jest/types@28.1.3)(babel-jest@28.1.3(@babel/core@7.18.9))(jest@28.1.3(@types/node@20.14.12))(typescript@5.5.4)
+        version: 28.0.7(@babel/core@7.18.9)(@jest/types@28.1.3)(babel-jest@28.1.3(@babel/core@7.18.9))(jest@28.1.3(@types/node@22.2.0))(typescript@5.5.4)
       typescript:
         specifier: ^5.5.4
         version: 5.5.4
@@ -561,6 +561,9 @@ packages:
 
   '@types/node@20.14.12':
     resolution: {integrity: sha512-r7wNXakLeSsGT0H1AU863vS2wa5wBOK4bWMjZz2wj+8nBx+m5PeIn0k8AloSLpRuiwdRQZwarZqHE4FNArPuJQ==}
+
+  '@types/node@22.2.0':
+    resolution: {integrity: sha512-bm6EG6/pCpkxDf/0gDNDdtDILMOHgaQBVOJGdwsqClnxA3xL6jtMv76rLBc006RVMWbmaf0xbmom4Z/5o2nRkQ==}
 
   '@types/prettier@2.6.4':
     resolution: {integrity: sha512-fOwvpvQYStpb/zHMx0Cauwywu9yLDmzWiiQBC7gJyq5tYLUXFZvDG7VK1B7WBxxjBJNKFOZ0zLoOQn8vmATbhw==}
@@ -2107,6 +2110,9 @@ packages:
   undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
 
+  undici-types@6.13.0:
+    resolution: {integrity: sha512-xtFJHudx8S2DSoujjMd1WeWvn7KKWFRESZTMeL1RptAYERu29D6jphMjjY+vn96jvN3kVPDNxU/E13VTaXj6jg==}
+
   unicorn-magic@0.1.0:
     resolution: {integrity: sha512-lRfVq8fE8gz6QMBuDM6a+LO3IAzTi05H6gCVaUpir2E1Rwpo4ZUog45KpNXKC/Mn3Yb9UDuHumeFTo9iV/D9FQ==}
     engines: {node: '>=18'}
@@ -2449,11 +2455,11 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@commitlint/cli@19.4.0(@types/node@20.14.12)(typescript@5.5.4)':
+  '@commitlint/cli@19.4.0(@types/node@22.2.0)(typescript@5.5.4)':
     dependencies:
       '@commitlint/format': 19.3.0
       '@commitlint/lint': 19.2.2
-      '@commitlint/load': 19.4.0(@types/node@20.14.12)(typescript@5.5.4)
+      '@commitlint/load': 19.4.0(@types/node@22.2.0)(typescript@5.5.4)
       '@commitlint/read': 19.4.0
       '@commitlint/types': 19.0.3
       execa: 8.0.1
@@ -2472,13 +2478,13 @@ snapshots:
       '@commitlint/types': 19.0.3
       ajv: 8.17.1
 
-  '@commitlint/cz-commitlint@19.4.0(@types/node@20.14.12)(commitizen@4.3.0(@types/node@20.14.12)(typescript@5.5.4))(inquirer@9.2.23)(typescript@5.5.4)':
+  '@commitlint/cz-commitlint@19.4.0(@types/node@22.2.0)(commitizen@4.3.0(@types/node@22.2.0)(typescript@5.5.4))(inquirer@9.2.23)(typescript@5.5.4)':
     dependencies:
       '@commitlint/ensure': 19.0.3
-      '@commitlint/load': 19.4.0(@types/node@20.14.12)(typescript@5.5.4)
+      '@commitlint/load': 19.4.0(@types/node@22.2.0)(typescript@5.5.4)
       '@commitlint/types': 19.0.3
       chalk: 5.3.0
-      commitizen: 4.3.0(@types/node@20.14.12)(typescript@5.5.4)
+      commitizen: 4.3.0(@types/node@22.2.0)(typescript@5.5.4)
       inquirer: 9.2.23
       lodash.isplainobject: 4.0.6
       word-wrap: 1.2.5
@@ -2514,7 +2520,7 @@ snapshots:
       '@commitlint/rules': 19.0.3
       '@commitlint/types': 19.0.3
 
-  '@commitlint/load@19.4.0(@types/node@20.14.12)(typescript@5.5.4)':
+  '@commitlint/load@19.4.0(@types/node@22.2.0)(typescript@5.5.4)':
     dependencies:
       '@commitlint/config-validator': 19.0.3
       '@commitlint/execute-rule': 19.0.0
@@ -2522,7 +2528,7 @@ snapshots:
       '@commitlint/types': 19.0.3
       chalk: 5.3.0
       cosmiconfig: 9.0.0(typescript@5.5.4)
-      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.14.12)(cosmiconfig@9.0.0(typescript@5.5.4))(typescript@5.5.4)
+      cosmiconfig-typescript-loader: 5.0.0(@types/node@22.2.0)(cosmiconfig@9.0.0(typescript@5.5.4))(typescript@5.5.4)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -2900,6 +2906,10 @@ snapshots:
     dependencies:
       undici-types: 5.26.5
 
+  '@types/node@22.2.0':
+    dependencies:
+      undici-types: 6.13.0
+
   '@types/prettier@2.6.4': {}
 
   '@types/semver@7.5.8': {}
@@ -3147,10 +3157,10 @@ snapshots:
 
   color-name@1.1.4: {}
 
-  commitizen@4.3.0(@types/node@20.14.12)(typescript@5.5.4):
+  commitizen@4.3.0(@types/node@22.2.0)(typescript@5.5.4):
     dependencies:
       cachedir: 2.3.0
-      cz-conventional-changelog: 3.3.0(@types/node@20.14.12)(typescript@5.5.4)
+      cz-conventional-changelog: 3.3.0(@types/node@22.2.0)(typescript@5.5.4)
       dedent: 0.7.0
       detect-indent: 6.1.0
       find-node-modules: 2.1.3
@@ -3195,9 +3205,9 @@ snapshots:
     dependencies:
       safe-buffer: 5.1.2
 
-  cosmiconfig-typescript-loader@5.0.0(@types/node@20.14.12)(cosmiconfig@9.0.0(typescript@5.5.4))(typescript@5.5.4):
+  cosmiconfig-typescript-loader@5.0.0(@types/node@22.2.0)(cosmiconfig@9.0.0(typescript@5.5.4))(typescript@5.5.4):
     dependencies:
-      '@types/node': 20.14.12
+      '@types/node': 22.2.0
       cosmiconfig: 9.0.0(typescript@5.5.4)
       jiti: 1.21.6
       typescript: 5.5.4
@@ -3217,16 +3227,16 @@ snapshots:
       shebang-command: 2.0.0
       which: 2.0.2
 
-  cz-conventional-changelog@3.3.0(@types/node@20.14.12)(typescript@5.5.4):
+  cz-conventional-changelog@3.3.0(@types/node@22.2.0)(typescript@5.5.4):
     dependencies:
       chalk: 2.4.2
-      commitizen: 4.3.0(@types/node@20.14.12)(typescript@5.5.4)
+      commitizen: 4.3.0(@types/node@22.2.0)(typescript@5.5.4)
       conventional-commit-types: 3.0.0
       lodash.map: 4.6.0
       longest: 2.0.1
       word-wrap: 1.2.5
     optionalDependencies:
-      '@commitlint/load': 19.4.0(@types/node@20.14.12)(typescript@5.5.4)
+      '@commitlint/load': 19.4.0(@types/node@22.2.0)(typescript@5.5.4)
     transitivePeerDependencies:
       - '@types/node'
       - typescript
@@ -3805,7 +3815,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  jest-cli@28.1.3(@types/node@20.14.12):
+  jest-cli@28.1.3(@types/node@22.2.0):
     dependencies:
       '@jest/core': 28.1.3
       '@jest/test-result': 28.1.3
@@ -3814,7 +3824,7 @@ snapshots:
       exit: 0.1.2
       graceful-fs: 4.2.10
       import-local: 3.1.0
-      jest-config: 28.1.3(@types/node@20.14.12)
+      jest-config: 28.1.3(@types/node@22.2.0)
       jest-util: 28.1.3
       jest-validate: 28.1.3
       prompts: 2.4.2
@@ -3850,6 +3860,35 @@ snapshots:
       strip-json-comments: 3.1.1
     optionalDependencies:
       '@types/node': 20.14.12
+    transitivePeerDependencies:
+      - supports-color
+
+  jest-config@28.1.3(@types/node@22.2.0):
+    dependencies:
+      '@babel/core': 7.18.9
+      '@jest/test-sequencer': 28.1.3
+      '@jest/types': 28.1.3
+      babel-jest: 28.1.3(@babel/core@7.18.9)
+      chalk: 4.1.2
+      ci-info: 3.3.2
+      deepmerge: 4.2.2
+      glob: 7.2.3
+      graceful-fs: 4.2.10
+      jest-circus: 28.1.3
+      jest-environment-node: 28.1.3
+      jest-get-type: 28.0.2
+      jest-regex-util: 28.0.2
+      jest-resolve: 28.1.3
+      jest-runner: 28.1.3
+      jest-util: 28.1.3
+      jest-validate: 28.1.3
+      micromatch: 4.0.5
+      parse-json: 5.2.0
+      pretty-format: 28.1.3
+      slash: 3.0.0
+      strip-json-comments: 3.1.1
+    optionalDependencies:
+      '@types/node': 22.2.0
     transitivePeerDependencies:
       - supports-color
 
@@ -4069,12 +4108,12 @@ snapshots:
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
-  jest@28.1.3(@types/node@20.14.12):
+  jest@28.1.3(@types/node@22.2.0):
     dependencies:
       '@jest/core': 28.1.3
       '@jest/types': 28.1.3
       import-local: 3.1.0
-      jest-cli: 28.1.3(@types/node@20.14.12)
+      jest-cli: 28.1.3(@types/node@22.2.0)
     transitivePeerDependencies:
       - '@types/node'
       - supports-color
@@ -4555,11 +4594,11 @@ snapshots:
     dependencies:
       eslint-visitor-keys: 3.4.3
 
-  ts-jest@28.0.7(@babel/core@7.18.9)(@jest/types@28.1.3)(babel-jest@28.1.3(@babel/core@7.18.9))(jest@28.1.3(@types/node@20.14.12))(typescript@5.5.4):
+  ts-jest@28.0.7(@babel/core@7.18.9)(@jest/types@28.1.3)(babel-jest@28.1.3(@babel/core@7.18.9))(jest@28.1.3(@types/node@22.2.0))(typescript@5.5.4):
     dependencies:
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
-      jest: 28.1.3(@types/node@20.14.12)
+      jest: 28.1.3(@types/node@22.2.0)
       jest-util: 28.1.3
       json5: 2.2.3
       lodash.memoize: 4.1.2
@@ -4591,6 +4630,8 @@ snapshots:
   typescript@5.5.4: {}
 
   undici-types@5.26.5: {}
+
+  undici-types@6.13.0: {}
 
   unicorn-magic@0.1.0: {}
 
