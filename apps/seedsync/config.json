@@ -8,12 +8,17 @@
   "description": "SeedSync is a tool to sync the files on a remote Linux server (like your seedbox, for example). It uses LFTP to transfer files fast!",
   "tipi_version": 1,
   "version": "0.8.6",
-  "categories": ["utilities"],
+  "categories": [
+    "utilities"
+  ],
   "short_desc": "SeedSync is a tool to sync the files on a remote Linux server.",
   "author": "Inderpreet Singh",
   "source": "https://github.com/ipsingh06/seedsync",
   "website": "https://ipsingh06.github.io/seedsync/",
-  "supported_architectures": ["amd64", "arm64"],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
   "form_fields": [
     {
       "type": "number",
@@ -29,5 +34,7 @@
       "placeholder": "1000",
       "env_variable": "SEEDSYNC_PGID"
     }
-  ]
+  ],
+  "created_at": 1691943801422,
+  "updated_at": 1723566283000
 }

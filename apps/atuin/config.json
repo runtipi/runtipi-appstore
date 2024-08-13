@@ -7,7 +7,10 @@
   "id": "atuin",
   "tipi_version": 5,
   "version": "18.3.0",
-  "categories": ["utilities", "development"],
+  "categories": [
+    "utilities",
+    "development"
+  ],
   "description": "Making your shell magical",
   "short_desc": "Magical Shell History",
   "author": "https://github.com/atuinsh",
@@ -30,5 +33,10 @@
       "env_variable": "ATUIN_ALLOW_REGISTRATION"
     }
   ],
-  "supported_architectures": ["amd64", "arm64"]
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "created_at": 1691943801422,
+  "updated_at": 1723566285000
 }

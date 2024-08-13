@@ -15,6 +15,11 @@
   "source": "https://github.com/kasmtech",
   "website": "https://www.kasmweb.com/",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"],
-  "https": true
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "https": true,
+  "created_at": 1691943801422,
+  "updated_at": 1723566284000
 }

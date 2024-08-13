@@ -22,7 +22,8 @@
       "hint": "Space delimited list of networks to accept mail from.",
       "placeholder": "192.168.0.0/16 172.16.0.0/12 10.0.0.0/8",
       "env_variable": "RELAY_ACCEPTED_NETWORKS"
-    },{
+    },
+    {
       "type": "text",
       "label": "SMTP Host",
       "hint": "External relay DNS name.",
@@ -69,5 +70,9 @@
       "env_variable": "RELAY_USE_TLS"
     }
   ],
-  "supported_architectures": ["amd64"]
+  "supported_architectures": [
+    "amd64"
+  ],
+  "created_at": 1691943801422,
+  "updated_at": 1723566284000
 }

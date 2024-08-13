@@ -7,7 +7,9 @@
   "description": "MinIO is a high-performance, S3 compatible object store. It is built for large scale AI/ML, data lake and database workloads.",
   "tipi_version": 2,
   "version": "RELEASE.2024-02-24T17-11-14Z",
-  "categories": ["development"],
+  "categories": [
+    "development"
+  ],
   "short_desc": "High Performance Object Storage",
   "author": "MinIO, Inc",
   "source": "https://github.com/minio/minio",
@@ -36,5 +38,10 @@
       "env_variable": "MINIO_API_URL"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "created_at": 1691943801422,
+  "updated_at": 1723566284000
 }

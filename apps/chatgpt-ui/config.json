@@ -14,7 +14,9 @@
   "short_desc": "A ChatGPT web client that supports multiple users, multiple languages, and multiple database connections for persistent data storage",
   "author": "https://github.com/WongSaang",
   "source": "https://github.com/WongSaang/chatgpt-ui",
-  "supported_architectures": ["amd64"],
+  "supported_architectures": [
+    "amd64"
+  ],
   "form_fields": [
     {
       "type": "random",
@@ -44,5 +46,7 @@
       "required": true,
       "env_variable": "CHATGPT_UI_SUPERUSER_EMAIL"
     }
-  ]
+  ],
+  "created_at": 1691943801422,
+  "updated_at": 1723566285000
 }
