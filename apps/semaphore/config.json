@@ -46,5 +46,7 @@
       "min": 32,
       "env_variable": "SEMAPHORE_ACCESS_KEY_ENCRYPTION"
     }
-  ]
+  ],
+  "created_at": 1691943801422,
+  "updated_at": 1723566284000
 }

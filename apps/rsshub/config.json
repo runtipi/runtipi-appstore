@@ -23,5 +23,7 @@
       "env_variable": "ACCESS_KEY"
     }
   ],
-  "supported_architectures": ["amd64", "arm64"]
+  "supported_architectures": ["amd64", "arm64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566284000
 }
