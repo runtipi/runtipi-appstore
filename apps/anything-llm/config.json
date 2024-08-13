@@ -60,6 +60,7 @@
         { "label": "Generic OpenAI-compatible", "value": "GENOPENAI" },
         { "label": "litellm", "value": "LITELLM" },
         { "label": "Cohere", "value": "COHERE" }
+      ]
     },
     {
       "name": "init_llm_api_key",
@@ -82,5 +83,7 @@
       "max": 250
     }
   ],
-  "supported_architectures": ["amd64","arm64"]
+  "supported_architectures": ["amd64","arm64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566285000
 }

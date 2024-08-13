@@ -1,13 +1,13 @@
-version: "3.9"
 services:
   anything-llm:
     container_name: anything-llm
-    image: ghcr.io/mintplex-labs/anything-llm:1.1.1
+    image: ghcr.io/mintplex-labs/anything-llm:1.2.0
     restart: unless-stopped
     environment:
       - TZ=${TZ}
       - STORAGE_DIR=/app/server/storage
-      - LLM_PROVIDER=${LLM_URL}
+      - ${LLM_NAME}_BASE_PATH=${LLM_URL}
+      - ${LLM_NAME}_API_KEY=${APIKEY}
     ports:
       - ${APP_PORT}:3001
     cap_add:
@@ -18,10 +18,11 @@ services:
     networks:
       - tipi_main_network
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://127.0.01:3001 || exit 1"]
-      interval: 30s
-      timeout: 10s
-      retries: 20
+      test: curl -s -I http://localhost:3001
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
     labels:
       # Main
       traefik.enable: true
@@ -53,6 +54,8 @@ services:
     depends_on:
       anything-llm:
         condition: service_healthy
-    # entrypoint: [ "sh", "-c", "echo \"curl -vvv -XPOST -H 'Content-Type: application/json' -d \"{\"username\": \"${USERNAME}\", \"password\": \"${PASSWORD}\"}\" \"http://172.17.0.1:${APP_PORT}/api/system/enable-multi-user\" && curl -vvv -XPOST -H 'Content-Type: application/json' -d \"{\"username\": \"${USERNAME}\", \"password\": \"${PASSWORD}\"}\" \"http://172.17.0.1:${APP_PORT}/api/system/enable-multi-user\" && echo 'initial user created'\"" ]
-    entrypoint: [ "sh", "-c", "curl -vvv -XPOST -H 'Content-Type: application/json' -d \"{\\\"username\\\": \\\"${USERNAME}\\\", \\\"password\\\": \\\"${PASSWORD}\\\"}\" \"http://172.17.0.1:33001/api/system/enable-multi-user\""]
+    entrypoint: [ "sh", "-c", "echo \"LLM_PROVIDER=\\\"${LLM_NAME,,}\\\"\" >> /app/server/.env && curl -vvv -XPOST -H 'Content-Type: application/json' -d \"{\\\"username\\\": \\\"${USERNAME}\\\", \\\"password\\\": \\\"${PASSWORD}\\\"}\" \"http://172.17.0.1:33001/api/system/enable-multi-user\""]
     restart: no
+    labels:
+      runtipi.managed: true
+
