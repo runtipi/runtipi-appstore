@@ -8,9 +8,7 @@
   "id": "postfix-relay",
   "tipi_version": 1,
   "version": "1.4.0",
-  "categories": [
-    "utilities"
-  ],
+  "categories": ["utilities"],
   "description": "Simple SMTP relay for environments where you may have private servers with no Internet connection.",
   "short_desc": "Simple SMTP relay for environments where you may have private servers with no Internet connection.",
   "author": "shamil",
@@ -70,9 +68,7 @@
       "env_variable": "RELAY_USE_TLS"
     }
   ],
-  "supported_architectures": [
-    "amd64"
-  ],
+  "supported_architectures": ["amd64"],
   "created_at": 1691943801422,
   "updated_at": 1723566284000
 }

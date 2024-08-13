@@ -7,9 +7,7 @@
   "tipi_version": 6,
   "version": "version-6",
   "id": "firefly-iii",
-  "categories": [
-    "finance"
-  ],
+  "categories": ["finance"],
   "description": "",
   "short_desc": "Firefly III: a personal finances manager ",
   "author": "JC5",
@@ -44,10 +42,7 @@
       "env_variable": "STATIC_CRON_TOKEN"
     }
   ],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ],
+  "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
   "updated_at": 1723566283000
 }

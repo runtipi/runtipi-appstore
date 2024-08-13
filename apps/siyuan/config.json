@@ -6,19 +6,14 @@
   "short_desc": "SiYuan is a privacy-first personal knowledge management system.",
   "author": "siyuan-note",
   "port": 6806,
-  "categories": [
-    "utilities"
-  ],
+  "categories": ["utilities"],
   "description": "SiYuan is a privacy-first personal knowledge management system, support fine-grained block-level reference and Markdown WYSIWYG.",
   "tipi_version": 5,
   "version": "3.1.3",
   "website": "https://b3log.org/siyuan/en/",
   "source": "https://github.com/siyuan-note/siyuan",
   "exposable": true,
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ],
+  "supported_architectures": ["arm64", "amd64"],
   "form_fields": [
     {
       "type": "password",

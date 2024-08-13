@@ -9,16 +9,11 @@
   "description": "Electrum server",
   "tipi_version": 1,
   "version": "0.10.2",
-  "categories": [
-    "finance"
-  ],
+  "categories": ["finance"],
   "short_desc": "Electrum server",
   "author": "romanz",
   "source": "https://github.com/romanz/electrs",
-  "supported_architectures": [
-    "amd64",
-    "arm64"
-  ],
+  "supported_architectures": ["amd64", "arm64"],
   "form_fields": [
     {
       "type": "text",

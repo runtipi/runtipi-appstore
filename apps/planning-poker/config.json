@@ -7,18 +7,13 @@
   "id": "planning-poker",
   "tipi_version": 2,
   "version": "1.2.1",
-  "categories": [
-    "development"
-  ],
+  "categories": ["development"],
   "description": "",
   "short_desc": "Online planning poker for scrum master.",
   "author": "axeleroy",
   "source": "https://github.com/axeleroy/self-host-planning-poker",
   "form_fields": [],
-  "supported_architectures": [
-    "amd64",
-    "arm64"
-  ],
+  "supported_architectures": ["amd64", "arm64"],
   "created_at": 1691943801422,
   "updated_at": 1723566285000
 }

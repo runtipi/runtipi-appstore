@@ -8,9 +8,7 @@
   "port": 8134,
   "tipi_version": 2,
   "version": "latest",
-  "categories": [
-    "network"
-  ],
+  "categories": ["network"],
   "description": "The purpose of this container is to update DNS zone records using Gandi's LiveDNS (http://doc.livedns.gandi.net/) with your WAN IP. This image is extremely lightweight (Alpine Linux based) and has very few dependencies. The actual DNS update program is coded in shell script only.",
   "short_desc": "Update your Gandi DNS zone records with your WAN IP",
   "author": "jbbodart",
@@ -83,9 +81,7 @@
       "env_variable": "GANDI_LIVEDNS_FORCE_IPV6"
     }
   ],
-  "supported_architectures": [
-    "amd64"
-  ],
+  "supported_architectures": ["amd64"],
   "created_at": 1691943801422,
   "updated_at": 1723566283000
 }

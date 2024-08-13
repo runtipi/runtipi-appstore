@@ -7,17 +7,13 @@
   "id": "moodist",
   "tipi_version": 5,
   "version": "1.5.1",
-  "categories": [
-    "media"
-  ],
+  "categories": ["media"],
   "description": "Ambient sounds for focus and calm.",
   "short_desc": "Ambient sounds for focus and calm.",
   "author": "remvze",
   "source": "https://github.com/remvze/moodist",
   "form_fields": [],
-  "supported_architectures": [
-    "amd64"
-  ],
+  "supported_architectures": ["amd64"],
   "created_at": 1691943801422,
   "updated_at": 1723566283000
 }

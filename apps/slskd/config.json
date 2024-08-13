@@ -7,16 +7,11 @@
   "description": "A modern client-server application for the Soulseek file-sharing network.",
   "tipi_version": 5,
   "version": "0.21.3",
-  "categories": [
-    "utilities"
-  ],
+  "categories": ["utilities"],
   "short_desc": "P2P downloads",
   "author": "jpdillingham",
   "source": "https://github.com/slskd/slskd",
-  "supported_architectures": [
-    "amd64",
-    "arm64"
-  ],
+  "supported_architectures": ["amd64", "arm64"],
   "form_fields": [
     {
       "type": "text",

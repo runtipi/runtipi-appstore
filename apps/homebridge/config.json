@@ -6,18 +6,13 @@
   "tipi_version": 2,
   "version": "2024-05-02",
   "id": "homebridge",
-  "categories": [
-    "automation"
-  ],
+  "categories": ["automation"],
   "description": "HomeKit support for the impatient.",
   "short_desc": "HomeKit support for the impatient.  ",
   "author": "ArneNaessens",
   "source": "https://github.com/homebridge/homebridge",
   "form_fields": [],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ],
+  "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
   "updated_at": 1723566283000
 }
