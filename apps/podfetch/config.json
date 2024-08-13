@@ -7,9 +7,7 @@
   "id": "podfetch",
   "tipi_version": 3,
   "version": "latest",
-  "categories": [
-    "media"
-  ],
+  "categories": ["media"],
   "description": "A sleek and efficient podcast downloader.",
   "short_desc": "A sleek and efficient podcast downloader.",
   "author": "SamTV12345",
@@ -48,5 +46,7 @@
       "env_variable": "PODFETCH_PODINDEX_API_SECRET"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566284000
 }

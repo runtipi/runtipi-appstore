@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "stirling-pdf",
-  "tipi_version": 41,
-  "version": "0.26.1",
+  "tipi_version": 42,
+  "version": "0.27.0",
   "categories": ["data", "utilities"],
   "description": "Locally hosted web application that allows you to perform various operations on PDF files.",
   "short_desc": "Powerful locally hosted web based PDF manipulation tool.",
@@ -19,5 +19,7 @@
       "env_variable": "STIRLING_PDF_DOCKER_ENABLE_SECURITY"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566284000
 }
