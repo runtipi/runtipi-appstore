@@ -78,11 +78,19 @@
       "hint": "Choose whether you want Open Signups or have the Platform Invite Only",
       "required": true,
       "options": [
-        { "label": "Open Signups", "value": "0" },
-        { "label": "Invite Only", "value": "1" }
+        {
+          "label": "Open Signups",
+          "value": "0"
+        },
+        {
+          "label": "Invite Only",
+          "value": "1"
+        }
       ],
       "env_variable": "REVOLT_INVITE_ONLY"
     }
   ],
-  "supported_architectures": ["amd64"]
+  "supported_architectures": ["amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566284000
 }
