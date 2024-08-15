@@ -52,7 +52,7 @@ for docker_compose_file in $docker_compose_files; do
       created_at=$(jq -r '.created_at // 0' "$config_file")
       updated_at=$(date +%s | awk '{print int($1*1000)}')
 
-      contents="$(jq --argjson tipi_version $tipi_version --argjson created_at "$created_at" --argjson updated_at "$updated_at" '.tipi_version=$tipi_version' | ".created_at=$created_at" | ".updated_at=$updated_at" "$config_file")"
+      contents="$(jq --argjson tipi_version "$tipi_version" --argjson created_at "$created_at" --argjson updated_at "$updated_at" '.tipi_version = $tipi_version | .created_at = $created_at | .updated_at = $updated_at' "$config_file")"
       echo "${contents}" >"$config_file"
       npx prettier "$config_file" --write
     fi
