@@ -1,11 +1,11 @@
 {
   "$schema": "../schema.json",
   "name": "ESP Home",
-  "port": 60529,
+  "port": 6052,
   "available": true,
   "exposable": true,
   "id": "esphome",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "2024.7.3",
   "categories": ["automation"],
   "description": "ESPHome is a system to control your ESP8266/ESP32 by simple yet powerful configuration files and control them remotely through Home Automation systems.",
@@ -35,7 +35,7 @@
     },
     {
       "type": "boolean",
-      "label": "Speedtest Servers (comma-separated IDs)",
+      "label": "Use ping for devices availability ? (default to mDNS)",
       "env_variable": "ESPHOME_PING",
       "hint": "mDNS doesn't work across VLANs, use static IP for devices when disabling mDNS"
     }
