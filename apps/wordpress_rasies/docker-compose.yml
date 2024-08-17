@@ -2,10 +2,10 @@ version: "3.9"
 services:
       
   wordpress:
-    container_name: wordpress
+    container_name: wordpress_rasies
     image: wordpress:6.6.1
     environment:
-      - WORDPRESS_DB_HOST=wordpress-db
+      - WORDPRESS_DB_HOST=wordpress_rasies-db
       - WORDPRESS_DB_NAME=wordpress
       - WORDPRESS_DB_USER=tipi
       - WORDPRESS_DB_PASSWORD=${DB_PASSWORD}
@@ -45,7 +45,7 @@ services:
         traefik.http.routers.wordpress-local.tls: true
         runtipi.managed: true
   wordpress-db:
-    container_name: wordpress-db
+    container_name: wordpress_rasies-db
     image: mariadb:11.1.3
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}

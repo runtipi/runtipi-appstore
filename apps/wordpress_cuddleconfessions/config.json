@@ -1,9 +1,9 @@
 {
-  "name": "Wordpress Cuddleconfessions"
+  "name": "WordPress",
   "available": true,
-  "port": 8216,
+  "port": 8213,
   "exposable": true,
-  "id": "wordpress_cuddleconfessions",
+  "id": "wordpress",
   "description": "WordPress is a popular content management system for creating websites and blogs.",
   "tipi_version": 10,
   "version": "6.6.1",
