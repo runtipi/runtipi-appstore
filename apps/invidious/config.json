@@ -30,9 +30,11 @@
     {
       "type": "number",
       "label": "External port",
-      "hint": "External port for access from proxy",
+      "hint": "External port for access from proxy (default 8095)",
       "required": false,
-      "default": 8095,
+      "min": 1,
+      "max": 65535,
+      "placeholder": "8095",
       "env_variable": "INVIDIOUS_EXTERNAL_PORT"
     },
     {
