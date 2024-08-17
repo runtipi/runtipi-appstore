@@ -19,7 +19,7 @@ services:
         check_tables: true
         hmac_key: ${INVIDIOUS_HMAC_KEY}
         use_innertube_for_captions: true
-        domain: ${APP_DOMAIN}
+        domain: ${INVIDIOUS_DOMAIN}
         external_port: ${INVIDIOUS_EXTERNAL_PORT}
         https_only: ${INVIDIOUS_HTTPS_ONLY}
     healthcheck:
