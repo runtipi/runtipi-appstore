@@ -1,9 +1,9 @@
 {
-  "name": "WordPress DesireArts",
+  "name": "WordPress",
   "available": true,
-  "port": 8217,
+  "port": 8213,
   "exposable": true,
-  "id": "wordpress_desirearts",
+  "id": "wordpress",
   "description": "WordPress is a popular content management system for creating websites and blogs.",
   "tipi_version": 10,
   "version": "6.6.1",
