@@ -21,7 +21,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.esphome-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.esphome.loadbalancer.server.port: 60529
+      traefik.http.services.esphome.loadbalancer.server.port: 6052
       # Web
       traefik.http.routers.esphome-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.esphome-insecure.entrypoints: web
