@@ -24,23 +24,23 @@
       "type": "text",
       "label": "Domain",
       "hint": "Your local domain name for your instance",
-      "placeholder": "",
       "required": false,
       "env_variable": "INVIDIOUS_DOMAIN"
     },
     {
-      "type": "text",
+      "type": "number",
       "label": "External port",
       "hint": "External port for access from proxy",
-      "placeholder": "80,443",
       "required": false,
+      "default": 8095,
       "env_variable": "INVIDIOUS_EXTERNAL_PORT"
     },
     {
       "type": "boolean",
       "label": "https only",
-      "hint": "Force for access from https only",
+      "hint": "Force access from HTTPS only",
       "required": false,
+      "default": false,
       "env_variable": "INVIDIOUS_HTTPS_ONLY"
     }
   ],
