@@ -1,7 +1,7 @@
 {
   "name": "WordPress Rasies",
   "available": true,
-  "port": 8213,
+  "port": 8215,
   "exposable": true,
   "id": "wordpress_rasies",
   "description": "WordPress is a popular content management system for creating websites and blogs.",
