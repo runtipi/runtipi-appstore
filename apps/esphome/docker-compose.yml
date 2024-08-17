@@ -9,7 +9,7 @@ services:
       - ESPHOME_DASHBOARD_USE_PING=${ESPHOME_PING:-'false'}
     restart: unless-stopped
     ports:
-      - ${APP_PORT}:60529
+      - ${APP_PORT}:6052
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${APP_DATA_DIR}/data/config:/config
