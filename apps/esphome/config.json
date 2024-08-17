@@ -1,0 +1,46 @@
+{
+  "$schema": "../schema.json",
+  "name": "ESP Home",
+  "port": 60529,
+  "available": true,
+  "exposable": true,
+  "id": "esphome",
+  "tipi_version": 1,
+  "version": "2024.7.3",
+  "categories": ["automation"],
+  "description": "ESPHome is a system to control your ESP8266/ESP32 by simple yet powerful configuration files and control them remotely through Home Automation systems.",
+  "short_desc": "Control your ESP8266/ESP32.",
+  "author": "ESP Home",
+  "source": "https://github.com/esphome/esphome",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Username",
+      "env_variable": "ESPHOME_USERNAME",
+      "default": "",
+      "min": 14,
+      "max": 25,
+      "required": false,
+      "hint": "Username of your ESP Home account"
+    },
+    {
+      "type": "Password",
+      "label": "Password",
+      "env_variable": "ESPHOME_PASSWORD",
+      "default": "",
+      "min": 14,
+      "max": 25,
+      "required": false,
+      "hint": "Password of your ESP Home account"
+    },
+    {
+      "type": "boolean",
+      "label": "Speedtest Servers (comma-separated IDs)",
+      "env_variable": "ESPHOME_PING",
+      "hint": "mDNS doesn't work across VLANs, use static IP for devices when disabling mDNS"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1723905687000,
+  "updated_at": 1723905687000
+}
