@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "speedtest-tracker",
-  "tipi_version": 40,
+  "tipi_version": 41,
   "version": "0.21.2",
-  "categories": ["utilities"],
+  "categories": [
+    "utilities"
+  ],
   "description": "Speedtest Tracker is a self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.",
   "short_desc": "Internet performance tracking application.",
   "author": "alexjustesen",
@@ -36,7 +38,6 @@
       "default": "30 * * * *",
       "min": 9,
       "max": 100,
-      "required": true,
       "hint": "https://crontab.guru is a good resource"
     },
     {
@@ -46,11 +47,13 @@
       "default": "",
       "min": 6,
       "max": 100,
-      "required": true,
       "hint": "Convenient-to-you speedtest servers may be found at https://speedtest.net/speedtest-servers-static.php"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
   "created_at": 1691943801422,
   "updated_at": 1723566285000
 }
