@@ -21,9 +21,9 @@
       "env_variable": "INVIDIOUS_HMAC_KEY"
     },
     {
-      "type": "text",
+      "type": "fqdnip",
       "label": "Domain",
-      "hint": "Your local domain name for your instance",
+      "hint": "The domain or IP you use to access the instance",
       "required": false,
       "env_variable": "INVIDIOUS_DOMAIN"
     },
