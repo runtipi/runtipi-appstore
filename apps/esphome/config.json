@@ -35,7 +35,7 @@
     },
     {
       "type": "boolean",
-      "label": "Speedtest Servers (comma-separated IDs)",
+      "label": "Use ping for devices availability ? (default to mDNS)",
       "env_variable": "ESPHOME_PING",
       "hint": "mDNS doesn't work across VLANs, use static IP for devices when disabling mDNS"
     }
