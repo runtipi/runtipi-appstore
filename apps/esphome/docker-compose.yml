@@ -1,0 +1,45 @@
+services:
+  esphome:
+    image: ghcr.io/esphome/esphome:2024.7.3
+    container_name: esphome
+    environment:
+      - TZ=${TZ}
+      - USERNAME=${ESPHOME_USERNAME:-''}
+      - PASSWORD=${ESPHOME_PASSWORD:-''}
+      - ESPHOME_DASHBOARD_USE_PING=${ESPHOME_PING:-'false'}
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:6052
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${APP_DATA_DIR}/data/config:/config
+    networks:
+      - tipi_main_network
+    # privileged: true
+    # network_mode: host
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.esphome-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.esphome.loadbalancer.server.port: 6052
+      # Web
+      traefik.http.routers.esphome-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.esphome-insecure.entrypoints: web
+      traefik.http.routers.esphome-insecure.service: esphome
+      traefik.http.routers.esphome-insecure.middlewares: esphome-web-redirect
+      # Websecure
+      traefik.http.routers.esphome.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.esphome.entrypoints: websecure
+      traefik.http.routers.esphome.service: esphome
+      traefik.http.routers.esphome.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.esphome-local-insecure.rule: Host(`esphome.${LOCAL_DOMAIN}`)
+      traefik.http.routers.esphome-local-insecure.entrypoints: web
+      traefik.http.routers.esphome-local-insecure.service: esphome
+      traefik.http.routers.esphome-local-insecure.middlewares: esphome-web-redirect
+      # Local domain secure
+      traefik.http.routers.esphome-local.rule: Host(`esphome.${LOCAL_DOMAIN}`)
+      traefik.http.routers.esphome-local.entrypoints: websecure
+      traefik.http.routers.esphome-local.service: esphome
+      traefik.http.routers.esphome-local.tls: true
+      runtipi.managed: true

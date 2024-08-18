@@ -5,19 +5,15 @@
   "available": true,
   "exposable": true,
   "id": "rss",
-  "tipi_version": 9,
-  "version": "1.5.0",
-  "categories": [
-    "utilities",
-    "media"
-  ],
+  "tipi_version": 11,
+  "version": "1.5.2",
+  "categories": ["utilities", "media"],
   "description": "A simple twitter-feed-style RSS aggregator written in PHP, Laravel, Inertia.js, Tailwind and Vue.js",
   "short_desc": "A simple, opinionated, RSS feed aggregator.",
   "author": "https://github.com/ssddanbrown",
   "source": "https://github.com/ssddanbrown/rss",
   "form_fields": [],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566283000
 }

@@ -214,7 +214,7 @@ services:
     labels:
       runtipi.managed: true
   revolt-autumn:
-    image: ghcr.io/revoltchat/autumn:1.1.10
+    image: ghcr.io/revoltchat/autumn:1.1.11
     container_name: revolt-autumn
     depends_on:
       - revolt-database

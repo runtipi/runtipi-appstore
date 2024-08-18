@@ -8,10 +8,7 @@
   "tipi_version": 3,
   "url_suffix": "/openbooks/",
   "version": "4.5.0",
-  "categories": [
-    "media",
-    "books"
-  ],
+  "categories": ["media", "books"],
   "description": "Openbooks allows you to download ebooks from irc.irchighway.net quickly and easily.  ",
   "short_desc": "Search and Download eBooks",
   "author": "https://github.com/evan-buss",
@@ -28,5 +25,7 @@
       "env_variable": "OPENBOOKS_IRC_USERNAME"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566284000
 }

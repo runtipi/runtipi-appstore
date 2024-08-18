@@ -5,9 +5,11 @@
   "available": true,
   "exposable": true,
   "id": "speedtest-tracker",
-  "tipi_version": 34,
-  "version": "0.20.7",
-  "categories": ["utilities"],
+  "tipi_version": 41,
+  "version": "0.21.2",
+  "categories": [
+    "utilities"
+  ],
   "description": "Speedtest Tracker is a self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.",
   "short_desc": "Internet performance tracking application.",
   "author": "alexjustesen",
@@ -18,7 +20,40 @@
       "label": "SPEEDTEST_TRACKER_DB_PASSWORD",
       "min": 32,
       "env_variable": "SPEEDTEST_TRACKER_DB_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Application Key",
+      "env_variable": "SPEEDTEST_APP_KEY",
+      "min": 51,
+      "max": 51,
+      "default": "",
+      "required": true,
+      "hint": "Generate an app key at https://speedtest-tracker.dev/"
+    },
+    {
+      "type": "text",
+      "label": "Speedtest Schedule (cron format)",
+      "env_variable": "SPEEDTEST_SCHEDULE",
+      "default": "30 * * * *",
+      "min": 9,
+      "max": 100,
+      "hint": "https://crontab.guru is a good resource"
+    },
+    {
+      "type": "text",
+      "label": "Speedtest Servers (comma-separated IDs)",
+      "env_variable": "SPEEDTEST_SERVERS",
+      "default": "",
+      "min": 6,
+      "max": 100,
+      "hint": "Convenient-to-you speedtest servers may be found at https://speedtest.net/speedtest-servers-static.php"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "created_at": 1691943801422,
+  "updated_at": 1723566285000
 }

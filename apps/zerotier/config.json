@@ -7,10 +7,7 @@
   "id": "zerotier",
   "tipi_version": 6,
   "version": "1.14.0",
-  "categories": [
-    "network",
-    "security"
-  ],
+  "categories": ["network", "security"],
   "description": "ZeroTier combines the capabilities of VPN and SD-WAN, simplifying network management.",
   "short_desc": "Easy to use zero configuration VPN.",
   "author": "© ZeroTier Inc.",
@@ -27,8 +24,7 @@
       "env_variable": "NETWORK_ID"
     }
   ],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566285000
 }

@@ -7,16 +7,13 @@
   "id": "dockge",
   "tipi_version": 10,
   "version": "1.4.2",
-  "categories": [
-    "utilities"
-  ],
+  "categories": ["utilities"],
   "description": "A fancy, easy-to-use and reactive self-hosted docker compose.yaml stack-oriented manager.",
   "short_desc": "Docker compose.yaml stack-oriented manager.",
   "author": "Louis Lam",
   "source": "https://github.com/louislam/dockge",
   "form_fields": [],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566283000
 }
