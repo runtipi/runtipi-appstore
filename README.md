@@ -10,7 +10,7 @@ If you want to see new apps on Tipi you can either:
 - [Join the Discord](https://discord.gg/Bu9qEPnHsc) members of the community will add it.
 - Fork this repo and create the necessary files for a Tipi app. Follow this [guide](https://www.runtipi.io/docs/contributing/adding-a-new-app)`
 
-## Apps available (250)
+## Apps available (251)
 
 | Name                                                                         | Description                                                                                                                                                         | Port  |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
@@ -56,6 +56,7 @@ If you want to see new apps on Tipi you can either:
 | [Deemix](https://gitlab.com/Bockiii/deemix-docker)                           | deemix is a barebone deezer downloader library built from the ashes of Deezloader Remix.                                                                            | 6595  |
 | [Deluge](https://github.com/linuxserver/docker-deluge)                       | Deluge is a lightweight, Free Software, cross-platform BitTorrent client.                                                                                           | 8144  |
 | [Dockge](https://github.com/louislam/dockge)                                 | Docker compose.yaml stack-oriented manager.                                                                                                                         | 8768  |
+| [Docmost](https://github.com/docmost/docmost)                                | An open-source collaborative wiki and documentation software                                                                                                        | 9713  |
 | [DokuWiki](https://github.com/dokuwiki/dokuwiki)                             | DokuWiki is a simple to use and highly versatile Open Source wiki software                                                                                          | 8149  |
 | [Dozzle](https://github.com/amir20/dozzle)                                   | Dozzle is a small web based app to monitor Docker logs                                                                                                              | 8013  |
 | [Draw.io](https://github.com/jgraph/drawio)                                  | Diagramming and whiteboarding app.                                                                                                                                  | 8734  |
@@ -96,7 +97,7 @@ If you want to see new apps on Tipi you can either:
 | [Guacamole](https://github.com/apache/guacamole-server)                      | Clientless remote desktop gateway                                                                                                                                   | 8854  |
 | [Halo](https://github.com/halo-dev/halo)                                     | Halo - Open source website building tool.                                                                                                                           | 8092  |
 | [Hammond](https://github.com/alfhou/hammond)                                 | Self hosted vehicle and expense management system. Like Clarkson, but better                                                                                        | 8185  |
-| [Haven](https://github.com/havenweb/haven)                                   | Self-hostable private blogging                                                                                                                                      | 8130  |
+| [Haven](https://github.com/havenweb/haven)                                   | Self-hostable private blogging.                                                                                                                                     | 8130  |
 | [HedgeDoc](https://github.com/hedgedoc/hedgedoc)                             | A Collaborative Markdown and Note Taking App                                                                                                                        | 8142  |
 | [Heimdall](https://github.com/linuxserver/Heimdall)                          | Application Dashboard                                                                                                                                               | 8783  |
 | [Hello World](https://github.com/crccheck/docker-hello-world)                | Hello World web server in under 2 MB                                                                                                                                | 8000  |
