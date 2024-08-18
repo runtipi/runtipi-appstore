@@ -1,6 +1,6 @@
 # 💻🔍 Network scanner & notification framework
 
-Get visibility of what's going on on your WIFI/LAN network. Schedule scans for devices, port changes and get alerts if unknown devices or changes are found. Write your own [Plugins](https://github.com/jokob-sk/NetAlertX/tree/main/front/plugins#readme) with auto-generated UI and in-build notification system. Build out and easily maintain your network source of truth (NSoT).
+Get visibility of what's going on in your WIFI/LAN network. Schedule scans for devices, port changes and get alerts if unknown devices or changes are found. Write your own [Plugins](https://github.com/jokob-sk/NetAlertX/tree/main/front/plugins#readme) with auto-generated UI and in-build notification system. Build out and easily maintain your network source of truth (NSoT).
 
 [![GitHub Committed](https://img.shields.io/github/last-commit/jokob-sk/NetAlertX?color=40ba12&label=Committed&logo=GitHub&logoColor=fff)](https://github.com/jokob-sk/NetAlertX)
 [![Docker Size](https://img.shields.io/docker/image-size/jokobsk/netalertx?label=Size&logo=Docker&color=0aa8d2&logoColor=fff)](https://hub.docker.com/r/jokobsk/netalertx)
