@@ -24,6 +24,7 @@ services:
       PAPERLESS_TIKA_ENDPOINT: http://tika:9998
       PAPERLESS_URL: ${APP_PROTOCOL:-http}://${APP_DOMAIN}
       COMPOSE_PROJECT_NAME: paperless-ngx
+      PAPERLESS_CSRF_TRUSTED_ORIGINS: "https://paperless-ngx.${LOCAL_DOMAIN}"
     networks:
         - tipi_main_network
     labels:
