@@ -19,8 +19,8 @@ services:
         check_tables: true
         hmac_key: ${INVIDIOUS_HMAC_KEY}
         use_innertube_for_captions: true
-        domain: ${APP_DOMAIN}
-        external_port: ${INVIDIOUS_EXTERNAL_PORT}
+        domain: ${INVIDIOUS_DOMAIN}
+        external_port: ${INVIDIOUS_EXTERNAL_PORT:-${APP_PORT}}
         https_only: ${INVIDIOUS_HTTPS_ONLY}
     healthcheck:
       test: wget -nv --tries=1 --spider http://127.0.0.1:3000/api/v1/trending || exit 1
