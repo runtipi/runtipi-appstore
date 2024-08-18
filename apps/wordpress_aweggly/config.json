@@ -1,9 +1,9 @@
 {
-  "name": "WordPress",
+  "name": "WordPress Aweggly",
   "available": true,
-  "port": 8213,
+  "port": 8220,
   "exposable": true,
-  "id": "wordpress",
+  "id": "wordpress_aweggly",
   "description": "WordPress is a popular content management system for creating websites and blogs.",
   "tipi_version": 10,
   "version": "6.6.1",
