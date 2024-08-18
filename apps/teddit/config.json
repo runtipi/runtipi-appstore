@@ -8,13 +8,13 @@
   "id": "teddit",
   "tipi_version": 2,
   "version": "latest",
-  "categories": [
-    "social"
-  ],
+  "categories": ["social"],
   "description": "A free and open source alternative Reddit front-end focused on privacy. Inspired by the Nitter project.",
   "short_desc": "Alternative Reddit front-end focused on privacy https://teddit.net",
   "author": "teddit",
   "source": "https://codeberg.org/teddit/teddit",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566285000
 }

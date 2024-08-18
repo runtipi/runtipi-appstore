@@ -47,7 +47,7 @@ services:
       runtipi.managed: true
   shlink-db:
     container_name: shlink-db
-    image: docker.io/library/postgres:16.3-alpine
+    image: docker.io/library/postgres:16.4-alpine
     restart: unless-stopped
     networks:
       - tipi_main_network

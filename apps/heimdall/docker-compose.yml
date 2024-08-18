@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   heimdall:
     image: lscr.io/linuxserver/heimdall:2.6.1
@@ -19,7 +17,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.heimdall-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.heimdall.loadbalancer.server.port: 3000
+      traefik.http.services.heimdall.loadbalancer.server.port: 80
       # Web
       traefik.http.routers.heimdall-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.heimdall-insecure.entrypoints: web

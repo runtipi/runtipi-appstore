@@ -8,11 +8,13 @@
   "port": 8654,
   "categories": ["data", "utilities"],
   "description": "A self-hosted file sharing platform that combines lightness and beauty, perfect for seamless and efficient file sharing",
-  "tipi_version": 4,
-  "version": "0.28.0",
+  "tipi_version": 5,
+  "version": "0.29.0",
   "source": "https://github.com/stonith404/pingvin-share",
   "website": "https://pingvin-share.dev.eliasschneider.com",
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],
-  "form_fields": []
+  "form_fields": [],
+  "created_at": 1691943801422,
+  "updated_at": 1723566284000
 }

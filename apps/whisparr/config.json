@@ -7,10 +7,7 @@
   "id": "whisparr",
   "tipi_version": 3,
   "version": "nightly-2.0.0.548",
-  "categories": [
-    "media",
-    "utilities"
-  ],
+  "categories": ["media", "utilities"],
   "description": "Whisparr is an adult movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of existing files in the library when a better quality format becomes available. Note that only one type of a given movie is supported. If you want both an 4k version and 1080p version of a given movie you will need multiple instances.",
   "short_desc": "Adult movie collection manager.",
   "author": "radarr.video",
@@ -38,5 +35,7 @@
       "env_variable": "WHISPARR_UMASK"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566285000
 }

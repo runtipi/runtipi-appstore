@@ -6,13 +6,15 @@
   "no_gui": true,
   "port": 9997,
   "id": "matter-server",
-  "tipi_version": 8,
-  "version": "6.3.0",
+  "tipi_version": 9,
+  "version": "6.4.0",
   "categories": ["utilities", "automation"],
   "author": "OpenHomeFoundation",
   "description": "This project implements a Matter Controller Server over WebSockets using the official Matter (formerly CHIP) SDK as a base and provides both a server and client implementation.",
   "short_desc": "Interact with Matter. Works with HA !",
   "source": "https://github.com/home-assistant-libs/python-matter-server",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566284000
 }

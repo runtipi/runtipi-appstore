@@ -1,8 +1,6 @@
-version: '3.7'
-
 services:
   speedtest-tracker:
-    image: lscr.io/linuxserver/speedtest-tracker:0.20.7
+    image: lscr.io/linuxserver/speedtest-tracker:0.21.2
     container_name: speedtest-tracker
     environment:
       - PUID=1000
@@ -13,7 +11,12 @@ services:
       - DB_DATABASE=speedtest-tracker
       - DB_USERNAME=tipi
       - DB_PASSWORD=${SPEEDTEST_TRACKER_DB_PASSWORD}
+      - SPEEDTEST_SCHEDULE=${SPEEDTEST_SCHEDULE:-'30 * * * *'} # every half-hour
+      - SPEEDTEST_SERVERS=${SPEEDTEST_SERVERS:-''}
       - TZ=${TZ}
+      - APP_TIMEZONE=${TZ}
+      - DISPLAY_TIMEZONE=${TZ}
+      - APP_KEY=${SPEEDTEST_APP_KEY}
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/speedtest-tracker/config:/config
