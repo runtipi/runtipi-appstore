@@ -14,5 +14,7 @@
   "website": "https://pingvin-share.dev.eliasschneider.com",
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],
-  "form_fields": []
+  "form_fields": [],
+  "created_at": 1691943801422,
+  "updated_at": 1723566284000
 }
