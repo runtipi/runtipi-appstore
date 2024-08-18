@@ -1,7 +1,7 @@
 # Eclipse Mosquitto MQTT Broker with UI
 
-this app consists of two images providing an mqtt broker and an UI for managing access to the broker.
-The configuration is adapted from the github repo: [shantanoo-desai/mqtt-rbac-docker-init](https://github.com/shantanoo-desai/mqtt-rbac-docker-init)
+This app consists of two images providing an MQTT broker and a UI for managing access to the broker.
+The configuration is adapted from the GitHub repo: [shantanoo-desai/mqtt-rbac-docker-init](https://github.com/shantanoo-desai/mqtt-rbac-docker-init)
 
 
 ## Eclipse Mosquitto
@@ -27,7 +27,7 @@ For more detailed information the [mosquitto documentation](https://mosquitto.or
 
 [Cedalo Management Center](https://github.com/cedalo/management-center) allows to easily manage, monitor and inspect instances of Eclipse Mosquitto. There are some pro features that can only be activated by getting a license from cedalo.
 
-![caledo_mgm_center.png](caledo_mgm_center.png)
+![cedalo_mgm_center.png](https://github.com/runtipi/runtipi-appstore/blob/master/apps/eclipse-mosquitto/metadata/cedalo_mgm_center.png)
 
 By default the following features are provided:
 

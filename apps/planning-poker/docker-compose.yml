@@ -41,3 +41,4 @@ services:
       traefik.http.routers.planning-poker-local.entrypoints: websecure
       traefik.http.routers.planning-poker-local.service: planning-poker
       traefik.http.routers.planning-poker-local.tls: true
+      runtipi.managed: true

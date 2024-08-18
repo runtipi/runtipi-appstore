@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   portainer:
-    image: portainer/portainer-ce:2.20.2-alpine
+    image: portainer/portainer-ce:2.20.3-alpine
     container_name: portainer
     restart: unless-stopped
     ports:
@@ -37,3 +37,4 @@ services:
       traefik.http.routers.portainer-local.entrypoints: websecure
       traefik.http.routers.portainer-local.service: portainer
       traefik.http.routers.portainer-local.tls: true
+      runtipi.managed: true

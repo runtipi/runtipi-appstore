@@ -36,3 +36,4 @@ services:
       traefik.http.routers.anse-local.entrypoints: websecure
       traefik.http.routers.anse-local.service: anse
       traefik.http.routers.anse-local.tls: true
+      runtipi.managed: true

@@ -1,7 +1,7 @@
 services:
   dashy:
     container_name: dashy
-    image: ghcr.io/lissy93/dashy:3.0.1
+    image: ghcr.io/lissy93/dashy:3.1.0
     ports:
       - ${APP_PORT}:8080
     volumes:
@@ -34,3 +34,4 @@ services:
       traefik.http.routers.dashy-local.entrypoints: websecure
       traefik.http.routers.dashy-local.service: dashy
       traefik.http.routers.dashy-local.tls: true
+      runtipi.managed: true

@@ -43,3 +43,4 @@ services:
       traefik.http.routers.deluge-local.entrypoints: websecure
       traefik.http.routers.deluge-local.service: deluge
       traefik.http.routers.deluge-local.tls: true
+      runtipi.managed: true

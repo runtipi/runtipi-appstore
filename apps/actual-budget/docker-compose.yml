@@ -2,7 +2,7 @@ version: "3.9"
 services:
   actual-budget:
     container_name: actual-budget
-    image: actualbudget/actual-server:24.5.0
+    image: actualbudget/actual-server:24.8.0
     restart: unless-stopped
     ports:
       - ${APP_PORT}:5006
@@ -35,3 +35,4 @@ services:
       traefik.http.routers.actual-budget-local.entrypoints: websecure
       traefik.http.routers.actual-budget-local.service: actual-budget
       traefik.http.routers.actual-budget-local.tls: true
+      runtipi.managed: true

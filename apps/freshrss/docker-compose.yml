@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   freshrss:
-    image: lscr.io/linuxserver/freshrss:1.23.1
+    image: lscr.io/linuxserver/freshrss:1.24.1
     container_name: freshrss
     environment:
       - PUID=1000
@@ -40,3 +40,4 @@ services:
       traefik.http.routers.freshrss-local.entrypoints: websecure
       traefik.http.routers.freshrss-local.service: freshrss
       traefik.http.routers.freshrss-local.tls: true
+      runtipi.managed: true

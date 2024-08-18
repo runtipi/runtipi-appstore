@@ -4,7 +4,7 @@ services:
   tubearchivist:
     container_name: tubearchivist
     restart: unless-stopped
-    image: bbilly1/tubearchivist:v0.4.7
+    image: bbilly1/tubearchivist:v0.4.10
     ports:
       - ${APP_PORT}:8000
     dns:
@@ -15,6 +15,8 @@ services:
     environment:
       - ES_URL=http://tubearchivist-es:9200
       - REDIS_HOST=tubearchivist-redis
+      - HOST_UID=1000
+      - HOST_GID=1000
       - TA_USERNAME=${TA_USER}
       - TA_PASSWORD=${TA_PASSWORD}
       - TA_HOST=${APP_DOMAIN}
@@ -49,7 +51,7 @@ services:
       traefik.http.routers.tubearchivist-local.entrypoints: websecure
       traefik.http.routers.tubearchivist-local.service: tubearchivist
       traefik.http.routers.tubearchivist-local.tls: true
-
+      runtipi.managed: true
   tubearchivist-redis:
     image: redislabs/rejson:latest
     container_name: tubearchivist-redis
@@ -60,9 +62,10 @@ services:
       - ${APP_DATA_DIR}/data/redis-data:/data
     depends_on:
       - tubearchivist-es
-
+    labels:
+      runtipi.managed: true
   tubearchivist-es:
-    image: elasticsearch:8.13.4
+    image: elasticsearch:8.15.0
     container_name: tubearchivist-es
     restart: always
     environment:
@@ -81,3 +84,5 @@ services:
       - ${APP_DATA_DIR}/data/es:/usr/share/elasticsearch/data
     expose:
       - "9200"
+    labels:
+      runtipi.managed: true

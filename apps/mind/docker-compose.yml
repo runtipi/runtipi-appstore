@@ -37,3 +37,4 @@ services:
       traefik.http.routers.mind-local.entrypoints: websecure
       traefik.http.routers.mind-local.service: mind
       traefik.http.routers.mind-local.tls: true
+      runtipi.managed: true

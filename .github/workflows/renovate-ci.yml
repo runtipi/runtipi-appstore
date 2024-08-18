@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.5
+        uses: actions/checkout@v4.1.7
 
       - name: Get last commit message
         id: get-last-commit-message
@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.5
+        uses: actions/checkout@v4.1.7
         with:
           fetch-depth: 0
           token: ${{ secrets.PERSONAL_TOKEN }}
@@ -37,7 +37,7 @@ jobs:
             if [[ $changed_file == *"docker-compose.yml"* ]]; then
               app_name=$(echo $changed_file | cut -d'/' -f 2)
               echo "App name: $app_name"
-              ./.github/workflows/renovate-app-version.sh $app_name
+              ./.github/scripts/renovate-app-version.sh $app_name
             fi
           done
 
@@ -46,7 +46,7 @@ jobs:
         with:
           author_name: Tipi CI
           author_email: ci@runtipi.io
-          message: "Update app version [ready]"
+          message: 'Update app version [ready]'
           commit: --no-verify
           push: origin HEAD:${{ github.head_ref }}
 
@@ -58,14 +58,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.5
+        uses: actions/checkout@v4.1.7
 
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - uses: pnpm/action-setup@v3.0.0
+      - uses: pnpm/action-setup@v4.0.0
         name: Install pnpm
         id: pnpm-install
         with:

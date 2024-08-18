@@ -39,3 +39,4 @@ services:
       traefik.http.routers.dockge-local.entrypoints: websecure
       traefik.http.routers.dockge-local.service: dockge
       traefik.http.routers.dockge-local.tls: true
+      runtipi.managed: true

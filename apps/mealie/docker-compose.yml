@@ -38,3 +38,4 @@ services:
       traefik.http.routers.mealie-local.entrypoints: websecure
       traefik.http.routers.mealie-local.service: mealie
       traefik.http.routers.mealie-local.tls: true
+      runtipi.managed: true

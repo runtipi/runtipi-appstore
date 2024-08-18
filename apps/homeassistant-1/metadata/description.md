@@ -4,6 +4,9 @@ Open source home automation that puts local control and privacy first. Powered b
 
 Check out [home-assistant.io](https://home-assistant.io) for a [demo](https://home-assistant.io/demo/), installation [instructions](https://home-assistant.io/getting-started/), [tutorials](https://home-assistant.io/getting-started/automation/) and [documentation](https://home-assistant.io/docs/)
 
+**HomeKit Support in Docker:** Use MDNS app ! (And follow https://community.home-assistant.io/t/using-homekit-component-inside-docker/45409/41)
+**Matter Support in Docker:** Use Matter Server app !
+
 ## Migration
 
 February 2024

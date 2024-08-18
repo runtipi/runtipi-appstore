@@ -57,7 +57,7 @@ services:
       traefik.http.routers.affine-local.entrypoints: websecure
       traefik.http.routers.affine-local.service: affine
       traefik.http.routers.affine-local.tls: true
-
+      runtipi.managed: true
   affine-redis:
     image: redis
     container_name: affine-redis
@@ -71,10 +71,11 @@ services:
       retries: 5
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   affine-postgres:
     image: postgres
-    container_name: affinepostgres
+    container_name: affine-postgres
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
@@ -89,3 +90,5 @@ services:
       POSTGRES_DB: affine
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

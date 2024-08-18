@@ -41,3 +41,4 @@ services:
       traefik.http.routers.unmanic-local.entrypoints: websecure
       traefik.http.routers.unmanic-local.service: unmanic
       traefik.http.routers.unmanic-local.tls: true
+      runtipi.managed: true

@@ -3,7 +3,7 @@ version: '3.7'
 services:
   ntfy:
     container_name: ntfy
-    image: binwiederhier/ntfy:v2.10.0
+    image: binwiederhier/ntfy:v2.11.0
     environment:
       - NTFY_BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
       - NTFY_UPSTREAM_BASE_URL=https://ntfy.sh
@@ -41,3 +41,4 @@ services:
       traefik.http.routers.ntfy-local.entrypoints: websecure
       traefik.http.routers.ntfy-local.service: ntfy
       traefik.http.routers.ntfy-local.tls: true
+      runtipi.managed: true

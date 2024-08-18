@@ -24,7 +24,8 @@ services:
       - GID=${GID-1000}
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   crowdsec-bouncer-traefik:
     container_name: crowdsec-bouncer-traefik
     image: fbonalair/traefik-crowdsec-bouncer:latest
@@ -39,7 +40,8 @@ services:
       - CROWDSEC_AGENT_HOST=crowdsec:8080
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   crowdsec-dashboard:
     container_name: crowdsec-dashboard
     #we're using a custom Dockerfile so that metabase pops with pre-configured dashboards
@@ -83,3 +85,4 @@ services:
       traefik.http.routers.crowdsec-local.entrypoints: websecure
       traefik.http.routers.crowdsec-local.service: crowdsec
       traefik.http.routers.crowdsec-local.tls: true
+      runtipi.managed: true

@@ -3,7 +3,7 @@ version: "3.7"
 services:
   nodered:
     container_name: nodered
-    image: nodered/node-red:3.1.9
+    image: nodered/node-red:4.0.2
     restart: unless-stopped
     ports:
       - ${APP_PORT}:1880
@@ -36,3 +36,4 @@ services:
       traefik.http.routers.nodered-local.entrypoints: websecure
       traefik.http.routers.nodered-local.service: nodered
       traefik.http.routers.nodered-local.tls: true
+      runtipi.managed: true

@@ -1,20 +1,24 @@
-version: "3.8"
-
 services:
   tailscale:
     container_name: tailscale
-    network_mode: "host" # TODO: Find a way to remove this
-    image: tailscale/tailscale:v1.64.2
-    privileged: true
-    restart: on-failure
-    stop_grace_period: 1m
-    command: "sh -c 'tailscale web --listen 0.0.0.0:${APP_PORT} & exec tailscaled --tun=userspace-networking'"
+    image: tailscale/tailscale:v1.70.0
+    environment:
+      - TS_SERVE_CONFIG=${TAILSCALE_SERVE_CONFIG}
+      - TS_ACCEPT_DNS=${TAILSCALE_ACCEPT_DNS-false}
+      - TS_AUTH_ONCE=${TAILSCALE_AUTH_ONCE-false}
+      - TS_AUTHKEY=${TAILSCALE_AUTHKEY}
+      - TS_HOSTNAME=${TAILSCALE_HOSTNAME-runtipi}
+      - TS_ROUTES=${TAILSCALE_ROUTES}
+      - TS_EXTRA_ARGS=${TAILSCALE_EXTRA_ARGS}
+      - TS_USERSPACE=${TAILSCALE_USERSPACE-true}
+      - TS_STATE_DIR=/var/lib/tailscale
+    cap_add:
+      - net_admin
+      - sys_module
+    restart: unless-stopped
     volumes:
-      - /var/lib:/var/lib
+      - ${APP_DATA_DIR}/data/state:/var/lib/tailscale
+      - ${APP_DATA_DIR}/data/config:/config
       - /dev/net/tun:/dev/net/tun
-    healthcheck:
-      test: wget --no-verbose --tries=1 --spider http://localhost:${APP_PORT}
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 30s
+    labels:
+      runtipi.managed: true

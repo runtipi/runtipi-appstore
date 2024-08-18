@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   ctfd:
-    image: ctfd/ctfd:3.7.0
+    image: ctfd/ctfd:3.7.3
     container_name: ctfd
     restart: unless-stopped
     ports:
@@ -48,7 +48,7 @@ services:
       traefik.http.routers.ctfd-local.entrypoints: websecure
       traefik.http.routers.ctfd-local.service: ctfd
       traefik.http.routers.ctfd-local.tls: true
-
+      runtipi.managed: true
   ctfd-db:
     image: mariadb:10.4.12
     restart: unless-stopped
@@ -65,6 +65,8 @@ services:
     # This command is required to set important mariadb defaults
     command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --wait_timeout=28800, --log-warnings=0]
 
+    labels:
+      runtipi.managed: true
   ctfd-redis:
     image: redis:4
     container_name: ctfd-redis
@@ -73,3 +75,5 @@ services:
       - ${APP_DATA_DIR}/data/redis:/data
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

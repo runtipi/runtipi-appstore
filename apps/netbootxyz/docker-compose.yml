@@ -1,7 +1,7 @@
-version: "3.7"
+version: "3.9"
 services:
   netbootxyz:
-    image: lscr.io/linuxserver/netbootxyz:2.0.53
+    image: netbootxyz/netbootxyz:0.7.1-nbxyz3
     container_name: netbootxyz
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
@@ -16,7 +16,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.netbootxyz-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.netbootxyz.loadbalancer.server.port: 19999
+      traefik.http.services.netbootxyz.loadbalancer.server.port: 3000
       # Web
       traefik.http.routers.netbootxyz-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.netbootxyz-insecure.entrypoints: web
@@ -37,3 +37,5 @@ services:
       traefik.http.routers.netbootxyz-local.entrypoints: websecure
       traefik.http.routers.netbootxyz-local.service: netbootxyz
       traefik.http.routers.netbootxyz-local.tls: true
+      # Runtipi managed
+      runtipi.managed: true

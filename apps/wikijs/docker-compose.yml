@@ -3,7 +3,7 @@ version: '3.7'
 services:
   wikijs:
     container_name: wikijs
-    image: ghcr.io/requarks/wiki:2.5.302
+    image: ghcr.io/requarks/wiki:2.5.303
     depends_on:
       - wikijs-db
     environment:
@@ -43,7 +43,7 @@ services:
       traefik.http.routers.wikijs-local.entrypoints: websecure
       traefik.http.routers.wikijs-local.service: wikijs
       traefik.http.routers.wikijs-local.tls: true
-
+      runtipi.managed: true
   wikijs-db:
     container_name: wikijs-db
     image: postgres:11-alpine
@@ -58,3 +58,5 @@ services:
       - tipi_main_network
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    labels:
+      runtipi.managed: true

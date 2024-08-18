@@ -3,7 +3,7 @@ version: '3.7'
 services:
   zigbee2mqtt:
     container_name: zigbee2mqtt
-    image: koenkk/zigbee2mqtt:1.37.1
+    image: koenkk/zigbee2mqtt:1.39.1
     environment:
       - TZ=${TZ}
     volumes:
@@ -42,3 +42,4 @@ services:
       traefik.http.routers.zigbee2mqtt-local.entrypoints: websecure
       traefik.http.routers.zigbee2mqtt-local.service: zigbee2mqtt-web
       traefik.http.routers.zigbee2mqtt-local.tls: true
+      runtipi.managed: true

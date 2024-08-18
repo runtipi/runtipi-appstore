@@ -1,11 +1,9 @@
-**Warning ⚠️:** Mongodb supports only apple's newer arm64 arch not raspberry pi.
-
-# MongoDB
+## MongoDB
 MongoDB is an open-source document-oriented database that is designed to store a large scale of data and also allows you to work with that data very efficiently. It is categorized under the NoSQL (Not only SQL) database because the storage and retrieval of data in the MongoDB are not in the form of tables. 
 
 The MongoDB database is developed and managed by MongoDB.Inc under SSPL(Server Side Public License) and initially released in February 2009. It also provides official driver support for all the popular languages like C, C++, C#, and .Net, Go, Java, Node.js, Perl, PHP, Python, Motor, Ruby, Scala, Swift, Mongoid. So, that you can create an application using any of these languages. Nowadays there are so many companies that used MongoDB like Facebook, Nokia, eBay, Adobe, Google, etc. to store their large amount of data. 
 
-## How it works ?
+### How it works ?
 
 Now, we will see how actually thing happens behind the scene. As we know that MongoDB is a database server and the data is stored in these databases. Or in other words, MongoDB environment gives you a server that you can start and then create multiple databases on it using MongoDB.   
 Because of its NoSQL database, the data is stored in the collections and documents. Hence the database, collection, and documents are related to each other as shown below:   
@@ -39,7 +37,7 @@ Some major differences in between MongoDB and the RDBMS are as follows: 
 |In terms of performance, it is much faster than RDBMS.|In terms of performance, it is slower than MongoDB.|
 |||
 
-## Features of MongoDB –
+### Features of MongoDB –
 
 - **Schema-less Database:** It is the great feature provided by the MongoDB. A Schema-less database means one collection can hold different types of documents in it. Or in other words, in the MongoDB database, a single collection can hold multiple documents and these documents may consist of the different numbers of fields, content, and size. It is not necessary that the one document is similar to another document like in the relational databases. Due to this cool feature, MongoDB provides great flexibility to databases.
 - **Document Oriented:** In MongoDB, all the data stored in the documents instead of tables like in RDBMS. In these documents, the data is stored in fields(key-value pair) instead of rows and columns which make the data much more flexible in comparison to RDBMS. And each document contains its unique object id.
@@ -70,7 +68,7 @@ Some major differences in between MongoDB and the RDBMS are as follows: 
 - You are not allowed to store more than 16MB data in the documents.
 - The nesting of data in BSON is also limited you are not allowed to nest data more than 100 levels.
 
-## Learn MongoDB
+### Learn MongoDB
 - Documentation - [https://docs.mongodb.com/manual/](https://docs.mongodb.com/manual/)
 - Developer Center - [https://www.mongodb.com/developer/](https://www.mongodb.com/developer/)
 - MongoDB University - [https://learn.mongodb.com](https://learn.mongodb.com/)

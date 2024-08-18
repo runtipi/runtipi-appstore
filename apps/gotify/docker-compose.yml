@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   gotify:
-    image: gotify/server:2.4.0
+    image: gotify/server:2.5.0
     container_name: gotify
     restart: unless-stopped
     volumes:
@@ -43,3 +43,4 @@ services:
       traefik.http.routers.gotify-local.entrypoints: websecure
       traefik.http.routers.gotify-local.service: gotify
       traefik.http.routers.gotify-local.tls: true
+      runtipi.managed: true

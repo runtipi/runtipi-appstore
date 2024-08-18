@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:4.6.4
+    image: lscr.io/linuxserver/qbittorrent:4.6.5
     container_name: qbittorrent
     dns:
       - ${DNS_IP}
@@ -45,3 +45,4 @@ services:
       traefik.http.routers.qbittorrent-local.entrypoints: websecure
       traefik.http.routers.qbittorrent-local.service: qbittorrent
       traefik.http.routers.qbittorrent-local.tls: true
+      runtipi.managed: true

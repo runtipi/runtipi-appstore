@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   adguard:
-    image: adguard/adguardhome:v0.107.48
+    image: adguard/adguardhome:v0.107.52
     container_name: adguard
     volumes:
       - "${APP_DATA_DIR}/data/work:/opt/adguardhome/work"
@@ -40,3 +40,4 @@ services:
       traefik.http.routers.adguard-local.entrypoints: websecure
       traefik.http.routers.adguard-local.service: adguard
       traefik.http.routers.adguard-local.tls: true
+      runtipi.managed: true

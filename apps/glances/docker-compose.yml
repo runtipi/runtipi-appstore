@@ -11,7 +11,7 @@ services:
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock:ro
         pid: host
-        image: nicolargo/glances:3.4.0.5-full
+        image: nicolargo/glances:4.1.2.1-full
         networks:
             - tipi_main_network
         labels:
@@ -29,3 +29,4 @@ services:
             traefik.http.routers.glances-local.entrypoints: websecure
             traefik.http.routers.glances-local.service: glances
             traefik.http.routers.glances-local.tls: true
+            runtipi.managed: true

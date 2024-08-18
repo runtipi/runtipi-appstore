@@ -3,7 +3,7 @@ version: "3.7"
 services:
   joplin:
     container_name: joplin
-    image: florider89/joplin-server:2.14.2
+    image: florider89/joplin-server:3.0.1
     restart: unless-stopped
     depends_on:
       - db-joplin
@@ -49,7 +49,7 @@ services:
       traefik.http.routers.joplin-local.entrypoints: websecure
       traefik.http.routers.joplin-local.service: joplin
       traefik.http.routers.joplin-local.tls: true
-
+      runtipi.managed: true
   db-joplin:
     container_name: db-joplin
     image: postgres:14.2
@@ -62,3 +62,5 @@ services:
       - POSTGRES_DB=joplin
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

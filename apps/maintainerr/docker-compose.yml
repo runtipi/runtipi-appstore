@@ -2,7 +2,7 @@ version: '3'
 
 services:
   maintainerr:
-    image: ghcr.io/jorenn92/maintainerr:2.0.3 # or jorenn92/maintainerr:1.7.1
+    image: ghcr.io/jorenn92/maintainerr:2.0.4 # or jorenn92/maintainerr:1.7.1
     container_name: maintainerr
 #    user: 1000:1000 # only use this with release 2.0 and up
     volumes:
@@ -40,3 +40,4 @@ services:
       traefik.http.routers.maintainerr-local.entrypoints: websecure
       traefik.http.routers.maintainerr-local.service: maintainerr
       traefik.http.routers.maintainerr-local.tls: true
+      runtipi.managed: true

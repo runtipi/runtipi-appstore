@@ -36,3 +36,4 @@ services:
       traefik.http.routers.baikal-local.entrypoints: websecure
       traefik.http.routers.baikal-local.service: baikal
       traefik.http.routers.baikal-local.tls: true
+      runtipi.managed: true

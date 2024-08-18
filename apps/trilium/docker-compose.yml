@@ -1,6 +1,6 @@
 services:
   trilium:
-    image: ghcr.io/zadam/trilium:0.63.5
+    image: ghcr.io/zadam/trilium:0.63.7
     container_name: trilium
     ports:
       - ${APP_PORT}:8080
@@ -35,3 +35,4 @@ services:
       traefik.http.routers.trilium-local.entrypoints: websecure
       traefik.http.routers.trilium-local.service: trilium
       traefik.http.routers.trilium-local.tls: true
+      runtipi.managed: true

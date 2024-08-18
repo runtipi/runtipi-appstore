@@ -2,7 +2,7 @@ version: '3.8'
 services:
   spoolman:
     container_name: spoolman
-    image: ghcr.io/donkie/spoolman:0.17.0
+    image: ghcr.io/donkie/spoolman:0.19.3
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data:/home/app/.local/share/spoolman 
@@ -38,3 +38,4 @@ services:
       traefik.http.routers.spoolman-local.entrypoints: websecure
       traefik.http.routers.spoolman-local.service: spoolman
       traefik.http.routers.spoolman-local.tls: true
+      runtipi.managed: true

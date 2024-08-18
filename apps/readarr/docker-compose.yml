@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   readarr:
-    image: lscr.io/linuxserver/readarr:0.3.27-nightly
+    image: lscr.io/linuxserver/readarr:0.4.0-nightly
     container_name: readarr
     environment:
       - PUID=1000
@@ -43,3 +43,4 @@ services:
       traefik.http.routers.readarr-local.entrypoints: websecure
       traefik.http.routers.readarr-local.service: readarr
       traefik.http.routers.readarr-local.tls: true
+      runtipi.managed: true

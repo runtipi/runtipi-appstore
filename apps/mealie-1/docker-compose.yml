@@ -2,7 +2,7 @@ version: '3.7'
 services:
   mealie-1:
     container_name: mealie-1
-    image: ghcr.io/mealie-recipes/mealie:v1.0.0-RC2
+    image: ghcr.io/mealie-recipes/mealie:v1.11.0
     restart: unless-stopped
     ports:
       - ${APP_PORT}:9000
@@ -47,3 +47,4 @@ services:
       traefik.http.routers.mealie-local.entrypoints: websecure
       traefik.http.routers.mealie-local.service: mealie
       traefik.http.routers.mealie-local.tls: true
+      runtipi.managed: true

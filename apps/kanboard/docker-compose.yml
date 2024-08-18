@@ -3,7 +3,7 @@ version: "3.9"
 services:
   kanboard:
     container_name: kanboard
-    image: kanboard/kanboard:v1.2.36
+    image: kanboard/kanboard:v1.2.38
     environment:
       - PLUGIN_INSTALLER=${PLUGIN_INSTALLER}
     ports:
@@ -39,3 +39,4 @@ services:
       traefik.http.routers.kanboard-local.entrypoints: websecure
       traefik.http.routers.kanboard-local.service: kanboard
       traefik.http.routers.kanboard-local.tls: true
+      runtipi.managed: true

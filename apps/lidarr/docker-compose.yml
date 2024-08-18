@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   lidarr:
-    image: ghcr.io/linuxserver/lidarr:2.2.5
+    image: ghcr.io/linuxserver/lidarr:2.4.3
     container_name: lidarr
     environment:
       - PUID=1000
@@ -41,3 +41,4 @@ services:
       traefik.http.routers.lidarr-local.entrypoints: websecure
       traefik.http.routers.lidarr-local.service: lidarr
       traefik.http.routers.lidarr-local.tls: true
+      runtipi.managed: true

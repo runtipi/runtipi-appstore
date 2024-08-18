@@ -44,7 +44,7 @@ services:
       traefik.http.middlewares.nextcloud.headers.customRequestHeaders.X-Forwarded-Proto: https
       traefik.http.middlewares.nextcloud-https.redirectscheme.scheme: https
       traefik.http.routers.nextcloud-http.middlewares: nextcloud-https@docker
-
+      runtipi.managed: true
   db-nextcloud:
     container_name: db-nextcloud
     image: postgres:14.2
@@ -57,7 +57,8 @@ services:
       - POSTGRES_DB=nextcloud
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   redis-nextcloud:
     container_name: redis-nextcloud
     user: "1000:1000"
@@ -67,7 +68,8 @@ services:
       - "${APP_DATA_DIR}/data/redis:/data"
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   cron:
     image: nextcloud:25.0.13-apache
     restart: on-failure
@@ -79,3 +81,5 @@ services:
       - redis-nextcloud
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

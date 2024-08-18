@@ -1,6 +1,6 @@
 services:
   2fauth:
-    image: 2fauth/2fauth:5.1.1
+    image: 2fauth/2fauth:5.2.0
     container_name: 2fauth
     volumes:
       - ${APP_DATA_DIR}/data:/2fauth
@@ -36,3 +36,4 @@ services:
       traefik.http.routers.2fauth-local.entrypoints: websecure
       traefik.http.routers.2fauth-local.service: 2fauth
       traefik.http.routers.2fauth-local.tls: true
+      runtipi.managed: true

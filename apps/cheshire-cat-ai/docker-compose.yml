@@ -4,7 +4,7 @@ services:
   cheshire-cat-ai:
     networks:
       - tipi_main_network
-    image: ghcr.io/cheshire-cat-ai/core:1.6.1
+    image: ghcr.io/cheshire-cat-ai/core:1.7.1
     container_name: cheshire-cat-ai
     ports:
       - ${APP_PORT}:80
@@ -40,6 +40,7 @@ services:
       traefik.http.routers.cheshire-local.entrypoints: websecure
       traefik.http.routers.cheshire-local.service: cheshire-cat-ai
       traefik.http.routers.cheshire-local.tls: true
+      runtipi.managed: true
 networks:
   tipi-main-network:
     driver: bridge
