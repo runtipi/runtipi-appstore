@@ -5,7 +5,7 @@ services:
     container_name: wordpress_yoginilist
     image: wordpress:6.6.1
     environment:
-      - WORDPRESS_DB_HOST=wordpress_stepparentpah-db
+      - WORDPRESS_DB_HOST=wordpress_yoginilist-db
       - WORDPRESS_DB_NAME=wordpress
       - WORDPRESS_DB_USER=tipi
       - WORDPRESS_DB_PASSWORD=${DB_PASSWORD}
