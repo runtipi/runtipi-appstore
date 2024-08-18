@@ -41,3 +41,4 @@ services:
       traefik.http.routers.minecraft-server-local.entrypoints: websecure
       traefik.http.routers.minecraft-server-local.service: minecraft-server
       traefik.http.routers.minecraft-server-local.tls: true
+      runtipi.managed: true

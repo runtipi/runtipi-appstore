@@ -2,7 +2,7 @@ version: "3"
 
 services:
  pairdrop:
-    image: lscr.io/linuxserver/pairdrop:1.10.8
+    image: lscr.io/linuxserver/pairdrop:1.10.9
     container_name: pairdrop
     environment:
       - PUID=1000
@@ -39,3 +39,4 @@ services:
       traefik.http.routers.pairdrop-local.entrypoints: websecure
       traefik.http.routers.pairdrop-local.service: pairdrop
       traefik.http.routers.pairdrop-local.tls: true
+      runtipi.managed: true

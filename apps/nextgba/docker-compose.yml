@@ -38,3 +38,4 @@ services:
       traefik.http.routers.nextgba-local.entrypoints: websecure
       traefik.http.routers.nextgba-local.service: nextgba
       traefik.http.routers.nextgba-local.tls: true
+      runtipi.managed: true

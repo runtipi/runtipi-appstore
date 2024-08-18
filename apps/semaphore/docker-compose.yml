@@ -1,0 +1,70 @@
+version: '3.9'
+services:
+  semaphore:
+    container_name: semaphore
+    image: semaphoreui/semaphore:v2.10.22
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/repositories:/repositories
+    environment:
+      - SEMAPHORE_DB_USER=semaphore
+      - SEMAPHORE_DB_PASS=${SEMAPHORE_DB_PASSWORD}
+      - SEMAPHORE_DB_HOST=semaphore-db
+      - SEMAPHORE_DB_PORT=5432
+      - SEMAPHORE_DB_DIALECT=postgres
+      - SEMAPHORE_DB=semaphore
+      - SEMAPHORE_PLAYBOOK_PATH=/tmp/semaphore
+      - SEMAPHORE_ADMIN_PASSWORD=${SEMAPHORE_ADMIN_PASSWORD}
+      - SEMAPHORE_ADMIN_NAME=${SEMAPHORE_ADMIN_NAME}
+      - SEMAPHORE_ADMIN_EMAIL=${SEMAPHORE_ADMIN_EMAIL}
+      - SEMAPHORE_ADMIN=${SEMAPHORE_ADMIN_NAME}
+      - SEMAPHORE_ACCESS_KEY_ENCRYPTION=${SEMAPHORE_ACCESS_KEY_ENCRYPTION}
+      - SEMAPHORE_LDAP_ACTIVATED=no
+      - TZ=${TZ}
+    ports:
+      - ${APP_PORT}:3000
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.semaphore-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.semaphore.loadbalancer.server.port: 3000
+      # Web
+      traefik.http.routers.semaphore-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.semaphore-insecure.entrypoints: web
+      traefik.http.routers.semaphore-insecure.service: semaphore
+      traefik.http.routers.semaphore-insecure.middlewares: semaphore-web-redirect
+      # Websecure
+      traefik.http.routers.semaphore.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.semaphore.entrypoints: websecure
+      traefik.http.routers.semaphore.service: semaphore
+      traefik.http.routers.semaphore.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.semaphore-local-insecure.rule: Host(`semaphore.${LOCAL_DOMAIN}`)
+      traefik.http.routers.semaphore-local-insecure.entrypoints: web
+      traefik.http.routers.semaphore-local-insecure.service: semaphore
+      traefik.http.routers.semaphore-local-insecure.middlewares: semaphore-web-redirect
+      # Local domain secure
+      traefik.http.routers.semaphore-local.rule: Host(`semaphore.${LOCAL_DOMAIN}`)
+      traefik.http.routers.semaphore-local.entrypoints: websecure
+      traefik.http.routers.semaphore-local.service: semaphore
+      traefik.http.routers.semaphore-local.tls: true
+      # Runtipi managed
+      runtipi.managed: true
+
+  semaphore-db:
+    container_name: semaphore-db
+    image: postgres:14
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=semaphore
+      - POSTGRES_PASSWORD=${SEMAPHORE_DB_PASSWORD}
+      - POSTGRES_DB=semaphore
+    networks:
+      - tipi_main_network
+    labels:
+      # Runtipi managed
+      runtipi.managed: true

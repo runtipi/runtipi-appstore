@@ -37,3 +37,4 @@ services:
       traefik.http.routers.dokuwiki-local.entrypoints: websecure
       traefik.http.routers.dokuwiki-local.service: dokuwiki
       traefik.http.routers.dokuwiki-local.tls: true
+      runtipi.managed: true

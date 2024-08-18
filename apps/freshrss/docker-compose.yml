@@ -40,3 +40,4 @@ services:
       traefik.http.routers.freshrss-local.entrypoints: websecure
       traefik.http.routers.freshrss-local.service: freshrss
       traefik.http.routers.freshrss-local.tls: true
+      runtipi.managed: true

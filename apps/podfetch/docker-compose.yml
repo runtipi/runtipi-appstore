@@ -45,3 +45,4 @@ services:
       traefik.http.routers.podfetch-local.entrypoints: websecure
       traefik.http.routers.podfetch-local.service: podfetch
       traefik.http.routers.podfetch-local.tls: true
+      runtipi.managed: true

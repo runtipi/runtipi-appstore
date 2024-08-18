@@ -2,7 +2,7 @@ version: "3.9"
 services:
   cyberchef:
     container_name: cyberchef
-    image: ghcr.io/gchq/cyberchef:10.18.9
+    image: ghcr.io/gchq/cyberchef:10.19.2
     restart: unless-stopped
     environment:
       - TZ=${TZ}
@@ -35,3 +35,4 @@ services:
       traefik.http.routers.cyberchef-local.entrypoints: websecure
       traefik.http.routers.cyberchef-local.service: cyberchef
       traefik.http.routers.cyberchef-local.tls: true
+      runtipi.managed: true

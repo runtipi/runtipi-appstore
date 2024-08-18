@@ -36,3 +36,4 @@ services:
       traefik.http.routers.2fauth-local.entrypoints: websecure
       traefik.http.routers.2fauth-local.service: 2fauth
       traefik.http.routers.2fauth-local.tls: true
+      runtipi.managed: true

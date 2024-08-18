@@ -4,3 +4,9 @@ github.secrets
 .DS_Store
 .nova
 .vscode/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/runtipi
+app.png

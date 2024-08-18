@@ -3,7 +3,7 @@ version: '3.9'
 services:
   spacedrive:
     container_name: spacedrive
-    image: ghcr.io/spacedriveapp/spacedrive/server:0.3.1
+    image: ghcr.io/spacedriveapp/spacedrive/server:0.4.2
     restart: unless-stopped
     environment:
       - SD_AUTH=${SD_AUTH_USER}:${SD_AUTH_PASSWORD}
@@ -38,3 +38,4 @@ services:
       traefik.http.routers.spacedrive-local.entrypoints: websecure
       traefik.http.routers.spacedrive-local.service: spacedrive
       traefik.http.routers.spacedrive-local.tls: true
+      runtipi.managed: true

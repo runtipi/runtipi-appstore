@@ -40,3 +40,4 @@ services:
       traefik.http.routers.maintainerr-local.entrypoints: websecure
       traefik.http.routers.maintainerr-local.service: maintainerr
       traefik.http.routers.maintainerr-local.tls: true
+      runtipi.managed: true

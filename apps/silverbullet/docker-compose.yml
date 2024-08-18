@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   silverbullet:
-    image: zefhemel/silverbullet:0.7.7
+    image: zefhemel/silverbullet:0.9.0
     container_name: 'silverbullet'
     restart: unless-stopped
     volumes:
@@ -39,3 +39,4 @@ services:
       traefik.http.routers.silverbullet-local.entrypoints: websecure
       traefik.http.routers.silverbullet-local.service: silverbullet
       traefik.http.routers.silverbullet-local.tls: true
+      runtipi.managed: true

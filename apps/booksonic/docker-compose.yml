@@ -42,3 +42,4 @@ services:
       traefik.http.routers.booksonic-local.entrypoints: websecure
       traefik.http.routers.booksonic-local.service: booksonic
       traefik.http.routers.booksonic-local.tls: true
+      runtipi.managed: true

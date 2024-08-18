@@ -38,3 +38,4 @@ services:
       traefik.http.routers.flightlog-local.entrypoints: websecure
       traefik.http.routers.flightlog-local.service: flightlog
       traefik.http.routers.flightlog-local.tls: true
+      runtipi.managed: true

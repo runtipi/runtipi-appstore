@@ -5,8 +5,8 @@
   "exposable": true,
   "id": "activepieces",
   "description": "Your friendliest open source all-in-one automation tool.",
-  "tipi_version": 27,
-  "version": "0.28.0",
+  "tipi_version": 28,
+  "version": "0.29.1",
   "categories": ["automation"],
   "short_desc": "True zapier alternative.",
   "author": "Activepieces",
@@ -38,5 +38,7 @@
       "env_variable": "AP_JWT_SECRET"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566285000
 }

@@ -20,7 +20,8 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   mosquitto-management-center:
     image: cedalo/management-center:2
     container_name: mosquitto-management-center
@@ -67,3 +68,4 @@ services:
       traefik.http.routers.mosquitto-local.entrypoints: websecure
       traefik.http.routers.mosquitto-local.service: mosquitto-web
       traefik.http.routers.mosquitto-local.tls: true
+      runtipi.managed: true

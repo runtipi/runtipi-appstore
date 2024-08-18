@@ -47,7 +47,7 @@ services:
       traefik.http.routers.teddit-local.entrypoints: websecure
       traefik.http.routers.teddit-local.service: teddit
       traefik.http.routers.teddit-local.tls: true
-  
+      runtipi.managed: true
   teddit-redis:
     image: redis:alpine
     container_name: teddit-redis
@@ -61,3 +61,5 @@ services:
       retries: 30
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

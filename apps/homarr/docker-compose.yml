@@ -42,3 +42,4 @@ services:
       traefik.http.routers.homarr-local.entrypoints: websecure
       traefik.http.routers.homarr-local.service: homarr
       traefik.http.routers.homarr-local.tls: true
+      runtipi.managed: true

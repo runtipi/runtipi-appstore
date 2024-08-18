@@ -8,4 +8,4 @@ Ghost is a powerful app for new-media creators to publish, share, and grow a bus
 
 After Ghost is installed, head over to https://yourdomain.com/ghost/ to finish setup and create the admin account!
 
-> Warning ⚠️: The app runs in development mode and it is ment for home usage **not** for exposing in the internet, please use the Ghost - Production app for production environments.
+> Warning ⚠️: The app runs in development mode and it is meant for home usage **not** for exposing in the internet, please use the Ghost Production app for production environments.

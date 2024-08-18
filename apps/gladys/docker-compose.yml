@@ -3,7 +3,7 @@ version: '3'
 services:
   gladys:
     container_name: gladys
-    image: gladysassistant/gladys:v4.43.0
+    image: gladysassistant/gladys:v4.44.0
     privileged: true
     restart: on-failure
     stop_grace_period: 1m
@@ -18,11 +18,5 @@ services:
       - ${APP_DATA_DIR}/data/gladysassistant:/var/lib/gladysassistant
       - /dev:/dev
       - /run/udev:/run/udev:ro
-    # Not Exposing like Home Assitant
-    #labels:
-    #traefik.enable: ${APP_EXPOSED}
-    #traefik.http.routers.gladys.rule: Host(`${APP_DOMAIN}`)
-    #traefik.http.routers.gladys.entrypoints: websecure
-    #traefik.http.routers.gladys.service: gladys
-    #traefik.http.routers.gladys.tls.certresolver: myresolver
-    #traefik.http.services.gladys.loadbalancer.server.port: 8270
+    labels:
+      runtipi.managed: true

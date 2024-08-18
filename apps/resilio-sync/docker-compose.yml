@@ -41,3 +41,4 @@ services:
       traefik.http.routers.resilio-sync-local.entrypoints: websecure
       traefik.http.routers.resilio-sync-local.service: resilio-sync
       traefik.http.routers.resilio-sync-local.tls: true
+      runtipi.managed: true

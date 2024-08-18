@@ -7,9 +7,7 @@
   "id": "peppermint",
   "tipi_version": 5,
   "version": "latest",
-  "categories": [
-    "utilities"
-  ],
+  "categories": ["utilities"],
   "description": "An open source ticket management & help desk solution.",
   "short_desc": "An open source ticket management & help desk solution.",
   "author": "Peppermint-Lab",
@@ -29,5 +27,7 @@
       "env_variable": "PEPPERMINT_DOMAIN_API"
     }
   ],
-  "supported_architectures": ["amd64", "arm64"]
+  "supported_architectures": ["amd64", "arm64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566285000
 }

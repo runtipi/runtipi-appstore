@@ -24,4 +24,5 @@ services:
       options:
           max-size: "10m"
           max-file: "10"
-    
+    labels:
+      runtipi.managed: true

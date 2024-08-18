@@ -32,6 +32,7 @@ services:
       traefik.http.middlewares.zipline_service_buffering.buffering.maxRequestBodyBytes: 100000000
       traefik.http.middlewares.zipline_service_buffering.buffering.maxResponseBodyBytes: 100000000
       traefik.http.routers.zipline.middlewares: zipline_service_buffering,zipline_service_headers
+      runtipi.managed: true
     networks:
       - tipi_main_network
 
@@ -52,3 +53,5 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    labels:
+      runtipi.managed: true

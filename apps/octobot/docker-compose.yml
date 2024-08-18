@@ -2,7 +2,7 @@ version: '3.9'
 services:
   octobot:
     container_name: octobot
-    image: drakkarsoftware/octobot:1.0.10
+    image: drakkarsoftware/octobot:2.0.3
     environment:
       - TZ=${TZ}
     volumes:
@@ -41,3 +41,4 @@ services:
       traefik.http.routers.octobot-local.entrypoints: websecure
       traefik.http.routers.octobot-local.service: octobot
       traefik.http.routers.octobot-local.tls: true
+      runtipi.managed: true

@@ -40,3 +40,4 @@ services:
       traefik.http.routers.obsidian-livesync-local.entrypoints: websecure
       traefik.http.routers.obsidian-livesync-local.service: obsidian-livesync
       traefik.http.routers.obsidian-livesync-local.tls: true
+      runtipi.managed: true

@@ -41,3 +41,4 @@ services:
       traefik.http.routers.ntfy-local.entrypoints: websecure
       traefik.http.routers.ntfy-local.service: ntfy
       traefik.http.routers.ntfy-local.tls: true
+      runtipi.managed: true

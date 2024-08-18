@@ -1,0 +1,71 @@
+version: "3.9"
+services:
+  guacamole:
+    container_name: guacamole
+    image: guacamole/guacamole:1.5.5
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:8080
+    environment:
+      - POSTGRESQL_DATABASE=guacamole
+      - POSTGRESQL_USER=guacamole
+      - POSTGRESQL_PASSWORD=${GUACAMOLE_DB_PASSWORD}
+      - GUACD_HOSTNAME=guacamole-guacd
+      - POSTGRESQL_HOSTNAME=guacamole-db
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.guacamole-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.guacamole.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.guacamole-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.guacamole-insecure.entrypoints: web
+      traefik.http.routers.guacamole-insecure.service: guacamole
+      traefik.http.routers.guacamole-insecure.middlewares: guacamole-web-redirect
+      # Websecure
+      traefik.http.routers.guacamole.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.guacamole.entrypoints: websecure
+      traefik.http.routers.guacamole.service: guacamole
+      traefik.http.routers.guacamole.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.guacamole-local-insecure.rule: Host(`guacamole.${LOCAL_DOMAIN}`)
+      traefik.http.routers.guacamole-local-insecure.entrypoints: web
+      traefik.http.routers.guacamole-local-insecure.service: guacamole
+      traefik.http.routers.guacamole-local-insecure.middlewares: guacamole-web-redirect
+      # Local domain secure
+      traefik.http.routers.guacamole-local.rule: Host(`guacamole.${LOCAL_DOMAIN}`)
+      traefik.http.routers.guacamole-local.entrypoints: websecure
+      traefik.http.routers.guacamole-local.service: guacamole
+      traefik.http.routers.guacamole-local.tls: true
+      # Runtipi Managed
+      runtipi.managed: true
+
+  guacamole-guacd:
+    container_name: guacamole-guacd
+    image: guacamole/guacd:1.5.5
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Runtipi Managed
+      runtipi.managed: true
+    
+  guacamole-db:
+    container_name: guacamole-db
+    image: postgres:14
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+      - ${APP_DATA_DIR}/data/init/sql:/config/sql
+      - ${APP_DATA_DIR}/data/init/init-guacamole.sh:/docker-entrypoint-initdb.d/init-guacamole.sh
+    environment:
+      - POSTGRES_DB=guacamole
+      - POSTGRES_USER=guacamole
+      - POSTGRES_PASSWORD=${GUACAMOLE_DB_PASSWORD}
+    networks:
+      - tipi_main_network
+    labels:
+      # Runtipi Managed
+      runtipi.managed: true

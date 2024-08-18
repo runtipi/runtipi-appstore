@@ -38,3 +38,4 @@ services:
       traefik.http.routers.openbooks-local.entrypoints: websecure
       traefik.http.routers.openbooks-local.service: openbooks
       traefik.http.routers.openbooks-local.tls: true
+      runtipi.managed: true
