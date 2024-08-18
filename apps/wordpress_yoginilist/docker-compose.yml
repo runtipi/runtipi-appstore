@@ -1,7 +1,7 @@
 version: "3.9"
 services:
       
-  wordpress_stepparentpath:
+  wordpress_yoginilist:
     container_name: wordpress_yoginilist
     image: wordpress:6.6.1
     environment:
@@ -15,37 +15,37 @@ services:
       - ${APP_PORT}:80
     restart: unless-stopped
     depends_on:
-      - wordpress_stepparentpath-db
+      - wordpress_yoginilist-db
     networks:
       - tipi_main_network
     labels:
         # Main
         traefik.enable: true
-        traefik.http.middlewares.wordpress_stepparentpath-redirect.redirectscheme.scheme: https
-        traefik.http.services.wordpress_stepparentpath.loadbalancer.server.port: 80
+        traefik.http.middlewares.wordpress_yoginilist-redirect.redirectscheme.scheme: https
+        traefik.http.services.wordpress_yoginilist.loadbalancer.server.port: 80
         # Web
-        traefik.http.routers.wordpress_stepparentpath-insecure.rule: Host(`${APP_DOMAIN}`)
-        traefik.http.routers.wordpress_stepparentpath-insecure.entrypoints: web
-        traefik.http.routers.wordpress_stepparentpath-insecure.service: wordpress_stepparentpath
-        traefik.http.routers.wordpress_stepparentpath-insecure.middlewares: wordpress_stepparentpath-redirect
+        traefik.http.routers.wordpress_yoginilist-insecure.rule: Host(`${APP_DOMAIN}`)
+        traefik.http.routers.wordpress_yoginilist-insecure.entrypoints: web
+        traefik.http.routers.wordpress_yoginilist-insecure.service: wordpress_yoginilist
+        traefik.http.routers.wordpress_yoginilist-insecure.middlewares: wordpress_yoginilist-redirect
         # Websecure
-        traefik.http.routers.wordpress_stepparentpath.rule: Host(`${APP_DOMAIN}`)
-        traefik.http.routers.wordpress_stepparentpath.entrypoints: websecure
-        traefik.http.routers.wordpress_stepparentpath.service: wordpress_stepparentpath
-        traefik.http.routers.wordpress_stepparentpath.tls.certresolver: myresolver
+        traefik.http.routers.wordpress_yoginilist.rule: Host(`${APP_DOMAIN}`)
+        traefik.http.routers.wordpress_yoginilist.entrypoints: websecure
+        traefik.http.routers.wordpress_yoginilist.service: wordpress_yoginilist
+        traefik.http.routers.wordpress_yoginilist.tls.certresolver: myresolver
         # Local domain
-        traefik.http.routers.wordpress_stepparentpath-local-insecure.rule: Host(`wordpress_stepparentpath.${LOCAL_DOMAIN}`)
-        traefik.http.routers.wordpress_stepparentpath-local-insecure.entrypoints: web
-        traefik.http.routers.wordpress_stepparentpath-local-insecure.service: wordpress_stepparentpath
-        traefik.http.routers.wordpress_stepparentpath-local-insecure.middlewares: wordpress_stepparentpath-redirect
+        traefik.http.routers.wordpress_yoginilist-local-insecure.rule: Host(`wordpress_yoginilist.${LOCAL_DOMAIN}`)
+        traefik.http.routers.wordpress_yoginilist-local-insecure.entrypoints: web
+        traefik.http.routers.wordpress_yoginilist-local-insecure.service: wordpress_yoginilist
+        traefik.http.routers.wordpress_yoginilist-local-insecure.middlewares: wordpress_yoginilist-redirect
         # Local domain secure
-        traefik.http.routers.wordpress_stepparentpath-local.rule: Host(`wordpress_stepparentpath.${LOCAL_DOMAIN}`)
-        traefik.http.routers.wordpress_stepparentpath-local.entrypoints: websecure
-        traefik.http.routers.wordpress_stepparentpath-local.service: wordpress_stepparentpath
-        traefik.http.routers.wordpress_stepparentpath-local.tls: true
+        traefik.http.routers.wordpress_yoginilist-local.rule: Host(`wordpress_yoginilist.${LOCAL_DOMAIN}`)
+        traefik.http.routers.wordpress_yoginilist-local.entrypoints: websecure
+        traefik.http.routers.wordpress_yoginilist-local.service: wordpress_yoginilist
+        traefik.http.routers.wordpress_yoginilist-local.tls: true
         runtipi.managed: true
-  wordpress_stepparentpath-db:
-    container_name: wordpress_stepparentpath-db
+  wordpress_yoginilist-db:
+    container_name: wordpress_yoginilist-db
     image: mariadb:11.1.3
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
