@@ -1,9 +1,9 @@
 {
-  "name": "WordPress Rasies",
+  "name": "WordPress Elderseth",
   "available": true,
-  "port": 8214,
+  "port": 8235,
   "exposable": true,
-  "id": "wordpress_rasies",
+  "id": "wordpress_elderseth",
   "description": "WordPress is a popular content management system for creating websites and blogs.",
   "tipi_version": 10,
   "version": "6.6.1",
