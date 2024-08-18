@@ -105,8 +105,8 @@ Thank you to all the wonderful people who are sponsoring this project.
   | [![GitHub](https://i.imgur.com/emsRCPh.png)](https://github.com/sponsors/jokob-sk) | [![Buy Me A Coffee](https://i.imgur.com/pIM6YXL.png)](https://www.buymeacoffee.com/jokobsk) | [![Patreon](https://i.imgur.com/MuYsrq1.png)](https://www.patreon.com/user?u=84385063) | 
 | --- | --- | --- | 
 
-  - Bitcoin: `1N8tupjeCK12qRVU2XrV17WvKK7LCawyZM`
-  - Ethereum: `0x6e2749Cb42F4411bc98501406BdcD82244e3f9C7`
+- Bitcoin: `1N8tupjeCK12qRVU2XrV17WvKK7LCawyZM`
+- Ethereum: `0x6e2749Cb42F4411bc98501406BdcD82244e3f9C7`
 
   📧 Email me at [jokob@duck.com](mailto:jokob@duck.com?subject=NetAlertX) if you want to get in touch or if I should add other sponsorship platforms.
 
