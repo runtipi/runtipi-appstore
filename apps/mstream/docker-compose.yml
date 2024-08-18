@@ -41,3 +41,4 @@ services:
       traefik.http.routers.mstream-local.entrypoints: websecure
       traefik.http.routers.mstream-local.service: mstream
       traefik.http.routers.mstream-local.tls: true
+      runtipi.managed: true

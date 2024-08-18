@@ -1,9 +1,7 @@
-version: "3.7"
-
 services:
   n8n-1:
     container_name: n8n-1
-    image: n8nio/n8n:1.30.1
+    image: n8nio/n8n:1.49.0
     restart: unless-stopped
     ports:
       - ${APP_PORT}:5678
@@ -11,6 +9,7 @@ services:
       - ${APP_DATA_DIR}/data/n8n:/home/node/.n8n
     environment:
       - N8N_EDITOR_BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - N8N_SECURE_COOKIE=false
       - WEBHOOK_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=n8n-db
@@ -23,6 +22,8 @@ services:
     links:
       - n8n-db
     depends_on:
+      n8n-init:
+        condition: service_completed_successfully
       n8n-db:
         condition: service_healthy
     labels:
@@ -50,7 +51,7 @@ services:
       traefik.http.routers.n8n-local.entrypoints: websecure
       traefik.http.routers.n8n-local.service: n8n
       traefik.http.routers.n8n-local.tls: true
-
+      runtipi.managed: true
   n8n-db:
     container_name: n8n-db
     image: postgres:11
@@ -67,11 +68,16 @@ services:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
       - ${APP_DATA_DIR}/data/init-data.sh:/docker-entrypoint-initdb.d/init-data.sh
     healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "pg_isready -h localhost -U $$POSTGRES_USER -d $$POSTGRES_DB",
-        ]
+      test: ['CMD-SHELL', 'pg_isready -h localhost -U $$POSTGRES_USER -d $$POSTGRES_DB']
       interval: 5s
       timeout: 5s
       retries: 10
+    labels:
+      runtipi.managed: true
+  n8n-init:
+    image: bash:5.2.32
+    command: ['sh', '-c', 'chown -R 1000:1000 /home/node/.n8n']
+    volumes:
+      - ${APP_DATA_DIR}/data/n8n:/home/node/.n8n
+    labels:
+      runtipi.managed: true

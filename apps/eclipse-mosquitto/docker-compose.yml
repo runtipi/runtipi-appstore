@@ -20,19 +20,20 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   mosquitto-management-center:
-    image: cedalo/management-center:dev
+    image: cedalo/management-center:2
     container_name: mosquitto-management-center
     environment:
       - TZ=${TZ}
       - CEDALO_MC_BROKER_ID=mosquitto-broker
       - CEDALO_MC_BROKER_NAME=mosquitto-broker-2
-      - CEDALO_MC_BROKER_URL=mqtt://mosquitto-broker:1883
+      - CEDALO_MC_BROKER_URL=mqtt://${INTERNAL_IP}:1883
       - CEDALO_MC_BROKER_USERNAME=admin
       - CEDALO_MC_BROKER_PASSWORD=${MQTT_ADMIN_PASSWORD}
       - CEDALO_MC_USERNAME=admin
-      - CEDALO_MC_PASSWORD=admin
+      - CEDALO_MC_PASSWORD=${CEDALO_MC_PASSWORD}
     ports:
       - ${APP_PORT}:8088
     expose:
@@ -67,3 +68,4 @@ services:
       traefik.http.routers.mosquitto-local.entrypoints: websecure
       traefik.http.routers.mosquitto-local.service: mosquitto-web
       traefik.http.routers.mosquitto-local.tls: true
+      runtipi.managed: true

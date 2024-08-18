@@ -1,0 +1,20 @@
+{
+  "services": [
+    {
+      "name": "2fauth",
+      "image": "2fauth/2fauth:5.2.0",
+      "internalPort": 8000,
+      "isMain": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/2fauth"
+        }
+      ],
+      "environment": {
+        "ASSET_URL": "https://${APP_DOMAIN}",
+        "APP_URL": "https://${APP_DOMAIN}"
+      }
+    }
+  ]
+}

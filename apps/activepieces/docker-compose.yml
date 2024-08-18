@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   activepieces:
-    image: activepieces/activepieces:0.25.1
+    image: activepieces/activepieces:0.29.1
     container_name: activepieces
     restart: unless-stopped
     ports:
@@ -59,7 +59,7 @@ services:
       traefik.http.routers.activepieces-local.entrypoints: websecure
       traefik.http.routers.activepieces-local.service: activepieces
       traefik.http.routers.activepieces-local.tls: true
-
+      runtipi.managed: true
   activepieces-postgres:
     image: postgres:14
     restart: unless-stopped
@@ -77,7 +77,8 @@ services:
       - '${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data'
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   activepieces-redis:
     image: redis:7
     container_name: activepieces-redis
@@ -91,3 +92,5 @@ services:
       - '${APP_DATA_DIR}/data/redis/:/data'
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

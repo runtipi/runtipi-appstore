@@ -4,7 +4,7 @@ services:
     depends_on:
       logto-db:
         condition: service_healthy
-    image: svhd/logto:1.15.0
+    image: svhd/logto:1.19.0
     container_name: logto
     entrypoint: ["sh", "-c", "npm run cli db seed -- --swe && npm start"]
     ports:
@@ -30,7 +30,7 @@ services:
       traefik.http.routers.logto-admin.service: logto
       traefik.http.routers.logto-admin.tls.certresolver: myresolver
       traefik.http.services.logto-admin.loadbalancer.server.port: 3002
-
+      runtipi.managed: true
   logto-db:
     container_name: logto-db
     image: postgres:14
@@ -48,3 +48,5 @@ services:
       retries: 5
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

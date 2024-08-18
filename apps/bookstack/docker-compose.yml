@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   bookstack:
-    image: lscr.io/linuxserver/bookstack:24.02.20240304
+    image: lscr.io/linuxserver/bookstack:24.05.20240520
     container_name: bookstack
     environment:
       - APP_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
@@ -45,7 +45,7 @@ services:
       traefik.http.routers.bookstack-local.entrypoints: websecure
       traefik.http.routers.bookstack-local.service: bookstack
       traefik.http.routers.bookstack-local.tls: true
-
+      runtipi.managed: true
   bookstack-db:
     image: lscr.io/linuxserver/mariadb
     container_name: bookstack-db
@@ -59,3 +59,5 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

@@ -7,15 +7,20 @@
   "port": 8333,
   "id": "bitcoind",
   "description": "Bitcoin core node",
-  "tipi_version": 1,
-  "version": "26.0",
-  "categories": [
-    "finance"
-  ],
+  "tipi_version": 5,
+  "version": "27.0",
+  "categories": ["finance"],
   "short_desc": "Bitcoin core node",
   "author": "Bitcoin developers",
   "source": "https://github.com/lncm/docker-bitcoind",
   "form_fields": [
+    {
+      "type": "number",
+      "label": "Reduce storage requirements by enabling pruning (deleting) of old blocks",
+      "hint": "default: 0 = disable pruning blocks, 1 = allow manual pruning via RPC, >=550 = automatically prune block files to stay under the specified target size in MiB",
+      "required": false,
+      "env_variable": "BITCOIND_PRUNING"
+    },
     {
       "type": "number",
       "label": "DB Cache Size (In mb)",
@@ -48,15 +53,82 @@
       ]
     },
     {
+      "type": "text",
+      "label": "Accept JSON-RPC requests",
+      "hint": "Allows you to use bitcoin-cli to communicate with the node",
+      "required": false,
+      "env_variable": "BITCOIND_SERVER",
+      "options": [
+        {
+          "label": "Yes",
+          "value": "1"
+        },
+        {
+          "label": "No",
+          "value": "0"
+        }
+      ]
+    },
+    {
       "type": "number",
       "label": "Max Peer Connections",
       "hint": "Maintain at most N connections to peers. Leave empty for default 125.",
       "required": false,
       "env_variable": "BITCOIND_MAXPEERS"
+    },
+    {
+      "type": "text",
+      "label": "Enable txindex",
+      "hint": "Enabled by default",
+      "required": false,
+      "env_variable": "BITCOIND_TXINDEX",
+      "options": [
+        {
+          "label": "Yes",
+          "value": "1"
+        },
+        {
+          "label": "No",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "label": "Enable peer bloom filters",
+      "hint": "Enabled by default",
+      "required": false,
+      "env_variable": "BITCOIND_BLOOM_FILTERS",
+      "options": [
+        {
+          "label": "Yes",
+          "value": "1"
+        },
+        {
+          "label": "No",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "label": "Enable block filter index",
+      "hint": "Enabled by default",
+      "required": false,
+      "env_variable": "BITCOIND_BLOCK_FILTER",
+      "options": [
+        {
+          "label": "Yes",
+          "value": "1"
+        },
+        {
+          "label": "No",
+          "value": "0"
+        }
+      ]
     }
   ],
-  "supported_architectures": [
-    "amd64",
-    "arm64"
-  ]
+  "supported_architectures": ["amd64", "arm64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566283000
 }

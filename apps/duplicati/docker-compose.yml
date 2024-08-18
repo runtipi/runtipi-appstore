@@ -3,7 +3,7 @@ version: "3.7"
 services:
   duplicati:
     container_name: duplicati
-    image: lscr.io/linuxserver/duplicati:2.0.7
+    image: lscr.io/linuxserver/duplicati:2.0.8
     ports:
       - ${APP_PORT}:8200
     volumes:
@@ -41,3 +41,4 @@ services:
       traefik.http.routers.duplicati-local.entrypoints: websecure
       traefik.http.routers.duplicati-local.service: duplicati
       traefik.http.routers.duplicati-local.tls: true
+      runtipi.managed: true

@@ -1,0 +1,71 @@
+services:
+  docmost:
+    container_name: docmost
+    image: docmost/docmost:0.2.10
+    depends_on:
+      - docmost-db
+      - docmost-redis
+    networks:
+      - tipi_main_network
+    environment:
+      - APP_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - APP_SECRET=${DOCMOST_APP_SECRET}
+      - DATABASE_URL=postgresql://docmost:${DOCMOST_PG_PASSWORD}@docmost-db:5432/docmost?schema=public
+      - REDIS_URL=redis://docmost-redis:6379
+    ports:
+      - ${APP_PORT}:3000
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/storage:/app/data/storage
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.docmost-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.docmost.loadbalancer.server.port: 3000
+      # Web
+      traefik.http.routers.docmost-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.docmost-insecure.entrypoints: web
+      traefik.http.routers.docmost-insecure.service: docmost
+      traefik.http.routers.docmost-insecure.middlewares: docmost-web-redirect
+      # Websecure
+      traefik.http.routers.docmost.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.docmost.entrypoints: websecure
+      traefik.http.routers.docmost.service: docmost
+      traefik.http.routers.docmost.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.docmost-local-insecure.rule: Host(`docmost.${LOCAL_DOMAIN}`)
+      traefik.http.routers.docmost-local-insecure.entrypoints: web
+      traefik.http.routers.docmost-local-insecure.service: docmost
+      traefik.http.routers.docmost-local-insecure.middlewares: docmost-web-redirect
+      # Local domain secure
+      traefik.http.routers.docmost-local.rule: Host(`docmost.${LOCAL_DOMAIN}`)
+      traefik.http.routers.docmost-local.entrypoints: websecure
+      traefik.http.routers.docmost-local.service: docmost
+      traefik.http.routers.docmost-local.tls: true
+      runtipi.managed: true
+
+  docmost-db:
+    container_name: docmost-db
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_DB=docmost
+      - POSTGRES_USER=docmost
+      - POSTGRES_PASSWORD=${DOCMOST_PG_PASSWORD}
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/postgresql:/var/lib/postgresql/data
+    networks:
+      - tipi_main_network
+    labels:
+      runtipi.managed: true
+
+  docmost-redis:
+    container_name: docmost-redis
+    image: redis:7.2-alpine
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/redis:/data
+    networks:
+      - tipi_main_network
+    labels:
+      runtipi.managed: true

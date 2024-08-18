@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   slskd:
-    image: slskd/slskd:0.20.1
+    image: slskd/slskd:0.21.3
     container_name: slskd
     volumes:
         - "${APP_DATA_DIR}:/app"
@@ -46,3 +46,4 @@ services:
        traefik.http.routers.slskd-local.entrypoints: websecure
        traefik.http.routers.slskd-local.service: slskd
        traefik.http.routers.slskd-local.tls: true
+       runtipi.managed: true

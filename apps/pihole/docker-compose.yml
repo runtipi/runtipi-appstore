@@ -3,7 +3,7 @@ version: "3.7"
 services:
   pihole:
     container_name: pihole
-    image: pihole/pihole:2024.03.2
+    image: pihole/pihole:2024.07.0
     restart: unless-stopped
     hostname: pihole
     dns:
@@ -47,3 +47,4 @@ services:
       traefik.http.routers.pihole-local.entrypoints: websecure
       traefik.http.routers.pihole-local.service: pihole
       traefik.http.routers.pihole-local.tls: true
+      runtipi.managed: true

@@ -50,7 +50,7 @@ services:
       traefik.http.routers.nitter-local.entrypoints: websecure
       traefik.http.routers.nitter-local.service: nitter
       traefik.http.routers.nitter-local.tls: true
-
+      runtipi.managed: true
   nitter-redis:
     image: redis:alpine
     container_name: nitter-redis
@@ -60,3 +60,5 @@ services:
     volumes:
       - "${APP_DATA_DIR}/data/redis:/data"
     restart: unless-stopped
+    labels:
+      runtipi.managed: true

@@ -3,7 +3,7 @@ version: "3.8"
 services:
   outline:
     container_name: outline
-    image: docker.getoutline.com/outlinewiki/outline:0.75.2
+    image: outlinewiki/outline:0.78.0
     restart: unless-stopped
     environment:
       - DATABASE_URL=postgres://outline:${OUTLINE_PG_PASSWORD}@outline-postgres:5432/outline
@@ -30,7 +30,8 @@ services:
       - outline-redis
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   outline-postgres:
     container_name: outline-postgres
     image: postgres:16-alpine
@@ -43,17 +44,19 @@ services:
       - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   outline-redis:
     container_name: outline-redis
     image: redis:7-alpine
     restart: unless-stopped
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   outline-oidc:
     container_name: outline-oidc
-    image: ghcr.io/hex-developer/oidc-provider:v0.2.0
+    image: ghcr.io/sergi0g/oidc-provider:v0.2.0
     restart: unless-stopped
     environment:
       - LANGUAGE_CODE=en-us
@@ -71,7 +74,8 @@ services:
       - ${APP_DATA_DIR}/data/uc/static_root:/app/static_root:z
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   outline-nginx:
     container_name: outline-reverse-proxy
     image: nginx:alpine
@@ -95,3 +99,4 @@ services:
       traefik.http.routers.outline.entrypoints: websecure
       traefik.http.routers.outline.service: outline
       traefik.http.routers.outline.tls.certresolver: myresolver
+      runtipi.managed: true

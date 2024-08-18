@@ -43,7 +43,7 @@ services:
       traefik.http.routers.codex-docs-local.entrypoints: websecure
       traefik.http.routers.codex-docs-local.service: codex-docs
       traefik.http.routers.codex-docs-local.tls: true
-
+      runtipi.managed: true
   codex-db:
     container_name: codex-db
     image: mongo:latest
@@ -53,3 +53,5 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: ${CODEX_DB_PASSWORD}
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

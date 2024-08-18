@@ -2,7 +2,7 @@ version: '3'
 
 services:
   koillection:
-    image: koillection/koillection:1.5.8
+    image: koillection/koillection:1.5.12
     container_name: koillection
     restart: unless-stopped
     ports:
@@ -55,7 +55,7 @@ services:
       traefik.http.routers.koillection-local.entrypoints: websecure
       traefik.http.routers.koillection-local.service: koillection
       traefik.http.routers.koillection-local.tls: true
-
+      runtipi.managed: true
   koillection-db:
     image: postgres:15
     container_name: koillection-db
@@ -69,3 +69,5 @@ services:
       - ${APP_DATA_DIR}/data/volumes/postgresql:/var/lib/postgresql/data
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

@@ -14,3 +14,5 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

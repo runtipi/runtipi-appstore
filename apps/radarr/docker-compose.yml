@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   radarr:
-    image: ghcr.io/linuxserver/radarr:5.4.6
+    image: ghcr.io/linuxserver/radarr:5.8.3
     container_name: radarr
     environment:
       - PUID=1000
@@ -43,3 +43,4 @@ services:
       traefik.http.routers.radarr-local.entrypoints: websecure
       traefik.http.routers.radarr-local.service: radarr
       traefik.http.routers.radarr-local.tls: true
+      runtipi.managed: true

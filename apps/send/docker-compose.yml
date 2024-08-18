@@ -49,7 +49,7 @@ services:
       traefik.http.routers.send-local.entrypoints: websecure
       traefik.http.routers.send-local.service: send
       traefik.http.routers.send-local.tls: true
-  
+      runtipi.managed: true
   send-redis:
     image: redis:alpine
     container_name: send-redis
@@ -63,3 +63,5 @@ services:
       retries: 30
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

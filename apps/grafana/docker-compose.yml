@@ -3,7 +3,7 @@ version: "3"
 services:
   grafana:
     container_name: grafana
-    image: grafana/grafana-oss:10.4.2
+    image: grafana/grafana-oss:11.1.4
     ports:
       - ${APP_PORT}:3000
     volumes:
@@ -35,3 +35,4 @@ services:
       traefik.http.routers.grafana-local.entrypoints: websecure
       traefik.http.routers.grafana-local.service: grafana
       traefik.http.routers.grafana-local.tls: true
+      runtipi.managed: true

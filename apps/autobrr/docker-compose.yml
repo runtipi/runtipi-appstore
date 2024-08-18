@@ -3,7 +3,7 @@ version: "3"
 services:
   autobrr:
     container_name: autobrr
-    image: ghcr.io/autobrr/autobrr:v1.41.0
+    image: ghcr.io/autobrr/autobrr:v1.44.0
     restart: unless-stopped
     ports:
       - ${APP_PORT}:7474
@@ -39,3 +39,4 @@ services:
       traefik.http.routers.autobrr-local.entrypoints: websecure
       traefik.http.routers.autobrr-local.service: autobrr
       traefik.http.routers.autobrr-local.tls: true
+      runtipi.managed: true

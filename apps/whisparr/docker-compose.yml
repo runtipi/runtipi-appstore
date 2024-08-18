@@ -3,7 +3,7 @@ services:
   whisparr:
     container_name: whisparr
     hostname: ${APP_ID}
-    image: ghcr.io/hotio/whisparr:nightly-2.0.0.313
+    image: ghcr.io/hotio/whisparr:nightly-2.0.0.548
     ports:
       - "${APP_PORT}:6969"
     environment:
@@ -52,3 +52,4 @@ services:
       traefik.http.routers.whisparr-local.entrypoints: websecure
       traefik.http.routers.whisparr-local.service: whisparr
       traefik.http.routers.whisparr-local.tls: true
+      runtipi.managed: true

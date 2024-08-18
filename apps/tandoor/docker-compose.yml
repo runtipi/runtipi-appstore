@@ -2,7 +2,7 @@ version: "3.7"
 services:
   tandoor:
     container_name: tandoor
-    image: ghcr.io/tandoorrecipes/recipes:1.5.17
+    image: ghcr.io/tandoorrecipes/recipes:1.5.18
     volumes:
       - ${APP_DATA_DIR}/data/staticfiles:/opt/recipes/staticfiles
       - ${APP_DATA_DIR}/data/mediafiles:/opt/recipes/mediafiles
@@ -50,6 +50,7 @@ services:
       traefik.http.routers.tandoor-local.entrypoints: websecure
       traefik.http.routers.tandoor-local.service: tandoor
       traefik.http.routers.tandoor-local.tls: true
+      runtipi.managed: true
     depends_on:
       tandoor-db:
         condition: service_healthy
@@ -73,3 +74,5 @@ services:
       timeout: 5s
       retries: 5
       start_period: 30s
+    labels:
+      runtipi.managed: true

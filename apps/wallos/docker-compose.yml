@@ -2,7 +2,7 @@ version: '3'
 
 services:
   wallos:
-    image: bellamy/wallos:1.23.0
+    image: bellamy/wallos:2.22.1
     container_name: wallos
     environment:
       - TZ=${TZ}
@@ -40,3 +40,4 @@ services:
       traefik.http.routers.wallos-local.entrypoints: websecure
       traefik.http.routers.wallos-local.service: wallos
       traefik.http.routers.wallos-local.tls: true
+      runtipi.managed: true

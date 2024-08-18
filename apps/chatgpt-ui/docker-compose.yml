@@ -41,7 +41,7 @@ services:
       traefik.http.routers.chatgpt-ui-local.entrypoints: websecure
       traefik.http.routers.chatgpt-ui-local.service: chatgpt-ui
       traefik.http.routers.chatgpt-ui-local.tls: true
-
+      runtipi.managed: true
   chatgpt-ui-wsgi-server:
     image: wongsaang/chatgpt-ui-wsgi-server:v2.5.2
     container_name: chatgpt-ui-wsgi-server
@@ -65,7 +65,8 @@ services:
     depends_on:
       - chatgpt-ui-db
     restart: always
-
+    labels:
+      runtipi.managed: true
   chatgpt-ui-web-server:
     image: wongsaang/chatgpt-ui-web-server:v2.5.2
     container_name: chatgpt-ui-web-server
@@ -79,7 +80,8 @@ services:
     networks:
       - tipi_main_network
     restart: always
-
+    labels:
+      runtipi.managed: true
   chatgpt-ui-db:
     container_name: chatgpt-ui-db
     image: lscr.io/linuxserver/mariadb:latest
@@ -93,3 +95,5 @@ services:
     restart: "unless-stopped"
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

@@ -88,3 +88,4 @@ services:
       traefik.http.routers.linkstack-local.service: linkstack
       traefik.http.routers.linkstack-local.middlewares: linkstack-security-headers,linkstack-forwarded-headers
       traefik.http.routers.linkstack-local.tls: true
+      runtipi.managed: true

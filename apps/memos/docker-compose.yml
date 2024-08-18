@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   memos:
-    image: neosmemo/memos:0.21.0
+    image: neosmemo/memos:0.22.4
     container_name: memos
     volumes:
       - ${APP_DATA_DIR}/memos:/var/opt/memos
@@ -35,3 +35,4 @@ services:
       traefik.http.routers.memos-local.entrypoints: websecure
       traefik.http.routers.memos-local.service: memos
       traefik.http.routers.memos-local.tls: true
+      runtipi.managed: true

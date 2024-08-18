@@ -5,11 +5,9 @@
   "exposable": true,
   "id": "wordpress",
   "description": "WordPress is a popular content management system for creating websites and blogs.",
-  "tipi_version": 5,
-  "version": "6.5.2",
-  "categories": [
-    "social"
-  ],
+  "tipi_version": 10,
+  "version": "6.6.1",
+  "categories": ["social"],
   "short_desc": "Popular CMS for websites and blogs",
   "author": "WordPress.org",
   "source": "https://github.com/WordPress/WordPress",
@@ -28,8 +26,7 @@
       "env_variable": "DB_ROOT_PASSWORD"
     }
   ],
-  "supported_architectures": [
-    "amd64",
-    "arm64"
-  ]
+  "supported_architectures": ["amd64", "arm64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566283000
 }

@@ -43,7 +43,7 @@ services:
       traefik.http.routers.filestash-local.entrypoints: websecure
       traefik.http.routers.filestash-local.service: filestash
       traefik.http.routers.filestash-local.tls: true
-
+      runtipi.managed: true
   filestash-onlyoffice:
     container_name: filestash_oods
     image: onlyoffice/documentserver:7.3.3.50
@@ -52,3 +52,5 @@ services:
       - seccomp:unconfined
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

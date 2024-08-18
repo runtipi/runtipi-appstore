@@ -50,7 +50,7 @@ services:
       traefik.http.routers.mixpost-pro-local.entrypoints: websecure
       traefik.http.routers.mixpost-pro-local.service: mixpost-pro
       traefik.http.routers.mixpost-pro-local.tls: true
-
+      runtipi.managed: true
   mixpost-pro-mysql:
     image: mysql/mysql-server:8.0
     container_name: mixpost_mysql
@@ -68,7 +68,8 @@ services:
       - ${APP_DATA_DIR}/data/mysql:/var/lib/mysql
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   mixpost-pro-redis:
     image: "redis:latest"
     container_name: mixpost-pro-redis
@@ -81,3 +82,5 @@ services:
       timeout: 5s
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

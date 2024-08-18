@@ -4,7 +4,7 @@ services:
   viewtube:
     restart: unless-stopped
     container_name: viewtube
-    image: mauriceo/viewtube:0.15.3
+    image: mauriceo/viewtube:0.16.2
     depends_on:
       - viewtube-mongodb
       - viewtube-redis
@@ -46,7 +46,7 @@ services:
       traefik.http.routers.viewtube-local.entrypoints: websecure
       traefik.http.routers.viewtube-local.service: viewtube
       traefik.http.routers.viewtube-local.tls: true
-  
+      runtipi.managed: true
   viewtube-mongodb:
     container_name: viewtube-mongodb
     restart: unless-stopped
@@ -55,7 +55,8 @@ services:
       - tipi_main_network
     volumes:
       - ${APP_DATA_DIR}/data/db:/data/db
-  
+    labels:
+      runtipi.managed: true
   viewtube-redis:
     container_name: viewtube-redis
     restart: unless-stopped
@@ -64,3 +65,5 @@ services:
       - tipi_main_network
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
+    labels:
+      runtipi.managed: true

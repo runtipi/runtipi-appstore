@@ -2,7 +2,7 @@ version: "3"
 services:
   navidrome:
     container_name: navidrome
-    image: deluan/navidrome:0.52.0
+    image: deluan/navidrome:0.52.5
     ports:
       - ${APP_PORT}:4533
     restart: unless-stopped
@@ -41,3 +41,4 @@ services:
       traefik.http.routers.navidrome-local.entrypoints: websecure
       traefik.http.routers.navidrome-local.service: navidrome
       traefik.http.routers.navidrome-local.tls: true
+      runtipi.managed: true

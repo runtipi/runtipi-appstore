@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   resilio-sync:
-    image: lscr.io/linuxserver/resilio-sync:2.7.3
+    image: lscr.io/linuxserver/resilio-sync:2.8.1
     container_name: resilio-sync
     environment:
       - PUID=1000
@@ -41,3 +41,4 @@ services:
       traefik.http.routers.resilio-sync-local.entrypoints: websecure
       traefik.http.routers.resilio-sync-local.service: resilio-sync
       traefik.http.routers.resilio-sync-local.tls: true
+      runtipi.managed: true

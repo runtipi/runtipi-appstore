@@ -3,7 +3,7 @@ version: "3"
 services:
   flatnotes:
     container_name: flatnotes
-    image: dullage/flatnotes:v4.0.4
+    image: dullage/flatnotes:v5.2.2
     environment:
       FLATNOTES_AUTH_TYPE: ${FLATNOTES_AUTH_TYPE}
       FLATNOTES_USERNAME: ${FLATNOTES_USERNAME}
@@ -44,3 +44,4 @@ services:
       traefik.http.routers.flatnotes-local.entrypoints: websecure
       traefik.http.routers.flatnotes-local.service: flatnotes
       traefik.http.routers.flatnotes-local.tls: true
+      runtipi.managed: true

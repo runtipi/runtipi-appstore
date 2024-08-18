@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   drawio:
-    image: jgraph/drawio:24.3.1
+    image: jgraph/drawio:24.7.5
     ports:
       - ${APP_PORT}:8080
     container_name: drawio
@@ -34,3 +34,4 @@ services:
       traefik.http.routers.drawio-local.entrypoints: websecure
       traefik.http.routers.drawio-local.service: drawio
       traefik.http.routers.drawio-local.tls: true
+      runtipi.managed: true

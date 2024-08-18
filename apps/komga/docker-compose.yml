@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   komga:
-    image: ghcr.io/gotson/komga:1.11.1
+    image: ghcr.io/gotson/komga:1.11.2
     container_name: komga
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
@@ -17,7 +17,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.komga-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.komga.loadbalancer.server.port: 8080
+      traefik.http.services.komga.loadbalancer.server.port: 25600
       # Web
       traefik.http.routers.komga-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.komga-insecure.entrypoints: web
@@ -38,3 +38,4 @@ services:
       traefik.http.routers.komga-local.entrypoints: websecure
       traefik.http.routers.komga-local.service: komga
       traefik.http.routers.komga-local.tls: true
+      runtipi.managed: true

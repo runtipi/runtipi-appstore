@@ -1,7 +1,7 @@
 services:
   rallly:
     container_name: rallly
-    image: lukevella/rallly:3.7.0
+    image: lukevella/rallly:3.9.0
     restart: always
     depends_on:
       rallly_db:
@@ -52,7 +52,7 @@ services:
       traefik.http.routers.rallly-local.entrypoints: websecure
       traefik.http.routers.rallly-local.service: rallly
       traefik.http.routers.rallly-local.tls: true
-
+      runtipi.managed: true
   rallly_db:
     container_name: rallly_db
     image: postgres:14
@@ -70,3 +70,5 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    labels:
+      runtipi.managed: true

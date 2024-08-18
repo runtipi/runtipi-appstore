@@ -45,3 +45,4 @@ services:
       traefik.http.routers.monerod-local.entrypoints: websecure
       traefik.http.routers.monerod-local.service: monerod
       traefik.http.routers.monerod-local.tls: true
+      runtipi.managed: true

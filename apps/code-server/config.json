@@ -1,19 +1,17 @@
 {
   "$schema": "../schema.json",
-  "name": "Code-Server - Web VS Code",
+  "name": "Code Server",
   "available": true,
   "exposable": true,
   "port": 8138,
   "id": "code-server",
-  "tipi_version": 28,
-  "version": "4.23.1",
-  "categories": [
-    "development"
-  ],
-  "description": "",
-  "short_desc": "Code-server is VS Code running on a remote server, accessible through the browser.",
-  "author": "https://github.com/coder",
-  "source": "https://github.com/linuxserver/docker-code-server",
+  "tipi_version": 38,
+  "version": "4.91.1",
+  "categories": ["development"],
+  "description": "Code-server is VS Code running on a remote server, accessible through the browser.",
+  "short_desc": "VS Code in the browser",
+  "author": "coder",
+  "source": "https://github.com/coder/code-server",
   "form_fields": [
     {
       "type": "password",
@@ -32,8 +30,7 @@
       "env_variable": "CODESERVER_SUDO_PASSWORD"
     }
   ],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566284000
 }

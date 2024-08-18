@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   bazarr:
-    image: lscr.io/linuxserver/bazarr:1.4.2
+    image: lscr.io/linuxserver/bazarr:1.4.3
     container_name: bazarr
     environment:
       - PUID=1000
@@ -43,3 +43,4 @@ services:
       traefik.http.routers.bazarr-local.entrypoints: websecure
       traefik.http.routers.bazarr-local.service: bazarr
       traefik.http.routers.bazarr-local.tls: true
+      runtipi.managed: true

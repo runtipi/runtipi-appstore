@@ -2,7 +2,7 @@ version: "3"
 
 services:
   movary:
-    image: leepeuker/movary:0.61.0
+    image: leepeuker/movary:0.62.1
     container_name: movary
     environment:
       - TMDB_API_KEY=${MOVARY_TMDB_API_KEY}
@@ -51,9 +51,9 @@ services:
       traefik.http.routers.movary-local.entrypoints: websecure
       traefik.http.routers.movary-local.service: movary
       traefik.http.routers.movary-local.tls: true
-
+      runtipi.managed: true
   movary-migration:
-    image: leepeuker/movary:0.61.0
+    image: leepeuker/movary:0.62.1
     container_name: movary-migration
     command: php bin/console.php database:migration:migrate
     environment:
@@ -75,7 +75,8 @@ services:
         condition: service_healthy
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   movary-db:
     image: mysql:8.0
     container_name: movary-db
@@ -92,3 +93,5 @@ services:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 20s
       retries: 10
+    labels:
+      runtipi.managed: true

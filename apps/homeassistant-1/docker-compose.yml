@@ -2,7 +2,7 @@ version: '3'
 
 services:
   homeassistant-1:
-    image: ghcr.io/home-assistant/home-assistant:2024.4.4
+    image: ghcr.io/home-assistant/home-assistant:2024.8.2
     container_name: homeassistant-1
     environment:
       - TZ=${TZ}
@@ -39,3 +39,4 @@ services:
       traefik.http.routers.homeassistant-local.entrypoints: websecure
       traefik.http.routers.homeassistant-local.service: homeassistant
       traefik.http.routers.homeassistant-local.tls: true
+      runtipi.managed: true

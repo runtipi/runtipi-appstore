@@ -3,7 +3,7 @@ version: '3.9'
 services:
   kiwix-serve:
     container_name: kiwix-serve
-    image: ghcr.io/kiwix/kiwix-serve:3.5.0-2
+    image: ghcr.io/kiwix/kiwix-serve:3.7.0-2
     ports:
       - ${APP_PORT}:8080
     volumes:
@@ -37,3 +37,4 @@ services:
       traefik.http.routers.kiwix-serve-local.entrypoints: websecure
       traefik.http.routers.kiwix-serve-local.service: kiwix-serve
       traefik.http.routers.kiwix-serve-local.tls: true
+      runtipi.managed: true

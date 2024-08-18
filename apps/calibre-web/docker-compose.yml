@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   calibre-web:
-    image: lscr.io/linuxserver/calibre-web:0.6.21
+    image: lscr.io/linuxserver/calibre-web:0.6.23
     container_name: calibre-web
     environment:
       - PUID=1000
@@ -40,3 +40,4 @@ services:
       traefik.http.routers.calibre-web-local.entrypoints: websecure
       traefik.http.routers.calibre-web-local.service: calibre-web
       traefik.http.routers.calibre-web-local.tls: true
+      runtipi.managed: true

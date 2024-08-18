@@ -1,10 +1,8 @@
-version: "3.4"
-
 services:
   homebox:
-    image: ghcr.io/hay-kot/homebox:v0.10.3
+    image: ghcr.io/sysadminsmedia/homebox:0.13.0-rootless
     container_name: homebox
-    restart: always
+    restart: unless-stopped
     environment:
       - HBOX_LOG_LEVEL=info
       - HBOX_LOG_FORMAT=text
@@ -16,6 +14,7 @@ services:
       - ${APP_PORT}:7745
     networks:
       - tipi_main_network
+    user: 1000:1000
     labels:
       # Main
       traefik.enable: true
@@ -41,3 +40,4 @@ services:
       traefik.http.routers.homebox-local.entrypoints: websecure
       traefik.http.routers.homebox-local.service: homebox
       traefik.http.routers.homebox-local.tls: true
+      runtipi.managed: true

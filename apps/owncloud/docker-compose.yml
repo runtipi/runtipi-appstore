@@ -2,7 +2,7 @@ version: "3"
 
 services:
   owncloud:
-    image: owncloud/server:10.14.0
+    image: owncloud/server:10.15.0
     container_name: owncloud
     restart: unless-stopped
     ports:
@@ -57,7 +57,7 @@ services:
       traefik.http.routers.owncloud-local.entrypoints: websecure
       traefik.http.routers.owncloud-local.service: owncloud
       traefik.http.routers.owncloud-local.tls: true
-
+      runtipi.managed: true
   owncloud-db:
     image: mariadb:10.6 # minimum required ownCloud version is 10.9
     container_name: owncloud-db
@@ -85,7 +85,8 @@ services:
       - ${APP_DATA_DIR}/data/mysql:/var/lib/mysql
     networks:
       - tipi_main_network
-
+    labels:
+      runtipi.managed: true
   owncloud-redis:
     image: redis:6
     container_name: owncloud-redis
@@ -100,3 +101,5 @@ services:
       - ${APP_DATA_DIR}/data/redis:/data
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

@@ -42,6 +42,7 @@ services:
       traefik.http.routers.penpot-local.entrypoints: websecure
       traefik.http.routers.penpot-local.service: penpot
       traefik.http.routers.penpot-local.tls: true
+      runtipi.managed: true
     environment:
       - PENPOT_FLAGS=enable-registration enable-login-with-password
 
@@ -66,7 +67,8 @@ services:
       - PENPOT_ASSETS_STORAGE_BACKEND=assets-fs
       - PENPOT_STORAGE_ASSETS_FS_DIRECTORY=/opt/data/assets
       - PENPOT_TELEMETRY_ENABLED=false
-
+    labels:
+      runtipi.managed: true
   penpot-exporter:
     image: penpotapp/exporter:latest
     container_name: penpot-exporter
@@ -76,7 +78,8 @@ services:
     environment:
       - PENPOT_PUBLIC_URI=http://penpot
       - PENPOT_REDIS_URI=redis://penpot-redis/0
-
+    labels:
+      runtipi.managed: true
   penpot-postgres:
     image: postgres:14
     restart: unless-stopped
@@ -91,10 +94,13 @@ services:
       - POSTGRES_DB=penpot
       - POSTGRES_USER=tipi
       - POSTGRES_PASSWORD=${PENPOT_POSTGRES_PASSWORD}
-
+    labels:
+      runtipi.managed: true
   penpot-redis:
     image: redis:7
     container_name: penpot-redis
     restart: unless-stopped
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

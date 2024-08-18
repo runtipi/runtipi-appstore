@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   code-server:
-    image: lscr.io/linuxserver/code-server:4.23.1
+    image: lscr.io/linuxserver/code-server:4.91.1
     container_name: code-server
     environment:
       - PUID=1000
@@ -9,10 +9,12 @@ services:
       - TZ=${TZ}
       - PASSWORD=${CODESERVER_PASSWORD}
       - SUDO_PASSWORD=${CODESERVER_SUDO_PASSWORD}
-      - DEFAULT_WORKSPACE=/config/workspace #optional
+      - DEFAULT_WORKSPACE=/config/workspace
     volumes:
-      - ${APP_DATA_DIR}/data/config:/config #config dir
+      - ${APP_DATA_DIR}/data/config:/config
       - ${APP_DATA_DIR}/data/projects:/projects
+      - ${ROOT_FOLDER_HOST}/app-data:/runtipi/app-data
+      - ${ROOT_FOLDER_HOST}/user-config:/runtipi/user-config
     ports:
       - ${APP_PORT}:8443
     restart: unless-stopped
@@ -43,3 +45,4 @@ services:
       traefik.http.routers.code-server-local.entrypoints: websecure
       traefik.http.routers.code-server-local.service: code-server
       traefik.http.routers.code-server-local.tls: true
+      runtipi.managed: true

@@ -42,7 +42,7 @@ services:
       traefik.http.routers.ryot-local.entrypoints: websecure
       traefik.http.routers.ryot-local.service: ryot
       traefik.http.routers.ryot-local.tls: true
-
+      runtipi.managed: true
   ryot-db:
     container_name: ryot-db
     image: postgres:15-alpine
@@ -55,3 +55,5 @@ services:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
     networks:
       - tipi_main_network
+    labels:
+      runtipi.managed: true

@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   jellyfin:
-    image: lscr.io/linuxserver/jellyfin:10.8.13
+    image: lscr.io/linuxserver/jellyfin:10.9.9
     container_name: jellyfin
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
@@ -41,3 +41,4 @@ services:
       traefik.http.routers.jellyfin-local.entrypoints: websecure
       traefik.http.routers.jellyfin-local.service: jellyfin
       traefik.http.routers.jellyfin-local.tls: true
+      runtipi.managed: true

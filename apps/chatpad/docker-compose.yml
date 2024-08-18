@@ -33,3 +33,4 @@ services:
       traefik.http.routers.chatpad-local.entrypoints: websecure
       traefik.http.routers.chatpad-local.service: chatpad
       traefik.http.routers.chatpad-local.tls: true
+      runtipi.managed: true
