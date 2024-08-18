@@ -7,13 +7,13 @@
   "id": "hello-world",
   "tipi_version": 2,
   "version": "latest",
-  "categories": [
-    "utilities"
-  ],
+  "categories": ["utilities"],
   "description": "Hello World web server in under 2 MB",
   "short_desc": "Hello World web server in under 2 MB",
   "author": "crccheck",
   "source": "https://github.com/crccheck/docker-hello-world",
   "form_fields": [],
-  "supported_architectures": ["amd64"]
+  "supported_architectures": ["amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566284000
 }

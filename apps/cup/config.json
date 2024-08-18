@@ -13,5 +13,7 @@
   "source": "https://github.com/sergi0g/cup",
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],
-  "form_fields": []
+  "form_fields": [],
+  "created_at": 1691943801422,
+  "updated_at": 1723566283000
 }

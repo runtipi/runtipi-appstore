@@ -129,12 +129,22 @@
               "type": "string"
             }
           },
-          "required": ["type", "label", "env_variable"]
+          "required": [
+            "type",
+            "label",
+            "env_variable"
+          ]
         }
       ]
     },
     "dynamic_config": {
       "type": "boolean"
+    },
+    "created_at": {
+      "type": "number"
+    },
+    "updated_at": {
+      "type": "number"
     }
   },
   "required": [
