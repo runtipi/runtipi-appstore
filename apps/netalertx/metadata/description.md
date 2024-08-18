@@ -34,7 +34,7 @@ Head to [https://netalertx.com/](https://netalertx.com/) for more gifs and scree
 
   <hr>
 
-  Most of us don't know what's going on on our home network, but we want our family and data to be safe.  _Command-line tools_ are great, but the output can be _hard to understand_ and action if you are not a network specialist.
+  Most of us don't know what's going on in our home network, but we want our family and data to be safe.  _Command-line tools_ are great, but the output can be _hard to understand_ and action if you are not a network specialist.
 
   Net<b>Alert</b><sup>x</sup> gives you peace of mind. _Visualize and immediately report 📬_ what is going on in your network - this is the first step to enhance your _network security 🔐_. 
 
