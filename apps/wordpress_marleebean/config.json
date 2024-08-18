@@ -1,7 +1,7 @@
 {
   "name": "WordPress MarleeBean",
   "available": true,
-  "port": 8225,
+  "port": 8228,
   "exposable": true,
   "id": "wordpress_marleebean",
   "description": "WordPress is a popular content management system for creating websites and blogs.",
