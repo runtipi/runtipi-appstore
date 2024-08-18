@@ -11,7 +11,7 @@ Use of a [Google Coral Accelerator](https://coral.ai/products/) is optional, but
 - Tight integration with Home Assistant via a [custom component](https://github.com/blakeblackshear/frigate-hass-integration)
 - Designed to minimize resource use and maximize performance by only looking for objects when and where it is necessary
 - Leverages multiprocessing heavily with an emphasis on realtime over processing every frame
-- Uses a very low overhead motion detection to determine where to run object detection
+- Uses a very low overhead motion detection to determine where to run it
 - Object detection with TensorFlow runs in separate processes for maximum FPS
 - Communicates over MQTT for easy integration into other systems
 - Records video with retention settings based on detected objects
