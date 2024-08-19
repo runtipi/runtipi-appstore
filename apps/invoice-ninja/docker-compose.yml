@@ -8,6 +8,8 @@ services:
       - IN_USER_EMAIL=${INVOICE_NINJA_USER_MAIL}
       - IN_PASSWORD=${INVOICE_NINJA_USER_PASSWORD}
       - APP_URL=http://invoice-ninja-web
+      - APP_NAME="Invoice Ninja"
+      - APP_ENV=production
       - APP_KEY=${INVOICE_NINJA_APP_KEY}
       - APP_CIPHER=AES-256-CBC
       - DB_HOST=invoice-ninja-db

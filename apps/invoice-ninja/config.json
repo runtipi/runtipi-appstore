@@ -33,10 +33,15 @@
       "env_variable": "INVOICE_NINJA_BDD_PASSWORD"
     },
     {
-      "type": "text",
-      "label": "Invoice Ninja Application Key (cf. Installation Notice in Readme)",
+      "type": "password",
+      "label": "Encryption key - used for encryption / decryption of some datapoints within the application. Backup this key in a secure location.",
       "required": true,
-      "env_variable": "INVOICE_NINJA_APP_KEY"
+      "env_variable": "INVOICE_NINJA_APP_KEY",
+      "placeholder": "base64:your_encryption_key",
+      "regex": "base64:[a-zA-Z0-9+/=]+",
+      "pattern_error": "The encryption key must be a base64 encoded string.",
+      "min": 51,
+      "max": 51
     }
   ],
   "supported_architectures": ["arm64", "amd64"],
