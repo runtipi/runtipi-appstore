@@ -34,7 +34,7 @@
     },
     {
       "type": "password",
-      "label": "Encryption key - used for encryption / decryption of some datapoints within the application. Backup this key in a secure location.",
+      "label": "Encryption key - used for encryption / decryption of some datapoints within the application. Backup this key in a secure location. (cf. Installation Notice in Readme)",
       "required": true,
       "env_variable": "INVOICE_NINJA_APP_KEY",
       "placeholder": "base64:your_encryption_key",
