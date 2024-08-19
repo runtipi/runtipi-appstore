@@ -8,7 +8,7 @@
    "id": "mempool",
    "description": "Bitcoin mempool visualizer and blockchain explorer",
    "tipi_version": 1,
-   "version": "v3.0.0-dev2",
+   "version": "v3.0.0-beta5",
    "categories": [
       "finance"
    ],
@@ -19,6 +19,8 @@
       "amd64",
       "arm64"
    ],
+   "created_at": 1724054955000,
+   "updated_at": 1724054955000,
    "form_fields": [
       {
          "type": "text",
