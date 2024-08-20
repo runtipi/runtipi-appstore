@@ -10,7 +10,7 @@ If you want to see new apps on Tipi you can either:
 - [Join the Discord](https://discord.gg/Bu9qEPnHsc) members of the community will add it.
 - Fork this repo and create the necessary files for a Tipi app. Follow this [guide](https://www.runtipi.io/docs/contributing/adding-a-new-app)`
 
-## Apps available (251)
+## Apps available (252)
 
 | Name                                                                         | Description                                                                                                                                                         | Port  |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
@@ -66,6 +66,7 @@ If you want to see new apps on Tipi you can either:
 | [Electrs](https://github.com/romanz/electrs)                                 | Electrum server                                                                                                                                                     | 3006  |
 | [Email OAuth2 Proxy](https://github.com/simonrob/email-oauth2-proxy)         | OAuth Proxy for IMAP/POP/SMTP.                                                                                                                                      | 1999  |
 | [Emulatorjs](https://github.com/EmulatorJS/EmulatorJS)                       | Self-hosted Javascript emulation for various system.                                                                                                                | 8164  |
+| [ESP Home](https://github.com/esphome/esphome)                               | Control your ESP8266/ESP32.                                                                                                                                         | 6052  |
 | [Excalidraw](https://github.com/excalidraw/excalidraw)                       | Online whiteboard collaboration made easy                                                                                                                           | 8172  |
 | [File Browser](https://github.com/filebrowser/filebrowser)                   | Access your homeserver files from your browser                                                                                                                      | 8096  |
 | [Filestash](https://github.com/mickael-kerjean/filestash)                    | A modern web client for SFTP, S3, FTP, WebDAV, Git, Minio, LDAP, CalDAV, CardDAV, Mysql, Backblaze                                                                  | 8189  |
