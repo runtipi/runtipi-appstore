@@ -1,4 +1,4 @@
-version: "3.7"
+version: '3.9'
 services:
   plausible:
     container_name: plausible
@@ -9,10 +9,10 @@ services:
       - plausible-db
       - plausible-events-db
     ports:
-      - ${APP_PORT}:8000 
+      - ${APP_PORT}:8000
     environment:
-      - BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN} 
-      - SECRET_KEY_BASE=${PLAUSIBLE_SECRET_KEY_BASE} 
+      - BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - SECRET_KEY_BASE=${PLAUSIBLE_SECRET_KEY_BASE}
       - DATABASE_URL=postgres://tipi:${PLAUSIBLE_DB_PASSWORD}@plausible-db:5432/plausible-db
       - CLICKHOUSE_DATABASE_URL=http://plausible-events-db:8123/plausible_events_db
       - DISABLE_REGISTRATION=${PLAUSIBLE_DISABLE_REGISTRATION}
@@ -43,11 +43,13 @@ services:
       traefik.http.routers.plausible-local.entrypoints: websecure
       traefik.http.routers.plausible-local.service: plausible
       traefik.http.routers.plausible-local.tls: true
+      # Runtipi managed
       runtipi.managed: true
+
   plausible-db:
-    # supported versions are 12, 13, and 14
+    # Supported versions are 12, 13 and 14
     image: postgres:14-alpine
-    container_name: plausible-db    
+    container_name: plausible-db
     restart: always
     networks:
       - tipi_main_network
@@ -58,13 +60,15 @@ services:
       - POSTGRES_USER=tipi
       - POSTGRES_DB=plausible-db
     labels:
+      # Runtipi managed
       runtipi.managed: true
+
   plausible-events-db:
     container_name: plausible-events-db
     image: clickhouse/clickhouse-server:22.6-alpine
     restart: always
     networks:
-      - tipi_main_network 
+      - tipi_main_network
     volumes:
       - ${APP_DATA_DIR}/data/plausible-event-data:/var/lib/clickhouse
       - ${APP_DATA_DIR}/data/clickhouse/clickhouse-config.xml:/etc/clickhouse-server/config.d/logging.xml:ro
@@ -74,4 +78,5 @@ services:
         soft: 262144
         hard: 262144
     labels:
+      # Runtipi managed
       runtipi.managed: true
