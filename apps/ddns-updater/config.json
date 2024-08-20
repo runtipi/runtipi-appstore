@@ -13,6 +13,7 @@
   "source": "https://github.com/qdm12/ddns-updater",
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],
+  "form_fields": [],
   "created_at": 1724190921000,
   "updated_at": 1724190921000
 }
