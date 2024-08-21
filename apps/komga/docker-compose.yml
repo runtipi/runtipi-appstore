@@ -6,8 +6,8 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
       - ${APP_DATA_DIR}/data/data:/data
-      - $/mnt/blackfrancis/media/books:/books
-      - $/mnt/blackfrancis/media/comics:/comics  
+      - $media/books:/books
+      - $media/comics:/comics  
     environment:
       - TZ=${TZ}
     ports:
