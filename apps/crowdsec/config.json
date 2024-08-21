@@ -5,9 +5,12 @@
   "available": true,
   "exposable": true,
   "id": "crowdsec",
-  "tipi_version": 1,
-  "version": "v1.6.1-2",
-  "categories": ["security", "utilities"],
+  "tipi_version": 2,
+  "version": "v1.6.2",
+  "categories": [
+    "security",
+    "utilities"
+  ],
   "description": "CrowdSec is a free, modern & collaborative behavior detection engine, coupled with a global IP reputation network. It stacks on fail2ban's philosophy but is IPV6 compatible and 60x faster (Go vs Python), it uses Grok patterns to parse logs and YAML scenarios to identify behaviors. CrowdSec is engineered for modern Cloud / Containers / VM-based infrastructures (by decoupling detection and remediation). Once detected you can remedy threats with various bouncers (firewall block, nginx http 403, Captchas, etc.) while the aggressive IP can be sent to CrowdSec for curation before being shared among all users to further improve everyone's security. See FAQ or read below for more.",
   "short_desc": "Participative security solution offering crowdsourced protection against malicious IPs and access to the most advanced real-world CTI.",
   "author": "crowdsecurity",
@@ -22,7 +25,10 @@
       "env_variable": "CROWDSEC_BOUNCER_API_KEY"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
   "created_at": 1691943801422,
   "updated_at": 1723566284000
 }
