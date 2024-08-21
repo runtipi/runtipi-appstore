@@ -1,18 +1,18 @@
-# config.json
 {
   "author": "mcmonkeyprojects",
   "available": true,
   "categories": [
-    "development",
-    "utilities"
+    "ai",
+    "utilities",
+    "media"
   ],
   "created_at": 1724134338800,
-  "description": "SwarmUI is a web interface for managing Docker Swarm clusters.",
+  "description": "SwarmUI is a web interface to Stable Diffusion models. Self-host or connect to mode providers",
   "exposable": true,
   "id": "swarmui",
   "name": "SwarmUI",
-  "port": 8080,
-  "short_desc": "A web interface for Docker Swarm clusters.",
+  "port": 8990,
+  "short_desc": "A web interface for Stable Diffusion.",
   "source": "https://github.com/mcmonkeyprojects/SwarmUI",
   "supported_architectures": [
     "arm64",

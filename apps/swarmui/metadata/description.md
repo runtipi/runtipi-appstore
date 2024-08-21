@@ -1,4 +1,3 @@
-# metadata/description.md
 # SwarmUI
 
 SwarmUI is a web interface designed to manage Docker Swarm clusters. It provides an intuitive and user-friendly interface for monitoring and managing your Docker Swarm environment.

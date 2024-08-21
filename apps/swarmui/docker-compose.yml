@@ -1,19 +1,17 @@
-# docker-compose.yml
-version: '3'
 services:
   swarmui:
     container_name: swarmui
     image: ghcr.io/cori/swarmui:0.9.2-beta
     restart: unless-stopped
     ports:
-      - "${APP_PORT}:8080"
+      - "${APP_PORT}:7801"
     networks:
       - tipi_main_network
     labels:
       # Main
       traefik.enable: true
       traefik.http.middlewares.swarmui-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.swarmui.loadbalancer.server.port: 8080
+      traefik.http.services.swarmui.loadbalancer.server.port: 7801
       # Web
       traefik.http.routers.swarmui-insecure.rule: Host("${APP_DOMAIN}")
       traefik.http.routers.swarmui-insecure.entrypoints: web
