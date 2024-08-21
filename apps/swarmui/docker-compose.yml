@@ -1,0 +1,37 @@
+# docker-compose.yml
+version: '3'
+services:
+  swarmui:
+    container_name: swarmui
+    image: ghcr.io/cori/swarmui:0.9.2-beta
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT}:8080"
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.swarmui-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.swarmui.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.swarmui-insecure.rule: Host("${APP_DOMAIN}")
+      traefik.http.routers.swarmui-insecure.entrypoints: web
+      traefik.http.routers.swarmui-insecure.service: swarmui
+      traefik.http.routers.swarmui-insecure.middlewares: swarmui-web-redirect
+      # Websecure
+      traefik.http.routers.swarmui.rule: Host("${APP_DOMAIN}")
+      traefik.http.routers.swarmui.entrypoints: websecure
+      traefik.http.routers.swarmui.service: swarmui
+      traefik.http.routers.swarmui.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.swarmui-local-insecure.rule: Host("swarmui.${LOCAL_DOMAIN}")
+      traefik.http.routers.swarmui-local-insecure.entrypoints: web
+      traefik.http.routers.swarmui-local-insecure.service: swarmui
+      traefik.http.routers.swarmui-local-insecure.middlewares: swarmui-web-redirect
+      # Local domain secure
+      traefik.http.routers.swarmui-local.rule: Host("swarmui.${LOCAL_DOMAIN}")
+      traefik.http.routers.swarmui-local.entrypoints: websecure
+      traefik.http.routers.swarmui-local.service: swarmui
+      traefik.http.routers.swarmui-local.tls: true
+      runtipi.managed: true

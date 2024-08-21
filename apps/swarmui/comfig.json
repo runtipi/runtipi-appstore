@@ -1,0 +1,24 @@
+# config.json
+{
+  "author": "mcmonkeyprojects",
+  "available": true,
+  "categories": [
+    "development",
+    "utilities"
+  ],
+  "created_at": 1724134338800,
+  "description": "SwarmUI is a web interface for managing Docker Swarm clusters.",
+  "exposable": true,
+  "id": "swarmui",
+  "name": "SwarmUI",
+  "port": 8080,
+  "short_desc": "A web interface for Docker Swarm clusters.",
+  "source": "https://github.com/mcmonkeyprojects/SwarmUI",
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "tipi_version": 1,
+  "updated_at": 1724134338800,
+  "version": "0.9.2-beta"
+}
