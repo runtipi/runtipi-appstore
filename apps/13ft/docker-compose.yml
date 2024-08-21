@@ -1,0 +1,35 @@
+services:
+  13ft:
+    container_name: 13ft
+    image: wasi-master/13ft:latest
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:5000
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.13ft-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.13ft.loadbalancer.server.port: 5000
+      # Web
+      traefik.http.routers.13ft-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.13ft-insecure.entrypoints: web
+      traefik.http.routers.13ft-insecure.service: 13ft
+      traefik.http.routers.13ft-insecure.middlewares: 13ft-web-redirect
+      # Websecure
+      traefik.http.routers.13ft.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.13ft.entrypoints: websecure
+      traefik.http.routers.13ft.service: 13ft
+      traefik.http.routers.13ft.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.13ft-local-insecure.rule: Host(`13ft.${LOCAL_DOMAIN}`)
+      traefik.http.routers.13ft-local-insecure.entrypoints: web
+      traefik.http.routers.13ft-local-insecure.service: 13ft
+      traefik.http.routers.13ft-local-insecure.middlewares: 13ft-web-redirect
+      # Local domain secure
+      traefik.http.routers.13ft-local.rule: Host(`13ft.${LOCAL_DOMAIN}`)
+      traefik.http.routers.13ft-local.entrypoints: websecure
+      traefik.http.routers.13ft-local.service: 13ft
+      traefik.http.routers.13ft-local.tls: true
+      runtipi.managed: true
