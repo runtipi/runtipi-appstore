@@ -7,6 +7,12 @@ services:
       - "${APP_PORT}:7801"
     networks:
       - tipi_main_network
+    volumes:
+      - ${APP_DATA_DIR}/swarmdata:/Data
+      - ${APP_DATA_DIR}/swarmbackend:/dlbackend
+      - ${APP_DATA_DIR}/Models:/Models
+      - ${APP_DATA_DIR}/Output:/Output
+      - ${APP_DATA_DIR}/CustomWorkflows:/src/BuiltinExtensions/ComfyUIBackend/CustomWorkflows
     labels:
       # Main
       traefik.enable: true
