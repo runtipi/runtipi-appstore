@@ -1,24 +1,23 @@
 {
-    "author": "wasi-master",
-    "available": true,
-    "categories": [
-      "utilities",
-      "media"
-    ],
-    "created_at": 1724134338800,
-    "description": "A self-hosted server to bypass ads and paywalls by pretending to be GoogleBot.",
-    "exposable": true,
-    "id": "13ft",
-    "name": "13 Feet Ladder",
-    "port": 5000,
-    "short_desc": "Bypass ads and paywalls",
-    "source": "https://github.com/wasi-master/13ft",
-    "supported_architectures": [
-      "arm64",
-      "amd64"
-    ],
-    "tipi_version": 1,
-    "updated_at": 1724134338800,
-    "version": "latest"
-  }
-  
+  "author": "wasi-master",
+  "available": true,
+  "categories": [
+    "utilities",
+    "media"
+  ],
+  "created_at": 1724134338800,
+  "description": "A self-hosted site similar to 12ft.io that works with websites that 12ft.io doesn't.",
+  "exposable": true,
+  "id": "13ft",
+  "name": "13 Feet Ladder",
+  "port": 5013,
+  "short_desc": "Bypass ads and paywalls with your own 12ft.io replacement.",
+  "source": "https://github.com/wasi-master/13ft",
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "tipi_version": 1,
+  "updated_at": 1724134338800,
+  "version": "0.3.3"
+}

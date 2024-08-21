@@ -1,32 +1,49 @@
 # 13 Feet Ladder
 
-## Description
+A site similar to [12ft.io](https://12ft.io) but is self hosted and works with websites that 12ft.io doesn't work with.
 
-13 Feet Ladder is a self-hosted server designed to bypass ads and paywalls on websites by pretending to be GoogleBot. This allows users to access content that would otherwise be restricted.
+## What is this?
 
-## How It Works
+This is a simple self hosted server that has a simple but powerful interface to block ads, paywalls, and other nonsense. Specially for sites like medium, new york times which have paid articles that you normally cannot read. Now I do want you to support the creators you benefit from but if you just wanna see one single article and move on with your day then this might be helpful
 
-The server mimics Google's web crawler to fetch the full content of a webpage, allowing users to read articles without encountering paywalls or ads.
+## How does it work?
 
-## Usage
+It pretends to be GoogleBot (Google's web crawler) and gets the same content that google will get. Google gets the whole page so that the content of the article can be indexed properly and this takes advantage of that.
 
-1. **Access the Server**: Once the server is running, you can access it via the URL provided in the console.
-2. **Bypass Paywalls**: Append the URL of the webpage you want to access to the server's URL. For example, if your server is running at `http://127.0.0.1:5000`, you can access `https://example.com` by visiting `http://127.0.0.1:5000/https://example.com`.
+## How do I use it?
 
-## Configuration Notes
+### On Tipi
 
-- **Port**: The server exposes port 5000.
-- **Environment Variables**: No specific environment variables are required.
-- **Volumes**: No specific volumes are required for this setup, but you may need to configure volumes if you need persistent data storage.
+#### Step 0
 
-## Troubleshooting
+Install the app. Expose it to the internet if you like.
 
-If you encounter any issues, ensure that Docker and Docker Compose are properly installed and configured on your system.
+#### Step 1
 
-## Keywords for Logo
+![step 1 13ft homepage](https://github.com/wasi-master/13ft/blob/main/screenshots/step-1.png)
 
-- Ad Blocker
-- Paywall Bypass
-- Self-Hosted
-- GoogleBot
-- Web Crawler
+Open the app in the Tipi dashboard or directly by url
+
+#### Step 2
+
+![step 2 Focus the input box](https://github.com/wasi-master/13ft/raw/main/screenshots/step-2.png)
+
+Click on the input box
+
+#### Step 3
+
+![step 3 paste your desired url](https://github.com/wasi-master/13ft/raw/main/screenshots/step-3.png)
+
+Paste the url you'd like to access
+
+#### Step 4
+
+![step 4 Profit!](https://github.com/wasi-master/13ft/raw/main/screenshots/step-4.gif)
+
+Et voilà! You now have bypassed the paywall and ads and can read the content without distractions.
+
+#### Alternative method
+
+You can also append the destination url at the end of the 13ft address. (e.g if your server is running at `http://127.0.0.1:5013` then you can go to `http://127.0.0.1:5013/https://example.com` and it will provide the contents of `https://example.com`)
+
+This feature is possible thanks to [atcasanova](https://github.com/atcasanova)
