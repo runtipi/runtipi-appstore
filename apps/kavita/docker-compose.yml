@@ -11,7 +11,9 @@ services:
       - ${ROOT_FOLDER_HOST}/media/data/books:/books
       - ${ROOT_FOLDER_HOST}/media/data/comics:/comics
       - ${ROOT_FOLDER_HOST}/media/data/manga:/manga
-    environment:
+      - ${ROOT_FOLDER_HOST}/media/data/magazines:/magazines
+      - ${ROOT_FOLDER_HOST}/media/data/magazines_other:/magazines_other 
+  environment:
       - TZ=${TZ}
     restart: unless-stopped
     networks:
