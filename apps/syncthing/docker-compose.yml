@@ -15,6 +15,7 @@ services:
       - ${ROOT_FOLDER_HOST}/media/data/rasies.com:/media/data/rasies.com
       - ${ROOT_FOLDER_HOST}/media/data/elderseth.com:/media/data/elderseth.com
       - ${ROOT_FOLDER_HOST}/media/data/stepparentpath.com:/media/data/stepparentpath.com
+      - ${ROOT_FOLDER_HOST}/media/data/lickingvape.com:/media/data/lickingvape.com
     ports:
       - ${APP_PORT}:8384
       - 22000:22000/tcp # TCP file transfers
