@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+  flood:
+    container_name: flood
+    image: perdian/flightlog:v2.0.1
+    environment:
+      - FLIGHTLOG_SERVER_CONTEXT_PATH=/
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/flightlog/database
+    ports:
+      - ${APP_PORT}:8080
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.flood-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.flood.loadbalancer.passhostheader: true
+      traefik.http.services.flood.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.flood-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.flood-insecure.entrypoints: web
+      traefik.http.routers.flood-insecure.service: flood
+      traefik.http.routers.flood-insecure.middlewares: flood-web-redirect
+      # Websecure
+      traefik.http.routers.flood.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.flood.entrypoints: websecure
+      traefik.http.routers.flood.service: flood
+      traefik.http.routers.flood.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.flood-local-insecure.rule: Host(`flood.${LOCAL_DOMAIN}`)
+      traefik.http.routers.flood-local-insecure.entrypoints: web
+      traefik.http.routers.flood-local-insecure.service: flood
+      traefik.http.routers.flood-local-insecure.middlewares: flood-web-redirect
+      # Local domain secure
+      traefik.http.routers.flood-local.rule: Host(`flood.${LOCAL_DOMAIN}`)
+      traefik.http.routers.flood-local.entrypoints: websecure
+      traefik.http.routers.flood-local.service: flood
+      traefik.http.routers.flood-local.tls: true
+      runtipi.managed: true
