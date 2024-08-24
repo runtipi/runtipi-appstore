@@ -16,6 +16,7 @@ services:
       - APPLICATION_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
       - PLEX_IDENTIFIER=${MOVARY_PLEX_IDENTIFIER}
       - JELLYFIN_DEVICE_ID=${MOVARY_JELLYFIN_IDENTIFIER}
+    user: "1000:1000"
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/movary:/app/storage
@@ -68,6 +69,7 @@ services:
       - APPLICATION_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
       - PLEX_IDENTIFIER=${MOVARY_PLEX_IDENTIFIER}
       - JELLYFIN_DEVICE_ID=${MOVARY_JELLYFIN_IDENTIFIER}
+    user: "1000:1000"
     volumes:
       - ${APP_DATA_DIR}/data/movary:/app/storage
     depends_on:
