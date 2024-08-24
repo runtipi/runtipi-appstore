@@ -31,6 +31,7 @@
       "env_variable": "BESZEL_AGENT_FILESYSTEM"
     }
   ],
+  "no_gui": true,
   "created_at": 1724537201221,
   "updated_at": 1724537201221
 }
