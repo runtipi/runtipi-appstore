@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   monerod:
-    image: sethsimmons/simple-monerod:v0.18.3.3
+    image: sethsimmons/simple-monerod:v0.18.3.4
     dns:
       - ${DNS_IP}
     ports:
