@@ -13,27 +13,27 @@ services:
     labels:
       # Main
       traefik.enable: true
-      traefik.http.middlewares.myapp-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.myapp.loadbalancer.server.port: 8090
+      traefik.http.middlewares.beszel-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.beszel.loadbalancer.server.port: 8090
       # Web
-      traefik.http.routers.myapp-insecure.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.myapp-insecure.entrypoints: web
-      traefik.http.routers.myapp-insecure.service: myapp
-      traefik.http.routers.myapp-insecure.middlewares: myapp-web-redirect
+      traefik.http.routers.beszel-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.beszel-insecure.entrypoints: web
+      traefik.http.routers.beszel-insecure.service: beszel
+      traefik.http.routers.beszel-insecure.middlewares: beszel-web-redirect
       # Websecure
-      traefik.http.routers.myapp.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.myapp.entrypoints: websecure
-      traefik.http.routers.myapp.service: myapp
-      traefik.http.routers.myapp.tls.certresolver: myresolver
+      traefik.http.routers.beszel.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.beszel.entrypoints: websecure
+      traefik.http.routers.beszel.service: beszel
+      traefik.http.routers.beszel.tls.certresolver: myresolver
       # Local domain
-      traefik.http.routers.myapp-local-insecure.rule: Host(`myapp.${LOCAL_DOMAIN}`)
-      traefik.http.routers.myapp-local-insecure.entrypoints: web
-      traefik.http.routers.myapp-local-insecure.service: myapp
-      traefik.http.routers.myapp-local-insecure.middlewares: myapp-web-redirect
+      traefik.http.routers.beszel-local-insecure.rule: Host(`beszel.${LOCAL_DOMAIN}`)
+      traefik.http.routers.beszel-local-insecure.entrypoints: web
+      traefik.http.routers.beszel-local-insecure.service: beszel
+      traefik.http.routers.beszel-local-insecure.middlewares: beszel-web-redirect
       # Local domain secure
-      traefik.http.routers.myapp-local.rule: Host(`myapp.${LOCAL_DOMAIN}`)
-      traefik.http.routers.myapp-local.entrypoints: websecure
-      traefik.http.routers.myapp-local.service: myapp
-      traefik.http.routers.myapp-local.tls: true
+      traefik.http.routers.beszel-local.rule: Host(`beszel.${LOCAL_DOMAIN}`)
+      traefik.http.routers.beszel-local.entrypoints: websecure
+      traefik.http.routers.beszel-local.service: beszel
+      traefik.http.routers.beszel-local.tls: true
       # Runtipi managed
       runtipi.managed: true
