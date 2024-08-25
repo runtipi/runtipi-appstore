@@ -1,7 +1,7 @@
 {
   "$schema": "../schema.json",
   "name": "Plausible CE",
-  "port": 8191,
+  "port": 8193,
   "available": true,
   "exposable": true,
   "id": "plausible-ce",
