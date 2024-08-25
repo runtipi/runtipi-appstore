@@ -1,0 +1,21 @@
+{
+  "$schema": "../schema.json",
+  "name": "OpenBB",
+  "id": "openbb",
+  "available": true,
+  "short_desc": "Investment Research for Everyone, Everywhere.",
+  "author": "OpenBB-finance",
+  "port": 8457,
+  "categories": ["finance"],
+  "description": "The first financial Platform that is free and fully open source.",
+  "tipi_version": 1,
+  "version": "latest",
+  "source": "https://github.com/OpenBB-finance/OpenBB",
+  "website": "https://openbb.co",
+  "exposable": true,
+  "supported_architectures": ["amd64"],
+  "form_fields": [],
+  "dynamic_config": true,
+  "created_at": 1724611787008,
+  "updated_at": 1724611787008
+}

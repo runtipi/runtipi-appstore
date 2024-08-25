@@ -1,0 +1,38 @@
+services:
+  openbb:
+    container_name: openbb
+    image: ghcr.io/openbb-finance/openbb-platform:latest
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data:/root/.openbb_platform
+    ports:
+      - ${APP_PORT}:8000
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.openbb-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.openbb.loadbalancer.server.port: 8000
+      # Web
+      traefik.http.routers.openbb-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.openbb-insecure.entrypoints: web
+      traefik.http.routers.openbb-insecure.service: openbb
+      traefik.http.routers.openbb-insecure.middlewares: openbb-web-redirect
+      # Websecure
+      traefik.http.routers.openbb.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.openbb.entrypoints: websecure
+      traefik.http.routers.openbb.service: openbb
+      traefik.http.routers.openbb.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.openbb-local-insecure.rule: Host(`openbb.${LOCAL_DOMAIN}`)
+      traefik.http.routers.openbb-local-insecure.entrypoints: web
+      traefik.http.routers.openbb-local-insecure.service: openbb
+      traefik.http.routers.openbb-local-insecure.middlewares: openbb-web-redirect
+      # Local domain secure
+      traefik.http.routers.openbb-local.rule: Host(`openbb.${LOCAL_DOMAIN}`)
+      traefik.http.routers.openbb-local.entrypoints: websecure
+      traefik.http.routers.openbb-local.service: openbb
+      traefik.http.routers.openbb-local.tls: true
+      # Runtipi managed
+      runtipi.managed: true
