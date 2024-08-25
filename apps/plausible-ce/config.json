@@ -5,7 +5,7 @@
   "available": true,
   "exposable": true,
   "id": "plausible-ce",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "v2.1.1",
   "categories": ["utilities"],
   "description": "Plausible Analytics is an easy to use, lightweight (< 1 KB), open source and privacy-friendly alternative to Google Analytics. It doesn’t use cookies and is fully compliant with GDPR, CCPA and PECR.",
@@ -18,6 +18,7 @@
       "label": "Plausible Secret Key Base",
       "hint": "Configures the secret used for sessions in the dashboard, doesn't have any defaults and needs to be provided in the ENV vars",
       "min": 48,
+      "max": 48,
       "env_variable": "PLAUSIBLE_SECRET_KEY_BASE"
     },
     {
@@ -25,6 +26,7 @@
       "label": "Plausible TOTP Vault Key",
       "hint": "Configures the secret used for encrypting TOTP secrets at rest using AES256-GCM, doesn't have any defaults and needs to be provided in the ENV vars",
       "min": 32,
+      "max": 32,
       "env_variable": "PLAUSIBLE_TOTP_VAULT_KEY"
     },
     {
