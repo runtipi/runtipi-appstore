@@ -13,7 +13,7 @@
   "source": "https://github.com/OpenBB-finance/OpenBB",
   "website": "https://openbb.co",
   "exposable": true,
-  "supported_architectures": ["amd64"],
+  "supported_architectures": ["amd64", "arm64"],
   "form_fields": [],
   "dynamic_config": true,
   "created_at": 1724611787008,
