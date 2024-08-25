@@ -5,7 +5,7 @@
   "available": true,
   "exposable": true,
   "id": "plausible-ce",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "v2.1.1",
   "categories": ["utilities"],
   "description": "Plausible Analytics is an easy to use, lightweight (< 1 KB), open source and privacy-friendly alternative to Google Analytics. It doesn’t use cookies and is fully compliant with GDPR, CCPA and PECR.",
