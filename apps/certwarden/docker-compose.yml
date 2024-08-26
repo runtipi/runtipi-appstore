@@ -1,7 +1,7 @@
 services:
   certwarden: # Should be exact same name as "id" field in config.json
     container_name: certwarden # Should be exact same name as "id" field in config.json
-    image: ghcr.io/gregtwallace/certwarden:0.22.0 # Try to avoid "latest" tag. As it may break configs in the future.
+    image: ghcr.io/gregtwallace/certwarden:v0.22.0 # Try to avoid "latest" tag. As it may break configs in the future.
     restart: unless-stopped # Do not change this
     volumes:
       - ${APP_DATA_DIR}/data/config:/config # Always start the path with ${APP_DATA_DIR}/data/. This will put all data inside app-data/certwarden/data
