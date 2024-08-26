@@ -12,6 +12,10 @@ services:
       - ${APP_DATA_DIR}/data/projects:/projects
     ports:
       - ${APP_PORT}:4055
+      - 4050:4050 # server interface (http)
+      - 4060:4060 # http-01 challenge server (http)
+      - 4065:4065 # pprof debug server (http)
+      - 4070:4070 # pprof debug server (https)
     restart: unless-stopped
     networks:
       - tipi_main_network # That should not be changed
