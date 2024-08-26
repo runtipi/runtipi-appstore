@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  certwarden: # Should be exact same name as "id" field in config.json
+    container_name: certwarden # Should be exact same name as "id" field in config.json
+    image: ghcr.io/gregtwallace/certwarden:0.22.0 # Try to avoid "latest" tag. As it may break configs in the future.
+    restart: unless-stopped # Do not change this
+    environment:
+      - TZ=${TZ} # Can use any env variable. See "environment variables" section in the docs
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config # Always start the path with ${APP_DATA_DIR}/data/. This will put all data inside app-data/certwarden/data
+      - ${APP_DATA_DIR}/data/projects:/projects
+    ports:
+      - ${APP_PORT}:4055
+    restart: unless-stopped
+    networks:
+      - tipi_main_network # That should not be changed
+    labels: # Use your editors search and replace feature to replace all instances of "certwarden" with your app name in the traefik labels
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.certwarden-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.certwarden.loadbalancer.server.port: 8443 # Should be the same as the app internal port so for this example 9443
+      # Web
+      traefik.http.routers.certwarden-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.certwarden-insecure.entrypoints: web
+      traefik.http.routers.certwarden-insecure.service: certwarden
+      traefik.http.routers.certwarden-insecure.middlewares: certwarden-web-redirect
+      # Websecure
+      traefik.http.routers.certwarden.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.certwarden.entrypoints: websecure
+      traefik.http.routers.certwarden.service: certwarden
+      traefik.http.routers.certwarden.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.certwarden-local-insecure.rule: Host(`certwarden.${LOCAL_DOMAIN}`)
+      traefik.http.routers.certwarden-local-insecure.entrypoints: web
+      traefik.http.routers.certwarden-local-insecure.service: certwarden
+      traefik.http.routers.certwarden-local-insecure.middlewares: certwarden-web-redirect
+      # Local domain secure
+      traefik.http.routers.certwarden-local.rule: Host(`certwarden.${LOCAL_DOMAIN}`)
+      traefik.http.routers.certwarden-local.entrypoints: websecure
+      traefik.http.routers.certwarden-local.service: certwarden
+      traefik.http.routers.certwarden-local.tls: true

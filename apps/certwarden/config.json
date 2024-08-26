@@ -1,0 +1,22 @@
+  "name": "Certwarden",
+  "id": "certwarden",
+  "available": true,
+  "short_desc": "A tool to manage SSL certificates.",
+  "author": "aj@ajm.codes",
+  "port": 4050,
+  "categories": [
+    "development",
+    "utilities"
+  ],
+  "description": "Certwarden is a free open-source tool to manage your SSL certificates. It is a self-hosted service that uses the Let's Encrypt infrastructure to obtain and renew SSL certificates.",
+  "tipi_version": 1,
+  "version": "v0.22.0",
+  "source": "https://github.com/gregtwallace/certwarden",
+  "exposable": true,
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "created_at": 1724707511,
+  "updated_at": 1724707511
+}
