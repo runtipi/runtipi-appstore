@@ -8,6 +8,11 @@ Conveniently Leverage Let&apos;s Encrypt to Secure Your Infrastructure
 ## More Information
 https://www.certwarden.com/
 
+## Default Credentials
+Username: admin
+Password: password
+
+Make sure to change the default password after your initial login, under the "Settings" page.
 
 ## Download
 Binary Releases
