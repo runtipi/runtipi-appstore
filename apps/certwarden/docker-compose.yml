@@ -1,17 +1,13 @@
-version: '3'
-
 services:
   certwarden: # Should be exact same name as "id" field in config.json
     container_name: certwarden # Should be exact same name as "id" field in config.json
     image: ghcr.io/gregtwallace/certwarden:0.22.0 # Try to avoid "latest" tag. As it may break configs in the future.
     restart: unless-stopped # Do not change this
-    environment:
-      - TZ=${TZ} # Can use any env variable. See "environment variables" section in the docs
     volumes:
       - ${APP_DATA_DIR}/data/config:/config # Always start the path with ${APP_DATA_DIR}/data/. This will put all data inside app-data/certwarden/data
       - ${APP_DATA_DIR}/data/projects:/projects
     ports:
-      - ${APP_PORT}:4050 # server interface (http)
+      - ${APP_PORT}:4050 # server ginterface (http)
       - 4055:4055 # server interface (https)
       - 4060:4060 # http-01 challenge server (http)
       - 4065:4065 # pprof debug server (http)
