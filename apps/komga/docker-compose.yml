@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   komga:
-    image: ghcr.io/gotson/komga:1.11.2
+    image: ghcr.io/gotson/komga:1.11.3
     container_name: komga
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
