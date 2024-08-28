@@ -5,10 +5,13 @@
   "available": true,
   "exposable": true,
   "dynamic_config": true,
+  "min_tipi_version": "3.6.0",
   "id": "plausible-ce",
-  "tipi_version": 4,
+  "tipi_version": 5,
   "version": "v2.1.1",
-  "categories": ["utilities"],
+  "categories": [
+    "utilities"
+  ],
   "description": "Plausible Analytics is an easy to use, lightweight (< 1 KB), open source and privacy-friendly alternative to Google Analytics. It doesn’t use cookies and is fully compliant with GDPR, CCPA and PECR.",
   "short_desc": "Simple, open-source, lightweight (< 1 KB) and privacy-friendly web analytics alternative to Google Analytics.",
   "author": "Plausible",
@@ -28,6 +31,7 @@
       "hint": "Configures the secret used for encrypting TOTP secrets at rest using AES256-GCM, doesn't have any defaults and needs to be provided in the ENV vars",
       "min": 32,
       "max": 32,
+      "encoding": "base64",
       "env_variable": "PLAUSIBLE_TOTP_VAULT_KEY"
     },
     {
@@ -40,7 +44,7 @@
       "type": "text",
       "label": "Disable Registration",
       "hint": "Restricts registration of new users. Possible values are true (full restriction), false (no restriction), and invite_only (only the invited users can register).",
-      "default": "invite-only",
+      "default": "true",
       "options": [
         {
           "label": "true",
@@ -61,7 +65,7 @@
       "type": "boolean",
       "label": "Enable Email Verification",
       "hint": "When enabled, new users need to verify their email addressby following a link delivered to their mailbox. Please configure your server for SMTP to receive this email.",
-      "default": "false",
+      "default": false,
       "env_variable": "PLAUSIBLE_ENABLE_EMAIL_VERIFICATION"
     },
     {
@@ -78,21 +82,21 @@
     },
     {
       "type": "text",
-      "label": "MAXMIND_LICENSE_KEY",
+      "label": "MaxMind License Key",
       "hint": "If set, this ENV variable takes precedence over IP_GEOLOCATION_DB and makes Plausible download (and keep up to date) a free MaxMind GeoLite2 MMDB of the selected edition",
       "env_variable": "PLAUSIBLE_MAXMIND_LICENSE_KEY"
     },
     {
       "type": "text",
-      "label": "MAXMIND_EDITION",
+      "label": "MaxMind Edition",
       "hint": "MaxMind database edition to use (only if MAXMIND_LICENSE_KEY is set)",
-      "dfault": "GeoLite2-City",
+      "default": "GeoLite2-City",
       "env_variable": "PLAUSIBLE_MAXMIND_EDITION"
     },
     {
       "type": "text",
       "label": "Mail Provider",
-      "hint": "Restricts registration of new users. Possible values are true (full restriction), false (no restriction), and invite_only (only the invited users can register).",
+      "hint": "The mail provider to use for sending emails. The default is the built-in SMTP adapter.",
       "default": "Bamboo.SMTPAdapter",
       "options": [
         {
@@ -135,7 +139,7 @@
       "env_variable": "PLAUSIBLE_SMTP_HOST_ADDR"
     },
     {
-      "type": "numeric",
+      "type": "number",
       "label": "SMTP Host Port",
       "hint": "The port of your SMTP relay.",
       "default": "25",
@@ -157,11 +161,11 @@
       "type": "boolean",
       "label": "SMTP Host SSL Enabled",
       "hint": "Configures whether SMTPS (SMTP over SSL) is enabled for SMTP connection, e.g. when you use port 465.",
-      "default": "false",
+      "default": false,
       "env_variable": "PLAUSIBLE_SMTP_HOST_SSL_ENABLED"
     },
     {
-      "type": "numeric",
+      "type": "number",
       "label": "SMTP Retries",
       "hint": "Number of retries to make until mailer gives up.",
       "default": "2",
@@ -206,7 +210,10 @@
       "env_variable": "PLAUSIBLE_SENDGRID_API_KEY"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
   "created_at": 1691943801422,
   "updated_at": 1724188518000
 }
