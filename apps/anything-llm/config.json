@@ -6,7 +6,7 @@
   "port": 33001,
   "id": "anything-llm",
   "tipi_version": 1,
-  "version": "1.2.0",
+  "version": "1.2.1",
   "categories": [
     "utilities",
     "ai"
@@ -16,5 +16,7 @@
   "author": "Mintplex Labs",
   "source": "https://github.com/Mintplex-Labs/anything-llm",
   "form_fields": [],
-  "supported_architectures": ["amd64","arm64"]
+  "supported_architectures": ["amd64","arm64"],
+  "created_at": 1724912040000,
+  "updated_at": 1724912040000
 }
