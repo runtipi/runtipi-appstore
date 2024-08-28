@@ -1,0 +1,61 @@
+version: "3.9"
+services:
+      
+  wordpress_tvcoffee:
+    container_name: wordpress_tvcoffee
+    image: wordpress:6.6.1
+    environment:
+      - WORDPRESS_DB_HOST=wordpress_tvcoffee-db
+      - WORDPRESS_DB_NAME=wordpress
+      - WORDPRESS_DB_USER=tipi
+      - WORDPRESS_DB_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}/data/wordpress:/var/www/html
+    ports:
+      - ${APP_PORT}:80
+    restart: unless-stopped
+    depends_on:
+      - wordpress_tvcoffee-db
+    networks:
+      - tipi_main_network
+    labels:
+        # Main
+        traefik.enable: true
+        traefik.http.middlewares.wordpress_tvcoffee-redirect.redirectscheme.scheme: https
+        traefik.http.services.wordpress_tvcoffee.loadbalancer.server.port: 80
+        # Web
+        traefik.http.routers.wordpress_tvcoffee-insecure.rule: Host(`${APP_DOMAIN}`)
+        traefik.http.routers.wordpress_tvcoffee-insecure.entrypoints: web
+        traefik.http.routers.wordpress_tvcoffee-insecure.service: wordpress_tvcoffee
+        traefik.http.routers.wordpress_tvcoffee-insecure.middlewares: wordpress_tvcoffee-redirect
+        # Websecure
+        traefik.http.routers.wordpress_tvcoffee.rule: Host(`${APP_DOMAIN}`)
+        traefik.http.routers.wordpress_tvcoffee.entrypoints: websecure
+        traefik.http.routers.wordpress_tvcoffee.service: wordpress_tvcoffee
+        traefik.http.routers.wordpress_tvcoffee.tls.certresolver: myresolver
+        # Local domain
+        traefik.http.routers.wordpress_tvcoffee-local-insecure.rule: Host(`wordpress_tvcoffee.${LOCAL_DOMAIN}`)
+        traefik.http.routers.wordpress_tvcoffee-local-insecure.entrypoints: web
+        traefik.http.routers.wordpress_tvcoffee-local-insecure.service: wordpress_tvcoffee
+        traefik.http.routers.wordpress_tvcoffee-local-insecure.middlewares: wordpress_tvcoffee-redirect
+        # Local domain secure
+        traefik.http.routers.wordpress_tvcoffee-local.rule: Host(`wordpress_tvcoffee.${LOCAL_DOMAIN}`)
+        traefik.http.routers.wordpress_tvcoffee-local.entrypoints: websecure
+        traefik.http.routers.wordpress_tvcoffee-local.service: wordpress_tvcoffee
+        traefik.http.routers.wordpress_tvcoffee-local.tls: true
+        runtipi.managed: true
+  wordpress_tvcoffee-db:
+    container_name: wordpress_tvcoffee-db
+    image: mariadb:11.1.3
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=tipi
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}/data/mariadb:/var/lib/mysql
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      runtipi.managed: true
