@@ -1,0 +1,41 @@
+{
+  "$schema": "../schema.json",
+  "name": "Nextcloud Mini",
+  "id": "nextcloud-mini",
+  "available": true,
+  "short_desc": "A safe home for all your data.",
+  "author": "nextcloud",
+  "port": 8654,
+  "categories": ["data"],
+  "description": "The most popular open source content collaboration platform for tens of millions of users at thousands of organizations across the globe.",
+  "tipi_version": 1,
+  "version": "29.0.5-fpm",
+  "source": "https://github.com/nextcloud/server",
+  "website": "https://nextcloud.com",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Nextcloud user",
+      "hint": "The username which you will use to sign in to nextcloud.",
+      "required": true,
+      "env_variable": "NEXTCLOUD_MINI_ADMIN_USER"
+    },
+    {
+      "type": "password",
+      "label": "Nextcloud password",
+      "hint": "The password which you will use to sign in to nextcloud.",
+      "required": true,
+      "env_variable": "NEXTCLOUD_MINI_ADMIN_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Nextcloud database password",
+      "min": 32,
+      "env_variable": "NEXTCLOUD_MINI_DB_PASSWORD"
+    }
+  ],
+  "created_at": 1724134338800,
+  "updated_at": 1724134338800
+}
