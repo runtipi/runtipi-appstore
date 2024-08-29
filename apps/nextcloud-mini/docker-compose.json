@@ -13,7 +13,7 @@
       ],
       "environment": {
         "POSTGRES_HOST": "nextcloud-mini-db",
-        "POSTGRES_DB": "nextcloud-mini-db",
+        "POSTGRES_DB": "nextcloud",
         "POSTGRES_USER": "nextcloud",
         "POSTGRES_PASSWORD": "${NEXTCLOUD_MINI_DB_PASSWORD}",
         "NEXTCLOUD_ADMIN_PASSWORD": "${NEXTCLOUD_MINI_ADMIN_PASSWORD}",
@@ -30,7 +30,7 @@
         }
       ],
       "environment": {
-        "POSTGRES_DB": "nextcloud-mini-db",
+        "POSTGRES_DB": "nextcloud",
         "POSTGRES_USER": "nextcloud",
         "POSTGRES_PASSWORD": "${NEXTCLOUD_MINI_DB_PASSWORD}"
       }
