@@ -8,7 +8,7 @@
   "port": 8564,
   "categories": ["data"],
   "description": "The most popular open source content collaboration platform for tens of millions of users at thousands of organizations across the globe.",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "29.0.5-apache",
   "source": "https://github.com/nextcloud/server",
   "website": "https://nextcloud.com",
@@ -28,6 +28,13 @@
       "hint": "The password which you will use to sign in to nextcloud.",
       "required": true,
       "env_variable": "NEXTCLOUD_MINI_ADMIN_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Nextcloud trusted domains",
+      "hint": "Add all of your trusted domains separated by a space.",
+      "required": false,
+      "env_variable": "NEXTCLOUD_MINI_TRUSTED_DOMAINS"
     },
     {
       "type": "random",
