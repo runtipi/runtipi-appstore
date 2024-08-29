@@ -13,3 +13,5 @@
 - 🔒 **Security** with our encryption mechanisms, [HackerOne bounty program](https://hackerone.com/nextcloud) and two-factor authentication.
 
 Do you want to learn more about how you can use Nextcloud to access, share, and protect your files, calendars, contacts, communication & more at home and in your organization? [**Learn about all our Features**](https://nextcloud.com/athome/).
+
+> Warning ⚠️: This is a simple nextcloud instance running only the nextcloud server and a postgres database. If you want features like cron and redis, please use the nextcloud app in the appstore.
