@@ -5,7 +5,7 @@
   "available": true,
   "short_desc": "A safe home for all your data.",
   "author": "nextcloud",
-  "port": 8654,
+  "port": 8564,
   "categories": ["data"],
   "description": "The most popular open source content collaboration platform for tens of millions of users at thousands of organizations across the globe.",
   "tipi_version": 1,
