@@ -3,7 +3,7 @@
     {
       "name": "nextcloud-mini",
       "image": "nextcloud:29.0.5-fpm",
-      "internalPort": "80",
+      "internalPort": 80,
       "isMain": true,
       "volumes": [
         {
