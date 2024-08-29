@@ -3,7 +3,7 @@ services:
   anything-llm:
     container_name: anything-llm
     image: ghcr.io/mintplex-labs/anything-llm:1.2.1
-    restart: unless-stopped
+    restart: always
     environment:
       - TZ=${TZ}
       - STORAGE_DIR=/app/server/storage
