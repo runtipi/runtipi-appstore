@@ -1,4 +1,5 @@
 version: "3.9"
+services:
   kavita:
     container_name: kavita
     image: jvmilazz0/kavita:0.8.2
@@ -9,8 +10,6 @@ version: "3.9"
       - ${ROOT_FOLDER_HOST}/media/data/books:/books
       - ${ROOT_FOLDER_HOST}/media/data/comics:/comics
       - ${ROOT_FOLDER_HOST}/media/data/manga:/manga
-      - ${ROOT_FOLDER_HOST}/media/data/magazines:/magazines
-      - ${ROOT_FOLDER_HOST}/media/data/magazines_other:/magazines_other 
   environment:
       - TZ=${TZ}
     restart: unless-stopped
