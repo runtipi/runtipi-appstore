@@ -1,5 +1,4 @@
 version: "3.9"
-services:
   kavita:
     container_name: kavita
     image: jvmilazz0/kavita:0.8.2
