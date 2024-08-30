@@ -1,9 +1,8 @@
-version: "3.9"
 services:
   anything-llm:
     container_name: anything-llm
     image: ghcr.io/mintplex-labs/anything-llm:1.2.1
-    restart: always
+    restart: unless-stopped
     environment:
       - TZ=${TZ}
       - STORAGE_DIR=/app/server/storage
@@ -12,7 +11,7 @@ services:
     cap_add:
       - SYS_ADMIN
     volumes:
-      - ${APP_DATA_DIR}/storage:/app/server/storage
+      - ${APP_DATA_DIR}/data/storage:/app/server/storage
       - ${APP_DATA_DIR}/app.env:/app/server/.env
     networks:
       - tipi_main_network
