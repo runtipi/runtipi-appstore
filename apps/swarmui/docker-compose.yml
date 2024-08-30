@@ -13,6 +13,14 @@ services:
       - ${APP_DATA_DIR}/Models:/Models
       - ${APP_DATA_DIR}/Output:/Output
       - ${APP_DATA_DIR}/CustomWorkflows:/src/BuiltinExtensions/ComfyUIBackend/CustomWorkflows
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities:
+                - gpu
     labels:
       # Main
       traefik.enable: true
