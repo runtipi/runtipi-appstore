@@ -1,22 +1,22 @@
 version: "3.9"
 
 services:
-kavita:
+  kavita:
     container_name: kavita
     image: jvmilazz0/kavita:0.8.2
     ports:
       - ${APP_PORT}:5000
-volumes:
+    volumes:
       - ${APP_DATA_DIR}/data/kavita-config:/kavita/config
       - ${ROOT_FOLDER_HOST}/media/data/books:/books
       - ${ROOT_FOLDER_HOST}/media/data/comics:/comics
       - ${ROOT_FOLDER_HOST}/media/data/manga:/manga
-environment:
+    environment:
       - TZ=${TZ}
-restart: unless-stopped
-networks:
+    restart: unless-stopped
+    networks:
       - tipi_main_network
-labels:
+    labels:
       # Main
       traefik.enable: true
       traefik.http.middlewares.kavita-web-redirect.redirectscheme.scheme: https
@@ -41,4 +41,4 @@ labels:
       traefik.http.routers.kavita-local.entrypoints: websecure
       traefik.http.routers.kavita-local.service: kavita
       traefik.http.routers.kavita-local.tls: true
-runtipi.managed: true
+      runtipi.managed: true
