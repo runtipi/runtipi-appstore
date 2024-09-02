@@ -1,10 +1,10 @@
 # 13 Feet Ladder
 
-A site similar to [12ft.io](https://12ft.io) but is self hosted and works with websites that 12ft.io doesn't work with.
+A site similar to [12ft.io](https://12ft.io) but is self-hosted and works with websites that 12ft.io doesn't work with.
 
 ## What is this?
 
-This is a simple self hosted server that has a simple but powerful interface to block ads, paywalls, and other nonsense. Specially for sites like medium, new york times which have paid articles that you normally cannot read. Now I do want you to support the creators you benefit from but if you just wanna see one single article and move on with your day then this might be helpful
+This is a self-hosted server that has a simple but powerful interface to block ads, paywalls, and other nonsense. Specially for sites like Medium or The New York Times which have paid articles that you normally cannot read. Now I do want you to support the creators you benefit from, but if you just want to see one single article and move on with your day then this might be helpful.
 
 ## How does it work?
 
@@ -44,6 +44,6 @@ Et voilà! You now have bypassed the paywall and ads and can read the content wi
 
 #### Alternative method
 
-You can also append the destination url at the end of the 13ft address. (e.g if your server is running at `http://127.0.0.1:5013` then you can go to `http://127.0.0.1:5013/https://example.com` and it will provide the contents of `https://example.com`)
+You can also append the destination url at the end of the 13ft address. (e.g. if your server is running at `http://127.0.0.1:5013` then you can go to `http://127.0.0.1:5013/https://example.com` and it will provide the contents of `https://example.com`)
 
 This feature is possible thanks to [atcasanova](https://github.com/atcasanova)
