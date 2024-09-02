@@ -104,6 +104,9 @@
       "type": "string",
       "pattern": "^/[a-z0-9-_/]+$"
     },
+    "min_tipi_version": {
+      "type": "string"
+    },
     "form_fields": {
       "type": "array",
       "items": [
@@ -129,11 +132,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "type",
-            "label",
-            "env_variable"
-          ]
+          "required": ["type", "label", "env_variable"]
         }
       ]
     },

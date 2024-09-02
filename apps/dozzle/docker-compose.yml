@@ -1,7 +1,7 @@
 services:
   dozzle:
     container_name: dozzle
-    image: amir20/dozzle:v8.2.1
+    image: amir20/dozzle:v8.3.0
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -11,9 +11,9 @@ services:
     networks:
       - tipi_main_network
     environment:
-      - DOZZLE_NO_ANALYTICS=${DOZZLE_NO_ANALYTICS}
-      - DOZZLE_AUTH_PROVIDER=${DOZZLE_AUTH_PROVIDER}
-      - DOZZLE_ENABLE_ACTIONS=${DOZZLE_ENABLE_ACTIONS}
+      - DOZZLE_NO_ANALYTICS=${DOZZLE_NO_ANALYTICS:-true}
+      - DOZZLE_AUTH_PROVIDER=${DOZZLE_AUTH_PROVIDER:-none}
+      - DOZZLE_ENABLE_ACTIONS=${DOZZLE_ENABLE_ACTIONS:-true}
     labels:
       # Main
       traefik.enable: true

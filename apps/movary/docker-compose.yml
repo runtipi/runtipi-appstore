@@ -2,7 +2,7 @@ version: "3"
 
 services:
   movary:
-    image: leepeuker/movary:0.62.1
+    image: leepeuker/movary:0.62.2
     container_name: movary
     environment:
       - TMDB_API_KEY=${MOVARY_TMDB_API_KEY}
@@ -16,6 +16,7 @@ services:
       - APPLICATION_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
       - PLEX_IDENTIFIER=${MOVARY_PLEX_IDENTIFIER}
       - JELLYFIN_DEVICE_ID=${MOVARY_JELLYFIN_IDENTIFIER}
+    user: "1000:1000"
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/movary:/app/storage
@@ -53,7 +54,7 @@ services:
       traefik.http.routers.movary-local.tls: true
       runtipi.managed: true
   movary-migration:
-    image: leepeuker/movary:0.62.1
+    image: leepeuker/movary:0.62.2
     container_name: movary-migration
     command: php bin/console.php database:migration:migrate
     environment:
@@ -68,6 +69,7 @@ services:
       - APPLICATION_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
       - PLEX_IDENTIFIER=${MOVARY_PLEX_IDENTIFIER}
       - JELLYFIN_DEVICE_ID=${MOVARY_JELLYFIN_IDENTIFIER}
+    user: "1000:1000"
     volumes:
       - ${APP_DATA_DIR}/data/movary:/app/storage
     depends_on:
