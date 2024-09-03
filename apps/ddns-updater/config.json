@@ -1,0 +1,19 @@
+{
+  "$schema": "../schema.json",
+  "name": "DDNS Updater",
+  "id": "ddns-updater",
+  "available": true,
+  "short_desc": "Program to keep DNS A and/or AAAA records updated for multiple DNS providers.",
+  "author": "qdm12",
+  "port": 8356,
+  "categories": ["utilities"],
+  "description": "Container to update DNS records periodically with WebUI for many DNS providers,",
+  "tipi_version": 2,
+  "version": "v2.7.0",
+  "source": "https://github.com/qdm12/ddns-updater",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "form_fields": [],
+  "created_at": 1724190921000,
+  "updated_at": 1724190921000
+}

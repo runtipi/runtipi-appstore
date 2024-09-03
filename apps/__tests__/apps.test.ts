@@ -40,6 +40,7 @@ const networkExceptions = [
   'scrypted',
   'homebridge',
   'cloudflared',
+  'beszel-agent',
 ];
 const getAppConfigs = (): AppConfig[] => {
   const apps: AppConfig[] = [];

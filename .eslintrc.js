@@ -7,6 +7,7 @@ module.exports = {
     project: './tsconfig.json',
     tsconfigRootDir: __dirname,
   },
+  ignorePatterns: ['apps/ddns-updater/data/config/config.json'],
   rules: {
     'json-schema-validator/no-invalid': 'error',
   },

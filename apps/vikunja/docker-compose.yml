@@ -1,26 +1,7 @@
-version: '3.7'
 services:
-  vikunja-db:
-    container_name: vikunja-db
-    image: postgres:14
-    environment:
-      POSTGRES_PASSWORD: ${VIKUNJA_DB_PASSWORD}
-      POSTGRES_USER: tipi
-      POSTGRES_DB: vikunja
-    volumes:
-      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
-    healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB']
-      interval: 5s
-      timeout: 5s
-      retries: 5
-    networks:
-      - tipi_main_network
-    labels:
-      runtipi.managed: true
-  vikunja-api:
-    container_name: vikunja-api
-    image: vikunja/api:0.22.1
+  vikunja:
+    container_name: vikunja
+    image: vikunja/vikunja:0.24.2
     environment:
       VIKUNJA_DATABASE_HOST: vikunja-db
       VIKUNJA_DATABASE_PASSWORD: ${VIKUNJA_DB_PASSWORD}
@@ -28,43 +9,22 @@ services:
       VIKUNJA_DATABASE_USER: tipi
       VIKUNJA_DATABASE_DATABASE: vikunja
       VIKUNJA_SERVICE_JWTSECRET: ${VIKUNJA_SERVICE_SECRET}
-      VIKUNJA_SERVICE_FRONTENDURL: ${APP_PROTOCOL:-http}://${APP_DOMAIN}/
+      VIKUNJA_SERVICE_PUBLICURL: ${APP_PROTOCOL:-http}://${APP_DOMAIN}/
     volumes:
       - ${APP_DATA_DIR}/data/files:/app/vikunja/files
     restart: unless-stopped
+    ports:
+      - ${APP_PORT}:3456
     depends_on:
       vikunja-db:
         condition: service_healthy
     networks:
       - tipi_main_network
     labels:
-      runtipi.managed: true
-  vikunja:
-    image: vikunja/frontend:0.22.1
-    restart: unless-stopped
-    container_name: vikunja
-    networks:
-      - tipi_main_network
-    labels:
-      runtipi.managed: true
-  vikunja-proxy:
-    image: nginx
-    container_name: vikunja-proxy
-    ports:
-      - ${APP_PORT}:80
-    volumes:
-      - ${APP_DATA_DIR}/data/proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
-    depends_on:
-      - vikunja-api
-      - vikunja
-    restart: unless-stopped
-    networks:
-      - tipi_main_network
-    labels:
       # Main
       traefik.enable: true
       traefik.http.middlewares.vikunja-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.vikunja.loadbalancer.server.port: 80
+      traefik.http.services.vikunja.loadbalancer.server.port: 3456
       # Web
       traefik.http.routers.vikunja-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.vikunja-insecure.entrypoints: web
@@ -85,4 +45,22 @@ services:
       traefik.http.routers.vikunja-local.entrypoints: websecure
       traefik.http.routers.vikunja-local.service: vikunja
       traefik.http.routers.vikunja-local.tls: true
+      runtipi.managed: true
+  vikunja-db:
+    container_name: vikunja-db
+    image: postgres:14
+    environment:
+      POSTGRES_PASSWORD: ${VIKUNJA_DB_PASSWORD}
+      POSTGRES_USER: tipi
+      POSTGRES_DB: vikunja
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - tipi_main_network
+    labels:
       runtipi.managed: true
