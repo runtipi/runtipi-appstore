@@ -5,13 +5,15 @@
   "available": true,
   "exposable": true,
   "id": "wallos",
-  "tipi_version": 61,
-  "version": "2.20.0",
+  "tipi_version": 68,
+  "version": "2.22.1",
   "categories": ["finance"],
   "description": "Open-Source Personal Subscription Tracker",
   "short_desc": "Open-Source Personal Subscription Tracker",
   "author": "Miguel Ribeiro",
   "source": "https://github.com/ellite/Wallos",
   "form_fields": [],
-  "supported_architectures": ["amd64"]
+  "supported_architectures": ["amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566284000
 }

@@ -2,7 +2,7 @@ version: "3.7"
 services:
   wg-easy:
     container_name: wg-easy
-    image: ghcr.io/wg-easy/wg-easy:13
+    image: ghcr.io/wg-easy/wg-easy:14
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data:/etc/wireguard

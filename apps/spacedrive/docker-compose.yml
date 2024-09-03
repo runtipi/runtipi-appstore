@@ -3,7 +3,7 @@ version: '3.9'
 services:
   spacedrive:
     container_name: spacedrive
-    image: ghcr.io/spacedriveapp/spacedrive/server:0.4.0
+    image: ghcr.io/spacedriveapp/spacedrive/server:0.4.2
     restart: unless-stopped
     environment:
       - SD_AUTH=${SD_AUTH_USER}:${SD_AUTH_PASSWORD}
