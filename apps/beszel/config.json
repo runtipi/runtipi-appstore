@@ -1,0 +1,19 @@
+{
+  "$schema": "../schema.json",
+  "name": "Beszel",
+  "id": "beszel",
+  "available": true,
+  "short_desc": "Lightweight server monitoring.",
+  "author": "henrygd",
+  "port": 8999,
+  "categories": ["utilities"],
+  "description": "A lightweight server monitoring hub with historical data, docker stats, and alerts.",
+  "tipi_version": 2,
+  "version": "0.2.0",
+  "source": "https://github.com/henrygd/beszel",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "form_fields": [],
+  "created_at": 1724537201221,
+  "updated_at": 1724537201221
+}

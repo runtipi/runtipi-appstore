@@ -5,7 +5,7 @@
   "available": true,
   "exposable": true,
   "id": "nodered",
-  "tipi_version": 17,
+  "tipi_version": 18,
   "version": "4.0.2",
   "categories": ["automation"],
   "description": "Node-RED is a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways. It provides a browser-based editor that makes it easy to wire together flows using the wide range of nodes in the palette that can be deployed to its runtime in a single-click.",
@@ -15,5 +15,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566283000
+  "updated_at": 1724410930192
 }
