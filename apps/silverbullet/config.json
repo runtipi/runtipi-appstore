@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "silverbullet",
-  "tipi_version": 15,
-  "version": "0.9.2",
+  "tipi_version": 16,
+  "version": "0.9.4",
   "categories": ["utilities"],
   "description": "SilverBullet aims to be your workshop for the mind",
   "short_desc": "SilverBullet is a creative space where you collect, create and expand your personal knowledge, while also letting you constantly evolve the tools you use to do so.",
@@ -33,5 +33,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1724024776000
+  "updated_at": 1725487886000
 }
