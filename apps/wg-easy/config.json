@@ -25,10 +25,10 @@
     {
       "type": "password",
       "label": "Password hash (bcrypt)",
-      "hint": "Choose a password and use https://bcrypt-generator.com/ to hash your password",
+      "hint": "Choose a password and use https://bcrypt-generator.com/ to hash your password. Leave empty for no password",
       "max": 60,
       "min": 60,
-      "required": true,
+      "required": false,
       "env_variable": "WIREGUARD_PASSWORD_HASH"
     },
     {
