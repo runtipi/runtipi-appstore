@@ -17,6 +17,9 @@ services:
               count: all
               capabilities:
                 - gpu
+      placement:
+        constraints:
+          - node.role == worker
     volumes:
       - ${APP_DATA_DIR}/data/.ollama:/root/.ollama
     labels:
