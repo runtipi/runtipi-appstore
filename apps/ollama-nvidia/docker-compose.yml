@@ -46,5 +46,9 @@ services:
       traefik.http.routers.ollama-nvidia-local.rule: Host(`ollama-nvidia.${LOCAL_DOMAIN}`)
       traefik.http.routers.ollama-nvidia-local.entrypoints: websecure
       traefik.http.routers.ollama-nvidia-local.service: ollama-nvidia
-      traefik.http.routers.ollama-nvidia-local.tls: true
+      traefik.http.routers.ollama-nvidia-local.tls: "true"  # Ensure this is a string
       runtipi.managed: true
+
+networks:
+  tipi_main_network:
+    driver: overlay
