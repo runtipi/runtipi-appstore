@@ -1,12 +1,13 @@
 services:
   metabase:
     container_name: metabase
-    image: metabase/metabase:v0.50.22
+    image: metabase/metabase:v0.50.24
     restart: unless-stopped
     ports:
       - ${APP_PORT}:3000
     environment:
       - MGID=${GID-1000}
+      - MB_DB_FILE=/metabase-data/metabase.db
       - JAVA_TIMEZONE=${TZ}
     volumes:
       - ${APP_DATA_DIR}/data/metabase/data:/metabase-data
