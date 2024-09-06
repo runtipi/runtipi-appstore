@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "metabase",
-  "tipi_version": 1,
-  "version": "v0.50.22",
+  "tipi_version": 2,
+  "version": "v0.50.24",
   "categories": [
     "data",
     "utilities"
