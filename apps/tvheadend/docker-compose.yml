@@ -1,0 +1,47 @@
+version: "3.7"
+services:
+  tvheadend:
+    image: lscr.io/linuxserver/tvheadend:version-dd82541c
+    container_name: tvheadend
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - RUN_OPTS=${RUN_OPTS}
+      - TZ=${TZ}
+    dns:
+      - ${DNS_IP}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${APP_DATA_DIR}/data:/config
+    ports:
+      - ${APP_PORT}:9981
+      - 9982:9982
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.tvheadend-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.tvheadend.loadbalancer.server.port: 8443 # Should be the same as the app internal port so for this example 9443
+      # Web
+      traefik.http.routers.tvheadend-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.tvheadend-insecure.entrypoints: web
+      traefik.http.routers.tvheadend-insecure.service: tvheadend
+      traefik.http.routers.tvheadend-insecure.middlewares: tvheadend-web-redirect
+      # Websecure
+      traefik.http.routers.tvheadend.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.tvheadend.entrypoints: websecure
+      traefik.http.routers.tvheadend.service: tvheadend
+      traefik.http.routers.tvheadend.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.tvheadend-local-insecure.rule: Host(`tvheadend.${LOCAL_DOMAIN}`)
+      traefik.http.routers.tvheadend-local-insecure.entrypoints: web
+      traefik.http.routers.tvheadend-local-insecure.service: tvheadend
+      traefik.http.routers.tvheadend-local-insecure.middlewares: tvheadend-web-redirect
+      # Local domain secure
+      traefik.http.routers.tvheadend-local.rule: Host(`tvheadend.${LOCAL_DOMAIN}`)
+      traefik.http.routers.tvheadend-local.entrypoints: websecure
+      traefik.http.routers.tvheadend-local.service: tvheadend
+      traefik.http.routers.tvheadend-local.tls: true
+      runtipi.managed: true
