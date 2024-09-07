@@ -9,7 +9,7 @@ services:
       timeout: 20m
       retries: 5
     ports:
-      - 8111:8111
+      - ${APP_PORT}:80
     environment:
       - DEBUG=true
       # ...
