@@ -12,17 +12,13 @@ services:
       - 8111:8111
     environment:
       - DEBUG=true
-      - FEDERATION_ENABLED=true
-      - FEDERATION_ROLE=master
-      - FEDERATION_DOMAIN=$[LOCAL_DOMAIN]
-      - FEDERATION_SECRET=Mycobacteri@98
       # ...
     volumes:
       - ./models:/build/models:cached
-    
+      - - ${ROOT_FOLDER_HOST}/media/data/images/:/tmp/generated/images/ 
     labels:
       # Main
-      traefik.enable: "true"
+      traefik.enable: true
       traefik.http.middlewares.localai-redirect.redirectscheme.scheme: https
       traefik.http.services.localai.loadbalancer.server.port: 8111
       # Web
@@ -44,8 +40,8 @@ services:
       traefik.http.routers.localai-local.rule: Host(`localai.${LOCAL_DOMAIN}`)
       traefik.http.routers.localai-local.entrypoints: websecure
       traefik.http.routers.localai-local.service: localai
-      traefik.http.routers.localai-local.tls: "true"  # Ensure this is a string
-      runtipi.managed: "true"
+      traefik.http.routers.localai-local.tls: true 
+      runtipi.managed: true
 
 networks:
   tipi_main_network:
