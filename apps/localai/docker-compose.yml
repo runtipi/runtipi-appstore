@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   api:
-    # image: localai/localai:latest-aio-gpu-nvidia-cuda-12
+    image: localai/localai:v2.20.1-sycl-f32-ffmpeg
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8111/readyz"]
       interval: 1m
@@ -12,22 +12,13 @@ services:
       - 8111:8111
     environment:
       - DEBUG=true
+      - FEDERATION_ENABLED=true
+      - FEDERATION_ROLE=master
+      - FEDERATION_DOMAIN=$[LOCAL_DOMAIN]
+      - FEDERATION_SECRET=Mycobacteri@98
       # ...
     volumes:
       - ./models:/build/models:cached
-    # decomment the following piece if running with Nvidia GPUs
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
-    networks:
-      - tipi_main_network
-      traefik.http.routers.localai-secure.service: localai
-      traefik.http.routers.localai-secure.tls.certresolver: myresolver
-      traefik.http.services.localai.loadbalancer.server.port: 8111
     
     labels:
       # Main
