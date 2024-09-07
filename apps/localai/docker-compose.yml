@@ -15,7 +15,7 @@ services:
       # ...
     volumes:
       - ./models:/build/models:cached
-      - - ${ROOT_FOLDER_HOST}/media/data/images/:/tmp/generated/images/ 
+      - ${ROOT_FOLDER_HOST}/media/data/images/:/tmp/generated/images/ 
     labels:
       # Main
       traefik.enable: true
