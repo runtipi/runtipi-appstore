@@ -1,0 +1,61 @@
+version: "3.9"
+
+services:
+  api:
+    # image: localai/localai:latest-aio-gpu-nvidia-cuda-12
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8111/readyz"]
+      interval: 1m
+      timeout: 20m
+      retries: 5
+    ports:
+      - 8111:8111
+    environment:
+      - DEBUG=true
+      # ...
+    volumes:
+      - ./models:/build/models:cached
+    # decomment the following piece if running with Nvidia GPUs
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    networks:
+      - tipi_main_network
+      traefik.http.routers.localai-secure.service: localai
+      traefik.http.routers.localai-secure.tls.certresolver: myresolver
+      traefik.http.services.localai.loadbalancer.server.port: 8111
+    
+    labels:
+      # Main
+      traefik.enable: "true"
+      traefik.http.middlewares.localai-redirect.redirectscheme.scheme: https
+      traefik.http.services.localai.loadbalancer.server.port: 8111
+      # Web
+      traefik.http.routers.localai-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.localai-insecure.entrypoints: web
+      traefik.http.routers.localai-insecure.service: localai
+      traefik.http.routers.localai-insecure.middlewares: localai-web-redirect
+      # Websecure
+      traefik.http.routers.localai.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.localai.entrypoints: websecure
+      traefik.http.routers.localai.service: localai
+      traefik.http.routers.localai.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.localai-local-insecure.rule: Host(`localai.${LOCAL_DOMAIN}`)
+      traefik.http.routers.localai-local-insecure.entrypoints: web
+      traefik.http.routers.localai-local-insecure.service: localai
+      traefik.http.routers.localai-local-insecure.middlewares: localai-web-redirect
+      # Local domain secure
+      traefik.http.routers.localai-local.rule: Host(`localai.${LOCAL_DOMAIN}`)
+      traefik.http.routers.localai-local.entrypoints: websecure
+      traefik.http.routers.localai-local.service: localai
+      traefik.http.routers.localai-local.tls: "true"  # Ensure this is a string
+      runtipi.managed: "true"
+
+networks:
+  tipi_main_network:
+    driver: overlay
