@@ -1,0 +1,18 @@
+{
+  "$schema": "../schema.json",
+  "name": "Local AI",
+  "available": true,
+  "exposable": true,
+  "port": 8111,
+  "id": "localai",
+  "tipi_version": 26,
+  "version": "0.3.4",
+  "categories": ["ai"],
+  "description": "LocalAI is the free, Open Source OpenAI alternative. LocalAI act as a drop-in replacement REST API that’s compatible with OpenAI API specifications for local inferencing. It allows you to run LLMs, generate images, audio (and not only) locally or on-prem with consumer grade hardware, supporting multiple model families and architectures.",
+  "short_desc": "LLMs inference server with OpenAI compatible API",
+  "author": "Giacinto",
+  "source": "https://github.com/mudler/LocalAI",
+  "website": "https://github.com/mudler/LocalAI",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"]
+}
