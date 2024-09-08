@@ -25,6 +25,7 @@ services:
       mail__options__auth__pass: ${GHOST_MAIL_PASSWORD}
     volumes:
       - ${APP_DATA_DIR}/content:/var/lib/ghost/content
+      - ${APP_DATA_DIR}/tmp:/tmp/
     networks:
       - tipi_main_network
     labels:
