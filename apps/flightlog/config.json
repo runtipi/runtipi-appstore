@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8934,
   "id": "flightlog",
-  "tipi_version": 2,
-  "version": "2.1.0",
+  "tipi_version": 3,
+  "version": "2.1.1",
   "categories": ["utilities", "data"],
   "description": "Easily keep track of your flight history",
   "short_desc": "Flightlog, a web application that keeps track of your personal flight history",
@@ -15,5 +15,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1725513335000
+  "updated_at": 1725836550000
 }
