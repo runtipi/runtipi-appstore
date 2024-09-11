@@ -68,8 +68,8 @@ services:
     container_name: hoarder-meilisearch
     restart: unless-stopped
     environment:
-      MEILI_NO_ANALYTICS: "true"
-      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY}
+      - MEILI_NO_ANALYTICS=true
+      - MEILI_MASTER_KEY=${MEILI_MASTER_KEY}
     volumes:
       - ${APP_DATA_DIR}/data/melli_data:/meili_data
     networks:
