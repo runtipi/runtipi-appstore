@@ -33,7 +33,7 @@
         }
     ],
     "exposable": true,
-    "supported_architectures": ["arm64"],
+    "supported_architectures": ["amd64", "arm64"],
     "created_at": 1726034457000,
     "updated_at": 1726034457000
   }
