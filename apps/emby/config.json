@@ -1,0 +1,19 @@
+{
+  "$schema": "../schema.json",
+  "name": "Emby",
+  "available": true,
+  "exposable": true,
+  "port": 8096,
+  "id": "emby",
+  "tipi_version": 1,
+  "version": "latest",
+  "categories": ["media"],
+  "description": "Emby is a media server designed to organize, play, and stream audio and video to a variety of devices.",
+  "short_desc": "A media server for your home collection",
+  "author": "emby.media",
+  "source": "https://emby.media/docker-server.html",
+  "form_fields": [],
+  "supported_architectures": ["amd64"],
+  "created_at": 1724134338800,
+  "updated_at": 1724134338800
+}
