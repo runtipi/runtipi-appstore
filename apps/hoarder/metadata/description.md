@@ -1,3 +1,5 @@
+### Hoarder
+
 A self-hostable bookmark-everything app with a touch of AI for the data hoarders out there.
 
 ![homepage screenshot](https://github.com/hoarder-app/hoarder/blob/main/screenshots/homepage.png?raw=true)
