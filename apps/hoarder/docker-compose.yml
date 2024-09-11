@@ -6,16 +6,16 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/app:/data
     ports:
-      - "${APP_PORT}:3000"
+      - ${APP_PORT}:3000
     environment:
-      MEILI_ADDR: http://hoarder-meilisearch:7700
-      BROWSER_WEB_URL: http://hoarder-chrome:9222
-      DATA_DIR: /data
-      HOARDER_VERSION: "0.16.0"
-      OPENAI_API_KEY: ${OPENAI_API_KEY}
-      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
-      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY}
-      NEXTAUTH_URL: ${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - MEILI_ADDR=http://hoarder-meilisearch:7700
+      - BROWSER_WEB_URL=http://hoarder-chrome:9222
+      - DATA_DIR=/data
+      - HOARDER_VERSION=0.16.0
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
+      - MEILI_MASTER_KEY=${MEILI_MASTER_KEY}
+      - NEXTAUTH_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
     networks:
       - tipi_main_network
     labels:
@@ -43,7 +43,9 @@ services:
       traefik.http.routers.hoarder-local.entrypoints: websecure
       traefik.http.routers.hoarder-local.service: hoarder
       traefik.http.routers.hoarder-local.tls: true
+      # Runtipi managed
       runtipi.managed: true
+  
   hoarder-chrome:
     image: gcr.io/zenika-hub/alpine-chrome:123
     container_name: hoarder-chrome
@@ -57,6 +59,10 @@ services:
       - --hide-scrollbars
     networks:
       - tipi_main_network
+    labels:
+      # Runtipi managed
+      runtipi.managed: true
+      
   hoarder-meilisearch:
     image: getmeili/meilisearch:v1.6
     container_name: hoarder-meilisearch
@@ -68,3 +74,6 @@ services:
       - ${APP_DATA_DIR}/data/melli_data:/meili_data
     networks:
       - tipi_main_network
+    labels:
+      # Runtipi managed
+      runtipi.managed: true
