@@ -6,7 +6,7 @@
   "port": 8096,
   "id": "emby",
   "tipi_version": 1,
-  "version": "latest",
+  "version": "4.9.0.30",
   "categories": ["media"],
   "description": "Emby is a media server designed to organize, play, and stream audio and video to a variety of devices.",
   "short_desc": "A media server for your home collection",
