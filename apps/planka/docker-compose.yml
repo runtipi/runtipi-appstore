@@ -22,8 +22,12 @@ services:
     environment:
       - BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
       - TRUST_PROXY=1
-      - DATABASE_URL="postgresql://postgres@postgres/planka"
-      - SECRET_KEY="${PLANKA_SECRET_KEY}"
+      - DATABASE_URL=postgresql://postgres@postgres/planka
+      - SECRET_KEY=${PLANKA_SECRET_KEY}
+      - DEFAULT_ADMIN_EMAIL=demo@demo.demo
+      - DEFAULT_ADMIN_PASSWORD=demo
+      - DEFAULT_ADMIN_NAME=Demo Demo
+      - DEFAULT_ADMIN_USERNAME=demo
     networks:
       - tipi_main_network
     labels:
