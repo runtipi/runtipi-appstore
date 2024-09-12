@@ -4,7 +4,7 @@
   "available": true,
   "exposable": true,
   "port": 8096,
-  "id": "emby",
+  "id": "embyserver",
   "tipi_version": 1,
   "version": "4.9.0.30",
   "categories": ["media"],
