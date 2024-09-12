@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   emby:
-    image: lscr.io/linuxserver/emby:4.9.0.30
+    image: lscr.io/linuxserver/emby:4.8.8
     container_name: emby
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
@@ -10,7 +10,6 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${TZ}
-      - EMBY_PublishedServerUrl=${APP_PROTOCOL:-http}://${APP_DOMAIN}/
     restart: "unless-stopped"
     ports:
       - ${APP_PORT}:8096
