@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-  emby:
+  embyserver:
     image: emby/embyserver:4.9.0.30
     container_name: embyserver
     volumes:
@@ -10,7 +10,6 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${TZ}
-      - EMBY_PublishedServerUrl=${APP_PROTOCOL:-http}://${APP_DOMAIN}/
     restart: "unless-stopped"
     ports:
       - ${APP_PORT}:8096
@@ -19,26 +18,26 @@ services:
     labels:
       # Main
       traefik.enable: true
-      traefik.http.middlewares.emby-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.emby.loadbalancer.server.port: 8096
+      traefik.http.middlewares.embyserver-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.embyserver.loadbalancer.server.port: 8096
       # Web
-      traefik.http.routers.emby-insecure.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.emby-insecure.entrypoints: web
-      traefik.http.routers.emby-insecure.service: emby
-      traefik.http.routers.emby-insecure.middlewares: emby-web-redirect
+      traefik.http.routers.embyserver-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.embyserver-insecure.entrypoints: web
+      traefik.http.routers.embyserver-insecure.service: embyserver
+      traefik.http.routers.embyserver-insecure.middlewares: embyserver-web-redirect
       # Websecure
-      traefik.http.routers.emby.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.emby.entrypoints: websecure
-      traefik.http.routers.emby.service: emby
-      traefik.http.routers.emby.tls.certresolver: myresolver
+      traefik.http.routers.embyserver.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.embyserver.entrypoints: websecure
+      traefik.http.routers.embyserver.service: embyserver
+      traefik.http.routers.embyserver.tls.certresolver: myresolver
       # Local domain
-      traefik.http.routers.emby-local-insecure.rule: Host(`emby.${LOCAL_DOMAIN}`)
-      traefik.http.routers.emby-local-insecure.entrypoints: web
-      traefik.http.routers.emby-local-insecure.service: emby
-      traefik.http.routers.emby-local-insecure.middlewares: emby-web-redirect
+      traefik.http.routers.embyserver-local-insecure.rule: Host(`embyserver.${LOCAL_DOMAIN}`)
+      traefik.http.routers.embyserver-local-insecure.entrypoints: web
+      traefik.http.routers.embyserver-local-insecure.service: embyserver
+      traefik.http.routers.embyserver-local-insecure.middlewares: embyserver-web-redirect
       # Local domain secure
-      traefik.http.routers.emby-local.rule: Host(`emby.${LOCAL_DOMAIN}`)
-      traefik.http.routers.emby-local.entrypoints: websecure
-      traefik.http.routers.emby-local.service: emby
-      traefik.http.routers.emby-local.tls: true
+      traefik.http.routers.embyserver-local.rule: Host(`embyserver.${LOCAL_DOMAIN}`)
+      traefik.http.routers.embyserver-local.entrypoints: websecure
+      traefik.http.routers.embyserver-local.service: embyserver
+      traefik.http.routers.embyserver-local.tls: true
       runtipi.managed: true
