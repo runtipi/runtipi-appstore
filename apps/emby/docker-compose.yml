@@ -13,8 +13,6 @@ services:
     restart: "unless-stopped"
     ports:
       - ${APP_PORT}:8096
-    networks:
-      - tipi_main_network
     labels:
       # Main
       traefik.enable: true
