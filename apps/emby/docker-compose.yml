@@ -14,7 +14,7 @@ services:
     ports:
       - ${APP_PORT}:8096
     networks:
-      - runtipi_tipi_main_network
+      - tipi_main_network
     labels:
       # Main
       traefik.enable: true
