@@ -14,4 +14,4 @@ services:
     ports:
       - ${APP_PORT}:8096
     networks:
-      - run_tipi_main_network
+      - tipi_main_network
