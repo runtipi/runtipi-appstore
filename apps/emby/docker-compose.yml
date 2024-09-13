@@ -10,7 +10,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${TZ}
-    restart: "unless-stopped"
+    restart: unless-stopped
     ports:
       - ${APP_PORT}:8096
     networks:
@@ -40,3 +40,5 @@ services:
       traefik.http.routers.emby-local.entrypoints: websecure
       traefik.http.routers.emby-local.service: emby
       traefik.http.routers.emby-local.tls: true
+      # Runtipi managed
+      runtipi.managed: true
