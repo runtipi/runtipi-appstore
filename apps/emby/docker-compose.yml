@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   emby:
-    image: emby:4.8.8
+    image: lscr.io/linuxserver/emby:4.8.8
     container_name: emby
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
@@ -13,6 +13,12 @@ services:
     restart: "unless-stopped"
     ports:
       - ${APP_PORT}:8096
+    devices:
+      - /dev/dri:/dev/dri
+      - /dev/vchiq:/dev/vchiq
+      - /dev/video10:/dev/video10
+      - /dev/video11:/dev/video11
+      - /dev/video12:/dev/video12
     networks:
       - tipi_main_network
     labels: # Use your editors search and replace feature to replace all instances of "emby" with your app name in the traefik labels
