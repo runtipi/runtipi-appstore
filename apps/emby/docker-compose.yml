@@ -13,15 +13,9 @@ services:
     restart: "unless-stopped"
     ports:
       - ${APP_PORT}:8096
-    devices:
-      - /dev/dri:/dev/dri
-      - /dev/vchiq:/dev/vchiq
-      - /dev/video10:/dev/video10
-      - /dev/video11:/dev/video11
-      - /dev/video12:/dev/video12
     networks:
       - tipi_main_network
-    labels: # Use your editors search and replace feature to replace all instances of "emby" with your app name in the traefik labels
+    labels:
       # Main
       traefik.enable: true
       traefik.http.middlewares.emby-web-redirect.redirectscheme.scheme: https
