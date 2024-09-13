@@ -4,8 +4,8 @@ services:
     image: lscr.io/linuxserver/emby:4.8.8
     container_name: emby
     volumes:
-      - /home/abohiccups/runtipi/app-data/emby/data/config:/config
-      - /home/abohiccups/runtipi/media/data:/media/data
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${ROOT_FOLDER_HOST}/media/data:/media/data
     environment:
       - PUID=1000
       - PGID=1000
@@ -14,7 +14,7 @@ services:
     ports:
       - ${APP_PORT}:8096
     networks:
-      - tipi_main_network
+      - run_tipi_main_network
     labels:
       # Main
       traefik.enable: true
