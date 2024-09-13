@@ -1,6 +1,6 @@
 autobrr is the modern download automation tool for torrents. With inspiration and ideas from tools like trackarr, autodl-irssi and flexget we built one tool that can do it all, and then some.
 
-[![autobrr ui](https://github.com/autobrr/autobrr/raw/develop/.github/images/autobrr-front.png)](https://github.com/autobrr/autobrr/blob/develop/.github/images/autobrr-front.png)
+[![autobrr ui](https://github.com/autobrr/autobrr/raw/develop/.github/images/front-dark.png)](https://github.com/autobrr/autobrr/blob/develop/.github/images/front-dark.png)
 
 ## [](https://github.com/autobrr/autobrr#documentation)Documentation
 
