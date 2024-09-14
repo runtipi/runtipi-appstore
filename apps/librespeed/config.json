@@ -2,7 +2,7 @@
   "name": "LibreSpeed",
   "id": "librespeed",
   "available": true,
-  "short_desc": "No Flash, No Java, No Websocket, No Bullshit.",
+  "short_desc": "No Flash, No Java, No Websocket, No Bullshit",
   "author": "LibreSpeed",
   "port": 80,
   "categories": ["utilities"],
