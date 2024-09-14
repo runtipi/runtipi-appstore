@@ -12,7 +12,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.qrcode-generator-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.qrcode-generator.loadbalancer.server.port: 80
+      traefik.http.services.qrcode-generator.loadbalancer.server.port: 8080
       # Web
       traefik.http.routers.qrcode-generator-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.qrcode-generator-insecure.entrypoints: web
