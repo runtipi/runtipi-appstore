@@ -11,28 +11,3 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
-    labels:
-      # Main
-      traefik.enable: true
-      traefik.http.middlewares.quakejs-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.quakejs.loadbalancer.server.port: 80
-      # Web
-      traefik.http.routers.quakejs-insecure.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.quakejs-insecure.entrypoints: web
-      traefik.http.routers.quakejs-insecure.service: quakejs
-      traefik.http.routers.quakejs-insecure.middlewares: quakejs-web-redirect
-      # Websecure
-      traefik.http.routers.quakejs.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.quakejs.entrypoints: websecure
-      traefik.http.routers.quakejs.service: quakejs
-      traefik.http.routers.quakejs.tls.certresolver: myresolver
-      # Local domain
-      traefik.http.routers.quakejs-local-insecure.rule: Host(`quakejs.${LOCAL_DOMAIN}`)
-      traefik.http.routers.quakejs-local-insecure.entrypoints: web
-      traefik.http.routers.quakejs-local-insecure.service: quakejs
-      traefik.http.routers.quakejs-local-insecure.middlewares: quakejs-web-redirect
-      # Local domain secure
-      traefik.http.routers.quakejs-local.rule: Host(`quakejs.${LOCAL_DOMAIN}`)
-      traefik.http.routers.quakejs-local.entrypoints: websecure
-      traefik.http.routers.quakejs-local.service: quakejs
-      traefik.http.routers.quakejs-local.tls: true
