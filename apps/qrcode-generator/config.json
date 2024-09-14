@@ -2,7 +2,7 @@
   "name": "QR Code Generator UI",
   "id": "qrcode-generator",
   "available": true,
-  "short_desc": "Basic docker container to generate a QR Code.",
+  "short_desc": "Basic docker container to generate a QR Code",
   "author": "bizzycola",
   "port": 80,
   "categories": ["utilities"],
