@@ -2,7 +2,7 @@
   "name": "QuakeJS",
   "id": "quakejs",
   "available": true,
-  "short_desc": "A port of ioquake3 to JavaScript.",
+  "short_desc": "A port of ioquake3 to JavaScript",
   "author": "treyyoder",
   "port": 80,
   "categories": ["gaming"],
