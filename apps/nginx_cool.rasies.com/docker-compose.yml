@@ -1,0 +1,39 @@
+version: "3.9"
+services:
+  nginx_cool.rasies.com:
+    image: nginx:1.25.3
+    container_name: nginx_cool.rasies.com
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:80
+    volumes:
+      - ${APP_DATA_DIR}/data/config/nginx.conf:/etc/nginx/nginx.conf
+
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.nginx_cool.rasies.com-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.nginx_cool.rasies.com.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.nginx_cool.rasies.com-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nginx_cool.rasies.com-insecure.entrypoints: web
+      traefik.http.routers.nginx_cool.rasies.com-insecure.service: nginx_cool.rasies.com
+      traefik.http.routers.nginx_cool.rasies.com-insecure.middlewares: nginx_cool.rasies.com-web-redirect
+      # Websecure
+      traefik.http.routers.nginx_cool.rasies.com.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nginx_cool.rasies.com.entrypoints: websecure
+      traefik.http.routers.nginx_cool.rasies.com.service: nginx_cool.rasies.com
+      traefik.http.routers.nginx_cool.rasies.com.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.nginx_cool.rasies.com-local-insecure.rule: Host(`nginx_cool.rasies.com.${LOCAL_DOMAIN}`)
+      traefik.http.routers.nginx_cool.rasies.com-local-insecure.entrypoints: web
+      traefik.http.routers.nginx_cool.rasies.com-local-insecure.service: nginx_cool.rasies.com
+      traefik.http.routers.nginx_cool.rasies.com-local-insecure.middlewares: nginx_cool.rasies.com-web-redirect
+      # Local domain secure
+      traefik.http.routers.nginx_cool.rasies.com-local.rule: Host(`nginx_cool.rasies.com.${LOCAL_DOMAIN}`)
+      traefik.http.routers.nginx_cool.rasies.com-local.entrypoints: websecure
+      traefik.http.routers.nginx_cool.rasies.com-local.service: nginx_cool.rasies.com
+      traefik.http.routers.nginx_cool.rasies.com-local.tls: true
+      runtipi.managed: true
