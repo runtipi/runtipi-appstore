@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+  qrcode-generator:
+    container_name: qrcode-generator
+    image: bizzycolah/qrcode-generator:latest
+    ports:
+      - ${APP_PORT}:80
+    restart: unless-stopped
+    networks:
+      - tipi_main_network # That should not be changed
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.qrcode-generator-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.qrcode-generator.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.qrcode-generator-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.qrcode-generator-insecure.entrypoints: web
+      traefik.http.routers.qrcode-generator-insecure.service: qrcode-generator
+      traefik.http.routers.qrcode-generator-insecure.middlewares: qrcode-generator-web-redirect
+      # Websecure
+      traefik.http.routers.qrcode-generator.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.qrcode-generator.entrypoints: websecure
+      traefik.http.routers.qrcode-generator.service: qrcode-generator
+      traefik.http.routers.qrcode-generator.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.qrcode-generator-local-insecure.rule: Host(`qrcode-generator.${LOCAL_DOMAIN}`)
+      traefik.http.routers.qrcode-generator-local-insecure.entrypoints: web
+      traefik.http.routers.qrcode-generator-local-insecure.service: qrcode-generator
+      traefik.http.routers.qrcode-generator-local-insecure.middlewares: qrcode-generator-web-redirect
+      # Local domain secure
+      traefik.http.routers.qrcode-generator-local.rule: Host(`qrcode-generator.${LOCAL_DOMAIN}`)
+      traefik.http.routers.qrcode-generator-local.entrypoints: websecure
+      traefik.http.routers.qrcode-generator-local.service: qrcode-generator
+      traefik.http.routers.qrcode-generator-local.tls: true

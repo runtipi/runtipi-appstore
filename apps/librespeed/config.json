@@ -1,0 +1,17 @@
+{
+  "name": "LibreSpeed",
+  "id": "librespeed",
+  "available": true,
+  "short_desc": "No Flash, No Java, No Websocket, No Bullshit.",
+  "author": "LibreSpeed",
+  "port": 80,
+  "categories": ["utilities"],
+  "description": "This is a very lightweight speed test implemented in Javascript, using XMLHttpRequest and Web Workers.",
+  "tipi_version": 1,
+  "version": "latest",
+  "source": "https://github.com/librespeed/speedtest",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1724134338800,
+  "updated_at": 1724134338800
+}
