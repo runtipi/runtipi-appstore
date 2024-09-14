@@ -3,7 +3,7 @@
     "available": true,
     "port": 8754,
     "exposable": true,
-    "id": "nginx_cool.rasies.com",
+    "id": "nginx_cool",
     "description": "Custom Config - Specifically to direct traffic to Collabora on 192.168.1.12",
     "tipi_version": 1,
     "version": "1.25.3",

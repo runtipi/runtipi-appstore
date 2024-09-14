@@ -1,0 +1,39 @@
+version: "3.9"
+services:
+  nginx_cool:
+    image: nginx:1.25.3
+    container_name: nginx_cool
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:80
+    volumes:
+      - ${APP_DATA_DIR}/data/config/nginx.conf:/etc/nginx/nginx.conf
+
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.nginx_cool-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.nginx_cool.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.nginx_cool-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nginx_cool-insecure.entrypoints: web
+      traefik.http.routers.nginx_cool-insecure.service: nginx_cool
+      traefik.http.routers.nginx_cool-insecure.middlewares: nginx_cool-web-redirect
+      # Websecure
+      traefik.http.routers.nginx_cool.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nginx_cool.entrypoints: websecure
+      traefik.http.routers.nginx_cool.service: nginx_cool
+      traefik.http.routers.nginx_cool.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.nginx_cool-local-insecure.rule: Host(`nginx_cool.${LOCAL_DOMAIN}`)
+      traefik.http.routers.nginx_cool-local-insecure.entrypoints: web
+      traefik.http.routers.nginx_cool-local-insecure.service: nginx_cool
+      traefik.http.routers.nginx_cool-local-insecure.middlewares: nginx_cool-web-redirect
+      # Local domain secure
+      traefik.http.routers.nginx_cool-local.rule: Host(`nginx_cool.${LOCAL_DOMAIN}`)
+      traefik.http.routers.nginx_cool-local.entrypoints: websecure
+      traefik.http.routers.nginx_cool-local.service: nginx_cool
+      traefik.http.routers.nginx_cool-local.tls: true
+      runtipi.managed: true
