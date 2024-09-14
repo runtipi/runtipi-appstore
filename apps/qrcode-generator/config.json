@@ -6,7 +6,7 @@
   "author": "bizzycola",
   "port": 80,
   "categories": ["utilities"],
-  "description": "Basic docker container with a HTML/CSS/JS UI to generate a QR Code from a provided URL. Uses tailwind CSS and qrcode.js",
+  "description": "Basic docker container with an HTML/CSS/JS UI to generate a QR Code from a provided URL. Uses tailwind CSS and qrcode.js",
   "tipi_version": 1,
   "version": "latest",
   "source": "https://github.com/bizzycola/qrcode-generator",
