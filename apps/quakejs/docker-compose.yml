@@ -3,9 +3,9 @@ services:
   quakejs:
     container_name: quakejs
     environment:
-      - HTTP_PORT=${APP_PORT}
+      - HTTP_PORT=8080
     ports:
-      - ${APP_PORT}:80
+      - 8080:80
       - 27960:27960
     image: treyyoder/quakejs:latest
     restart: unless-stopped
