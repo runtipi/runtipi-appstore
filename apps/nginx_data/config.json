@@ -1,7 +1,7 @@
 {
     "name": "Nginx data.rasies.com",
     "available": true,
-    "port": 8754,
+    "port": 8755,
     "exposable": true,
     "id": "nginx_data",
     "description": "NEXTCLOUD redirect - I set up this custom app to direct traffic to data.rasies.com to 192.168.1.12",
