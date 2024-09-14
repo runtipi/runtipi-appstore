@@ -7,7 +7,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${TZ}
-      - PASSWORD=PASSWORD
+      - PASSWORD=${LIBRESPEED_PASSWORD}
     volumes:
       - /path/to/librespeed/config:/config
     ports:
