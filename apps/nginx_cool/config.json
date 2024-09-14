@@ -1,7 +1,7 @@
 {
     "name": "Nginx redirect for cool.rasies.com",
     "available": true,
-    "port": 8754,
+    "port": 8756,
     "exposable": true,
     "id": "nginx_cool",
     "description": "Custom Config - Specifically to direct traffic to Collabora on 192.168.1.12",
