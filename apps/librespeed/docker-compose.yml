@@ -11,7 +11,7 @@ services:
     volumes:
       - /path/to/librespeed/config:/config
     ports:
-      - ${APP_PORT}:80
+      - ${APP_PORT}:8080
     restart: unless-stopped
     networks:
       - tipi_main_network
@@ -19,7 +19,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.librespeed-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.librespeed.loadbalancer.server.port: 80
+      traefik.http.services.librespeed.loadbalancer.server.port: 8080
       # Web
       traefik.http.routers.librespeed-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.librespeed-insecure.entrypoints: web
