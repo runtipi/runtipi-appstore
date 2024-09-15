@@ -1,0 +1,17 @@
+{
+  "name": "QuakeJS",
+  "id": "quakejs",
+  "available": true,
+  "short_desc": "A port of ioquake3 to JavaScript",
+  "author": "treyyoder",
+  "port": 80,
+  "categories": ["gaming"],
+  "description": "QuakeJS is a port of ioquake3 to JavaScript with the help of Emscripten.",
+  "tipi_version": 1,
+  "version": "latest",
+  "source": "https://github.com/treyyoder/quakejs-docker",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1724134338800,
+  "updated_at": 1724134338800
+}
