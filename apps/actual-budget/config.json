@@ -1,11 +1,12 @@
 {
   "$schema": "../schema.json",
+  "dynamic_config": true,
   "name": "Actual Budget",
   "available": true,
   "exposable": true,
   "port": 8011,
   "id": "actual-budget",
-  "tipi_version": 23,
+  "tipi_version": 24,
   "version": "24.9.0",
   "categories": ["finance"],
   "description": "Actual is a local-first personal finance tool. It is 100% free and open-source, written in NodeJS, it has a synchronization element so that all your changes can move between devices without any heavy lifting.",
