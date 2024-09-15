@@ -1,0 +1,44 @@
+{
+    "$schema": "../compose-schema.json",
+    "services": [
+      {
+        "image": "yooooomi/your_spotify_client:1.11.0",
+        "name": "your-spotify",
+        "internalPort": 3000,
+        "isMain": true,
+        "environment": {
+          "API_ENDPOINT": "http://${INTERNAL_IP}:32500"
+        },
+        "dependsOn": ["your-spotify-server"]
+      },
+      {
+        "image": "yooooomi/your_spotify_server",
+        "name": "your-spotify-server",
+        "addPorts": [
+          {
+            "containerPort": 8080,
+            "hostPort": 32500
+          }
+        ],
+        "environment": {
+          "API_ENDPOINT": "http://${INTERNAL_IP}:32500",
+          "CLIENT_ENDPOINT": "http://${INTERNAL_IP}:${APP_PORT}",
+          "SPOTIFY_PUBLIC": "${SPOTIFY_PUBLIC}",
+          "SPOTIFY_SECRET": "${SPOTIFY_SECRET}",
+          "MONGO_ENDPOINT": "mongodb://your-spotify-db:27017/your_spotify",
+          "CORS": "all"
+        },
+        "dependsOn": ["your-spotify-db"]
+      },
+      {
+        "image": "mongo:4.4.8",
+        "name": "your-spotify-db",
+        "volumes": [
+          {
+            "hostPath": "${APP_DATA_DIR}/data/db",
+            "containerPath": "/data/db"
+          }
+        ]
+      }
+    ]
+  }

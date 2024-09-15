@@ -1,0 +1,29 @@
+{
+    "$schema": "../compose-schema.json",
+    "services": [
+      {
+        "image": "humenius/traefik-certs-dumper:1.6.1-alpine",
+        "name": "traefik-certs-dumper",
+        "environment": {
+          "ACME_FILE_PATH": "/traefik/acme.json"
+        },
+        "volumes": [
+          {
+            "hostPath": "${ROOT_FOLDER_HOST}/traefik/shared/acme.json",
+            "containerPath": "/traefik/acme.json",
+            "readOnly": true
+          },
+          {
+            "hostPath": "${APP_DATA_DIR}/data/certs",
+            "containerPath": "/output"
+          }
+        ],
+        "healthCheck": {
+          "test": "/usr/bin/healthcheck",
+          "interval": "30s",
+          "timeout": "10s",
+          "retries": 5
+        }
+      }
+    ]
+  }

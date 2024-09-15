@@ -1,0 +1,50 @@
+{
+    "$schema": "../compose-schema.json",
+    "services": [
+      {
+        "image": "tooljet/tooljet-ce:v2.4.2",
+        "name": "tooljet",
+        "internalPort": 80,
+        "isMain": true,
+        "environment": {
+          "SERVER_HOST": "tooljet-server"
+        },
+        "dependsOn": ["tooljet-server"],
+        "command": "openresty -g \"daemon off;\""
+      },
+      {
+        "image": "tooljet/tooljet-server-ce:v2.24.0",
+        "name": "tooljet-server",
+        "environment": {
+          "SERVE_CLIENT": "false",
+          "SERVER_HOST": "tooljet-server",
+          "TOOLJET_HOST": "https://${APP_DOMAIN}",
+          "LOCKBOX_MASTER_KEY": "${LOCKBOX_MASTER_KEY}",
+          "SECRET_KEY_BASE": "${SECRET_KEY_BASE}",
+          "PG_DB": "tooljet",
+          "PG_USER": "tooljet",
+          "PG_HOST": "db-tooljet",
+          "PG_PASS": "${DB_PASSWORD}",
+          "CHECK_FOR_UPDATES": "check_if_updates_are_available",
+          "DEFAULT_FROM_EMAIL": "hello@tooljet.io"
+        },
+        "command": "npm run start:prod"
+      },
+      {
+        "image": "postgres:11",
+        "name": "db-tooljet",
+        "environment": {
+          "POSTGRES_USER": "tooljet",
+          "POSTGRES_PASSWORD": "${DB_PASSWORD}",
+          "POSTGRES_DB": "tooljet",
+          "PGDATA": "/data/postgres"
+        },
+        "volumes": [
+          {
+            "hostPath": "${APP_DATA_DIR}/data/db",
+            "containerPath": "/var/lib/postgresql/data"
+          }
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,36 @@
+{
+    "$schema": "../compose-schema.json",
+    "services": [
+      {
+        "image": "vaultwarden/server:1.30.5-alpine",
+        "name": "vaultwarden",
+        "internalPort": 80,
+        "isMain": true,
+        "environment": {
+          "WEBSOCKET_ENABLED": "true",
+          "SIGNUPS_ALLOWED": "false",
+          "ADMIN_TOKEN": "${VAULTWARDEN_ADMIN_TOKEN}",
+          "DOMAIN": "https://${APP_DOMAIN}",
+          "SMTP_HOST": "${SMTP_HOST}",
+          "SMTP_FROM": "${SMTP_FROM}",
+          "SMTP_FROM_NAME": "${SMTP_FROM_NAME}",
+          "SMTP_PORT": "${SMTP_PORT}",
+          "SMTP_SSL": "${SMTP_SSL}",
+          "SMTP_USERNAME": "${SMTP_USERNAME}",
+          "SMTP_PASSWORD": "${SMTP_PASSWORD}"
+        },
+        "volumes": [
+          {
+            "hostPath": "${APP_DATA_DIR}/data",
+            "containerPath": "/data"
+          }
+        ],
+        "addPorts": [
+          {
+            "containerPort": 3012,
+            "hostPort": 3012
+          }
+        ]
+      }
+    ]
+  }

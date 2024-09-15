@@ -1,0 +1,27 @@
+{
+    "$schema": "../compose-schema.json",
+    "services": [
+      {
+        "image": "zerotier/zerotier:1.14.0",
+        "name": "zerotier",
+        "command": "${NETWORK_ID}",
+        "networkMode": "host",
+        "healthCheck": {
+          "test": "CMD true",
+          "interval": "30s",
+          "timeout": "10s",
+          "retries": 3
+        },
+        "capAdd": [
+          "NET_ADMIN",
+          "SYS_ADMIN"
+        ],
+        "devices": [
+          {
+            "hostPath": "/dev/net/tun",
+            "containerPath": "/dev/net/tun"
+          }
+        ]
+      }
+    ]
+  }

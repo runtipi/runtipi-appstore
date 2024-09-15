@@ -1,0 +1,42 @@
+{
+    "$schema": "../compose-schema.json",
+    "services": [
+      {
+        "image": "teddit/teddit:latest",
+        "name": "teddit",
+        "internalPort": 8080,
+        "isMain": true,
+        "environment": {
+          "REDIS_HOST": "teddit-redis",
+          "DOMAIN": "${APP_DOMAIN}",
+          "THEME": "dark",
+          "HTTPS_ENABLED": "false",
+          "REDIRECT_HTTP_TO_HTTPS": "false",
+          "REDIRECT_WWW": "false"
+        },
+        "dependsOn": ["teddit-redis"],
+        "healthCheck": {
+          "test": "wget --no-verbose --tries=1 --spider http://localhost:8080/about",
+          "interval": "1m",
+          "timeout": "3s",
+          "retries": 3
+        }
+      },
+      {
+        "image": "redis:alpine",
+        "name": "teddit-redis",
+        "volumes": [
+          {
+            "hostPath": "${APP_DATA_DIR}/data/redis",
+            "containerPath": "/data"
+          }
+        ],
+        "healthCheck": {
+          "test": "redis-cli ping",
+          "interval": "1s",
+          "timeout": "3s",
+          "retries": 30
+        }
+      }
+    ]
+  }

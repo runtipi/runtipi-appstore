@@ -5,7 +5,7 @@
   "available": true,
   "exposable": true,
   "id": "unmanic",
-  "tipi_version": 6,
+  "tipi_version": 8,
   "version": "0.2.8",
   "categories": ["utilities", "data", "media"],
   "description": "Unmanic gives you the power to automate the management of any file library.",
@@ -16,5 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1724903264000
+  "updated_at": 1726387573648,
+  "dynamic_config": true
 }

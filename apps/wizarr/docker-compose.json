@@ -1,0 +1,17 @@
+{
+    "$schema": "../compose-schema.json",
+    "services": [
+      {
+        "image": "ghcr.io/wizarrrr/wizarr:4.1.1",
+        "name": "wizarr",
+        "internalPort": 5690,
+        "isMain": true,
+        "volumes": [
+          {
+            "hostPath": "${APP_DATA_DIR}/data/database",
+            "containerPath": "/data/database"
+          }
+        ]
+      }
+    ]
+  }

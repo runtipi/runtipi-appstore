@@ -1,0 +1,39 @@
+{
+    "$schema": "../compose-schema.json",
+    "services": [
+      {
+        "image": "lscr.io/linuxserver/transmission:4.0.6",
+        "name": "transmission",
+        "internalPort": 9091,
+        "isMain": true,
+        "environment": {
+          "PUID": "1000",
+          "PGID": "1000",
+          "TZ": "${TZ}",
+          "USER": "${TRANSMISSION_USERNAME}",
+          "PASS": "${TRANSMISSION_PASSWORD}"
+        },
+        "volumes": [
+          {
+            "hostPath": "${APP_DATA_DIR}/data/config",
+            "containerPath": "/config"
+          },
+          {
+            "hostPath": "${ROOT_FOLDER_HOST}/media/torrents",
+            "containerPath": "/media/torrents"
+          }
+        ],
+        "addPorts": [
+          {
+            "containerPort": 51413,
+            "hostPort": 51413
+          },
+          {
+            "containerPort": 51413,
+            "hostPort": 51413,
+            "udp": true
+          }
+        ]
+      }
+    ]
+  }
