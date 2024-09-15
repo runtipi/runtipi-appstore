@@ -1,0 +1,76 @@
+{
+  "services": [
+    {
+      "image": "activepieces/activepieces:0.32.0",
+      "name": "activepieces",
+      "internalPort": 80,
+      "isMain": true,
+      "dependsOn": {
+        "activepieces-postgres": {
+          "condition": "service_healthy"
+        },
+        "activepieces-redis": {
+          "condition": "service_healthy"
+        }
+      },
+      "environment": {
+        "AP_ENGINE_EXECUTABLE_PATH": "dist/packages/engine/main.js",
+        "AP_API_KEY": "${AP_API_KEY}",
+        "AP_ENCRYPTION_KEY": "${AP_ENCRYPTION_KEY}",
+        "AP_JWT_SECRET": "${AP_JWT_SECRET}",
+        "AP_ENVIRONMENT": "prod",
+        "AP_FRONTEND_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
+        "AP_WEBHOOK_TIMEOUT_SECONDS": "30",
+        "AP_TRIGGER_DEFAULT_POLL_INTERVAL": "5",
+        "AP_POSTGRES_DATABASE": "activepieces",
+        "AP_POSTGRES_HOST": "activepieces-postgres",
+        "AP_POSTGRES_PORT": "5432",
+        "AP_POSTGRES_USERNAME": "tipi",
+        "AP_POSTGRES_PASSWORD": "${AP_POSTGRES_PASSWORD}",
+        "AP_EXECUTION_MODE": "UNSANDBOXED",
+        "AP_REDIS_HOST": "activepieces-redis",
+        "AP_REDIS_PORT": "6379",
+        "AP_SANDBOX_RUN_TIME_SECONDS": "600",
+        "AP_TELEMETRY_ENABLED": "true",
+        "AP_TEMPLATES_SOURCE_URL": "https://cloud.activepieces.com/api/v1/flow-templates"
+      }
+    },
+    {
+      "image": "postgres:14",
+      "name": "activepieces-postgres",
+      "environment": {
+        "POSTGRES_DB": "activepieces",
+        "POSTGRES_PASSWORD": "${AP_POSTGRES_PASSWORD}",
+        "POSTGRES_USER": "tipi"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgres",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ],
+      "healthCheck": {
+        "test": "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB",
+        "interval": "30s",
+        "timeout": "30s",
+        "retries": 3
+      }
+    },
+    {
+      "image": "redis:7",
+      "name": "activepieces-redis",
+      "healthCheck": {
+        "test": "redis-cli ping",
+        "interval": "30s",
+        "timeout": "30s",
+        "retries": 3
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/redis/",
+          "containerPath": "/data"
+        }
+      ]
+    }
+  ]
+}
