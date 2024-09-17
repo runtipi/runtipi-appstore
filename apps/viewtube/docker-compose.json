@@ -1,0 +1,47 @@
+{
+    "$schema": "../compose-schema.json",
+    "services": [
+      {
+        "image": "mauriceo/viewtube:0.17.0",
+        "name": "viewtube",
+        "internalPort": 8066,
+        "isMain": true,
+        "environment": {
+          "VIEWTUBE_DATABASE_HOST": "viewtube-mongodb",
+          "VIEWTUBE_REDIS_HOST": "viewtube-redis",
+          "VIEWTUBE_SECURE": "true",
+          "VIEWTUBE_CORS_ORIGIN": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+        },
+        "volumes": [
+          {
+            "hostPath": "${APP_DATA_DIR}/data/viewtube",
+            "containerPath": "/data"
+          }
+        ],
+        "dependsOn": [
+          "viewtube-mongodb",
+          "viewtube-redis"
+        ]
+      },
+      {
+        "image": "mongo:5",
+        "name": "viewtube-mongodb",
+        "volumes": [
+          {
+            "hostPath": "${APP_DATA_DIR}/data/db",
+            "containerPath": "/data/db"
+          }
+        ]
+      },
+      {
+        "image": "redis:7",
+        "name": "viewtube-redis",
+        "volumes": [
+          {
+            "hostPath": "${APP_DATA_DIR}/data/redis",
+            "containerPath": "/data"
+          }
+        ]
+      }
+    ]
+  }

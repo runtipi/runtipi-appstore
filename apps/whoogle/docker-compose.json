@@ -1,0 +1,14 @@
+{
+    "$schema": "../compose-schema.json",
+    "services": [
+      {
+        "image": "benbusby/whoogle-search:0.8.4",
+        "name": "whoogle",
+        "internalPort": 8255,
+        "isMain": true,
+        "environment": {
+          "EXPOSE_PORT": "8255"
+        }
+      }
+    ]
+  }

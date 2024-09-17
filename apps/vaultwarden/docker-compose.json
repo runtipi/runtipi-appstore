@@ -1,0 +1,21 @@
+{
+    "$schema": "../compose-schema.json",
+    "services": [
+      {
+        "image": "vaultwarden/server:1.32.0",
+        "name": "vaultwarden",
+        "internalPort": 80,
+        "isMain": true,
+        "environment": {
+          "WEBSOCKET_ENABLED": "true",
+          "ADMIN_TOKEN": "${VAULTWARDEN_ADMIN_PASSWORD}"
+        },
+        "volumes": [
+          {
+            "hostPath": "${APP_DATA_DIR}/data",
+            "containerPath": "/data"
+          }
+        ]
+      }
+    ]
+  }

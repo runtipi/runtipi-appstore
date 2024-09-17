@@ -1,0 +1,29 @@
+{
+    "$schema": "../compose-schema.json",
+    "services": [
+      {
+        "image": "bellamy/wallos:2.23.2",
+        "name": "wallos",
+        "internalPort": 80,
+        "isMain": true,
+        "environment": {
+          "TZ": "${TZ}"
+        },
+        "volumes": [
+          {
+            "hostPath": "/etc/localtime",
+            "containerPath": "/etc/localtime",
+            "readOnly": true
+          },
+          {
+            "hostPath": "${APP_DATA_DIR}/data/db",
+            "containerPath": "/var/www/html/db"
+          },
+          {
+            "hostPath": "${APP_DATA_DIR}/data/logos",
+            "containerPath": "/var/www/html/images/uploads/logos"
+          }
+        ]
+      }
+    ]
+  }

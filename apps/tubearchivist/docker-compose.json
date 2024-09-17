@@ -1,0 +1,69 @@
+{
+    "$schema": "../compose-schema.json",
+    "services": [
+      {
+        "image": "bbilly1/tubearchivist:v0.4.10",
+        "name": "tubearchivist",
+        "internalPort": 8000,
+        "isMain": true,
+        "environment": {
+          "ES_URL": "http://tubearchivist-es:9200",
+          "REDIS_HOST": "tubearchivist-redis",
+          "HOST_UID": "1000",
+          "HOST_GID": "1000",
+          "TA_USERNAME": "${TA_USER}",
+          "TA_PASSWORD": "${TA_PASSWORD}",
+          "TA_HOST": "${APP_DOMAIN}",
+          "ELASTIC_PASSWORD": "${ELASTIC_PASSWORD}"
+        },
+        "volumes": [
+          {
+            "hostPath": "${ROOT_FOLDER_HOST}/media/data/youtube",
+            "containerPath": "/youtube"
+          },
+          {
+            "hostPath": "${APP_DATA_DIR}/data/cache",
+            "containerPath": "/cache"
+          }
+        ],
+        "dependsOn": [
+          "tubearchivist-es",
+          "tubearchivist-redis"
+        ]
+      },
+      {
+        "image": "redislabs/rejson:latest",
+        "name": "tubearchivist-redis",
+        "volumes": [
+          {
+            "hostPath": "${APP_DATA_DIR}/data/redis-data",
+            "containerPath": "/data"
+          }
+        ],
+        "dependsOn": ["tubearchivist-es"]
+      },
+      {
+        "image": "elasticsearch:8.15.1",
+        "name": "tubearchivist-es",
+        "environment": {
+          "xpack.security.enabled": "true",
+          "ELASTIC_PASSWORD": "${ELASTIC_PASSWORD}",
+          "discovery.type": "single-node",
+          "ES_JAVA_OPTS": "-Xms512m -Xmx512m",
+          "path.repo": "/usr/share/elasticsearch/data/snapshot"
+        },
+        "ulimits": {
+          "memlock": {
+            "soft": -1,
+            "hard": -1
+          }
+        },
+        "volumes": [
+          {
+            "hostPath": "${APP_DATA_DIR}/data/es",
+            "containerPath": "/usr/share/elasticsearch/data"
+          }
+        ]
+      }
+    ]
+  }

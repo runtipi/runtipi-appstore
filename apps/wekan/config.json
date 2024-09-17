@@ -5,7 +5,7 @@
   "available": true,
   "exposable": true,
   "id": "wekan",
-  "tipi_version": 31,
+  "tipi_version": 32,
   "version": "7.59",
   "categories": ["development"],
   "description": "Experience efficient task management with WeKan - the Open-Source, customizable, and privacy-focused kanban",
@@ -30,5 +30,6 @@
   ],
   "supported_architectures": ["amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1725487896000
+  "updated_at": 1726387573648,
+  "dynamic_config": true
 }

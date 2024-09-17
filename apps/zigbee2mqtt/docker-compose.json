@@ -1,0 +1,26 @@
+{
+    "$schema": "../compose-schema.json",
+    "services": [
+      {
+        "image": "koenkk/zigbee2mqtt:1.40.1",
+        "name": "zigbee2mqtt",
+        "internalPort": 8080,
+        "isMain": true,
+        "environment": {
+          "TZ": "${TZ}"
+        },
+        "volumes": [
+          {
+            "hostPath": "${APP_DATA_DIR}/data/",
+            "containerPath": "/app/data"
+          }
+        ],
+        "devices": [
+            {
+                "hostPath": "${Z2M_DEVICE}",
+                "containerPath": "/dev/ttyACM0"
+            }
+        ]
+      }
+    ]
+  }

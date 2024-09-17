@@ -1,0 +1,35 @@
+{
+    "$schema": "../compose-schema.json",
+    "services": [
+      {
+        "image": "dockurr/windows:3.16",
+        "name": "windows",
+        "internalPort": 8006,
+        "isMain": true,
+        "environment": {
+          "RAM_SIZE": "${WINDOWS_RAM_GB}G",
+          "CPU_CORE": "${WINDOWS_CPU_CORES}",
+          "DISK_SIZE": "${WINDOWS_DISK_SIZE_GB}G",
+          "VERSION": "${WINDOWS_VERSION}"
+        },
+        "volumes": [
+          {
+            "hostPath": "${APP_DATA_DIR}/data/storage",
+            "containerPath": "/storage"
+          }
+        ],
+        "addPorts": [
+          {
+            "containerPort": 3389,
+            "hostPort": 3389,
+            "tcp": true,
+            "udp": true
+          }
+        ],
+        "stopGracePeriod": "2m",
+        "sysctls": [
+            "net.ipv4.ip_forward=1"
+        ]
+      }
+    ]
+  }

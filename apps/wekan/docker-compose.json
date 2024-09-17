@@ -1,0 +1,49 @@
+{
+    "$schema": "../compose-schema.json",
+    "services": [
+      {
+        "image": "ghcr.io/wekan/wekan:v7.59",
+        "name": "wekan",
+        "internalPort": 8080,
+        "isMain": true,
+        "environment": {
+          "MONGO_URL": "mongodb://wekan-db:27017/wekan",
+          "ROOT_URL": "https://${APP_DOMAIN}",
+          "MAIL_URL": "smtp://${MAIL_ADDRESS}:${MAIL_PASSWORD}@smtp.gmail.com:587",
+          "MAIL_FROM": "Wekan Notifications <noreply.wekan@${APP_DOMAIN}>"
+        },
+        "volumes": [
+          {
+            "hostPath": "/etc/localtime",
+            "containerPath": "/etc/localtime",
+            "readOnly": true
+          },
+          {
+            "hostPath": "${APP_DATA_DIR}/data/wekan",
+            "containerPath": "/data"
+          }
+        ],
+        "dependsOn": ["wekan-db"]
+      },
+      {
+        "image": "mongo:6",
+        "name": "wekan-db",
+        "command": "mongod --logpath /dev/null --oplogSize 128 --quiet",
+        "volumes": [
+          {
+            "hostPath": "/etc/localtime",
+            "containerPath": "/etc/localtime",
+            "readOnly": true
+          },
+          {
+            "hostPath": "${APP_DATA_DIR}/data/mongo",
+            "containerPath": "/data/db"
+          },
+          {
+            "hostPath": "${APP_DATA_DIR}/data/dump",
+            "containerPath": "/dump"
+          }
+        ]
+      }
+    ]
+  }

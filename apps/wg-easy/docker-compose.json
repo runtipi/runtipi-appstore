@@ -1,0 +1,39 @@
+{
+    "$schema": "../compose-schema.json",
+    "services": [
+      {
+        "image": "ghcr.io/wg-easy/wg-easy:14",
+        "name": "wg-easy",
+        "internalPort": 51821,
+        "isMain": true,
+        "volumes": [
+          {
+            "hostPath": "${APP_DATA_DIR}/data",
+            "containerPath": "/etc/wireguard"
+          }
+        ],
+        "addPorts": [
+          {
+            "containerPort": 51820,
+            "hostPort": 51820,
+            "udp": true
+          }
+        ],
+        "environment": {
+          "WG_HOST": "${WIREGUARD_HOST}",
+          "PASSWORD_HASH": "${WIREGUARD_PASSWORD_HASH}",
+          "WG_DEFAULT_DNS": "${WIREGUARD_DNS:-8.8.8.8}",
+          "WG_ALLOWED_IPS": "0.0.0.0/0, ::/0"
+        },
+        "networkMode": "host",
+        "sysctls": [
+          "net.ipv4.conf.all.src_valid_mark=1",
+          "net.ipv4.ip_forward=1"
+        ],
+        "capAdd": [
+          "NET_ADMIN",
+          "SYS_MODULE"
+        ]
+      }
+    ]
+  }
