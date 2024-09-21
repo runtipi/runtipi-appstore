@@ -15,6 +15,7 @@ services:
       - GRIST_ORG_IN_PATH=false
       - GRIST_PAGE_TITLE_SUFFIX=_blank
       - GRIST_SUPPORT_ANON=false
+      - TMPDIR=/persist/tmp
     image: gristlabs/grist:1.1.16
     ports:
       - ${APP_PORT}:8484
@@ -51,3 +52,4 @@ services:
       # WebSocket support
       traefik.http.middlewares.grist-websocket.headers.customrequestheaders.Upgrade: websocket
       traefik.http.middlewares.grist-websocket.headers.customrequestheaders.Connection: Upgrade
+
