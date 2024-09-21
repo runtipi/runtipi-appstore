@@ -4,13 +4,12 @@ services:
   grist:
     container_name: grist
     environment:
-      - APP_HOME_URL=https://${APP_DOMAIN} 
+      - APP_HOME_URL=https://${APP_DOMAIN}
       - GRIST_SANDBOX_FLAVOR=${GRIST_SANDBOX_FLAVOR}
       - GRIST_SESSION_SECRET=Mycobacteri@98
       - GRIST_DEFAULT_EMAIL=ianras@yahoo.com
       - GRIST_SINGLE_ORG=rasies
-      - GRIST_ALLOWED_HOSTS=https://grist.rasies.com # Replace with webhook target domains
-      - GRIST_SINGLE_ORG=myorg
+      - GRIST_ALLOWED_HOSTS=https://grist.rasies.com
       - GRIST_HIDE_UI_ELEMENTS=billing
       - GRIST_LIST_PUBLIC_SITES=false
       - GRIST_ORG_IN_PATH=false
@@ -49,7 +48,6 @@ services:
       traefik.http.routers.grist-local.entrypoints: websecure
       traefik.http.routers.grist-local.service: grist
       traefik.http.routers.grist-local.tls: true
-      runtipi.managed: true
       # WebSocket support
       traefik.http.middlewares.grist-websocket.headers.customrequestheaders.Upgrade: websocket
       traefik.http.middlewares.grist-websocket.headers.customrequestheaders.Connection: Upgrade
