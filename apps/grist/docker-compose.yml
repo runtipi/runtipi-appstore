@@ -9,7 +9,6 @@ services:
       - GRIST_SESSION_SECRET=Mycobacteri@98
       - GRIST_DEFAULT_EMAIL=ianras@yahoo.com
       - GRIST_SINGLE_ORG=rasies
-      - TMPDIR=/persit/tmp
     image: gristlabs/grist:1.1.16
     ports:
       - ${APP_PORT}:8484
@@ -45,6 +44,3 @@ services:
       traefik.http.routers.grist-local.tls: true
       runtipi.managed: true
 
-       # WebSocket support
-      traefik.http.middlewares.grist-websocket.headers.customrequestheaders.Upgrade: websocket
-      traefik.http.middlewares.grist-websocket.headers.customrequestheaders.Connection: Upgrade
