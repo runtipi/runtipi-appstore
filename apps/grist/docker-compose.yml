@@ -6,12 +6,16 @@ services:
     environment:
       - APP_HOME_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
       - GRIST_SANDBOX_FLAVOR=${GRIST_SANDBOX_FLAVOR}
+      - PUID=1000
+      - PGID=1000
+      - SUBDOMAINS=grist
     image: gristlabs/grist:1.1.18
     ports:
       - ${APP_PORT}:8484
     restart: always
     volumes:
       - ${APP_DATA_DIR}/data/grist-data:/persist
+      - ${APP_DATA_DIR}/data/tmp:/tmp
     networks:
       - tipi_main_network
     labels:
