@@ -5,7 +5,10 @@ services:
     container_name: grist
     environment:
       - APP_HOME_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
-      - GRIST_SANDBOX_FLAVOR=${GRIST_SANDBOX_FLAVOR}
+      - GRIST_SANDBOX_FLAVOR: gvisor
+      - GRIST_FORWARD_AUTH_HEADER: X-Forwarded-User
+      - GRIST_FORWARD_AUTH_LOGOUT_PATH: _oauth/logout
+      - GRIST_SINGLE_ORG: rasies 
     image: "gristlabs/grist:1.1.16"
     ports:
       - "${APP_PORT}:8484"
