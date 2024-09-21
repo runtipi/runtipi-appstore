@@ -4,7 +4,7 @@ services:
   grist:
     container_name: grist
     environment:
-      - APP_HOME_URL=http://${APP_DOMAIN} 
+      - APP_HOME_URL=https://${APP_DOMAIN} 
       - GRIST_SANDBOX_FLAVOR=${GRIST_SANDBOX_FLAVOR}
       - GRIST_SESSION_SECRET=Mycobacteri@98
       - GRIST_DEFAULT_EMAIL=ianras@yahoo.com
