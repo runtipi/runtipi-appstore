@@ -4,17 +4,9 @@ services:
   grist:
     container_name: grist
     environment:
-      - APP_HOME_URL=https://${APP_DOMAIN}
+      - APP_HOME_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
       - GRIST_SANDBOX_FLAVOR=${GRIST_SANDBOX_FLAVOR}
-      - GRIST_SESSION_SECRET=Mycobacteri@98
-      - GRIST_DEFAULT_EMAIL=ianras@yahoo.com
-      - GRIST_SINGLE_ORG=rasies
-      - GRIST_HIDE_UI_ELEMENTS=billing
-      - GRIST_LIST_PUBLIC_SITES=false
-      - GRIST_ORG_IN_PATH=false
-      - GRIST_SUPPORT_ANON=false
-      - TMPDIR=/persist/tmp
-    image: gristlabs/grist:1.1.16
+    image: gristlabs/grist:1.1.18
     ports:
       - ${APP_PORT}:8484
     restart: always
@@ -47,4 +39,4 @@ services:
       traefik.http.routers.grist-local.entrypoints: websecure
       traefik.http.routers.grist-local.service: grist
       traefik.http.routers.grist-local.tls: true
-
+      runtipi.managed: true
