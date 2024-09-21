@@ -44,3 +44,7 @@ services:
       traefik.http.routers.grist-local.service: grist
       traefik.http.routers.grist-local.tls: true
       runtipi.managed: true
+
+       # WebSocket support
+      traefik.http.middlewares.grist-websocket.headers.customrequestheaders.Upgrade: websocket
+      traefik.http.middlewares.grist-websocket.headers.customrequestheaders.Connection: Upgrade
