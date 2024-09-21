@@ -2,7 +2,7 @@
    "$schema": "../schema.json",
    "name": "Mempool",
    "available": true,
-   "exposable": false,
+   "exposable": true,
    "no_gui": false,
    "port": 2200,
    "id": "mempool",
