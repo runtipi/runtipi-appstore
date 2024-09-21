@@ -9,11 +9,9 @@ services:
       - GRIST_SESSION_SECRET=Mycobacteri@98
       - GRIST_DEFAULT_EMAIL=ianras@yahoo.com
       - GRIST_SINGLE_ORG=rasies
-      - GRIST_ALLOWED_HOSTS=https://grist.rasies.com
       - GRIST_HIDE_UI_ELEMENTS=billing
       - GRIST_LIST_PUBLIC_SITES=false
       - GRIST_ORG_IN_PATH=false
-      - GRIST_PAGE_TITLE_SUFFIX=_blank
       - GRIST_SUPPORT_ANON=false
       - TMPDIR=/persist/tmp
     image: gristlabs/grist:1.1.16
@@ -49,7 +47,4 @@ services:
       traefik.http.routers.grist-local.entrypoints: websecure
       traefik.http.routers.grist-local.service: grist
       traefik.http.routers.grist-local.tls: true
-      # WebSocket support
-      traefik.http.middlewares.grist-websocket.headers.customrequestheaders.Upgrade: websocket
-      traefik.http.middlewares.grist-websocket.headers.customrequestheaders.Connection: Upgrade
 
