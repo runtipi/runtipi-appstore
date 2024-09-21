@@ -4,6 +4,7 @@
   "available": true,
   "exposable": true,
   "tipi_version": 31,
+  "min_tipi_version": "3.6.2",
   "version": "0.107.52",
   "port": 8104,
   "id": "adguard",
