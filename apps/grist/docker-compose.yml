@@ -8,12 +8,12 @@ services:
       - GRIST_SESSION_SECRET=Mycobacteri@98
       - GRIST_DEFAULT_EMAIL=ianras@yahoo.com
       - GRIST_SINGLE_ORG=rasies
-    image: "gristlabs/grist:1.1.16"
+    image: gristlabs/grist:1.1.16
     ports:
-      - "${APP_PORT}:8484"
+      - ${APP_PORT}:8484
     restart: always
     volumes:
-      - "${APP_DATA_DIR}/data/grist-data:/persist"
+      - ${APP_DATA_DIR}/data/grist-data:/persist
     networks:
       - tipi_main_network
     labels:
