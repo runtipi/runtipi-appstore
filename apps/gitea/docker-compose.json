@@ -28,7 +28,8 @@
             ],
             "dependsOn": [
                 "gitea-db"
-            ]
+            ],
+            "isMain": true
         },
         {
             "name": "gitea-db",
