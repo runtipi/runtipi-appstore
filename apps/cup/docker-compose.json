@@ -11,7 +11,8 @@
                     "containerPath": "/var/run/docker.sock"
                 }
             ],
-            "internalPort": 8000
+            "internalPort": 8000,
+            "isMain": true
         }
     ]
 }
