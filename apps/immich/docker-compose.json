@@ -24,7 +24,8 @@
                 "immich-redis",
                 "immich-db"
             ],
-            "internalPort": 3001
+            "internalPort": 3001,
+            "isMain": true
         },
         {
             "name": "immich-machine-learning",
