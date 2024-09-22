@@ -27,7 +27,8 @@
                     "hostPath": "${APP_DATA_DIR}/content",
                     "containerPath": "/var/lib/ghost/content"
                 }
-            ]
+            ],
+            "isMain": true
         },
         {
             "name": "ghostdb",
