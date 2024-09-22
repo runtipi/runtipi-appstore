@@ -10,7 +10,8 @@
                     "hostPath": "${APP_DATA_DIR}/data/:/app/config",
                     "containerPath": "/app/config"
                 }
-            ]
+            ],
+            "isMain": true
         }
     ]
 }
