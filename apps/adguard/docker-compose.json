@@ -15,6 +15,7 @@
                 }
             ],
             "internalPort": 80,
+            "isMain": true,
             "addPorts": [
                 {
                     "hostPort": 53,
