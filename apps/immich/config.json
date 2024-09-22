@@ -7,6 +7,7 @@
   "id": "immich",
   "tipi_version": 105,
   "version": "1.115.0",
+  "min_tipi_version": "3.6.2",
   "categories": ["data", "photography"],
   "description": "Photo and video backup solution directly from your mobile phone.",
   "short_desc": "Photo and video backup solution directly from your mobile phone.",
