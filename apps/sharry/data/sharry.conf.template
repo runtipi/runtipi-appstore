@@ -21,7 +21,8 @@ sharry.restserver {
       mode = "open"
       invite-time = "14 days"
       invite-password = "generate-invite"
+      }
     }
-  }
 
+  }
 }
