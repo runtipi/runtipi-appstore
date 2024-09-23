@@ -12,7 +12,11 @@
         }
       ],
       "command": "/opt/sharry.conf",
-      "dependsOn": "db"
+      "dependsOn": {
+        "db": {
+          "condition": "service_healthy"
+        }
+      }
     },
     {
       "name": "db",
