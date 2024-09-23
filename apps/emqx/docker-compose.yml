@@ -1,7 +1,7 @@
 services:
   emqx-n1:
     image: emqx/emqx:5.8.0
-    container_name: emqx-n1
+    container_name: n1.emqx.tipi
     environment:
       - TZ=${TZ}
       - "EMQX_NODE_NAME=emqx@n1.emqx.tipi"
@@ -22,9 +22,7 @@ services:
       - ${APP_DATA_DIR}/data/n1:/opt/emqx/data
     restart: unless-stopped
     networks:
-      tipi_main_network:
-        aliases:
-          - n1.emqx.tipi
+      - tipi_main_network
     labels:
       # Main
       traefik.enable: true
@@ -53,7 +51,7 @@ services:
       runtipi.managed: true
   emqx-n2:
     image: emqx/emqx:5.8.0
-    container_name: emqx-n2
+    container_name: n2.emqx.tipi
     environment:
       - TZ=${TZ}
       - "EMQX_NODE_NAME=emqx@n2.emqx.tipi"
@@ -68,8 +66,6 @@ services:
       - ${APP_DATA_DIR}/data/n2:/opt/emqx/data
     restart: unless-stopped
     networks:
-      tipi_main_network:
-        aliases:
-          - n2.emqx.tipi
+      - tipi_main_network
     labels:
       runtipi.managed: true
