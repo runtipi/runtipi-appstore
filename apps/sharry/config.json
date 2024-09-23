@@ -1,0 +1,33 @@
+{
+  "$schema": "../schema.json",
+  "name": "sharry",
+  "port": 8681,
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "id": "sharry",
+  "tipi_version": 1,
+  "version": "v1.14.0",
+  "categories": [
+    "data"
+  ],
+  "description": "Sharry allows to share files with others in a simple way. It is a self-hosted web application. The basic concept is: upload files and get a url back that can then be shared.",
+  "short_desc": "Sharry is a self-hosted file sharing web application.",
+  "author": "eikek",
+  "source": "https://github.com/eikek/sharry",
+  "website": "https://eikek.github.io/sharry/",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "DB Password",
+      "required": true,
+      "env_variable": "DB_PASS"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "created_at": 1727099286000,
+  "updated_at": 1727099286000
+}

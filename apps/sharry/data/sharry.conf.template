@@ -1,0 +1,27 @@
+sharry.restserver {
+
+  base-url = "{{APP_DOMAIN}}"
+
+  bind {
+    address = "0.0.0.0"
+    port = 9090
+  }
+
+  backend {
+    auth {
+      fixed.enabled = true ## enabled admin:admin access
+    }
+
+    jdbc {
+      url = "jdbc:postgresql://db:5432/sharrydb"
+      user = "sharry"
+      password = "{{DB_PASS}}"
+
+    signup {
+      mode = "open"
+      invite-time = "14 days"
+      invite-password = "generate-invite"
+    }
+  }
+
+}

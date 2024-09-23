@@ -1,0 +1,34 @@
+{
+  "services": [
+    {
+      "name": "sharry",
+      "image": "eikek0/sharry:v1.14.0",
+      "internalPort": 9090,
+      "isMain": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/sharry.conf",
+          "containerPath": "/opt/sharry.conf"
+        }
+      ],
+      "command": "/opt/sharry.conf",
+      "dependsOn": "db"
+    },
+    {
+      "name": "db",
+      "image": "postgres:16.4-alpine",
+      "isMain": false,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgres/",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ],
+      "environment": {
+        "POSTGRES_USER": "sharry",
+        "POSTGRES_PASSWORD": "${DB_PASS}",
+        "POSTGRES_DB": "sharrydb"
+      }
+    }
+  ]
+}
