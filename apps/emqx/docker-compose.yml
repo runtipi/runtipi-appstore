@@ -1,5 +1,5 @@
 services:
-  emqx-n1:
+  emqx:
     image: emqx/emqx:5.8.0
     container_name: emqx
     environment:
