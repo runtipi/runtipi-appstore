@@ -20,8 +20,7 @@
     {
       "type": "random",
       "label": "DB Password",
-      "hint": "postgresql password",
-      "required": true,
+      "min": 32,
       "env_variable": "DB_PASS"
     }
   ],
