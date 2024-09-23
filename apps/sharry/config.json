@@ -18,8 +18,9 @@
   "website": "https://eikek.github.io/sharry/",
   "form_fields": [
     {
-      "type": "password",
+      "type": "random",
       "label": "DB Password",
+      "hint": "postgresql password",
       "required": true,
       "env_variable": "DB_PASS"
     }
