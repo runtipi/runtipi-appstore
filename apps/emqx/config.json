@@ -13,6 +13,7 @@
   "author": "EMQ Technologies Co., Ltd.",
   "source": "https://github.com/emqx/emqx",
   "website": "https://www.emqx.com/",
+  "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1727127845000,
   "updated_at": 1727127845000
