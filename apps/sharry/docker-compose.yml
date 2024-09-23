@@ -1,0 +1,51 @@
+services:
+  sharry:
+    depends_on:
+     - db
+    image: eikek0/sharry:v1.14.0
+    container_name: sharry
+    command: /opt/sharry.conf
+    volumes:
+      - ${APP_DATA_DIR}/data/sharry.conf:/opt/sharry.conf
+    ports:
+      - ${APP_PORT}:9090
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.sharry-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.sharry.loadbalancer.server.port: 8000
+      # Web
+      traefik.http.routers.sharry-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.sharry-insecure.entrypoints: web
+      traefik.http.routers.sharry-insecure.service: sharry
+      traefik.http.routers.sharry-insecure.middlewares: sharry-web-redirect
+      # Websecure
+      traefik.http.routers.sharry.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.sharry.entrypoints: websecure
+      traefik.http.routers.sharry.service: sharry
+      traefik.http.routers.sharry.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.sharry-local-insecure.rule: Host(`sharry.${LOCAL_DOMAIN}`)
+      traefik.http.routers.sharry-local-insecure.entrypoints: web
+      traefik.http.routers.sharry-local-insecure.service: sharry
+      traefik.http.routers.sharry-local-insecure.middlewares: sharry-web-redirect
+      # Local domain secure
+      traefik.http.routers.sharry-local.rule: Host(`sharry.${LOCAL_DOMAIN}`)
+      traefik.http.routers.sharry-local.entrypoints: websecure
+      traefik.http.routers.sharry-local.service: sharry
+      traefik.http.routers.sharry-local.tls: true
+      runtipi.managed: true
+
+  db:
+    image: postgres:16.4-alpine
+    container_name: db
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres/:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=sharry
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_DB=sharrydb
+    networks:
+      - tipi_main_network
