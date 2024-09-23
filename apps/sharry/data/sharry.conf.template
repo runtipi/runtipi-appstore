@@ -1,6 +1,6 @@
 sharry.restserver {
 
-  base-url = "{{APP_DOMAIN}}"
+  base-url = "https://{{APP_DOMAIN}}"
 
   bind {
     address = "0.0.0.0"
