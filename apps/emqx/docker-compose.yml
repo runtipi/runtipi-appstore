@@ -1,12 +1,12 @@
 services:
   emqx:
     image: emqx/emqx:5.8.0
-    container_name: emqx
+    container_name: emqx-n1
     environment:
       - TZ=${TZ}
-      - "EMQX_NODE_NAME=emqx@emqx"
+      - "EMQX_NODE_NAME=emqx@emqx-n1"
       - "EMQX_CLUSTER__DISCOVERY_STRATEGY=static"
-      - "EMQX_CLUSTER__STATIC__SEEDS=[emqx@emqx,emqx@emqx-n2]"
+      - "EMQX_CLUSTER__STATIC__SEEDS=[emqx@emqx-n1,emqx@emqx-n2]"
     ports:
       - 1883:1883 
       - 8083:8083
@@ -56,7 +56,7 @@ services:
       - TZ=${TZ}
       - "EMQX_NODE_NAME=emqx@emqx-n2"
       - "EMQX_CLUSTER__DISCOVERY_STRATEGY=static"
-      - "EMQX_CLUSTER__STATIC__SEEDS=[emqx@emqx,emqx@emqx-n2]"
+      - "EMQX_CLUSTER__STATIC__SEEDS=[emqx@emqx-n1,emqx@emqx-n2]"
     healthcheck:
       test: ["CMD", "/opt/emqx/bin/emqx", "ctl", "status"]
       interval: 5s
