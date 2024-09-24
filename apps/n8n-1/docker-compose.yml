@@ -75,7 +75,7 @@ services:
     labels:
       runtipi.managed: true
   n8n-init:
-    image: bash:5.2.32
+    image: bash:5.2.37
     command: ['sh', '-c', 'chown -R 1000:1000 /home/node/.n8n']
     volumes:
       - ${APP_DATA_DIR}/data/n8n:/home/node/.n8n
