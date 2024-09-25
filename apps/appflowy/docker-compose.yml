@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  appflowy:
+    container_name: appflowy
+    image: appflowyio/appflowy_client:v0.5.7
+    ports:
+      - ${APP_PORT}:80
+      - 8043:443
+    volumes:
+      - ${APP_DATA_DIR}/data:/home/appflowy
+      - $HOME/.Xauthority:/root/.Xauthority:rw
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /dev/dri:/dev/dri
+      - /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
+    environment:
+      - DISPLAY=${DISPLAY}
+    restart: unless-stopped
+    networks:
+      - tipi_main_network

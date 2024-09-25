@@ -1,0 +1,22 @@
+{
+  "$schema": "../schema.json",
+  "name": "AppFlowy",
+  "available": true,
+  "exposable": true,
+  "port": 8042,
+  "id": "appflowy",
+  "tipi_version": 1,
+  "version": "0.5.7",
+  "categories": [
+    "utilities"
+  ],
+  "description": "AppFlowy is an AI-powered secure workspace where you achieve more without losing control of your data.",
+  "short_desc": "AppFlowy is an open-source alternation to Notion. You are in charge of your data and customizations.",
+  "author": "AppFlowy-IO",
+  "source": "https://github.com/AppFlowy-IO/AppFlowy",
+  "form_fields": [],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}
