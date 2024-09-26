@@ -1,56 +1,27 @@
-pages:
-  - name: Home
+name: Markets
     columns:
       - size: small
         widgets:
-          - type: calendar
-
-          - type: rss
-            limit: 10
-            collapse-after: 3
-            cache: 3h
-            feeds:
-              - url: https://ciechanow.ski/atom.xml
-              - url: https://www.joshwcomeau.com/rss.xml
-                title: Josh Comeau
-              - url: https://samwho.dev/rss.xml
-              - url: https://awesomekling.github.io/feed.xml
-              - url: https://ishadeed.com/feed.xml
-                title: Ahmad Shadeed
-
-          - type: twitch-channels
-            channels:
-              - theprimeagen
-              - cohhcarnage
-              - christitustech
-              - blurbs
-              - asmongold
-              - jembawls
-
-      - size: full
-        widgets:
-          - type: hacker-news
-
-          - type: videos
-            channels:
-              - UCR-DXc1voovS8nhAvccRZhg # Jeff Geerling
-              - UCv6J_jJa8GJqFwQNgNrMuww # ServeTheHome
-              - UCOk-gHyjcWZNj3Br4oxwh0A # Techno Tim
-
-          - type: reddit
-            subreddit: selfhosted
-
-      - size: small
-        widgets:
-          - type: weather
-            location: London, United Kingdom
-
-          - type: stocks
-            stocks:
+          - type: markets
+            title: Indices
+            markets:
               - symbol: SPY
                 name: S&P 500
+              - symbol: DX-Y.NYB
+                name: Dollar Index
+
+          - type: markets
+            title: Crypto
+            markets:
               - symbol: BTC-USD
                 name: Bitcoin
+              - symbol: ETH-USD
+                name: Ethereum
+
+          - type: markets
+            title: Stocks
+            sort-by: absolute-change
+            markets:
               - symbol: NVDA
                 name: NVIDIA
               - symbol: AAPL
@@ -63,3 +34,53 @@ pages:
                 name: AMD
               - symbol: RDDT
                 name: Reddit
+              - symbol: AMZN
+                name: Amazon
+              - symbol: TSLA
+                name: Tesla
+              - symbol: INTC
+                name: Intel
+              - symbol: META
+                name: Meta
+
+      - size: full
+        widgets:
+          - type: rss
+            title: News
+            style: horizontal-cards
+            feeds:
+              - url: https://feeds.bloomberg.com/markets/news.rss
+                title: Bloomberg
+              - url: https://moxie.foxbusiness.com/google-publisher/markets.xml
+                title: Fox Business
+              - url: https://moxie.foxbusiness.com/google-publisher/technology.xml
+                title: Fox Business
+
+          - type: group
+            widgets:
+              - type: reddit
+                show-thumbnails: true
+                subreddit: technology
+              - type: reddit
+                show-thumbnails: true
+                subreddit: wallstreetbets
+
+          - type: videos
+            style: grid-cards
+            collapse-after-rows: 3
+            channels:
+              - UCvSXMi2LebwJEM1s4bz5IBA # New Money
+              - UCV6KDgJskWaEckne5aPA0aQ # Graham Stephan
+              - UCAzhpt9DmG6PnHXjmJTvRGQ # Federal Reserve
+
+      - size: small
+        widgets:
+          - type: rss
+            title: News
+            limit: 30
+            collapse-after: 13
+            feeds:
+              - url: https://www.ft.com/technology?format=rss
+                title: Financial Times
+              - url: https://feeds.a.dj.com/rss/RSSMarketsMain.xml
+                title: Wall Street Journal
