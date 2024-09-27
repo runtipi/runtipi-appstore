@@ -16,30 +16,30 @@ pages:
               - title: LinkWarden 
                 url: https://links.rasies.com/
                 icon: si:internetarchive
-                  #- title: DATA
-                  #url: https://data.rasies.com/
-                  #icon: si:nextcloud
-                  #- title: Immich - Photos
-                  #url: https://photos.rasies.com/
-                  #icon: si:immich
-                  #- title: Kavita - Books 
-                  #url: https://books.rasies.com/
-                  #icon: si:bookstack
-                  #- title: Vaultwarden
-                  #url: https://passwords.rasies.com/
-                  #icon: si:vaultwarden
-                  #- title: Flowise AI
-                  #url: https://flow.rasies.com/
-                  #icon: si:kashflow
-                  #- title: OI
-                  #url: https://oi.rasies.com/
-                  #icon: si:chatbot
-                  #- title: Activepieces AI
-                  #url: https://active.rasies.com/
-                  #icon: si:activitypub
-                  #- title: AFFiNE
-                  #url: https://office.rasies.com/
-                  #icon: si:affine
+              - title: DATA
+                url: https://data.rasies.com/
+                icon: si:nextcloud
+              - title: Immich - Photos
+                url: https://photos.rasies.com/
+                icon: si:immich
+              - title: Kavita - Books 
+                url: https://books.rasies.com/
+                icon: si:bookstack
+              - title: Vaultwarden
+                url: https://passwords.rasies.com/
+                icon: si:vaultwarden
+              - title: Flowise AI
+                url: https://flow.rasies.com/
+                icon: si:kashflow
+              - title: OI
+                url: https://oi.rasies.com/
+                icon: si:chatbot
+              - title: Activepieces AI
+                url: https://active.rasies.com/
+                icon: si:activitypub
+              - title: AFFiNE
+                url: https://office.rasies.com/
+                icon: si:affine
 
           - type: bookmarks
             groups:
