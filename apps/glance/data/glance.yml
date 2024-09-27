@@ -64,11 +64,12 @@ pages:
                   - title: TV Coffee Co.
                     url: https://tvcoffee.co/
                   - title: The Step Parent Path
-                    url: https://stepparentpath.com
+                    url: https://stepparentpath.com/
                   - title: Aweggly
                     url: https://aweggly.com
                   - title: Licking Vape Today!
-                    url: https://likkingvape.com
+                    url: https://likkingvape.com/
+                      
   - name: Markets
     columns:
       - size: small
