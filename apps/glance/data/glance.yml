@@ -1,7 +1,7 @@
 pages:
   - name: Startpage
-    width: slim
-    hide-desktop-navigation: true
+    width: wide
+    hide-desktop-navigation: false
     center-vertically: true
     columns:
       - size: full
@@ -68,7 +68,7 @@ pages:
                   - title: Aweggly
                     url: https://aweggly.com
                   - title: Licking Vape Today!
-                    url: https://likkingvape.com/
+                    url: https://lickingvape.com/
                       
   - name: Markets
     columns:
