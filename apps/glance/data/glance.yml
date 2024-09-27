@@ -16,9 +16,6 @@ pages:
               - title: LinkWarden 
                 url: https://links.rasies.com/
                 icon: si:internetarchive
-              - title: Vaultwarden
-                url: https://passwords.rasies.com
-                icon: si:vaultwarden
               - title: DATA
                 url: https://data.rasies.com/
                 icon: si:nextcloud
@@ -28,12 +25,9 @@ pages:
               - title: Kavita - Books 
                 url: https://books.rasies.com/
                 icon: si:bookstack
-              - title: mStream Music 
-                url: https://music.rasies.com/
-                icon: si:musicbrainz
-              - title: Game Boy
-                url: https://games.rasies.com/
-                icon: si:nintendogameboy
+              - title: Vaultwarden
+                url: https://passwords.rasies.com/
+                icon: si:vaultwarden
               - title: Flowise AI
                 url: https://flow.rasies.com/
                 icon: si:kashflow
@@ -46,15 +40,12 @@ pages:
               - title: AFFiNE
                 url: https://office.rasies.com/
                 icon: si:affine
-              - title: SyncThing
-                url: https://sync.rasies.com/
-                icon: si:syncthing 
 
           - type: bookmarks
             groups:
               - title: General
                 links:
-                  - title: Yahoo Mail 
+                  - title: Yahoo! Mail 
                     url: https://mail.yahoo.com/
                   - title: Amazon
                     url: https://www.amazon.com/
@@ -68,16 +59,16 @@ pages:
                     url: https://www.primevideo.com/
                   - title: Disney+
                     url: https://www.disneyplus.com/
-              - title: Mine All Mine 
+              - title: Mine
                 links:
-                  - title: The Step Parent Path
-                    url: https://stepparentpath.com/
                   - title: TV Coffee Co.
-                    url: https://tvcoffee.co
+                    url: https://tvcoffee.co/
+                  - title: The Step Parent Path
+                    url: https://stepparentpath.com
                   - title: Aweggly
-                    url: https://aweggly.com/
-                  - title: Licking Vape!
-                    url: https://lickingvape.com
+                    url: https://aweggly.com
+                  - title: Licking Vape Today!
+                    url: https://likkingvape.com
   - name: Markets
     columns:
       - size: small
@@ -140,27 +131,27 @@ pages:
             widgets:
               - type: reddit
                 show-thumbnails: true
-                subreddit: technology
-              - type: reddit
-                show-thumbnails: true
-                subreddit: wallstreetbets
+                name: Tesla
+              - symbol: INTC
+                name: Intel
+              - symbol: META
+                name: Meta
 
-          - type: videos
-            style: grid-cards
-            collapse-after-rows: 3
-            channels:
-              - UCvSXMi2LebwJEM1s4bz5IBA # New Money
-              - UCV6KDgJskWaEckne5aPA0aQ # Graham Stephan
-              - UCAzhpt9DmG6PnHXjmJTvRGQ # Federal Reserve
-
-      - size: small
+      - size: full
         widgets:
           - type: rss
             title: News
-            limit: 30
-            collapse-after: 13
+            style: horizontal-cards
             feeds:
-              - url: https://www.ft.com/technology?format=rss
-                title: Financial Times
-              - url: https://feeds.a.dj.com/rss/RSSMarketsMain.xml
-                title: Wall Street Journal
+              - url: https://feeds.bloomberg.com/markets/news.rss
+                title: Bloomberg
+              - url: https://moxie.foxbusiness.com/google-publisher/markets.xml
+                title: Fox Business
+              - url: https://moxie.foxbusiness.com/google-publisher/technology.xml
+                title: Fox Business
+
+          - type: group
+            widgets:
+              - type: reddit
+                show-thumbnails: true
+                subreddit: technology
