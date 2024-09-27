@@ -15,26 +15,47 @@ pages:
             sites:
               - title: LinkWarden 
                 url: https://links.rasies.com/
-                icon: si:jellyfin
+                icon: si:internetarchive
+              - title: Vaultwarden
+                url: https://passwords.rasies.com
+                icon: si:vaultwarden
               - title: DATA
                 url: https://data.rasies.com/
-                icon: si:gitea
-              - title: Immich
+                icon: si:nextcloud
+              - title: Immich - Photos
                 url: https://photos.rasies.com/
                 icon: si:immich
-              - title: AdGuard Home
-                url: https://yourdomain.com/
-                icon: si:adguard
-              - title: Vaultwarden
-                url: https://yourdomain.com/
-                icon: si:vaultwarden
+              - title: Kavita - Books 
+                url: https://books.rasies.com/
+                icon: si:bookstack
+              - title: mStream Music 
+                url: https://music.rasies.com/
+                icon: si:musicbrainz
+              - title: Game Boy
+                url: https://games.rasies.com/
+                icon: si:nintendogameboy
+              - title: Flowise AI
+                url: https://flow.rasies.com/
+                icon: si:kashflow
+              - title: OI
+                url: https://oi.rasies.com/
+                icon: si:chatbot
+              - title: Activepieces AI
+                url: https://active.rasies.com/
+                icon: si:activitypub
+              - title: AFFiNE
+                url: https://office.rasies.com/
+                icon: si:affine
+              - title: SyncThing
+                url: https://sync.rasies.com/
+                icon: si:syncthing 
 
           - type: bookmarks
             groups:
               - title: General
                 links:
-                  - title: Gmail
-                    url: https://mail.google.com/mail/u/0/
+                  - title: Yahoo Mail 
+                    url: https://mail.yahoo.com/
                   - title: Amazon
                     url: https://www.amazon.com/
                   - title: Github
@@ -47,14 +68,16 @@ pages:
                     url: https://www.primevideo.com/
                   - title: Disney+
                     url: https://www.disneyplus.com/
-              - title: Social
+              - title: Mine All Mine 
                 links:
-                  - title: Reddit
-                    url: https://www.reddit.com/
-                  - title: Twitter
-                    url: https://twitter.com/
-                  - title: Instagram
-                    url: https://www.instagram.com/
+                  - title: The Step Parent Path
+                    url: https://stepparentpath.com/
+                  - title: TV Coffee Co.
+                    url: https://tvcoffee.co
+                  - title: Aweggly
+                    url: https://aweggly.com/
+                  - title: Licking Vape!
+                    url: https://lickingvape.com
   - name: Markets
     columns:
       - size: small
