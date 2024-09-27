@@ -5,8 +5,8 @@
   "exposable": true,
   "id": "windows",
   "description": "Run windows in docker...because why not?",
-  "tipi_version": 37,
-  "version": "3.18",
+  "tipi_version": 38,
+  "version": "3.19",
   "categories": ["utilities"],
   "short_desc": "Full windows vm in your browser",
   "author": "dockurr",
@@ -108,5 +108,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1727286187000
+  "updated_at": 1727472260000
 }
