@@ -11,8 +11,8 @@ services:
       - TMPDIR=/persist/tmp
       - GRIST_FORCE_LOGIN=true
       - GRIST_SUPPORT_ANON=false
-      - GRIST_DEFAULT_EMAIL=${EMAIL}
-      - GRIST_SESSION_SECRET=invent-a-secret-here
+      - GRIST_DEFAULT_EMAIL=ianras@yahoo.com
+      - GRIST_SESSION_SECRET=Mycobacteri@98
       - GRIST_FORWARD_AUTH_HEADER=X-Forwarded-User
       - GRIST_FORWARD_AUTH_LOGOUT_PATH=_oauth/logout
       - GRIST_SINGLE_ORG=grist
