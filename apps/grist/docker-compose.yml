@@ -9,13 +9,12 @@ services:
       - PUID=1000
       - PGID=1000
       - SUBDOMAINS=grist
-    image: gristlabs/grist:1.1.18
+    image: gristlabs/grist:1.2.0
     ports:
       - ${APP_PORT}:8484
     restart: always
     volumes:
       - ${APP_DATA_DIR}/data/grist-data:/persist
-      - ${APP_DATA_DIR}/data/tmp:/tmp
     networks:
       - tipi_main_network
     labels:
