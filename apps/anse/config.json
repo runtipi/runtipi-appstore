@@ -5,7 +5,7 @@
   "exposable": true,
   "port": 8014,
   "id": "anse",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "1.1.11",
   "categories": ["ai"],
   "description": "Anse is a fully optimized UI for AI Chats. Supercharged experience for multiple models such as ChatGPT, DALL-E and Stable Diffusion.",
@@ -15,6 +15,7 @@
   "website": "https://anse.app",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
+  "dynamic_config": true,
   "created_at": 1691943801422,
-  "updated_at": 1723566285000
+  "updated_at": 1727006306000
 }
