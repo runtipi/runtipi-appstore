@@ -1,5 +1,4 @@
-version: "2.1"
-
+version: "3.9"
 services:
   grist:
     container_name: grist
@@ -17,10 +16,19 @@ services:
       - ${APP_DATA_DIR}/data/grist-data:/persist
     networks:
       - tipi_main_network
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+          cpus: '12'
     labels:
       # Main
       traefik.enable: true
       traefik.http.middlewares.grist-web-redirect.redirectscheme.scheme: https
+      traefik.http.middlewares.grist-websocket.headers.customrequestheaders.X-Forwarded-Proto: https
+      traefik.http.middlewares.grist-websocket.headers.customrequestheaders.X-Forwarded-Host: ${APP_DOMAIN}
+      traefik.http.middlewares.grist-websocket.headers.customrequestheaders.X-Forwarded-Port: 443
+      traefik.http.middlewares.grist-websocket.headers.customresponseheaders.Access-Control-Allow-Origin: "*"
       traefik.http.services.grist.loadbalancer.server.port: 8484
       # Web
       traefik.http.routers.grist-insecure.rule: Host(`${APP_DOMAIN}`)
@@ -43,3 +51,8 @@ services:
       traefik.http.routers.grist-local.service: grist
       traefik.http.routers.grist-local.tls: true
       runtipi.managed: true
+
+networks:
+  tipi_main_network:
+    driver: bridge
+
