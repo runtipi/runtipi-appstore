@@ -41,34 +41,16 @@ pages:
                 url: https://office.rasies.com/
                 icon: si:affine
 
-                  #- type: bookmarks
-                  #groups:
-                  #- title: General
-                  #links:
-                  #- title: Yahoo! Mail 
-                  #  url: https://mail.yahoo.com/
-                  #- title: Amazon
-                  #  url: https://www.amazon.com/
-                  #- title: Github
-                  #  url: https://github.com/
-                  #- title: Entertainment
-                  #links:
-                  #- title: YouTube
-                  #  url: https://www.youtube.com/
-                  #- title: Prime Video
-                  #  url: https://www.primevideo.com/
-                  #- title: Disney+
-                  #  url: https://www.disneyplus.com/
-                  #- title: Mine
-                  #links:
-                  #- title: TV Coffee Co.
-                  #  url: https://tvcoffee.co/
-                  #- title: The Step Parent Path
-                  #  url: https://stepparentpath.com/
-                  #- title: Aweggly
-                  #  url: https://aweggly.com
-                  #- title: Licking Vape Today!
-                  #  url: https://lickingvape.com/
+          - type: bookmarks
+            links:
+            - title: TV Coffee Co.
+              url: https://tvcoffee.co/
+            - title: The Step Parent Path
+              url: https://stepparentpath.com/
+            - title: Aweggly
+              url: https://aweggly.com
+            - title: Licking Vape Today!
+              url: https://lickingvape.com/
                       
   - name: Markets
     columns:
