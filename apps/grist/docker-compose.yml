@@ -8,6 +8,14 @@ services:
       - PUID=1000
       - PGID=1000
       - SUBDOMAINS=grist
+      - TMPDIR=/persist/tmp
+      - GRIST_FORCE_LOGIN=true
+      - GRIST_SUPPORT_ANON=false
+      - GRIST_DEFAULT_EMAIL=${EMAIL}
+      - GRIST_SESSION_SECRET=invent-a-secret-here
+      - GRIST_FORWARD_AUTH_HEADER=X-Forwarded-User
+      - GRIST_FORWARD_AUTH_LOGOUT_PATH=_oauth/logout
+      - GRIST_SINGLE_ORG=grist
     image: gristlabs/grist:1.2.0
     ports:
       - ${APP_PORT}:8484
