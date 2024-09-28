@@ -74,7 +74,7 @@ services:
     labels:
       runtipi.managed: true
   affine-postgres:
-    image: postgres
+    image: postgres:16
     container_name: affine-postgres
     restart: unless-stopped
     volumes:
