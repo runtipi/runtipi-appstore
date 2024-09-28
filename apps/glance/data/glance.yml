@@ -1,14 +1,12 @@
 pages:
   - name: Startpage
     width: wide
-    hide-desktop-navigation: false
     center-vertically: true
     columns:
       - size: full
         widgets:
           - type: search
             autofocus: true
-
           - type: monitor
             cache: 1m
             title: Services
@@ -40,7 +38,6 @@ pages:
               - title: AFFiNE
                 url: https://office.rasies.com/
                 icon: si:affine
-
           - type: bookmarks
             links:
             - title: TV Coffee Co.
@@ -51,7 +48,6 @@ pages:
               url: https://aweggly.com
             - title: Licking Vape Today!
               url: https://lickingvape.com/
-                      
   - name: Markets
     columns:
       - size: small
@@ -63,7 +59,6 @@ pages:
                 name: S&P 500
               - symbol: DX-Y.NYB
                 name: Dollar Index
-
           - type: markets
             title: Crypto
             markets:
@@ -71,7 +66,6 @@ pages:
                 name: Bitcoin
               - symbol: ETH-USD
                 name: Ethereum
-
           - type: markets
             title: Stocks
             sort-by: absolute-change
@@ -96,7 +90,6 @@ pages:
                 name: Intel
               - symbol: META
                 name: Meta
-
       - size: full
         widgets:
           - type: rss
@@ -109,7 +102,6 @@ pages:
                 title: Fox Business
               - url: https://moxie.foxbusiness.com/google-publisher/technology.xml
                 title: Fox Business
-
           - type: group
             widgets:
               - type: reddit
@@ -119,7 +111,6 @@ pages:
                 name: Intel
               - symbol: META
                 name: Meta
-
       - size: full
         widgets:
           - type: rss
@@ -132,7 +123,6 @@ pages:
                 title: Fox Business
               - url: https://moxie.foxbusiness.com/google-publisher/technology.xml
                 title: Fox Business
-
           - type: group
             widgets:
               - type: reddit
