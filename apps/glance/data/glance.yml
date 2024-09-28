@@ -1,6 +1,6 @@
 pages:
   - name: Startpage
-    width: wide
+    width: slim
     center-vertically: true
     columns:
       - size: full
@@ -39,12 +39,14 @@ pages:
                 url: https://office.rasies.com/
                 icon: si:affine
           - type: bookmarks
-            links:
-            - title: TV Coffee Co.
-              url: https://tvcoffee.co/
-            - title: The Step Parent Path
-              url: https://stepparentpath.com/
-            - title: Aweggly
-              url: https://aweggly.com
-            - title: Licking Vape Today!
-              url: https://lickingvape.com/
+            groups:
+              - title: Mine
+                links:
+                - title: TV Coffee Co.
+                  url: https://tvcoffee.co/
+                - title: The Step Parent Path
+                  url: https://stepparentpath.com/
+                - title: Aweggly
+                  url: https://aweggly.com
+                - title: Licking Vape Today!
+                  url: https://lickingvape.com/
