@@ -1,0 +1,30 @@
+{
+  "name": "Collabora Office Online",
+  "available": true,
+  "port": 9980,
+  "exposable": true,
+  "id": "collabora",
+  "description": "Collabora Online is a powerful collaborative office suite that supports all major document, spreadsheet and presentation file formats, which you can integrate into your own infrastructure",
+  "tipi_version": 10,
+  "version": "2004",
+  "categories": ["social"],
+  "short_desc": "Popular Collaborative Office Suite",
+  "author": "Collabora",
+  "source": "https://github.com/CollaboraOnline/online",
+  "website": "https://www.collaboraonline.com",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Database Password",
+      "min": 32,
+      "env_variable": "DB_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Database Root Password",
+      "min": 32,
+      "env_variable": "DB_ROOT_PASSWORD"
+    }
+  ],
+  "supported_architectures": ["amd64", "arm64"]
+}
