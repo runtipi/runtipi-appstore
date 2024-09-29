@@ -5,7 +5,7 @@
   "available": true,
   "exposable": true,
   "id": "gitlab",
-  "tipi_version": 30,
+  "tipi_version": 1,
   "version": "17.4.1-ce.0",
   "categories": ["development"],
   "description": "GitLab Community Edition docker image based on the Omnibus package",
