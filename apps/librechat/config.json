@@ -1,0 +1,53 @@
+{
+  "$schema": "../schema.json",
+  "name": "LibreChat",
+  "port": 3080,
+  "available": true,
+  "exposable": true,
+  "id": "librechat",
+  "tipi_version": 1,
+  "version": "638ac5bba61a524cc4ae99711a91f19572c4f2a0",
+  "categories": ["ai"],
+  "description": "LibreChat is a free, open source AI chat platform. This Web UI offers vast customization, supporting numerous AI providers, services, and integrations.",
+  "short_desc": "Opensource AI chat platform.",
+  "author": "danny-avila",
+  "source": "https://github.com/danny-avila/LibreChat",
+  "website": "https://www.librechat.ai/",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "LibreChat Postgres password",
+      "min": 32,
+      "env_variable": "LC_POSTGRES_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "LibreChat CREDS_KEY",
+      "min": 64,
+      "max": 64,
+      "env_variable": "LC_CREDS_KEY"
+    },
+    {
+      "type": "random",
+      "label": "LibreChat CREDS_IV",
+      "min": 32,
+      "max": 32,
+      "env_variable": "LC_CREDS_IV"
+    },
+    {
+      "type": "random",
+      "label": "LibreChat JWT_SECRET",
+      "min": 64,
+      "max": 64,
+      "env_variable": "LC_JWT_SECRET"
+    },
+    {
+      "type": "random",
+      "label": "LibreChat JWT_REFRESH_SECRET",
+      "min": 64,
+      "max": 64,
+      "env_variable": "LC_JWT_REFRESH_SECRET"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}
