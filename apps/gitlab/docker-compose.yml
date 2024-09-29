@@ -6,10 +6,10 @@ services:
     restart: always
     environment:
       GITLAB_OMNIBUS_CONFIG: |
-        external_url '${APP_DOMAIN}'
+        external_url `$APP_DOMAIN`
         gitlab_rails['gitlab_shell_ssh_port'] = 2424
     ports:
-      - '${APP_PORT}:8929'
+      - '$APP_PORT:8929'
       - '2443:443'
       - '2424:22'
     networks:
