@@ -1,7 +1,7 @@
 version: '3.6'
 services:
   gitlab:
-    image: gitlab/gitlab-ce:17.3.4-ce.0
+    image: gitlab/gitlab-ce:17.4.1-ce.0
     container_name: gitlab
     restart: always
     environment:
