@@ -1,0 +1,19 @@
+{
+  "$schema": "../schema.json",
+  "name": "Gitlab-ce",
+  "port": 8929,
+  "available": true,
+  "exposable": true,
+  "id": "gitlab",
+  "tipi_version": 30,
+  "version": "17.2.8-ce.0",
+  "categories": ["development"],
+  "description": "GitLab Community Edition docker image based on the Omnibus package",
+  "short_desc": "Gitlab  - A professional tool to manager repositories and CI/CD chain",
+  "author": "omnibus",
+  "source": "https://github.com/gitlabhq/omnibus-gitlab",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1725572954000
+}

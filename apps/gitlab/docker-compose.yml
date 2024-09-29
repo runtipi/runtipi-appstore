@@ -1,0 +1,48 @@
+version: '3.6'
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:17.2.8-ce.0
+    container_name: gitlab
+    restart: always
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url '${APP_DOMAIN}'
+        gitlab_rails['gitlab_shell_ssh_port'] = 2424
+    ports:
+      - '${APP_PORT}:8929'
+      - '2443:443'
+      - '2424:22'
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.gitlab-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.gitlab.loadbalancer.server.port: 3022
+      # Web
+      traefik.http.routers.gitlab-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.gitlab-insecure.entrypoints: web
+      traefik.http.routers.gitlab-insecure.service: gitlab
+      traefik.http.routers.gitlab-insecure.middlewares: gitlab-web-redirect
+      # Websecure
+      traefik.http.routers.gitlab.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.gitlab.entrypoints: websecure
+      traefik.http.routers.gitlab.service: gitlab
+      traefik.http.routers.gitlab.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.gitlab-local-insecure.rule: Host(`gitlab.${LOCAL_DOMAIN}`)
+      traefik.http.routers.gitlab-local-insecure.entrypoints: web
+      traefik.http.routers.gitlab-local-insecure.service: gitlab
+      traefik.http.routers.gitlab-local-insecure.middlewares: gitlab-web-redirect
+      # Local domain secure
+      traefik.http.routers.gitlab-local.rule: Host(`gitlab.${LOCAL_DOMAIN}`)
+      traefik.http.routers.gitlab-local.entrypoints: websecure
+      traefik.http.routers.gitlab-local.service: gitlab
+      traefik.http.routers.gitlab-local.tls: true
+      runtipi.managed: true
+    volumes:
+      - '${APP_DATA_DIR}/config:/etc/gitlab'
+      - '${APP_DATA_DIR}/logs:/var/log/gitlab'
+      - '${APP_DATA_DIR}/data:/var/opt/gitlab'
+    shm_size: '256m'
+
