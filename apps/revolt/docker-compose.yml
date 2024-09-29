@@ -177,7 +177,7 @@ services:
     labels:
       runtipi.managed: true
   revolt-events:
-    image: ghcr.io/revoltchat/bonfire:20240829-3
+    image: ghcr.io/revoltchat/bonfire:20240929-3
     container_name: revolt-events
     depends_on:
       - revolt-database
