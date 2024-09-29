@@ -13,6 +13,7 @@ services:
       - DB_DATABASE=speedtest-tracker
       - DB_USERNAME=tipi
       - DB_PASSWORD=${SPEEDTEST_TRACKER_DB_PASSWORD}
+      - APP_KEY=base64:aFjSRE6GFx3t7n9F7wIx0B4yfm1p55K2fJbp+UwzwOg=
       - TZ=${TZ}
     restart: unless-stopped
     volumes:
