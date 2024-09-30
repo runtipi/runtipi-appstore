@@ -10,7 +10,7 @@ services:
         external_url "https://${APP_DOMAIN}"
         gitlab_rails['gitlab_shell_ssh_port'] = 2424
     ports:
-      - ${APP_PORT}:8929
+      - ${APP_PORT}:80
       - 2443:443
       - 2424:22
     volumes:
