@@ -11,12 +11,12 @@ services:
         gitlab_rails['gitlab_shell_ssh_port'] = 2424
     ports:
       - ${APP_PORT}:8929
-      - '2443:443'
-      - '2424:22'
+      - 2443:443
+      - 2424:22
     volumes:
-      - '${APP_DATA_DIR}/config:/etc/gitlab'
-      - '${APP_DATA_DIR}/logs:/var/log/gitlab'
-      - '${APP_DATA_DIR}/data:/var/opt/gitlab'
+      - ${APP_DATA_DIR}/config:/etc/gitlab
+      - ${APP_DATA_DIR}/logs:/var/log/gitlab
+      - ${APP_DATA_DIR}/data:/var/opt/gitlab
     networks:
       - tipi_main_network
     labels:
