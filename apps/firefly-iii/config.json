@@ -4,7 +4,7 @@
   "available": true,
   "exposable": true,
   "port": 8115,
-  "tipi_version": 6.1.21,
+  "tipi_version": 7,
   "version": "version-6.1.21",
   "id": "firefly-iii",
   "categories": ["finance"],
