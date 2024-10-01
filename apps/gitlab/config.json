@@ -1,7 +1,7 @@
 {
   "$schema": "../schema.json",
   "name": "Gitlab",
-  "port": 18929,
+  "port": 2243,
   "available": true,
   "exposable": true,
   "id": "gitlab",
