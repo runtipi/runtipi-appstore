@@ -24,10 +24,10 @@ services:
       traefik.http.middlewares.gitlab-web-redirect.redirectscheme.scheme: https
       traefik.http.services.gitlab.loadbalancer.server.port: ${APP_PORT}
       # Web
-      traefik.http.routers.gitlab-insecure.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.gitlab-insecure.entrypoints: web
-      traefik.http.routers.gitlab-insecure.service: gitlab
-      traefik.http.routers.gitlab-insecure.middlewares: gitlab-web-redirect
+      # traefik.http.routers.gitlab-insecure.rule: Host(`${APP_DOMAIN}`)
+      # traefik.http.routers.gitlab-insecure.entrypoints: web
+      # traefik.http.routers.gitlab-insecure.service: gitlab
+      # traefik.http.routers.gitlab-insecure.middlewares: gitlab-web-redirect
       # Websecure
       traefik.http.routers.gitlab.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.gitlab.entrypoints: websecure
