@@ -1,7 +1,7 @@
 services:
   mempool:
     container_name: mempool
-    image: mempool/frontend:v3.0.0
+    image: mempool/frontend:v3.0.1
     restart: unless-stopped
     stop_grace_period: 1m
     command: "nginx -g 'daemon off;'"
