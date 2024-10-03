@@ -9,7 +9,7 @@
     "categories": ["network", "utilities"],
     "description": "Lightweight network IP scanner, can be used to notify about new hosts and monitor host online/offline history",
     "tipi_version": 1,
-    "version": "v2.0.3",
+    "version": "2.0.3",
     "source": "https://github.com/aceberg/WatchYourLAN",
     "exposable": false,
     "supported_architectures": ["arm64", "amd64"],
