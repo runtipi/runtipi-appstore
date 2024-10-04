@@ -1,0 +1,33 @@
+{
+  "$schema": "../schema.json",
+  "name": "Tvheadend",
+  "id": "tvheadend",
+  "available": true,
+  "short_desc": "Tvheadend is a TV streaming server and recorder",
+  "author": "tvheadend",
+  "port": 9981,
+  "categories": [
+    "media"
+  ],
+  "description": "Tvheadend is the leading TV streaming server and recorder for Linux, FreeBSD and Android supporting DVB-S, DVB-S2, DVB-C, DVB-T, DVB-T2, ATSC, ISDB-T, IPTV, SAT>IP and HDHomeRun as input sources.",
+  "tipi_version": 1,
+  "version": "dd82541c",
+  "source": "https://github.com/tvheadend/tvheadend",
+  "exposable": true,
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "uid": 1000,
+  "gid": 1000,
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Additional runtime parameters (e.g. \"--satip_xml http://192.168.0.123:8875/desc.xml\")",
+      "required": false,
+      "env_variable": "RUN_OPTS"
+    }
+  ],
+  "created_at": 1725634664235,
+  "updated_at": 1725634664235
+}
