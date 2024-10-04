@@ -29,8 +29,8 @@ services:
       - NODE_ENV=production
       - AFFINE_ADMIN_EMAIL=${AFFINE_ADMIN_EMAIL}
       - AFFINE_ADMIN_PASSWORD=${AFFINE_ADMIN_PASSWORD}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
       - TELEMETRY_ENABLE=${AFFINE_TELEMETRY_ENABLE}
-      - OPENAI_API_KEY=sk-ElZb9BRkog4MjEiv3_G6FwffIZ7KiL-RJm8sxXwogKT3BlbkFJM7pRtbGDk6fb32WOF_GHEyXq6tnfM6hhkfPTPIxhAA
     networks:
       - tipi_main_network
     labels:

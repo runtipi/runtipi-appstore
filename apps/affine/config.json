@@ -44,7 +44,15 @@
             "label": "Affine postgres password",
             "type": "random",
             "min": 32
-        }
+        },
+	{
+	    "env_variable": "OPENAI_API_KEY",
+	    "label": "OpenAI API Key",
+	    "type": "text",
+            "required": false
+	}
+
+
     ],
     "supported_architectures": [
         "arm64",
