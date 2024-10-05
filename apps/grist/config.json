@@ -27,8 +27,20 @@
           "value": "gvisor"
         }
       ],
-      "env_variable": "GRIST_SANDBOX_FLAVOR"
-    }
+      "env_variable": "GRIST_SANDBOX_FLAVOR"  
+    },
+    {
+      "type": "",
+      "label": "Default Email",
+      "required": true,
+      "env_variable": "GRIST_DEFAULT_EMAIL"
+    },
+    {
+      "type": "",
+      "label": "Session Seceret",
+      "required": true,
+      "env_variable": "GRIST_SESSION_SECRET"
+    }    
   ],
   "supported_architectures": ["arm64", "amd64"]
 }

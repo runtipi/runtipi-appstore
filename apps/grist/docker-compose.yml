@@ -8,20 +8,20 @@ services:
       - PUID=1000
       - PGID=1000
       - SUBDOMAINS=grist
-      - TMPDIR=/persist/tmp
       - GRIST_FORCE_LOGIN=true
       - GRIST_SUPPORT_ANON=false
-      - GRIST_DEFAULT_EMAIL=ianras@yahoo.com
-      - GRIST_SESSION_SECRET=Mycobacteri@98
       - GRIST_FORWARD_AUTH_HEADER=X-Forwarded-User
       - GRIST_FORWARD_AUTH_LOGOUT_PATH=_oauth/logout
-      - GRIST_SINGLE_ORG=grist
+      - GRIST_SINGLE_ORG=rasies
+      - GRIST_DEFAULT_EMAIL=${GRIST_DEFAULT_EMAIL}
+      - GRIST_SESSION_SECRET=${GRIST_SESSION_SECRET}
     image: gristlabs/grist:1.2.0
     ports:
       - ${APP_PORT}:8484
     restart: always
     volumes:
       - ${APP_DATA_DIR}/data/grist-data:/persist
+      - ${APP_DATA_DIR}/data/grist-data/tmp:/tmp  
     networks:
       - tipi_main_network
     deploy:
