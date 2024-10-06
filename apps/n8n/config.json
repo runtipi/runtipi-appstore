@@ -4,7 +4,7 @@
   "available": true,
   "exposable": true,
   "deprecated": true,
-  "port": 8094,
+  "port": 8099,
   "id": "n8n",
   "tipi_version": 27,
   "version": "0.237.0",
