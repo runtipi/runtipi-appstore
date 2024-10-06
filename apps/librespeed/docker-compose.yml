@@ -6,8 +6,8 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=${TZ}
-      - PASSWORD=${LIBRESPEED_PASSWORD:CHANGEME}
+      - TZ=Etc/UTC
+      - PASSWORD=PASSWORD
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
     ports:
