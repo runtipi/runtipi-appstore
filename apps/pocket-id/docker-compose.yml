@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  pocket-id:
+    container_name: pocket-id
+    image: stonith404/pocket-id:v0.8.0
+    restart: unless-stopped
+    environment:
+      - TZ=${TZ}
+      - PUBLIC_APP_URL=${APP_PROTOCOL:-https}://${APP_DOMAIN}
+      - TRUST_PROXY=true
+    volumes:
+      - ${APP_DATA_DIR}/data:/app/backend/data 
+    ports:
+      - ${APP_PORT}:80
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.pocket-id-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.pocket-id.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.pocket-id-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.pocket-id-insecure.entrypoints: web
+      traefik.http.routers.pocket-id-insecure.service: pocket-id
+      traefik.http.routers.pocket-id-insecure.middlewares: pocket-id-web-redirect
+      # Websecure
+      traefik.http.routers.pocket-id.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.pocket-id.entrypoints: websecure
+      traefik.http.routers.pocket-id.service: pocket-id
+      traefik.http.routers.pocket-id.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.pocket-id-local-insecure.rule: Host(`pocket-id.${LOCAL_DOMAIN}`)
+      traefik.http.routers.pocket-id-local-insecure.entrypoints: web
+      traefik.http.routers.pocket-id-local-insecure.service: pocket-id
+      traefik.http.routers.pocket-id-local-insecure.middlewares: pocket-id-web-redirect
+      # Local domain secure
+      traefik.http.routers.pocket-id-local.rule: Host(`pocket-id.${LOCAL_DOMAIN}`)
+      traefik.http.routers.pocket-id-local.entrypoints: websecure
+      traefik.http.routers.pocket-id-local.service: pocket-id
+      traefik.http.routers.pocket-id-local.tls: true
+      runtipi.managed: true
