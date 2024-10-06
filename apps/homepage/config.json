@@ -4,8 +4,8 @@
   "available": true,
   "exposable": true,
   "port": 8756,
-  "tipi_version": 21,
-  "version": "0.9.9",
+  "tipi_version": 22,
+  "version": "0.9.10",
   "id": "homepage",
   "categories": ["utilities"],
   "description": "A modern, fully static, fast, secure fully proxied, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages.",
@@ -15,5 +15,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1725988570000
+  "updated_at": 1727385446000
 }

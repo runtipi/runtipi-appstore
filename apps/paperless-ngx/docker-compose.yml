@@ -69,7 +69,7 @@ services:
     labels:
       runtipi.managed: true
   db:
-    image: docker.io/library/postgres:16
+    image: docker.io/library/postgres:17
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
@@ -82,7 +82,7 @@ services:
     labels:
       runtipi.managed: true
   gotenberg:
-    image: docker.io/gotenberg/gotenberg:8.9
+    image: docker.io/gotenberg/gotenberg:8.11
     restart: unless-stopped
     # The gotenberg chromium route is used to convert .eml files. We do not
     # want to allow external content like tracking pixels or even javascript.
