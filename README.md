@@ -10,7 +10,7 @@ If you want to see new apps on Tipi you can either:
 - [Join the Discord](https://discord.gg/Bu9qEPnHsc) members of the community will add it.
 - Fork this repo and create the necessary files for a Tipi app. Follow this [guide](https://www.runtipi.io/docs/contributing/adding-a-new-app)`
 
-## Apps available (261)
+## Apps available (262)
 
 | Name                                                                         | Description                                                                                                                                                         | Port  |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
@@ -263,6 +263,7 @@ If you want to see new apps on Tipi you can either:
 | [ViewTube](https://github.com/ViewTube/viewtube)                             | The open source, privacy-conscious way to enjoy your favorite YouTube content.                                                                                      | 8180  |
 | [Vikunja](https://kolaente.dev/vikunja)                                      | The Todo-app to organize your life.                                                                                                                                 | 8135  |
 | [Wallos](https://github.com/ellite/Wallos)                                   | Open-Source Personal Subscription Tracker                                                                                                                           | 8222  |
+| [WatchYourLAN](https://github.com/aceberg/WatchYourLAN)                      | Lightweight network IP scanner                                                                                                                                      | 8840  |
 | [Wekan](https://github.com/wekan/wekan)                                      | Open-Source, customizable, and privacy-focused kanban                                                                                                               | 8678  |
 | [Wireguard](https://github.com/wg-easy/wg-easy)                              | VPN server for your homeserver                                                                                                                                      | 8082  |
 | [Whisparr](https://github.com/Whisparr/Whisparr)                             | Adult movie collection manager.                                                                                                                                     | 6969  |
