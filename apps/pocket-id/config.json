@@ -12,6 +12,6 @@
     "source": "https://github.com/stonith404/pocket-id",
     "exposable": true,
     "supported_architectures": ["arm64", "amd64"],
-    "created_at": 1728347410200,
-    "updated_at": 1728347410200
+    "created_at": 1728348116000,
+    "updated_at": 1728348116000
   }
