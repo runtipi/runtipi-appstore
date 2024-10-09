@@ -15,7 +15,7 @@
       "type": "password",
       "label": "Password",
       "max": 50,
-      "min": 3,
+      "min": 8,
       "required": true,
       "env_variable": "APP_PASSWORD"
     }
