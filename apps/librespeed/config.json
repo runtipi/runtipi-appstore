@@ -8,7 +8,7 @@
   "categories": ["utilities"],
   "description": "This is a very lightweight speed test implemented in Javascript, using XMLHttpRequest and Web Workers.",
   "tipi_version": 1,
-  "version": "latest",
+  "version": "5.4.1",
   "source": "https://github.com/librespeed/speedtest",
   "form_fields": [
     {
