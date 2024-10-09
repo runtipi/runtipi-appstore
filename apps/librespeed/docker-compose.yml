@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   librespeed:
-    image: lscr.io/linuxserver/librespeed:latest
+    image: lscr.io/linuxserver/librespeed:5.4.1
     container_name: librespeed
     environment:
       - PUID=1000
