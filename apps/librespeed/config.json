@@ -10,6 +10,16 @@
   "tipi_version": 1,
   "version": "latest",
   "source": "https://github.com/librespeed/speedtest",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "Password",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "APP_PASSWORD"
+    }
+  ],
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1724134338800,
