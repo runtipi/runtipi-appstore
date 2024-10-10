@@ -19,5 +19,3 @@ Works with mobile versions too.
 * Telemetry (optional)
 * Results sharing (optional)
 * Multiple Points of Test (optional)
-
-![Screenrecording of a running Speedtest](https://speedtest.fdossena.com/mpot_v6.gif)
