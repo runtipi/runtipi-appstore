@@ -40,3 +40,5 @@ services:
       traefik.http.routers.librespeed-local.entrypoints: websecure
       traefik.http.routers.librespeed-local.service: librespeed
       traefik.http.routers.librespeed-local.tls: true
+      # Runtipi managed
+      runtipi.managed: true
