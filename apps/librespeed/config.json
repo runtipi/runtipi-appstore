@@ -2,7 +2,7 @@
   "name": "LibreSpeed",
   "id": "librespeed",
   "available": true,
-  "short_desc": "No Flash, No Java, No Websocket, No BS",
+  "short_desc": "No Flash, No Java, No Websocket, No Garbage",
   "author": "LibreSpeed",
   "port": 8084,
   "categories": ["network", "utilities"],
