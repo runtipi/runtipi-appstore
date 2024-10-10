@@ -26,7 +26,6 @@ services:
       - "${APP_PORT}:8015"
     volumes:
       - "${APP_DATA_DIR}/data:/data"
-      - "${APP_DATA_DIR}/crontabs:/var/spool/cron/crontabs"
     labels:
       # Main
       traefik.enable: true
