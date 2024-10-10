@@ -1,0 +1,41 @@
+services:
+  docron:
+    image: ghcr.io/primez/docron:2024.10.10.18
+    container_name: docron
+    ports:
+      - ${APP_PORT}:8080
+    restart: unless-stopped
+    environment:
+      - DockerConnection=unix:///var/run/docker.sock
+      - DB=Data Source=/data/docron.db;
+    networks:
+      - tipi_main_network # That should not be changed
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ${APP_DATA_DIR}/data:/data
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.docron-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.docron.loadbalancer.server.port: 8080 # Should be the same as the app internal port so for this example 9443
+      # Web
+      traefik.http.routers.docron-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.docron-insecure.entrypoints: web
+      traefik.http.routers.docron-insecure.service: docron
+      traefik.http.routers.docron-insecure.middlewares: docron-web-redirect
+      # Websecure
+      traefik.http.routers.docron.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.docron.entrypoints: websecure
+      traefik.http.routers.docron.service: docron
+      traefik.http.routers.docron.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.docron-local-insecure.rule: Host(`docron.${LOCAL_DOMAIN}`)
+      traefik.http.routers.docron-local-insecure.entrypoints: web
+      traefik.http.routers.docron-local-insecure.service: docron
+      traefik.http.routers.docron-local-insecure.middlewares: docron-web-redirect
+      # Local domain secure
+      traefik.http.routers.docron-local.rule: Host(`docron.${LOCAL_DOMAIN}`)
+      traefik.http.routers.docron-local.entrypoints: websecure
+      traefik.http.routers.docron-local.service: docron
+      traefik.http.routers.docron-local.tls: true
+    
