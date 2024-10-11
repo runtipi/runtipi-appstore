@@ -21,7 +21,7 @@
                 "DOCKER_CONNECTION": "unix:///var/run/docker.sock",
                 "DB": "Data Source=/data/docron.db;",
                 "KEY_PATH":"/data/keys",
-                "EXCLUDED_CONTAINERS":"[]"
+                "EXCLUDED_CONTAINERS":"[runtipi, runtipi-db, runtipi-redis, runtipi-reverse-proxy]"
             }
         }
     ]
