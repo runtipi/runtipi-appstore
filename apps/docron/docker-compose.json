@@ -2,7 +2,7 @@
     "services": [
         {
             "name": "docron",
-            "image": "ghcr.io/primez/docron:2024.10.11.21",
+            "image": "ghcr.io/primez/docron:2024.10.11.22",
             "internalPort": 8080,
             "isMain": true,
             "volumes": [
@@ -20,7 +20,8 @@
             "environment": {
                 "DOCKER_CONNECTION": "unix:///var/run/docker.sock",
                 "DB": "Data Source=/data/docron.db;",
-                "KEY_PATH":"/data/keys"
+                "KEY_PATH":"/data/keys",
+                "EXCLUDED_CONTAINERS":"[]"
             }
         }
     ]

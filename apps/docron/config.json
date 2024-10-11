@@ -8,7 +8,7 @@
     "categories": ["development", "utilities"],
     "description": "Docron is a scheduling tool designed to automate the start and stop of Docker containers based on user-defined schedules. With a simple interface, it streamlines container management.I created this application to provide an alternative for users who are not comfortable using crontab or those who prefer not to modify system files. Docron runs in its own container, with access only to its resources and other containers via the Docker API. I haven't found any existing solutions that offer this functionality, but I may have overlooked some.",
     "tipi_version": 1,
-    "version": "v2024.10.11.21",
+    "version": "v2024.10.11.22",
     "source": "https://github.com/primez/docron",
     "exposable": true,
     "supported_architectures": ["amd64"],
