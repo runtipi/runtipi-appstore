@@ -2,7 +2,7 @@
     "services": [
         {
             "name": "docron",
-            "image": "ghcr.io/primez/docron:2024.10.11.22",
+            "image": "ghcr.io/primez/docron:2024.10.11.23",
             "internalPort": 8080,
             "isMain": true,
             "volumes": [
