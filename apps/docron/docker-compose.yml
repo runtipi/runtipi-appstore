@@ -1,13 +1,14 @@
 services:
   docron:
-    image: ghcr.io/primez/docron:2024.10.10.18
+    image: ghcr.io/primez/docron:2024.10.11.21
     container_name: docron
     ports:
       - ${APP_PORT}:8080
     restart: unless-stopped
     environment:
-      - DockerConnection=unix:///var/run/docker.sock
-      - DB=Data Source=/data/docron.db;
+     - DOCKER_CONNECTION=unix:///var/run/docker.sock
+     - DB=Data Source=/data/docron.db;
+     - KEY_PATH=/data/keys
     networks:
       - tipi_main_network # That should not be changed
     volumes:

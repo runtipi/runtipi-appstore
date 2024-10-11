@@ -16,8 +16,9 @@ If you prefer a one-off command to start a container, use the following code:
 docker run -d \
   --name docron \
   -p 8080:8080 \
-  -e DockerConnection=unix:///var/run/docker.sock \
+  -e DOCKER_CONNECTION=unix:///var/run/docker.sock \
   -e DB='Data Source=/data/docron.db;' \
+  -e KEY_PATH='/data/keys' \
   -v /var/run/docker.sock:/var/run/docker.sock:ro \
   -v /<yourDBFolder>/:/data \
   ghcr.io/primez/docron:latest
@@ -33,17 +34,19 @@ services:
     ports:
       - 8080:8080
     environment:
-      - DockerConnection=unix:///var/run/docker.sock
+      - DOCKER_CONNECTION=unix:///var/run/docker.sock
       - DB=Data Source=/data/docron.db;
+      - KEY_PATH=/data/keys
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /<yourDBFolder>/:/data
+      - /<yourFolder>/:/data
 ```
 
 ### Parameters
 `Docron` expects the following parameters to function properly:
-- **ENV**: `DockerConnection` - This is the address that `Docron` will use to connect and gather information about containers for start/stop operations. If this parameter is not provided, it will default to a `Docker for Windows` environment.
+- **ENV**: `DOCKER_CONNECTION` - This is the address that `Docron` will use to connect and gather information about containers for start/stop operations. If this parameter is not provided, it will default to a `Docker for Windows` environment.
 - **ENV**: `DB` - `Docron` uses `SQLite` to store schedules. To store the database in a mounted volume, provide this parameter. Otherwise, the database will be created inside the container.
+- **ENV**: `KEY_PATH` - `Docron` stores anti-forgery keys here. Any path within a container will work, but it is better to provide a path to a mounted volume.
 - **VOL**: `<yourDBFolder>` - If you want to persist the database between container updates, specify a host folder path to be mounted.
 
 ### Screenshots
