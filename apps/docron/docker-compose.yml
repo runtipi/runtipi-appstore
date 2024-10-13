@@ -44,4 +44,3 @@ services:
       traefik.http.routers.docron-local.entrypoints: websecure
       traefik.http.routers.docron-local.service: docron
       traefik.http.routers.docron-local.tls: true
-    
