@@ -1,6 +1,6 @@
 # Docron
 
-Docron is a scheduling tool designed to automate the start and stop of Docker containers based on user-defined schedules. With a simple interface, it streamlines container management.
+Docron is a scheduling tool designed to automate the start, stop and restart of Docker containers based on user-defined schedules. With a simple interface, it streamlines container management.
 
 ## Reasoning
 
