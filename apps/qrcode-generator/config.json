@@ -1,0 +1,17 @@
+{
+  "name": "QR Code Generator",
+  "id": "qrcode-generator",
+  "available": true,
+  "short_desc": "Basic UI to generate QR codes from a URL running in Docker.",
+  "author": "Bizzycola",
+  "port": 8085,
+  "categories": ["utilities"],
+  "description": "Basic docker container with a HTML/CSS/JS UI to generate a QR Code from a provided URL. Uses tailwind CSS and qrcode.js",
+  "tipi_version": 1,
+  "version": "latest",
+  "source": "https://github.com/bizzycola/qrcode-generator",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1724134338800,
+  "updated_at": 1724134338800
+}
