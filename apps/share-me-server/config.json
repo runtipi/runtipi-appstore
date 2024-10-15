@@ -4,7 +4,7 @@
     "available": true,
     "short_desc": "Image & Video hosting platform",
     "author": "Dan6erbond",
-    "port": 8685,
+    "port": 11141,
     "categories": ["media", "utilities"],
     "description": "An image and video hosting platform for your server, with rich embed support and API.",
     "tipi_version": 1,

@@ -8,7 +8,6 @@ services:
       POCKETBASE_URL: share-me-server.{LOCAL_DOMAIN}
     ports:
       - ${APP_PORT}:3000
-    restart: unless-stopped
     networks:
       - tipi_main_network
     labels:
