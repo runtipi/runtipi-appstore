@@ -1,0 +1,44 @@
+version: "3.9"
+services:
+  writefreely:
+    container_name: writefreely
+    image: nephatrine/write-freely:0.15.0
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/mnt/config
+    ports:
+      - "40:70/tcp"
+      - "${APP_PORT}:8080/tcp"
+    environment:
+      TZ: ${TZ}
+      PUID: 1000
+      PGID: 1000
+    depends_on:
+      - db
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.writefreely-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.writefreely.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.writefreely-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.writefreely-insecure.entrypoints: web
+      traefik.http.routers.writefreely-insecure.service: writefreely
+      traefik.http.routers.writefreely-insecure.middlewares: writefreely-web-redirect
+      # Websecure
+      traefik.http.routers.writefreely.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.writefreely.entrypoints: websecure
+      traefik.http.routers.writefreely.service: writefreely
+      traefik.http.routers.writefreely.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.writefreely-local-insecure.rule: Host(`writefreely.${LOCAL_DOMAIN}`)
+      traefik.http.routers.writefreely-local-insecure.entrypoints: web
+      traefik.http.routers.writefreely-local-insecure.service: writefreely
+      traefik.http.routers.writefreely-local-insecure.middlewares: writefreely-web-redirect
+      # Local domain secure
+      traefik.http.routers.writefreely-local.rule: Host(`writefreely.${LOCAL_DOMAIN}`)
+      traefik.http.routers.writefreely-local.entrypoints: websecure
+      traefik.http.routers.writefreely-local.service: writefreely
+      traefik.http.routers.writefreely-local.tls: true
