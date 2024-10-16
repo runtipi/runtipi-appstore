@@ -1,6 +1,6 @@
 services:
   pinchflat:
-    image: keglin/pinchflat:v2024.9.12
+    image: keglin/pinchflat:v2024.10.2
     container_name: pinchflat
     environment:
       - BASIC_AUTH_USERNAME=${PINCHFLAT_BASIC_AUTH_USERNAME}
