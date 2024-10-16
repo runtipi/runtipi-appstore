@@ -1,6 +1,6 @@
 services:
   esphome:
-    image: ghcr.io/esphome/esphome:2024.8.3
+    image: ghcr.io/esphome/esphome:2024.9.2
     container_name: esphome
     environment:
       - TZ=${TZ}

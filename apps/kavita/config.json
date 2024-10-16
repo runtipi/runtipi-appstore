@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "kavita",
-  "tipi_version": 15,
-  "version": "0.8.2",
+  "tipi_version": 16,
+  "version": "0.8.3",
   "categories": ["media"],
   "description": "Kavita is a fast, feature rich, cross platform reading server",
   "short_desc": "Kavita is a fast, feature rich, cross platform reading server",
@@ -15,5 +15,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566283000
+  "updated_at": 1726671824000
 }

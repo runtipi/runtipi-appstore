@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8255,
   "id": "whoogle",
-  "tipi_version": 3,
-  "version": "0.8.4",
+  "tipi_version": 4,
+  "version": "0.9.0",
   "categories": ["social"],
   "description": "Get Google search results, but without any ads, JavaScript, AMP links, cookies, or IP address tracking.",
   "short_desc": "A self-hosted, ad-free, privacy-respecting metasearch engine.",
@@ -15,5 +15,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566284000
+  "updated_at": 1727734083000
 }

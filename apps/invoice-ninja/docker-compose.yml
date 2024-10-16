@@ -1,6 +1,6 @@
 services:
   invoice-ninja:
-    image: invoiceninja/invoiceninja:5.10.27
+    image: invoiceninja/invoiceninja:5.10.31
     container_name: invoice-ninja
     restart: unless-stopped
     user: 1500:1500
@@ -92,7 +92,7 @@ services:
     labels:
       runtipi.managed: true
   invoice-ninja-init:
-    image: bash:5.2.32
+    image: bash:5.2.37
     container_name: invoice-ninja-init
     volumes:
       - ${APP_DATA_DIR}/data:/tmp/data
