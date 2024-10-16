@@ -1,7 +1,7 @@
 services:
   vikunja:
     container_name: vikunja
-    image: vikunja/vikunja:0.24.2
+    image: vikunja/vikunja:0.24.4
     environment:
       VIKUNJA_DATABASE_HOST: vikunja-db
       VIKUNJA_DATABASE_PASSWORD: ${VIKUNJA_DB_PASSWORD}

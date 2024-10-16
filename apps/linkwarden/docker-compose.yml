@@ -46,7 +46,7 @@ services:
       runtipi.managed: true
   linkwarden-db:
     container_name: linkwarden-db
-    image: postgres
+    image: postgres:16-alpine
     restart: unless-stopped
     environment:
       - POSTGRES_USER=tipi
