@@ -5,8 +5,8 @@
   "exposable": true,
   "id": "netdata",
   "description": "Stream any metrics from every physical and virtual server, container and IoT device, to one dashboard, in real-time.",
-  "tipi_version": 21,
-  "version": "1.47.1",
+  "tipi_version": 23,
+  "version": "1.47.3",
   "categories": ["utilities"],
   "short_desc": "Open-source, real-time, performance and health monitoring.",
   "author": "netdata",
@@ -15,5 +15,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1725981912000
+  "updated_at": 1727888070000
 }
