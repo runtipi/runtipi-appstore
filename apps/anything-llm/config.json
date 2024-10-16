@@ -1,0 +1,22 @@
+{
+  "$schema": "../schema.json",
+  "name": "AnythingLLM",
+  "available": true,
+  "exposable": true,
+  "port": 33001,
+  "id": "anything-llm",
+  "tipi_version": 1,
+  "version": "1.2.1",
+  "categories": [
+    "utilities",
+    "ai"
+  ],
+  "description": "The all-in-one AI app you were looking for. Chat with your docs, use AI Agents, hyper-configurable, multi-user, with no frustrating set up required.",
+  "short_desc": "Your personal LLM trained on anything",
+  "author": "Mintplex Labs",
+  "source": "https://github.com/Mintplex-Labs/anything-llm",
+  "form_fields": [],
+  "supported_architectures": ["amd64","arm64"],
+  "created_at": 1722826800000,
+  "updated_at": 1724848494184
+}
