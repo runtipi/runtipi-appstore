@@ -10,6 +10,7 @@ services:
     ports:
       - ${APP_PORT}:8888
     environment:
+      - ATUIN_PORT=8888
       - ATUIN_HOST=0.0.0.0
       - ATUIN_OPEN_REGISTRATION=${ATUIN_ALLOW_REGISTRATION}
       - ATUIN_DB_URI=postgres://atuin:${ATUIN_DB_PASSWORD}@atuin-db/atuin

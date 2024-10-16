@@ -5,7 +5,7 @@
   "exposable": true,
   "port": 8888,
   "id": "atuin",
-  "tipi_version": 6,
+  "tipi_version": 7,
   "version": "18.3.0",
   "categories": ["utilities", "development"],
   "description": "Atuin replaces your existing shell history with a SQLite database, and records additional context for your commands.",
@@ -31,5 +31,5 @@
   ],
   "supported_architectures": ["amd64", "arm64"],
   "created_at": 1691943801422,
-  "updated_at": 1729085707430
+  "updated_at": 1729092332630
 }
