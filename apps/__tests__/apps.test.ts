@@ -41,6 +41,7 @@ const networkExceptions = [
   'homebridge',
   'cloudflared',
   'beszel-agent',
+  'watchyourlan',
 ];
 const getAppConfigs = (): AppConfig[] => {
   const apps: AppConfig[] = [];

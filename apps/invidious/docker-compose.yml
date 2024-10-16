@@ -4,12 +4,14 @@ services:
     container_name: invidious
     image: quay.io/invidious/invidious:latest
     restart: unless-stopped
+    depends_on:
+      invidious-db:
+        condition: service_healthy
+      inv_sig_helper:
+        condition: service_started
     ports:
       - "${APP_PORT}:3000"
     environment:
-      # Please read the following file for a comprehensive list of all available
-      # configuration options and their associated syntax:
-      # https://github.com/iv-org/invidious/blob/master/config/config.example.yml
       INVIDIOUS_CONFIG: |
         db:
           dbname: invidious
@@ -23,6 +25,7 @@ services:
         domain: ${INVIDIOUS_DOMAIN}
         external_port: ${INVIDIOUS_EXTERNAL_PORT:-${APP_PORT}}
         https_only: ${INVIDIOUS_HTTPS_ONLY}
+        signature_server: inv_sig_helper:12999
     healthcheck:
       test: wget -nv --tries=1 --spider http://127.0.0.1:3000/api/v1/trending || exit 1
       interval: 30s
@@ -56,6 +59,23 @@ services:
       traefik.http.routers.invidious-local.service: invidious
       traefik.http.routers.invidious-local.tls: true
       runtipi.managed: true
+
+  inv_sig_helper:
+    image: quay.io/invidious/inv-sig-helper:latest
+    command: ["--tcp", "0.0.0.0:12999"]
+    environment:
+      - RUST_LOG=info
+    restart: unless-stopped
+    cap_drop:
+      - ALL
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - tipi_main_network
+    labels:
+      runtipi.managed: true
+
   invidious-db:
     container_name: invidious-db
     image: postgres:14
