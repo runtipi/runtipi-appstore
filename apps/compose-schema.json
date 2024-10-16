@@ -56,7 +56,8 @@
                   "containerPort": { "type": "number" },
                   "hostPort": { "type": "number" },
                   "udp": { "type": "boolean" },
-                  "tcp": { "type": "boolean" }
+                  "tcp": { "type": "boolean" },
+                  "interface": { "type": "string" }
                 },
                 "required": ["containerPort", "hostPort"]
               }
