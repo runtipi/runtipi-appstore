@@ -8,7 +8,7 @@
   "port": 8562,
   "categories": ["utilities"],
   "description": "A dead simple static HOMepage for your servER to keep your services on hand, from a simple yaml configuration file.",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "v24.10.1",
   "source": "https://github.com/bastienwirtz/homer",
   "exposable": true,
