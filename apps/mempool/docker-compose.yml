@@ -1,0 +1,93 @@
+services:
+  mempool:
+    container_name: mempool
+    image: mempool/frontend:v3.0.1
+    restart: unless-stopped
+    stop_grace_period: 1m
+    command: "nginx -g 'daemon off;'"
+    ports:
+      - ${APP_PORT}:8080
+    depends_on:
+      - mempool-db
+    environment:
+      FRONTEND_HTTP_PORT: "8080"
+      BACKEND_MAINNET_HTTP_HOST: "mempool-api"
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.mempool-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.mempool.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.mempool-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mempool-insecure.entrypoints: web
+      traefik.http.routers.mempool-insecure.service: mempool
+      traefik.http.routers.mempool-insecure.middlewares: mempool-web-redirect
+      # Websecure
+      traefik.http.routers.mempool.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mempool.entrypoints: websecure
+      traefik.http.routers.mempool.service: mempool
+      traefik.http.routers.mempool.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.mempool-local-insecure.rule: Host(`mempool.${LOCAL_DOMAIN}`)
+      traefik.http.routers.mempool-local-insecure.entrypoints: web
+      traefik.http.routers.mempool-local-insecure.service: mempool
+      traefik.http.routers.mempool-local-insecure.middlewares: mempool-web-redirect
+      # Local domain secure
+      traefik.http.routers.mempool-local.rule: Host(`mempool.${LOCAL_DOMAIN}`)
+      traefik.http.routers.mempool-local.entrypoints: websecure
+      traefik.http.routers.mempool-local.service: mempool
+      traefik.http.routers.mempool-local.tls: true
+      runtipi.managed: true
+
+
+  mempool-api:
+    container_name: mempool-api
+    image: mempool/backend:v3.0.1
+    restart: unless-stopped
+    stop_grace_period: 1m
+    user: 0:0
+    volumes:
+      - ${BITCOIND_DIR:-${APP_DATA_DIR}/../bitcoind/data}:/data/.bitcoin:ro
+      - ${APP_DATA_DIR}/data:/backend/cache
+    command: "./start.sh"
+    depends_on:
+      - mempool-db
+    environment:
+      MEMPOOL_BACKEND: "electrum"
+      ELECTRUM_HOST: ${ELECTRUM_HOST:-electrs}
+      ELECTRUM_PORT: ${ELECTRUM_PORT:-50001}
+      ELECTRUM_TLS_ENABLED: "false"
+      CORE_RPC_HOST: ${CORE_RPC_HOST:-bitcoind}
+      CORE_RPC_PORT: "8332"
+      CORE_RPC_COOKIE: true
+      CORE_RPC_COOKIE_PATH: /data/.bitcoin/.cookie
+      CORE_RPC_TIMEOUT: "60000"
+      DATABASE_ENABLED: "true"
+      DATABASE_HOST: "mempool-db"
+      DATABASE_DATABASE: "mempool"
+      DATABASE_USERNAME: "mempool"
+      DATABASE_PASSWORD: ${MEMPOOL_DB_PASSWORD}
+      STATISTICS_ENABLED: "true"
+    networks:
+      - tipi_main_network
+    labels:
+      runtipi.managed: true
+
+  mempool-db:
+    container_name: mempool-db
+    image: mariadb:10.5.21
+    restart: unless-stopped
+    stop_grace_period: 1m
+    environment:
+      MYSQL_DATABASE: "mempool"
+      MYSQL_USER: "mempool"
+      MYSQL_PASSWORD: ${MEMPOOL_DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MEMPOOL_DB_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/lib/mysql
+    networks:
+      - tipi_main_network
+    labels:
+      runtipi.managed: true
