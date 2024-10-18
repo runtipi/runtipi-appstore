@@ -5,7 +5,7 @@
   "available": true,
   "exposable": true,
   "id": "emqx",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "5.8.1",
   "categories": ["utilities", "automation"],
   "description": "The most scalable open-source MQTT broker for IoT, IIoT, and connected vehicles.",
