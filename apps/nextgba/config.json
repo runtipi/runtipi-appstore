@@ -5,8 +5,8 @@
   "exposable": true,
   "id": "nextgba",
   "description": "All of your favorite gameboy games in your browser",
-  "tipi_version": 4,
-  "version": "0.0.5",
+  "tipi_version": 5,
+  "version": "0.1.0",
   "categories": ["gaming"],
   "short_desc": "Gameboy in your browser",
   "author": "meienberger",
@@ -14,5 +14,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566284000
+  "updated_at": 1728000582000
 }

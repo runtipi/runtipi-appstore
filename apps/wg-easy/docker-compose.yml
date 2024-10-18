@@ -11,7 +11,7 @@ services:
       - ${APP_PORT}:51821/tcp
     environment:
       WG_HOST: "${WIREGUARD_HOST}"
-      PASSWORD: "${WIREGUARD_PASSWORD}"
+      PASSWORD_HASH: "${WIREGUARD_PASSWORD_HASH}"
       WG_DEFAULT_DNS: "${WIREGUARD_DNS:-8.8.8.8}"
       WG_ALLOWED_IPS: 0.0.0.0/0, ::/0
     cap_add:

@@ -8,12 +8,12 @@
   "port": 8356,
   "categories": ["utilities"],
   "description": "Container to update DNS records periodically with WebUI for many DNS providers,",
-  "tipi_version": 2,
-  "version": "v2.7.0",
+  "tipi_version": 5,
+  "version": "2.8.1",
   "source": "https://github.com/qdm12/ddns-updater",
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],
   "form_fields": [],
   "created_at": 1724190921000,
-  "updated_at": 1724190921000
+  "updated_at": 1726825688000
 }
