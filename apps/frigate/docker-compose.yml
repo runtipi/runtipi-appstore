@@ -1,0 +1,47 @@
+version: "3.9"
+services:
+  frigate:
+    container_name: frigate
+    image: ghcr.io/blakeblackshear/frigate:0.13.2
+    restart: unless-stopped
+    shm_size: "64m"
+    environment:
+      - TZ=${TZ} # Can use any env variable. See "environment variables" section in the docs
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${APP_DATA_DIR}/data/storage:/media/frigate
+      - type: tmpfs # Optional: 1GB of memory, reduces SSD/SD Card wear
+        target: /tmp/cache
+        tmpfs:
+          size: 1000000000
+    ports:
+      - ${APP_PORT}:5000
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.frigate-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.frigate.loadbalancer.server.port: 5001
+      # Web
+      traefik.http.routers.frigate-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.frigate-insecure.entrypoints: web
+      traefik.http.routers.frigate-insecure.service: frigate
+      traefik.http.routers.frigate-insecure.middlewares: frigate-web-redirect
+      # Websecure
+      traefik.http.routers.frigate.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.frigate.entrypoints: websecure
+      traefik.http.routers.frigate.service: frigate
+      traefik.http.routers.frigate.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.frigate-local-insecure.rule: Host(`frigate.${LOCAL_DOMAIN}`)
+      traefik.http.routers.frigate-local-insecure.entrypoints: web
+      traefik.http.routers.frigate-local-insecure.service: frigate
+      traefik.http.routers.frigate-local-insecure.middlewares: frigate-web-redirect
+      # Local domain secure
+      traefik.http.routers.frigate-local.rule: Host(`frigate.${LOCAL_DOMAIN}`)
+      traefik.http.routers.frigate-local.entrypoints: websecure
+      traefik.http.routers.frigate-local.service: frigate
+      traefik.http.routers.frigate-local.tls: true
+      runtipi.managed: true
