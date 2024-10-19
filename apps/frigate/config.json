@@ -1,0 +1,19 @@
+{
+  "$schema": "../schema.json",
+  "name": "Frigate",
+  "id": "frigate",
+  "available": true,
+  "short_desc": "Frigate is an open source NVR built around real-time AI object detection",
+  "author": "markoceri",
+  "port": 5001,
+  "categories": ["security"],
+  "description": "A complete and local NVR designed for Home Assistant with AI object detection. Uses OpenCV and Tensorflow to perform realtime object detection locally for IP cameras.",
+  "tipi_version": 1,
+  "version": "0.13.2",
+  "source": "https://github.com/blakeblackshear/frigate",
+  "website": "https://frigate.video",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1719136800000,
+  "updated_at": 1725402340000
+}
