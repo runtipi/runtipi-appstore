@@ -1,0 +1,41 @@
+services:
+  enclosed: # Should be exact same name as "id" field in config.json
+    container_name: enclosed # Should be exact same name as "id" field in config.json
+    image: ghcr.io/corentinth/enclosed:1.6.6 # Try to avoid "latest" tag. As it may break configs in the future.
+    restart: unless-stopped # Do not change this
+    environment:
+      - TZ=${TZ} # Can use any env variable. See "environment variables" section in the docs
+    dns:
+      - ${DNS_IP}
+    volumes:
+      - ${APP_DATA_DIR}/data:/.data
+    ports:
+      - ${APP_PORT}:8443
+    networks:
+      - tipi_main_network # That should not be changed
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.enclosed-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.enclosed.loadbalancer.server.port: 8787 # Should be the same as the app internal port
+      # Web
+      traefik.http.routers.enclosed-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.enclosed-insecure.entrypoints: web
+      traefik.http.routers.enclosed-insecure.service: enclosed
+      traefik.http.routers.enclosed-insecure.middlewares: enclosed-web-redirect
+      # Websecure
+      traefik.http.routers.enclosed.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.enclosed.entrypoints: websecure
+      traefik.http.routers.enclosed.service: enclosed
+      traefik.http.routers.enclosed.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.enclosed-local-insecure.rule: Host(`enclosed.${LOCAL_DOMAIN}`)
+      traefik.http.routers.enclosed-local-insecure.entrypoints: web
+      traefik.http.routers.enclosed-local-insecure.service: enclosed
+      traefik.http.routers.enclosed-local-insecure.middlewares: enclosed-web-redirect
+      # Local domain secure
+      traefik.http.routers.enclosed-local.rule: Host(`enclosed.${LOCAL_DOMAIN}`)
+      traefik.http.routers.enclosed-local.entrypoints: websecure
+      traefik.http.routers.enclosed-local.service: enclosed
+      traefik.http.routers.enclosed-local.tls: true
+      runtipi.managed: true
