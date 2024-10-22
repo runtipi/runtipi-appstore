@@ -3,6 +3,7 @@
   "name": "Monica",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 3291,
   "id": "monica",
   "tipi_version": 3,
