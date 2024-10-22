@@ -1,6 +1,6 @@
 services:
   mqttx:
-    image: emqx/mqttx-web:v1.10.1
+    image: emqx/mqttx-web:v1.11.0
     container_name: 'mqttx'
     restart: unless-stopped
     volumes:
