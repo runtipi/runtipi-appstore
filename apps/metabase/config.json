@@ -6,21 +6,15 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "metabase",
-  "tipi_version": 3,
-  "version": "v0.50.26",
-  "categories": [
-    "data",
-    "utilities"
-  ],
+  "tipi_version": 4,
+  "version": "0.50.31",
+  "categories": ["data", "utilities"],
   "description": "Metabase is the easy, open-source way for everyone in your company to ask questions and learn from data.",
   "short_desc": "The simplest, fastest way to get business intelligence and analytics to everyone in your company",
   "author": "metabase",
   "source": "https://github.com/metabase/metabase",
   "form_fields": [],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ],
+  "supported_architectures": ["arm64", "amd64"],
   "created_at": 1724831720870,
-  "updated_at": 1724831720870
+  "updated_at": 1729720955000
 }
