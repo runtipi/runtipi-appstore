@@ -2,8 +2,9 @@ services:
   sharry:
     depends_on:
       - sharry-db
-    image: eikek0/sharry:v1.14.0
     container_name: sharry
+    image: eikek0/sharry:v1.14.0
+    restart: unless-stopped
     command: /opt/sharry.conf
     volumes:
       - ${APP_DATA_DIR}/data/sharry.conf:/opt/sharry.conf
@@ -39,8 +40,9 @@ services:
       runtipi.managed: true
 
   sharry-db:
-    image: postgres:16.4-alpine
     container_name: sharry-db
+    image: postgres:16.4-alpine
+    restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/postgres/:/var/lib/postgresql/data
     environment:
