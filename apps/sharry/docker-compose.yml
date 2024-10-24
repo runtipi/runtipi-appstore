@@ -1,7 +1,7 @@
 services:
   sharry:
     depends_on:
-     - db
+      - sharry-db
     image: eikek0/sharry:v1.14.0
     container_name: sharry
     command: /opt/sharry.conf
@@ -15,7 +15,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.sharry-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.sharry.loadbalancer.server.port: 8000
+      traefik.http.services.sharry.loadbalancer.server.port: 9090
       # Web
       traefik.http.routers.sharry-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.sharry-insecure.entrypoints: web
@@ -38,15 +38,15 @@ services:
       traefik.http.routers.sharry-local.tls: true
       runtipi.managed: true
 
-  db:
+  sharry-db:
     image: postgres:16.4-alpine
-    container_name: db
+    container_name: sharry-db
     volumes:
       - ${APP_DATA_DIR}/data/postgres/:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=sharry
       - POSTGRES_PASSWORD=${DB_PASS}
-      - POSTGRES_DB=sharrydb
+      - POSTGRES_DB=sharry-db
     networks:
       - tipi_main_network
     labels:

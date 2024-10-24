@@ -13,7 +13,7 @@ sharry.restserver {
     }
 
     jdbc {
-      url = "jdbc:postgresql://db:5432/sharrydb"
+      url = "jdbc:postgresql://sharry-db:5432/sharry-db"
       user = "sharry"
       password = "{{DB_PASS}}"
 
