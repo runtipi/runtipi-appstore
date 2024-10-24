@@ -3,7 +3,7 @@ version: "3.7"
 services:
   immich:
     container_name: immich
-    image: ghcr.io/immich-app/immich-server:v1.115.0
+    image: ghcr.io/immich-app/immich-server:v1.118.2
     volumes:
       - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
     environment:
@@ -19,7 +19,7 @@ services:
       - immich-redis
       - immich-db
     ports:
-      - ${APP_PORT}:3001
+      - ${APP_PORT}:2283
     restart: unless-stopped
     networks:
       - tipi_main_network
@@ -27,7 +27,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.immich-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.immich.loadbalancer.server.port: 3001
+      traefik.http.services.immich.loadbalancer.server.port: 2283
       # Web
       traefik.http.routers.immich-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.immich-insecure.entrypoints: web
@@ -51,7 +51,7 @@ services:
       runtipi.managed: true
   immich-machine-learning:
     container_name: immich-machine-learning
-    image: ghcr.io/immich-app/immich-machine-learning:v1.115.0
+    image: ghcr.io/immich-app/immich-machine-learning:v1.118.2
     volumes:
       - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
       - ${APP_DATA_DIR}/data/immich-ml-cache:/cache

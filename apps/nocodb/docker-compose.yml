@@ -12,7 +12,7 @@ services:
       - NC_AUTH_JWT_SECRET=${NOCODB_JWT_SECRET}
       - NC_REDIS_URL=redis://default:${NOCODB_REDIS_PASSWORD}@nocodb-redis:6379
       - DB_QUERY_LIMIT_DEFAULT=${NOCODB_TABLE_ROWS-25}
-    image: "nocodb/nocodb:0.255.2"
+    image: "nocodb/nocodb:0.257.2"
     ports:
       - "${APP_PORT}:8080"
     restart: always
@@ -57,7 +57,7 @@ services:
       retries: 10
       test: 'pg_isready -U "$$POSTGRES_USER" -d "$$POSTGRES_DB"'
       timeout: 2s
-    image: postgres
+    image: postgres:16
     restart: always
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data

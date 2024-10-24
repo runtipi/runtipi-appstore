@@ -1,0 +1,14 @@
+services:
+  watchyourlan:
+    image: aceberg/watchyourlan:2.0.4
+    container_name: watchyourlan
+    restart: unless-stopped
+    network-mode: host
+    volumes:
+      - ${APP_DATA_DIR}/data:/data/WatchYourLAN
+    environment:
+      - TZ=${TZ}
+      - IFACES=${WATCHYOURLAN_IFACES}
+    labels:
+      # Runtipi managed
+      runtipi.managed: true
