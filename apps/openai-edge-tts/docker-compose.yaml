@@ -4,7 +4,7 @@ services:
     image: travisvn/openai-edge-tts:latest
     restart: always
 
-    environment: # optionally define in -e argument when running docker command
+    environment:
       - API_KEY=1
       - DEFAULT_VOICE=en-GB-SoniaNeural
       - DEFAULT_RESPONSE_FORMAT=mp3
