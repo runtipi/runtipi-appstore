@@ -1,29 +1,30 @@
 {
-  "$schema": "../schema.json",
-  "name": "Homarr",
-  "available": true,
-  "exposable": true,
-  "port": 8102,
-  "id": "homarr",
-  "tipi_version": 32,
-  "version": "0.15.6",
-  "categories": ["utilities"],
-  "description": "A homepage for your server.",
-  "short_desc": "Homarr is a simple and lightweight homepage for your server, that helps you easily access all of your services in one place.",
-  "author": "ajnart",
-  "source": "https://github.com/ajnart/homarr",
-  "website": "https://discord.gg/C2WTXkzkwK",
-  "form_fields": [
-    {
-      "type": "password",
-      "label": "Password",
-      "max": 50,
-      "min": 3,
-      "required": true,
-      "env_variable": "HOMARR_PASSWORD"
-    }
-  ],
-  "supported_architectures": ["arm64", "amd64"],
-  "created_at": 1691943801422,
-  "updated_at": 1729293699000
+    "$schema": "../schema.json",
+    "name": "Homarr",
+    "available": true,
+    "exposable": true,
+    "dynamic_config": true,
+    "port": 8102,
+    "id": "homarr",
+    "tipi_version": 33,
+    "version": "0.15.6",
+    "categories": [ "utilities" ],
+    "description": "A homepage for your server.",
+    "short_desc": "Homarr is a simple and lightweight homepage for your server, that helps you easily access all of your services in one place.",
+    "author": "ajnart",
+    "source": "https://github.com/ajnart/homarr",
+    "website": "https://discord.gg/C2WTXkzkwK",
+    "form_fields": [
+        {
+            "type": "password",
+            "label": "Password",
+            "max": 50,
+            "min": 3,
+            "required": true,
+            "env_variable": "HOMARR_PASSWORD"
+        }
+    ],
+    "supported_architectures": [ "arm64", "amd64" ],
+    "created_at": 1691943801422,
+    "updated_at": 1729872725102
 }
