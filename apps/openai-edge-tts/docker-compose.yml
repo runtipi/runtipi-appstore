@@ -16,7 +16,6 @@ services:
       - "${APP_PORT}:5050"
     volumes:
       - ${ROOT_FOLDER_HOST}:/app
-    restart: unless-stopped
 
     networks:
       - tipi_main_network
