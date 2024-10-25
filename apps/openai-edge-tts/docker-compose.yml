@@ -1,9 +1,10 @@
 version: '3.8'
+
 services:
   openAItts:
     image: travisvn/openai-edge-tts:latest
     restart: always
-
+    container_name: openai-edge-tts
     environment:
       - API_KEY=1
       - DEFAULT_VOICE=en-GB-SoniaNeural
@@ -11,7 +12,6 @@ services:
       - DEFAULT_SPEED=1.0
       - DEFAULT_LANGUAGE=en-US
       - REQUIRE_API_KEY=false
-
     ports:
       - ${APP_PORT}:5050
     volumes:
@@ -21,28 +21,28 @@ services:
     networks:
       - tipi_main_network
       labels:
-      # Main
-      traefik.enable: true
-      traefik.http.middlewares.sonarr-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.sonarr.loadbalancer.server.port: 8989
-      # Web
-      traefik.http.routers.sonarr-insecure.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.sonarr-insecure.entrypoints: web
-      traefik.http.routers.sonarr-insecure.service: sonarr
-      traefik.http.routers.sonarr-insecure.middlewares: sonarr-web-redirect
-      # Websecure
-      traefik.http.routers.sonarr.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.sonarr.entrypoints: websecure
-      traefik.http.routers.sonarr.service: sonarr
-      traefik.http.routers.sonarr.tls.certresolver: myresolver
-      # Local domain
-      traefik.http.routers.sonarr-local-insecure.rule: Host(`sonarr.${LOCAL_DOMAIN}`)
-      traefik.http.routers.sonarr-local-insecure.entrypoints: web
-      traefik.http.routers.sonarr-local-insecure.service: sonarr
-      traefik.http.routers.sonarr-local-insecure.middlewares: sonarr-web-redirect
-      # Local domain secure
-      traefik.http.routers.sonarr-local.rule: Host(`sonarr.${LOCAL_DOMAIN}`)
-      traefik.http.routers.sonarr-local.entrypoints: websecure
-      traefik.http.routers.sonarr-local.service: sonarr
-      traefik.http.routers.sonarr-local.tls: true
-      runtipi.managed: true
+        # Main
+        traefik.enable: true
+        traefik.http.middlewares.sonarr-web-redirect.redirectscheme.scheme: https
+        traefik.http.services.sonarr.loadbalancer.server.port: 5050
+        # Web
+        traefik.http.routers.sonarr-insecure.rule: Host(`${APP_DOMAIN}`)
+        traefik.http.routers.sonarr-insecure.entrypoints: web
+        traefik.http.routers.sonarr-insecure.service: openai-edge-tts
+        traefik.http.routers.sonarr-insecure.middlewares: openai-edge-tts-web-redirect
+        # Websecure
+        traefik.http.routers.sonarr.rule: Host(`${APP_DOMAIN}`)
+        traefik.http.routers.sonarr.entrypoints: websecure
+        traefik.http.routers.sonarr.service: openai-edge-tts
+        traefik.http.routers.sonarr.tls.certresolver: myresolver
+        # Local domain
+        traefik.http.routers.sonarr-local-insecure.rule: Host(`openai-edge-tts.${LOCAL_DOMAIN}`)
+        traefik.http.routers.sonarr-local-insecure.entrypoints: web
+        traefik.http.routers.sonarr-local-insecure.service: openai-edge-tts
+        traefik.http.routers.sonarr-local-insecure.middlewares: openai-edge-tts-web-redirect
+        # Local domain secure
+        traefik.http.routers.sonarr-local.rule: Host(`openai-edge-tts.${LOCAL_DOMAIN}`)
+        traefik.http.routers.sonarr-local.entrypoints: websecure
+        traefik.http.routers.sonarr-local.service: openai-edge-tts
+        traefik.http.routers.sonarr-local.tls: true
+        runtipi.managed: true
