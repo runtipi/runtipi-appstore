@@ -15,7 +15,7 @@ services:
     ports:
       - ${APP_PORT}:5050
     volumes:
-        - ${ROOT_FOLDER_HOST}:/app
+      - ${ROOT_FOLDER_HOST}:/app
     restart: unless-stopped
 
     networks:
