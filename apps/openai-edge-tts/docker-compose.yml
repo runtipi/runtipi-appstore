@@ -1,6 +1,6 @@
 services:
   openaitts:
-    image: travisvn/openai-edge-tts:latest
+    image: travisvn/openai-edge-tts:canary
     container_name: openai-edge-tts
     environment:
       - API_KEY=1
@@ -16,22 +16,22 @@ services:
       - tipi_main_network
     labels:
       traefik.enable: true
-      traefik.http.middlewares.sonarr-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.sonarr.loadbalancer.server.port: 5050
-      traefik.http.routers.sonarr-insecure.rule: 'Host(`${APP_DOMAIN}`)'
-      traefik.http.routers.sonarr-insecure.entrypoints: web
-      traefik.http.routers.sonarr-insecure.service: openai-edge-tts
-      traefik.http.routers.sonarr-insecure.middlewares: openai-edge-tts-web-redirect
-      traefik.http.routers.sonarr.rule: 'Host(`${APP_DOMAIN}`)'
-      traefik.http.routers.sonarr.entrypoints: websecure
-      traefik.http.routers.sonarr.service: openai-edge-tts
-      traefik.http.routers.sonarr.tls.certresolver: myresolver
-      traefik.http.routers.sonarr-local-insecure.rule: 'Host(`openai-edge-tts.${LOCAL_DOMAIN}`)'
-      traefik.http.routers.sonarr-local-insecure.entrypoints: web
-      traefik.http.routers.sonarr-local-insecure.service: openai-edge-tts
-      traefik.http.routers.sonarr-local-insecure.middlewares: openai-edge-tts-web-redirect
-      traefik.http.routers.sonarr-local.rule: 'Host(`openai-edge-tts.${LOCAL_DOMAIN}`)'
-      traefik.http.routers.sonarr-local.entrypoints: websecure
-      traefik.http.routers.sonarr-local.service: openai-edge-tts
-      traefik.http.routers.sonarr-local.tls: true
+      traefik.http.middlewares.openai-edge-tts-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.openai-edge-tts.loadbalancer.server.port: 5050
+      traefik.http.routers.openai-edge-tts-insecure.rule: 'Host(`${APP_DOMAIN}`)'
+      traefik.http.routers.openai-edge-tts-insecure.entrypoints: web
+      traefik.http.routers.openai-edge-tts-insecure.service: openai-edge-tts
+      traefik.http.routers.openai-edge-tts-insecure.middlewares: openai-edge-tts-web-redirect
+      traefik.http.routers.openai-edge-tts.rule: 'Host(`${APP_DOMAIN}`)'
+      traefik.http.routers.openai-edge-tts.entrypoints: websecure
+      traefik.http.routers.openai-edge-tts.service: openai-edge-tts
+      traefik.http.routers.openai-edge-tts.tls.certresolver: myresolver
+      traefik.http.routers.openai-edge-tts-local-insecure.rule: 'Host(`openai-edge-tts.${LOCAL_DOMAIN}`)'
+      traefik.http.routers.openai-edge-tts-local-insecure.entrypoints: web
+      traefik.http.routers.openai-edge-tts-local-insecure.service: openai-edge-tts
+      traefik.http.routers.openai-edge-tts-local-insecure.middlewares: openai-edge-tts-web-redirect
+      traefik.http.routers.openai-edge-tts-local.rule: 'Host(`openai-edge-tts.${LOCAL_DOMAIN}`)'
+      traefik.http.routers.openai-edge-tts-local.entrypoints: websecure
+      traefik.http.routers.openai-edge-tts-local.service: openai-edge-tts
+      traefik.http.routers.openai-edge-tts-local.tls: true
       runtipi.managed: true
