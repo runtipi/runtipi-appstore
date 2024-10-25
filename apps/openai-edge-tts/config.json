@@ -1,0 +1,17 @@
+{
+  "name": "openai-edge-tts",
+  "id": "openai-edge-tts",
+  "available": true,
+  "short_desc": "convert openai api to edge api",
+  "author": "Travis Van Nimwegen",
+  "port": 5050,
+  "categories": ["ai"],
+  "description": "This project provides a local, OpenAI-compatible text-to-speech (TTS) API using edge-tts",
+  "tipi_version": 1,
+  "version": "v1.5.7",
+  "source": "https://github.com/travisvn/openai-edge-tts.git",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1724134338800,
+  "updated_at": 1724134338800
+}
