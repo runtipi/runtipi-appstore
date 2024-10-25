@@ -8,10 +8,10 @@
   "categories": ["ai"],
   "description": "This project provides a local, OpenAI-compatible text-to-speech (TTS) API using edge-tts",
   "tipi_version": 1,
-  "version": "v1.5.7",
+  "version": "latest",
   "source": "https://github.com/travisvn/openai-edge-tts.git",
   "exposable": true,
-  "supported_architectures": ["arm64", "amd64"],
+  "supported_architectures": ["amd64"],
   "created_at": 1724134338800,
   "updated_at": 1724134338800
 }
