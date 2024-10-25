@@ -1,6 +1,6 @@
 services:
   openaitts:
-    image: 'travisvn/openai-edge-tts:latest'
+    image: travisvn/openai-edge-tts:latest
     restart: unless-stopped
     container_name: openai-edge-tts
     environment: >-
@@ -8,10 +8,10 @@ services:
       DEFAULT_SPEED=1.0 DEFAULT_LANGUAGE=en-US REQUIRE_API_KEY=false
     ports:
       - '${APP_PORT}:5050'
-    volumes:
-      - '${ROOT_FOLDER_HOST}:/app'
     networks:
       - tipi_main_network
+    volumes:
+      - ${ROOT_FOLDER_HOST}:/app
     labels:
       traefik.enable: true
       traefik.http.middlewares.sonarr-web-redirect.redirectscheme.scheme: https
