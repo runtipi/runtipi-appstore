@@ -1,13 +1,17 @@
 services:
   openaitts:
     image: travisvn/openai-edge-tts:latest
-    restart: unless-stopped
     container_name: openai-edge-tts
-    environment: >-
-      API_KEY=1 DEFAULT_VOICE=en-GB-SoniaNeural DEFAULT_RESPONSE_FORMAT=mp3
-      DEFAULT_SPEED=1.0 DEFAULT_LANGUAGE=en-US REQUIRE_API_KEY=false
+    environment:
+      - API_KEY=1
+      - DEFAULT_VOICE=en-GB-SoniaNeural
+      - DEFAULT_RESPONSE_FORMAT=mp3
+      - DEFAULT_SPEED=1.0
+      - DEFAULT_LANGUAGE=en-US
+      - REQUIRE_API_KEY=false
     ports:
-      - '${APP_PORT}:5050'
+      - ${APP_PORT}:5050
+    restart: unless-stopped
     networks:
       - tipi_main_network
     volumes:
