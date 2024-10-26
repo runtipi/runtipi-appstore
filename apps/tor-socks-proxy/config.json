@@ -1,5 +1,5 @@
 {
-    "name": "Tor-socks-proxy",
+    "name": "Tor Socks Proxy",
     "id": "tor-socks-proxy",
     "available": true,
     "short_desc": "Tor Socks5 proxy server inside a Docker container",
