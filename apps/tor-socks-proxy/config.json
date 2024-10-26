@@ -4,7 +4,7 @@
     "available": true,
     "short_desc": "Tor Socks5 proxy server inside a Docker container",
     "author": "PeterDaveHello",
-    "port": 9150,
+    "port": 9180,
     "categories": ["network"],
     "description": "The super easy way to set up a Tor Socks5 proxy server inside a Docker container, without Tor relay/exit node function enabled.",
     "tipi_version": 1,
