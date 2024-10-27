@@ -6,12 +6,13 @@ services:
     hostname: ${APP_DOMAIN}
     restart: always
     environment:
+      https: false
       GITLAB_OMNIBUS_CONFIG: |
-        external_url "https://${APP_DOMAIN}"
+        external_url 
         gitlab_rails['gitlab_shell_ssh_port'] = 2424
     ports:
-      - 1280:80
-      - ${APP_PORT}:443
+      - ${APP_PORT}:80
+      - 2443:443
       - 2424:22
     volumes:
       - ${APP_DATA_DIR}/config:/etc/gitlab
