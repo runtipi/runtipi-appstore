@@ -1,17 +1,17 @@
 {
-    "services": [
+  "services": [
+    {
+      "name": "beszel",
+      "image": "henrygd/beszel:0.6.2",
+      "isMain": true,
+      "internalPort": 8090,
+      "volumes": [
         {
-            "name": "beszel",
-            "image": "henrygd/beszel:0.6.2",
-            "isMain": true,
-            "internalPort": 8090,
-            "restart": "unless-stopped",
-            "volumes": [
-                {
-                    "hostPath": "${APP_DATA_DIR}/data",
-                    "containerPath": "/beszel_data"
-                }
-            ]
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/beszel_data"
         }
-    ]
+      ]
+    }
+  ]
 }
+
