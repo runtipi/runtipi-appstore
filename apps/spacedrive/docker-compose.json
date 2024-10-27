@@ -13,6 +13,10 @@
                 {
                     "hostPath": "${APP_DATA_DIR}/data/spacedrive",
                     "containerPath": "/var/spacedrive"
+                },
+                {
+                    "hostPath": "${APP_DATA_DIR}/data/libraries",
+                    "containerPath": "/data/libraries"
                 }
             ]
         }
