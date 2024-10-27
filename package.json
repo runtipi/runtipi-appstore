@@ -5,8 +5,8 @@
   "main": "",
   "scripts": {
     "commit": "git-cz",
-    "lint": "biome check ./apps",
-    "lint:ci": "biome ci ./apps --changed --error-on-warnings --no-errors-on-unmatched",
+    "lint": "biome check",
+    "lint:ci": "biome ci --changed --error-on-warnings --no-errors-on-unmatched",
     "test": "jest",
     "prepare": "lefthook install"
   },
