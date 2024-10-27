@@ -1,18 +1,17 @@
 {
-    "services": [
+  "services": [
+    {
+      "name": "moodist",
+      "image": "ghcr.io/remvze/moodist:v1.5.1",
+      "isMain": true,
+      "internalPort": 8080,
+      "volumes": [
         {
-            "name": "moodist",
-            "image": "ghcr.io/remvze/moodist:v1.5.1",
-            "isMain": true,
-            "internalPort": 8080,
-            "restart": "unless-stopped",
-            "volumes": [
-                {
-                    "hostPath": "/etc/localtime",
-                    "containerPath": "/etc/localtime",
-                    "readOnly": true
-                }
-            ]
+          "hostPath": "/etc/localtime",
+          "containerPath": "/etc/localtime",
+          "readOnly": true
         }
-    ]
+      ]
+    }
+  ]
 }
