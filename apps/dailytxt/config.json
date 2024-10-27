@@ -22,7 +22,7 @@
         },
         {
             "type": "boolean",
-            "label": "Allow User Registrastion",
+            "label": "Allow User Registration",
             "hint": "Set it to true intially to create the first user.",
             "placeholder": "true",
             "default": true,
