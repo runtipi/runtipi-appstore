@@ -5,9 +5,10 @@
   "main": "",
   "scripts": {
     "commit": "git-cz",
-    "lint": "eslint ./apps --ext .json",
+    "lint": "biome check",
+    "lint:ci": "biome ci --changed --error-on-warnings --no-errors-on-unmatched",
     "test": "jest",
-    "prepare": "husky install"
+    "prepare": "lefthook install"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/meienberger/runtipi-appstore#readme",
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@commitlint/cz-commitlint": "^19.5.0",
@@ -29,13 +31,9 @@
     "@types/node": "^22.8.0",
     "@types/semver": "^7.5.8",
     "commitizen": "^4.3.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-json-schema-validator": "^5.1.3",
-    "eslint-plugin-jsonc": "^2.16.0",
-    "husky": "^9.1.6",
     "jest": "^28.1.3",
     "js-yaml": "^4.1.0",
-    "prettier": "^3.3.3",
+    "lefthook": "^1.8.1",
     "semver": "^7.6.3",
     "ts-jest": "^28.0.7",
     "typescript": "^5.6.3"
