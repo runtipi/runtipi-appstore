@@ -5,7 +5,6 @@
             "image": "crccheck/hello-world:latest",
             "isMain": true,
             "internalPort": 8000,
-            "restart": "unless-stopped"
         }
     ]
 }
