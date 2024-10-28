@@ -12,6 +12,7 @@ If you want to see new apps on Tipi you can either:
 
 ## Apps available (260)
 
+
 | Name                                                                         | Description                                                                                                                                                         | Port  |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
 | [2FAuth](https://github.com/Bubka/2FAuth)                                    | Manage your Two-Factor Authentication codes.                                                                                                                        | 8235  |
@@ -89,7 +90,7 @@ If you want to see new apps on Tipi you can either:
 | [Ghost Development](https://github.com/TryGhost/Ghost)                       | Ghost - Turn your audience into a business.                                                                                                                         | 8225  |
 | [Ghostfolio](https://github.com/ghostfolio/ghostfolio)                       | Open Source Wealth Management Software.                                                                                                                             | 3333  |
 | [Gitea](https://github.com/go-gitea/gitea)                                   | Gitea - Git with a cup of tea · A painless self-hosted Git service. · Cross-platform · Easy to install · Lightweight · Open Source.                            | 8108  |
-| [Gitlab](https://docs.gitlab.com/?tab=Tutorials)                            | Gitlab - A profesional tool for repository and CI/CD                                                                                                                | 8929  |
+| [Gitlab](https://docs.gitlab.com/?tab=Tutorials)                             | Gitlab - A profesional tool for repository and CI/CD                                                                                                                | 1280  |
 | [Gladys Assistant](https://github.com/gladysassistant/gladys)                | A privacy-first, open-source home assistant                                                                                                                         | 8270  |
 | [Glance](https://github.com/glanceapp/glance)                                | Super configurable dashboard                                                                                                                                        | 8568  |
 | [Glances](https://github.com/nicolargo/glances)                              | An eye on your system                                                                                                                                               | 8420  |
@@ -275,4 +276,3 @@ If you want to see new apps on Tipi you can either:
 | [ZeroTier](https://github.com/zerotier/ZeroTierOne)                          | Easy to use zero configuration VPN.                                                                                                                                 | 9993  |
 | [Zigbee2MQTT](https://github.com/Koenkk/zigbee2mqtt)                         | Zigbee to MQTT bridge                                                                                                                                               | 8290  |
 | [Zipline](https://github.com/diced/zipline)                                  | A ShareX/file upload server that is easy to use, packed with features, and with an easy setup!                                                                      | 8139  |
-
