@@ -17,4 +17,3 @@ To login for the first time:
 2. "sudo docker ps" get \<containerId\> of gitlab image
 3. sudo docker exec -it \<containerId\> grep 'Password:' /etc/gitlab/initial_root_password and take \<passwd\>
 4. login in the app with username: root password: \<passwd\>
-5. ![1730134901123](images/description/1730134901123.png)
