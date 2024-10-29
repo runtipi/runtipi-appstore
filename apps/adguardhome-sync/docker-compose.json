@@ -10,7 +10,7 @@
       "volumes": [
         {
           "containerPath": "/config/adguardhome-sync.yaml",
-          "hostPath": "${APP_DATA_DIR/data/adguardhome-sync.yaml"
+          "hostPath": "${APP_DATA_DIR}/data/adguardhome-sync.yaml"
         }
       ]
     }

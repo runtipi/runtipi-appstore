@@ -5,7 +5,7 @@ services:
     restart: unless-stopped
     command: run --config /config/adguardhome-sync.yaml
     volumes:
-      - ${APP_DATA_DIR/data/adguardhome-sync.yaml:/config/adguardhome-sync.yaml
+      - ${APP_DATA_DIR}/data/adguardhome-sync.yaml:/config/adguardhome-sync.yaml
     ports:
       - ${APP_PORT}:8080
     networks:
