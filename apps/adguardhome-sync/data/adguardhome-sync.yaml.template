@@ -1,0 +1,45 @@
+# Cron
+cron: { { ADGUARDHOME_SYNC_CRON } }
+
+# Sync on startup
+runOnStart: true
+
+# Do not fail on errors
+continueOnError: false
+
+# Origin instance
+origin:
+  url: { { ADGUARDHOME_SYNC_ORIGIN_URL } }
+  username: { { ADGUARDHOME_SYNC_ORIGIN_USERNAME } }
+  password: { { ADGUARDHOME_SYNC_ORIGIN_PASSWORD } }
+  insecureSkipVerify: { { ADGUARDHOME_SYNC_ORIGIN_INSECURE_SKIP_VERIFY } }
+
+# Replica instance
+replicas:
+  - url: { { ADGUARDHOME_SYNC_REPLICA_URL } }
+    username: { { ADGUARDHOME_SYNC_REPLICA_USERNAME } }
+    password: { { ADGUARDHOME_SYNC_REPLICA_PASSWORD } }
+    insecureSkipVerify: { { ADGUARDHOME_SYNC_REPLICA_INSECURE_SKIP_VERIFY } }
+
+# API
+api:
+  port: 8080
+  username: { { ADGUARDHOME_SYNC_API_USERNAME } }
+  password: { { ADGUARDHOME_SYNC_API_PASSWORD } }
+  darkMode: true
+
+# Sync features
+features:
+  generalSettings: true
+  queryLogConfig: true
+  statsConfig: true
+  clientSettings: true
+  services: true
+  filters: true
+  dhcp:
+    serverConfig: true
+    staticLeases: true
+  dns:
+    serverConfig: true
+    accessLists: true
+    rewrites: true
