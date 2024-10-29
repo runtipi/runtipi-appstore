@@ -1,5 +1,5 @@
 # Cron
-cron: { { ADGUARDHOME_SYNC_CRON } }
+cron: {{ADGUARDHOME_SYNC_CRON}}
 
 # Sync on startup
 runOnStart: true
@@ -9,23 +9,23 @@ continueOnError: false
 
 # Origin instance
 origin:
-  url: { { ADGUARDHOME_SYNC_ORIGIN_URL } }
-  username: { { ADGUARDHOME_SYNC_ORIGIN_USERNAME } }
-  password: { { ADGUARDHOME_SYNC_ORIGIN_PASSWORD } }
-  insecureSkipVerify: { { ADGUARDHOME_SYNC_ORIGIN_INSECURE_SKIP_VERIFY } }
+  url: {{ADGUARDHOME_SYNC_ORIGIN_URL}}
+  username: {{ADGUARDHOME_SYNC_ORIGIN_USERNAME}}
+  password: {{ADGUARDHOME_SYNC_ORIGIN_PASSWORD}}
+  insecureSkipVerify: {{ADGUARDHOME_SYNC_ORIGIN_INSECURE_SKIP_VERIFY}}
 
 # Replica instance
 replicas:
-  - url: { { ADGUARDHOME_SYNC_REPLICA_URL } }
-    username: { { ADGUARDHOME_SYNC_REPLICA_USERNAME } }
-    password: { { ADGUARDHOME_SYNC_REPLICA_PASSWORD } }
-    insecureSkipVerify: { { ADGUARDHOME_SYNC_REPLICA_INSECURE_SKIP_VERIFY } }
+  - url: {{ADGUARDHOME_SYNC_REPLICA_URL}}
+    username: {{ADGUARDHOME_SYNC_REPLICA_USERNAME}}
+    password: {{ADGUARDHOME_SYNC_REPLICA_PASSWORD}}
+    insecureSkipVerify: {{ADGUARDHOME_SYNC_REPLICA_INSECURE_SKIP_VERIFY}}
 
 # API
 api:
   port: 8080
-  username: { { ADGUARDHOME_SYNC_API_USERNAME } }
-  password: { { ADGUARDHOME_SYNC_API_PASSWORD } }
+  username: {{ADGUARDHOME_SYNC_API_USERNAME}}
+  password: {{ADGUARDHOME_SYNC_API_PASSWORD}}
   darkMode: true
 
 # Sync features
