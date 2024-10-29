@@ -24,18 +24,20 @@
       "regex": "(@(annually|yearly|monthly|weekly|daily|hourly|reboot))|(@every (\\d+(ns|us|µs|ms|s|m|h))+)|((((\\d+,)+\\d+|(\\d+(/|-)\\d+)|\\d+|\\*) ?){5,7})"
     },
     {
-      "type": "fqdnip",
+      "type": "text",
       "label": "AdGuard Home Origin URL",
       "required": true,
       "hint": "URL of the Origin AdGuard Home instance",
-      "env_variable": "ADGUARDHOME_SYNC_ORIGIN_URL"
+      "env_variable": "ADGUARDHOME_SYNC_ORIGIN_URL",
+      "regex": "[(http(s)?)://(www\\.)?a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}"
     },
     {
       "type": "fqdnip",
       "label": "AdGuard Home Replica URL",
       "required": true,
       "hint": "URL of the Replica AdGuard Home instance",
-      "env_variable": "ADGUARDHOME_SYNC_REPLICA_URL"
+      "env_variable": "ADGUARDHOME_SYNC_REPLICA_URL",
+      "regex": "[(http(s)?)://(www\\.)?a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}"
     }
   ],
   "created_at": 1724134338800,
