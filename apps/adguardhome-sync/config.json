@@ -31,75 +31,11 @@
       "env_variable": "ADGUARDHOME_SYNC_ORIGIN_URL"
     },
     {
-      "type": "text",
-      "label": "AdGuard Home Origin Username",
-      "required": false,
-      "hint": "Username for the Origin AdGuard Home instance",
-      "default": " ",
-      "env_variable": "ADGUARDHOME_SYNC_ORIGIN_USERNAME"
-    },
-    {
-      "type": "password",
-      "label": "AdGuard Home Origin Password",
-      "required": false,
-      "hint": "Password for the Origin AdGuard Home instance",
-      "default": " ",
-      "env_variable": "ADGUARDHOME_SYNC_ORIGIN_PASSWORD"
-    },
-    {
-      "type": "boolean",
-      "label": "AdGuard Home Origin Skip TLS Verify",
-      "required": false,
-      "hint": "Skip TLS verification for the Origin AdGuard Home instance",
-      "default": false,
-      "env_variable": "ADGUARDHOME_SYNC_ORIGIN_INSECURE_SKIP_VERIFY"
-    },
-    {
       "type": "fqdnip",
       "label": "AdGuard Home Replica URL",
       "required": true,
       "hint": "URL of the Replica AdGuard Home instance",
       "env_variable": "ADGUARDHOME_SYNC_REPLICA_URL"
-    },
-    {
-      "type": "text",
-      "label": "AdGuard Home Replica Username",
-      "required": false,
-      "hint": "Username for the Replica AdGuard Home instance",
-      "default": " ",
-      "env_variable": "ADGUARDHOME_SYNC_REPLICA_USERNAME"
-    },
-    {
-      "type": "password",
-      "label": "AdGuard Home Replica Password",
-      "required": false,
-      "hint": "Password for the Replica AdGuard Home instance",
-      "default": " ",
-      "env_variable": "ADGUARDHOME_SYNC_REPLICA_PASSWORD"
-    },
-    {
-      "type": "boolean",
-      "label": "AdGuard Home Replica Skip TLS Verify",
-      "required": false,
-      "hint": "Skip TLS verification for the Replica7 AdGuard Home instance",
-      "default": false,
-      "env_variable": "ADGUARDHOME_SYNC_REPLICA_INSECURE_SKIP_VERIFY"
-    },
-    {
-      "type": "text",
-      "label": "AdGuard Home API Username",
-      "required": false,
-      "hint": "Username for the AdGuard Home Sync API",
-      "default": " ",
-      "env_variable": "ADGUARDHOME_SYNC_API_USERNAME"
-    },
-    {
-      "type": "password",
-      "label": "AdGuard Home API Password",
-      "required": false,
-      "hint": "Password for the AdGuard Home Sync API",
-      "default": " ",
-      "env_variable": "ADGUARDHOME_SYNC_API_PASSWORD"
     }
   ],
   "created_at": 1724134338800,
