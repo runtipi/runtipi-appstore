@@ -35,7 +35,7 @@
       "label": "AdGuard Home Origin Username",
       "required": false,
       "hint": "Username for the Origin AdGuard Home instance",
-      "default": "",
+      "default": " ",
       "env_variable": "ADGUARDHOME_SYNC_ORIGIN_USERNAME"
     },
     {
@@ -43,7 +43,7 @@
       "label": "AdGuard Home Origin Password",
       "required": false,
       "hint": "Password for the Origin AdGuard Home instance",
-      "default": "",
+      "default": " ",
       "env_variable": "ADGUARDHOME_SYNC_ORIGIN_PASSWORD"
     },
     {
@@ -66,7 +66,7 @@
       "label": "AdGuard Home Replica Username",
       "required": false,
       "hint": "Username for the Replica AdGuard Home instance",
-      "default": "",
+      "default": " ",
       "env_variable": "ADGUARDHOME_SYNC_REPLICA_USERNAME"
     },
     {
@@ -74,7 +74,7 @@
       "label": "AdGuard Home Replica Password",
       "required": false,
       "hint": "Password for the Replica AdGuard Home instance",
-      "default": "",
+      "default": " ",
       "env_variable": "ADGUARDHOME_SYNC_REPLICA_PASSWORD"
     },
     {
@@ -90,7 +90,7 @@
       "label": "AdGuard Home API Username",
       "required": false,
       "hint": "Username for the AdGuard Home Sync API",
-      "default": "",
+      "default": " ",
       "env_variable": "ADGUARDHOME_SYNC_API_USERNAME"
     },
     {
@@ -98,7 +98,7 @@
       "label": "AdGuard Home API Password",
       "required": false,
       "hint": "Password for the AdGuard Home Sync API",
-      "default": "",
+      "default": " ",
       "env_variable": "ADGUARDHOME_SYNC_API_PASSWORD"
     }
   ],
