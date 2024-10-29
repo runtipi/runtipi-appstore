@@ -1,7 +1,24 @@
 # A professional Git CI/CD service
 
-These tutorials can help you learn how to use GitLab.
+The app can take very long to start up, please be patient and watch the logs for progress.
+If you see some permission errors in the logs, restart the app.
 
+Re-mapped ports:
+
+- 443 -> 2443
+- 22 -> 2424
+
+## First Login
+
+To login for the first time:
+
+1. ssh to runtipi server node
+2. `sudo docker ps` get `containerId` of gitlab image
+3. `sudo docker exec -it <containerId> grep 'Password':` /etc/gitlab/initial_root_password and take \<passwd\>
+4. login in the app with username: root password: \<passwd\>
+
+
+These tutorials can help you learn how to use GitLab.
 
 |                                                                                                                                 |                                                                                                                                                          |                                                                                                                                |
 | ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -9,11 +26,3 @@ These tutorials can help you learn how to use GitLab.
 | [**Build your application**](https://docs.gitlab.com/ee/tutorials/build_application.html)<br/>CI/CD fundamentals and examples.  | [**Secure your application and check compliance**](https://docs.gitlab.com/ee/tutorials/secure_application.html)<br/>Dependency and compliance scanning. | [**Manage your infrastructure**](https://docs.gitlab.com/ee/tutorials/infrastructure.html)<br/>GitOps, Kubernetes deployments. |
 | [**Extend with GitLab**](https://docs.gitlab.com/ee/tutorials/develop.html)<br/>Integrations with third-party services.         |                                                                                                                                                          |                                                                                                                                |
 
-## First Login
-
-To login for the first time:
-
-1. ssh to runtipi server node
-2. "sudo docker ps" get \<containerId\> of gitlab image
-3. sudo docker exec -it \<containerId\> grep 'Password:' /etc/gitlab/initial_root_password and take \<passwd\>
-4. login in the app with username: root password: \<passwd\>
