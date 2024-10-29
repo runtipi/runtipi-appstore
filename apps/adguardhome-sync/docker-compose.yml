@@ -35,3 +35,5 @@ services:
       traefik.http.routers.adguardhome-sync-local.entrypoints: websecure
       traefik.http.routers.adguardhome-sync-local.service: adguardhome-sync
       traefik.http.routers.adguardhome-sync-local.tls: true
+      # Runtipi managed
+      runtipi.managed: true
