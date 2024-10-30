@@ -11,7 +11,7 @@ services:
       - ${APP_PORT}:8080/tcp
     volumes:
       - ${APP_DATA_DIR}/config:/mnt/config
-    restart: always
+    restart: unless-stopped
     networks:
       - tipi_main_network
     labels:
