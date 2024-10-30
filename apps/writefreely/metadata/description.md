@@ -11,6 +11,21 @@ WriteFreely is a clean, minimalist publishing platform made for writers. Start a
 
 [Try the writing experience](https://write.as/new)
 
+---
+
+## Admin Creation
+
+You will likely want to create an admin account after installation. You can do
+that by using the container's terminal to run the following command:
+
+```bash
+writefreely -c /mnt/config/etc/writefreely.ini --create-admin [username]:[password]
+```
+
+This will create your initial admin user account.
+
+---
+
 ## Features
 
 ### Made for writing
@@ -33,14 +48,6 @@ Blog elements are localized in 20+ languages, and WriteFreely includes first-cla
 
 WriteFreely collects minimal data, and never publicizes more than a writer consents to. Writers can seamlessly create multiple blogs from a single account for different pen names or purposes without publicly revealing their association.
 <hr />
-
-### Admin Creation
-
-You will likely want to create an admin account after installation. You can do that by using the container's terminal to run the following command:
-
-writefreely -c /mnt/config/etc/writefreely.ini --create-admin [username]:[password]
-
-This will create your initial admin user account.
 
 
 ### Server Configuration
