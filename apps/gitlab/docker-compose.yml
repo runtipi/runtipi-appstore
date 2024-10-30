@@ -12,7 +12,7 @@ services:
         gitlab_rails['gitlab_shell_ssh_port'] = 2425
     ports:
       - ${APP_PORT}:80
-      - 2443:443
+      - 2444:443
       - 2425:22
     volumes:
       - ${APP_DATA_DIR}/config:/etc/gitlab
