@@ -22,6 +22,12 @@ that by using the container's terminal to run the following command:
 writefreely -c /mnt/config/etc/writefreely.ini --create-admin [username]:[password]
 ```
 
+or run the command from outside the container's terminal by using:
+
+```bash
+docker exec -it write-freely writefreely -c /mnt/config/etc/writefreely.ini --create-admin [username]:[password]
+```
+
 This will create your initial admin user account.
 
 ---
