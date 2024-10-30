@@ -18,7 +18,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.write-freely-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.write-freely.loadbalancer.server.port: 3000
+      traefik.http.services.write-freely.loadbalancer.server.port: 8080
       # Web
       traefik.http.routers.write-freely-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.write-freely-insecure.entrypoints: web
