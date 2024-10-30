@@ -1,6 +1,6 @@
 &nbsp;
 <p align="center">
-	<a href="https://writefreely.org"><img src="https://writefreely.org/img/writefreely.svg" width="350px" alt="WriteFreely" /></a>
+  <a href="https://writefreely.org"><img src="https://writefreely.org/img/writefreely.svg" width="350px" alt="WriteFreely" /></a>
 </p>
 <hr />
 &nbsp;
