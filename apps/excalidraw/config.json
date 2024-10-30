@@ -4,8 +4,9 @@
   "port": 8172,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "excalidraw",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "latest",
   "categories": ["utilities"],
   "description": "Virtual whiteboard for sketching hand-drawn like diagrams",
@@ -15,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566284000
+  "updated_at": 1729872647206
 }
