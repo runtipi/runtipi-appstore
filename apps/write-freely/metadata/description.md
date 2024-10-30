@@ -18,8 +18,10 @@ WriteFreely is a clean, minimalist publishing platform made for writers. Start a
 You will likely want to create an admin account after installation. You can do
 that by using the container's terminal to run the following command:
 
+> Replace **YOUR_USERNAME** and **YOUR_PASSWORD** with your desired admin username and password
+> 
 ```bash
-writefreely -c /mnt/config/etc/writefreely.ini --create-admin [username]:[password]
+writefreely -c /mnt/config/etc/writefreely.ini --create-admin YOUR_USERNAME:YOUR_PASSWORD
 ```
 
 or run the command from outside the container's terminal by using:
@@ -29,6 +31,8 @@ docker exec -it write-freely writefreely -c /mnt/config/etc/writefreely.ini --cr
 ```
 
 This will create your initial admin user account.
+
+> **Security Note:** The password will be visible in your command history. Consider clearing your history after running this command.
 
 ---
 
