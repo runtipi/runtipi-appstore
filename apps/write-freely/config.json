@@ -6,7 +6,7 @@
   "port": 11140,
   "id": "write-freely",
   "tipi_version": 3,
-  "version": "latest",
+  "version": "0.15",
   "categories": ["social"],
   "description": "A clean, Markdown-based publishing platform made for writers. Write together and build a community.",
   "short_desc": "Markdown-based publishing platform.",
