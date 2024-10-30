@@ -13,7 +13,8 @@ These tutorials can help you learn how to use GitLab.
 
 To login for the first time:
 
-1. ssh to runtipi server node
-2. "sudo docker ps" get \<containerId\> of gitlab image
-3. sudo docker exec -it \<containerId\> grep 'Password:' /etc/gitlab/initial_root_password and take \<passwd\>
-4. login in the app with username: root password: \<passwd\>
+1. wait serveral minutes after install before login (early login will fail
+2. ssh to runtipi server node
+3. "sudo docker ps" get \<containerId\> of gitlab image
+4. sudo docker exec -it \<containerId\> grep 'Password:' /etc/gitlab/initial_root_password and take \<passwd\>
+5. login in the app with username: root password: \<passwd\>
