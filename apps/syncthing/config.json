@@ -18,6 +18,7 @@
       "type": "text",
       "label": "Hostname",
       "hint": "Set a hostname for the Syncthing instance",
+      "placeholder": "tipi",
       "required": false,
       "env_variable": "SYNCTHING_HOSTNAME"
     }
