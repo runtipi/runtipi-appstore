@@ -5,7 +5,7 @@ services:
     container_name: syncthing
     image: syncthing/syncthing:1.28
     stop_grace_period: 1m
-    hostname: ${SYNCTHING_HOSTNAME}
+    hostname: ${SYNCTHING_HOSTNAME:-tipi}
     environment:
       - PUID=1000
       - PGID=1000
