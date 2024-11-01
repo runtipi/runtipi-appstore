@@ -1,0 +1,34 @@
+{
+    "$schema": "../schema.json",
+    "name": "Workout-Tracker",
+    "available": true,
+    "exposable": true,
+    "port": 8575,
+    "id": "workout-tracker",
+    "tipi_version": 3,
+    "version": "latest",
+    "categories": ["utilities"],
+    "description": "A workout tracking web application for personal use (or family, friends), geared towards running and other GPX-based activities",
+    "short_desc": "Workout Tracker for personal use",
+    "author": "Jo Vandeginste",
+    "source": "https://github.com/jovandeginste/workout-tracker",
+    "website": "https://github.com/jovandeginste/workout-tracker",
+    "form_fields": [
+        {
+            "type": "random",
+            "label": "Workout-Tacker database password",
+            "env_variable": "WT_DB_PASSWORD"
+        },
+        {
+            "type": "random",
+            "label": "JWT encryption key",
+            "min": 32,
+            "required": true,
+            "env_variable": "JWT_ENCRYPTION_KEY",
+            "encoding": "hex"
+        }  
+    ],
+    "supported_architectures": ["amd64", "arm64"],
+    "created_at": 1729978316000,
+    "updated_at": 1729978316000
+}

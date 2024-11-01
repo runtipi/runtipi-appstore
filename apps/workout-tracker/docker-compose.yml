@@ -1,0 +1,73 @@
+
+services:
+  workout-tracker:
+    image: ghcr.io/jovandeginste/workout-tracker:master
+    container_name: workout-tracker
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:8080
+    networks:
+      - tipi_main_network
+    depends_on:
+      workout-tracker-db:
+        condition: service_healthy
+    environment:
+      - TZ=${TZ}
+      - POSTGRES_USER=tipi
+      - POSTGRES_PASSWORD=${WT_DB_PASSWORD}
+      - POSTGRES_DB=workout-tracker
+      - PGUSER=${POSTGRES_USER}
+      - WT_DATABASE_DRIVER=postgres
+      - WT_DSN=host=db user=${POSTGRES_USER} password=${POSTGRES_PASSWORD} dbname=${POSTGRES_DB} port=5432 sslmode=disable TimeZone=${TZ}
+      - WT_BIND=[::]:8080
+      - WT_LOGGING=true
+      - WT_DEBUG=true
+      - WT_REGISTRATION_DISABLED=true
+      - WT_SOCIALS_DISABLED=true
+      - WT_JWT_ENCRYPTION_KEY=${JWT_ENCRYPTION_KEY}
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.workout-tracker-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.workout-tracker.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.workout-tracker-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.workout-tracker-insecure.entrypoints: web
+      traefik.http.routers.workout-tracker-insecure.service: workout-tracker
+      traefik.http.routers.workout-tracker-insecure.middlewares: workout-tracker-web-redirect
+      # Websecure
+      traefik.http.routers.workout-tracker.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.workout-tracker.entrypoints: websecure
+      traefik.http.routers.workout-tracker.service: workout-tracker
+      traefik.http.routers.workout-tracker.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.workout-tracker-local-insecure.rule: Host(`workout-tracker.${LOCAL_DOMAIN}`)
+      traefik.http.routers.workout-tracker-local-insecure.entrypoints: web
+      traefik.http.routers.workout-tracker-local-insecure.service: workout-tracker
+      traefik.http.routers.workout-tracker-local-insecure.middlewares: workout-tracker-web-redirect
+      # Local domain secure
+      traefik.http.routers.workout-tracker-local.rule: Host(`workout-tracker.${LOCAL_DOMAIN}`)
+      traefik.http.routers.workout-tracker-local.entrypoints: websecure
+      traefik.http.routers.workout-tracker-local.service: workout-tracker
+      traefik.http.routers.workout-tracker-local.tls: true
+      runtipi.managed: true
+  workout-tracker-db:
+    image: postgres:16-alpine
+    container_name: workout-tracker-db
+    restart: unless-stopped
+    shm_size: 128mb
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    networks:
+      - tipi_main_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d ${POSTGRES_DB} -U ${POSTGRES_USER}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    environment:
+      - POSTGRES_USER=tipi
+      - POSTGRES_PASSWORD=${WORKOUT_TRACKER_DB_PASSWORD}
+      - POSTGRES_DB=workout-tracker
+    labels:
+      runtipi.managed: true
