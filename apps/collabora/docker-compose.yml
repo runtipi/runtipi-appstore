@@ -5,7 +5,7 @@ services:
     image: collabora/code:latest
     container_name: collabora
     environment:
-      - domain=data\\.rasies\\.com|98\\.116\\.52\\.128  # Match the domain name in WOPI client (Nextcloud)
+      - domain=data\\.rasies\\.com|98\\.116\\.52\\.128  # Match the domain names and IPs in WOPI client (Nextcloud)
       - enable_admin_console=true
       - username=ianras
       - password=Mycobacteri@98
@@ -18,10 +18,10 @@ services:
                      --o:security.permissions.edit=true \
                      --o:security.permissions.print=true \
                      --o:security.permissions.copy=true \
-                     --o:security.filter.origin=https://data\\.rasies\\.com|https://98\\.116\\.52\\.128 \
-                     --o:wopi.host=https://data\\.rasies\\.com \
+                     --o:security.filter.origin=https://data\\.rasies\\.com|https://98\\.116\\.52\\.128|https://192\\.168\\.1\\.12 \
                      --o:wopi.allow_external_clients=true \
-                     --o:wopi.client_address=98.116.52.128 \
+                     --o:wopi.host=data\\.rasies\\.com \
+                     --o:wopi.client_address=98.116.52.128,192.168.1.12 \
                      --o:logging.level=warning \
                      --o:logging.file.enable=true \
                      --o:logging.file.retain_days=30 \
