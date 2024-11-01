@@ -11,10 +11,7 @@
         "DATABASE_URL": "postgresql://docmost:${DOCMOST_PG_PASSWORD}@docmost-db:5432/docmost?schema",
         "REDIS_URL": "redis://docmost-redis:6379"
       },
-      "dependsOn": [
-        "docmost-db",
-        "docmost-redis"
-      ],
+      "dependsOn": ["docmost-db", "docmost-redis"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/storage",
