@@ -5,12 +5,13 @@ services:
     image: collabora/code:latest
     container_name: collabora
     environment:
-      - domain=data\\.rasies\\.com  # Escape dots for the domain
+      - domain=data\\.rasies\\.com  # Escape dots in domain
       - enable_admin_console=true
       - username=ianras
       - password=Mycobacteri@98
       - dictionaries=en_US
       - extra_params=--o:ssl.enable=false --o:ssl.termination=false  # Disable SSL within Collabora
+      - server_name=cool.rasies.com  # Set the Collabora server name
     ports:
       - "9980:9980"
     volumes:
@@ -24,20 +25,14 @@ services:
       # Redirect HTTP to HTTPS
       - traefik.http.middlewares.collabora-redirect.redirectscheme.scheme=https
       # Define HTTP router to handle insecure connections
-      - traefik.http.routers.collabora-insecure.rule=Host(`${APP_DOMAIN}`)
+      - traefik.http.routers.collabora-insecure.rule=Host(`cool.rasies.com`)
       - traefik.http.routers.collabora-insecure.entrypoints=web
       - traefik.http.routers.collabora-insecure.middlewares=collabora-redirect
       # Define HTTPS router to handle secure connections
-      - traefik.http.routers.collabora.rule=Host(`${APP_DOMAIN}`)
+      - traefik.http.routers.collabora.rule=Host(`cool.rasies.com`)
       - traefik.http.routers.collabora.entrypoints=websecure
       - traefik.http.routers.collabora.tls.certresolver=myresolver
-      # Local domain configuration (optional)
-      - traefik.http.routers.collabora-local-insecure.rule=Host(`collabora.${LOCAL_DOMAIN}`)
-      - traefik.http.routers.collabora-local-insecure.entrypoints=web
-      - traefik.http.routers.collabora-local-insecure.middlewares=collabora-redirect
-      - traefik.http.routers.collabora-local.rule=Host(`collabora.${LOCAL_DOMAIN}`)
-      - traefik.http.routers.collabora-local.entrypoints=websecure
-      - traefik.http.routers.collabora-local.tls.certresolver=myresolver
+      # Define load balancer service for Collabora on port 9980
       - traefik.http.services.collabora.loadbalancer.server.port=9980
       - runtipi.managed=true
 
