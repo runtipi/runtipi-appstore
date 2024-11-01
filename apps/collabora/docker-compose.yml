@@ -19,7 +19,7 @@ services:
                     --o:security.permissions.edit=true \
                     --o:security.permissions.print=true \
                     --o:security.permissions.copy=true \
-                    --o:security.filter.origin=https://data.rasies.com \
+                    --o:security.filter.origin=https://data\\.rasies\\.com|https://98\\.116\\.52\\.128 \
                     --o:logging.level=warning \
                     --o:logging.file.enable=true \
                     --o:logging.file.retain_days=30 \
