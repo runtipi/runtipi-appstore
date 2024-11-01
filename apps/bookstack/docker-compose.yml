@@ -8,7 +8,7 @@ services:
       - APP_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
       # docker run -it --rm --entrypoint /bin/bash lscr.io/linuxserver/bookstack:latest appkey
       # base64:O4q1ph9Gzu60Va/1nTxrqpLa1NM0xWsvGimho6PoDbA=
-      - APP_KEY=${APP_KEY}
+      - APP_KEY=base64:${APP_KEY}
       - DB_HOST=bookstack-db
       - DB_USERNAME=tipi
       - DB_PASSWORD=${BOOKSTACK_DB_PASS}
