@@ -9,8 +9,7 @@ towards running and other GPX-based activities
 
 Self-hosted, everything included.
 
-Chat with the community
-[on Matrix](https://matrix.to/#/#workout-tracker:matrix.org)
+Chat with the community [on Matrix](https://matrix.to/#/#workout-tracker:matrix.org)
 
 Heavily inspired by [FitTrackee](https://github.com/SamR1/FitTrackee).
 
@@ -147,13 +146,9 @@ curl -sSL http://localhost:8080/api/v1/import/generic?api-key=your-api-key \
 
 ### FitoTrack
 
-Read
-[their documentation](https://codeberg.org/jannis/FitoTrack/wiki/Auto-Export)
-before you continue.
+Read [their documentation](https://codeberg.org/jannis/FitoTrack/wiki/Auto-Export) before you continue.
 
 The path to POST to is: `/api/v1/import/fitotrack?api-key=${API_KEY}`
-
-
 
 ## Compatiblity
 
