@@ -15,7 +15,7 @@
       "environment": {
         "TZ": "${TZ}",
         "APP_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
-        "APP_KEY": "${APP_KEY}",
+        "APP_KEY": "base64:${APP_KEY}",
         "DB_HOST": "bookstack-db",
         "DB_USERNAME": "tipi",
         "DB_PASSWORD": "${BOOKSTACK_DB_PASS}",
