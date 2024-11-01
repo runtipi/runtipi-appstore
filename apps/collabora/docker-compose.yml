@@ -2,17 +2,17 @@ version: "3.9"
 
 services:
   collabora:
-    image: collabora/code
+    image: collabora/code:latest
     container_name: collabora
     environment:
-      - domain=cool\\.rasies\\.com  # Escaped dots for domain
+      - domain=data\\.rasies\\.com  # Escape dots for the domain
       - enable_admin_console=true
-      - username=ianras  # Removed the underscore from "admin_"
+      - username=ianras
       - password=Mycobacteri@98
-      - enable_macros=true
       - dictionaries=en_US
+      - extra_params=--o:ssl.enable=false --o:ssl.termination=false  # Disable SSL within Collabora
     ports:
-      - "9980:9980"  # Direct port mapping for Collabora
+      - "9980:9980"
     volumes:
       - ${APP_DATA_DIR}/data/collabora:/var/lib/lool
     restart: unless-stopped
@@ -20,29 +20,26 @@ services:
       - tipi_main_network
     labels:
       # Enable Traefik for this service
-      traefik.enable: true
+      - traefik.enable=true
       # Redirect HTTP to HTTPS
-      traefik.http.middlewares.collabora-redirect.redirectscheme.scheme: https
-      # Load balancing service for Collabora
-      traefik.http.services.collabora.loadbalancer.server.port: 9980
-      # Insecure (HTTP) Router
-      traefik.http.routers.collabora-insecure.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.collabora-insecure.entrypoints: web
-      traefik.http.routers.collabora-insecure.middlewares: collabora-redirect
-      # Secure (HTTPS) Router
-      traefik.http.routers.collabora.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.collabora.entrypoints: websecure
-      traefik.http.routers.collabora.service: collabora
-      traefik.http.routers.collabora.tls.certresolver: myresolver
-      # Local domain (insecure HTTP)
-      traefik.http.routers.collabora-local-insecure.rule: Host(`collabora.${LOCAL_DOMAIN}`)
-      traefik.http.routers.collabora-local-insecure.entrypoints: web
-      traefik.http.routers.collabora-local-insecure.middlewares: collabora-redirect
-      # Local domain secure
-      traefik.http.routers.collabora-local.rule: Host(`collabora.${LOCAL_DOMAIN}`)
-      traefik.http.routers.collabora-local.entrypoints: websecure
-      traefik.http.routers.collabora-local.tls.certresolver: myresolver
-      runtipi.managed: true
+      - traefik.http.middlewares.collabora-redirect.redirectscheme.scheme=https
+      # Define HTTP router to handle insecure connections
+      - traefik.http.routers.collabora-insecure.rule=Host(`${APP_DOMAIN}`)
+      - traefik.http.routers.collabora-insecure.entrypoints=web
+      - traefik.http.routers.collabora-insecure.middlewares=collabora-redirect
+      # Define HTTPS router to handle secure connections
+      - traefik.http.routers.collabora.rule=Host(`${APP_DOMAIN}`)
+      - traefik.http.routers.collabora.entrypoints=websecure
+      - traefik.http.routers.collabora.tls.certresolver=myresolver
+      # Local domain configuration (optional)
+      - traefik.http.routers.collabora-local-insecure.rule=Host(`collabora.${LOCAL_DOMAIN}`)
+      - traefik.http.routers.collabora-local-insecure.entrypoints=web
+      - traefik.http.routers.collabora-local-insecure.middlewares=collabora-redirect
+      - traefik.http.routers.collabora-local.rule=Host(`collabora.${LOCAL_DOMAIN}`)
+      - traefik.http.routers.collabora-local.entrypoints=websecure
+      - traefik.http.routers.collabora-local.tls.certresolver=myresolver
+      - traefik.http.services.collabora.loadbalancer.server.port=9980
+      - runtipi.managed=true
 
   collabora-db:
     container_name: collabora-db
@@ -58,7 +55,7 @@ services:
     networks:
       - tipi_main_network
     labels:
-      runtipi.managed: true
+      - runtipi.managed=true
 
 networks:
   tipi_main_network:
