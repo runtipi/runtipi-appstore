@@ -12,7 +12,7 @@ Self-hosted, everything included.
 Chat with the community
 [on Matrix](https://matrix.to/#/#workout-tracker:matrix.org)
 
-Heavily inspired by [FitTrackee](https://github.com/SamR1/FitTrackee) :heart:.
+Heavily inspired by [FitTrackee](https://github.com/SamR1/FitTrackee).
 
 ## Configuration
 
@@ -30,7 +30,7 @@ services:
 
 ### Login page
 
-![Workout-Tracker Login Page](https://github.com/jovandeginste/workout-tracker/blob/master/docs/login.png)
+![Workout-Tracker Login Page](https://github.com/jovandeginste/workout-tracker/blob/master/docs/login.png?raw=true)
 
 Login / registration form
 
@@ -39,7 +39,7 @@ Login / registration form
 
 ### Dashboard
 
-![Workout-Tracker Dashboard](https://github.com/jovandeginste/workout-tracker/blob/master/docs/dashboard.png)
+![Workout-Tracker Dashboard](https://github.com/jovandeginste/workout-tracker/blob/master/docs/dashboard.png?raw=true)
 
 Dashboard view with:
 
@@ -50,13 +50,13 @@ Dashboard view with:
 
 ### Overview of workouts
 
-![Workout-Tracker Workouts Overview](https://github.com/jovandeginste/workout-tracker/blob/master/docs/workout_overview.png)
+![Workout-Tracker Workouts Overview](https://github.com/jovandeginste/workout-tracker/blob/master/docs/workout_overview.png?raw=true)
 
 Overview of all your activities, with summaries.
 
 ### Details of a single workout
 
-![Workout-Tracker Single Workout Details](https://github.com/jovandeginste/workout-tracker/blob/master/docs/single_workout-dark.png)
+![Workout-Tracker Single Workout Details](https://github.com/jovandeginste/workout-tracker/blob/master/docs/single_workout-dark.png?raw=true)
 
 Details of a workout, with:
 
@@ -69,7 +69,7 @@ Details of a workout, with:
 
 ### Tooltips for even more information
 
-![Workout-Tracker Tooltips](https://github.com/jovandeginste/workout-tracker/blob/master/docs/track.gif)
+![Workout-Tracker Tooltips](https://github.com/jovandeginste/workout-tracker/blob/master/docs/track.gif?raw=true)
 
 - green and red circle are start and end points of the track
 - every point on the track has a tooltip with a summary at that moment
@@ -77,7 +77,7 @@ Details of a workout, with:
 
 ### Upload your files
 
-![Workout-Tracker Upload Workouts](https://github.com/jovandeginste/workout-tracker/blob/master/docs/upload_workouts.png)
+![Workout-Tracker Upload Workouts](https://github.com/jovandeginste/workout-tracker/blob/master/docs/upload_workouts.png?raw=true)
 
 - Upload one or multiple GPX files.
 - Pick the type (running, cycling, ...) or let the application guess based on
@@ -88,14 +88,14 @@ Details of a workout, with:
 
 ### Statistics to follow your progress
 
-![Workout-Tracker Statistics](https://github.com/jovandeginste/workout-tracker/blob/master/docs/statistics.png)
+![Workout-Tracker Statistics](https://github.com/jovandeginste/workout-tracker/blob/master/docs/statistics.png?raw=true)
 
 - Graphs showing monthly aggregated statistics.
 - Pick different time range or bucket size.
 
 ### Basic multi-language support
 
-![Workout-Tracker Multi-Language Support](https://github.com/jovandeginste/workout-tracker/blob/master/docs/i18n.gif)
+![Workout-Tracker Multi-Language Support](https://github.com/jovandeginste/workout-tracker/blob/master/docs/i18n.gif?raw=true)
 
 - Switch between (supported) languages
   - Please help translate via
@@ -106,13 +106,13 @@ Details of a workout, with:
 
 ### Responsive design
 
-![Workout-Tracker Responsive Design](https://github.com/jovandeginste/workout-tracker/blob/master/docs/statistics-responsive.png)
+![Workout-Tracker Responsive Design](https://github.com/jovandeginste/workout-tracker/blob/master/docs/statistics-responsive.png?raw=true)
 
 - Usable on small and medium screens
 
 ### Light and dark mode
 
-![Workout-Tracker Light and Dark Mode](https://github.com/jovandeginste/workout-tracker/blob/master/docs/single_workout-theme.jpg)
+![Workout-Tracker Light and Dark Mode](https://github.com/jovandeginste/workout-tracker/blob/master/docs/single_workout-theme.jpg?raw=true)
 
 - Browser decides whether to use light or dark mode, based on your preferences
 
