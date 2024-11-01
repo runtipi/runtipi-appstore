@@ -5,29 +5,31 @@ services:
     image: collabora/code:latest
     container_name: collabora
     environment:
-      - domain=data\\.rasies\\.com
+      - domain=cool\\.rasies\\.com|data\\.rasies\\.com
+      - allow_localhost=false
       - enable_admin_console=true
       - username=ianras
       - password=Mycobacteri@98
       - dictionaries=en_US
-      - extra_params=--o:ssl.enable=false --o:ssl.termination=false \
-                     --o:server_name=cool.rasies.com \
-                     --o:admin_console.username=ianras \
-                     --o:admin_console.password=Mycobacteri@98 \
-                     --o:security.permissions.edit=true \
-                     --o:security.permissions.print=true \
-                     --o:security.permissions.copy=true \
-                     --o:security.filter.origin=https://data.rasies.com \
-                     --o:logging.level=warning \
-                     --o:logging.file.enable=true \
-                     --o:logging.file.retain_days=30 \
-                     --o:logging.file.max_size=10000000 \
-                     --o:perf.unit_thread_count=2 \
-                     --o:perf.tile_cache_size=512 \
-                     --o:perf.image_cache_size=512 \
-                     --o:limits.idle=3600 \
-                     --o:limits.timeout=1800 \
-                     --o:limits.session_idle=1800
+      - extra_params=--o:ssl.enable=false \
+                    --o:ssl.termination=false \
+                    --o:server_name=cool.rasies.com \
+                    --o:admin_console.username=ianras \
+                    --o:admin_console.password=Mycobacteri@98 \
+                    --o:security.permissions.edit=true \
+                    --o:security.permissions.print=true \
+                    --o:security.permissions.copy=true \
+                    --o:security.filter.origin=https://data.rasies.com \
+                    --o:logging.level=warning \
+                    --o:logging.file.enable=true \
+                    --o:logging.file.retain_days=30 \
+                    --o:logging.file.max_size=10000000 \
+                    --o:perf.unit_thread_count=2 \
+                    --o:perf.tile_cache_size=512 \
+                    --o:perf.image_cache_size=512 \
+                    --o:limits.idle=3600 \
+                    --o:limits.timeout=1800 \
+                    --o:limits.session_idle=1800
     volumes:
       - ${APP_DATA_DIR}/data/collabora:/var/lib/lool
     restart: unless-stopped
@@ -48,11 +50,16 @@ services:
       - traefik.http.routers.collabora.tls.certresolver=myresolver
       # Define load balancer service for Collabora on port 9980
       - traefik.http.services.collabora.loadbalancer.server.port=9980
-      # WebSocket middleware for proper handling
-      - traefik.http.middlewares.collabora_websocket.replacepathregex.regex=^/loleaflet/(.*)
-      - traefik.http.middlewares.collabora_websocket.replacepathregex.replacement=/loleaflet/$1
+      # WebSocket handling middleware for Traefik
+      - traefik.http.middlewares.collabora-websocket.headers.customrequestheaders.Upgrade=websocket
+      - traefik.http.middlewares.collabora-websocket.headers.customrequestheaders.Connection=Upgrade
+      # Set CORS headers to allow Nextcloud
+      - traefik.http.middlewares.collabora-headers.headers.accesscontrolallowmethods=GET,OPTIONS,POST,PUT
+      - traefik.http.middlewares.collabora-headers.headers.accesscontrolalloworiginlist=https://data.rasies.com
+      - traefik.http.middlewares.collabora-headers.headers.accesscontrolallowheaders=Authorization,Origin,Content-Type,Accept
       # Tag for runtipi management
       - runtipi.managed=true
+
   collabora-db:
     container_name: collabora-db
     image: mariadb:11.1.3
