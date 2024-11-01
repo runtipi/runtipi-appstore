@@ -7,7 +7,6 @@ services:
     ports:
       - ${APP_PORT}:8080
     networks:
-      - workout-tracker
       - tipi_main_network
     depends_on:
       workout-tracker-db:
@@ -60,7 +59,6 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
     networks:
-      - workout-tracker
       - tipi_main_network
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -d ${POSTGRES_DB} -U ${POSTGRES_USER}"]
@@ -73,7 +71,3 @@ services:
       - POSTGRES_DB=workout-tracker
     labels:
       runtipi.managed: true
-
-networks:
-  workout-tracker:
-    external: false
