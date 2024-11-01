@@ -1,16 +1,16 @@
 services:
   write-freely:
-    image: nephatrine/write-freely:latest
+    image: nephatrine/write-freely:0.15
     container_name: write-freely
     environment:
-      TZ: Europe/Rome
+      TZ: ${TZ}
       PUID: 1000
       PGID: 1000
     ports:
-      - 40:70/tcp
+      - 70:70/tcp
       - ${APP_PORT}:8080/tcp
     volumes:
-      - ${APP_DATA_DIR}/config:/mnt/config
+      - ${APP_DATA_DIR}/data/config:/mnt/config
     restart: unless-stopped
     networks:
       - tipi_main_network
@@ -18,7 +18,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.write-freely-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.write-freely.loadbalancer.server.port: 3000
+      traefik.http.services.write-freely.loadbalancer.server.port: 8080
       # Web
       traefik.http.routers.write-freely-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.write-freely-insecure.entrypoints: web
