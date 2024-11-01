@@ -3,7 +3,7 @@
   "name": "Write-Freely",
   "available": true,
   "exposable": true,
-  "port": 11140,
+  "port": 8574,
   "id": "write-freely",
   "tipi_version": 3,
   "version": "0.15",
