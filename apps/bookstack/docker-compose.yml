@@ -53,6 +53,7 @@ services:
     container_name: bookstack-db
     environment:
       - TZ=${TZ}
+      - MYSQL_ROOT_PASSWORD=${ROOT_ACCESS_PASSWORD}
       - MYSQL_DATABASE=bookstackapp
       - MYSQL_USER=tipi
       - MYSQL_PASSWORD=${BOOKSTACK_DB_PASS}

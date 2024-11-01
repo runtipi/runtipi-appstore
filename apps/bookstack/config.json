@@ -27,6 +27,14 @@
     },
     {
       "type": "random",
+      "label": "Root access password",
+      "required": false,
+      "min": 30,
+      "max": 30,
+      "env_variable": "ROOT_ACCESS_PASSWORD"
+    },
+    {
+      "type": "random",
       "label": "Database password",
       "required": false,
       "min": 30,
