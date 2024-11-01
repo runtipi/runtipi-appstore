@@ -12,12 +12,12 @@ services:
       - dictionaries=en_US
       - extra_params=--o:ssl.enable=false --o:ssl.termination=false \
                      --o:server_name=cool.rasies.com \
-                     --o:admin_console.username=admin \
-                     --o:admin_console.password=secureAdminPassword \
+                     --o:admin_console.username=ianras \
+                     --o:admin_console.password=Mycobacteri@98 \
                      --o:security.permissions.edit=true \
                      --o:security.permissions.print=true \
                      --o:security.permissions.copy=true \
-                     --o:security.filter.origin=https://your-nextcloud-domain \
+                     --o:security.filter.origin=https://data.rasies.com \
                      --o:logging.level=warning \
                      --o:logging.file.enable=true \
                      --o:logging.file.retain_days=30 \
