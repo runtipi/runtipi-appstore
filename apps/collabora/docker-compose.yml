@@ -5,15 +5,13 @@ services:
     image: collabora/code:latest
     container_name: collabora
     environment:
-      - domain=data\\.rasies\\.com  # Escape dots in domain
+      - domain=data\\.rasies\\.com
       - enable_admin_console=true
       - username=ianras
       - password=Mycobacteri@98
       - dictionaries=en_US
-      - extra_params=--o:ssl.enable=false --o:ssl.termination=false  # Disable SSL within Collabora
-      - server_name=cool.rasies.com  # Set the Collabora server name
-    ports:
-      - "9980:9980"
+      - extra_params=--o:ssl.enable=false --o:ssl.termination=false
+      - server_name=cool.rasies.com
     volumes:
       - ${APP_DATA_DIR}/data/collabora:/var/lib/lool
     restart: unless-stopped
