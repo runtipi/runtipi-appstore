@@ -5,59 +5,48 @@ services:
     image: collabora/code:latest
     container_name: collabora
     environment:
-      - domain=cool\\.rasies\\.com|data\\.rasies\\.com|98\\.116\\.52\\.128
-      - allow_localhost=false
+      - domain=data\\.rasies\\.com|98\\.116\\.52\\.128  # Match the domain name in WOPI client (Nextcloud)
       - enable_admin_console=true
       - username=ianras
       - password=Mycobacteri@98
       - dictionaries=en_US
       - extra_params=--o:ssl.enable=false \
-                    --o:ssl.termination=false \
-                    --o:server_name=cool.rasies.com \
-                    --o:admin_console.username=ianras \
-                    --o:admin_console.password=Mycobacteri@98 \
-                    --o:security.permissions.edit=true \
-                    --o:security.permissions.print=true \
-                    --o:security.permissions.copy=true \
-                    --o:security.filter.origin=https://data\\.rasies\\.com|https://98\\.116\\.52\\.128 \
-                    --o:logging.level=warning \
-                    --o:logging.file.enable=true \
-                    --o:logging.file.retain_days=30 \
-                    --o:logging.file.max_size=10000000 \
-                    --o:perf.unit_thread_count=2 \
-                    --o:perf.tile_cache_size=512 \
-                    --o:perf.image_cache_size=512 \
-                    --o:limits.idle=3600 \
-                    --o:limits.timeout=1800 \
-                    --o:limits.session_idle=1800
+                     --o:ssl.termination=false \
+                     --o:server_name=cool.rasies.com \
+                     --o:admin_console.username=ianras \
+                     --o:admin_console.password=Mycobacteri@98 \
+                     --o:security.permissions.edit=true \
+                     --o:security.permissions.print=true \
+                     --o:security.permissions.copy=true \
+                     --o:security.filter.origin=https://data\\.rasies\\.com|https://98\\.116\\.52\\.128|https://192\\.168\\.1\\.12 \
+                     --o:wopi.host=https://data\\.rasies\\.com \
+                     --o:wopi.allow_external_clients=true \
+                     --o:wopi.client_address=98.116.52.128 \  # Replace with your WOPI client’s IP
+                     --o:logging.level=warning \
+                     --o:logging.file.enable=true \
+                     --o:logging.file.retain_days=30 \
+                     --o:logging.file.max_size=10000000 \
+                     --o:perf.unit_thread_count=2 \
+                     --o:perf.tile_cache_size=512 \
+                     --o:perf.image_cache_size=512 \
+                     --o:limits.idle=3600 \
+                     --o:limits.timeout=1800 \
+                     --o:limits.session_idle=1800
     volumes:
       - ${APP_DATA_DIR}/data/collabora:/var/lib/lool
     restart: unless-stopped
     networks:
       - tipi_main_network
     labels:
-      # Enable Traefik for this service
       - traefik.enable=true
-      # Redirect HTTP to HTTPS
       - traefik.http.middlewares.collabora-redirect.redirectscheme.scheme=https
-      # Define HTTP router to handle insecure connections
       - traefik.http.routers.collabora-insecure.rule=Host(`cool.rasies.com`)
       - traefik.http.routers.collabora-insecure.entrypoints=web
       - traefik.http.routers.collabora-insecure.middlewares=collabora-redirect
-      # Define HTTPS router to handle secure connections
       - traefik.http.routers.collabora.rule=Host(`cool.rasies.com`)
       - traefik.http.routers.collabora.entrypoints=websecure
       - traefik.http.routers.collabora.tls.certresolver=myresolver
-      # Define load balancer service for Collabora on port 9980
       - traefik.http.services.collabora.loadbalancer.server.port=9980
-      # WebSocket handling middleware for Traefik
-      - traefik.http.middlewares.collabora-websocket.headers.customrequestheaders.Upgrade=websocket
-      - traefik.http.middlewares.collabora-websocket.headers.customrequestheaders.Connection=Upgrade
-      # Set CORS headers to allow Nextcloud
-      - traefik.http.middlewares.collabora-headers.headers.accesscontrolallowmethods=GET,OPTIONS,POST,PUT
-      - traefik.http.middlewares.collabora-headers.headers.accesscontrolalloworiginlist=https://data.rasies.com
-      - traefik.http.middlewares.collabora-headers.headers.accesscontrolallowheaders=Authorization,Origin,Content-Type,Accept
-      # Tag for runtipi management
       - runtipi.managed=true
 
   collabora-db:
