@@ -16,7 +16,7 @@ Heavily inspired by [FitTrackee](https://github.com/SamR1/FitTrackee) :heart:.
 
 ## Configuration
 
-You can enable registration and/or socials by following [this]{https://runtipi.io/docs/guides/customize-app-config#create-custom-docker-config} guide and then copy-pasting the following code:
+You can enable registration and/or socials by following [this](https://runtipi.io/docs/guides/customize-app-config#create-custom-docker-config) guide and then copy-pasting the following code:
 
 ```yaml
 services:
