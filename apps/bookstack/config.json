@@ -21,8 +21,8 @@
       "type": "random",
       "label": "App key",
       "required": false,
-      "min": 30,
-      "max": 30,
+      "min": 44,
+      "max": 44,
       "env_variable": "APP_KEY"
     },
     {
