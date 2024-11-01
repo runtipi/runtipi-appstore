@@ -10,8 +10,24 @@ services:
       - username=ianras
       - password=Mycobacteri@98
       - dictionaries=en_US
-      - extra_params=--o:ssl.enable=false --o:ssl.termination=false
-      - server_name=cool.rasies.com
+      - extra_params=--o:ssl.enable=false --o:ssl.termination=false \
+                     --o:server_name=cool.rasies.com \
+                     --o:admin_console.username=admin \
+                     --o:admin_console.password=secureAdminPassword \
+                     --o:security.permissions.edit=true \
+                     --o:security.permissions.print=true \
+                     --o:security.permissions.copy=true \
+                     --o:security.filter.origin=https://your-nextcloud-domain \
+                     --o:logging.level=warning \
+                     --o:logging.file.enable=true \
+                     --o:logging.file.retain_days=30 \
+                     --o:logging.file.max_size=10000000 \
+                     --o:perf.unit_thread_count=2 \
+                     --o:perf.tile_cache_size=512 \
+                     --o:perf.image_cache_size=512 \
+                     --o:limits.idle=3600 \
+                     --o:limits.timeout=1800 \
+                     --o:limits.session_idle=1800
     volumes:
       - ${APP_DATA_DIR}/data/collabora:/var/lib/lool
     restart: unless-stopped
