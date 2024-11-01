@@ -48,8 +48,11 @@ services:
       - traefik.http.routers.collabora.tls.certresolver=myresolver
       # Define load balancer service for Collabora on port 9980
       - traefik.http.services.collabora.loadbalancer.server.port=9980
+      # WebSocket middleware for proper handling
+      - traefik.http.middlewares.collabora_websocket.replacepathregex.regex=^/loleaflet/(.*)
+      - traefik.http.middlewares.collabora_websocket.replacepathregex.replacement=/loleaflet/$1
+      # Tag for runtipi management
       - runtipi.managed=true
-
   collabora-db:
     container_name: collabora-db
     image: mariadb:11.1.3
