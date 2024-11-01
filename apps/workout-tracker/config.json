@@ -7,7 +7,7 @@
     "id": "workout-tracker",
     "tipi_version": 3,
     "version": "latest",
-    "categories": ["social"],
+    "categories": ["utilities"],
     "description": "A workout tracking web application for personal use (or family, friends), geared towards running and other GPX-based activities",
     "short_desc": "Workout Tracker for personal use",
     "author": "Jo Vandeginste",
