@@ -8,7 +8,7 @@ services:
       - DEFAULT_BASE_DOMAIN=${APP_DOMAIN}
       - GRIST_SANDBOX_FLAVOR=${GRIST_SANDBOX_FLAVOR}
       - TMPDIR=/persist/tmp
-      - GRIST_SINGLE_ORG=Rasies                 # Enforce a single organization setup
+      - GRIST_SINGLE_ORG=rasies                 # Enforce a single organization setup
       - GRIST_FORCE_LOGIN=true                 # Require login for all users
       - GRIST_SUPPORT_ANON=false                # Disable anonymous access entirely
       - GRIST_DEFAULT_EMAIL=ian@rasies.com  # Set your email as the admin
