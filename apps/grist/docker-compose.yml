@@ -1,18 +1,18 @@
-version: "2.1"
-
 services:
   grist:
     container_name: grist
     environment:
       - APP_HOME_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
-      - DEFAULT_BASE_DOMAIN=${APP_DOMAIN}  # Explicitly set the base domain to avoid issues
+      - DEFAULT_BASE_DOMAIN=${APP_DOMAIN}
       - GRIST_SANDBOX_FLAVOR=${GRIST_SANDBOX_FLAVOR}
+      - TMPDIR=/persist/tmp  # Set TMPDIR to a directory Grist has access to
     image: "gristlabs/grist:1.2.0"
     ports:
       - "${APP_PORT:-8484}:8484"
     restart: always
     volumes:
       - "${APP_DATA_DIR}/data/grist-data:/persist"
+      - "${APP_DATA_DIR}/data/grist-data/tmp:/persist/tmp"  # Add a writable tmp directory
     networks:
       - tipi_main_network
     labels:
