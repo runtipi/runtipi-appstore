@@ -8,12 +8,13 @@ services:
       - DEFAULT_BASE_DOMAIN=${APP_DOMAIN}
       - GRIST_SANDBOX_FLAVOR=${GRIST_SANDBOX_FLAVOR}
       - TMPDIR=/persist/tmp
-      - GRIST_SINGLE_ORG=rasies                 # Enforce a single organization setup
-      - GRIST_FORCE_LOGIN=true                  # Force users to log in
-      - GRIST_SUPPORT_ANON=false                # Disable anonymous access
-      - GRIST_DEFAULT_EMAIL=ian@rasies.com  # Admin email for account management
-      - GRIST_SESSION_SECRET="Mycobacteri@98"  # Secret key for session management
+      - GRIST_SINGLE_ORG=Rasies                 # Enforce a single organization setup
+      - GRIST_FORCE_LOGIN=true                 # Require login for all users
+      - GRIST_SUPPORT_ANON=false                # Disable anonymous access entirely
+      - GRIST_DEFAULT_EMAIL=ian@rasies.com  # Set your email as the admin
+      - GRIST_SESSION_SECRET=$Mycobacteri@98  # Unique secret for sessions
       - GRIST_CREATE_ACCOUNTS=true              # Allow account creation
+      - GRIST_AUTH_SERVICE=email                # Enable email-based authentication
     image: "gristlabs/grist:1.2.0"
     ports:
       - "${APP_PORT:-8484}:8484"
