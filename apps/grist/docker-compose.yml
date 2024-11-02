@@ -1,67 +1,42 @@
-version: "3.9"
+version: "2.1"
+
 services:
   grist:
     container_name: grist
     environment:
-      - APP_HOME_URL=${APP_PROTOCOL:-http}://grist.${APP_DOMAIN}
+      - APP_HOME_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
       - GRIST_SANDBOX_FLAVOR=${GRIST_SANDBOX_FLAVOR}
-      - PUID=1000
-      - PGID=1000
-      - SUBDOMAINS=grist
-      - GRIST_FORCE_LOGIN=true
-      - GRIST_SUPPORT_ANON=false
-      - GRIST_FORWARD_AUTH_HEADER=X-Forwarded-User
-      - GRIST_FORWARD_AUTH_LOGOUT_PATH=_oauth/logout
-      - GRIST_SINGLE_ORG=rasies
-      - GRIST_DEFAULT_EMAIL=${GRIST_DEFAULT_EMAIL}
-      - GRIST_SESSION_SECRET=${GRIST_SESSION_SECRET}
-      - DEFAULT_BASE_DOMAIN=grist.${APP_DOMAIN}  # Added to correctly set the base domain
-    image: gristlabs/grist:1.2.0
+    image: "gristlabs/grist:1.2.0"
     ports:
-      - ${APP_PORT:-8484}:8484
+      - "${APP_PORT}:8484"
     restart: always
     volumes:
-      - ${APP_DATA_DIR}/data/grist-data:/persist
-      - ${APP_DATA_DIR}/data/grist-data/tmp:/tmp
+      - "${APP_DATA_DIR}/data/grist-data:/persist"
     networks:
       - tipi_main_network
-    deploy:
-      resources:
-        limits:
-          memory: 8G
-          cpus: '12'
     labels:
       # Main
       traefik.enable: true
       traefik.http.middlewares.grist-web-redirect.redirectscheme.scheme: https
-      traefik.http.middlewares.grist-websocket.headers.customrequestheaders.X-Forwarded-Proto: https
-      traefik.http.middlewares.grist-websocket.headers.customrequestheaders.X-Forwarded-Host: grist.${APP_DOMAIN}
-      traefik.http.middlewares.grist-websocket.headers.customrequestheaders.X-Forwarded-Port: 443
-      traefik.http.middlewares.grist-websocket.headers.customresponseheaders.Access-Control-Allow-Origin: "*"
       traefik.http.services.grist.loadbalancer.server.port: 8484
-      # Web (HTTP)
-      traefik.http.routers.grist-insecure.rule: Host(`grist.${APP_DOMAIN}`)
+      # Web
+      traefik.http.routers.grist-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.grist-insecure.entrypoints: web
       traefik.http.routers.grist-insecure.service: grist
       traefik.http.routers.grist-insecure.middlewares: grist-web-redirect
-      # Websecure (HTTPS)
-      traefik.http.routers.grist.rule: Host(`grist.${APP_DOMAIN}`)
+      # Websecure
+      traefik.http.routers.grist.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.grist.entrypoints: websecure
       traefik.http.routers.grist.service: grist
       traefik.http.routers.grist.tls.certresolver: myresolver
-      # Local domain (HTTP)
+      # Local domain
       traefik.http.routers.grist-local-insecure.rule: Host(`grist.${LOCAL_DOMAIN}`)
       traefik.http.routers.grist-local-insecure.entrypoints: web
       traefik.http.routers.grist-local-insecure.service: grist
       traefik.http.routers.grist-local-insecure.middlewares: grist-web-redirect
-      # Local domain secure (HTTPS)
+      # Local domain secure
       traefik.http.routers.grist-local.rule: Host(`grist.${LOCAL_DOMAIN}`)
       traefik.http.routers.grist-local.entrypoints: websecure
       traefik.http.routers.grist-local.service: grist
       traefik.http.routers.grist-local.tls: true
       runtipi.managed: true
-
-networks:
-  tipi_main_network:
-    driver: bridge
-
