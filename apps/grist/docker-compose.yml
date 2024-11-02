@@ -21,22 +21,22 @@ services:
       traefik.http.middlewares.grist-web-redirect.redirectscheme.scheme: https
       traefik.http.services.grist.loadbalancer.server.port: 8484
       # Web (HTTP)
-      traefik.http.routers.grist-insecure.rule: Host(`grist.${APP_DOMAIN}`)
+      traefik.http.routers.grist-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.grist-insecure.entrypoints: web
       traefik.http.routers.grist-insecure.service: grist
       traefik.http.routers.grist-insecure.middlewares: grist-web-redirect
       # Websecure (HTTPS)
-      traefik.http.routers.grist.rule: Host(`grist.${APP_DOMAIN}`)
+      traefik.http.routers.grist.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.grist.entrypoints: websecure
       traefik.http.routers.grist.service: grist
       traefik.http.routers.grist.tls.certresolver: myresolver
       # Local domain (HTTP)
-      traefik.http.routers.grist-local-insecure.rule: Host(`grist.${LOCAL_DOMAIN}`)
+      traefik.http.routers.grist-local-insecure.rule: Host(`${LOCAL_DOMAIN}`)
       traefik.http.routers.grist-local-insecure.entrypoints: web
       traefik.http.routers.grist-local-insecure.service: grist
       traefik.http.routers.grist-local-insecure.middlewares: grist-web-redirect
       # Local domain secure (HTTPS)
-      traefik.http.routers.grist-local.rule: Host(`grist.${LOCAL_DOMAIN}`)
+      traefik.http.routers.grist-local.rule: Host(`${LOCAL_DOMAIN}`)
       traefik.http.routers.grist-local.entrypoints: websecure
       traefik.http.routers.grist-local.service: grist
       traefik.http.routers.grist-local.tls: true
