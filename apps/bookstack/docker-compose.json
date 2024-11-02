@@ -3,9 +3,9 @@
     {
       "name": "bookstack",
       "image": "lscr.io/linuxserver/bookstack:24.10.20241028",
-      "internalPort": 8119,
+      "internalPort": 80,
       "isMain": true,
-      "dependsOn": "bookstack-db",
+      "dependsOn": ["bookstack-db"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/config",
@@ -42,4 +42,3 @@
     }
   ]
 }
-

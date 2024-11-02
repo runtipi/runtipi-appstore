@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "port": 8119,
   "id": "bookstack",
-  "tipi_version": 23,
+  "tipi_version": 24,
   "version": "24.10.20241028",
   "description": "BookStack is a simple, self-hosted, easy-to-use platform for organising and storing information. Default login: admin@admin.com password: password",
   "short_desc": "BookStack is a self-hosted platform for organising and storing information.",
