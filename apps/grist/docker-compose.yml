@@ -15,9 +15,10 @@ services:
       - GRIST_SINGLE_ORG=rasies
       - GRIST_DEFAULT_EMAIL=${GRIST_DEFAULT_EMAIL}
       - GRIST_SESSION_SECRET=${GRIST_SESSION_SECRET}
+      - DEFAULT_BASE_DOMAIN=grist.${APP_DOMAIN}  # Added to correctly set the base domain
     image: gristlabs/grist:1.2.0
     ports:
-      - ${APP_PORT}:8484
+      - ${APP_PORT:-8484}:8484
     restart: always
     volumes:
       - ${APP_DATA_DIR}/data/grist-data:/persist
