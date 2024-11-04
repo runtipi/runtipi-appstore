@@ -1,0 +1,1 @@
+I, Librarian is an online service that will organize your collection of PDF papers and office documents. It provides a lot of extra features for students and research groups both in industry and academia. It is a reference manager, PDF manager and organizer focused on private group collaboration.

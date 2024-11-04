@@ -1,0 +1,26 @@
+{
+  "name": "i-librarian",
+  "id": "ilibrarian",
+  "available": true,
+  "dynamic_config": true,
+  "short_desc": "I-Librarian",
+  "author": "Scilico",
+  "port": 31547,
+  "categories": [
+    "data"
+  ],
+  "description": "I, Librarian is an online service that will organize your collection of PDF papers and office documents. It provides a lot of extra features for students and research groups both in industry and academia. It is a reference manager, PDF manager and organizer focused on private group collaboration.",
+  "tipi_version": 1,
+  "version": "v5.11.1",
+  "source": "https://github.com/mkucej/i-librarian-free",
+  "website": "https://i-librarian.net/",
+  "uid": "33",
+  "gid": "33",
+  "dynamic": true,
+  "exposable": true,
+  "supported_architectures": [
+    "amd64"
+  ],
+  "created_at": 1730663152,
+  "updated_at": 1730663152
+}

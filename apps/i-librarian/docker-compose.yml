@@ -1,0 +1,40 @@
+version: '3.7'
+services:
+  i-librarian:
+    container_name: i-librarian
+    image: cgrima/i-librarian
+    privileged: true
+    restart: unless-stopped
+    ports:
+     - ${APP_PORT}:80
+    volumes:
+      - ${APP_DATA_DIR}:/app/data
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.ilibrarian-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.ilibrarian.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.ilibrarian-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.ilibrarian-insecure.entrypoints: web
+      traefik.http.routers.ilibrarian-insecure.service: ilibrarian
+      traefik.http.routers.ilibrarian-insecure.middlewares: ilibrarian-web-redirect
+      # Websecure
+      traefik.http.routers.ilibrarian.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.ilibrarian.entrypoints: websecure
+      traefik.http.routers.ilibrarian.service: ilibrarian
+      traefik.http.routers.ilibrarian.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.ilibrarian-local-insecure.rule: Host(`ilibrarian.${LOCAL_DOMAIN}`)
+      traefik.http.routers.ilibrarian-local-insecure.entrypoints: web
+      traefik.http.routers.ilibrarian-local-insecure.service: ilibrarian
+      traefik.http.routers.ilibrarian-local-insecure.middlewares: ilibrarian-web-redirect
+      # Local domain secure
+      traefik.http.routers.ilibrarian-local.rule: Host(`ilibrarian.${LOCAL_DOMAIN}`)
+      traefik.http.routers.ilibrarian-local.entrypoints: websecure
+      traefik.http.routers.ilibrarian-local.service: ilibrarian
+      traefik.http.routers.ilibrarian-local.tls: true
+      runtipi.managed: true
