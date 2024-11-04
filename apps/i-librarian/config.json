@@ -1,4 +1,5 @@
 {
+  "$schema": "../schema.json",
   "name": "i-librarian",
   "id": "ilibrarian",
   "available": true,
@@ -14,9 +15,8 @@
   "version": "v5.11.1",
   "source": "https://github.com/mkucej/i-librarian-free",
   "website": "https://i-librarian.net/",
-  "uid": "33",
-  "gid": "33",
-  "dynamic": true,
+  "uid": 33,
+  "gid": 33,
   "exposable": true,
   "supported_architectures": [
     "amd64"
