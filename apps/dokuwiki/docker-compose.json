@@ -1,0 +1,33 @@
+{
+  "services": [
+    {
+      "name": "dokuwiki",
+      "image": "lscr.io/linuxserver/dokuwiki:latest",
+      "isMain": true,
+      "internalPort": 80,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/config",
+          "readOnly": false
+        }
+      ],
+      "environment": {
+        "TZ": "${TZ}"
+      },
+      "addPorts": [
+        {
+          "containerPort": 80,
+          "hostPort": 8149,
+          "tcp": true
+        }
+      ],
+      "healthCheck": {
+        "test": "curl --fail http://localhost || exit 1",
+        "retries": 3,
+        "interval": "30s",
+        "timeout": "10s"
+      }
+    }
+  ]
+}
