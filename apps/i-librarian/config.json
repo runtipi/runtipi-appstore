@@ -1,26 +1,23 @@
 {
   "$schema": "../schema.json",
   "name": "i-librarian",
-  "id": "ilibrarian",
   "available": true,
+  "exposable": true,
   "dynamic_config": true,
-  "short_desc": "I-Librarian",
-  "author": "Scilico",
   "port": 31547,
-  "categories": [
-    "data"
-  ],
-  "description": "I, Librarian is an online service that will organize your collection of PDF papers and office documents. It provides a lot of extra features for students and research groups both in industry and academia. It is a reference manager, PDF manager and organizer focused on private group collaboration.",
+  "id": "i-librarian",
   "tipi_version": 1,
   "version": "v5.11.1",
+  "categories": ["data"],
+  "description": "I, Librarian is an online service that will organize your collection of PDF papers and office documents. It provides a lot of extra features for students and research groups both in industry and academia. It is a reference manager, PDF manager and organizer focused on private group collaboration.",
+  "short_desc": "I-Librarian",
+  "author": "Scilico",
   "source": "https://github.com/mkucej/i-librarian-free",
+  "form_fields": [],
   "website": "https://i-librarian.net/",
+  "supported_architectures": ["amd64"],
   "uid": 33,
   "gid": 33,
-  "exposable": true,
-  "supported_architectures": [
-    "amd64"
-  ],
   "created_at": 1730663152,
   "updated_at": 1730663152
 }

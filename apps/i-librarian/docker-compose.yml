@@ -2,7 +2,7 @@ version: '3.7'
 services:
   i-librarian:
     container_name: i-librarian
-    image: cgrima/i-librarian
+    image: cgrima/i-librarian:latest
     privileged: true
     restart: unless-stopped
     ports:

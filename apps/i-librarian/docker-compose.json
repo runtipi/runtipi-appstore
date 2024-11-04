@@ -3,38 +3,8 @@
     {
       "name": "i-librarian",
       "image": "cgrima/i-librarian:latest",
-      "internalPort": 80,
       "isMain": true,
-      "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/data/i-librarian",
-          "containerPath": "/app/data",
-          "readOnly": false
-        },
-        {
-          "hostPath": "/etc/localtime",
-          "containerPath": "/etc/localtime",
-          "readOnly": true
-        }
-      ],
-      "addPorts": [
-        {
-          "containerPort": 80,
-          "hostPort": 31547,
-          "tcp": true
-        }
-      ],
-      "healthCheck": {
-        "test": "curl --fail http://localhost || exit 1",
-        "retries": 3,
-        "interval": "30s",
-        "timeout": "10s"
-      },
-      "dependsOn": {
-        "service1": {
-          "condition": "service_healthy"
-        }
-      }
+      "internalPort": 80
     }
   ]
 }
