@@ -16,8 +16,6 @@
   "form_fields": [],
   "website": "https://i-librarian.net/",
   "supported_architectures": ["amd64"],
-  "uid": 33,
-  "gid": 33,
   "created_at": 1730663152,
   "updated_at": 1730663152
 }
