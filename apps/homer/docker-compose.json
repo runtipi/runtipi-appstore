@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "homer",
-      "image": "b4bz/homer:v24.10.2",
+      "image": "b4bz/homer:v24.11.1",
       "internalPort": 8080,
       "isMain": true,
       "volumes": [
