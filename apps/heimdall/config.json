@@ -4,8 +4,8 @@
   "exposable": true,
   "port": 8783,
   "id": "heimdall",
-  "tipi_version": 3,
-  "version": "2.6.1",
+  "tipi_version": 4,
+  "version": "2.6.3",
   "categories": ["utilities"],
   "description": "Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way",
   "short_desc": "Application Dashboard",
@@ -15,5 +15,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566285000
+  "updated_at": 1730917281000
 }
