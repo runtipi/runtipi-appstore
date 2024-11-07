@@ -2,7 +2,7 @@ services:
   i-librarian:
     container_name: i-librarian
     image: cgrima/i-librarian:latest
-    privileged: true
+    #privileged: true ## allow when having problems with the database
     restart: unless-stopped
     ports:
      - "${APP_PORT}:80"
