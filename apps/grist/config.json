@@ -14,7 +14,7 @@
   "website": "https://www.getgrist.com/",
   "form_fields": [
     {
-      "type": "",
+      "type": "text",
       "label": "GRIST_SANDBOX_FLAVOR",
       "required": true,
       "options": [

@@ -14,7 +14,7 @@
   "source": "https://github.com/kieraneglin/pinchflat",
   "form_fields": [
     {
-      "type": "string",
+      "type": "text",
       "hint": "if not set, no basic auth is used",
       "label": "Basic Auth Username",
       "placeholder": "admin",
