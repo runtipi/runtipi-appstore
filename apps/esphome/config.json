@@ -24,7 +24,7 @@
       "hint": "Username of your ESP Home account"
     },
     {
-      "type": "Password",
+      "type": "password",
       "label": "Password",
       "env_variable": "ESPHOME_PASSWORD",
       "default": "",

@@ -2,6 +2,15 @@
 
 This is the official repository for the Tipi App Store. It contains all the apps that are available for download on [Tipi](https://github.com/runtipi/runtipi).
 
+## How to get started
+
+1. Install **[Node.js](https://nodejs.org/en)** on your machine
+2. Install **[pnpm](https://pnpm.io/installation)** package manager
+3. Install dependencies (from the root of the project)
+```bash
+pnpm install
+```
+
 ## How to sumbit an app
 
 If you want to see new apps on Tipi you can either:
@@ -274,6 +283,7 @@ If you want to see new apps on Tipi you can either:
 | [Windows](https://github.com/dockur/windows/)                                | Full windows vm in your browser                                                                                                                                     | 8006  |
 | [Wizarr](https://github.com/Wizarrrr/wizarr)                                 | Wizarr is an automatic user invitation system for Plex and Jellyfin.                                                                                                | 5690  |
 | [WordPress](https://github.com/WordPress/WordPress)                          | Popular CMS for websites and blogs                                                                                                                                  | 8213  |
+| [WriteFreely](https://github.com/writefreely/writefreely)                    | Markdown-based publishing platform                                                                                                                                  | 8574  |
 | [Your Spotify](https://github.com/Yooooomi/your_spotify)                     | Self hosted Spotify tracking dashboard.                                                                                                                             | 8103  |
 | [ZeroTier](https://github.com/zerotier/ZeroTierOne)                          | Easy to use zero configuration VPN.                                                                                                                                 | 9993  |
 | [Zigbee2MQTT](https://github.com/Koenkk/zigbee2mqtt)                         | Zigbee to MQTT bridge                                                                                                                                               | 8290  |

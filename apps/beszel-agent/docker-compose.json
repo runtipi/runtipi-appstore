@@ -1,0 +1,22 @@
+{
+  "services": [
+    {
+      "name": "beszel-agent",
+      "image": "henrygd/beszel-agent:0.7.3",
+      "isMain": true,
+      "networkMode": "host",
+      "environment": {
+        "PORT": 45876,
+        "KEY": "${BESZEL_AGENT_KEY}",
+        "FILESYSTEM": "${BESZEL_AGENT_FILESYSTEM}"
+      },
+      "volumes": [
+        {
+          "hostPath": "/var/run/docker.sock",
+          "containerPath": "/var/run/docker.sock",
+          "readOnly": true
+        }
+      ]
+    }
+  ]
+}
