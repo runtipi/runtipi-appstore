@@ -14,13 +14,13 @@
   "source": "https://github.com/haugene/docker-transmission-openvpn",
   "form_fields": [
     {
-      "type": "numeric",
+      "type": "number",
       "label": "Container > UserID (UID)",
       "placeholder": "1000",
       "env_variable": "TRANSMISSION_PUID"
     },
     {
-      "type": "numeric",
+      "type": "number",
       "label": "Container > GroupID (PGID)",
       "placeholder": "1000",
       "env_variable": "TRANSMISSION_PGID"
