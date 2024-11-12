@@ -1,0 +1,25 @@
+{
+  "services": [
+    {
+      "name": "metabase",
+      "image": "metabase/metabase:v0.51.2",
+      "internalPort": 3000,
+      "isMain": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/metabase/data",
+          "containerPath": "/metabase-data"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/metabase/plugins",
+          "containerPath": "/plugins"
+        }
+      ],
+      "environment": {
+        "MGID": "${GID-1000}",
+        "MB_DB_FILE": "/metabase-data/metabase.db",
+        "JAVA_TIMEZONE": "${TZ}"
+      }
+    }
+  ]
+}

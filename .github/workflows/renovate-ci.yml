@@ -46,7 +46,7 @@ jobs:
         with:
           author_name: Tipi CI
           author_email: ci@runtipi.io
-          message: 'Update app version [ready]'
+          message: "Update app version [ready]"
           commit: --no-verify
           push: origin HEAD:${{ github.head_ref }}
 
@@ -92,7 +92,7 @@ jobs:
         run: pnpm test
 
       - name: Run linter
-        run: pnpm run lint
+        run: pnpm run lint:ci
 
       - name: Check bumped version
         id: check-bumped-version

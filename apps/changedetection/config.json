@@ -3,10 +3,11 @@
   "available": true,
   "port": 8257,
   "exposable": true,
+  "dynamic_config": true,
   "id": "changedetection",
   "description": "The best and simplest free open source website change detection, restock monitor and notification service.",
-  "tipi_version": 29,
-  "version": "0.46.04",
+  "tipi_version": 32,
+  "version": "0.47.05",
   "categories": ["utilities"],
   "short_desc": "Website change detection.",
   "author": "dgtlmoon",
@@ -15,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1725456676000
+  "updated_at": 1730916981000
 }

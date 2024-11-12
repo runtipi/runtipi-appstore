@@ -2,6 +2,15 @@
 
 This is the official repository for the Tipi App Store. It contains all the apps that are available for download on [Tipi](https://github.com/runtipi/runtipi).
 
+## How to get started
+
+1. Install **[Node.js](https://nodejs.org/en)** on your machine
+2. Install **[pnpm](https://pnpm.io/installation)** package manager
+3. Install dependencies (from the root of the project)
+```bash
+pnpm install
+```
+
 ## How to sumbit an app
 
 If you want to see new apps on Tipi you can either:
@@ -10,7 +19,7 @@ If you want to see new apps on Tipi you can either:
 - [Join the Discord](https://discord.gg/Bu9qEPnHsc) members of the community will add it.
 - Fork this repo and create the necessary files for a Tipi app. Follow this [guide](https://www.runtipi.io/docs/contributing/adding-a-new-app)`
 
-## Apps available (261)
+## Apps available (264)
 
 | Name                                                                         | Description                                                                                                                                                         | Port  |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
@@ -113,6 +122,7 @@ If you want to see new apps on Tipi you can either:
 | [HomeBox](https://github.com/sysadminsmedia/homebox)                         | Inventory and organization system.                                                                                                                                  | 7745  |
 | [Home Bridge](https://github.com/homebridge/homebridge)                      | HomeKit support for the impatient.                                                                                                                                  | 8581  |
 | [Homepage](https://github.com/gethomepage/homepage)                          | A highly customizable homepage                                                                                                                                      | 8756  |
+| [Homer](https://github.com/bastienwirtz/homer)                               | A very simple static homepage for your server                                                                                                                       | 8562  |
 | [Immich](https://github.com/immich-app/immich)                               | Photo and video backup solution directly from your mobile phone.                                                                                                    | 8128  |
 | [Inspircd](https://github.com/inspircd/inspircd)                             | A modular C++ IRC server.                                                                                                                                           | 6697  |
 | [Invidious](https://github.com/iv-org/invidious)                             | An alternative front-end to YouTube                                                                                                                                 | 8095  |
@@ -134,6 +144,7 @@ If you want to see new apps on Tipi you can either:
 | [Komga](https://github.com/gotson/komga)                                     | A media server for your comics, mangas, BDs, magazines and eBooks.                                                                                                  | 2560  |
 | [LibReddit](https://github.com/spikecodes/libreddit)                         | Browse reddit without problems!                                                                                                                                     | 8105  |
 | [LibrePhotos](https://github.com/LibrePhotos/librephotos)                    | Complete photo management service                                                                                                                                   | 8132  |
+| [LibreSpeed](https://github.com/librespeed/speedtest)                        | No Flash, No Java, No Websocket, No Garbage                                                                                                                         | 8084  |
 | [LibreTranslate](https://github.com/LibreTranslate/LibreTranslate)           | Free and Open Source Machine Translation API. 100% self-hosted, offline capable and easy to setup.                                                                  | 8121  |
 | [Lidarr](https://github.com/Lidarr/Lidarr)                                   | Looks and smells like Sonarr but made for music.                                                                                                                    | 8131  |
 | [Lidarr on Steroids](https://github.com/youegraillot/lidarr-on-steroids)     | Lidarr with some muscles thanks to deemix                                                                                                                           | 8186  |
@@ -263,6 +274,7 @@ If you want to see new apps on Tipi you can either:
 | [ViewTube](https://github.com/ViewTube/viewtube)                             | The open source, privacy-conscious way to enjoy your favorite YouTube content.                                                                                      | 8180  |
 | [Vikunja](https://kolaente.dev/vikunja)                                      | The Todo-app to organize your life.                                                                                                                                 | 8135  |
 | [Wallos](https://github.com/ellite/Wallos)                                   | Open-Source Personal Subscription Tracker                                                                                                                           | 8222  |
+| [WatchYourLAN](https://github.com/aceberg/WatchYourLAN)                      | Lightweight network IP scanner                                                                                                                                      | 8840  |
 | [Wekan](https://github.com/wekan/wekan)                                      | Open-Source, customizable, and privacy-focused kanban                                                                                                               | 8678  |
 | [Wireguard](https://github.com/wg-easy/wg-easy)                              | VPN server for your homeserver                                                                                                                                      | 8082  |
 | [Whisparr](https://github.com/Whisparr/Whisparr)                             | Adult movie collection manager.                                                                                                                                     | 6969  |
@@ -271,6 +283,7 @@ If you want to see new apps on Tipi you can either:
 | [Windows](https://github.com/dockur/windows/)                                | Full windows vm in your browser                                                                                                                                     | 8006  |
 | [Wizarr](https://github.com/Wizarrrr/wizarr)                                 | Wizarr is an automatic user invitation system for Plex and Jellyfin.                                                                                                | 5690  |
 | [WordPress](https://github.com/WordPress/WordPress)                          | Popular CMS for websites and blogs                                                                                                                                  | 8213  |
+| [WriteFreely](https://github.com/writefreely/writefreely)                    | Markdown-based publishing platform                                                                                                                                  | 8574  |
 | [Your Spotify](https://github.com/Yooooomi/your_spotify)                     | Self hosted Spotify tracking dashboard.                                                                                                                             | 8103  |
 | [ZeroTier](https://github.com/zerotier/ZeroTierOne)                          | Easy to use zero configuration VPN.                                                                                                                                 | 9993  |
 | [Zigbee2MQTT](https://github.com/Koenkk/zigbee2mqtt)                         | Zigbee to MQTT bridge                                                                                                                                               | 8290  |

@@ -1,0 +1,48 @@
+{
+  "$schema": "../compose-schema.json",
+  "services": [
+    {
+      "name": "ghost",
+      "image": "ghost:5.99.0",
+      "dependsOn": ["ghostdb"],
+      "internalPort": 2368,
+      "environment": {
+        "database__client": "mysql",
+        "database__connection__host": "ghostdb",
+        "database__connection__user": "tipi",
+        "database__connection__password": "${GHOST_DATABASE_PASSWORD}",
+        "database__connection__database": "ghosttipi",
+        "url": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
+        "mail__transport": "SMTP",
+        "mail__options__service": "${GHOST_MAIL_SERVICE}",
+        "mail__options__host": "${GHOST_MAIL_HOST}",
+        "mail__options__port": "${GHOST_MAIL_PORT}",
+        "mail__options__auth__user": "${GHOST_MAIL_USER}",
+        "mail__options__auth__pass": "${GHOST_MAIL_PASSWORD}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/content",
+          "containerPath": "/var/lib/ghost/content"
+        }
+      ],
+      "isMain": true
+    },
+    {
+      "name": "ghostdb",
+      "image": "mariadb:latest",
+      "environment": {
+        "MYSQL_ROOT_PASSWORD": "${GHOST_DATABASE_PASSWORD}",
+        "MYSQL_USER": "tipi",
+        "MYSQL_PASSWORD": "${GHOST_DATABASE_PASSWORD}",
+        "MYSQL_DATABASE": "ghosttipi"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/var/lib/mysql"
+        }
+      ]
+    }
+  ]
+}

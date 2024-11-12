@@ -1,0 +1,42 @@
+services:
+  metabase:
+    container_name: metabase
+    image: metabase/metabase:v0.51.2
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:3000
+    environment:
+      - MGID=${GID-1000}
+      - MB_DB_FILE=/metabase-data/metabase.db
+      - JAVA_TIMEZONE=${TZ}
+    volumes:
+      - ${APP_DATA_DIR}/data/metabase/data:/metabase-data
+      - ${APP_DATA_DIR}/data/metabase/plugins:/plugins
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.metabase-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.metabase.loadbalancer.server.port: 3000
+      # Web
+      traefik.http.routers.metabase-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.metabase-insecure.entrypoints: web
+      traefik.http.routers.metabase-insecure.service: metabase
+      traefik.http.routers.metabase-insecure.middlewares: metabase-web-redirect
+      # Websecure
+      traefik.http.routers.metabase.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.metabase.entrypoints: websecure
+      traefik.http.routers.metabase.service: metabase
+      traefik.http.routers.metabase.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.metabase-local-insecure.rule: Host(`metabase.${LOCAL_DOMAIN}`)
+      traefik.http.routers.metabase-local-insecure.entrypoints: web
+      traefik.http.routers.metabase-local-insecure.service: metabase
+      traefik.http.routers.metabase-local-insecure.middlewares: metabase-web-redirect
+      # Local domain secure
+      traefik.http.routers.metabase-local.rule: Host(`metabase.${LOCAL_DOMAIN}`)
+      traefik.http.routers.metabase-local.entrypoints: websecure
+      traefik.http.routers.metabase-local.service: metabase
+      traefik.http.routers.metabase-local.tls: true
+      runtipi.managed: true
