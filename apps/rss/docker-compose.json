@@ -5,7 +5,6 @@
             "image": "codeberg.org/danb/rss:v1.5.3",
             "isMain": true,
             "internalPort": 80,
-            "restart": "unless-stopped",
             "environment": {
                 "APP_NAME": "Tipi-RSS",
                 "APP_FEED_UPDATE_FREQUENCY": "35",
