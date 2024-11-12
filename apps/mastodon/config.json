@@ -7,7 +7,7 @@
   "force_expose": true,
   "generate_vapid_keys": true,
   "id": "mastodon",
-  "tipi_version": 25,
+  "tipi_version": 26,
   "version": "4.3.1",
   "categories": ["social"],
   "description": "Your self-hosted, globally interconnected microblogging community",
@@ -68,7 +68,7 @@
       "env_variable": "MASTODON_SMTP_LOGIN"
     },
     {
-      "type": "text",
+      "type": "password",
       "label": "SMTP Password",
       "hint": "Your SMTP Server Password",
       "required": true,
@@ -89,6 +89,27 @@
       "placeholder": "example.com",
       "required": true,
       "env_variable": "MASTODON_LOCAL_DOMAIN"
+    },
+    {
+      "type": "random",
+      "label": "Mastodon Active Record Encryption Deterministic Key",
+      "min": 32,
+      "max": 32,
+      "env_variable": "MASTODON_ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY"
+    },
+    {
+      "type": "random",
+      "label": "Mastodon Active Record Encryption Key",
+      "min": 32,
+      "max": 32,
+      "env_variable": "MASTODON_ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT"
+    },
+    {
+      "type": "random",
+      "label": "Mastodon Active Record Encryption Primary Key",
+      "min": 32,
+      "max": 32,
+      "env_variable": "MASTODON_ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],

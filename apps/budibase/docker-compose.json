@@ -1,0 +1,16 @@
+{
+  "services": [
+    {
+      "name": "budibase",
+      "image": "budibase/budibase:2.33.14",
+      "isMain": true,
+      "internalPort": 80,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}",
+          "containerPath": "/data"
+        }
+      ]
+    }
+  ]
+}
