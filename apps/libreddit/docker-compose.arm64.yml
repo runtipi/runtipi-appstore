@@ -1,0 +1,37 @@
+version: "3.7"
+services:
+  libreddit:
+    container_name: libreddit
+    image: libreddit/libreddit:latest-arm
+    dns:
+      - ${DNS_IP}
+    ports:
+      - ${APP_PORT}:8080
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.libreddit-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.libreddit.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.libreddit-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.libreddit-insecure.entrypoints: web
+      traefik.http.routers.libreddit-insecure.service: libreddit
+      traefik.http.routers.libreddit-insecure.middlewares: libreddit-web-redirect
+      # Websecure
+      traefik.http.routers.libreddit.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.libreddit.entrypoints: websecure
+      traefik.http.routers.libreddit.service: libreddit
+      traefik.http.routers.libreddit.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.libreddit-local-insecure.rule: Host(`libreddit.${LOCAL_DOMAIN}`)
+      traefik.http.routers.libreddit-local-insecure.entrypoints: web
+      traefik.http.routers.libreddit-local-insecure.service: libreddit
+      traefik.http.routers.libreddit-local-insecure.middlewares: libreddit-web-redirect
+      # Local domain secure
+      traefik.http.routers.libreddit-local.rule: Host(`libreddit.${LOCAL_DOMAIN}`)
+      traefik.http.routers.libreddit-local.entrypoints: websecure
+      traefik.http.routers.libreddit-local.service: libreddit
+      traefik.http.routers.libreddit-local.tls: true
