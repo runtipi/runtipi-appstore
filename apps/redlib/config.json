@@ -4,7 +4,7 @@
   "available": true,
   "exposable": true,
   "dynamic_config": true,
-  "port": 8105,
+  "port": 8501,
   "id": "redlib",
   "tipi_version": 1,
   "version": "latest",
