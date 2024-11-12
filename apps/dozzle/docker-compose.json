@@ -5,7 +5,6 @@
             "image": "amir20/dozzle:v8.6.2",
             "isMain": true,
             "internalPort": 8080,
-            "restart": "unless-stopped",
             "environment": {
                 "DOZZLE_NO_ANALYTICS": "${DOZZLE_NO_ANALYTICS:-true}",
                 "DOZZLE_AUTH_PROVIDER": "${DOZZLE_AUTH_PROVIDER:-none}",
