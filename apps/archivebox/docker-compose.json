@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "archivebox",
-      "image": "archivebox/archivebox:0.7.2",
+      "image": "archivebox/archivebox:0.7.4",
       "isMain": true,
       "internalPort": 8015,
       "environment": {
@@ -32,4 +32,3 @@
     }
   ]
 }
-
