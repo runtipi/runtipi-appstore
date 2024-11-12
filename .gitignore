@@ -3,7 +3,8 @@ package-lock.json
 github.secrets
 .DS_Store
 .nova
-.vscode/
+.vscode/*
+!.vscode/extensions.json
 /test-results/
 /playwright-report/
 /blob-report/
