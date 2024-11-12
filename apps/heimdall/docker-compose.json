@@ -5,7 +5,6 @@
       "image": "lscr.io/linuxserver/heimdall:2.6.1",
       "isMain": true,
       "internalPort": 80,
-      "restart": "unless-stopped",
       "environment": {
         "PUID": "1000",
         "PGID": "1000",
