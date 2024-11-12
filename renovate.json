@@ -1,11 +1,20 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"],
+  "extends": [
+    "config:recommended"
+  ],
   "rebaseWhen": "conflicted",
-  "gitIgnoredAuthors": ["githubaction@githubaction.com"],
+  "gitIgnoredAuthors": [
+    "githubaction@githubaction.com"
+  ],
   "dependencyDashboard": true,
-  "enabledManagers": ["docker-compose", "dockerfile"],
-  "labels": ["update-image"],
+  "enabledManagers": [
+    "docker-compose",
+    "dockerfile"
+  ],
+  "labels": [
+    "update-image"
+  ],
   "hostRules": [
     {
       "matchHost": "index.docker.io",
@@ -22,19 +31,25 @@
   ],
   "packageRules": [
     {
-      "managers": ["docker-compose", "dockerfile"],
-      "packagePatterns": [
-        "^([^\\/]+\\/)?(mysql|mariadb|mongodb|mongo|postgres|redis|clickhouse-server|clickhouse|nginx|couchdb|documentserver)(:|$)"
+      "matchManagers": [
+        "docker-compose",
+        "dockerfile"
       ],
-      "enabled": false
+      "enabled": false,
+      "matchPackageNames": [
+        "/^([^\\/]+\\/)?(mysql|mariadb|mongodb|mongo|postgres|redis|clickhouse-server|clickhouse|nginx|couchdb|documentserver)(:|$)/"
+      ]
     },
     {
-      "managers": ["docker-compose", "dockerfile"],
-      "packagePatterns": [
-        "^([^\\/]+\\/)?(immich-server|immich-proxy|immich-machine-learning|immich-web)(:|$)"
+      "matchManagers": [
+        "docker-compose",
+        "dockerfile"
       ],
       "automerge": false,
-      "groupName": "manual-merge-packages"
+      "groupName": "manual-merge-packages",
+      "matchPackageNames": [
+        "/^([^\\/]+\\/)?(immich-server|immich-proxy|immich-machine-learning|immich-web)(:|$)/"
+      ]
     }
   ]
 }
