@@ -1,7 +1,7 @@
 services:
   n8n-1:
     container_name: n8n-1
-    image: n8nio/n8n:1.49.0
+    image: n8nio/n8n:1.67.1
     restart: unless-stopped
     ports:
       - ${APP_PORT}:5678
@@ -68,7 +68,11 @@ services:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
       - ${APP_DATA_DIR}/data/init-data.sh:/docker-entrypoint-initdb.d/init-data.sh
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -h localhost -U $$POSTGRES_USER -d $$POSTGRES_DB']
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -h localhost -U $$POSTGRES_USER -d $$POSTGRES_DB",
+        ]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -76,7 +80,7 @@ services:
       runtipi.managed: true
   n8n-init:
     image: bash:5.2.37
-    command: ['sh', '-c', 'chown -R 1000:1000 /home/node/.n8n']
+    command: ["sh", "-c", "chown -R 1000:1000 /home/node/.n8n"]
     volumes:
       - ${APP_DATA_DIR}/data/n8n:/home/node/.n8n
     labels:

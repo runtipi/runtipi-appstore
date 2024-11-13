@@ -14,7 +14,7 @@
   "source": "https://github.com/wekan/wekan",
   "form_fields": [
     {
-      "type": "string",
+      "type": "email",
       "label": "Email Address",
       "max": 50,
       "min": 3,

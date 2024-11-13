@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   beszel:
-    image: henrygd/beszel:0.6.2
+    image: henrygd/beszel:0.8.0
     container_name: beszel
     restart: unless-stopped
     ports:
