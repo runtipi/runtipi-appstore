@@ -15,7 +15,7 @@
   "website": "https://www.zigbee2mqtt.io/",
   "form_fields": [
     {
-      "type": "string",
+      "type": "text",
       "label": "zigbee device path",
       "required": true,
       "hint": "/dev/ttyUSB0",
