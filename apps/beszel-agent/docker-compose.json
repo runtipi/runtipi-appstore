@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "beszel-agent",
-      "image": "henrygd/beszel-agent:0.6.2",
+      "image": "henrygd/beszel-agent:0.8.0",
       "isMain": true,
       "networkMode": "host",
       "environment": {
@@ -20,4 +20,3 @@
     }
   ]
 }
-
