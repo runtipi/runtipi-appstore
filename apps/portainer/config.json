@@ -6,8 +6,8 @@
   "exposable": true,
   "https": true,
   "id": "portainer",
-  "tipi_version": 27,
-  "version": "2.23.0-alpine",
+  "tipi_version": 28,
+  "version": "2.24.0-alpine",
   "categories": ["utilities"],
   "description": "",
   "short_desc": "Making Docker and Kubernetes management easy.",
@@ -16,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1729322327000
+  "updated_at": 1731485765000
 }
