@@ -1,29 +1,29 @@
 {
-    "services": [
+  "services": [
+    {
+      "name": "audiobookshelf",
+      "image": "ghcr.io/advplyr/audiobookshelf:2.16.2",
+      "isMain": true,
+      "internalPort": 80,
+      "restart": "unless-stopped",
+      "volumes": [
         {
-            "name": "audiobookshelf",
-            "image": "ghcr.io/advplyr/audiobookshelf:2.15.1",
-            "isMain": true,
-            "internalPort": 80,
-            "restart": "unless-stopped",
-            "volumes": [
-                {
-                    "hostPath": "${ROOT_FOLDER_HOST}/media/data/books/spoken",
-                    "containerPath": "/audiobooks"
-                },
-                {
-                    "hostPath": "${ROOT_FOLDER_HOST}/media/data/podcasts",
-                    "containerPath": "/podcasts"
-                },
-                {
-                    "hostPath": "${APP_DATA_DIR}/data/config",
-                    "containerPath": "/config"
-                },
-                {
-                    "hostPath": "${APP_DATA_DIR}/data/metadata",
-                    "containerPath": "/metadata"
-                }
-            ]
+          "hostPath": "${ROOT_FOLDER_HOST}/media/data/books/spoken",
+          "containerPath": "/audiobooks"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/data/podcasts",
+          "containerPath": "/podcasts"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/config"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/metadata",
+          "containerPath": "/metadata"
         }
-    ]
+      ]
+    }
+  ]
 }
