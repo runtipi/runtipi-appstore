@@ -22,4 +22,5 @@ This is the unified client for Notifiarr.com. The client enables content request
     - Discord Cleanup
 
 ## Docs
+POST INSTALLATION VIEW LOGS FOR USERNAME AND PASSWORD
 Documentation is available here: [notifiarr.wiki](https://notifiarr.wiki/en/Client/Main).
