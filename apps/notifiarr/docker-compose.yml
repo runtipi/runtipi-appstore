@@ -8,8 +8,6 @@ services:
       - PGID=1000
       - TZ=${TZ}
       - DN_API_KEY=${DN_API_KEY}
-      - DN_QUIET=true
-      - DN_LOG_FILE=/config/log
     dns:
       - ${DNS_IP}
     volumes:
