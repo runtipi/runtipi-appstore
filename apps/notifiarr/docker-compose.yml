@@ -1,0 +1,50 @@
+version: "3.7"
+services:
+  notifiarr:
+    image: golift/notifiarr
+    container_name: notifiarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+      - DN_API_KEY=${DN_API_KEY}
+      - DN_QUIET=true
+      - DN_LOG_FILE=/config/log
+    dns:
+      - ${DNS_IP}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${APP_DATA_DIR}/data:/config
+      - /var/run/utmp:/var/run/utmp
+      - /etc/machine-id:/etc/machine-id
+    ports:
+      - ${APP_PORT}:5454
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.notifiarr-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.notifiarr.loadbalancer.server.port: 5454
+      # Web
+      traefik.http.routers.notifiarr-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.notifiarr-insecure.entrypoints: web
+      traefik.http.routers.notifiarr-insecure.service: notifiarr
+      traefik.http.routers.notifiarr-insecure.middlewares: notifiarr-web-redirect
+      # Websecure
+      traefik.http.routers.notifiarr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.notifiarr.entrypoints: websecure
+      traefik.http.routers.notifiarr.service: notifiarr
+      traefik.http.routers.notifiarr.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.notifiarr-local-insecure.rule: Host(`notifiarr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.notifiarr-local-insecure.entrypoints: web
+      traefik.http.routers.notifiarr-local-insecure.service: notifiarr
+      traefik.http.routers.notifiarr-local-insecure.middlewares: notifiarr-web-redirect
+      # Local domain secure
+      traefik.http.routers.notifiarr-local.rule: Host(`notifiarr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.notifiarr-local.entrypoints: websecure
+      traefik.http.routers.notifiarr-local.service: notifiarr
+      traefik.http.routers.notifiarr-local.tls: true
+      runtipi.managed: true
