@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 32400,
   "id": "plex",
-  "tipi_version": 31,
-  "version": "1.41.1",
+  "tipi_version": 32,
+  "version": "1.41.2",
   "url_suffix": "/web",
   "categories": ["media"],
   "description": "",
@@ -16,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1729800486000
+  "updated_at": 1731633205000
 }
