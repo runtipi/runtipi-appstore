@@ -32,8 +32,6 @@ services:
         condition: service_healthy
     environment:
       <<: *cenv
-    ports:
-      - "8090:8090"
     networks:
       - tipi_main_network
     labels:
