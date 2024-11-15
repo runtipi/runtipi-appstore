@@ -14,7 +14,7 @@ services:
     ports:
       - 7700:7700
     volumes:
-      - ${APP_DATA_DIR}/data/search:/meili_data
+      - ${APP_DATA_DIR}/data/search/data.ms:/meili_data/data.ms
     restart: unless-stopped
     healthcheck:
       test: curl --fail http://localhost:7700/health || exit 1
@@ -42,7 +42,7 @@ services:
       runtipi.managed: true
     restart: unless-stopped
     volumes:
-      - ${APP_DATA_DIR}/data/database:/pb_data
+      - ${APP_DATA_DIR}/data/database/pb_data:/pb_data
   wanderer:
     container_name: wanderer
     image: flomp/wanderer-web
@@ -56,13 +56,13 @@ services:
       ORIGIN: http://${APP_DOMAIN}
       BODY_SIZE_LIMIT: Infinity
       PUBLIC_POCKETBASE_URL: http://wanderer-db:8090
-      PUBLIC_DISABLE_SIGNUP: ${PUBLIC_SIGNUP}
+      PUBLIC_DISABLE_SIGNUP: ${PUBLIC_SIGNUP:-false}
       UPLOAD_FOLDER: /app/uploads
       UPLOAD_USER:
       UPLOAD_PASSWORD:
       PUBLIC_VALHALLA_URL: https://valhalla1.openstreetmap.de
     volumes:
-      - ${APP_DATA_DIR}/data:/app/uploads
+      - ${APP_DATA_DIR}/data/uploads:/app/uploads
     ports:
       - "8300:3000"
     restart: unless-stopped
