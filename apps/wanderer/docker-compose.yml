@@ -29,7 +29,7 @@ services:
     container_name: wanderer-db
     image: flomp/wanderer-db
     depends_on:
-      search:
+      wanderer-search:
         condition: service_healthy
     environment:
       <<: *cenv
@@ -46,9 +46,9 @@ services:
     container_name: wanderer-web
     image: flomp/wanderer-web
     depends_on:
-      search:
+      wanderer-search:
         condition: service_healthy
-      db:
+      wanderer-db:
         condition: service_started
     environment:
       <<: *cenv
