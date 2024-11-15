@@ -1,0 +1,32 @@
+{
+  "name": "Wanderer",
+  "id": "wanderer",
+  "available": true,
+  "short_desc": "Self-hosted trail database.",
+  "author": "Flomp",
+  "port": 8300,
+  "categories": ["social", "photography"],
+  "description": "Wanderer is a self-hosted trail database. You can upload your recorded tracks or create new ones and add various metadata to build an easily searchable catalogue.",
+  "tipi_version": 1,
+  "version": "v0.10.0",
+  "source": "https://github.com/Flomp/wanderer",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1731610405319,
+  "updated_at": 1731610405319,
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Meili Master Key",
+      "min": 32,
+      "required": true,
+      "env_variable": "MEILI_MASTER_KEY"
+    },
+    {
+      "type": "boolean",
+      "label": "Allow public signups",
+      "required": false,
+      "env_variable": "PUBLIC_SIGNUP"
+    }
+  ]
+}

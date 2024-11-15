@@ -1,0 +1,94 @@
+version: '3'
+
+x-common-env: &cenv
+  MEILI_URL: http://wanderer-search:7700
+  MEILI_MASTER_KEY: "${MEILI_MASTER_KEY}"
+
+services:
+  wanderer-search:
+    image: flomp/wanderer-search
+    environment:
+      <<: *cenv
+      MEILI_NO_ANALYTICS: true
+    ports:
+      - 7700:7700
+    volumes:
+      - ${APP_DATA_DIR}/data/search:/meili_data
+    restart: unless-stopped
+    healthcheck:
+      test: curl --fail http://localhost:7700/health || exit 1
+      interval: 15s
+      retries: 10
+      start_period: 20s
+      timeout: 10s
+    networks:
+      - tipi_main_network
+    labels:
+      runtipi.managed: true
+  wanderer-db:
+    container_name: wanderer-db
+    image: flomp/wanderer-db
+    depends_on:
+      search:
+        condition: service_healthy
+    environment:
+      <<: *cenv
+    ports:
+      - "8090:8090"
+    networks:
+      - tipi_main_network
+    labels:
+      runtipi.managed: true
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/database:/pb_data
+  wanderer:
+    container_name: wanderer-web
+    image: flomp/wanderer-web
+    depends_on:
+      search:
+        condition: service_healthy
+      db:
+        condition: service_started
+    environment:
+      <<: *cenv
+      ORIGIN: http://${APP_DOMAIN}
+      BODY_SIZE_LIMIT: Infinity
+      PUBLIC_POCKETBASE_URL: http://wanderer-db:8090
+      PUBLIC_DISABLE_SIGNUP: ${PUBLIC_SIGNUP}
+      UPLOAD_FOLDER: /app/uploads
+      UPLOAD_USER:
+      UPLOAD_PASSWORD:
+      PUBLIC_VALHALLA_URL: https://valhalla1.openstreetmap.de
+    volumes:
+      - ${APP_DATA_DIR}/data:/app/uploads
+    ports:
+      - "8300:3000"
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.wanderer-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.wanderer.loadbalancer.server.port: 3000
+      # Web
+      traefik.http.routers.wanderer-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wanderer-insecure.entrypoints: web
+      traefik.http.routers.wanderer-insecure.service: wanderer
+      traefik.http.routers.wanderer-insecure.middlewares: wanderer-web-redirect
+      # Websecure
+      traefik.http.routers.wanderer.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wanderer.entrypoints: websecure
+      traefik.http.routers.wanderer.service: wanderer
+      traefik.http.routers.wanderer.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.wanderer-local-insecure.rule: Host(`wanderer.${LOCAL_DOMAIN}`)
+      traefik.http.routers.wanderer-local-insecure.entrypoints: web
+      traefik.http.routers.wanderer-local-insecure.service: wanderer
+      traefik.http.routers.wanderer-local-insecure.middlewares: wanderer-web-redirect
+      # Local domain secure
+      traefik.http.routers.wanderer-local.rule: Host(`wanderer.${LOCAL_DOMAIN}`)
+      traefik.http.routers.wanderer-local.entrypoints: websecure
+      traefik.http.routers.wanderer-local.service: wanderer
+      traefik.http.routers.wanderer-local.tls: true
