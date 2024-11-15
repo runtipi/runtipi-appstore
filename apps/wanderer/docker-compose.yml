@@ -11,8 +11,6 @@ services:
     environment:
       <<: *cenv
       MEILI_NO_ANALYTICS: true
-    ports:
-      - 7700:7700
     volumes:
       - ${APP_DATA_DIR}/data/search/data.ms:/meili_data/data.ms
     restart: unless-stopped
@@ -54,7 +52,7 @@ services:
     environment:
       <<: *cenv
       ORIGIN: http://${APP_DOMAIN}
-      BODY_SIZE_LIMIT: Infinity
+      BODY_SIZE_LIMIT: 100MB
       PUBLIC_POCKETBASE_URL: http://wanderer-db:8090
       PUBLIC_DISABLE_SIGNUP: ${PUBLIC_SIGNUP:-false}
       UPLOAD_FOLDER: /app/uploads

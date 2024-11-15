@@ -18,7 +18,7 @@
         }
       ],
       "healthCheck": {
-        "test": "curl --fail http://localhost:7701/health || exit 1",
+        "test": "curl --fail http://localhost:7700/health || exit 1",
         "retries": 10,
         "interval": "15s",
         "timeout": "30s",
@@ -36,7 +36,7 @@
         }
       },
       "environment": {
-        "MEILI_URL": "https://wanderer-search:7700",
+        "MEILI_URL": "http://wanderer-search:7700",
         "MEILI_MASTER_KEY": "${MEILI_MASTER_KEY}"
       },
       "volumes": [
@@ -61,10 +61,10 @@
         }
       },
       "environment": {
-        "MEILI_URL": "https://wanderer-search:7700",
+        "MEILI_URL": "http://wanderer-search:7700",
         "MEILI_MASTER_KEY": "${MEILI_MASTER_KEY}",
         "ORIGIN": "http://${APP_DOMAIN}",
-        "BODY_SIZE_LIMIT": "Infinity",
+        "BODY_SIZE_LIMIT": "100MB",
         "PUBLIC_POCKETBASE_URL": "http://wanderer-db:8090",
         "PUBLIC_DISABLE_SIGNUP": "${PUBLIC_SIGNUP}",
         "UPLOAD_FOLDER": "/app/uploads",
