@@ -12,8 +12,8 @@
       },
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/data/search",
-          "containerPath": "/meili_data",
+          "hostPath": "${APP_DATA_DIR}/data/search/data.ms",
+          "containerPath": "/meili_data/data.ms",
           "readOnly": false
         }
       ],
@@ -21,7 +21,7 @@
         "test": "curl --fail http://localhost:7701/health || exit 1",
         "retries": 10,
         "interval": "15s",
-        "timeout": "10s",
+        "timeout": "30s",
         "start_period": "20s"
       }
     },
@@ -41,7 +41,7 @@
       },
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/data/database",
+          "hostPath": "${APP_DATA_DIR}/data/database/pb_data",
           "containerPath": "/pb_data",
           "readOnly": false
         }
@@ -63,7 +63,7 @@
       "environment": {
         "MEILI_URL": "https://wanderer-search:7700",
         "MEILI_MASTER_KEY": "${MEILI_MASTER_KEY}",
-        "ORIGIN": "http://${APP_DOMAIN}:8300",
+        "ORIGIN": "http://${APP_DOMAIN}",
         "BODY_SIZE_LIMIT": "Infinity",
         "PUBLIC_POCKETBASE_URL": "http://wanderer-db:8090",
         "PUBLIC_DISABLE_SIGNUP": "${PUBLIC_SIGNUP}",
@@ -74,7 +74,7 @@
       },
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/data",
+          "hostPath": "${APP_DATA_DIR}/data/uploads",
           "containerPath": "/app/uploads",
           "readOnly": false
         }
