@@ -19,7 +19,6 @@
       "type": "random",
       "label": "Meili Master Key",
       "min": 32,
-      "required": true,
       "env_variable": "MEILI_MASTER_KEY"
     },
     {
