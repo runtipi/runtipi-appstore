@@ -1,4 +1,4 @@
-version: '3'
+version: "3.7"
 
 x-common-env: &cenv
   MEILI_URL: http://wanderer-search:7700
@@ -6,6 +6,7 @@ x-common-env: &cenv
 
 services:
   wanderer-search:
+    container_name: wanderer-search
     image: flomp/wanderer-search
     environment:
       <<: *cenv
@@ -20,7 +21,7 @@ services:
       interval: 15s
       retries: 10
       start_period: 20s
-      timeout: 10s
+      timeout: 30s
     networks:
       - tipi_main_network
     labels:
@@ -43,7 +44,7 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/database:/pb_data
   wanderer:
-    container_name: wanderer-web
+    container_name: wanderer
     image: flomp/wanderer-web
     depends_on:
       wanderer-search:
