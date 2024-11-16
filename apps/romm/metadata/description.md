@@ -1,15 +1,3 @@
-<div align="center">
-
-  <img src="https://github.com/rommapp/romm/raw/release/.github/resources/romm_complete.png" height="220px" width="auto" alt="romm logo">
-
-  <h3 style="font-size: 25px;">
-    A beautiful, powerful, self-hosted rom manager.
-  </h3>
-  <br/>
-
-  </div>
-</div>
-
 # Overview
 
 RomM (ROM Manager) allows you to scan, enrich, and browse your game collection with a clean and responsive interface. With support for multiple platforms, various naming schemes, and custom tags, RomM is a must-have for anyone who plays on emulators.
@@ -24,8 +12,6 @@ RomM (ROM Manager) allows you to scan, enrich, and browse your game collection w
 - Detects and groups **multifile games** (e.g. PS1 games with multiple CDs)
 - Can parse tags in filenames (e.g. (E), (USA), (rev v1), etc.)
 - View, upload, update, and delete games from any modern web browser
-
-# Configuration
 
 ## Folder Structure
 
@@ -104,7 +90,6 @@ As mentioned in the installation section, RomM requires a specific folder struct
  </tr>
 </table>
 
-> [!TIP]
 > For folder naming conventions, review the Platform Supportplatform-support section. To override default system names in the folder structure (if your directories are named differently), see the Configuration File section.
 
 ## Configuration File
@@ -114,8 +99,6 @@ RomM's "understanding" of your library can be configured with a `config.yaml` fi
 ## Scheduler
 
 The scheduler allows you to schedule async tasks that run in the Redis container at regular intervals. Jobs can be run at a specific time in the future, after a time delta, or at recurring internals using cron notation. The wiki page on the scheduler has more information on which tasks are available and how to enable them.
-
-# Naming Convention
 
 ## Platform Support
 
