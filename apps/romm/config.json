@@ -12,6 +12,7 @@
   "short_desc": "Your beautiful, powerful, self-hosted rom manager.",
   "author": "rommapp",
   "source": "https://github.com/rommapp/romm",
+  "website": "https://romm.app",
   "form_fields": [
     {
       "type": "random",
