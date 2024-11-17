@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "homeassistant-1",
-  "tipi_version": 37,
-  "version": "2024.10.4",
+  "tipi_version": 39,
+  "version": "2024.11.2",
   "categories": ["automation"],
   "description": "Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server.",
   "short_desc": "Open source home automation that puts local control and privacy first",
@@ -15,5 +15,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1729903860000
+  "updated_at": 1731707290000
 }

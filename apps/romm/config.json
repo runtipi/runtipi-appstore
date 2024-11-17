@@ -5,43 +5,60 @@
   "available": true,
   "exposable": true,
   "id": "romm",
-  "tipi_version": 13,
-  "version": "2.3.1",
+  "tipi_version": 15,
+  "version": "3.5.1",
   "categories": ["gaming"],
-  "description": "RomM (Rom Manager) is a web based retro roms manager integrated with IGDB.",
-  "short_desc": "RomM (Rom Manager) is a web based retro roms manager integrated with IGDB.",
-  "author": "Zurdi15",
-  "source": "https://github.com/zurdi15/romm",
+  "description": "RomM (ROM Manager) allows you to scan, enrich, and browse your game collection with a clean and responsive interface. With support for multiple platforms, various naming schemes, and custom tags, RomM is a must-have for anyone who plays on emulators.",
+  "short_desc": "Your beautiful, powerful, self-hosted rom manager.",
+  "author": "rommapp",
+  "source": "https://github.com/rommapp/romm",
+  "website": "https://romm.app",
   "form_fields": [
     {
       "type": "random",
-      "label": "ROMM_MYSQL_PASSWORD",
+      "label": "RomM MySQL Password",
       "min": 32,
       "env_variable": "ROMM_MYSQL_PASSWORD"
     },
     {
+      "type": "random",
+      "label": "RomM MySQL Root Password",
+      "min": 32,
+      "env_variable": "ROMM_MYSQL_ROOT_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "RomM Auth Secret Key",
+      "min": 32,
+      "env_variable": "ROMM_AUTH_SECRET_KEY"
+    },
+    {
       "type": "text",
       "label": "IGDB Client ID",
-      "hint": "IGDB Client ID",
-      "required": true,
+      "required": false,
       "env_variable": "ROMM_IGDB_CLIENT_ID"
     },
     {
-      "type": "text",
+      "type": "password",
       "label": "IGDB Client Secret",
-      "hint": "IGDB Client Secret",
-      "required": true,
+      "required": false,
       "env_variable": "ROMM_IGDB_CLIENT_SECRET"
     },
     {
-      "type": "text",
-      "label": "Steam Grid DB API",
-      "hint": "Steam Grid DB API",
+      "type": "password",
+      "label": "MobyGames API Key",
+      "required": false,
+      "env_variable": "ROMM_RAWG_API_KEY"
+    },
+    {
+      "type": "password",
+      "label": "SteamGrid Database API Key",
+      "hint": "SteamGrid Database API Key",
       "required": false,
       "env_variable": "ROMM_STEAMGRIDDB_API_KEY"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566284000
+  "updated_at": 1731776920463
 }
