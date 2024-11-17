@@ -9,7 +9,7 @@
         {
           "hostPort": 6881,
           "containerPort": 6881,
-          "tcp": true
+          "tcp": true,
           "udp": true
         }
       ],
