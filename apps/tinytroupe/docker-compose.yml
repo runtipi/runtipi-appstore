@@ -1,0 +1,58 @@
+version: '3.7'
+
+services:
+  tinytroupe:
+    container_name: tinytroupe
+    image: python:3.10-slim # Use a Python base image
+    ports:
+      - ${APP_PORT}:8000
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    environment:
+      # Base configuration for TinyTroupe
+      LOCAL_AI_BASE_URL: http://192.168.1.12:8111/v1
+      LOCAL_AI_MODEL: gpt-4-like-model
+      APP_PORT: 8000
+      APP_DOMAIN: ${APP_DOMAIN}
+    volumes:
+      # Persistent volume for TinyTroupe data
+      - ${APP_DATA_DIR}/data/tinytroupe-data:/app/data
+    labels:
+      # Main Traefik Configuration
+      traefik.enable: true
+      traefik.http.middlewares.tinytroupe-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.tinytroupe.loadbalancer.server.port: 8000
+      # Web Insecure
+      traefik.http.routers.tinytroupe-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.tinytroupe-insecure.entrypoints: web
+      traefik.http.routers.tinytroupe-insecure.service: tinytroupe
+      traefik.http.routers.tinytroupe-insecure.middlewares: tinytroupe-web-redirect
+      # Web Secure
+      traefik.http.routers.tinytroupe.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.tinytroupe.entrypoints: websecure
+      traefik.http.routers.tinytroupe.service: tinytroupe
+      traefik.http.routers.tinytroupe.tls.certresolver: myresolver
+      # Local Domain Insecure
+      traefik.http.routers.tinytroupe-local-insecure.rule: Host(`tinytroupe.${LOCAL_DOMAIN}`)
+      traefik.http.routers.tinytroupe-local-insecure.entrypoints: web
+      traefik.http.routers.tinytroupe-local-insecure.service: tinytroupe
+      traefik.http.routers.tinytroupe-local-insecure.middlewares: tinytroupe-web-redirect
+      # Local Domain Secure
+      traefik.http.routers.tinytroupe-local.rule: Host(`tinytroupe.${LOCAL_DOMAIN}`)
+      traefik.http.routers.tinytroupe-local.entrypoints: websecure
+      traefik.http.routers.tinytroupe-local.service: tinytroupe
+      traefik.http.routers.tinytroupe-local.tls: true
+      # Managed by Runtipi
+      runtipi.managed: true
+    command:
+      # Install and run TinyTroupe
+      sh -c "
+        pip install git+https://github.com/microsoft/tinytroupe.git && 
+        python -m tinytroupe --host=0.0.0.0 --port=8000
+      "
+
+networks:
+  tipi_main_network:
+    external: true
+

@@ -1,0 +1,18 @@
+{
+  "$schema": "../schema.json",
+  "name": "TinyTroupe",
+  "available": true,
+  "exposable": true,
+  "port":8000 ,
+  "id": "tinytroupe",
+  "tipi_version": 5,
+  "version": "latest",
+  "categories": [
+    "social"
+  ],
+  "description": "TinyTroupe is an experimental Python library that allows the simulation of people with specific personalities, interests, and goals. These artificial agents - TinyPersons - can listen to us and one another, reply back, and go about their lives in simulated TinyWorld environments. This is achieved by leveraging the power of Large Language Models (LLMs), notably GPT-4, to generate realistic simulated behavior. This allow us to investigate a wide range of convincing interactions and consumer types, with highly customizable personas, under conditions of our choosing.",
+  "short_desc": "LLM-powered multiagent persona simulation for imagination enhancement and business insights.",
+  "author": "The Tiny Madness",
+  "source": "https://github.com/microsoft/TinyTroupe",
+  "supported_architectures": ["arm64", "amd64"]
+}
