@@ -7,7 +7,7 @@
       "internalPort": 5000,
       "environment": {
         "GRAMPSWEB_TREE": "${GRAMPSWEB_TREE}",
-        "GUNICORN_NUM_WORKERS": 1
+        "GUNICORN_NUM_WORKERS": "1"
       },
       "volumes": [
         {
