@@ -2,8 +2,7 @@
   "services": [
     {
       "name": "notemark",
-      "image": "ghcr.io/enchant97/note-mark-frontend:0.14.1",
-      "isMain": true
+      "image": "ghcr.io/enchant97/note-mark-frontend:0.14.1"
     },
     {
       "name": "notemark-backend",
@@ -22,6 +21,7 @@
     {
       "name": "notemark-proxy",
       "image": "nginx:alpine",
+      "isMain": true,
       "internalPort": 80,
       "volumes": [
         {
