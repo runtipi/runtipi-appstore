@@ -1,0 +1,38 @@
+{
+  "$schema": "../schema.json",
+  "name": "Test_Wallabag",
+  "port": 8198,
+  "available": true,
+  "exposable": true,
+  "id": "wallabag",
+  "tipi_version": 21,
+  "version": "2.6.2",
+  "categories": ["data"],
+  "description": "A self-hosted, open-source collaborative bookmark manager to collect, organize and archive webpages.",
+  "short_desc": "A self-hosted, open-source collaborative bookmark manager",
+  "author": "Linkwarden",
+  "source": "https://github.com/linkwarden/linkwarden",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Linkwarden DB Password",
+      "min": 32,
+      "env_variable": "LINKWARDEN_DB_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Linkwarden Nextauth Secret",
+      "min": 32,
+      "env_variable": "LINKWARDEN_NEXTAUTH_SECRET"
+    },
+    {
+      "type": "boolean",
+      "label": "Disable Registration",
+      "hint": "Needed for at least one user. If on registration will be disabled.",
+      "required": false,
+      "default": "false",
+      "env_variable": "LINKWARDEN_NEXT_PUBLIC_DISABLE_REGISTRATION"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}
