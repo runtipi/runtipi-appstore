@@ -1,6 +1,6 @@
 {
   "$schema": "../schema.json",
-  "name": "Test_Wallabag",
+  "name": "Wallabag",
   "port": 8198,
   "available": true,
   "exposable": true,
@@ -8,31 +8,30 @@
   "tipi_version": 21,
   "version": "2.6.2",
   "categories": ["data"],
-  "description": "A self-hosted, open-source collaborative bookmark manager to collect, organize and archive webpages.",
-  "short_desc": "A self-hosted, open-source collaborative bookmark manager",
-  "author": "Linkwarden",
-  "source": "https://github.com/linkwarden/linkwarden",
+  "description": "A self-hosted, open-source application to save and organize web content.",
+  "short_desc": "Save and organize web content",
+  "author": "Wallabag",
+  "source": "https://github.com/wallabag/docker",
   "form_fields": [
     {
       "type": "random",
-      "label": "Linkwarden DB Password",
+      "label": "Database Password",
       "min": 32,
-      "env_variable": "LINKWARDEN_DB_PASSWORD"
+      "env_variable": "WALLABAG_DB_PASSWORD"
     },
     {
-      "type": "random",
-      "label": "Linkwarden Nextauth Secret",
-      "min": 32,
-      "env_variable": "LINKWARDEN_NEXTAUTH_SECRET"
+      "type": "string",
+      "label": "Wallabag Email",
+      "hint": "Email address for Wallabag notifications.",
+      "env_variable": "SYMFONY__ENV__FROM_EMAIL"
     },
     {
-      "type": "boolean",
-      "label": "Disable Registration",
-      "hint": "Needed for at least one user. If on registration will be disabled.",
-      "required": false,
-      "default": "false",
-      "env_variable": "LINKWARDEN_NEXT_PUBLIC_DISABLE_REGISTRATION"
+      "type": "string",
+      "label": "Domain Name",
+      "hint": "Domain name for Wallabag instance.",
+      "env_variable": "SYMFONY__ENV__DOMAIN_NAME"
     }
   ],
   "supported_architectures": ["arm64", "amd64"]
 }
+
