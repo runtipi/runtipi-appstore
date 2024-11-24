@@ -1,0 +1,18 @@
+{
+  "name": "pyLoad",
+  "id": "pyload",
+  "available": true,
+  "short_desc": "Download Manager.",
+  "author": "pyLoad team",
+  "port": 37691,
+  "categories": ["utilities"],
+  "description": "The free and open-source Download Manager written in pure Python.",
+  "tipi_version": 1,
+  "version": "v0.5.0",
+  "source": "https://github.com/pyload/pyload",
+  "website": "https://pyload.net/",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1732485414207,
+  "updated_at": 1732485414207
+}
