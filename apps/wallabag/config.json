@@ -1,5 +1,4 @@
 {
-  "$schema": "../schema.json",
   "name": "Wallabag",
   "port": 8198,
   "available": true,
