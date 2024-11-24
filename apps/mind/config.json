@@ -4,8 +4,9 @@
   "port": 8143,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "mind",
-  "tipi_version": 8,
+  "tipi_version": 9,
   "version": "1.4.0",
   "categories": ["utilities"],
   "description": "A simple self hosted reminder platform that uses push to send notifications to your device. Set the reminder and forget about it!",
@@ -15,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566284000
+  "updated_at": 1729872770452
 }

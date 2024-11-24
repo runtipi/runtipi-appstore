@@ -4,8 +4,9 @@
   "port": 8768,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "dockge",
-  "tipi_version": 10,
+  "tipi_version": 11,
   "version": "1.4.2",
   "categories": ["utilities"],
   "description": "A fancy, easy-to-use and reactive self-hosted docker compose.yaml stack-oriented manager.",
@@ -15,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566283000
+  "updated_at": 1729872633727
 }

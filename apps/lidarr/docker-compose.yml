@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   lidarr:
-    image: ghcr.io/linuxserver/lidarr:2.5.3
+    image: ghcr.io/linuxserver/lidarr:2.7.1
     container_name: lidarr
     environment:
       - PUID=1000
