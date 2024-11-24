@@ -1,6 +1,6 @@
 {
   "name": "Wallabag",
-  "port": 8198,
+  "port": 8119,
   "available": true,
   "exposable": true,
   "id": "wallabag",
