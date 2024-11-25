@@ -5,7 +5,7 @@
   "available": true,
   "exposable": true,
   "id": "stirling-pdf",
-  "tipi_version": 52,
+  "tipi_version": 53,
   "version": "0.33.1",
   "categories": ["data", "utilities"],
   "description": "Locally hosted web application that allows you to perform various operations on PDF files.",
