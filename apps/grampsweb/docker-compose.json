@@ -2,12 +2,12 @@
   "services": [
     {
       "name": "grampsweb",
-      "image": "ghcr.io/gramps-project/grampsweb:v24.10.0",
+      "image": "ghcr.io/gramps-project/grampsweb:v24.11.0",
       "isMain": true,
       "internalPort": 5000,
       "environment": {
         "GRAMPSWEB_TREE": "${GRAMPSWEB_TREE}",
-        "GUNICORN_NUM_WORKERS": 1
+        "GUNICORN_NUM_WORKERS": "1"
       },
       "volumes": [
         {
