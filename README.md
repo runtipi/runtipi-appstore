@@ -11,7 +11,8 @@
 >
 > You can still follow this guide and add your custom apps to your own instance through the appsRepoUrl property in the settings.json file.
 >
-> This is the official repository for the Tipi App Store. It contains all the apps that are available for download on [Tipi](https://github.com/runtipi/runtipi).
+
+This is the official repository for the Tipi App Store. It contains all the apps that are available for download on [Tipi](https://github.com/runtipi/runtipi).
 
 ## How to get started
 
