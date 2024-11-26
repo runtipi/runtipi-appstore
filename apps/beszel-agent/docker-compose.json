@@ -2,13 +2,12 @@
   "services": [
     {
       "name": "beszel-agent",
-      "image": "henrygd/beszel-agent:0.7.4",
+      "image": "henrygd/beszel-agent:0.8.0",
       "isMain": true,
       "networkMode": "host",
       "environment": {
         "PORT": 45876,
-        "KEY": "${BESZEL_AGENT_KEY}",
-        "FILESYSTEM": "${BESZEL_AGENT_FILESYSTEM}"
+        "KEY": "${BESZEL_AGENT_KEY}"
       },
       "volumes": [
         {

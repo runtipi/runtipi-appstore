@@ -8,8 +8,8 @@
   "port": 45876,
   "categories": ["utilities"],
   "description": "This is the agent software for the Beszel app.",
-  "tipi_version": 13,
-  "version": "0.7.4",
+  "tipi_version": 15,
+  "version": "0.8.0",
   "source": "https://github.com/henrygd/beszel",
   "exposable": false,
   "dynamic_config": true,
@@ -23,16 +23,9 @@
       "max": 80,
       "required": true,
       "env_variable": "BESZEL_AGENT_KEY"
-    },
-    {
-      "type": "text",
-      "label": "Filesystem",
-      "hint": "You can specify a filesystem like /dev/sda1 for accurate disk usage.",
-      "required": false,
-      "env_variable": "BESZEL_AGENT_FILESYSTEM"
     }
   ],
   "no_gui": true,
   "created_at": 1724537201221,
-  "updated_at": 1731437486000
+  "updated_at": 1731471333000
 }
