@@ -8,9 +8,8 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
-      PORT: 45876
-      KEY: ${BESZEL_AGENT_KEY}
-      FILESYSTEM: ${BESZEL_AGENT_FILESYSTEM}
+      - PORT=45876
+      - KEY=${BESZEL_AGENT_KEY}
     labels:
       # Disable traefik
       traefik.enable: false
