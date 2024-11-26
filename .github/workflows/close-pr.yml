@@ -6,6 +6,9 @@ on:
 
 jobs:
   close-external-pr:
+    permissions:
+      contents: write
+      issues: write
     runs-on: ubuntu-latest
     steps:
       - name: Get pnpm store directory
