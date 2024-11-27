@@ -1,0 +1,37 @@
+{
+  "$schema": "../compose-schema.json",
+  "services": [
+    {
+      "name": "adguard",
+      "image": "adguard/adguardhome:v0.107.54",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/work",
+          "containerPath": "/opt/adguardhome/work"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/conf",
+          "containerPath": "/opt/adguardhome/conf"
+        }
+      ],
+      "internalPort": 80,
+      "isMain": true,
+      "addPorts": [
+        {
+          "hostPort": 53,
+          "containerPort": 53,
+          "tcp": true,
+          "udp": true,
+          "interface": "${NETWORK_INTERFACE:-0.0.0.0}"
+        },
+        {
+          "hostPort": 853,
+          "containerPort": 853,
+          "tcp": true,
+          "udp": true,
+          "interface": "${NETWORK_INTERFACE:-0.0.0.0}"
+        }
+      ]
+    }
+  ]
+}

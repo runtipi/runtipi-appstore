@@ -1,0 +1,59 @@
+{
+  "$schema": "../schema.json",
+  "name": "Mempool",
+  "available": true,
+  "exposable": true,
+  "no_gui": false,
+  "port": 2200,
+  "id": "mempool",
+  "description": "Bitcoin mempool visualizer and blockchain explorer",
+  "tipi_version": 3,
+  "version": "3.0.1",
+  "categories": ["finance"],
+  "short_desc": "Bitcoin mempool visualizer and blockchain explorer",
+  "author": "The mempool team",
+  "source": "https://github.com/mempool/mempool",
+  "supported_architectures": ["amd64", "arm64"],
+  "created_at": 1726923527000,
+  "updated_at": 1727830458000,
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Custom Bitcoin node host address",
+      "hint": "Default, tipi bitcoin host",
+      "required": false,
+      "env_variable": "CORE_RPC_HOST"
+    },
+    {
+      "type": "text",
+      "label": "Custom Electrs host address",
+      "hint": "Default, tipi electrs host",
+      "placeholder": "172.27.0.1",
+      "required": false,
+      "env_variable": "ELECTRUM_HOST"
+    },
+    {
+      "type": "number",
+      "label": "Custom Electrs host port",
+      "hint": "Default, tipi electrs host",
+      "placeholder": "50001",
+      "default": "50001",
+      "required": false,
+      "env_variable": "ELECTRUM_PORT"
+    },
+    {
+      "type": "text",
+      "label": "Custom Bitcoin data folder location (for .cookie file)",
+      "hint": "Default, tipi bitcoin folder",
+      "placeholder": "/home/user/runtipi/app-data/bitcoind/data",
+      "required": false,
+      "env_variable": "BITCOIND_DIR"
+    },
+    {
+      "type": "random",
+      "label": "Mempool DB password",
+      "min": 32,
+      "env_variable": "MEMPOOL_DB_PASSWORD"
+    }
+  ]
+}

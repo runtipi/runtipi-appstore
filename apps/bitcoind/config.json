@@ -9,9 +9,7 @@
   "description": "Bitcoin core node",
   "tipi_version": 5,
   "version": "27.0",
-  "categories": [
-    "finance"
-  ],
+  "categories": ["finance"],
   "short_desc": "Bitcoin core node",
   "author": "Bitcoin developers",
   "source": "https://github.com/lncm/docker-bitcoind",
@@ -130,8 +128,7 @@
       ]
     }
   ],
-  "supported_architectures": [
-    "amd64",
-    "arm64"
-  ]
+  "supported_architectures": ["amd64", "arm64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566283000
 }

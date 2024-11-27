@@ -5,21 +5,16 @@
   "available": true,
   "exposable": true,
   "id": "unmanic",
-  "tipi_version": 4,
-  "version": "0.2.7",
-  "categories": [
-    "utilities",
-    "data",
-    "media"
-  ],
+  "tipi_version": 6,
+  "version": "0.2.8",
+  "categories": ["utilities", "data", "media"],
   "description": "Unmanic gives you the power to automate the management of any file library.",
   "short_desc": "Unmanic - Library Optimiser.",
   "author": "Unmanic",
   "source": "https://github.com/Unmanic/unmanic",
   "website": "https://docs.unmanic.app/",
   "form_fields": [],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1724903264000
 }

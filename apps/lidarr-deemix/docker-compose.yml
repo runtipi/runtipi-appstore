@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   lidarr-deemix:
-    image: youegraillot/lidarr-on-steroids:1.5.1
+    image: youegraillot/lidarr-on-steroids:1.5.2
     container_name: lidarr-deemix
     volumes:
       - ${APP_DATA_DIR}/data/config:/config

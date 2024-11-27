@@ -7,13 +7,13 @@
   "id": "send",
   "tipi_version": 3,
   "version": "latest",
-  "categories": [
-    "utilities"
-  ],
+  "categories": ["utilities"],
   "description": "A file sharing experiment which allows you to send encrypted files to other users.",
   "short_desc": "Simple, private file sharing. https://send.vis.ee/",
   "author": "timvisee",
   "source": "https://gitlab.com/timvisee/send",
   "form_fields": [],
-  "supported_architectures": ["amd64"]
+  "supported_architectures": ["amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566285000
 }

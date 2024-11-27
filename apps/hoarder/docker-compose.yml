@@ -1,0 +1,79 @@
+services:
+  hoarder:
+    image: ghcr.io/hoarder-app/hoarder:0.19.0
+    container_name: hoarder
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data/app:/data
+    ports:
+      - ${APP_PORT}:3000
+    environment:
+      - MEILI_ADDR=http://hoarder-meilisearch:7700
+      - BROWSER_WEB_URL=http://hoarder-chrome:9222
+      - DATA_DIR=/data
+      - HOARDER_VERSION=0.16.0
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
+      - MEILI_MASTER_KEY=${MEILI_MASTER_KEY}
+      - NEXTAUTH_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.hoarder-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.hoarder.loadbalancer.server.port: 3000
+      # Web
+      traefik.http.routers.hoarder-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.hoarder-insecure.entrypoints: web
+      traefik.http.routers.hoarder-insecure.service: hoarder
+      traefik.http.routers.hoarder-insecure.middlewares: hoarder-web-redirect
+      # Websecure
+      traefik.http.routers.hoarder.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.hoarder.entrypoints: websecure
+      traefik.http.routers.hoarder.service: hoarder
+      traefik.http.routers.hoarder.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.hoarder-local-insecure.rule: Host(`hoarder.${LOCAL_DOMAIN}`)
+      traefik.http.routers.hoarder-local-insecure.entrypoints: web
+      traefik.http.routers.hoarder-local-insecure.service: hoarder
+      traefik.http.routers.hoarder-local-insecure.middlewares: hoarder-web-redirect
+      # Local domain secure
+      traefik.http.routers.hoarder-local.rule: Host(`hoarder.${LOCAL_DOMAIN}`)
+      traefik.http.routers.hoarder-local.entrypoints: websecure
+      traefik.http.routers.hoarder-local.service: hoarder
+      traefik.http.routers.hoarder-local.tls: true
+      # Runtipi managed
+      runtipi.managed: true
+  
+  hoarder-chrome:
+    image: gcr.io/zenika-hub/alpine-chrome:124
+    container_name: hoarder-chrome
+    restart: unless-stopped
+    command:
+      - --no-sandbox
+      - --disable-gpu
+      - --disable-dev-shm-usage
+      - --remote-debugging-address=0.0.0.0
+      - --remote-debugging-port=9222
+      - --hide-scrollbars
+    networks:
+      - tipi_main_network
+    labels:
+      # Runtipi managed
+      runtipi.managed: true
+      
+  hoarder-meilisearch:
+    image: getmeili/meilisearch:v1.11
+    container_name: hoarder-meilisearch
+    restart: unless-stopped
+    environment:
+      - MEILI_NO_ANALYTICS=true
+      - MEILI_MASTER_KEY=${MEILI_MASTER_KEY}
+    volumes:
+      - ${APP_DATA_DIR}/data/melli_data:/meili_data
+    networks:
+      - tipi_main_network
+    labels:
+      # Runtipi managed
+      runtipi.managed: true

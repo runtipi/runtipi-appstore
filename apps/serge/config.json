@@ -5,18 +5,15 @@
   "exposable": true,
   "port": 8008,
   "id": "serge",
-  "tipi_version": 9,
+  "tipi_version": 10,
   "version": "0.9.0",
-  "categories": [
-    "ai"
-  ],
+  "categories": ["ai"],
   "description": "",
   "short_desc": "LLaMA made easy",
   "author": "nsarrazin",
   "source": "https://github.com/serge-chat/serge",
   "form_fields": [],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1724410930192
 }

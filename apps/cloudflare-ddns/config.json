@@ -6,11 +6,9 @@
   "port": 22222,
   "no_gui": true,
   "id": "cloudflare-ddns",
-  "tipi_version": 1,
+  "tipi_version": 3,
   "version": "3.3.0",
-  "categories": [
-    "network"
-  ],
+  "categories": ["network"],
   "description": "Cloudflare DDNS is a Docker image that update DNS records on Cloudflare on schedule.",
   "short_desc": "Update DNS records on Cloudflare.",
   "author": "Joshua Avalon",
@@ -33,8 +31,8 @@
       "env_variable": "CF_DNS__AUTH__SCOPED_TOKEN"
     }
   ],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1724189756000,
+  "deprecated": false
 }

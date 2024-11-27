@@ -7,23 +7,20 @@
   "id": "transmission-vpn",
   "tipi_version": 8,
   "version": "5.3.1",
-  "categories": [
-    "utilities",
-    "security"
-  ],
+  "categories": ["utilities", "security"],
   "description": "Transmission is running only when OpenVPN has an active tunnel. It has built-in support for many popular VPN providers to make the setup easier.",
   "short_desc": "BitTorrent client with VPN support.",
   "author": "haugene",
   "source": "https://github.com/haugene/docker-transmission-openvpn",
   "form_fields": [
     {
-      "type": "numeric",
+      "type": "number",
       "label": "Container > UserID (UID)",
       "placeholder": "1000",
       "env_variable": "TRANSMISSION_PUID"
     },
     {
-      "type": "numeric",
+      "type": "number",
       "label": "Container > GroupID (PGID)",
       "placeholder": "1000",
       "env_variable": "TRANSMISSION_PGID"
@@ -338,8 +335,7 @@
       "env_variable": "TRANSMISSION_BLOCKLIST_URL"
     }
   ],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ]
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566285000
 }

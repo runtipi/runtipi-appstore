@@ -140,7 +140,7 @@ services:
     labels:
       runtipi.managed: true
   revolt-api:
-    image: ghcr.io/revoltchat/server:20240611-3
+    image: ghcr.io/revoltchat/server:20240929-3
     container_name: revolt-api
     depends_on:
       - revolt-database
@@ -177,7 +177,7 @@ services:
     labels:
       runtipi.managed: true
   revolt-events:
-    image: ghcr.io/revoltchat/bonfire:20240611-3
+    image: ghcr.io/revoltchat/bonfire:20240929-3
     container_name: revolt-events
     depends_on:
       - revolt-database
@@ -214,7 +214,7 @@ services:
     labels:
       runtipi.managed: true
   revolt-autumn:
-    image: ghcr.io/revoltchat/autumn:1.1.10
+    image: ghcr.io/revoltchat/autumn:1.1.11
     container_name: revolt-autumn
     depends_on:
       - revolt-database

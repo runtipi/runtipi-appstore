@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   freshrss:
-    image: lscr.io/linuxserver/freshrss:1.24.1
+    image: lscr.io/linuxserver/freshrss:1.24.3
     container_name: freshrss
     environment:
       - PUID=1000

@@ -1,7 +1,11 @@
 version: "3.9"
 services:
   glance:
+<<<<<<< HEAD
     image: glanceapp/glance-v0.6.1
+=======
+    image: glanceapp/glance:v0.6.2
+>>>>>>> origin/app/wordpress_elderseth
     restart: unless-stopped
     container_name: glance
     ports:

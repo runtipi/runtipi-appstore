@@ -13,5 +13,7 @@
   "author": "axeleroy",
   "source": "https://github.com/axeleroy/self-host-planning-poker",
   "form_fields": [],
-  "supported_architectures": ["amd64", "arm64"]
+  "supported_architectures": ["amd64", "arm64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566285000
 }

@@ -20,5 +20,7 @@
       "min": 32,
       "env_variable": "PENPOT_POSTGRES_PASSWORD"
     }
-  ]
+  ],
+  "created_at": 1691943801422,
+  "updated_at": 1723566283000
 }

@@ -1,24 +1,24 @@
-version: "3"
-
 services:
   romm:
-    image: zurdi15/romm:2.3.1
+    image: ghcr.io/rommapp/romm:3.5.1
     container_name: romm
     environment:
-      - ROMM_DB_DRIVER=mariadb
       - DB_HOST=romm-db
-      - DB_PORT=3306
-      - DB_USER=tipi
       - DB_NAME=romm
+      - DB_USER=tipi
       - DB_PASSWD=${ROMM_MYSQL_PASSWORD}
+      - ROMM_AUTH_SECRET_KEY=${ROMM_AUTH_SECRET_KEY}
       - IGDB_CLIENT_ID=${ROMM_IGDB_CLIENT_ID}
       - IGDB_CLIENT_SECRET=${ROMM_IGDB_CLIENT_SECRET}
-      - STEAMGRIDDB_API_KEY="${ROMM_STEAMGRIDDB_API_KEY}"
+      - MOBYGAMES_API_KEY=${ROMM_MOBYGAMES_API_KEY}
+      - STEAMGRIDDB_API_KEY=${ROMM_STEAMGRIDDB_API_KEY}
     restart: unless-stopped
     volumes:
       - ${ROOT_FOLDER_HOST}/media/data/roms:/romm/library
+      - ${APP_DATA_DIR}/data/redis:/redis-data
       - ${APP_DATA_DIR}/data/romm-resources:/romm/resources
-      - ${APP_DATA_DIR}/data/config.yml:/romm/config.yml
+      - ${APP_DATA_DIR}/data/config:/romm/config
+      - ${APP_DATA_DIR}/data/assets:/romm/assets
     ports:
       - ${APP_PORT}:8080
     depends_on:
@@ -50,19 +50,22 @@ services:
       traefik.http.routers.romm-local.entrypoints: websecure
       traefik.http.routers.romm-local.service: romm
       traefik.http.routers.romm-local.tls: true
+      # Runtipi managed
       runtipi.managed: true
+
   romm-db:
-    image: lscr.io/linuxserver/mariadb:latest
+    image: lscr.io/linuxserver/mariadb:10.11.10
     container_name: romm-db
     environment:
-      - MYSQL_ROOT_PASSWORD=${ROMM_MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${ROMM_MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=romm
       - MYSQL_USER=tipi
       - MYSQL_PASSWORD=${ROMM_MYSQL_PASSWORD}
     volumes:
       - ${APP_DATA_DIR}/data/mysql/config:/config
-    restart: "unless-stopped"
+    restart: unless-stopped
     networks:
       - tipi_main_network
     labels:
+      # Runtipi managed
       runtipi.managed: true

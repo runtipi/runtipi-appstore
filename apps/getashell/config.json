@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8281,
   "id": "getashell",
-  "tipi_version": 10,
-  "version": "1.1.1",
+  "tipi_version": 12,
+  "version": "1.1.3",
   "categories": ["utilities"],
   "description": "Simple web ui to create ssh shells for testing.",
   "short_desc": "SSH shells from a Web UI",
@@ -32,5 +32,7 @@
       "env_variable": "GETASHELL_SECRET_KEY"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"]
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1725904870000
 }
