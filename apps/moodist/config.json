@@ -1,7 +1,7 @@
 {
   "$schema": "../schema.json",
   "name": "Moodist",
-  "port": 8229,
+  "port": 8279,
   "available": true,
   "exposable": true,
   "dynamic_config": true,
