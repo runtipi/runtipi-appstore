@@ -4,17 +4,25 @@ services:
   grist:
     container_name: grist
     environment:
-      - APP_HOME_URL=https://grist.rasies.com
-      - DEFAULT_BASE_DOMAIN=${APP_DOMAIN}
-      - GRIST_SANDBOX_FLAVOR=${GRIST_SANDBOX_FLAVOR}
+      # Home URL and domain settings
+      - APP_HOME_URL=https://grist.rasies.com         # Explicitly set the home URL
+      - DEFAULT_BASE_DOMAIN=${APP_DOMAIN}             # Use APP_DOMAIN as the base domain
+      
+      # Authentication and user settings
+      - GRIST_SINGLE_ORG=false                        # Enable multi-user mode
+      - GRIST_FORCE_LOGIN=true                        # Require login for all users
+      - GRIST_SUPPORT_ANON=false                      # Disable anonymous access entirely
+      - GRIST_DEFAULT_EMAIL=ian@rasies.com            # Admin email
+      - GRIST_SESSION_SECRET=$Mycobacteri@98          # Unique secret for sessions
+      - GRIST_CREATE_ACCOUNTS=true                    # Allow user creation
+      - GRIST_AUTH_SERVICE=email                      # Enable email-based authentication
+
+      # Temporary directory settings
       - TMPDIR=/persist/tmp
-      - GRIST_SINGLE_ORG=rasies
-      - GRIST_FORCE_LOGIN=true
-      - GRIST_SUPPORT_ANON=false
-      - GRIST_DEFAULT_EMAIL=ian@rasies.com
-      - GRIST_SESSION_SECRET=$Mycobacteri@98
-      - GRIST_CREATE_ACCOUNTS=true
-      - GRIST_AUTH_SERVICE=email
+
+      # Sandbox configuration
+      - GRIST_SANDBOX_FLAVOR=${GRIST_SANDBOX_FLAVOR}
+
     image: "gristlabs/grist:1.2.1"
     ports:
       - "${APP_PORT:-8484}:8484"
@@ -22,30 +30,45 @@ services:
     volumes:
       - "${APP_DATA_DIR}/data/grist-data:/persist"
       - "${APP_DATA_DIR}/data/grist-data/tmp:/persist/tmp"
+
     networks:
       - tipi_main_network
     labels:
+      # Enable Traefik
       traefik.enable: true
+
+      # Service port
       traefik.http.services.grist.loadbalancer.server.port: 8484
+
+      # Middleware to set HTTPS headers
       traefik.http.middlewares.grist-https-headers.headers.customrequestheaders.X-Forwarded-Proto: https
+
+      # Web (HTTP) - Redirect HTTP to HTTPS
       traefik.http.routers.grist-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.grist-insecure.entrypoints: web
       traefik.http.routers.grist-insecure.service: grist
       traefik.http.routers.grist-insecure.middlewares: grist-https-headers
+
+      # Websecure (HTTPS)
       traefik.http.routers.grist.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.grist.entrypoints: websecure
       traefik.http.routers.grist.tls.certresolver: myresolver
       traefik.http.routers.grist.service: grist
       traefik.http.routers.grist.middlewares: grist-https-headers
+
+      # Local domain (HTTP)
       traefik.http.routers.grist-local-insecure.rule: Host(`${LOCAL_DOMAIN}`)
       traefik.http.routers.grist-local-insecure.entrypoints: web
       traefik.http.routers.grist-local-insecure.service: grist
       traefik.http.routers.grist-local-insecure.middlewares: grist-https-headers
+
+      # Local domain secure (HTTPS)
       traefik.http.routers.grist-local.rule: Host(`${LOCAL_DOMAIN}`)
       traefik.http.routers.grist-local.entrypoints: websecure
       traefik.http.routers.grist-local.service: grist
       traefik.http.routers.grist-local.tls: true
       traefik.http.routers.grist-local.middlewares: grist-https-headers
+
       runtipi.managed: true
 
 networks:
