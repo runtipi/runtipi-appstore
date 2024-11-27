@@ -6,13 +6,8 @@
   "dynamic_config": true,
   "id": "grist",
   "description": "Grist is a modern relational spreadsheet. It combines the flexibility of a spreadsheet with the robustness of a database to organize your data and make you more productive.",
-<<<<<<< HEAD
-  "tipi_version": 19,
-  "version": "1.2.0",
-=======
   "tipi_version": 21,
   "version": "1.2.1",
->>>>>>> origin/app/wordpress_elderseth
   "categories": ["utilities"],
   "short_desc": "Grist is the evolution of spreadsheets.",
   "author": "https://github.com/gristlabs",
@@ -38,9 +33,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-<<<<<<< HEAD
-  "updated_at": 1727472416000
-=======
   "updated_at": 1730917145000
->>>>>>> origin/app/wordpress_elderseth
 }
