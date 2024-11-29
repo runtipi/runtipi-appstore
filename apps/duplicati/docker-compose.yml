@@ -3,7 +3,7 @@ version: "3.7"
 services:
   duplicati:
     container_name: duplicati
-    image: lscr.io/linuxserver/duplicati:2.0.8
+    image: lscr.io/linuxserver/duplicati:2.1.0
     ports:
       - ${APP_PORT}:8200
     volumes:
