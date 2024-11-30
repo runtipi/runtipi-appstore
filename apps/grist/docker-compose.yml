@@ -7,15 +7,7 @@ services:
       - APP_HOME_URL=https://grist.rasies.com         # Explicitly set the home URL
       - DEFAULT_BASE_DOMAIN=${APP_DOMAIN}             # Use APP_DOMAIN as the base domain
       - GRIST_SANDBOX_FLAVOR=${GRIST_SANDBOX_FLAVOR}
-      - TMPDIR=/persist/tmp
-      - GRIST_SINGLE_ORG=rasies                       # Enforce a lowercase single organization setup
-      - GRIST_FORCE_LOGIN=true                        # Require login for all users
-      - GRIST_SUPPORT_ANON=false                      # Disable anonymous access entirely
-      - GRIST_DEFAULT_EMAIL=ian@rasies.com            # Set your email as the admin
-      - GRIST_SESSION_SECRET=$Mycobacteri@98          # Unique secret for sessions
-      - GRIST_CREATE_ACCOUNTS=true                    # Allow account creation
-      - GRIST_AUTH_SERVICE=email                      # Enable email-based authentication
-    image: "gristlabs/grist:1.2.1"
+    image: "gristlabs/grist:1.3.0"
     ports:
       - "${APP_PORT:-8484}:8484"
     restart: always
