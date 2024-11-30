@@ -34,6 +34,8 @@ services:
       # - ./entrypoint.sh:/entrypoint.sh   # if you want to install additional Python packages, uncomment this line!
       - ${APP_DATA_DIR}/data/addons:/mnt/extra-addons
       - ${APP_DATA_DIR}/data/etc:/etc/odoo
+      - ${APP_DATA_DIR}/data/odoo-web-data:/var/lib/odoo
+      - ${APP_DATA_DIR}/data/filestore:/root/.local/share
     restart: unless-stopped
     networks:
       - tipi_main_network
