@@ -1,0 +1,24 @@
+{
+  "name": "Paisa",
+  "id": "paisa",
+  "available": true,
+  "short_desc": "Personal finance manager",
+  "author": "Anantha Kumaran",
+  "port": 7500,
+  "categories": [
+    "finance",
+    "utilities"
+  ],
+  "description": "Paisa is a Personal finance manager. It builds on top of the ledger double entry accounting tool",
+  "tipi_version": 1,
+  "version": "v0.7.0",
+  "source": "https://github.com/ananthakumaran/paisa",
+  "website": "https://paisa.fyi/",
+  "exposable": true,
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "created_at": 1725523062131,
+  "updated_at": 1725523062131
+}
