@@ -1,5 +1,17 @@
 # Tipi App Store ⛺️
 
+> [!WARNING]
+> Unfortunately, we are no longer accepting pull requests from external collaborators due to the high volume of PRs we have to deal with daily.
+>
+> We have reached a point in which it has become too complicated to validate, test and maintain this huge amount of apps resulting in a poor experience for our users.
+>
+> We are working at the moment to implement a new feature to allow you to add multiple app stores to your Runtipi instance, so you can add your own apps without the need to send a PR to our repository.
+>
+> This feature will be available very soon, so stay tuned!
+>
+> You can still follow this guide and add your custom apps to your own instance through the appsRepoUrl property in the settings.json file.
+>
+
 This is the official repository for the Tipi App Store. It contains all the apps that are available for download on [Tipi](https://github.com/runtipi/runtipi).
 
 ## How to get started
@@ -7,6 +19,7 @@ This is the official repository for the Tipi App Store. It contains all the apps
 1. Install **[Node.js](https://nodejs.org/en)** on your machine
 2. Install **[pnpm](https://pnpm.io/installation)** package manager
 3. Install dependencies (from the root of the project)
+
 ```bash
 pnpm install
 ```
@@ -19,7 +32,7 @@ If you want to see new apps on Tipi you can either:
 - [Join the Discord](https://discord.gg/Bu9qEPnHsc) members of the community will add it.
 - Fork this repo and create the necessary files for a Tipi app. Follow this [guide](https://www.runtipi.io/docs/contributing/adding-a-new-app)`
 
-## Apps available (264)
+## Apps available (267)
 
 | Name                                                                         | Description                                                                                                                                                         | Port  |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
@@ -27,6 +40,7 @@ If you want to see new apps on Tipi you can either:
 | [Activepieces](https://github.com/activepieces/activepieces)                 | True zapier alternative.                                                                                                                                            | 8605  |
 | [Actual Budget](https://github.com/actualbudget/actual-server)               | Local-first OpenSource Budget tool                                                                                                                                  | 8011  |
 | [Adguard](https://github.com/AdguardTeam)                                    | World's most advanced adblocker!                                                                                                                                    | 8104  |
+| [Adguard Home Sync](https://github.com/bakito/adguardhome-sync)              | Synchronize AdGuard Home config to replicas                                                                                                                         | 8436  |
 | [AFFiNE](https://github.com/toeverything/affine)                             | AFFiNE is a workspace with fully merged docs, whiteboards and databases.                                                                                            | 3010  |
 | [Anse](https://github.com/anse-app/anse)                                     | Fully optimized UI for AI Chats.                                                                                                                                    | 8014  |
 | [ArchiveBox](https://github.com/ArchiveBox/ArchiveBox)                       | Open source self-hosted web archiving.                                                                                                                              | 8015  |
@@ -162,6 +176,7 @@ If you want to see new apps on Tipi you can either:
 | [Mealie](https://github.com/hay-kot/mealie)                                  | Mealie is a self-hosted recipe manager and meal planner.                                                                                                            | 8220  |
 | [Memos](https://github.com/usememos/memos)                                   | Memo hub for knowledge management and collaboration.                                                                                                                | 5230  |
 | [Mempool](https://github.com/mempool/mempool)                                | Bitcoin mempool visualizer and blockchain explorer                                                                                                                  | 2200  |
+| [Metabase](https://github.com/metabase/metabase)                             | The simplest, fastest way to get business intelligence and analytics to everyone in your company                                                                    | 8680  |
 | [MeTube](https://github.com/alexta69/metube)                                 | youtube-dl web UI                                                                                                                                                   | 8250  |
 | [Mind](https://github.com/Casvt/MIND)                                        | A simple self hosted reminder platform that uses push to send notifications to your device.                                                                         | 8143  |
 | [Minecraft Server](https://github.com/itzg/docker-minecraft-server)          | Run a minecraft server                                                                                                                                              | 25565 |
@@ -231,7 +246,7 @@ If you want to see new apps on Tipi you can either:
 | [Recyclarr](https://github.com/recyclarr/recyclarr)                          | Sync TRaSH Guides.                                                                                                                                                  | 1111  |
 | [Resilio](https://github.com/bt-sync)                                        | Fast, reliable, and simple file sync and share solution.                                                                                                            | 8113  |
 | [Revolt Chat](https://github.com/revoltchat)                                 | Open source user-first chat platform.                                                                                                                               | 8272  |
-| [RomM](https://github.com/zurdi15/romm)                                      | RomM (Rom Manager) is a web based retro roms manager integrated with IGDB.                                                                                          | 8178  |
+| [RomM](https://github.com/rommapp/romm)                                      | Your beautiful, powerful, self-hosted rom manager.                                                                                                                  | 8178  |
 | [RSS](https://github.com/ssddanbrown/rss)                                    | A simple, opinionated, RSS feed aggregator.                                                                                                                         | 8141  |
 | [RSSHub](https://github.com/DIYgod/RSSHub)                                   | Everything is RSSible with RSSHub                                                                                                                                   | 8223  |
 | [Ryot](https://github.com/IgnisDa/ryot)                                      | Roll your own tracker!                                                                                                                                              | 8206  |
@@ -283,7 +298,7 @@ If you want to see new apps on Tipi you can either:
 | [Windows](https://github.com/dockur/windows/)                                | Full windows vm in your browser                                                                                                                                     | 8006  |
 | [Wizarr](https://github.com/Wizarrrr/wizarr)                                 | Wizarr is an automatic user invitation system for Plex and Jellyfin.                                                                                                | 5690  |
 | [WordPress](https://github.com/WordPress/WordPress)                          | Popular CMS for websites and blogs                                                                                                                                  | 8213  |
-| [WriteFreely](https://github.com/writefreely/writefreely)                    | Markdown-based publishing platform                                                                                                                                  | 8574  |
+| [Write-Freely](https://hub.docker.com/r/nephatrine/write-freely)             | Markdown-based publishing platform.                                                                                                                                 | 8574  |
 | [Your Spotify](https://github.com/Yooooomi/your_spotify)                     | Self hosted Spotify tracking dashboard.                                                                                                                             | 8103  |
 | [ZeroTier](https://github.com/zerotier/ZeroTierOne)                          | Easy to use zero configuration VPN.                                                                                                                                 | 9993  |
 | [Zigbee2MQTT](https://github.com/Koenkk/zigbee2mqtt)                         | Zigbee to MQTT bridge                                                                                                                                               | 8290  |

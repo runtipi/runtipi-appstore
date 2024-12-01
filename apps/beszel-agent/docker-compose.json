@@ -7,8 +7,7 @@
       "networkMode": "host",
       "environment": {
         "PORT": 45876,
-        "KEY": "${BESZEL_AGENT_KEY}",
-        "FILESYSTEM": "${BESZEL_AGENT_FILESYSTEM}"
+        "KEY": "${BESZEL_AGENT_KEY}"
       },
       "volumes": [
         {

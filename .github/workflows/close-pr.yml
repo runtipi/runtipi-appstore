@@ -1,0 +1,19 @@
+name: Close External PRs
+
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+
+jobs:
+  close-external-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get pnpm store directory
+        id: is-fork
+        run: |
+          echo "is-fork=${{ github.event.pull_request.head.repo.fork }}" >> $GITHUB_OUTPUT
+
+      - uses: superbrothers/close-pull-request@v3
+        if: ${{ steps.is-fork.outputs.is-fork == 'true' }}
+        with:
+          comment: "Thank you for your contribution!\n\nUnfortunately, we are no longer accepting pull requests from external collaborators due to the high volume of PRs we have to deal with daily.\n\nWe have reached a point in which it has become too complicated to validate, test and maintain this huge amount of apps resulting in a poor experience for our users.\n\nWe are working at the moment to implement a new feature to allow you to add multiple app stores to your Runtipi instance, so you can add your own apps without the need to send a PR to our repository.\n\nThis feature will be available very soon, so stay tuned! In the mean time, if you really need your app in Runtipi, you can add your own repository to your Runtipi instance [relevant docs](https://runtipi.io/docs/contributing/running-locally#using-your-own-appstore-repository)"
