@@ -1,6 +1,6 @@
 services:
   homer:
-    image: b4bz/homer:v24.11.5
+    image: b4bz/homer:v24.12.1
     container_name: homer
     restart: unless-stopped
     volumes:
