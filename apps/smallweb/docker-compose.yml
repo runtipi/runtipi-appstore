@@ -3,6 +3,9 @@ services:
     container_name: smallweb
     image: ghcr.io/pomdtr/smallweb:0.17.13
     restart: unless-stopped
+    environment:
+      - SMALLWEB_DOMAIN=${APP_DOMAIN}
+      - SMALLWEB_CUSTOM_DOMAINS=smallweb.${LOCAL_DOMAIN}=*;
     volumes:
       - ${APP_DATA_DIR}/data/:/home/smallweb/smallweb
     networks:
@@ -22,6 +25,8 @@ services:
       traefik.http.routers.smallweb.entrypoints: websecure
       traefik.http.routers.smallweb.service: smallweb
       traefik.http.routers.smallweb.tls.certresolver: myresolver
+      traefik.http.routers.smallweb.tls.domains[0].main: ${APP_DOMAIN}
+      traefik.http.routers.smallweb.tls.domains[0].sans: "*.${APP_DOMAIN}"
       # Local domain
       traefik.http.routers.smallweb-local-insecure.rule: Host(`smallweb.${LOCAL_DOMAIN}`) || HostRegexp(`.+\.smallweb\.${LOCAL_DOMAIN}`)
       traefik.http.routers.smallweb-local-insecure.entrypoints: web
