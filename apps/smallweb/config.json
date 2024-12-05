@@ -9,7 +9,7 @@
   "categories": ["development"],
   "description": "A self-hostable personal cloud inspired by serverless platforms and cgi-bin",
   "tipi_version": 1,
-  "version": "0.17.13",
+  "version": "0.17.14",
   "source": "https://github.com/pomdtr/smallweb",
   "website": "https://smallweb.run",
   "exposable": true,

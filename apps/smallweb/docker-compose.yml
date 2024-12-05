@@ -1,7 +1,7 @@
 services:
   smallweb:
     container_name: smallweb
-    image: ghcr.io/pomdtr/smallweb:0.17.13
+    image: ghcr.io/pomdtr/smallweb:0.17.14
     restart: unless-stopped
     environment:
       - SMALLWEB_DOMAIN=${APP_DOMAIN}
