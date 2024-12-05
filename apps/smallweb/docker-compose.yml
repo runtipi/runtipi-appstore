@@ -4,6 +4,8 @@ services:
     image: ghcr.io/pomdtr/smallweb:0.17.14
     restart: unless-stopped
     user: 0:0
+    ports:
+      - ${APP_PORT}:7777
     environment:
       - SMALLWEB_DOMAIN=${APP_DOMAIN}
       - SMALLWEB_CUSTOM_DOMAINS=smallweb.${LOCAL_DOMAIN}=*;
