@@ -3,11 +3,12 @@ services:
     container_name: smallweb
     image: ghcr.io/pomdtr/smallweb:0.17.14
     restart: unless-stopped
+    user: 0:0
     environment:
       - SMALLWEB_DOMAIN=${APP_DOMAIN}
       - SMALLWEB_CUSTOM_DOMAINS=smallweb.${LOCAL_DOMAIN}=*;
     volumes:
-      - ${APP_DATA_DIR}/data/:/home/smallweb/smallweb
+      - ${APP_DATA_DIR}/data/:/smallweb
     networks:
       - tipi_main_network
     labels:
