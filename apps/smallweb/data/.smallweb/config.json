@@ -1,0 +1,6 @@
+{
+  "domain": "{{APP_DOMAIN}}",
+  "customDomains": {
+    "smallweb.{{LOCAL_DOMAIN}}": "*"
+  }
+}
