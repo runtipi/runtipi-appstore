@@ -1,0 +1,20 @@
+{
+  "$schema": "../schema.json",
+  "name": "Smallweb",
+  "id": "smallweb",
+  "available": true,
+  "short_desc": "Your internet folder",
+  "author": "pomdtr",
+  "port": 8367,
+  "categories": ["development"],
+  "description": "A self-hostable personal cloud inspired by serverless platforms and cgi-bin",
+  "tipi_version": 1,
+  "version": "0.17.13",
+  "source": "https://github.com/pomdtr/smallweb",
+  "website": "https://smallweb.run",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "form_fields": [],
+  "created_at": 1724134338800,
+  "updated_at": 1724134338800
+}
