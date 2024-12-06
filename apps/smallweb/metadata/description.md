@@ -2,6 +2,8 @@
 
 > Warning ⚠️: The app needs to be accessed by local domain or domain in order to work, accessing via port will ***not*** work.
 
+> Warning ⚠️: Make sure you set a domain if you are updating to version 0.17.14 (4)
+
 Smallweb is a lightweight web server based on [Deno](https://deno.com). It draws inspiration from both legacy specifications like [CGI](https://en.wikipedia.org/wiki/Common_Gateway_Interface), modern serverless platforms such as [Val Town](https://val.town) and static sites generators like [Blot.im](https://blot.im).
 
 Smallweb maps domains to folders in your filesystem. For example, if you own the `pomdtr.me` domain:
