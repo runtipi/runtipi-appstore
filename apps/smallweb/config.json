@@ -8,14 +8,22 @@
   "port": 7777,
   "categories": ["development"],
   "description": "A self-hostable personal cloud inspired by serverless platforms and cgi-bin",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "0.17.14",
   "source": "https://github.com/pomdtr/smallweb",
   "website": "https://smallweb.run",
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],
-  "form_fields": [],
+  "form_fields": [
+    {
+      "env_variable": "SMALLWEB_DOMAIN",
+      "placeholder": "smallweb.mydomain.com",
+      "hint": "Smallweb requires a main domain to function properly, this can be the domain you set in the expose field or the .local one",
+      "label": "Smallweb Domain",
+      "type": "text",
+      "required": true
+    }
+  ],
   "created_at": 1724134338800,
-  "updated_at": 1724134338800,
-  "force_expose": true
+  "updated_at": 1724134338800
 }
