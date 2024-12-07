@@ -1,0 +1,20 @@
+{
+  "$schema": "../schema.json",
+  "name": "Redlib",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 8501,
+  "id": "redlib",
+  "tipi_version": 1,
+  "version": "latest",
+  "categories": ["social"],
+  "description": "An alternative private front-end to Reddit, with its origins in Libreddit.",
+  "short_desc": " Private front-end for Reddit",
+  "author": "sigaloid",
+  "source": "https://github.com/redlib-org/redlib",
+  "form_fields": [],
+  "supported_architectures": ["amd64"],
+  "created_at": 1731263656297,
+  "updated_at": 1731263656297
+}
