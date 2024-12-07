@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8102,
   "id": "homarr",
-  "tipi_version": 34,
-  "version": "0.15.7",
+  "tipi_version": 35,
+  "version": "0.15.8",
   "categories": ["utilities"],
   "description": "A homepage for your server.",
   "short_desc": "Homarr is a simple and lightweight homepage for your server, that helps you easily access all of your services in one place.",
@@ -16,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1732892516732
+  "updated_at": 1733609941000
 }
