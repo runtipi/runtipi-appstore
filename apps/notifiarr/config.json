@@ -1,0 +1,28 @@
+{
+  "$schema": "../schema.json",
+  "name": "notifiarr",
+  "available": true,
+  "exposable": true,
+  "port": 5454,
+  "id": "notifiarr",
+  "tipi_version": 16,
+  "version": "0.8.3",
+  "categories": ["media", "utilities"],
+  "description": "This is the unified client for Notifiarr.com",
+  "short_desc": "Notifiarr client",
+  "author": "notifiarr",
+  "source": "https://hub.docker.com/r/golift/notifiarr",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Notifiarr API Key",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "DN_API_KEY"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1731507786,
+  "updated_at": 1731507786
+}
