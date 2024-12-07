@@ -20,7 +20,7 @@
     },
     {
       "name": "notemark-proxy",
-      "image": "nginx:alpine",
+      "image": "ghcr.io/enchant97/note-mark-frontend:0.15.0",
       "isMain": true,
       "internalPort": 80,
       "volumes": [
