@@ -4,6 +4,7 @@
       "name": "cloudflared",
       "image": "wisdomsky/cloudflared-web:2024.11.1",
       "isMain": true,
+      "internalPort": 14333,
       "networkMode": "host",
       "volumes": [
         {

@@ -1,17 +1,5 @@
 # Tipi App Store ⛺️
 
-> [!WARNING]
-> Unfortunately, we are no longer accepting pull requests from external collaborators due to the high volume of PRs we have to deal with daily.
->
-> We have reached a point in which it has become too complicated to validate, test and maintain this huge amount of apps resulting in a poor experience for our users.
->
-> We are working at the moment to implement a new feature to allow you to add multiple app stores to your Runtipi instance, so you can add your own apps without the need to send a PR to our repository.
->
-> This feature will be available very soon, so stay tuned!
->
-> You can still follow this guide and add your custom apps to your own instance through the appsRepoUrl property in the settings.json file.
->
-
 This is the official repository for the Tipi App Store. It contains all the apps that are available for download on [Tipi](https://github.com/runtipi/runtipi).
 
 ## How to get started
