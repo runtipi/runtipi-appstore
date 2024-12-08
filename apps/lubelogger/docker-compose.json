@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "lubelogger",
-      "image": "ghcr.io/hargata/lubelogger:v1.3.8",
+      "image": "ghcr.io/hargata/lubelogger:v1.4.1",
       "internalPort": 8080,
       "isMain": true,
       "volumes": [
@@ -90,7 +90,7 @@
         "POSTGRES_PASSWORD": "tipi"
       },
       "healthCheck": {
-        "test": ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"],
+        "test": "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB",
         "retries": 3,
         "interval": "30s",
         "timeout": "10s"
