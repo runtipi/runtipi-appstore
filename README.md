@@ -20,7 +20,7 @@ If you want to see new apps on Tipi you can either:
 - [Join the Discord](https://discord.gg/Bu9qEPnHsc) members of the community will add it.
 - Fork this repo and create the necessary files for a Tipi app. Follow this [guide](https://www.runtipi.io/docs/contributing/adding-a-new-app)`
 
-## Apps available (267)
+## Apps available (268)
 
 | Name                                                                         | Description                                                                                                                                                         | Port  |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
@@ -251,6 +251,7 @@ If you want to see new apps on Tipi you can either:
 | [SimpleX SMP](https://github.com/simplex-chat/simplexmq)                     | A reference implementation of the SimpleX Messaging Protocol for simplex queues over public networks.                                                               | 5223  |
 | [SiYuan](https://github.com/siyuan-note/siyuan)                              | SiYuan is a privacy-first personal knowledge management system.                                                                                                     | 6806  |
 | [SLSKD](https://github.com/slskd/slskd)                                      | P2P downloads                                                                                                                                                       | 5030  |
+| [Smallweb](https://github.com/pomdtr/smallweb)                               | Your internet folder                                                                                                                                                | 7777  |
 | [Sonarr](https://github.com/Sonarr/Sonarr)                                   | TV show manager for Usenet and BitTorrent                                                                                                                           | 8098  |
 | [Spacedrive](https://github.com/spacedriveapp/spacedrive)                    | Cross-platform file explorer                                                                                                                                        | 9300  |
 | [Speedtest Tracker](https://github.com/alexjustesen/speedtest-tracker)       | Internet performance tracking application.                                                                                                                          | 8211  |
