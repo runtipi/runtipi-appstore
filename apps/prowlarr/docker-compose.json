@@ -1,0 +1,19 @@
+{
+  "services": [
+    {
+      "name": "prowlarr",
+      "image": "ghcr.io/linuxserver/prowlarr:1.27.0",
+      "isMain": true,
+      "internalPort": 9696,
+      "environment": {
+        "TZ": "${TZ}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/config"
+        }
+      ]
+    }
+  ]
+}
