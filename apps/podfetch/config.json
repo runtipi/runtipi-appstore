@@ -4,8 +4,9 @@
   "port": 8177,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "podfetch",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "latest",
   "categories": ["media"],
   "description": "A sleek and efficient podcast downloader.",
@@ -48,5 +49,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566284000
+  "updated_at": 1733761113986
 }
