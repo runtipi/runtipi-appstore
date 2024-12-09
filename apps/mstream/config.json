@@ -7,7 +7,7 @@
   "dynamic_config": true,
   "id": "mstream",
   "tipi_version": 3,
-  "version": "v5.11.4-ls101",
+  "version": "v5.12.2-ls190",
   "categories": ["music", "media"],
   "description": "mStream is a personal music streaming server. You can use mStream to stream your music from your home computer to any device, anywhere.",
   "short_desc": "The easiest music streaming server available",
