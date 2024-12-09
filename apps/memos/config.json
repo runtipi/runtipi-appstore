@@ -3,9 +3,10 @@
   "name": "Memos",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 5230,
   "id": "memos",
-  "tipi_version": 34,
+  "tipi_version": 35,
   "version": "0.22.5",
   "categories": ["utilities"],
   "description": "Memo hub for knowledge management and collaboration.",
@@ -16,5 +17,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1725410453000
+  "updated_at": 1733760902338
 }
