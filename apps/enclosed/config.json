@@ -1,0 +1,20 @@
+{
+    "$schema": "../schema.json",
+    "name": "Enclosed",
+    "id": "enclosed",
+    "available": true,
+    "short_desc": "Minimalistic web application designed for sending end-to-end encrypted notes and files.",
+    "author": "CorentinTh",
+    "port": 8787,
+    "categories": ["utilities"],
+    "description": "Enclosed is a minimalistic web application designed for sending private and secure notes. All notes are end-to-end encrypted, ensuring that the server and storage have zero knowledge of the content. Users can set a password, define an expiration period (TTL), and choose to have the note self-destruct after being read.",
+    "tipi_version": 1,
+    "version": "v1.6.6",
+    "source": "https://github.com/CorentinTh/enclosed",
+    "website": "https://enclosed.cc",
+    "exposable": true,
+    "https": true,
+    "supported_architectures": ["arm64", "amd64"],
+    "created_at": 1726935725399,
+    "updated_at": 1726935725399
+  }
