@@ -25,7 +25,7 @@
     "@commitlint/cli": "^19.6.0",
     "@commitlint/config-conventional": "^19.6.0",
     "@commitlint/cz-commitlint": "^19.5.0",
-    "@playwright/test": "^1.49.0",
+    "@playwright/test": "^1.49.1",
     "@types/jest": "^28.1.6",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^22.10.1",
