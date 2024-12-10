@@ -17,10 +17,7 @@
         "COMPOSE_PROJECT_NAME": "paperless-ngx",
         "PAPERLESS_CSRF_TRUSTED_ORIGINS": "https://paperless-ngx.${LOCAL_DOMAIN},https://${APP_DOMAIN},http://${INTERNAL_IP}:${APP_PORT}"
       },
-      "dependsOn": [
-        "db",
-        "broker"
-      ],
+      "dependsOn": ["db", "broker"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/paperless_data",
@@ -68,11 +65,7 @@
     {
       "name": "gotenberg",
       "image": "docker.io/gotenberg/gotenberg:8.14",
-      "command": [
-        "gotenberg",
-        "--chromium-disable-javascript=true",
-        "--chromium-allow-list=file:///tmp/.*"
-      ]
+      "command": ["gotenberg", "--chromium-disable-javascript=true", "--chromium-allow-list=file:///tmp/.*"]
     },
     {
       "name": "tika",
