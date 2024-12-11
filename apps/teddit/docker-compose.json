@@ -13,18 +13,9 @@
         "REDIRECT_HTTP_TO_HTTPS": "false",
         "REDIRECT_WWW": "false"
       },
-      "dependsOn": [
-        "teddit-redis"
-      ],
+      "dependsOn": ["teddit-redis"],
       "healthCheck": {
-        "test": [
-          "CMD",
-          "wget",
-          "--no-verbose",
-          "--tries=1",
-          "--spider",
-          "http://localhost:8080/about"
-        ],
+        "test": ["wget --no-verbose --tries=1 --spider http://localhost:8080/about"],
         "interval": "1m",
         "timeout": "3s",
         "retries": 3
@@ -40,11 +31,7 @@
         }
       ],
       "healthCheck": {
-        "test": [
-          "CMD",
-          "redis-cli",
-          "ping"
-        ],
+        "test": ["redis-cli ping"],
         "interval": "1s",
         "timeout": "3s",
         "retries": 30
