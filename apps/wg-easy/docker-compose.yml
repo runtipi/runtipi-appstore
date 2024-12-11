@@ -1,4 +1,3 @@
-version: "3.7"
 services:
   wg-easy:
     container_name: wg-easy
@@ -10,10 +9,10 @@ services:
       - 51820:51820/udp
       - ${APP_PORT}:51821/tcp
     environment:
-      WG_HOST: "${WIREGUARD_HOST}"
-      PASSWORD_HASH: "${WIREGUARD_PASSWORD_HASH}"
-      WG_DEFAULT_DNS: "${WIREGUARD_DNS:-8.8.8.8}"
-      WG_ALLOWED_IPS: 0.0.0.0/0, ::/0
+      - WG_HOST=${WIREGUARD_HOST}
+      - PASSWORD_HASH=${WIREGUARD_PASSWORD_HASH}
+      - WG_DEFAULT_DNS=${WIREGUARD_DNS:-8.8.8.8}
+      - WG_ALLOWED_IPS=0.0.0.0/0, ::/0
     cap_add:
       - NET_ADMIN
       - SYS_MODULE
@@ -47,4 +46,5 @@ services:
       traefik.http.routers.wg-easy-local.entrypoints: websecure
       traefik.http.routers.wg-easy-local.service: wg-easy
       traefik.http.routers.wg-easy-local.tls: true
+      # Runtipi managed
       runtipi.managed: true
