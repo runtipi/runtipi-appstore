@@ -1,0 +1,16 @@
+{
+  "services": [
+    {
+      "name": "databag",
+      "image": "balzack/databag:latest",
+      "isMain": true,
+      "internalPort": 7000,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/databag",
+          "containerPath": "/var/lib/databag"
+        }
+      ]
+    }
+  ]
+}
