@@ -1,0 +1,20 @@
+{
+  "$schema": "../schema.json",
+  "name": "Glance designed for Rasies",
+  "port": 8568,
+  "available": true,
+  "exposable": true,
+  "id": "glance-rasies",
+  "tipi_version": 7,
+  "version": "0.6.2",
+  "categories": ["utilities"],
+  "description": "A self-hosted dashboard that puts all your feeds in one place",
+  "short_desc": "Super configurable dashboard",
+  "author": "glanceapp",
+  "source": "https://github.com/glanceapp/glance",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"],
+  "dynamic_config": true,
+  "created_at": 1691943801422,
+  "updated_at": 1727656596000
+}

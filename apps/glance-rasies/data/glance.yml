@@ -1,0 +1,138 @@
+pages:
+  - name: Startpage
+    width: slim
+    center-vertically: true
+    columns:
+      - size: full
+        widgets:
+          - type: search
+            autofocus: true
+          - type: monitor
+            cache: 1m
+            title: Services
+            sites:
+              - title: LinkWarden 
+                url: https://links.rasies.com/
+                icon: si:internetarchive
+              - title: DATA
+                url: https://data.rasies.com/
+                icon: si:nextcloud
+              - title: Immich - Photos
+                url: https://photos.rasies.com/
+                icon: si:immich
+              - title: Kavita - Books 
+                url: https://books.rasies.com/
+                icon: si:bookstack
+              - title: Vaultwarden
+                url: https://passwords.rasies.com/
+                icon: si:vaultwarden
+              - title: Flowise AI
+                url: https://flow.rasies.com/
+                icon: si:kashflow
+              - title: OI
+                url: https://oi.rasies.com/
+                icon: si:chatbot
+              - title: Activepieces AI
+                url: https://active.rasies.com/
+                icon: si:activitypub
+              - title: AFFiNE
+                url: https://office.rasies.com/
+                icon: si:affine
+          - type: bookmarks
+            groups:
+              - title: Mine
+                links:
+                - title: TV Coffee Co.
+                  url: https://tvcoffee.co/
+                - title: The Step Parent Path
+                  url: https://stepparentpath.com/
+                - title: Aweggly
+                  url: https://aweggly.com
+                - title: Licking Vape Today!
+                  url: https://lickingvape.com/
+  - name: Markets
+    columns:
+      - size: small
+        widgets:
+          - type: markets
+            title: Indices
+            markets:
+              - symbol: SPY
+                name: S&P 500
+              - symbol: DX-Y.NYB
+                name: Dollar Index
+
+          - type: markets
+            title: Crypto
+            markets:
+              - symbol: BTC-USD
+                name: Bitcoin
+              - symbol: ETH-USD
+                name: Ethereum
+
+          - type: markets
+            title: Stocks
+            sort-by: absolute-change
+            markets:
+              - symbol: NVDA
+                name: NVIDIA
+              - symbol: AAPL
+                name: Apple
+              - symbol: MSFT
+                name: Microsoft
+              - symbol: GOOGL
+                name: Google
+              - symbol: AMD
+                name: AMD
+              - symbol: RDDT
+                name: Reddit
+              - symbol: AMZN
+                name: Amazon
+              - symbol: TSLA
+                name: Tesla
+              - symbol: INTC
+                name: Intel
+              - symbol: META
+                name: Meta
+
+      - size: full
+        widgets:
+          - type: rss
+            title: News
+            style: horizontal-cards
+            feeds:
+              - url: https://feeds.bloomberg.com/markets/news.rss
+                title: Bloomberg
+              - url: https://moxie.foxbusiness.com/google-publisher/markets.xml
+                title: Fox Business
+              - url: https://moxie.foxbusiness.com/google-publisher/technology.xml
+                title: Fox Business
+
+          - type: group
+            widgets:
+              - type: reddit
+                show-thumbnails: true
+                subreddit: technology
+              - type: reddit
+                show-thumbnails: true
+                subreddit: wallstreetbets
+
+          - type: videos
+            style: grid-cards
+            collapse-after-rows: 3
+            channels:
+              - UCvSXMi2LebwJEM1s4bz5IBA # New Money
+              - UCV6KDgJskWaEckne5aPA0aQ # Graham Stephan
+              - UCAzhpt9DmG6PnHXjmJTvRGQ # Federal Reserve
+
+      - size: small
+        widgets:
+          - type: rss
+            title: News
+            limit: 30
+            collapse-after: 13
+            feeds:
+              - url: https://www.ft.com/technology?format=rss
+                title: Financial Times
+              - url: https://feeds.a.dj.com/rss/RSSMarketsMain.xml
+                title: Wall Street Journal
