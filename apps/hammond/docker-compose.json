@@ -1,0 +1,38 @@
+{
+  "services": [
+    {
+      "name": "hammond",
+      "image": "alfhou/hammond:v0.0.24",
+      "isMain": true,
+      "internalPort": 3000,
+      "environment": {
+        "TZ": "${HAMMOND_TZ-Europe/Paris}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/config"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/assets",
+          "containerPath": "/assets"
+        },
+        {
+          "hostPath": "/etc/timezone",
+          "containerPath": "/etc/timezone"
+        },
+        {
+          "hostPath": "/etc/localtime",
+          "containerPath": "/etc/localtime"
+        }
+      ],
+      "healthCheck": {
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 5,
+        "startPeriod": "30s",
+        "test": "wget --no-verbose --tries=1 --spider http://localhost:3000"
+      }
+    }
+  ]
+}
