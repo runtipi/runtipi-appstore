@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8107,
   "id": "vaultwarden",
-  "tipi_version": 23,
-  "version": "1.32.5",
+  "tipi_version": 24,
+  "version": "1.32.6",
   "categories": ["utilities"],
   "description": "Alternative implementation of the Bitwarden server API written in Rust and compatible with upstream Bitwarden clients, perfect for self-hosted deployment where running the official resource-heavy service might not be ideal.",
   "short_desc": "All your passwords in your control!",
@@ -24,5 +24,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1731937466000
+  "updated_at": 1733868869000
 }
