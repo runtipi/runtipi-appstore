@@ -3,9 +3,10 @@
   "name": "Whoogle Search",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 8255,
   "id": "whoogle",
-  "tipi_version": 5,
+  "tipi_version": 6,
   "version": "0.9.1",
   "categories": ["social"],
   "description": "Get Google search results, but without any ads, JavaScript, AMP links, cookies, or IP address tracking.",
@@ -15,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1730916653000
+  "updated_at": 1734114376972
 }
