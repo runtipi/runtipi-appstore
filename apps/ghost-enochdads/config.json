@@ -1,6 +1,6 @@
 {
   "$schema": "../schema.json",
-  "name": "Ghost Production",
+  "name": "Ghost Enoch Dads",
   "port": 8118,
   "available": true,
   "exposable": true,
