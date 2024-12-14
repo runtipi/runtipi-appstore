@@ -6,7 +6,7 @@
       "isMain": true,
       "internalPort": 3000,
       "environment": {
-        "TZ": "${HAMMOND_TZ-Europe/Paris}"
+        "TZ": "${TZ}"
       },
       "volumes": [
         {
@@ -19,11 +19,13 @@
         },
         {
           "hostPath": "/etc/timezone",
-          "containerPath": "/etc/timezone"
+          "containerPath": "/etc/timezone",
+          "readOnly": true
         },
         {
           "hostPath": "/etc/localtime",
-          "containerPath": "/etc/localtime"
+          "containerPath": "/etc/localtime",
+          "readOnly": true
         }
       ],
       "healthCheck": {

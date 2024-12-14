@@ -9,10 +9,10 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
       - ${APP_DATA_DIR}/data/assets:/assets
-      - /etc/timezone:/etc/timezone
-      - /etc/localtime:/etc/localtime
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     environment:
-      - TZ=${HAMMOND_TZ-Europe/Paris}
+      - TZ=${TZ}
     restart: unless-stopped
     networks:
       - tipi_main_network
