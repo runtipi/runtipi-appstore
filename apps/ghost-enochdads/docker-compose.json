@@ -4,14 +4,14 @@
     {
       "name": "ghost",
       "image": "ghost:5.104.2",
-      "dependsOn": ["ghostdb"],
+      "dependsOn": ["ghostdb-ed"],
       "internalPort": 2368,
       "environment": {
         "database__client": "mysql",
-        "database__connection__host": "ghostdb",
+        "database__connection__host": "ghostdb-ed",
         "database__connection__user": "tipi",
         "database__connection__password": "${GHOST_DATABASE_PASSWORD}",
-        "database__connection__database": "ghosttipi",
+        "database__connection__database": "ghost-edtipi",
         "url": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
         "mail__transport": "SMTP",
         "mail__options__service": "${GHOST_MAIL_SERVICE}",
@@ -23,13 +23,13 @@
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/content",
-          "containerPath": "/var/lib/ghost/content"
+          "containerPath": "/var/lib/ghost-ed/content"
         }
       ],
       "isMain": true
     },
     {
-      "name": "ghostdb",
+      "name": "ghostdb-ed",
       "image": "mariadb:latest",
       "environment": {
         "MYSQL_ROOT_PASSWORD": "${GHOST_DATABASE_PASSWORD}",
