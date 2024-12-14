@@ -35,7 +35,7 @@
         "MYSQL_ROOT_PASSWORD": "${GHOST_DATABASE_PASSWORD}",
         "MYSQL_USER": "tipi",
         "MYSQL_PASSWORD": "${GHOST_DATABASE_PASSWORD}",
-        "MYSQL_DATABASE": "ghosttipi"
+        "MYSQL_DATABASE": "ghost-tipi"
       },
       "volumes": [
         {
