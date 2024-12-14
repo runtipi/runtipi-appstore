@@ -2,13 +2,13 @@
   "$schema": "../compose-schema.json",
   "services": [
     {
-      "name": "ghost",
+      "name": "ghost-ed",
       "image": "ghost:5.104.2",
       "dependsOn": ["ghostdb-ed"],
       "internalPort": 2368,
       "environment": {
         "database__client": "mysql",
-        "database__connection__host": "ghostdb-ed",
+        "database__connection__host": "ghost-eddb",
         "database__connection__user": "tipi",
         "database__connection__password": "${GHOST_DATABASE_PASSWORD}",
         "database__connection__database": "ghost-edtipi",
@@ -29,7 +29,7 @@
       "isMain": true
     },
     {
-      "name": "ghostdb-ed",
+      "name": "ghost-eddb",
       "image": "mariadb:latest",
       "environment": {
         "MYSQL_ROOT_PASSWORD": "${GHOST_DATABASE_PASSWORD}",
