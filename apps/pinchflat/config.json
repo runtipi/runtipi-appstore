@@ -4,9 +4,10 @@
   "port": 8945,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "pinchflat",
-  "tipi_version": 15,
-  "version": "2024.11.27",
+  "tipi_version": 17,
+  "version": "2024.12.10",
   "categories": ["media"],
   "description": "Your next YouTube media manager",
   "short_desc": "Your next YouTube media manager",
@@ -34,5 +35,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1732757066000
+  "updated_at": 1734114135009
 }
