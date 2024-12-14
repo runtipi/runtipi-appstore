@@ -12,37 +12,36 @@ services:
       - SYMFONY__ENV__DATABASE_USER=wallabag
       - SYMFONY__ENV__DATABASE_PASSWORD=${WALLABAG_DB_PASSWORD}
       - SYMFONY__ENV__DATABASE_CHARSET=utf8mb4
-      - SYMFONY__ENV__DATABASE_TABLE_PREFIX="wallabag_"
+      - SYMFONY__ENV__DATABASE_TABLE_PREFIX=wallabag_
       - SYMFONY__ENV__MAILER_DSN=smtp://127.0.0.1
       - SYMFONY__ENV__FROM_EMAIL=${SYMFONY__ENV__FROM_EMAIL}
       - SYMFONY__ENV__DOMAIN_NAME=${SYMFONY__ENV__DOMAIN_NAME}
     restart: unless-stopped
     ports:
-      - ${APP_PORT}:80
+      - "8119:80"
     volumes:
       - ${APP_DATA_DIR}/data/wallabag:/var/www/wallabag/web/assets/images
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/api/info"]
       interval: 1m
       timeout: 3s
+      retries: 3
     depends_on:
       - wallabag-db
       - wallabag-redis
     networks:
       - tipi_main_network
     labels:
-      traefik.enable: true
+      traefik.enable: "true"
       traefik.http.middlewares.wallabag-web-redirect.redirectscheme.scheme: https
       traefik.http.services.wallabag.loadbalancer.server.port: 80
-      traefik.http.routers.wallabag-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wallabag-insecure.rule: Host(`${SYMFONY__ENV__DOMAIN_NAME}`)
       traefik.http.routers.wallabag-insecure.entrypoints: web
-      traefik.http.routers.wallabag-insecure.service: wallabag
       traefik.http.routers.wallabag-insecure.middlewares: wallabag-web-redirect
-      traefik.http.routers.wallabag.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wallabag.rule: Host(`${SYMFONY__ENV__DOMAIN_NAME}`)
       traefik.http.routers.wallabag.entrypoints: websecure
-      traefik.http.routers.wallabag.service: wallabag
       traefik.http.routers.wallabag.tls.certresolver: myresolver
-      runtipi.managed: true
+      runtipi.managed: "true"
 
   wallabag-db:
     image: mariadb:latest
@@ -58,7 +57,7 @@ services:
     networks:
       - tipi_main_network
     labels:
-      runtipi.managed: true
+      runtipi.managed: "true"
 
   wallabag-redis:
     image: redis:alpine
@@ -68,10 +67,11 @@ services:
       test: ["CMD", "redis-cli", "ping"]
       interval: 20s
       timeout: 3s
+      retries: 3
     networks:
       - tipi_main_network
     labels:
-      runtipi.managed: true
+      runtipi.managed: "true"
 
 networks:
   tipi_main_network:
