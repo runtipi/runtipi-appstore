@@ -11,9 +11,7 @@
         "NEXTAUTH_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}/api/v1/auth",
         "NEXT_PUBLIC_DISABLE_REGISTRATION": "${LINKWARDEN_NEXT_PUBLIC_DISABLE_REGISTRATION}"
       },
-      "dependsOn": [
-        "linkwarden-db"
-      ],
+      "dependsOn": ["linkwarden-db"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/linkwarden",
