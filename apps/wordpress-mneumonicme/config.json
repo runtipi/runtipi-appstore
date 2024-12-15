@@ -1,7 +1,7 @@
 {
   "name": "WordPress MneuMonicMe",
   "available": true,
-  "port": 8247,
+  "port": 8261,
   "exposable": true,
   "id": "wordpress-mneumonicme",
   "description": "WordPress is a popular content management system for creating websites and blogs.",
