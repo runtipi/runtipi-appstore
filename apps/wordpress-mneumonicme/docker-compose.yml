@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-      
+
   wordpress-mneumonicme:
     container_name: wordpress-mneumonicme
     image: wordpress:6.6.1
@@ -21,7 +21,7 @@ services:
     labels:
         # Main
         traefik.enable: true
-        traefik.http.middlewares.wordpress-mneumonicme.redirect.redirectscheme.scheme: https
+        traefik.http.middlewares.wordpress-mneumonicme-redirect.redirectscheme.scheme: https
         traefik.http.services.wordpress-mneumonicme.loadbalancer.server.port: 80
         # Web
         traefik.http.routers.wordpress-mneumonicme-insecure.rule: Host(`${APP_DOMAIN}`)
@@ -59,3 +59,4 @@ services:
       - tipi_main_network
     labels:
       runtipi.managed: true
+
