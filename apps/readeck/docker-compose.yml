@@ -1,0 +1,102 @@
+ersion: "3.9"
+services:
+  app:
+    image: codeberg.org/readeck/readeck:latest
+    container_name: readeck
+    depends_on:
+      - db
+    ports:
+      - 8000:8000
+    environment:
+      # The URL of the instance's database.
+      - READECK_DATABASE_SOURCE=postgres://readeck:readeckisawesome@readeck-db:5432/readeck
+      # Defines the application log level. Can be error, warning, info, debug.
+      - READECK_LOG_LEVEL=info
+      # The IP address on which Readeck listens.
+      - READECK_SERVER_HOST=0.0.0.0
+      # The TCP port on which Readeck listens. Update container port above to match (right of colon).
+      - READECK_SERVER_PORT=8000
+      # The URL prefix of Readeck.
+      - READECK_SERVER_PREFIX=/
+      # A list of hostnames allowed in HTTP requests. Required for reverse proxy configuration.
+      - READECK_ALLOWED_HOSTS=readeck.example.com
+    volumes:
+      - readeck-data:/readeck
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "/bin/readeck", "healthcheck", "-config", "config.toml"]
+      interval: 30s
+      timeout: 2s
+      retries: 3
+
+  db:
+    image: postgres:16-alpine
+    container_name: readeck-db
+    environment:
+      - POSTGRES_DB=readeck
+      - POSTGRES_USER=readeck
+      - POSTGRES_PASSWORD=readeckisawesome
+    volumes:
+      - readeck-db:/var/lib/postgresql/data
+    restart: unless-stopped
+volumes:
+  readeck-data:
+  readeck-db:
+________________________
+
+
+
+services:
+  archivebox:
+    image: archivebox/archivebox:0.7.4
+    restart: unless-stopped
+    container_name: archivebox
+    command: server --quick-init 0.0.0.0:8015
+    environment:
+      - PORT=8015
+      - PUBLIC_INDEX=${ARCHIVEBOX_PUBLIC_INDEX-true} # set to False to prevent anonymous users from viewing snapshot list
+      - PUBLIC_SNAPSHOTS=${ARCHIVEBOX_PUBLIC_SNAPSHOTS-true} # set to False to prevent anonymous users from viewing snapshot content
+      - PUBLIC_ADD_VIEW=${ARCHIVEBOX_PUBLIC_ADD_VIEW-false} # set to True to allow anonymous users to submit new URLs to archive
+      - ADMIN_USERNAME=${ARCHIVEBOX_USERNAME} # create an admin user on first run with the given user/pass combo
+      - ADMIN_PASSWORD=${ARCHIVEBOX_PASSWORD}
+      - PUID=1000 # set to your host user's UID & GID if you encounter permissions issues
+      - PGID=1000
+      - SEARCH_BACKEND_ENGINE=${ARCHIVEBOX_SEARCH_BACKEND_ENGINE} # uncomment these and sonic container below for better full-text search
+      - SEARCH_BACKEND_HOST_NAME=${ARCHIVEBOX_SEARCH_BACKEND_HOST_NAME}
+      - SEARCH_BACKEND_PASSWORD=${ARCHIVEBOX_SEARCH_BACKEND_PASSWORD}
+      - MEDIA_MAX_SIZE=${ARCHIVEBOX_MEDIA_MAX_SIZE-750m} # increase this filesize limit to allow archiving larger audio/video files
+      - TIMEOUT=${ARCHIVEBOX_TIMEOUT-60} # increase this number to 120+ seconds if you see many slow downloads timing out
+      - CHECK_SSL_VALIDITY=${ARCHIVEBOX_CHECK_SSL_VALIDITY-true} # set to False to disable strict SSL checking (allows saving URLs w/ broken certs)
+      - SAVE_ARCHIVE_DOT_ORG=${ARCHIVEBOX_SAVE_ARCHIVE_DOT_ORGE-true} # set to False to disable submitting all URLs to Archive.org when archiving
+    networks:
+      - tipi_main_network
+    ports:
+      - "${APP_PORT}:8015"
+    volumes:
+      - "${APP_DATA_DIR}/data:/data"
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.archivebox-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.archivebox.loadbalancer.server.port: 8015
+      # Web
+      traefik.http.routers.archivebox-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.archivebox-insecure.entrypoints: web
+      traefik.http.routers.archivebox-insecure.service: archivebox
+      traefik.http.routers.archivebox-insecure.middlewares: archivebox-web-redirect
+      # Websecure
+      traefik.http.routers.archivebox.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.archivebox.entrypoints: websecure
+      traefik.http.routers.archivebox.service: archivebox
+      traefik.http.routers.archivebox.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.archivebox-local-insecure.rule: Host(`archivebox.${LOCAL_DOMAIN}`)
+      traefik.http.routers.archivebox-local-insecure.entrypoints: web
+      traefik.http.routers.archivebox-local-insecure.service: archivebox
+      traefik.http.routers.archivebox-local-insecure.middlewares: archivebox-web-redirect
+      # Local domain secure
+      traefik.http.routers.archivebox-local.rule: Host(`archivebox.${LOCAL_DOMAIN}`)
+      traefik.http.routers.archivebox-local.entrypoints: websecure
+      traefik.http.routers.archivebox-local.service: archivebox
+      traefik.http.routers.archivebox-local.tls: true
+      runtipi.managed: true
