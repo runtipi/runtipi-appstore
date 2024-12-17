@@ -22,9 +22,9 @@
   "homepage": "https://github.com/meienberger/runtipi-appstore#readme",
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@commitlint/cli": "^19.6.0",
+    "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
-    "@commitlint/cz-commitlint": "^19.5.0",
+    "@commitlint/cz-commitlint": "^19.6.1",
     "@playwright/test": "^1.49.1",
     "@types/jest": "^28.1.6",
     "@types/js-yaml": "^4.0.9",
