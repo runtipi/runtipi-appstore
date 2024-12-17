@@ -3,9 +3,9 @@ version: "3.7"
 services:
   syncthing:
     container_name: syncthing
-    image: syncthing/syncthing:1.27
+    image: syncthing/syncthing:1.28
     stop_grace_period: 1m
-    hostname: tipi
+    hostname: ${SYNCTHING_HOSTNAME:-tipi}
     environment:
       - PUID=1000
       - PGID=1000
@@ -45,4 +45,5 @@ services:
       traefik.http.routers.syncthing-local.entrypoints: websecure
       traefik.http.routers.syncthing-local.service: syncthing
       traefik.http.routers.syncthing-local.tls: true
+      # Runtipi managed
       runtipi.managed: true

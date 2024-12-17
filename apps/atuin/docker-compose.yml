@@ -2,19 +2,18 @@ version: "3.5"
 services:
   atuin:
     container_name: atuin
-    restart: always
+    restart: unless-stopped
     image: ghcr.io/atuinsh/atuin:18.3.0
     command: server start
     volumes:
-      - "${APP_DATA_DIR}/data/config:/config"
-    links:
-      - postgresql:db
+      - ${APP_DATA_DIR}/data/config:/config
     ports:
       - ${APP_PORT}:8888
     environment:
-      ATUIN_HOST: "0.0.0.0"
-      ATUIN_OPEN_REGISTRATION: ${ATUIN_ALLOW_REGISTRATION}
-      ATUIN_DB_URI: "postgres://atuin:${ATUIN_DB_PASSWORD}@db/atuin"
+      - ATUIN_PORT=8888
+      - ATUIN_HOST=0.0.0.0
+      - ATUIN_OPEN_REGISTRATION=${ATUIN_ALLOW_REGISTRATION}
+      - ATUIN_DB_URI=postgres://atuin:${ATUIN_DB_PASSWORD}@atuin-db/atuin
     networks:
       - tipi_main_network
     labels:
@@ -42,17 +41,21 @@ services:
       traefik.http.routers.atuin-local.entrypoints: websecure
       traefik.http.routers.atuin-local.service: atuin
       traefik.http.routers.atuin-local.tls: true
+      # Runtipi managed
       runtipi.managed: true
-  postgresql:
+
+  atuin-db:
+    container_name: atuin-db
     image: postgres:14
     restart: unless-stopped
-    volumes: # Don't remove permanent storage for index database files!
-      - "${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data/"
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data/
     environment:
-      POSTGRES_USER: atuin
-      POSTGRES_PASSWORD: "${ATUIN_DB_PASSWORD}"
-      POSTGRES_DB: atuin
+      - POSTGRES_USER=atuin
+      - POSTGRES_PASSWORD=${ATUIN_DB_PASSWORD}
+      - POSTGRES_DB=atuin
     networks:
       - tipi_main_network
     labels:
+      # Runtipi managed
       runtipi.managed: true

@@ -74,13 +74,13 @@ services:
     labels:
       runtipi.managed: true
   affine-postgres:
-    image: postgres
+    image: postgres:16
     container_name: affine-postgres
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U affine" ]
+      test: [ "CMD-SHELL", "pg_isready -d postgres://tipi:${AFFINE_POSTGRES_PASSWORD}@affine-postgres:5432/affine" ]
       interval: 10s
       timeout: 5s
       retries: 5

@@ -3,10 +3,11 @@
   "name": "ArchiveBox",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 8015,
   "id": "archivebox",
-  "tipi_version": 3,
-  "version": "0.7.2",
+  "tipi_version": 6,
+  "version": "0.7.4",
   "categories": ["media"],
   "description": "ArchiveBox is a powerful, self-hosted internet archiving solution to collect, save, and view websites offline.",
   "short_desc": "Open source self-hosted web archiving.",
@@ -33,5 +34,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566285000
+  "updated_at": 1731436728000
 }

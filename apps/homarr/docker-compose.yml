@@ -1,8 +1,7 @@
-version: "3.7"
 services:
   homarr:
     container_name: homarr
-    image: ghcr.io/ajnart/homarr:0.15.4
+    image: ghcr.io/ajnart/homarr:0.15.9
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/config:/app/data/configs
@@ -10,8 +9,6 @@ services:
       - ${APP_DATA_DIR}/data/dashboard:/data
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - PASSWORD=${HOMARR_PASSWORD}
-      - PGID=1000
       - TZ=${TZ}
     ports:
       - ${APP_PORT}:7575
@@ -42,4 +39,5 @@ services:
       traefik.http.routers.homarr-local.entrypoints: websecure
       traefik.http.routers.homarr-local.service: homarr
       traefik.http.routers.homarr-local.tls: true
+      # Runtipi managed
       runtipi.managed: true

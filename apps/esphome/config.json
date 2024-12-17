@@ -4,9 +4,10 @@
   "port": 6052,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "esphome",
-  "tipi_version": 7,
-  "version": "2024.9.0",
+  "tipi_version": 18,
+  "version": "2024.11.3",
   "categories": ["automation"],
   "description": "ESPHome is a system to control your ESP8266/ESP32 by simple yet powerful configuration files and control them remotely through Home Automation systems.",
   "short_desc": "Control your ESP8266/ESP32.",
@@ -24,7 +25,7 @@
       "hint": "Username of your ESP Home account"
     },
     {
-      "type": "Password",
+      "type": "password",
       "label": "Password",
       "env_variable": "ESPHOME_PASSWORD",
       "default": "",
@@ -42,5 +43,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1723905687000,
-  "updated_at": 1726692296000
+  "updated_at": 1733760617261
 }

@@ -8,8 +8,8 @@
   "uid": 1000,
   "gid": 1000,
   "id": "recyclarr",
-  "tipi_version": 19,
-  "version": "7.2.4",
+  "tipi_version": 21,
+  "version": "7.4.0",
   "categories": ["media", "utilities"],
   "description": "Automatically sync TRaSH Guides to your Sonarr and Radarr instances",
   "short_desc": "Sync TRaSH Guides.",
@@ -19,5 +19,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1726355398000
+  "updated_at": 1731439044000
 }
