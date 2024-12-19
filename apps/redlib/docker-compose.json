@@ -1,0 +1,15 @@
+{
+  "services": [
+    {
+      "name": "redlib",
+      "image": "quay.io/redlib/redlib:latest",
+      "internalPort": 8080,
+      "isMain": true,
+      "healthCheck": {
+        "test": "wget --spider -q --tries=1 http://localhost:8080/settings",
+        "interval": "10s",
+        "timeout": "3s"
+      }
+    }
+  ]
+}
