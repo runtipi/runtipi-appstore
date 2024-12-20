@@ -13,7 +13,7 @@
   "short_desc": "A ShareX/file upload server that is easy to use, packed with features, and with an easy setup!  ",
   "author": "https://github.com/diced",
   "source": "https://github.com/diced/zipline",
-  "website": "https://zipline.diced.tech/docs/config/",
+  "website": "https://zipline.diced.sh",
   "form_fields": [
     {
       "type": "random",
