@@ -1,0 +1,18 @@
+{
+    "$schema": "../compose-schema.json",
+    "services": [
+        {
+            "name": "anse",
+            "environment": {
+                "PORT": "8014",
+                "BASE_URL": "http://192.168.1.12:8111", // LocalAI base URL
+                "API_KEY": "Mycobacteri@98", // Your LocalAI API Key
+                "DEFAULT_MODEL": "llama-3.2-3b-instruct-uncensored" // Default Model
+            },
+            "image": "ddiu8081/anse:v1.1.11",
+            "internalPort": 8014,
+            "isMain": true
+        }
+    ]
+}
+
