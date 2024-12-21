@@ -3,9 +3,10 @@
   "name": "Databag",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 8201,
   "id": "databag",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "latest",
   "categories": ["utilities"],
   "description": "Databag is a federated chat app for self-hosting that focuses on user privacy and security; the service includes clients for iOS, Android, and browser.",
@@ -15,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566283000
+  "updated_at": 1733760567442
 }

@@ -3,9 +3,10 @@
   "name": "Chatpad AI",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 8179,
   "id": "chatpad",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "latest",
   "categories": ["ai"],
   "description": "Not just another ChatGPT user-interface!",
@@ -16,5 +17,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566284000
+  "updated_at": 1733760531499
 }

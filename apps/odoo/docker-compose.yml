@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   odoodb:
     container_name: odoodb
@@ -16,9 +14,10 @@ services:
       - tipi_main_network
     labels:
       runtipi.managed: true
+
   odoo:
     container_name: odoo
-    image: odoo:17
+    image: odoo:18
     user: root
     depends_on:
       - odoodb
@@ -34,6 +33,8 @@ services:
       # - ./entrypoint.sh:/entrypoint.sh   # if you want to install additional Python packages, uncomment this line!
       - ${APP_DATA_DIR}/data/addons:/mnt/extra-addons
       - ${APP_DATA_DIR}/data/etc:/etc/odoo
+      - ${APP_DATA_DIR}/data/odoo-web-data:/var/lib/odoo
+      - ${APP_DATA_DIR}/data/filestore:/root/.local/share
     restart: unless-stopped
     networks:
       - tipi_main_network
