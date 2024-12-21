@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "nocodb",
-  "tipi_version": 64,
-  "version": "0.258.7",
+  "tipi_version": 65,
+  "version": "0.258.10",
   "categories": ["utilities"],
   "description": "The Open Source Airtable Alternative. Turns any MySQL, PostgreSQL, SQL Server, SQLite & MariaDB into a smart-spreadsheet.",
   "short_desc": "Open Source Airtable Alternative",
@@ -41,5 +41,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1734013007000
+  "updated_at": 1734712224000
 }
