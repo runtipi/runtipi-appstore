@@ -1,6 +1,6 @@
 {
   "$schema": "../schema.json",
-  "name": "ArchiveBox",
+  "name": "Readeck",
   "available": true,
   "exposable": true,
   "dynamic_config": true,
