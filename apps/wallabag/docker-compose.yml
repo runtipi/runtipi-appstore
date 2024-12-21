@@ -1,0 +1,79 @@
+version: "3.7"
+
+services:
+  wallabag:
+    image: wallabag/wallabag:latest
+    container_name: wallabag
+    environment:
+      - SYMFONY__ENV__DATABASE_DRIVER=pdo_mysql
+      - SYMFONY__ENV__DATABASE_HOST=wallabag-db
+      - SYMFONY__ENV__DATABASE_PORT=3306
+      - SYMFONY__ENV__DATABASE_NAME=wallabag
+      - SYMFONY__ENV__DATABASE_USER=wallabag
+      - SYMFONY__ENV__DATABASE_PASSWORD=${WALLABAG_DB_PASSWORD}
+      - SYMFONY__ENV__DATABASE_CHARSET=utf8mb4
+      - SYMFONY__ENV__DATABASE_TABLE_PREFIX="wallabag_"
+      - SYMFONY__ENV__MAILER_DSN=smtp://127.0.0.1
+      - SYMFONY__ENV__FROM_EMAIL=${SYMFONY__ENV__FROM_EMAIL}
+      - SYMFONY__ENV__DOMAIN_NAME=${SYMFONY__ENV__DOMAIN_NAME}
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:80
+    volumes:
+      - ${APP_DATA_DIR}/data/wallabag:/var/www/wallabag/web/assets/images
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/api/info"]
+      interval: 1m
+      timeout: 3s
+    depends_on:
+      - wallabag-db
+      - wallabag-redis
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: true
+      traefik.http.middlewares.wallabag-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.wallabag.loadbalancer.server.port: 80
+      traefik.http.routers.wallabag-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wallabag-insecure.entrypoints: web
+      traefik.http.routers.wallabag-insecure.service: wallabag
+      traefik.http.routers.wallabag-insecure.middlewares: wallabag-web-redirect
+      traefik.http.routers.wallabag.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wallabag.entrypoints: websecure
+      traefik.http.routers.wallabag.service: wallabag
+      traefik.http.routers.wallabag.tls.certresolver: myresolver
+      runtipi.managed: true
+
+  wallabag-db:
+    image: mariadb:latest
+    container_name: wallabag-db
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=wallaroot
+      - MYSQL_DATABASE=wallabag
+      - MYSQL_USER=wallabag
+      - MYSQL_PASSWORD=${WALLABAG_DB_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}/data/wallabag-db:/var/lib/mysql
+    networks:
+      - tipi_main_network
+    labels:
+      runtipi.managed: true
+
+  wallabag-redis:
+    image: redis:alpine
+    container_name: wallabag-redis
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 20s
+      timeout: 3s
+    networks:
+      - tipi_main_network
+    labels:
+      runtipi.managed: true
+
+networks:
+  tipi_main_network:
+    external: true
+

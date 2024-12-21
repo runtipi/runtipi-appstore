@@ -1,0 +1,36 @@
+{
+  "name": "Wallabag",
+  "port": 8119,
+  "available": true,
+  "exposable": true,
+  "id": "wallabag",
+  "tipi_version": 21,
+  "version": "2.6.2",
+  "categories": ["data"],
+  "description": "A self-hosted, open-source application to save and organize web content.",
+  "short_desc": "Save and organize web content",
+  "author": "Wallabag",
+  "source": "https://github.com/wallabag/docker",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Database Password",
+      "min": 32,
+      "env_variable": "WALLABAG_DB_PASSWORD"
+    },
+    {
+      "type": "string",
+      "label": "Wallabag Email",
+      "hint": "Email address for Wallabag notifications.",
+      "env_variable": "SYMFONY__ENV__FROM_EMAIL"
+    },
+    {
+      "type": "string",
+      "label": "Domain Name",
+      "hint": "Domain name for Wallabag instance.",
+      "env_variable": "SYMFONY__ENV__DOMAIN_NAME"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"]
+}
+
