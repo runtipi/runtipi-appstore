@@ -4,35 +4,37 @@
   "available": true,
   "exposable": true,
   "dynamic_config": true,
-  "port": 8015,
-  "id": "archivebox",
-  "tipi_version": 6,
-  "version": "0.7.4",
-  "categories": ["media"],
-  "description": "ArchiveBox is a powerful, self-hosted internet archiving solution to collect, save, and view websites offline.",
-  "short_desc": "Open source self-hosted web archiving.",
-  "author": "archivebox",
-  "source": "https://github.com/ArchiveBox/ArchiveBox",
-  "website": "https://archivebox.io",
+  "port": 8000,
+  "id": "readeck",
+  "tipi_version": 37,
+  "version": "latest",
+  "categories": ["books", "documents", "media"],
+  "description": "Readeck is a self-hosted platform for organizing, reading, and sharing e-books, documents, and articles with powerful features for collaboration.",
+  "short_desc": "Self-hosted platform for managing and reading e-books and documents.",
+  "author": "Readeck Team",
+  "source": "https://codeberg.org/readeck/readeck",
   "form_fields": [
     {
+      "key": "database_user",
       "type": "text",
-      "label": "ArchiveBox Username",
-      "max": 50,
-      "min": 3,
-      "required": true,
-      "env_variable": "ARCHIVEBOX_USERNAME"
+      "label": "Database Username",
+      "default": "readeck"
     },
     {
+      "key": "database_password",
       "type": "password",
-      "label": "ArchiveBox Password",
-      "max": 50,
-      "min": 12,
-      "required": true,
-      "env_variable": "ARCHIVEBOX_PASSWORD"
+      "label": "Database Password",
+      "default": "readeckisawesome"
+    },
+    {
+      "key": "allowed_hosts",
+      "type": "text",
+      "label": "Allowed Hosts",
+      "default": "readeck.rasies.com"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1731436728000
+  "updated_at": 1733681450000
 }
+
