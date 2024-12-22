@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "homepage",
-      "image": "ghcr.io/gethomepage/homepage:v0.10.1",
+      "image": "ghcr.io/gethomepage/homepage:v0.10.2",
       "internalPort": 3000,
       "volumes": [
         {
