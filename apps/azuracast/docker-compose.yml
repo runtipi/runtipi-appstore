@@ -1,0 +1,62 @@
+version: "3.7"
+
+services:
+  azuracast:
+    container_name: azuracast
+    image: azuracast/azuracast:stable
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:80
+      - "8000:8000"  # For Icecast/Shoutcast
+    volumes:
+      - /path/to/runtipi/media/data:/var/azuracast/media
+      - ${APP_DATA_DIR}/azuracast/config:/var/azuracast/config
+      - ${APP_DATA_DIR}/azuracast/stations:/var/azuracast/stations
+      - ${APP_DATA_DIR}/azuracast/www:/var/azuracast/www
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.azuracast-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.azuracast.loadbalancer.server.port: 80
+      # Web
+      traefik.http.routers.azuracast-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.azuracast-insecure.entrypoints: web
+      traefik.http.routers.azuracast-insecure.service: azuracast
+      traefik.http.routers.azuracast-insecure.middlewares: azuracast-web-redirect
+      # Websecure
+      traefik.http.routers.azuracast.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.azuracast.entrypoints: websecure
+      traefik.http.routers.azuracast.service: azuracast
+      traefik.http.routers.azuracast.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.azuracast-local-insecure.rule: Host(`azuracast.${LOCAL_DOMAIN}`)
+      traefik.http.routers.azuracast-local-insecure.entrypoints: web
+      traefik.http.routers.azuracast-local-insecure.service: azuracast
+      traefik.http.routers.azuracast-local-insecure.middlewares: azuracast-web-redirect
+      # Local domain secure
+      traefik.http.routers.azuracast-local.rule: Host(`azuracast.${LOCAL_DOMAIN}`)
+      traefik.http.routers.azuracast-local.entrypoints: websecure
+      traefik.http.routers.azuracast-local.service: azuracast
+      traefik.http.routers.azuracast-local.tls: true
+      runtipi.managed: true
+
+  mariadb:
+    container_name: azuracast_mariadb
+    image: mariadb:10.5
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    volumes:
+      - ${APP_DATA_DIR}/azuracast/db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=azura_root_password
+      - MYSQL_DATABASE=azuracast
+      - MYSQL_USER=azuracast
+      - MYSQL_PASSWORD=azura_password
+
+networks:
+  tipi_main_network:
+    external: true
+
