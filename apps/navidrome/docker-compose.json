@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "navidrome",
-      "image": "deluan/navidrome:0.53.3",
+      "image": "deluan/navidrome:0.54.2",
       "isMain": true,
       "internalPort": 4533,
       "environment": {
@@ -25,4 +25,3 @@
     }
   ]
 }
-
