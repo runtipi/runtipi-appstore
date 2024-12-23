@@ -12,9 +12,7 @@
         "VIDEO_GAMES_TWITCH_CLIENT_ID": "${RYOT_VIDEO_GAMES_TWITCH_CLIENT_ID}",
         "VIDEO_GAMES_TWITCH_CLIENT_SECRET": " ${VIDEO_GAMES_TWITCH_CLIENT_SECRET}"
       },
-      "dependsOn": [
-        "ryot-db"
-      ]
+      "dependsOn": ["ryot-db"]
     },
     {
       "name": "ryot-db",
