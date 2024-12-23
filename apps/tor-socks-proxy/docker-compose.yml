@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  tor-socks-proxy:
+    container_name: tor-socks-proxy
+    image: peterdavehello/tor-socks-proxy:latest
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:9150/tcp
+    networks:
+      - tipi_main_network
+    
