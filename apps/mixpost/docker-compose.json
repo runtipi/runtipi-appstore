@@ -16,10 +16,7 @@
         "REDIS_HOST": "mixpost-redis",
         "REDIS_PASSWORD": "${MIXPOST_REDIS_PASSWORD}"
       },
-      "dependsOn": [
-        "mixpost-mysql",
-        "mixpost-redis"
-      ],
+      "dependsOn": ["mixpost-mysql", "mixpost-redis"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/mixpost-storage",
@@ -65,7 +62,7 @@
           "containerPath": "/data"
         }
       ],
-      "command": "redis-server --appendonly yes --replica-read-only no --requirepass \"${MIXPOST_REDIS_PASSWORD}\"",
+      "command": "redis-server --appendonly yes --replica-read-only no --requirepass ${MIXPOST_REDIS_PASSWORD}",
       "healthCheck": {
         "timeout": "5s",
         "retries": 3,
