@@ -14,9 +14,7 @@
         "HAVEN_USER_EMAIL": "${HAVEN_USER_EMAIL}",
         "HAVEN_USER_PASS": "${HAVEN_USER_PASSWORD}"
       },
-      "dependsOn": [
-        "haven-db"
-      ],
+      "dependsOn": ["haven-db"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/storage",
