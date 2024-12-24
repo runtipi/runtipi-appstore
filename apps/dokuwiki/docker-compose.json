@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "dokuwiki",
-      "image": "lscr.io/linuxserver/dokuwiki:version-2024-02-06b",
+      "image": "lscr.io/linuxserver/dokuwiki:latest",
       "isMain": true,
       "internalPort": 80,
       "volumes": [
