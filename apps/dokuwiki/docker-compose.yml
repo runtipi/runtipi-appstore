@@ -1,9 +1,7 @@
-version: "3"
-
 services:
   dokuwiki:
     container_name: dokuwiki
-    image: lscr.io/linuxserver/dokuwiki:2022-07-31a-ls158
+    image: lscr.io/linuxserver/dokuwiki:2024-02-06b-ls250
     ports:
       - ${APP_PORT}:80
     volumes:
