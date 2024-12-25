@@ -4,19 +4,13 @@
       "name": "chatgpt-ui",
       "image": "wongsaang/chatgpt-ui-client:v2.5.9",
       "isMain": true,
-      "addPorts": [
-        {
-          "hostPort": 8200,
-          "containerPort": 80
-        }
+      "internalPort": 80
       ],
       "environment": {
         "SERVER_DOMAIN": "http://chatgpt-ui-web-server",
         "DEFAULT_LOCALE": "en"
       },
-      "dependsOn": [
-        "chatgpt-ui-web-server"
-      ]
+      "dependsOn": ["chatgpt-ui-web-server"]
     },
     {
       "name": "chatgpt-ui-wsgi-server",
@@ -31,9 +25,7 @@
         "DJANGO_SUPERUSER_EMAIL": "${CHATGPT_UI_SUPERUSER_EMAIL}",
         "ACCOUNT_EMAIL_VERIFICATION": "none"
       },
-      "dependsOn": [
-        "chatgpt-ui-db"
-      ]
+      "dependsOn": ["chatgpt-ui-db"]
     },
     {
       "name": "chatgpt-ui-web-server",
@@ -47,10 +39,7 @@
       "environment": {
         "BACKEND_URL": "http://chatgpt-ui-wsgi-server:8000"
       },
-      "dependsOn": [
-        "chatgpt-ui-wsgi-server",
-        "chatgpt-ui-db"
-      ]
+      "dependsOn": ["chatgpt-ui-wsgi-server", "chatgpt-ui-db"]
     },
     {
       "name": "chatgpt-ui-db",
