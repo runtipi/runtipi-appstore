@@ -4,7 +4,7 @@
       "name": "chatgpt-ui",
       "image": "wongsaang/chatgpt-ui-client:v2.5.9",
       "isMain": true,
-      "internalPort": 80
+      "internalPort": 80,
       "environment": {
         "SERVER_DOMAIN": "http://chatgpt-ui-web-server",
         "DEFAULT_LOCALE": "en"
