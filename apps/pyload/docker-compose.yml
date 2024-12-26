@@ -1,0 +1,45 @@
+version: '3.9'
+services:
+  pyload:
+    image: linuxserver/pyload-ng:0.5.0
+    # build: <REPODIR>
+    container_name: pyload
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${ROOT_FOLDER_HOST}/media/downloads:/downloads
+    ports:
+      - ${APP_PORT}:8000 # Webinterface
+      # - 9666:9666 # Click 'N' Load
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.pyload-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.pyload.loadbalancer.server.port: 8000
+      # Web
+      traefik.http.routers.pyload-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.pyload-insecure.entrypoints: web
+      traefik.http.routers.pyload-insecure.service: pyload
+      traefik.http.routers.pyload-insecure.middlewares: pyload-web-redirect
+      # Websecure
+      traefik.http.routers.pyload.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.pyload.entrypoints: websecure
+      traefik.http.routers.pyload.service: pyload
+      traefik.http.routers.pyload.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.pyload-local-insecure.rule: Host(`pyload.${LOCAL_DOMAIN}`)
+      traefik.http.routers.pyload-local-insecure.entrypoints: web
+      traefik.http.routers.pyload-local-insecure.service: pyload
+      traefik.http.routers.pyload-local-insecure.middlewares: pyload-web-redirect
+      # Local domain secure
+      traefik.http.routers.pyload-local.rule: Host(`pyload.${LOCAL_DOMAIN}`)
+      traefik.http.routers.pyload-local.entrypoints: websecure
+      traefik.http.routers.pyload-local.service: pyload
+      traefik.http.routers.pyload-local.tls: true
+      runtipi.managed: true
