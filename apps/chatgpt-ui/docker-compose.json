@@ -44,7 +44,7 @@
       "name": "chatgpt-ui-db",
       "image": "lscr.io/linuxserver/mariadb:latest",
       "environment": {
-        "MYSQL_ROOT_PASSWORD": "$CHATGPT_UI_DB_PASSWORD}",
+        "MYSQL_ROOT_PASSWORD": "${CHATGPT_UI_DB_PASSWORD}",
         "MYSQL_DATABASE": "chatgptdb",
         "MYSQL_USER": "tipi",
         "MYSQL_PASSWORD": "${CHATGPT_UI_DB_PASSWORD}"
