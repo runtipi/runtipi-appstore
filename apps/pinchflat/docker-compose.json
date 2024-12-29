@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "pinchflat",
-      "image": "keglin/pinchflat:v2024.12.10",
+      "image": "keglin/pinchflat:v2024.12.29",
       "isMain": true,
       "internalPort": 8945,
       "environment": {
