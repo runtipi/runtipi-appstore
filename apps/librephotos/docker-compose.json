@@ -5,10 +5,7 @@
       "image": "reallibrephotos/librephotos-proxy:2023w48",
       "isMain": true,
       "internalPort": 80,
-      "dependsOn": [
-        "librephotos-backend",
-        "librephotos-frontend"
-      ],
+      "dependsOn": ["librephotos-backend", "librephotos-frontend"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/scan",
@@ -49,9 +46,7 @@
     {
       "name": "librephotos-frontend",
       "image": "reallibrephotos/librephotos-frontend:2023w48",
-      "dependsOn": [
-        "librephotos-backend"
-      ]
+      "dependsOn": ["librephotos-backend"]
     },
     {
       "name": "librephotos-backend",
