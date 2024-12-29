@@ -4,7 +4,7 @@
   "available": true,
   "exposable": true,
   "dynamic_config": true,
-  "port": 80,
+  "port": 8112,
   "id": "azuracast",
   "tipi_version": 37,
   "version": "stable",
