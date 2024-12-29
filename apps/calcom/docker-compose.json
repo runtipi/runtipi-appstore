@@ -29,9 +29,7 @@
         "EMAIL_SERVER_USER": "${EMAIL_SERVER_USER}",
         "NODE_ENV": "production"
       },
-      "dependsOn": [
-        "db-calcom"
-      ]
+      "dependsOn": ["db-calcom"]
     },
     {
       "name": "db-calcom",
