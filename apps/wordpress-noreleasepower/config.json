@@ -1,7 +1,7 @@
 {
   "name": "WordPress No Release Power",
   "available": true,
-  "port": 8261,
+  "port": 8264,
   "exposable": true,
   "id": "wordpress-noreleasepower",
   "description": "WordPress is a popular content management system for creating websites and blogs.",
