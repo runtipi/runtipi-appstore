@@ -11,10 +11,7 @@
         "VIEWTUBE_SECURE": "true",
         "VIEWTUBE_CORS_ORIGIN": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
       },
-      "dependsOn": [
-        "viewtube-mongodb",
-        "viewtube-redis"
-      ],
+      "dependsOn": ["viewtube-mongodb", "viewtube-redis"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/viewtube",
