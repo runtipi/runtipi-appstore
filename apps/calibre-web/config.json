@@ -3,8 +3,9 @@
   "name": "Calibre-Web - EBook Reader",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 8100,
-  "tipi_version": 11,
+  "tipi_version": 12,
   "version": "0.6.24",
   "id": "calibre-web",
   "categories": ["books"],
@@ -15,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1731754541000
+  "updated_at": 1735481892914
 }
