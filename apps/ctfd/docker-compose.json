@@ -16,9 +16,7 @@
         "REVERSE_PROXY": "true",
         "SECRET_KEY": "${CTFD_SECRET_KEY}"
       },
-      "dependsOn": [
-        "ctfd-db"
-      ],
+      "dependsOn": ["ctfd-db"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/uploads",
