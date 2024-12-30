@@ -8,7 +8,10 @@
   "id": "komga",
   "tipi_version": 13,
   "version": "1.15.1",
-  "categories": ["media"],
+  "categories": [
+    "books",
+    "media"
+  ],
   "description": "A media server for your comics, mangas, BDs, magazines and eBooks.",
   "short_desc": "A media server for your comics, mangas, BDs, magazines and eBooks.",
   "author": "gotson",
