@@ -1,0 +1,51 @@
+version: '3.7'
+
+services:
+  localai-worker:
+    networks:
+      - tipi-main-network
+    image: localai/worker:latest
+    container_name: localai-worker
+    ports:
+      - ${APP_PORT}:80
+    environment:
+      - PYTHONUNBUFFERED=1
+      - WATCHFILES_FORCE_POLLING=true
+      - LOCALAI_SERVER_URL=${LOCALAI_SERVER_URL}
+      - THREADS=${THREADS}
+      - TOKEN=${TOKEN}
+    volumes:
+      - ${APP_DATA_DIR}/data/static:/app/localai/static
+      - ${APP_DATA_DIR}/data/plugins:/app/localai/plugins
+      - ${APP_DATA_DIR}/data/data:/app/localai/data
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.localai-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.localai.loadbalancer.server.port: 1865
+      # Web
+      traefik.http.routers.localai-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.localai-insecure.entrypoints: web
+      traefik.http.routers.localai-insecure.service: localai-worker
+      traefik.http.routers.localai-insecure.middlewares: localai-web-redirect
+      # Websecure
+      traefik.http.routers.localai.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.localai.entrypoints: websecure
+      traefik.http.routers.localai.service: localai-worker
+      traefik.http.routers.localai.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.localai-local-insecure.rule: Host(`localai-worker.${LOCAL_DOMAIN}`)
+      traefik.http.routers.localai-local-insecure.entrypoints: web
+      traefik.http.routers.localai-local-insecure.service: localai-worker
+      traefik.http.routers.localai-local-insecure.middlewares: localai-web-redirect
+      # Local domain secure
+      traefik.http.routers.localai-local.rule: Host(`localai-worker.${LOCAL_DOMAIN}`)
+      traefik.http.routers.localai-local.entrypoints: websecure
+      traefik.http.routers.localai-local.service: localai-worker
+      traefik.http.routers.localai-local.tls: true
+      runtipi.managed: true
+
+networks:
+  tipi-main-network:
+    driver: bridge
+

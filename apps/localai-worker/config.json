@@ -1,0 +1,40 @@
+{
+  "app": {
+    "name": "localai-worker",
+    "type": "docker",
+    "description": "Federated worker for LocalAI, connected to server at 192.168.1.12:8080",
+    "icon": "https://example.com/worker-icon.png",
+    "categories": ["ai", "worker", "federation"],
+    "env": [
+      {
+        "key": "LOCALAI_SERVER_URL",
+        "value": "http://192.168.1.12:8080"
+      },
+      {
+        "key": "THREADS",
+        "value": "12"
+      },
+      {
+        "key": "TOKEN",
+        "value": "b3RwOgogIGRodDoKICAgIGludGVydmFsOiAzNjAKICAgIGtleTogZmcyQ045UjNKa1ZMMTRJYnd4RXR6U3EycmJiaFRoWXlTSFdYYXEzWkVPSgogICAgbGVuZ3RoOiA0MwogIGNyeXB0bzoKICAgIGludGVydmFsOiA5MDAwCiAgICBrZXk6IGtCamVCRWFJaENkTU1IeDVVbWVhQnIya2luR0c1OHBuS3dqVWNPeXhzUUsKICAgIGxlbmd0aDogNDMKcm9vbTogTWc1Q2pVbHZiZEJWUE43UkxaU1RFcHZBdE5lVFdhUEJ2UnVhbWNsZWhYQwpyZW5kZXp2b3VzOiBmbzZXaHlwTnlpY3dacm1HNkt4U29Qajh2QzQ0d3p5dVB4OW85ZkhWMEtCCm1kbnM6IHZ1ZzBjeFR1eVA5YjJSSkE3V2k3Q0pIbDBYa01kR0xQUEdsVGtERmNIS3UKbWF4X21lc3NhZ2Vfc2l6ZTogMjA5NzE1MjAK"
+      },
+      {
+        "key": "APP_PORT",
+        "value": "8080"
+      },
+      {
+        "key": "APP_DATA_DIR",
+        "value": "/var/lib/localai-worker"
+      },
+      {
+        "key": "APP_DOMAIN",
+        "value": "worker.localai.example.com"
+      },
+      {
+        "key": "LOCAL_DOMAIN",
+        "value": "local"
+      }
+    ]
+  }
+}
+
