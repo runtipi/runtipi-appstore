@@ -1,9 +1,9 @@
-version: "3.9"
 services:
   affine:
     image: ghcr.io/toeverything/affine-graphql:stable
     container_name: affine
-    command: ["sh", "-c", "node ./scripts/self-host-predeploy && node ./dist/index.js"]
+    command:
+      ["sh", "-c", "node ./scripts/self-host-predeploy && node ./dist/index.js"]
     ports:
       - ${APP_PORT}:3010
     depends_on:
@@ -65,7 +65,7 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
     healthcheck:
-      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -80,7 +80,11 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -d postgres://tipi:${AFFINE_POSTGRES_PASSWORD}@affine-postgres:5432/affine" ]
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -d postgres://tipi:${AFFINE_POSTGRES_PASSWORD}@affine-postgres:5432/affine",
+        ]
       interval: 10s
       timeout: 5s
       retries: 5
