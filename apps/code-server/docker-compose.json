@@ -23,12 +23,8 @@
           "containerPath": "/projects"
         },
         {
-          "hostPath": "${ROOT_FOLDER_HOST}/app-data",
-          "containerPath": "/runtipi/app-data"
-        },
-        {
-          "hostPath": "${ROOT_FOLDER_HOST}/user-config",
-          "containerPath": "/runtipi/user-config"
+          "hostPath": "${ROOT_FOLDER_HOST}",
+          "containerPath": "/runtipi"
         }
       ]
     }
