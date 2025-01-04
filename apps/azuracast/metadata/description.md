@@ -1,32 +1,21 @@
-# AudiobookShelf
-Audiobookshelf is a self-hosted audiobook and podcast server.
+# 🎵 AzuraCast: Your Radio, Your Way!
 
-### Features
+AzuraCast is the **ultimate web radio management tool** for music lovers, broadcasters, and DJs 🎤. Set up your own radio station in minutes ⏱️ and bring your favorite tunes to the world 🌍.
 
-* Fully **open-source**, including the [android & iOS app](https://github.com/advplyr/audiobookshelf-app) *(in beta)*
-* Stream all audio formats on the fly
-* Search and add podcasts to download episodes w/ auto-download
-* Multi-user support w/ custom permissions
-* Keeps progress per user and syncs across devices
-* Auto-detects library updates, no need to re-scan
-* Upload books and podcasts w/ bulk upload drag and drop folders
-* Backup your metadata + automated daily backups
-* Progressive Web App (PWA)
-* Chromecast support on the web app and android app
-* Fetch metadata and cover art from several sources
-* Chapter editor and chapter lookup (using [Audnexus API](https://audnex.us/))
-* Merge your audio files into a single m4b
-* Embed metadata and cover image into your audio files (using [Tone](https://github.com/sandreas/tone))
-* Basic ebook support and ereader
-  * Epub, pdf, cbr, cbz
-  * Send ebook to device (i.e. Kindle)
-* Open RSS feeds for podcasts and audiobooks
+## 🎧 Key Features
+- 🖥️ **Simple Dashboard**: Manage everything with an intuitive interface.
+- 📻 **Auto DJ**: Keep the tunes flowing even when you're offline.
+- 🎙️ **Live Broadcasting**: Go live and connect with your audience in real time.
+- 📂 **Media Library**: Organize and upload your tracks effortlessly.
+- 📊 **Detailed Analytics**: Know your audience with listener stats 📈.
 
-# Folder Info
+## 🔧 Requirements
+- A passion for music 🎶.
+- A MariaDB or PostgreSQL database for track storage 🗂️.
 
-| Root Folder                         | Container Folder |
-|-------------------------------------|------------------|
-| /runtipi/app-data/audiobookshelf/config	 | /config          |
-| /runtipi/app-data/audiobookshelf/metadata	 | /metadata          |
-| /runtipi/media/data/books/spoken    | /audiobooks      |
-| /runtipi/media/data/podcasts        | /podcasts        |
+## 🎉 Why Use AzuraCast?
+- Take control of your music 🎛️ with a fully customizable, self-hosted solution.
+- 🎶 Share your unique sound with the world.
+
+Broadcast your creativity and let the music play with AzuraCast! 🌟
+
