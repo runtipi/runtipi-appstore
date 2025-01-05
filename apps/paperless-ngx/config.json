@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "Paperless-ngx",
   "available": true,
   "exposable": true,

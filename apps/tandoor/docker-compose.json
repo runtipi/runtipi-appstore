@@ -60,5 +60,6 @@
         "test": "pg_isready -d tandoor"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

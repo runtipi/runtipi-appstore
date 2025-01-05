@@ -40,5 +40,6 @@
         "MYSQL_PASSWORD": "${BOOKSTACK_DB_PASS}"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

@@ -12,5 +12,6 @@
         "ACCESS_CODE": "${ACCESS_CODE}"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

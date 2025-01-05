@@ -62,5 +62,6 @@
         "test": "redis-cli ping"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

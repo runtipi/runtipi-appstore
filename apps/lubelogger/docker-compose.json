@@ -96,5 +96,6 @@
         "timeout": "10s"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

@@ -14,5 +14,6 @@
   "source": "https://github.com/zadam/trilium",
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1733761344660
+  "updated_at": 1733761344660,
+  "$schema": "../app-info-schema.json"
 }

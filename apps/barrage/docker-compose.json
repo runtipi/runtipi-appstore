@@ -12,5 +12,6 @@
         "BARRAGE_PASSWORD": "${BARRAGE_PASSWORD}"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }
