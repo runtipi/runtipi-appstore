@@ -53,5 +53,6 @@
         "wal_level=logical"
       ]
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

@@ -44,5 +44,6 @@
       ],
       "command": "mongod --logpath /dev/null --oplogSize 128 --quiet"
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

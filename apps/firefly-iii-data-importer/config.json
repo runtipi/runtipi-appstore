@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "Firefly III Data Importer",
   "available": true,
   "exposable": true,

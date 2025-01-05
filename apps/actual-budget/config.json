@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "dynamic_config": true,
   "name": "Actual Budget",
   "available": true,

@@ -13,5 +13,6 @@
         "WS_FALLBACK": "false"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

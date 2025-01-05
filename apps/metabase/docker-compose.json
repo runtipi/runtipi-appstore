@@ -21,5 +21,6 @@
         "JAVA_TIMEZONE": "${TZ}"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

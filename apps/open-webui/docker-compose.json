@@ -16,5 +16,6 @@
         "OPENAI_API_KEY": "${OPENWEBUI_OPENAI_KEY}"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

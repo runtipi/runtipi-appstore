@@ -17,5 +17,6 @@
       ],
       "command": "/bin/sh -c \"sleep 5; n8n start\""
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }
