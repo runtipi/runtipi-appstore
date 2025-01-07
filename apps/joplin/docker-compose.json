@@ -17,9 +17,7 @@
         "POSTGRES_HOST": "db-joplin",
         "MAX_TIME_DRIFT": "0"
       },
-      "dependsOn": [
-        "db-joplin"
-      ]
+      "dependsOn": ["db-joplin"]
     },
     {
       "name": "db-joplin",
