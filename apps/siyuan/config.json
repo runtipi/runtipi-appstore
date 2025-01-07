@@ -8,11 +8,12 @@
   "port": 6806,
   "categories": ["utilities"],
   "description": "SiYuan is a privacy-first personal knowledge management system, support fine-grained block-level reference and Markdown WYSIWYG.",
-  "tipi_version": 15,
+  "tipi_version": 16,
   "version": "3.1.14",
   "website": "https://b3log.org/siyuan/en/",
   "source": "https://github.com/siyuan-note/siyuan",
   "exposable": true,
+  "dynamic_config": true,
   "supported_architectures": ["arm64", "amd64"],
   "form_fields": [
     {
@@ -28,5 +29,5 @@
   "uid": 1000,
   "gid": 1000,
   "created_at": 1691943801422,
-  "updated_at": 1733204273000
+  "updated_at": 1736282174890
 }
