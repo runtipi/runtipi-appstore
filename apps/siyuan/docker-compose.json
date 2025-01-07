@@ -18,10 +18,7 @@
           "containerPath": "/siyuan/workspace/"
         }
       ],
-      "command": [
-        "--workspace=/siyuan/workspace/",
-        "--accessAuthCode=${SIYUAN_ACCESS_AUTH_CODE}"
-      ]
+      "command": ["--workspace=/siyuan/workspace/", "--accessAuthCode=${SIYUAN_ACCESS_AUTH_CODE}"]
     }
   ]
 }
