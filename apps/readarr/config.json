@@ -3,9 +3,10 @@
   "name": "Readarr",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 8112,
   "id": "readarr",
-  "tipi_version": 32,
+  "tipi_version": 33,
   "version": "0.4.8-nightly",
   "categories": ["books", "media"],
   "description": "",
@@ -15,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1736087016000
+  "updated_at": 1736282120014
 }
