@@ -13,9 +13,7 @@
         "MAX_FILE_SIZE": "2147483648",
         "FILE_DIR": "/uploads"
       },
-      "dependsOn": [
-        "send-redis"
-      ],
+      "dependsOn": ["send-redis"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/uploads",
