@@ -1,0 +1,31 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "radarr",
+      "image": "ghcr.io/linuxserver/radarr:5.17.2",
+      "isMain": true,
+      "internalPort": 7878,
+      "environment": {
+        "PUID": "1000",
+        "PGID": "1000",
+        "TZ": "${TZ}"
+      },
+      "volumes": [
+        {
+          "hostPath": "/etc/localtime",
+          "containerPath": "/etc/localtime",
+          "readOnly": true
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/config"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media",
+          "containerPath": "/media"
+        }
+      ]
+    }
+  ]
+}
