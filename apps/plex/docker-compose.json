@@ -5,6 +5,7 @@
       "name": "plex",
       "image": "lscr.io/linuxserver/plex:1.41.3",
       "isMain": true,
+      "internalPort": 32400,
       "networkMode": "host",
       "environment": {
         "PUID": "1000",
