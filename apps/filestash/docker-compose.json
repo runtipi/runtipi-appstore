@@ -13,9 +13,7 @@
         "DROPBOX_CLIENT_ID": "${FILESTASH_DROPBOX_CLIENT_ID}",
         "ONLYOFFICE_URL": "http://filestash-onlyoffice"
       },
-      "dependsOn": [
-        "filestash-onlyoffice"
-      ],
+      "dependsOn": ["filestash-onlyoffice"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data",
@@ -26,9 +24,7 @@
     {
       "name": "filestash-onlyoffice",
       "image": "onlyoffice/documentserver:7.3.3.50",
-      "securityOpt": [
-        "seccomp:unconfined"
-      ]
+      "securityOpt": ["seccomp:unconfined"]
     }
   ]
 }
