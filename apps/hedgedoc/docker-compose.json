@@ -11,9 +11,7 @@
         "CMD_DOMAIN": "${APP_DOMAIN}",
         "CMD_URL_ADDPORT": "${HEDGEDOC_ADDPORT}"
       },
-      "dependsOn": [
-        "hedgedoc-db"
-      ],
+      "dependsOn": ["hedgedoc-db"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/hedgedoc-uploads",
