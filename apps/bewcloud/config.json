@@ -9,7 +9,7 @@
   "categories": ["data"],
   "description": "A simpler alternative to Nextcloud and ownCloud, built with TypeScript and Deno using Fresh. 🦕 🍋 ",
   "tipi_version": 1,
-  "version": "1.4.7",
+  "version": "v1.4.7",
   "source": "https://github.com/bewcloud/bewcloud",
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],

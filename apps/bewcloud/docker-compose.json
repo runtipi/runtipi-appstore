@@ -2,7 +2,7 @@
     "$schema": "../dynamic-compose-schema.json",
     "services": [
         {
-            "name": "bewcloud-website",
+            "name": "bewcloud",
             "image": "ghcr.io/bewcloud/bewcloud:v1.4.7",
             "internalPort": 8053,
             "isMain": true,

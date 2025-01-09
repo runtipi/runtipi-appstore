@@ -1,11 +1,11 @@
 services:
-  bewcloud-website:
+  bewcloud:
     image: ghcr.io/bewcloud/bewcloud:v1.4.7
     entrypoint: bash
     command: -c "make migrate-db && deno run --allow-all main.ts"
     restart: unless-stopped
     ports:
-      - 8053:8053
+      - ${APP_PORT}:8053
     environment:
       - PORT=8053
       - POSTGRESQL_HOST=bewcloud-db
@@ -22,6 +22,35 @@ services:
       - CONFIG_ENABLE_EMAILS=${ENABLE_EMAIL}
     volumes:
       - ${APP_DATA_DIR}/data/bewcloud/files:/files
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.bewcloud-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.bewcloud.loadbalancer.server.port: 8053
+      # Web
+      traefik.http.routers.bewcloud-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.bewcloud-insecure.entrypoints: web
+      traefik.http.routers.bewcloud-insecure.service: bewcloud
+      traefik.http.routers.bewcloud-insecure.middlewares: bewcloud-web-redirect
+      # Websecure
+      traefik.http.routers.bewcloud.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.bewcloud.entrypoints: websecure
+      traefik.http.routers.bewcloud.service: bewcloud
+      traefik.http.routers.bewcloud.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.bewcloud-local-insecure.rule: Host(`bewcloud.${LOCAL_DOMAIN}`)
+      traefik.http.routers.bewcloud-local-insecure.entrypoints: web
+      traefik.http.routers.bewcloud-local-insecure.service: bewcloud
+      traefik.http.routers.bewcloud-local-insecure.middlewares: bewcloud-web-redirect
+      # Local domain secure
+      traefik.http.routers.bewcloud-local.rule: Host(`bewcloud.${LOCAL_DOMAIN}`)
+      traefik.http.routers.bewcloud-local.entrypoints: websecure
+      traefik.http.routers.bewcloud-local.service: bewcloud
+      traefik.http.routers.bewcloud-local.tls: true
+      # Runtipi managed
+      runtipi.managed: true
 
   bewcloud-db:
     image: postgres:15-alpine
@@ -37,3 +66,5 @@ services:
       memlock:
         soft: -1
         hard: -1
+    networks:
+      - tipi_main_network
