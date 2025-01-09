@@ -20,7 +20,7 @@
       "label": "Allow new registrations",
       "hint": "Even if disabled, the first signup will work and become an admin.",
       "required": false,
-      "default": "false",
+      "default": false,
       "env_variable": "ALLOW_SIGNUPS"
     },
     {
