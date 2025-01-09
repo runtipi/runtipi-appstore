@@ -1,0 +1,37 @@
+services:
+  website:
+    image: ghcr.io/bewcloud/bewcloud:v1.4.7
+    restart: unless-stopped
+    ports:
+      - 8053:8053
+    mem_limit: "256m"
+    environment:
+      - PORT=8000
+      - POSTGRESQL_HOST=db
+      - POSTGRESQL_USER=bewcloud
+      - POSTGRESQL_PASSWORD=${DB_PASSWORD}
+      - POSTGRESQL_PORT=5432
+      - JWT_SECRET=${JWT_SECRET}
+      - PASSWORD_SALT=${PASSWORD_SALT}
+      - BREVO_API_KEY=${BREVO_API_KEY}
+      - CONFIG_ALLOW_SIGNUPS=${ALLOW_SIGNUPS}
+      - CONFIG_ENABLED_APPS=news,notes,photos # Providing a config for these is probably not worth it
+      - CONFIG_FILES_ROOT_PATH=files
+      - CONFIG_ENABLE_EMAILS=${ENABLE_EMAIL}
+    volumes:
+      - ${APP_DATA_DIR}/data/bewcloud/files:/files
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=bewcloud
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=bewcloud
+    restart: on-failure
+    volumes:
+      - ${APP_DATA_DIR}/data/bewcloud/db:/var/lib/postgresql/data
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    mem_limit: "256m"
