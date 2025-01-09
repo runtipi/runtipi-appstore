@@ -1,10 +1,21 @@
-BookStack is an opinionated wiki system that provides a pleasant and simple out-of-the-box experience. New users to an instance should find the experience intuitive and only basic word-processing skills should be required to get involved in creating content on BookStack. The platform should provide advanced power features to those that desire it but they should not interfere with the core simple user experience.
+# 📚 Wallabag: Your Pocket for the Web!
 
-BookStack is not designed as an extensible platform to be used for purposes that differ to the statement above.
+Wallabag is your **self-hosted read-it-later app** 🕶️. Save and organize your favorite articles, blog posts, and web content for easy access anytime, anywhere 🌍.
 
-In regard to development philosophy, BookStack has a relaxed, open & positive approach. At the end of the day this is free software developed and maintained by people donating their own free time.
+## 🚀 Key Features
+- ✨ **Save articles** directly from your browser with a single click.
+- 🗂️ **Organize content** with tags and folders for easy retrieval.
+- 🌙 **Dark mode** for night owls who love to read late.
+- 🛠️ Fully customizable and self-hosted for privacy-focused users.
+- 📤 Export your saved articles in multiple formats (PDF, EPUB, etc.).
 
-## Credentials
+## 🔧 Requirements
+- A love for saving interesting content ❤️.
+- Optional: Redis for speed 🚀 and MariaDB for reliable storage 🗄️.
 
-Username: admin@admin.com
-Password: password
+## 🎉 Why Use Wallabag?
+- No ads ❌, no distractions 🛑—just your saved content.
+- Stay productive 📈 by organizing your reading list.
+
+Get ready to take control of your reading experience with Wallabag! 🧡
+
