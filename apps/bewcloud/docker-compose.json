@@ -2,15 +2,16 @@
     "$schema": "../dynamic-compose-schema.json",
     "services": [
         {
-            "name": "website",
+            "name": "bewcloud-website",
             "image": "ghcr.io/bewcloud/bewcloud:v1.4.7",
             "internalPort": 8053,
             "isMain": true,
             "environment": {
                 "PORT": "8000",
-                "POSTGRESQL_HOST": "db",
+                "POSTGRESQL_HOST": "bewcloud-db",
                 "POSTGRESQL_USER": "bewcloud",
                 "POSTGRESQL_PASSWORD": "${DB_PASSWORD}",
+                "POSTGRESQL_DBNAME": "bewcloud",
                 "POSTGRESQL_PORT": "5432",
                 "JWT_SECRET": "${JWT_SECRET}",
                 "PASSWORD_SALT": "${PASSWORD_SALT}",
@@ -28,7 +29,7 @@
             ]
         },
         {
-            "name": "db",
+            "name": "bewcloud-db",
             "image": "postgres:15-alpine",
             "environment": {
                 "POSTGRES_USER": "bewcloud",

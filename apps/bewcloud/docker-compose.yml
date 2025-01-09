@@ -1,5 +1,5 @@
 services:
-  website:
+  bewcloud-website:
     image: ghcr.io/bewcloud/bewcloud:v1.4.7
     restart: unless-stopped
     ports:
@@ -7,9 +7,10 @@ services:
     mem_limit: "256m"
     environment:
       - PORT=8000
-      - POSTGRESQL_HOST=db
+      - POSTGRESQL_HOST=bewcloud-db
       - POSTGRESQL_USER=bewcloud
       - POSTGRESQL_PASSWORD=${DB_PASSWORD}
+      - POSTGRESQL_DBNAME=bewcloud
       - POSTGRESQL_PORT=5432
       - JWT_SECRET=${JWT_SECRET}
       - PASSWORD_SALT=${PASSWORD_SALT}
@@ -21,7 +22,7 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/bewcloud/files:/files
 
-  db:
+  bewcloud-db:
     image: postgres:15-alpine
     environment:
       - POSTGRES_USER=bewcloud
