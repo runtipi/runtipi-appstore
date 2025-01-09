@@ -12,7 +12,6 @@
   "version": "1.4.7",
   "source": "https://github.com/bewcloud/bewcloud",
   "exposable": true,
-  "dynamic_config": true,
   "supported_architectures": ["arm64", "amd64"],
   "form_fields": [
     {
