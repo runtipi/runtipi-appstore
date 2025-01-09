@@ -2,13 +2,13 @@ services:
   bewcloud-website:
     image: ghcr.io/bewcloud/bewcloud:v1.4.7
     entrypoint: bash
-    command: -c "make migrate-db; deno run --allow-all main.ts"
+    command: -c "make migrate-db && deno run --allow-all main.ts"
     restart: unless-stopped
     ports:
       - 8053:8053
     mem_limit: "256m"
     environment:
-      - PORT=8000
+      - PORT=8053
       - POSTGRESQL_HOST=bewcloud-db
       - POSTGRESQL_USER=bewcloud
       - POSTGRESQL_PASSWORD=${DB_PASSWORD}
