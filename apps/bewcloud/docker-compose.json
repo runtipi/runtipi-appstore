@@ -5,6 +5,7 @@
             "name": "website",
             "image": "ghcr.io/bewcloud/bewcloud:v1.4.7",
             "internalPort": 8053,
+            "isMain": true,
             "environment": {
                 "PORT": "8000",
                 "POSTGRESQL_HOST": "db",
