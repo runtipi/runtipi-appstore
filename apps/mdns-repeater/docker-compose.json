@@ -10,5 +10,6 @@
         "dockerNIC": "${MDNS_DOCKER_NIC}"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

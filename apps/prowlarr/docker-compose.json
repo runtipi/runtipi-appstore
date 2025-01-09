@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "prowlarr",
-      "image": "ghcr.io/linuxserver/prowlarr:1.28.2",
+      "image": "ghcr.io/linuxserver/prowlarr:1.29.2",
       "isMain": true,
       "internalPort": 9696,
       "environment": {
@@ -15,5 +15,6 @@
         }
       ]
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

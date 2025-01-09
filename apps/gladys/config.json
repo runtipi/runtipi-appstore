@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "Gladys Assistant",
   "port": 8270,
   "available": true,

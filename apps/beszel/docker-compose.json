@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "beszel",
-      "image": "henrygd/beszel:0.9.0",
+      "image": "henrygd/beszel:0.9.1",
       "isMain": true,
       "internalPort": 8090,
       "volumes": [
@@ -12,5 +12,6 @@
         }
       ]
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

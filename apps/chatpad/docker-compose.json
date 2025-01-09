@@ -6,5 +6,6 @@
       "isMain": true,
       "internalPort": 80
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

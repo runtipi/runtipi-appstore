@@ -71,5 +71,6 @@
       "name": "tika",
       "image": "ghcr.io/paperless-ngx/tika:latest"
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

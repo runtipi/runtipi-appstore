@@ -1,0 +1,17 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "privatebin",
+      "image": "privatebin/nginx-fpm-alpine:1.7.5",
+      "isMain": true,
+      "internalPort": 8080,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/srv/data"
+        }
+      ]
+    }
+  ]
+}

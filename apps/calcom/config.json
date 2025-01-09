@@ -110,5 +110,6 @@
   "version": "4.7.8",
   "website": "https://cal.com/",
   "created_at": 1691943801422,
-  "updated_at": 1735481888778
+  "updated_at": 1735481888778,
+  "$schema": "../app-info-schema.json"
 }

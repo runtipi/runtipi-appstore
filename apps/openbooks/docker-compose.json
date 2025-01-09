@@ -1,0 +1,21 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "openbooks",
+      "image": "evanbuss/openbooks:4.5.0",
+      "isMain": true,
+      "internalPort": 80,
+      "environment": {
+        "BASE_PATH": "/openbooks/"
+      },
+      "volumes": [
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/data/books/",
+          "containerPath": "/books"
+        }
+      ],
+      "command": "./openbooks server --dir /books --port 80 --persist --name ${OPENBOOKS_IRC_USERNAME}"
+    }
+  ]
+}

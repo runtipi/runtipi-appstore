@@ -30,5 +30,6 @@
       ],
       "command": "server --quick-init 0.0.0.0:8015"
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

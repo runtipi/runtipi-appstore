@@ -36,5 +36,6 @@
         "POSTGRES_PASSWORD": "${NEXTCLOUD_MINI_DB_PASSWORD}"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

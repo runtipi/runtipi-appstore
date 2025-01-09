@@ -24,5 +24,6 @@
   "dynamic_config": true,
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1724134338800,
-  "updated_at": 1730121256784
+  "updated_at": 1730121256784,
+  "$schema": "../app-info-schema.json"
 }

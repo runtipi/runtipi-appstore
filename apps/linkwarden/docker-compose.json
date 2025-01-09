@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "linkwarden",
-      "image": "ghcr.io/linkwarden/linkwarden:v2.8.4",
+      "image": "ghcr.io/linkwarden/linkwarden:v2.9.0",
       "isMain": true,
       "internalPort": 3000,
       "environment": {
@@ -34,5 +34,6 @@
         }
       ]
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

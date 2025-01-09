@@ -10,5 +10,6 @@
         "MONGO_INITDB_ROOT_PASSWORD": "${MONGO_INITDB_ROOT_PASSWORD}"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

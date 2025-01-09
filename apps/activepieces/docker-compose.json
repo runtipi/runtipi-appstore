@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "image": "activepieces/activepieces:0.38.3",
+      "image": "activepieces/activepieces:0.38.6",
       "name": "activepieces",
       "internalPort": 80,
       "isMain": true,
@@ -72,5 +72,6 @@
         }
       ]
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

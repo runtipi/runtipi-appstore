@@ -1,0 +1,11 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "libretranslate",
+      "image": "libretranslate/libretranslate:v1.6.2",
+      "isMain": true,
+      "internalPort": 5000
+    }
+  ]
+}

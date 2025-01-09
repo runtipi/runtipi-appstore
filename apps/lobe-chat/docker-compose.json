@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "lobe-chat",
-      "image": "lobehub/lobe-chat:v1.36.5",
+      "image": "lobehub/lobe-chat:v1.43.4",
       "isMain": true,
       "internalPort": 3210,
       "environment": {
@@ -12,5 +12,6 @@
         "ACCESS_CODE": "${ACCESS_CODE}"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

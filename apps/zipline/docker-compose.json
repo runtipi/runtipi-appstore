@@ -46,5 +46,6 @@
         "test": "pg_isready -U postgres"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

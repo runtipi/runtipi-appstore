@@ -1,10 +1,11 @@
 {
-    "services": [
-        {
-            "name": "hello-world",
-            "image": "crccheck/hello-world:latest",
-            "isMain": true,
-            "internalPort": 8000
-        }
-    ]
+  "services": [
+    {
+      "name": "hello-world",
+      "image": "crccheck/hello-world:latest",
+      "isMain": true,
+      "internalPort": 8000
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }
