@@ -6,7 +6,6 @@ services:
     restart: unless-stopped
     ports:
       - 8053:8053
-    mem_limit: "256m"
     environment:
       - PORT=8053
       - POSTGRESQL_HOST=bewcloud-db
@@ -38,4 +37,3 @@ services:
       memlock:
         soft: -1
         hard: -1
-    mem_limit: "256m"
