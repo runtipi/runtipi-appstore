@@ -24,6 +24,7 @@ services:
 
   bewcloud-db:
     image: postgres:15-alpine
+    container_name: bewcloud-db
     environment:
       - POSTGRES_USER=bewcloud
       - POSTGRES_PASSWORD=${DB_PASSWORD}
