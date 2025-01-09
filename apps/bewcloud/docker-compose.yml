@@ -1,6 +1,8 @@
 services:
   bewcloud-website:
     image: ghcr.io/bewcloud/bewcloud:v1.4.7
+    entrypoint: bash
+    command: -c "make migrate-db; deno run --allow-all main.ts"
     restart: unless-stopped
     ports:
       - 8053:8053
