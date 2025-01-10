@@ -6,7 +6,6 @@
       "isMain": true,
       "internalPort": 5000,
       "hostname": "changedetection",
-      "restart": "unless-stopped",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data",
