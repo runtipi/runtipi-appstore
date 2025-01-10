@@ -9,5 +9,6 @@
         "TZ": "${TZ}"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

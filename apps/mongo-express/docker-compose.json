@@ -14,5 +14,6 @@
         "ME_CONFIG_BASICAUTH_PASSWORD": "${ME_CONFIG_BASICAUTH_PASSWORD}"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

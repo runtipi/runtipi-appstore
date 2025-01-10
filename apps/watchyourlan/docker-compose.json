@@ -17,5 +17,6 @@
         "IFACES": "${WATCHYOURLAN_IFACES}"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

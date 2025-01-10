@@ -1,11 +1,12 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "Send",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 8126,
   "id": "send",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "latest",
   "categories": ["utilities"],
   "description": "A file sharing experiment which allows you to send encrypted files to other users.",
@@ -15,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566285000
+  "updated_at": 1736282162483
 }

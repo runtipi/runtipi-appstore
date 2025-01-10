@@ -9,5 +9,6 @@
         "EXPOSE_PORT": 8255
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

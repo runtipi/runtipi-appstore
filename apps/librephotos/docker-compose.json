@@ -97,5 +97,6 @@
       "name": "librephotos-redis",
       "image": "redis:6"
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

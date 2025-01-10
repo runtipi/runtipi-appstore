@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "hoarder",
-      "image": "ghcr.io/hoarder-app/hoarder:0.20.0",
+      "image": "ghcr.io/hoarder-app/hoarder:0.21.0",
       "isMain": true,
       "internalPort": 3000,
       "environment": {
@@ -48,5 +48,6 @@
         }
       ]
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

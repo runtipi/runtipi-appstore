@@ -1,5 +1,5 @@
 {
-  "$schema": "../compose-schema.json",
+  "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
       "name": "adguard",

@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "zipline",
-      "image": "ghcr.io/diced/zipline:3.7.10",
+      "image": "ghcr.io/diced/zipline:3.7.11",
       "isMain": true,
       "internalPort": 3000,
       "environment": {
@@ -46,5 +46,6 @@
         "test": "pg_isready -U postgres"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

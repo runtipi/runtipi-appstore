@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "image": "ghcr.io/open-webui/open-webui:v0.5.3",
+      "image": "ghcr.io/open-webui/open-webui:v0.5.4",
       "name": "open-webui",
       "internalPort": 8080,
       "isMain": true,
@@ -16,5 +16,6 @@
         "OPENAI_API_KEY": "${OPENWEBUI_OPENAI_KEY}"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

@@ -53,5 +53,6 @@
         "test": "pg_isready"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

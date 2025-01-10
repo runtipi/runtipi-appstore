@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "beszel-agent",
-      "image": "henrygd/beszel-agent:0.9.0",
+      "image": "henrygd/beszel-agent:0.9.1",
       "isMain": true,
       "internalPort": 45876,
       "networkMode": "host",
@@ -18,5 +18,6 @@
         }
       ]
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

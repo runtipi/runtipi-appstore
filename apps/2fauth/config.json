@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "2FAuth",
   "port": 8235,
   "uid": 1000,

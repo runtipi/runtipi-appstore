@@ -14,5 +14,6 @@
   "source": "https://github.com/Donkie/Spoolman",
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1733761273730
+  "updated_at": 1733761273730,
+  "$schema": "../app-info-schema.json"
 }
