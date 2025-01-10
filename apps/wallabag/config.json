@@ -1,43 +1,41 @@
 {
   "$schema": "../schema.json",
-  "name": "Bookstack",
+  "name": "Wallabag",
   "available": true,
   "exposable": true,
   "dynamic_config": true,
   "port": 8119,
-  "id": "bookstack",
-  "tipi_version": 26,
-  "version": "24.12.20241223",
-  "description": "BookStack is a simple, self-hosted, easy-to-use platform for organising and storing information. Default login: admin@admin.com password: password",
-  "short_desc": "BookStack is a self-hosted platform for organising and storing information.",
-  "author": "Dan Brown",
-  "categories": ["data"],
-  "website": "https://www.bookstackapp.com/",
-  "source": "https://github.com/BookStackApp/BookStack",
+  "id": "wallabag",
+  "tipi_version": 37,
+  "version": "2.6.2",
+  "categories": ["productivity", "data"],
+  "description": "Wallabag is a self-hosted read-it-later application for saving and organizing web articles.",
+  "short_desc": "Save and organize web articles.",
+  "author": "Wallabag",
+  "source": "https://github.com/wallabag/docker",
+  "website": "https://www.wallabag.org/",
   "form_fields": [
     {
       "type": "random",
-      "encoding": "base64",
-      "label": "App key",
-      "hint": "https://github.com/linuxserver/docker-bookstack?tab=readme-ov-file#parameters",
+      "label": "Database Password",
       "min": 32,
-      "max": 32,
-      "env_variable": "APP_KEY"
+      "env_variable": "WALLABAG_DB_PASSWORD"
     },
     {
-      "type": "random",
-      "label": "Root access password",
-      "min": 32,
-      "env_variable": "ROOT_ACCESS_PASSWORD"
+      "type": "string",
+      "label": "Wallabag Email",
+      "hint": "Email address for Wallabag notifications.",
+      "env_variable": "SYMFONY__ENV__FROM_EMAIL"
     },
     {
-      "type": "random",
-      "label": "Database password",
-      "min": 32,
-      "env_variable": "BOOKSTACK_DB_PASS"
+      "type": "string",
+      "label": "Domain Name",
+      "hint": "Domain name for the Wallabag instance.",
+      "env_variable": "SYMFONY__ENV__DOMAIN_NAME"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1734971451000
+  "updated_at": 1733681450000
 }
+
