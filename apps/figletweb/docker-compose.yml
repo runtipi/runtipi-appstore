@@ -1,0 +1,36 @@
+services:
+  figletweb:
+    container_name: figletweb
+    image: figletweb/figletweb:latest
+    ports:
+      - ${APP_PORT}:8080
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.figletweb-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.figletweb.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.figletweb-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.figletweb-insecure.entrypoints: web
+      traefik.http.routers.figletweb-insecure.service: figletweb
+      traefik.http.routers.figletweb-insecure.middlewares: figletweb-web-redirect
+      # Websecure
+      traefik.http.routers.figletweb.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.figletweb.entrypoints: websecure
+      traefik.http.routers.figletweb.service: figletweb
+      traefik.http.routers.figletweb.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.figletweb-local-insecure.rule: Host(`figletweb.${LOCAL_DOMAIN}`)
+      traefik.http.routers.figletweb-local-insecure.entrypoints: web
+      traefik.http.routers.figletweb-local-insecure.service: figletweb
+      traefik.http.routers.figletweb-local-insecure.middlewares: figletweb-web-redirect
+      # Local domain secure
+      traefik.http.routers.figletweb-local.rule: Host(`figletweb.${LOCAL_DOMAIN}`)
+      traefik.http.routers.figletweb-local.entrypoints: websecure
+      traefik.http.routers.figletweb-local.service: figletweb
+      traefik.http.routers.figletweb-local.tls: true
+      # Runtipi managed
+      runtipi.managed: true

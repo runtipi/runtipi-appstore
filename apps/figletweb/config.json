@@ -1,0 +1,15 @@
+{
+  "name": "Figlet Web",
+  "available": true,
+  "exposable": true,
+  "port": 4040,
+  "id": "figletweb",
+  "description": "figletweb is a simple web server for rendering ASCII art using Figlet",
+  "tipi_version": 1,
+  "version": "0.1.0",
+  "categories": ["utilities"],
+  "short_desc": "ASCII art web",
+  "author": "unix1970",
+  "source": "https://codeberg.org/unix1970/figletweb",
+  "form_fields": []
+}
