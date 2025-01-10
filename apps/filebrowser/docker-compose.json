@@ -1,0 +1,33 @@
+{
+  "services": [
+    {
+      "name": "filebrowser",
+      "image": "filebrowser/filebrowser:s6",
+      "isMain": true,
+      "internalPort": 80,
+      "environment": {
+        "PUID": "0",
+        "PGID": "0"
+      },
+      "volumes": [
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/app-data",
+          "containerPath": "/srv/app-data"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media",
+          "containerPath": "/srv/media"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/general",
+          "containerPath": "/srv/general"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/database"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

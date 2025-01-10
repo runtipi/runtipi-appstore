@@ -1,0 +1,83 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "image": "ghcr.io/toeverything/affine-graphql:stable",
+      "name": "affine",
+      "internalPort": 3010,
+      "isMain": true,
+      "command": ["sh", "-c", "node ./scripts/self-host-predeploy && node ./dist/index.js"],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/root/.affine/config"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/storage",
+          "containerPath": "/root/.affine/storage"
+        }
+      ],
+      "environment": {
+        "NODE_OPTIONS": "--import=./scripts/register.js",
+        "AFFINE_CONFIG_PATH": "/root/.affine/config",
+        "REDIS_SERVER_HOST": "affine-redis",
+        "DATABASE_URL": "postgres://tipi:${AFFINE_POSTGRES_PASSWORD}@affine-postgres:5432/affine",
+        "NODE_ENV": "production",
+        "AFFINE_ADMIN_EMAIL": "${AFFINE_ADMIN_EMAIL}",
+        "AFFINE_ADMIN_PASSWORD": "${AFFINE_ADMIN_PASSWORD}",
+        "TELEMETRY_ENABLE": "${AFFINE_TELEMETRY_ENABLE}"
+      },
+      "dependsOn": {
+        "affine-redis": {
+          "condition": "service_healthy"
+        },
+        "affine-postgres": {
+          "condition": "service_healthy"
+        }
+      },
+      "logging": {
+        "driver": "json-file",
+        "options": {
+          "max-size": "1000m"
+        }
+      }
+    },
+    {
+      "image": "redis",
+      "name": "affine-redis",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/redis",
+          "containerPath": "/data"
+        }
+      ],
+      "healthCheck": {
+        "test": "redis-cli --raw incr ping",
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 5
+      }
+    },
+    {
+      "image": "postgres:16",
+      "name": "affine-postgres",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgres",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ],
+      "healthCheck": {
+        "test": "pg_isready -d postgres://tipi:${AFFINE_POSTGRES_PASSWORD}@affine-postgres:5432/affine",
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 5
+      },
+      "environment": {
+        "POSTGRES_USER": "tipi",
+        "POSTGRES_PASSWORD": "${AFFINE_POSTGRES_PASSWORD}",
+        "POSTGRES_DB": "affine"
+      }
+    }
+  ]
+}

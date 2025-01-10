@@ -1,0 +1,22 @@
+{
+  "services": [
+    {
+      "name": "rss",
+      "image": "codeberg.org/danb/rss:v1.5.3",
+      "isMain": true,
+      "internalPort": 80,
+      "environment": {
+        "APP_NAME": "Tipi-RSS",
+        "APP_FEED_UPDATE_FREQUENCY": "35",
+        "APP_LOAD_POST_THUMBNAILS": "true"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/storage",
+          "containerPath": "/app/storage"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

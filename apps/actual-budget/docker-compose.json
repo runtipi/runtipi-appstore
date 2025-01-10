@@ -1,0 +1,17 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "isMain": true,
+      "image": "actualbudget/actual-server:24.12.0",
+      "name": "actual-budget",
+      "internalPort": 5006,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/data"
+        }
+      ]
+    }
+  ]
+}

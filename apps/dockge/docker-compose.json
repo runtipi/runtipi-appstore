@@ -1,0 +1,28 @@
+{
+  "services": [
+    {
+      "name": "dockge",
+      "image": "louislam/dockge:1.4.2",
+      "isMain": true,
+      "internalPort": 5001,
+      "environment": {
+        "DOCKGE_STACKS_DIR": "${APP_DATA_DIR}/data/stacks"
+      },
+      "volumes": [
+        {
+          "hostPath": "/var/run/docker.sock",
+          "containerPath": "/var/run/docker.sock"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/app-data",
+          "containerPath": "/app/data"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/stacks",
+          "containerPath": "${APP_DATA_DIR}/data/stacks"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

@@ -1,0 +1,23 @@
+{
+  "services": [
+    {
+      "name": "librespeed",
+      "image": "lscr.io/linuxserver/librespeed:5.4.20240804",
+      "isMain": true,
+      "internalPort": 80,
+      "environment": {
+        "PUID": "1000",
+        "PGID": "1000",
+        "TZ": "${TZ}",
+        "PASSWORD": "${APP_PASSWORD}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/config"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

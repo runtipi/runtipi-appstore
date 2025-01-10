@@ -1,0 +1,11 @@
+{
+  "services": [
+    {
+      "name": "it-tools",
+      "image": "corentinth/it-tools:latest",
+      "isMain": true,
+      "internalPort": 80
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

@@ -1,0 +1,17 @@
+{
+  "services": [
+    {
+      "name": "beszel",
+      "image": "henrygd/beszel:0.9.1",
+      "isMain": true,
+      "internalPort": 8090,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/beszel_data"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

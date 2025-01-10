@@ -1,0 +1,15 @@
+{
+  "services": [
+    {
+      "name": "mdns-repeater",
+      "image": "angelnu/mdns_repeater:latest",
+      "isMain": true,
+      "networkMode": "host",
+      "environment": {
+        "hostNIC": "${MDNS_HOST_NIC}",
+        "dockerNIC": "${MDNS_DOCKER_NIC}"
+      }
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

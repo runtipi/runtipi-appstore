@@ -1,0 +1,45 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "Adguard Home Sync",
+  "id": "adguardhome-sync",
+  "available": true,
+  "short_desc": "Synchronize AdGuard Home config to replicas",
+  "author": "bakito",
+  "port": 8436,
+  "categories": ["network", "utilities"],
+  "description": "Synchronize AdGuardHome config to replica instances",
+  "tipi_version": 5,
+  "version": "0.6.17",
+  "source": "https://github.com/bakito/adguardhome-sync",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "dynamic_config": true,
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Cron Schedule",
+      "required": true,
+      "hint": "Cron schedule to run the sync",
+      "env_variable": "ADGUARDHOME_SYNC_CRON",
+      "regex": "(@(annually|yearly|monthly|weekly|daily|hourly|reboot))|(@every (\\d+(ns|us|µs|ms|s|m|h))+)|((((\\d+,)+\\d+|(\\d+(/|-)\\d+)|\\d+|\\*) ?){5,7})"
+    },
+    {
+      "type": "text",
+      "label": "AdGuard Home Origin URL",
+      "required": true,
+      "hint": "URL of the Origin AdGuard Home instance",
+      "env_variable": "ADGUARDHOME_SYNC_ORIGIN_URL",
+      "regex": "[(http(s)?)://(www\\.)?a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}"
+    },
+    {
+      "type": "text",
+      "label": "AdGuard Home Replica URL",
+      "required": true,
+      "hint": "URL of the Replica AdGuard Home instance",
+      "env_variable": "ADGUARDHOME_SYNC_REPLICA_URL",
+      "regex": "[(http(s)?)://(www\\.)?a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}"
+    }
+  ],
+  "created_at": 1730236492823,
+  "updated_at": 1734945008000
+}

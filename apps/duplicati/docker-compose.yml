@@ -3,7 +3,7 @@ version: "3.7"
 services:
   duplicati:
     container_name: duplicati
-    image: lscr.io/linuxserver/duplicati:2.0.8
+    image: lscr.io/linuxserver/duplicati:2.1.0
     ports:
       - ${APP_PORT}:8200
     volumes:
@@ -11,9 +11,10 @@ services:
       - ${ROOT_FOLDER_HOST}:/backups/runtipi-folder
       - /home:/source
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PGID=0
       - TZ=${TZ}
+      - SETTINGS_ENCRYPTION_KEY=${DUPLICATI_ENCRYPTION_KEY}
     networks:
       - tipi_main_network
     labels:

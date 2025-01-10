@@ -1,0 +1,18 @@
+{
+  "services": [
+    {
+      "name": "pairdrop",
+      "image": "lscr.io/linuxserver/pairdrop:1.10.10",
+      "isMain": true,
+      "internalPort": 3000,
+      "environment": {
+        "PUID": "1000",
+        "PGID": "1000",
+        "TZ": "${TZ}",
+        "RATE_LIMIT": "false",
+        "WS_FALLBACK": "false"
+      }
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

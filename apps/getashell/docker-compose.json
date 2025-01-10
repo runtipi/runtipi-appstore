@@ -1,0 +1,28 @@
+{
+  "services": [
+    {
+      "name": "getashell",
+      "image": "ghcr.io/steveiliop56/getashell:v1.1.3",
+      "isMain": true,
+      "internalPort": 3000,
+      "extraHosts": ["host.docker.internal:host-gateway"],
+      "environment": {
+        "USERNAME": "${GETASHELL_USERNAME}",
+        "PASSWORD": "${GETASHELL_PASSWORD}",
+        "SECRET_KEY": "${GETASHELL_SECRET_KEY}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/",
+          "containerPath": "/app/data"
+        },
+        {
+          "hostPath": "/var/run/docker.sock",
+          "containerPath": "/var/run/docker.sock",
+          "readOnly": true
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

@@ -1,0 +1,26 @@
+{
+  "services": [
+    {
+      "name": "emby",
+      "image": "lscr.io/linuxserver/emby:4.8.10",
+      "isMain": true,
+      "internalPort": 8096,
+      "environment": {
+        "PUID": "1000",
+        "PGID": "1000",
+        "TZ": "${TZ}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/config"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/data",
+          "containerPath": "/media/data"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

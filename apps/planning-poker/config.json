@@ -1,11 +1,12 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "Planning Poker",
   "port": 8880,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "planning-poker",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "1.2.1",
   "categories": ["development"],
   "description": "",
@@ -15,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["amd64", "arm64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566285000
+  "updated_at": 1734908563647
 }

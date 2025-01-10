@@ -1,13 +1,13 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "Matter Server",
   "available": true,
   "exposable": false,
   "no_gui": true,
   "port": 9997,
   "id": "matter-server",
-  "tipi_version": 13,
-  "version": "6.6.0",
+  "tipi_version": 16,
+  "version": "7.0.1",
   "categories": ["utilities", "automation"],
   "author": "OpenHomeFoundation",
   "description": "This project implements a Matter Controller Server over WebSockets using the official Matter (formerly CHIP) SDK as a base and provides both a server and client implementation.",
@@ -16,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1727863608000
+  "updated_at": 1736110091000
 }

@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "image": "glanceapp/glance:v0.6.2",
+      "image": "glanceapp/glance:v0.6.4",
       "name": "glance",
       "internalPort": 8080,
       "isMain": true,
@@ -12,5 +12,6 @@
         }
       ]
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

@@ -1,0 +1,18 @@
+{
+  "services": [
+    {
+      "name": "moodist",
+      "image": "ghcr.io/remvze/moodist:v1.5.1",
+      "isMain": true,
+      "internalPort": 8080,
+      "volumes": [
+        {
+          "hostPath": "/etc/localtime",
+          "containerPath": "/etc/localtime",
+          "readOnly": true
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

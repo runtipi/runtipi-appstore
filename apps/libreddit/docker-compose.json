@@ -1,0 +1,11 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "libreddit",
+      "image": "libreddit/libreddit:latest",
+      "isMain": true,
+      "internalPort": 8080
+    }
+  ]
+}
