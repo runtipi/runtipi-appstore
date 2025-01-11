@@ -1,6 +1,6 @@
 services:
   bewcloud:
-    image: ghcr.io/bewcloud/bewcloud:v1.4.7
+    image: ghcr.io/bewcloud/bewcloud:v1.4.8
     entrypoint: bash
     command: -c "make migrate-db && deno run --allow-all main.ts"
     restart: unless-stopped

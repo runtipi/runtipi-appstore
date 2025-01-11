@@ -3,7 +3,7 @@
     "services": [
         {
             "name": "bewcloud",
-            "image": "ghcr.io/bewcloud/bewcloud:v1.4.7",
+            "image": "ghcr.io/bewcloud/bewcloud:v1.4.8",
             "internalPort": 8053,
             "isMain": true,
             "environment": {
