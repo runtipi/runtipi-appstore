@@ -1,0 +1,23 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "glances",
+      "image": "nicolargo/glances:4.3.0.8-full",
+      "isMain": true,
+      "internalPort": 61208,
+      "pid": "host",
+      "environment": {
+        "TZ": "${TZ}",
+        "GLANCES_OPT": "-w"
+      },
+      "volumes": [
+        {
+          "hostPath": "/var/run/docker.sock",
+          "containerPath": "/var/run/docker.sock",
+          "readOnly": true
+        }
+      ]
+    }
+  ]
+}
