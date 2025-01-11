@@ -1,0 +1,48 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "forgejo",
+      "image": "codeberg.org/forgejo/forgejo:1.21.11-0",
+      "isMain": true,
+      "internalPort": 3000,
+      "addPorts": [
+        {
+          "hostPort": 222,
+          "containerPort": 22
+        }
+      ],
+      "environment": {
+        "USER_UID": "1000",
+        "USER_GID": "1000",
+        "FORGEJO__database__DB_TYPE": "postgres",
+        "FORGEJO__database__HOST": "forgejo-db:5432",
+        "FORGEJO__database__NAME": "forgejo",
+        "FORGEJO__database__USER": "forgejo",
+        "FORGEJO__database__PASSWD": "${FORGEJO_DB_PASSWORD}"
+      },
+      "dependsOn": ["forgejo-db"],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/forgejo",
+          "containerPath": "/data"
+        }
+      ]
+    },
+    {
+      "name": "forgejo-db",
+      "image": "postgres:14",
+      "environment": {
+        "POSTGRES_USER": "forgejo",
+        "POSTGRES_PASSWORD": "${FORGEJO_DB_PASSWORD}",
+        "POSTGRES_DB": "forgejo"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgres",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ]
+    }
+  ]
+}
