@@ -20,6 +20,7 @@ services:
       - CONFIG_ENABLED_APPS=news,notes,photos # Providing a config for these is probably not worth it
       - CONFIG_FILES_ROOT_PATH=files
       - CONFIG_ENABLE_EMAILS=${ENABLE_EMAIL}
+      - CONFIG_ALLOWED_COOKIE_DOMAINS=${INTERNAL_IP},bewcloud.${LOCAL_DOMAIN},${APP_HOST}
     volumes:
       - ${APP_DATA_DIR}/data/bewcloud/files:/files
     networks:
