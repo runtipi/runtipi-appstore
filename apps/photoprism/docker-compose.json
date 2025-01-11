@@ -1,0 +1,67 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "photoprism",
+      "image": "photoprism/photoprism:240420",
+      "isMain": true,
+      "internalPort": 2342,
+      "environment": {
+        "PHOTOPRISM_ADMIN_PASSWORD": "${PHOTOPRISM_ADMIN_PASSWORD}",
+        "PHOTOPRISM_SITE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}/",
+        "PHOTOPRISM_ORIGINALS_LIMIT": 5000,
+        "PHOTOPRISM_HTTP_COMPRESSION": "gzip",
+        "PHOTOPRISM_LOG_LEVEL": "info",
+        "PHOTOPRISM_PUBLIC": "false",
+        "PHOTOPRISM_READONLY": "false",
+        "PHOTOPRISM_EXPERIMENTAL": "false",
+        "PHOTOPRISM_DISABLE_CHOWN": "false",
+        "PHOTOPRISM_DISABLE_WEBDAV": "false",
+        "PHOTOPRISM_DISABLE_SETTINGS": "false",
+        "PHOTOPRISM_DISABLE_TENSORFLOW": "false",
+        "PHOTOPRISM_DISABLE_FACES": "false",
+        "PHOTOPRISM_DISABLE_CLASSIFICATION": "false",
+        "PHOTOPRISM_DISABLE_RAW": "false",
+        "PHOTOPRISM_RAW_PRESETS": "false",
+        "PHOTOPRISM_JPEG_QUALITY": 85,
+        "PHOTOPRISM_DETECT_NSFW": "false",
+        "PHOTOPRISM_UPLOAD_NSFW": "true",
+        "PHOTOPRISM_DATABASE_DRIVER": "mysql",
+        "PHOTOPRISM_DATABASE_SERVER": "photoprism-db:3306",
+        "PHOTOPRISM_DATABASE_NAME": "photoprism",
+        "PHOTOPRISM_DATABASE_USER": "photoprism",
+        "PHOTOPRISM_DATABASE_PASSWORD": "${DB_PASSWORD}",
+        "PHOTOPRISM_SITE_CAPTION": "AI-Powered Photos App"
+      },
+      "dependsOn": ["photoprism-db"],
+      "volumes": [
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/data/images",
+          "containerPath": "/photoprism/originals"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/photoprism/storage",
+          "containerPath": "/photoprism/storage"
+        }
+      ],
+      "workingDir": "/photoprism"
+    },
+    {
+      "name": "photoprism-db",
+      "image": "mariadb:10.8",
+      "environment": {
+        "MARIADB_DATABASE": "photoprism",
+        "MARIADB_USER": "photoprism",
+        "MARIADB_PASSWORD": "${DB_PASSWORD}",
+        "MARIADB_ROOT_PASSWORD": "${DB_ROOT_PASSWORD}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/mariadb",
+          "containerPath": "/var/lib/mysql"
+        }
+      ],
+      "command": "mysqld --innodb-buffer-pool-size=128M --transaction-isolation=READ-COMMITTED --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --max-connections=512 --innodb-rollback-on-timeout=OFF --innodb-lock-wait-timeout=120"
+    }
+  ]
+}
