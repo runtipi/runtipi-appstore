@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "deluge",
-      "image": "lscr.io/linuxserver/deluge:2.1.1",
+      "image": "lscr.io/linuxserver/deluge:18.04.1",
       "isMain": true,
       "internalPort": 8112,
       "addPorts": [
