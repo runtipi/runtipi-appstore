@@ -1,0 +1,33 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "image": "ghcr.io/mealie-recipes/mealie:v2.4.2",
+      "name": "mealie-1",
+      "internalPort": 9000,
+      "isMain": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/app/data"
+        }
+      ],
+      "environment": {
+        "ALLOW_SIGNUP": "${MEALIE_ALLOW_SIGNUP}",
+        "PUID": "1000",
+        "PGID": "1000",
+        "TZ": "${TZ}",
+        "MAX_WORKERS": "1",
+        "WEB_CONCURRENCY": "1",
+        "BASE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+      },
+      "deploy": {
+        "resources": {
+          "limits": {
+            "memory": "1000M"
+          }
+        }
+      }
+    }
+  ]
+}

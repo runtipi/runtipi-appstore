@@ -19,23 +19,27 @@ const ulimitsSchema = z.object({
 
 const deploySchema = z.object({
   resources: z.object({
-    limits: z.object({
-      cpus: z.string().optional(),
-      memory: z.string().optional(),
-      pids: z.number().optional(),
-    }),
-    reservations: z.object({
-      cpus: z.string().optional(),
-      memory: z.string().optional(),
-      devices: z
-        .object({
-          capabilities: z.array(z.string()),
-          driver: z.string().optional(),
-          count: z.enum(["all"]).or(z.number()).optional(),
-          deviceIds: z.array(z.string()).optional(),
-        })
-        .array(),
-    }),
+    limits: z
+      .object({
+        cpus: z.string().optional(),
+        memory: z.string().optional(),
+        pids: z.number().optional(),
+      })
+      .optional(),
+    reservations: z
+      .object({
+        cpus: z.string().optional(),
+        memory: z.string().optional(),
+        devices: z
+          .object({
+            capabilities: z.array(z.string()),
+            driver: z.string().optional(),
+            count: z.enum(["all"]).or(z.number()).optional(),
+            deviceIds: z.array(z.string()).optional(),
+          })
+          .array(),
+      })
+      .optional(),
   }),
 });
 
@@ -163,7 +167,7 @@ const appInfoSchema = z.object({
     .optional() as unknown as z.ZodType<AppUrn, ZodStringDef>,
   available: z.boolean(),
   deprecated: z.boolean().optional().default(false),
-  port: z.number().min(1).max(65535),
+  port: z.number().min(1).max(65535).optional(),
   name: z.string(),
   description: z.string().optional().default(""),
   version: z.string().optional().default("latest"),

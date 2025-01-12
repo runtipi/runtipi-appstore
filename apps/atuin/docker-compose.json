@@ -1,0 +1,39 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "image": "ghcr.io/atuinsh/atuin:18.4.0",
+      "name": "atuin",
+      "internalPort": 8888,
+      "isMain": true,
+      "command": "server start",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/config"
+        }
+      ],
+      "environment": {
+        "ATUIN_PORT": 8888,
+        "ATUIN_HOST": "0.0.0.0",
+        "ATUIN_OPEN_REGISTRATION": "${ATUIN_ALLOW_REGISTRATION}",
+        "ATUIN_DB_URI": "postgres://atuin:${ATUIN_DB_PASSWORD}@atuin-db/atuin"
+      }
+    },
+    {
+      "image": "postgres:14",
+      "name": "atuin-db",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgres",
+          "containerPath": "/var/lib/postgresql/data/"
+        }
+      ],
+      "environment": {
+        "POSTGRES_USER": "atuin",
+        "POSTGRES_PASSWORD": "${ATUIN_DB_PASSWORD}",
+        "POSTGRES_DB": "atuin"
+      }
+    }
+  ]
+}
