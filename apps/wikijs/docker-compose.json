@@ -31,8 +31,7 @@
         }
       ],
       "logging": {
-        "driver": "none",
-        "options": {}
+        "driver": "none"
       }
     }
   ]
