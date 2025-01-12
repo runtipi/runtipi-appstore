@@ -4,7 +4,7 @@
     {
       "image": "ghcr.io/goauthentik/server:2024.12.2",
       "name": "authentik",
-      "internalPort": 9443,
+      "internalPort": 9000,
       "isMain": true,
       "command": "server",
       "volumes": [
