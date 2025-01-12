@@ -5,7 +5,6 @@
       "image": "ghcr.io/joshuaavalon/cloudflare-ddns:3.3.0",
       "name": "cloudflare-ddns",
       "isMain": true,
-      "internalPort": 80,
       "environment": {
         "CF_DNS__AUTH__SCOPED_TOKEN": "${CF_DNS__AUTH__SCOPED_TOKEN}",
         "CF_DNS__DOMAINS_0__NAME": "${CF_DNS__DOMAINS_0__NAME}",
