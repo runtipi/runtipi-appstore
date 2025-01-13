@@ -1,0 +1,78 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "owncloud",
+      "image": "owncloud/server:10.15.0",
+      "isMain": true,
+      "internalPort": 8080,
+      "environment": {
+        "OWNCLOUD_DOMAIN": "${APP_DOMAIN}",
+        "OWNCLOUD_TRUSTED_DOMAINS": "${APP_DOMAIN}",
+        "OWNCLOUD_DB_TYPE": "mysql",
+        "OWNCLOUD_DB_NAME": "owncloud",
+        "OWNCLOUD_DB_USERNAME": "tipi",
+        "OWNCLOUD_DB_PASSWORD": "${OWNCLOUD_DB_PASSWORD}",
+        "OWNCLOUD_DB_HOST": "owncloud-db",
+        "OWNCLOUD_ADMIN_USERNAME": "${OWNCLOUD_USERNAME}",
+        "OWNCLOUD_ADMIN_PASSWORD": "${OWNCLOUD_PASSWORD}",
+        "OWNCLOUD_MYSQL_UTF8MB4": "true",
+        "OWNCLOUD_REDIS_ENABLED": "true",
+        "OWNCLOUD_REDIS_HOST": "owncloud-redis"
+      },
+      "dependsOn": ["owncloud-db", "owncloud-redis"],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/owncloud",
+          "containerPath": "/mnt/data"
+        }
+      ],
+      "healthCheck": {
+        "interval": "30s",
+        "timeout": "10s",
+        "retries": 5,
+        "test": "/usr/bin/healthcheck"
+      }
+    },
+    {
+      "name": "owncloud-db",
+      "image": "mariadb:10.6",
+      "environment": {
+        "MYSQL_ROOT_PASSWORD": "${OWNCLOUD_DB_PASSWORD}",
+        "MYSQL_USER": "tipi",
+        "MYSQL_PASSWORD": "${OWNCLOUD_DB_PASSWORD}",
+        "MYSQL_DATABASE": "owncloud"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/mysql",
+          "containerPath": "/var/lib/mysql"
+        }
+      ],
+      "command": ["--max-allowed-packet=128M", "--innodb-log-file-size=64M"],
+      "healthCheck": {
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 5,
+        "test": "mysqladmin ping -u root --password=${OWNCLOUD_DB_PASSWORD}"
+      }
+    },
+    {
+      "name": "owncloud-redis",
+      "image": "redis:6",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/redis",
+          "containerPath": "/data"
+        }
+      ],
+      "command": ["--databases", "1"],
+      "healthCheck": {
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 5,
+        "test": "redis-cli ping"
+      }
+    }
+  ]
+}
