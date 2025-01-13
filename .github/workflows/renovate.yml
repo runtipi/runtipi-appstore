@@ -1,33 +1,40 @@
 name: Renovate
-
 on:
   workflow_dispatch:
     inputs:
-      log-level:
+      log_level:
         type: choice
-        description: Select log level for Renovate
+        description: Log level
+        default: INFO
         options:
-          - trace
-          - debug
-          - info
-          - warn
-          - error
-        default: into
-        required: false
+          - DEBUG
+          - INFO
+          - WARN
+          - ERROR
+          - FATAL
   schedule:
-    # The "*" (#42, asterisk) character has special semantics in YAML, so this
-    # string has to be quoted.
-    - cron: '0/30 * * * *'
+    - cron: 0 0 * * *
+
 jobs:
   renovate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.7
-      - name: Self-hosted Renovate
-        uses: renovatebot/github-action@v41.0.8
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
         with:
-          token: ${{ secrets.RENOVATE_TOKEN }}
-        env:
-          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+          node-version: 20
+
+      - name: Install bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install Renovate
+        run: bun install -g renovate re2
+
+      - name: Echo repository
+        run: echo ${{ github.repository }}
+
+      - name: Run renovate
+        run: LOG_LEVEL=${{ github.event.inputs.log_level || 'INFO' }} renovate --token ${{ secrets.GITHUB_TOKEN }} ${{ github.repository }}
