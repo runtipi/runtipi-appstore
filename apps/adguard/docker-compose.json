@@ -1,9 +1,9 @@
 {
-  "$schema": "../compose-schema.json",
+  "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
       "name": "adguard",
-      "image": "adguard/adguardhome:v0.107.54",
+      "image": "adguard/adguardhome:v0.107.55",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/work",

@@ -1,0 +1,24 @@
+{
+  "services": [
+    {
+      "name": "planning-poker",
+      "image": "axeleroy/self-host-planning-poker:1.2.1",
+      "isMain": true,
+      "internalPort": 8000,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/data"
+        }
+      ],
+      "healthCheck": {
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 5,
+        "startPeriod": "30s",
+        "test": "wget --no-verbose --tries=1 --spider http://127.0.0.1:8000"
+      }
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

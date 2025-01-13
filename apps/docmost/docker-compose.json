@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "docmost",
-      "image": "docmost/docmost:0.6.0",
+      "image": "docmost/docmost:0.6.2",
       "isMain": true,
       "internalPort": 3000,
       "environment": {
@@ -44,5 +44,6 @@
         }
       ]
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

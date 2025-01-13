@@ -1,0 +1,51 @@
+{
+  "services": [
+    {
+      "name": "zipline",
+      "image": "ghcr.io/diced/zipline:3.7.11",
+      "isMain": true,
+      "internalPort": 3000,
+      "environment": {
+        "CORE_RETURN_HTTPS": "false",
+        "CORE_SECRET": "${ZIPLINE_CORE_SECRET}",
+        "CORE_HOST": "0.0.0.0",
+        "CORE_PORT": "3000",
+        "CORE_DATABASE_URL": "postgres://tipi:${ZIPLINE_DB_PASSWORD}@zipline-db/zipline",
+        "CORE_LOGGER": "true"
+      },
+      "dependsOn": ["zipline-db"],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/uploads",
+          "containerPath": "/zipline/uploads"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/public",
+          "containerPath": "/zipline/public"
+        }
+      ]
+    },
+    {
+      "name": "zipline-db",
+      "image": "postgres:14",
+      "environment": {
+        "POSTGRES_USER": "tipi",
+        "POSTGRES_PASSWORD": "${ZIPLINE_DB_PASSWORD}",
+        "POSTGRES_DB": "zipline"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgres",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ],
+      "healthCheck": {
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 5,
+        "test": "pg_isready -U postgres"
+      }
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

@@ -1,0 +1,20 @@
+{
+  "services": [
+    {
+      "name": "trilium",
+      "image": "ghcr.io/zadam/trilium:0.63.7",
+      "isMain": true,
+      "internalPort": 8080,
+      "environment": {
+        "TRILIUM_DATA_DIR": "/home/node/trilium-data"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/home/node/trilium-data"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

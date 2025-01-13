@@ -1,0 +1,60 @@
+{
+  "services": [
+    {
+      "name": "ctfd",
+      "image": "ctfd/ctfd:3.7.5",
+      "isMain": true,
+      "internalPort": 8000,
+      "environment": {
+        "UPLOAD_FOLDER": "/var/uploads",
+        "DATABASE_URL": "mysql+pymysql://tipi:${CTFD_MYSQL_DB_PASSWORD}@ctfd-db/ctfd",
+        "REDIS_URL": "redis://ctfd-redis:6379",
+        "WORKERS": "1",
+        "LOG_FOLDER": "/var/log/CTFd",
+        "ACCESS_LOG": "-",
+        "ERROR_LOG": "-",
+        "REVERSE_PROXY": "true",
+        "SECRET_KEY": "${CTFD_SECRET_KEY}"
+      },
+      "dependsOn": ["ctfd-db"],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/uploads",
+          "containerPath": "/var/log/CTFd"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/uploads",
+          "containerPath": "/var/uploads"
+        }
+      ]
+    },
+    {
+      "name": "ctfd-db",
+      "image": "mariadb:10.4.12",
+      "environment": {
+        "MYSQL_ROOT_PASSWORD": "${CTFD_MYSQL_ROOT_PASSWORD}",
+        "MYSQL_USER": "tipi",
+        "MYSQL_PASSWORD": "${CTFD_MYSQL_DB_PASSWORD}",
+        "MYSQL_DATABASE": "ctfd"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/var/lib/mysql"
+        }
+      ],
+      "command": ["mysqld", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci", "--wait_timeout=28800", "--log-warnings=0"]
+    },
+    {
+      "name": "ctfd-redis",
+      "image": "redis:4",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/redis",
+          "containerPath": "/data"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

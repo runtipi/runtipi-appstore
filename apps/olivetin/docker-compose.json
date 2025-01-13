@@ -1,0 +1,17 @@
+{
+  "services": [
+    {
+      "name": "olivetin",
+      "image": "jamesread/olivetin:latest",
+      "isMain": true,
+      "internalPort": 1337,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/config"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

@@ -1,12 +1,13 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "Wekan",
   "port": 8678,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "wekan",
-  "tipi_version": 42,
-  "version": "7.72",
+  "tipi_version": 50,
+  "version": "7.80",
   "categories": ["development"],
   "description": "Experience efficient task management with WeKan - the Open-Source, customizable, and privacy-focused kanban",
   "short_desc": "Open-Source, customizable, and privacy-focused kanban",
@@ -30,5 +31,5 @@
   ],
   "supported_architectures": ["amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1733634425000
+  "updated_at": 1736729696000
 }

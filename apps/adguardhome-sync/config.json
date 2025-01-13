@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "Adguard Home Sync",
   "id": "adguardhome-sync",
   "available": true,
@@ -8,8 +8,8 @@
   "port": 8436,
   "categories": ["network", "utilities"],
   "description": "Synchronize AdGuardHome config to replica instances",
-  "tipi_version": 1,
-  "version": "v0.6.13",
+  "tipi_version": 5,
+  "version": "0.6.17",
   "source": "https://github.com/bakito/adguardhome-sync",
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],
@@ -41,5 +41,5 @@
     }
   ],
   "created_at": 1730236492823,
-  "updated_at": 1730236492823
+  "updated_at": 1734945008000
 }

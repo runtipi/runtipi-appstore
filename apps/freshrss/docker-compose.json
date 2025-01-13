@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "freshrss",
-      "image": "lscr.io/linuxserver/freshrss:1.24.3",
+      "image": "lscr.io/linuxserver/freshrss:1.25.0",
       "isMain": true,
       "internalPort": 80,
       "environment": {
@@ -17,5 +17,6 @@
         }
       ]
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

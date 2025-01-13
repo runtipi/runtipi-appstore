@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "lubelogger",
-      "image": "ghcr.io/hargata/lubelogger:v1.4.1",
+      "image": "ghcr.io/hargata/lubelogger:v1.4.3",
       "internalPort": 8080,
       "isMain": true,
       "volumes": [
@@ -96,5 +96,6 @@
         "timeout": "10s"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

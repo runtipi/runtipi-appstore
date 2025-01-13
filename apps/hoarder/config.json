@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "Hoarder",
   "id": "hoarder",
   "available": true,
@@ -8,8 +8,8 @@
   "port": 8685,
   "categories": ["utilities", "ai"],
   "description": "A self-hostable bookmark-everything app (links, notes and images) with AI-based automatic tagging and full text search",
-  "tipi_version": 5,
-  "version": "0.19.0",
+  "tipi_version": 8,
+  "version": "0.21.0",
   "source": "https://github.com/hoarder-app/hoarder",
   "website": "https://hoarder.app",
   "form_fields": [
@@ -33,7 +33,8 @@
     }
   ],
   "exposable": true,
+  "dynamic_config": true,
   "supported_architectures": ["amd64", "arm64"],
   "created_at": 1726064280917,
-  "updated_at": 1731437245000
+  "updated_at": 1736115793000
 }

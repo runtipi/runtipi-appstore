@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "navidrome",
-      "image": "deluan/navidrome:0.53.3",
+      "image": "deluan/navidrome:0.54.3",
       "isMain": true,
       "internalPort": 4533,
       "environment": {
@@ -23,6 +23,6 @@
         }
       ]
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }
-

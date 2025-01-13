@@ -1,5 +1,5 @@
-import { exec } from 'child_process';
-import fs from 'fs';
+import { exec } from "node:child_process";
+import fs from "node:fs";
 
 type App = {
   id: string;
@@ -9,14 +9,18 @@ type App = {
   port: number;
 };
 
+const appsDir = `${__dirname}/../../apps`;
+const baseReadmePath = `${__dirname}/../../templates/README.md`;
+const finalReadmePath = `${__dirname}/../../README.md`;
+
 const getAppsList = async () => {
   const apps: Record<string, App> = {};
 
-  const appNames = fs.readdirSync(__dirname + '/../../apps');
+  const appNames = fs.readdirSync(appsDir);
 
   for (const app of appNames) {
     try {
-      const appConfig = fs.readFileSync(`${__dirname}/../../apps/${app}/config.json`, 'utf8');
+      const appConfig = fs.readFileSync(`${__dirname}/../../apps/${app}/config.json`, "utf8");
       const appConfigJson = JSON.parse(appConfig);
 
       if (!appConfigJson.deprecated) {
@@ -41,24 +45,24 @@ const appToReadme = async (app: App) => {
 };
 
 const writeToReadme = (appsList: string, count: number) => {
-  const baseReadme = fs.readFileSync(__dirname + '/../../templates/README.md', 'utf8');
-  let finalReadme = baseReadme.replace('<!appsList>', appsList);
-  finalReadme = finalReadme.replace('<!appsCount>', count.toString());
-  fs.writeFileSync(__dirname + '/../../README.md', finalReadme);
+  const baseReadme = fs.readFileSync(baseReadmePath, "utf8");
+  let finalReadme = baseReadme.replace("<!appsList>", appsList);
+  finalReadme = finalReadme.replace("<!appsCount>", count.toString());
+  fs.writeFileSync(finalReadmePath, finalReadme);
 };
 
 const main = async () => {
   const { apps } = await getAppsList();
   const appKeys = Object.keys(apps).sort();
-  let appsList = '';
+  let appsList = "";
 
   for (let i = 0; i < appKeys.length; i++) {
     const appFinal = await appToReadme(apps[appKeys[i]]);
-    appsList = appsList + (appFinal + '\n');
+    appsList = `${appsList}${appFinal}\n`;
   }
 
   writeToReadme(appsList, appKeys.length);
-  exec(`npx prettier ${__dirname + '/../../README.md'} --write`, (stdout, stderr) => {
+  exec(`npx prettier ${finalReadmePath} --write`, (stdout, stderr) => {
     if (stderr) {
       console.error(stderr);
     } else if (stdout) {

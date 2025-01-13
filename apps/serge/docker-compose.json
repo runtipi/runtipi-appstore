@@ -1,0 +1,21 @@
+{
+  "services": [
+    {
+      "name": "serge",
+      "image": "ghcr.io/serge-chat/serge:0.9.0",
+      "isMain": true,
+      "internalPort": 8008,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/weights",
+          "containerPath": "/usr/src/app/weights"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/data/db/"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

@@ -1,0 +1,24 @@
+{
+  "services": [
+    {
+      "name": "kanboard",
+      "image": "kanboard/kanboard:v1.2.43",
+      "isMain": true,
+      "internalPort": 80,
+      "environment": {
+        "PLUGIN_INSTALLER": "${PLUGIN_INSTALLER}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/kanboard_data",
+          "containerPath": "/var/www/app/data"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/kanboard_plugins",
+          "containerPath": "/var/www/app/plugins"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

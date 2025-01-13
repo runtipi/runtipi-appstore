@@ -1,0 +1,104 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "image": "ghcr.io/goauthentik/server:2024.12.2",
+      "name": "authentik",
+      "internalPort": 9000,
+      "isMain": true,
+      "command": "server",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/authentik-media",
+          "containerPath": "/media"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/authentik-custom-templates",
+          "containerPath": "/templates"
+        }
+      ],
+      "environment": {
+        "AUTHENTIK_REDIS__HOST": "authentik-redis",
+        "AUTHENTIK_POSTGRESQL__HOST": "authentik-db",
+        "AUTHENTIK_POSTGRESQL__USER": "authentik",
+        "AUTHENTIK_POSTGRESQL__NAME": "authentik",
+        "AUTHENTIK_POSTGRESQL__PASSWORD": "${AUTHENTIK_DB_PASSWORD}",
+        "AUTHENTIK_SECRET_KEY": "${AUTHENTIK_SECRET_KEY}"
+      },
+      "dependsOn": ["authentik-db", "authentik-redis"]
+    },
+    {
+      "image": "ghcr.io/goauthentik/server:2024.12.2",
+      "name": "authentik-worker",
+      "command": "worker",
+      "user": "root",
+      "volumes": [
+        {
+          "hostPath": "/var/run/docker.sock",
+          "containerPath": "/var/run/docker.sock"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/authentik-media",
+          "containerPath": "/media"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/authentik-certs",
+          "containerPath": "/certs"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/authentik-custom-templates",
+          "containerPath": "/templates"
+        }
+      ],
+      "environment": {
+        "AUTHENTIK_REDIS__HOST": "authentik-redis",
+        "AUTHENTIK_POSTGRESQL__HOST": "authentik-db",
+        "AUTHENTIK_POSTGRESQL__USER": "authentik",
+        "AUTHENTIK_POSTGRESQL__NAME": "authentik",
+        "AUTHENTIK_POSTGRESQL__PASSWORD": "${AUTHENTIK_DB_PASSWORD}",
+        "AUTHENTIK_SECRET_KEY": "${AUTHENTIK_SECRET_KEY}"
+      },
+      "dependsOn": ["authentik-db", "authentik-redis"]
+    },
+    {
+      "image": "postgres:12-alpine",
+      "name": "authentik-db",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgres",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ],
+      "environment": {
+        "POSTGRES_PASSWORD": "${AUTHENTIK_DB_PASSWORD}",
+        "POSTGRES_USER": "authentik",
+        "POSTGRES_DB": "authentik"
+      },
+      "healthCheck": {
+        "test": "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}",
+        "interval": "30s",
+        "timeout": "5s",
+        "retries": 5,
+        "startPeriod": "20s"
+      }
+    },
+    {
+      "image": "redis:alpine",
+      "name": "authentik-redis",
+      "command": "--save 60 1 --loglevel warning",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/redis",
+          "containerPath": "/data"
+        }
+      ],
+      "healthCheck": {
+        "test": "redis-cli ping | grep PONG",
+        "interval": "30s",
+        "timeout": "3s",
+        "retries": 5,
+        "startPeriod": "20s"
+      }
+    }
+  ]
+}

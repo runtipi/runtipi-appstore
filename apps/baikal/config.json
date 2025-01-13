@@ -1,11 +1,12 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "Baïkal",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 6556,
   "id": "baikal",
-  "tipi_version": 4,
+  "tipi_version": 5,
   "version": "0.10.1-nginx",
   "categories": ["data", "utilities"],
   "description": "",
@@ -15,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1731873550000
+  "updated_at": 1733760506693
 }

@@ -1,13 +1,14 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "Koillection",
   "available": true,
   "port": 8050,
   "exposable": true,
+  "dynamic_config": true,
   "id": "koillection",
   "description": "Koillection is a self-hosted service allowing users to manage any kind of collections.",
-  "tipi_version": 18,
-  "version": "1.5.16",
+  "tipi_version": 22,
+  "version": "1.6.2",
   "categories": ["utilities"],
   "short_desc": "Koillection allow you to manage any kind of collections.",
   "author": "https://github.com/benjaminjonard",
@@ -31,5 +32,5 @@
     }
   ],
   "created_at": 1691943801422,
-  "updated_at": 1732921300000
+  "updated_at": 1735587424000
 }

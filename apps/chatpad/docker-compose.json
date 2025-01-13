@@ -1,0 +1,11 @@
+{
+  "services": [
+    {
+      "name": "chatpad",
+      "image": "ghcr.io/deiucanta/chatpad:latest",
+      "isMain": true,
+      "internalPort": 80
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

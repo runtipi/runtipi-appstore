@@ -16,5 +16,6 @@
         "APP_URL": "https://${APP_DOMAIN}"
       }
     }
-  ]
+  ],
+  "$schema": "../dynamic-compose-schema.json"
 }

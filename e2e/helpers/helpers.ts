@@ -1,5 +1,5 @@
-import { chromium } from '@playwright/test';
-import { signUpUser } from '../fixtures/fixtures';
+import { chromium } from "@playwright/test";
+import { signUpUser } from "../fixtures/fixtures";
 
 async function globalSetup() {
   const browser = await chromium.launch();

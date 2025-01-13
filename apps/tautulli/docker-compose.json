@@ -1,0 +1,22 @@
+{
+  "services": [
+    {
+      "name": "tautulli",
+      "image": "lscr.io/linuxserver/tautulli:2.15.1",
+      "isMain": true,
+      "internalPort": 8181,
+      "environment": {
+        "PUID": "1000",
+        "PGID": "1000",
+        "TZ": "${TZ}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/config"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}
