@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "linkwarden",
-      "image": "ghcr.io/linkwarden/linkwarden:v2.9.2",
+      "image": "ghcr.io/linkwarden/linkwarden:v2.9.3",
       "isMain": true,
       "internalPort": 3000,
       "environment": {
