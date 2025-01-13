@@ -37,7 +37,7 @@
           "value": "false"
         }
       ],
-      "env_variable": "GTS_ACCOUNTS_REGISTRATION_OPE"
+      "env_variable": "GTS_ACCOUNTS_REGISTRATION_OPEN"
     },
     {
       "type": "text",
@@ -61,7 +61,7 @@
       "env_variable": "GTS_SMTP_USERNAME"
     },
     {
-      "type": "text",
+      "type": "password",
       "label": "SMTP Password",
       "hint": "Your SMTP Server Password",
       "required": false,
