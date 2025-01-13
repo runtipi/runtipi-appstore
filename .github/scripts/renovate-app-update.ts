@@ -5,7 +5,7 @@ const packageFile = process.argv[2];
 const newVersion = process.argv[3];
 
 type AppConfig = {
-  tipi_version: string;
+  tipi_version: number;
   version: string;
   updated_at: number;
 };
