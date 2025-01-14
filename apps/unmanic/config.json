@@ -7,7 +7,7 @@
   "dynamic_config": true,
   "id": "unmanic",
   "tipi_version": 7,
-  "version": "0.2.8",
+  "version": "staging",
   "categories": ["utilities", "data", "media"],
   "description": "Unmanic gives you the power to automate the management of any file library.",
   "short_desc": "Unmanic - Library Optimiser.",
