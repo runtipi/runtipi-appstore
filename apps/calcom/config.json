@@ -68,7 +68,7 @@
       "type": "email"
     },
     {
-      "type": "email",
+      "type": "text",
       "label": "Email server username (SMTP)",
       "required": true,
       "min": 1,
