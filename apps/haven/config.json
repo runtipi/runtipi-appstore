@@ -1,11 +1,12 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "Haven",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 8130,
   "id": "haven",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "latest",
   "categories": ["social"],
   "description": "Haven is a private blog application built with Ruby on Rails. Write what you want, create accounts for people you want to share with, keep up with each other using built-in RSS.",
@@ -35,5 +36,5 @@
   ],
   "supported_architectures": ["amd64", "arm64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566284000
+  "updated_at": 1734908295125
 }

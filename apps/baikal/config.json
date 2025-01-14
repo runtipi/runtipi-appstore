@@ -1,12 +1,13 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "Baïkal",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 6556,
   "id": "baikal",
-  "tipi_version": 3,
-  "version": "0.9.5-nginx",
+  "tipi_version": 5,
+  "version": "0.10.1-nginx",
   "categories": ["data", "utilities"],
   "description": "",
   "short_desc": "Baïkal is a Calendar+Contacts server",
@@ -15,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566283000
+  "updated_at": 1733760506693
 }

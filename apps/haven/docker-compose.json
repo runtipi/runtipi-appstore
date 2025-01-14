@@ -1,0 +1,58 @@
+{
+  "services": [
+    {
+      "name": "haven",
+      "image": "ghcr.io/havenweb/haven:latest",
+      "isMain": true,
+      "internalPort": 3000,
+      "environment": {
+        "RAILS_ENV": "production",
+        "HAVEN_DB_HOST": "haven-db",
+        "HAVEN_DB_NAME": "haven",
+        "HAVEN_DB_ROLE": "haven",
+        "HAVEN_DB_PASSWORD": "${HAVEN_DB_PASSWORD}",
+        "HAVEN_USER_EMAIL": "${HAVEN_USER_EMAIL}",
+        "HAVEN_USER_PASS": "${HAVEN_USER_PASSWORD}"
+      },
+      "dependsOn": ["haven-db"],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/storage",
+          "containerPath": "/storage"
+        }
+      ]
+    },
+    {
+      "name": "haven-db",
+      "image": "postgres:13.2-alpine",
+      "environment": {
+        "POSTGRES_HOST_AUTH_METHOD": "trust",
+        "POSTGRES_USER": "haven"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ],
+      "command": [
+        "postgres",
+        "-c",
+        "max_connections=1000",
+        "-c",
+        "synchronous_commit=off",
+        "-c",
+        "fsync=off",
+        "-c",
+        "full_page_writes=off",
+        "-c",
+        "max_wal_size=4GB",
+        "-c",
+        "checkpoint_timeout=30min",
+        "-c",
+        "wal_level=logical"
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

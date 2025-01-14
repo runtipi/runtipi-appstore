@@ -1,0 +1,22 @@
+{
+  "services": [
+    {
+      "name": "watchyourlan",
+      "image": "aceberg/watchyourlan:2.0.4",
+      "internalPort": 8840,
+      "isMain": true,
+      "networkMode": "host",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/data/WatchYourLAN"
+        }
+      ],
+      "environment": {
+        "TZ": "${TZ}",
+        "IFACES": "${WATCHYOURLAN_IFACES}"
+      }
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

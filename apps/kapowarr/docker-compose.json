@@ -1,0 +1,30 @@
+{
+  "services": [
+    {
+      "name": "kapowarr",
+      "image": "mrcas/kapowarr:v1.0.0",
+      "isMain": true,
+      "internalPort": 5656,
+      "volumes": [
+        {
+          "hostPath": "/etc/localtime",
+          "containerPath": "/etc/localtime",
+          "readOnly": true
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/kapowarr-db",
+          "containerPath": "/app/db"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/downloads/kapowarr",
+          "containerPath": "/app/temp_downloads"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media",
+          "containerPath": "/media"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

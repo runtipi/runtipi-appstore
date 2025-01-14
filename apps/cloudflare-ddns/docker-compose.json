@@ -1,0 +1,16 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "image": "ghcr.io/joshuaavalon/cloudflare-ddns:3.3.0",
+      "name": "cloudflare-ddns",
+      "isMain": true,
+      "environment": {
+        "CF_DNS__AUTH__SCOPED_TOKEN": "${CF_DNS__AUTH__SCOPED_TOKEN}",
+        "CF_DNS__DOMAINS_0__NAME": "${CF_DNS__DOMAINS_0__NAME}",
+        "CF_DNS__DOMAINS_0__PROXIED": "false",
+        "CF_DNS__LOG_TYPE": "json"
+      }
+    }
+  ]
+}

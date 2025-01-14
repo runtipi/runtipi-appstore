@@ -1,0 +1,29 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "Smallweb",
+  "id": "smallweb",
+  "available": true,
+  "short_desc": "Your internet folder",
+  "author": "pomdtr",
+  "port": 7777,
+  "categories": ["development"],
+  "description": "A self-hostable personal cloud inspired by serverless platforms and cgi-bin",
+  "tipi_version": 10,
+  "version": "0.20.1",
+  "source": "https://github.com/pomdtr/smallweb",
+  "website": "https://smallweb.run",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "form_fields": [
+    {
+      "env_variable": "SMALLWEB_DOMAIN",
+      "placeholder": "smallweb.mydomain.com",
+      "hint": "Smallweb requires a main domain to function properly, this can be the domain you set in the expose field or the .local one",
+      "label": "Smallweb Domain",
+      "type": "text",
+      "required": true
+    }
+  ],
+  "created_at": 1724134338800,
+  "updated_at": 1736629776000
+}

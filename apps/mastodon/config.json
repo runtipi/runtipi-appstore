@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "Mastodon",
   "port": 8210,
   "available": true,
@@ -7,8 +7,8 @@
   "force_expose": true,
   "generate_vapid_keys": true,
   "id": "mastodon",
-  "tipi_version": 22,
-  "version": "4.2.12",
+  "tipi_version": 27,
+  "version": "4.3.2",
   "categories": ["social"],
   "description": "Your self-hosted, globally interconnected microblogging community",
   "short_desc": "Your self-hosted, globally interconnected microblogging community",
@@ -68,7 +68,7 @@
       "env_variable": "MASTODON_SMTP_LOGIN"
     },
     {
-      "type": "text",
+      "type": "password",
       "label": "SMTP Password",
       "hint": "Your SMTP Server Password",
       "required": true,
@@ -89,9 +89,30 @@
       "placeholder": "example.com",
       "required": true,
       "env_variable": "MASTODON_LOCAL_DOMAIN"
+    },
+    {
+      "type": "random",
+      "label": "Mastodon Active Record Encryption Deterministic Key",
+      "min": 32,
+      "max": 32,
+      "env_variable": "MASTODON_ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY"
+    },
+    {
+      "type": "random",
+      "label": "Mastodon Active Record Encryption Key",
+      "min": 32,
+      "max": 32,
+      "env_variable": "MASTODON_ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT"
+    },
+    {
+      "type": "random",
+      "label": "Mastodon Active Record Encryption Primary Key",
+      "min": 32,
+      "max": 32,
+      "env_variable": "MASTODON_ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1724069530000
+  "updated_at": 1733343512000
 }

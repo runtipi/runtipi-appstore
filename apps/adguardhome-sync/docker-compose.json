@@ -1,0 +1,18 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "adguardhome-sync",
+      "image": "ghcr.io/bakito/adguardhome-sync:v0.6.17",
+      "isMain": true,
+      "internalPort": 8080,
+      "command": "run --config /config/adguardhome-sync.yaml",
+      "volumes": [
+        {
+          "containerPath": "/config/adguardhome-sync.yaml",
+          "hostPath": "${APP_DATA_DIR}/data/adguardhome-sync.yaml"
+        }
+      ]
+    }
+  ]
+}

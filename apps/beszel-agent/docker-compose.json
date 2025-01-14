@@ -1,0 +1,23 @@
+{
+  "services": [
+    {
+      "name": "beszel-agent",
+      "image": "henrygd/beszel-agent:0.9.1",
+      "isMain": true,
+      "internalPort": 45876,
+      "networkMode": "host",
+      "environment": {
+        "PORT": 45876,
+        "KEY": "${BESZEL_AGENT_KEY}"
+      },
+      "volumes": [
+        {
+          "hostPath": "/var/run/docker.sock",
+          "containerPath": "/var/run/docker.sock",
+          "readOnly": true
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

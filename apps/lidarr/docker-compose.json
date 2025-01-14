@@ -1,0 +1,31 @@
+{
+  "services": [
+    {
+      "name": "lidarr",
+      "image": "ghcr.io/linuxserver/lidarr:2.8.2",
+      "isMain": true,
+      "internalPort": 8686,
+      "environment": {
+        "PUID": "1000",
+        "PGID": "1000",
+        "TZ": "${TZ}"
+      },
+      "volumes": [
+        {
+          "hostPath": "/etc/localtime",
+          "containerPath": "/etc/localtime",
+          "readOnly": true
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/config"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media",
+          "containerPath": "/media"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

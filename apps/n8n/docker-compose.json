@@ -1,0 +1,22 @@
+{
+  "services": [
+    {
+      "name": "n8n",
+      "image": "n8nio/n8n:0.237.0",
+      "isMain": true,
+      "internalPort": 5678,
+      "environment": {
+        "N8N_EDITOR_BASE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
+        "WEBHOOK_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/n8n",
+          "containerPath": "/home/node/.n8n"
+        }
+      ],
+      "command": "/bin/sh -c \"sleep 5; n8n start\""
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

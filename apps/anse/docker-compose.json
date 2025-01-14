@@ -1,0 +1,14 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "anse",
+      "environment": {
+        "PORT": "8014"
+      },
+      "image": "ddiu8081/anse:v1.1.11",
+      "internalPort": 8014,
+      "isMain": true
+    }
+  ]
+}

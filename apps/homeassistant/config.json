@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "Home Assistant non exposed",
   "available": true,
   "deprecated": true,

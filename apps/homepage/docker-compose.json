@@ -1,0 +1,17 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "homepage",
+      "image": "ghcr.io/gethomepage/homepage:v0.10.9",
+      "internalPort": 3000,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/:/app/config",
+          "containerPath": "/app/config"
+        }
+      ],
+      "isMain": true
+    }
+  ]
+}

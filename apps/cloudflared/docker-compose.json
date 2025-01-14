@@ -1,0 +1,18 @@
+{
+  "services": [
+    {
+      "name": "cloudflared",
+      "image": "wisdomsky/cloudflared-web:2025.1.0",
+      "isMain": true,
+      "internalPort": 14333,
+      "networkMode": "host",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/cloudflared/config",
+          "containerPath": "/config"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

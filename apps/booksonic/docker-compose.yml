@@ -7,7 +7,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${TZ}
-      - CONTEXT_PATH={APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - CONTEXT_PATH=${APP_PROTOCOL:-http}://${APP_DOMAIN}
     volumes:
       - ${APP_DATA_DIR}/config:/config
       - ${ROOT_FOLDER_HOST}/media/data/books/spoken:/audiobooks

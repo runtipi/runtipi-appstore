@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from "zod";
 
 export const appConfigSchema = z.object({
   services: z.array(

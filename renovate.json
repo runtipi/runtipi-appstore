@@ -30,9 +30,7 @@
     },
     {
       "managers": ["docker-compose", "dockerfile"],
-      "packagePatterns": [
-        "^([^\\/]+\\/)?(immich-server|immich-proxy|immich-machine-learning|immich-web)(:|$)"
-      ],
+      "packagePatterns": ["^([^\\/]+\\/)?(immich-server|immich-proxy|immich-machine-learning|immich-web)(:|$)"],
       "automerge": false,
       "groupName": "manual-merge-packages"
     }

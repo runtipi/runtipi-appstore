@@ -1,0 +1,49 @@
+{
+  "services": [
+    {
+      "name": "grampsweb",
+      "image": "ghcr.io/gramps-project/grampsweb:v24.12.2",
+      "isMain": true,
+      "internalPort": 5000,
+      "environment": {
+        "GRAMPSWEB_TREE": "${GRAMPSWEB_TREE}",
+        "GUNICORN_NUM_WORKERS": "1"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/users",
+          "containerPath": "/app/users"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/index",
+          "containerPath": "/app/indexdir"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/thumb_cache",
+          "containerPath": "/app/thumbnail_cache"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/cache",
+          "containerPath": "/app/cache"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/secret",
+          "containerPath": "/app/secret"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/db",
+          "containerPath": "/root/.gramps/grampsdb"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/media",
+          "containerPath": "/app/media"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/tmp",
+          "containerPath": "/tmp"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

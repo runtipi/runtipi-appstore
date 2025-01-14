@@ -1,0 +1,21 @@
+{
+  "services": [
+    {
+      "name": "gotify",
+      "image": "gotify/server:2.6.1",
+      "isMain": true,
+      "internalPort": 80,
+      "environment": {
+        "GOTIFY_DEFAULTUSER_NAME": "${GOTIFY_DEFAULTUSER_NAME}",
+        "GOTIFY_DEFAULTUSER_PASS": "${GOTIFY_DEFAULTUSER_PASS}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/app/data"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

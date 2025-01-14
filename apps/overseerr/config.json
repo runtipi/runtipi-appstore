@@ -1,11 +1,12 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "Overseerr",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 8116,
   "id": "overseerr",
-  "tipi_version": 10,
+  "tipi_version": 11,
   "version": "1.33.2",
   "categories": ["media", "utilities"],
   "description": "Overseerr is a free and open source software application for managing requests for your media library. It integrates with your existing services, such as Sonarr, Radarr, and Plex!",
@@ -15,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566285000
+  "updated_at": 1736282041603
 }
