@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 8013,
   "id": "dozzle",
-  "tipi_version": 68,
-  "version": "8.10.2",
+  "tipi_version": 69,
+  "version": "8.10.4",
   "categories": ["development"],
   "description": "Dozzle is a small web based app to monitor Docker logs.",
   "short_desc": "Dozzle is a small web based app to monitor Docker logs",
@@ -50,5 +50,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1736629766000
+  "updated_at": 1736830126000
 }
