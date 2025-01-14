@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   unmanic:
-    image: josh5/unmanic:0.2.8
+    image: josh5/unmanic:staging
     restart: unless-stopped
     container_name: unmanic
     privileged: true
