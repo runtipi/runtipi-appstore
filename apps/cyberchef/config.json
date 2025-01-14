@@ -12,7 +12,7 @@
   "tipi_version": 6,
   "version": "10.19.4",
   "source": "https://github.com/gchq/CyberChef",
-  "supported_architectures": ["arm64", "amd64"],
+  "supported_architectures": ["amd64"],
   "created_at": 1691943801422,
   "updated_at": 1729872626158,
   "$schema": "../app-info-schema.json"
