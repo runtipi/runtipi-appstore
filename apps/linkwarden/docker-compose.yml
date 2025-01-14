@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   linkwarden:
-    image: ghcr.io/linkwarden/linkwarden:v2.7.1
+    image: ghcr.io/linkwarden/linkwarden:v2.9.3
     container_name: linkwarden
     environment:
       - DATABASE_URL=postgresql://tipi:${LINKWARDEN_DB_PASSWORD}@linkwarden-db:5432/linkwarden
@@ -46,7 +46,7 @@ services:
       runtipi.managed: true
   linkwarden-db:
     container_name: linkwarden-db
-    image: postgres
+    image: postgres:16-alpine
     restart: unless-stopped
     environment:
       - POSTGRES_USER=tipi

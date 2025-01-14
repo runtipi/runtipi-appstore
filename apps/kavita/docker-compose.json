@@ -1,0 +1,32 @@
+{
+  "services": [
+    {
+      "name": "kavita",
+      "image": "jvmilazz0/kavita:0.8.4",
+      "isMain": true,
+      "internalPort": 5000,
+      "environment": {
+        "TZ": "${TZ}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/kavita-config",
+          "containerPath": "/kavita/config"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/data/books",
+          "containerPath": "/books"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/data/comics",
+          "containerPath": "/comics"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/data/manga",
+          "containerPath": "/manga"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

@@ -1,0 +1,379 @@
+{
+  "type": "object",
+  "properties": {
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "internalPort": {
+            "type": "number"
+          },
+          "isMain": {
+            "type": "boolean"
+          },
+          "networkMode": {
+            "type": "string"
+          },
+          "extraHosts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ulimits": {
+            "type": "object",
+            "properties": {
+              "nproc": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "soft": {
+                        "type": "number"
+                      },
+                      "hard": {
+                        "type": "number"
+                      }
+                    },
+                    "required": ["soft", "hard"],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "nofile": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "soft": {
+                        "type": "number"
+                      },
+                      "hard": {
+                        "type": "number"
+                      }
+                    },
+                    "required": ["soft", "hard"],
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            },
+            "required": ["nproc", "nofile"],
+            "additionalProperties": false
+          },
+          "addPorts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "containerPort": {
+                  "type": "number"
+                },
+                "hostPort": {
+                  "type": "number"
+                },
+                "udp": {
+                  "type": "boolean"
+                },
+                "tcp": {
+                  "type": "boolean"
+                },
+                "interface": {
+                  "type": "string"
+                }
+              },
+              "required": ["containerPort", "hostPort"],
+              "additionalProperties": false
+            }
+          },
+          "command": {
+            "anyOf": [
+              {
+                "anyOf": [
+                  {
+                    "not": {}
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              {
+                "anyOf": [
+                  {
+                    "not": {}
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "volumes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "hostPath": {
+                  "type": "string"
+                },
+                "containerPath": {
+                  "type": "string"
+                },
+                "readOnly": {
+                  "type": "boolean"
+                }
+              },
+              "required": ["hostPath", "containerPath"],
+              "additionalProperties": false
+            }
+          },
+          "environment": {
+            "type": "object",
+            "additionalProperties": {
+              "type": ["string", "number"]
+            }
+          },
+          "healthCheck": {
+            "type": "object",
+            "properties": {
+              "test": {
+                "type": "string"
+              },
+              "interval": {
+                "type": "string"
+              },
+              "timeout": {
+                "type": "string"
+              },
+              "retries": {
+                "type": "number"
+              },
+              "startInterval": {
+                "type": "string"
+              },
+              "startPeriod": {
+                "type": "string"
+              }
+            },
+            "required": ["test"],
+            "additionalProperties": false
+          },
+          "dependsOn": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "condition": {
+                      "type": "string",
+                      "enum": ["service_healthy", "service_started", "service_completed_successfully"]
+                    }
+                  },
+                  "required": ["condition"],
+                  "additionalProperties": false
+                }
+              }
+            ]
+          },
+          "capAdd": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "deploy": {
+            "type": "object",
+            "properties": {
+              "resources": {
+                "type": "object",
+                "properties": {
+                  "limits": {
+                    "type": "object",
+                    "properties": {
+                      "cpus": {
+                        "type": "string"
+                      },
+                      "memory": {
+                        "type": "string"
+                      },
+                      "pids": {
+                        "type": "number"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "reservations": {
+                    "type": "object",
+                    "properties": {
+                      "cpus": {
+                        "type": "string"
+                      },
+                      "memory": {
+                        "type": "string"
+                      },
+                      "devices": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "capabilities": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "driver": {
+                              "type": "string"
+                            },
+                            "count": {
+                              "anyOf": [
+                                {
+                                  "type": "string",
+                                  "enum": ["all"]
+                                },
+                                {
+                                  "type": "number"
+                                }
+                              ]
+                            },
+                            "deviceIds": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "required": ["capabilities"],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "required": ["devices"],
+                    "additionalProperties": false
+                  }
+                },
+                "required": ["limits", "reservations"],
+                "additionalProperties": false
+              }
+            },
+            "required": ["resources"],
+            "additionalProperties": false
+          },
+          "hostname": {
+            "type": "string"
+          },
+          "devices": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "entrypoint": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "pid": {
+            "type": "string"
+          },
+          "privileged": {
+            "type": "boolean"
+          },
+          "tty": {
+            "type": "boolean"
+          },
+          "user": {
+            "type": "string"
+          },
+          "workingDir": {
+            "type": "string"
+          },
+          "shmSize": {
+            "type": "string"
+          },
+          "capDrop": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "logging": {
+            "type": "object",
+            "properties": {
+              "driver": {
+                "type": "string"
+              },
+              "options": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": ["driver", "options"],
+            "additionalProperties": false
+          },
+          "readOnly": {
+            "type": "boolean"
+          },
+          "securityOpt": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "stopSignal": {
+            "type": "string"
+          },
+          "stopGracePeriod": {
+            "type": "string"
+          },
+          "stdinOpen": {
+            "type": "boolean"
+          }
+        },
+        "required": ["image", "name"],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": ["services", "$schema"],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

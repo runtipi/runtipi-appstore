@@ -22,5 +22,6 @@
     }
   ],
   "created_at": 1691943801422,
-  "updated_at": 1723566283000
+  "updated_at": 1723566283000,
+  "$schema": "../app-info-schema.json"
 }

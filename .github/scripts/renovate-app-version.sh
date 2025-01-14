@@ -42,7 +42,7 @@ for docker_compose_file in $docker_compose_files; do
         # apply trimmed version to docker-compose.json's main service
         contents="$(jq --arg image "$image" --arg main_service_index "$main_service_index" '.services[$main_service_index | tonumber].image=$image' "$compose_file")"
         echo "${contents}" >"$compose_file"
-        npx prettier "$compose_file" --write
+        npx @biomejs/biome check "$compose_file" --write
       fi
 
       # ------------------- Update config.json -------------------
@@ -54,7 +54,7 @@ for docker_compose_file in $docker_compose_files; do
 
       contents="$(jq --argjson tipi_version "$tipi_version" --argjson created_at "$created_at" --argjson updated_at "$updated_at" '.tipi_version = $tipi_version | .created_at = $created_at | .updated_at = $updated_at' "$config_file")"
       echo "${contents}" >"$config_file"
-      npx prettier "$config_file" --write
+      npx @biomejs/biome check "$config_file" --write
     fi
   fi
 done

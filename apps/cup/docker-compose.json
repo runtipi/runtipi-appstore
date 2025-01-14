@@ -1,0 +1,18 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "cup",
+      "image": "ghcr.io/sergi0g/cup:v2.3.0",
+      "command": "serve",
+      "volumes": [
+        {
+          "hostPath": "/var/run/docker.sock",
+          "containerPath": "/var/run/docker.sock"
+        }
+      ],
+      "internalPort": 8000,
+      "isMain": true
+    }
+  ]
+}

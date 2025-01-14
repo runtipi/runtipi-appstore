@@ -1,0 +1,26 @@
+{
+  "services": [
+    {
+      "name": "mstream",
+      "image": "lscr.io/linuxserver/mstream:v5.12.2-ls190",
+      "isMain": true,
+      "internalPort": 3000,
+      "environment": {
+        "PUID": "1000",
+        "PGID": "1000",
+        "TZ": "${TZ}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/mstream-config",
+          "containerPath": "/data"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/data/music",
+          "containerPath": "/music"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

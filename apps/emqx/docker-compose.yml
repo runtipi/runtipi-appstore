@@ -1,0 +1,71 @@
+services:
+  emqx:
+    image: emqx/emqx:5.8.4
+    container_name: emqx
+    environment:
+      - TZ=${TZ}
+      - "EMQX_NODE_NAME=emqx@emqx"
+      - "EMQX_CLUSTER__DISCOVERY_STRATEGY=static"
+      - "EMQX_CLUSTER__STATIC__SEEDS=[emqx@emqx,emqx@emqx-n2]"
+    ports:
+      - 1883:1883 
+      - 8083:8083
+      - 8084:8084
+      - 8883:8883
+      - 18083:18083
+    healthcheck:
+      test: ["CMD", "/opt/emqx/bin/emqx", "ctl", "status"]
+      interval: 5s
+      timeout: 25s
+      retries: 5
+    volumes:
+      - ${APP_DATA_DIR}/data/n1:/opt/emqx/data
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.emqx-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.emqx.loadbalancer.server.port: 18083
+      # Web
+      traefik.http.routers.emqx-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.emqx-insecure.entrypoints: web
+      traefik.http.routers.emqx-insecure.service: emqx-web
+      traefik.http.routers.emqx-insecure.middlewares: emqx-web-redirect
+      # Websecure
+      traefik.http.routers.emqx.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.emqx.entrypoints: websecure
+      traefik.http.routers.emqx.service: emqx-web
+      traefik.http.routers.emqx.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.emqx-local-insecure.rule: Host(`emqx.${LOCAL_DOMAIN}`)
+      traefik.http.routers.emqx-local-insecure.entrypoints: web
+      traefik.http.routers.emqx-local-insecure.service: emqx-web
+      traefik.http.routers.emqx-local-insecure.middlewares: emqx-web-redirect
+      # Local domain secure
+      traefik.http.routers.emqx-local.rule: Host(`emqx.${LOCAL_DOMAIN}`)
+      traefik.http.routers.emqx-local.entrypoints: websecure
+      traefik.http.routers.emqx-local.service: emqx-web
+      traefik.http.routers.emqx-local.tls: true
+      runtipi.managed: true
+  emqx-n2:
+    image: emqx/emqx:5.8.4
+    container_name: emqx-n2
+    environment:
+      - TZ=${TZ}
+      - "EMQX_NODE_NAME=emqx@emqx-n2"
+      - "EMQX_CLUSTER__DISCOVERY_STRATEGY=static"
+      - "EMQX_CLUSTER__STATIC__SEEDS=[emqx@emqx,emqx@emqx-n2]"
+    healthcheck:
+      test: ["CMD", "/opt/emqx/bin/emqx", "ctl", "status"]
+      interval: 5s
+      timeout: 25s
+      retries: 5
+    volumes:
+      - ${APP_DATA_DIR}/data/n2:/opt/emqx/data
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      runtipi.managed: true

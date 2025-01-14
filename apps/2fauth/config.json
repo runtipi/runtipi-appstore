@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "2FAuth",
   "port": 8235,
   "uid": 1000,
@@ -8,8 +8,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "2fauth",
-  "tipi_version": 16,
-  "version": "5.2.0",
+  "tipi_version": 23,
+  "version": "5.4.3",
   "categories": ["security"],
   "description": "A Web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes.",
   "short_desc": "Manage your Two-Factor Authentication codes.",
@@ -19,5 +19,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566284000
+  "updated_at": 1732726697000
 }

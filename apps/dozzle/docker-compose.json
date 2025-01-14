@@ -1,0 +1,26 @@
+{
+  "services": [
+    {
+      "name": "dozzle",
+      "image": "amir20/dozzle:v8.10.4",
+      "isMain": true,
+      "internalPort": 8080,
+      "environment": {
+        "DOZZLE_NO_ANALYTICS": "${DOZZLE_NO_ANALYTICS:-true}",
+        "DOZZLE_AUTH_PROVIDER": "${DOZZLE_AUTH_PROVIDER:-none}",
+        "DOZZLE_ENABLE_ACTIONS": "${DOZZLE_ENABLE_ACTIONS:-true}"
+      },
+      "volumes": [
+        {
+          "hostPath": "/var/run/docker.sock",
+          "containerPath": "/var/run/docker.sock"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/data"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

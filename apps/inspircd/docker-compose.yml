@@ -2,7 +2,7 @@ version: "3.9"
 services:
   inspircd:
     container_name: inspircd
-    image: inspircd/inspircd-docker:3.17.1
+    image: inspircd/inspircd-docker:3.18.0
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data:/inspircd/conf

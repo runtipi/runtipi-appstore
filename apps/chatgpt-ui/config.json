@@ -1,11 +1,12 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "ChatGPT UI",
   "port": 8200,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "chatgpt-ui",
-  "tipi_version": 13,
+  "tipi_version": 14,
   "version": "2.5.9",
   "categories": ["ai"],
   "description": "A ChatGPT web client that supports multiple users, multiple languages, and multiple database connections for persistent data storage",
@@ -44,5 +45,5 @@
     }
   ],
   "created_at": 1691943801422,
-  "updated_at": 1723566285000
+  "updated_at": 1734908161108
 }

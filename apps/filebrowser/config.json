@@ -1,11 +1,12 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "File Browser",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 8096,
   "id": "filebrowser",
-  "tipi_version": 4,
+  "tipi_version": 5,
   "version": "s6",
   "categories": ["utilities"],
   "description": "Reliable and Performant File Management Desktop Sync and File Sharing\n Default credentials: admin / admin",
@@ -16,5 +17,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566284000
+  "updated_at": 1729872648175
 }
