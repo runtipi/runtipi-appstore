@@ -4,8 +4,9 @@
   "port": 8195,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "forgejo",
-  "tipi_version": 18,
+  "tipi_version": 19,
   "version": "1.21.11-0",
   "categories": ["development"],
   "description": "Forgejo is a self-hosted lightweight software forge. Easy to install and low maintenance, it just does the job.",
@@ -22,5 +23,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566285000
+  "updated_at": 1736624608519
 }
