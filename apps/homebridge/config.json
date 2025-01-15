@@ -3,7 +3,7 @@
   "name": "Home Bridge",
   "available": true,
   "port": 8581,
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "2024-05-02",
   "id": "homebridge",
   "categories": ["automation"],
@@ -14,5 +14,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566283000
+  "updated_at": 1736983459729
 }
