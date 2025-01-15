@@ -3,10 +3,11 @@
   "name": "Matter Server",
   "available": true,
   "exposable": false,
+  "dynamic_config": true,
   "no_gui": true,
   "port": 9997,
   "id": "matter-server",
-  "tipi_version": 16,
+  "tipi_version": 17,
   "version": "7.0.1",
   "categories": ["utilities", "automation"],
   "author": "OpenHomeFoundation",
@@ -16,5 +17,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1736110091000
+  "updated_at": 1736983558771
 }
