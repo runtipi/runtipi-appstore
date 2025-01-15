@@ -4,9 +4,10 @@
   "port": 8190,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "plausible",
   "deprecated": true,
-  "tipi_version": 5,
+  "tipi_version": 6,
   "version": "v1.5.1",
   "categories": ["utilities"],
   "description": "Plausible Analytics is an easy to use, lightweight (< 1 KB), open source and privacy-friendly alternative to Google Analytics. It doesn’t use cookies and is fully compliant with GDPR, CCPA and PECR.",
@@ -36,5 +37,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1724188518000
+  "updated_at": 1736983701753
 }
