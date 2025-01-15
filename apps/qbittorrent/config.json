@@ -5,8 +5,8 @@
   "exposable": true,
   "port": 8133,
   "id": "qbittorrent",
-  "tipi_version": 23,
-  "version": "20.04.1",
+  "tipi_version": 22,
+  "version": "5.0.3",
   "categories": ["utilities"],
   "description": "qBittorrent is a fast, easy, and free BitTorrent client.",
   "short_desc": "Fast, easy, and free BitTorrent client",
@@ -15,5 +15,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1736630041000
+  "updated_at": 1734626523000
 }
