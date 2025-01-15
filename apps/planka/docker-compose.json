@@ -1,0 +1,47 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "planka",
+      "image": "ghcr.io/plankanban/planka:1.24.3",
+      "isMain": true,
+      "internalPort": 1337,
+      "environment": {
+        "BASE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
+        "TRUST_PROXY": "1",
+        "DATABASE_URL": "\"postgresql://postgres@postgres/planka\"",
+        "SECRET_KEY": "\"${PLANKA_SECRET_KEY}\""
+      },
+      "dependsOn": ["postgres"],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/user-avatars",
+          "containerPath": "/app/public/user-avatars"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/project-background-images",
+          "containerPath": "/app/public/project-background-images"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/attachments",
+          "containerPath": "/app/private/attachments"
+        }
+      ],
+      "command": "bash -c\n  \"for i in `seq 1 30`; do\n    ./start.sh &&\n    s=$$? && break || s=$$?;\n    echo \\\"Tried $$i times. Waiting 5 seconds...\\\";\n    sleep 5;\n  done; (exit $$s)\"\n"
+    },
+    {
+      "name": "postgres",
+      "image": "postgres:14-alpine",
+      "environment": {
+        "POSTGRES_DB": "planka",
+        "POSTGRES_HOST_AUTH_METHOD": "trust"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgres",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ]
+    }
+  ]
+}
