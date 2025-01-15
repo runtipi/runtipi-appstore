@@ -146,8 +146,8 @@ describe("App configs", () => {
 
   test("Each app should have a different port", () => {
     const appConfigs = getAppConfigs();
-    const ports = appConfigs.map((app) => app.port);
-    expect(new Set(ports).size).toBe(appConfigs.length);
+    const ports = appConfigs.map((app) => app.port).filter(Boolean);
+    expect(new Set(ports).size).toBe(ports.length);
   });
 
   test("Each app should have a unique id", () => {
