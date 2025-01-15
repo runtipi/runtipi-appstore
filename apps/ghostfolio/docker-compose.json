@@ -48,7 +48,7 @@
         "interval": "10s",
         "timeout": "5s",
         "retries": 5,
-        "test": "pg_isready -d ghostfolio"
+        "test": "pg_isready -d ghostfolio -U ghostfolio"
       }
     },
     {
@@ -60,7 +60,7 @@
           "containerPath": "/data"
         }
       ],
-      "command": "--requirepass ${GHOSTFOLIO_REDIS_PASSWORD}\n",
+      "command": "--requirepass ${GHOSTFOLIO_REDIS_PASSWORD}",
       "healthCheck": {
         "interval": "10s",
         "timeout": "5s",
