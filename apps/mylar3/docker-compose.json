@@ -1,0 +1,30 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "mylar3",
+      "image": "lscr.io/linuxserver/mylar3:v0.7.1-ls84",
+      "isMain": true,
+      "internalPort": 8090,
+      "environment": {
+        "PUID": "1000",
+        "PGID": "1000",
+        "TZ": "${TZ}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/mylar3-config",
+          "containerPath": "/config"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/data/comics",
+          "containerPath": "/comics"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/downloads/mylar3",
+          "containerPath": "/downloads"
+        }
+      ]
+    }
+  ]
+}
