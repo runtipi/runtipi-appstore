@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "id": "navidrome",
   "description": "Modern Music Server and Streamer compatible with Subsonic/Airsonic",
-  "tipi_version": 20,
-  "version": "0.54.3",
+  "tipi_version": 21,
+  "version": "0.54.4",
   "categories": ["media", "music"],
   "short_desc": "A selfhosted music server",
   "author": "https://github.com/Bvoxl",
@@ -15,6 +15,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1735449459000,
+  "updated_at": 1736916056000,
   "$schema": "../app-info-schema.json"
 }

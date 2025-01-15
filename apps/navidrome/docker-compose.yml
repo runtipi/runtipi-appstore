@@ -2,7 +2,7 @@ version: "3"
 services:
   navidrome:
     container_name: navidrome
-    image: deluan/navidrome:0.54.3
+    image: deluan/navidrome:0.54.4
     ports:
       - ${APP_PORT}:4533
     restart: unless-stopped
