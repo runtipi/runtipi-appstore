@@ -57,7 +57,7 @@ services:
       runtipi.managed: true
   bitmagnet-db:
     container_name: bitmagnet-db
-    image: docker.io/library/postgres:17-alpine
+    image: postgres:17-alpine
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
@@ -76,7 +76,7 @@ services:
     labels:
       runtipi.managed: true
   bitmagnet-redis:
-    image: docker.io/library/redis:alpine
+    image: redis:alpine
     command: --save 60 1 --loglevel warning
     container_name: bitmagnet-redis
     restart: unless-stopped
