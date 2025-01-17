@@ -1,1 +1,46 @@
-
+services:
+  arkanum:
+    image: gitea.ocram85.com/arkanum/arkanum:1.8.3
+    container_name: arkanum
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+      - PASSWORD=${ARKANUM_PASSWORD}
+      - SUDO_PASSWORD=${ARKANUM_SUDO_PASSWORD}
+      - DEFAULT_WORKSPACE=/config/workspace
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${APP_DATA_DIR}/data/projects:/projects
+      - ${ROOT_FOLDER_HOST}:/runtipi
+    ports:
+      - ${APP_PORT}:8443
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.arkanum-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.arkanum.loadbalancer.server.port: 8443
+      # Web
+      traefik.http.routers.arkanum-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.arkanum-insecure.entrypoints: web
+      traefik.http.routers.arkanum-insecure.service: arkanum
+      traefik.http.routers.arkanum-insecure.middlewares: arkanum-web-redirect
+      # Websecure
+      traefik.http.routers.arkanum.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.arkanum.entrypoints: websecure
+      traefik.http.routers.arkanum.service: arkanum
+      traefik.http.routers.arkanum.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.arkanum-local-insecure.rule: Host(`arkanum.${LOCAL_DOMAIN}`)
+      traefik.http.routers.arkanum-local-insecure.entrypoints: web
+      traefik.http.routers.arkanum-local-insecure.service: arkanum
+      traefik.http.routers.arkanum-local-insecure.middlewares: arkanum-web-redirect
+      # Local domain secure
+      traefik.http.routers.arkanum-local.rule: Host(`arkanum.${LOCAL_DOMAIN}`)
+      traefik.http.routers.arkanum-local.entrypoints: websecure
+      traefik.http.routers.arkanum-local.service: arkanum
+      traefik.http.routers.arkanum-local.tls: true
+      runtipi.managed: true
