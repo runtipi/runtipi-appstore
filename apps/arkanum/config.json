@@ -1,0 +1,39 @@
+{
+  "id": "arkanum",
+  "available": true,
+  "port": 8153,
+  "name": "Arkanum",
+  "description": "An opinionated VS Code distribution. Start coding remotely with a containerized editor.",
+  "version": "1.8.3",
+  "tipi_version": 1,
+  "short_desc": "An opinionated VS Code distribution.",
+  "author": "OCram85",
+  "source": "https://gitea.ocram85.com/arkanum/arkanum",
+  "website": "https://arkanum.dev/",
+  "categories": ["development"],
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "Password",
+      "max": 50,
+      "min": 8,
+      "required": true,
+      "env_variable": "ARKANUM_PASSWORD"
+    },
+    {
+      "type": "password",
+      "label": "Sudo Password",
+      "max": 50,
+      "min": 8,
+      "required": false,
+      "env_variable": "ARKANUM_SUDO_PASSWORD"
+    }
+  ],
+  "https": true,
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "dynamic_config": true,
+  "created_at": 1737116464890,
+  "updated_at": 1737116464890,
+  "$schema": "../app-info-schema.json"
+}
