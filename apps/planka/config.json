@@ -16,6 +16,37 @@
   "website": "https://docs.planka.cloud/",
   "form_fields": [
     {
+      "type": "email",
+      "label": "Admin email",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "PLANKA_ADMIN_EMAIL"
+    },
+    {
+      "type": "text",
+      "label": "Admin name",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "PLANKA_ADMIN_NAME"
+    },
+    {
+      "type": "text",
+      "label": "Admin username",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "PLANKA_ADMIN_USERNAME"
+    },
+    {
+      "type": "password",
+      "label": "Admin password",
+      "max": 50,
+      "required": true,
+      "env_variable": "PLANKA_ADMIN_PASSWORD"
+    },
+    {
       "type": "random",
       "label": "Planka Secret Key",
       "min": 32,
