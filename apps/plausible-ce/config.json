@@ -19,8 +19,8 @@
       "type": "random",
       "label": "Plausible Secret Key Base",
       "hint": "Configures the secret used for sessions in the dashboard, doesn't have any defaults and needs to be provided in the ENV vars",
-      "min": 48,
-      "max": 48,
+      "min": 64,
+      "max": 64,
       "env_variable": "PLAUSIBLE_SECRET_KEY_BASE"
     },
     {
