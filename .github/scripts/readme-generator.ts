@@ -7,6 +7,7 @@ type App = {
   description: string;
   source: string;
   port: number;
+  dynamic: boolean;
 };
 
 const appsDir = `${__dirname}/../../apps`;
@@ -30,6 +31,7 @@ const getAppsList = async () => {
           description: appConfigJson.short_desc,
           source: appConfigJson.source,
           port: appConfigJson.port,
+          dynamic: appConfigJson.dynamic_config,
         };
       }
     } catch (e) {
@@ -41,13 +43,14 @@ const getAppsList = async () => {
 };
 
 const appToReadme = async (app: App) => {
-  return `| [${app.name}](${app.source}) | ${app.description} | ${app.port} |`;
+  return `| [${app.name}](${app.source}) | ${app.description} | ${app.port} | ${app.dynamic ? "yes" : "no"} |`;
 };
 
-const writeToReadme = (appsList: string, count: number) => {
+const writeToReadme = (appsList: string, count: number, dynamicConfigCount: number) => {
   const baseReadme = fs.readFileSync(baseReadmePath, "utf8");
   let finalReadme = baseReadme.replace("<!appsList>", appsList);
   finalReadme = finalReadme.replace("<!appsCount>", count.toString());
+  finalReadme = finalReadme.replace("<!dynamicConfigCount>", dynamicConfigCount.toString());
   fs.writeFileSync(finalReadmePath, finalReadme);
 };
 
@@ -61,7 +64,11 @@ const main = async () => {
     appsList = `${appsList}${appFinal}\n`;
   }
 
-  writeToReadme(appsList, appKeys.length);
+  const count = appKeys.length;
+  const dynamicConfigCount = appKeys.filter((key) => apps[key].dynamic).length;
+
+  writeToReadme(appsList, count, dynamicConfigCount);
+
   exec(`npx prettier ${finalReadmePath} --write`, (stdout, stderr) => {
     if (stderr) {
       console.error(stderr);

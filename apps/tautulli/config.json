@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 8181,
   "id": "tautulli",
-  "tipi_version": 21,
-  "version": "2.15.0",
+  "tipi_version": 22,
+  "version": "2.15.1",
   "categories": ["media", "utilities"],
   "description": "Tautulli is a 3rd party application that you can run alongside your Plex Media Server to monitor activity and track various statistics. Most importantly, these statistics include what has been watched, who watched it, when and where they watched it, and how it was watched. The only thing missing is \"why they watched it\", but who am I to question your 42 plays of Frozen. All statistics are presented in a nice and clean interface with many tables and graphs, which makes it easy to brag about your server to everyone else.",
   "short_desc": "Monitoring and tracking tool for Plex Media Server.",
@@ -16,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1733761315238
+  "updated_at": 1736702870000
 }

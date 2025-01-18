@@ -2,11 +2,10 @@
   "services": [
     {
       "name": "changedetection",
-      "image": "ghcr.io/dgtlmoon/changedetection.io:0.48.05",
+      "image": "ghcr.io/dgtlmoon/changedetection.io:0.48.06",
       "isMain": true,
       "internalPort": 5000,
       "hostname": "changedetection",
-      "restart": "unless-stopped",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data",

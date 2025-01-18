@@ -3,11 +3,12 @@
   "available": true,
   "port": 8734,
   "exposable": true,
+  "dynamic_config": true,
   "url_suffix": "?offline=1",
   "id": "drawio",
   "description": "draw.io is a JavaScript, client-side editor for general diagramming and whiteboarding.",
-  "tipi_version": 60,
-  "version": "24.7.17",
+  "tipi_version": 63,
+  "version": "26.0.6",
   "categories": ["utilities"],
   "short_desc": "Diagramming and whiteboarding app.",
   "author": "JGraph",
@@ -16,6 +17,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1727806670000,
+  "updated_at": 1736972667000,
   "$schema": "../app-info-schema.json"
 }

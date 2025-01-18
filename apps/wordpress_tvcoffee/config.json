@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "WordPress Sloppy Hero",
+=======
+  "name": "WordPress TV Coffee Co.",
+>>>>>>> 4ea07c22
   "available": true,
   "port": 8237,
   "exposable": true,

@@ -21,6 +21,6 @@ If you want to see new apps on Tipi you can either:
 
 ## Apps available (<!appsCount>)
 
-| Name | Description | Port |
-| ---- | ----------- | ---- |
+| Name | Description | Port | Dynamic (<!dynamicConfigCount>) |
+| ---- | ----------- | ---- | -------------------------------------- |
 <!appsList>

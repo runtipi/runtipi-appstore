@@ -4,10 +4,22 @@ services:
   grist:
     container_name: grist
     environment:
+<<<<<<< HEAD
       - APP_HOME_URL=https://grist.rasies.com         # Explicitly set the home URL
       - DEFAULT_BASE_DOMAIN=${APP_DOMAIN}             # Use APP_DOMAIN as the base domain
+=======
+      - APP_HOME_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+<<<<<<< HEAD
+>>>>>>> 4ea07c22
       - GRIST_SANDBOX_FLAVOR=${GRIST_SANDBOX_FLAVOR}
     image: "gristlabs/grist:1.3.2"
+=======
+      - GRIST_SANDBOX_FLAVOR: gvisor
+      - GRIST_FORWARD_AUTH_HEADER: X-Forwarded-User
+      - GRIST_FORWARD_AUTH_LOGOUT_PATH: _oauth/logout
+      - GRIST_SINGLE_ORG: rasies 
+    image: "gristlabs/grist:1.1.16"
+>>>>>>> acc74dc5 (Add wordpress_elderseth)
     ports:
       - "${APP_PORT:-8484}:8484"
     restart: always

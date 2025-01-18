@@ -1,0 +1,21 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "image": "hkotel/mealie:v0.5.6",
+      "name": "mealie",
+      "internalPort": 80,
+      "isMain": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/app/data"
+        }
+      ],
+      "environment": {
+        "PUID": "1000",
+        "PGID": "1000"
+      }
+    }
+  ]
+}

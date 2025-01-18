@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "cloudflared",
-      "image": "wisdomsky/cloudflared-web:2024.12.2",
+      "image": "wisdomsky/cloudflared-web:2025.1.0",
       "isMain": true,
       "internalPort": 14333,
       "networkMode": "host",

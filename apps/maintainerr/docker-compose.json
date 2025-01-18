@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "maintainerr",
-      "image": "ghcr.io/jorenn92/maintainerr:2.7.0",
+      "image": "ghcr.io/jorenn92/maintainerr:2.8.0",
       "isMain": true,
       "internalPort": 6246,
       "environment": {
