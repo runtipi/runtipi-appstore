@@ -10,7 +10,8 @@
         {
           "hostPort": 51413,
           "containerPort": 51413,
-          "udp": true
+          "udp": true,
+          "tcp": true
         }
       ],
       "environment": {
