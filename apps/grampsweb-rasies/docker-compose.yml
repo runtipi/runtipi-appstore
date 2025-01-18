@@ -1,0 +1,44 @@
+services:
+  grampsweb:
+    image: ghcr.io/gramps-project/grampsweb:v24.12.2
+    container_name: grampsweb
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    environment:
+      GRAMPSWEB_TREE: ${GRAMPSWEB_TREE}
+      GUNICORN_NUM_WORKERS: "8"
+      GUNICORN_CMD_ARGS: "--timeout 300"  # Set timeout to 300 seconds
+      GRAMPSWEB_LLM_ENABLED: "true"      # Enable LLM
+      GRAMPSWEB_LLM_SERVER: "http://192.168.1.12:8080"  # LocalAI server URL
+      GRAMPSWEB_LLM_MODEL: "versatillama-llama-3.2-3b-instruct-abliterated"  # Specify model
+      GRAMPSWEB_LLM_EMBEDDER: "rwkv-6-world-7b"  # Embedder for LLM
+    ports:
+      - ${APP_PORT}:5000
+    volumes:
+      - ${APP_DATA_DIR}/users:/app/users
+      - ${APP_DATA_DIR}/index:/app/indexdir
+      - ${APP_DATA_DIR}/thumb_cache:/app/thumbnail_cache
+      - ${APP_DATA_DIR}/cache:/app/cache
+      - ${APP_DATA_DIR}/secret:/app/secret
+      - ${APP_DATA_DIR}/db:/root/.gramps/grampsdb
+      - ${APP_DATA_DIR}/media:/app/media
+      - ${APP_DATA_DIR}/tmp:/tmp
+    labels:
+      generated: true
+      traefik.enable: true
+      traefik.http.middlewares.grampsweb-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.grampsweb.loadbalancer.server.port: "5000"
+      traefik.http.routers.grampsweb-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.grampsweb-insecure.entrypoints: web
+      traefik.http.routers.grampsweb-insecure.service: grampsweb
+      traefik.http.routers.grampsweb-insecure.middlewares: grampsweb-web-redirect
+      traefik.http.routers.grampsweb.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.grampsweb.entrypoints: websecure
+      traefik.http.routers.grampsweb.service: grampsweb
+      traefik.http.routers.grampsweb.tls.certresolver: myresolver
+networks:
+  tipi_main_network:
+    name: runtipi_tipi_main_network
+    external: true
+
