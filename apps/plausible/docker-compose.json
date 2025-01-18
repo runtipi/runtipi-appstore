@@ -13,7 +13,14 @@
         "CLICKHOUSE_DATABASE_URL": "http://plausible-events-db:8123/plausible_events_db",
         "DISABLE_REGISTRATION": "${PLAUSIBLE_DISABLE_REGISTRATION}"
       },
-      "dependsOn": ["plausible-db", "plausible-events-db"],
+      "dependsOn": {
+        "plausible-db": {
+          "condition": "service_healthy"
+        },
+        "plausible-events-db": {
+          "condition": "service_started"
+        }
+      }
       "command": "sh -c \"sleep 10 && /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh db init-admin && /entrypoint.sh run\""
     },
     {
@@ -29,7 +36,12 @@
           "hostPath": "${APP_DATA_DIR}/data/database/",
           "containerPath": "/var/lib/postgresql/data"
         }
-      ]
+      ],
+      "healthCheck": {
+        "timeout": "5s",
+        "retries": 3,
+        "test": "pg_isready -d plausible-db -U tipi"
+      }
     },
     {
       "name": "plausible-events-db",
@@ -49,13 +61,7 @@
           "containerPath": "/etc/clickhouse-server/users.d/logging.xml",
           "readOnly": true
         }
-      ],
-      "ulimits": {
-        "nofile": {
-          "soft": 262144,
-          "hard": 262144
-        }
-      }
+      ]
     }
   ]
 }
