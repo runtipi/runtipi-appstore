@@ -57,7 +57,7 @@
           "containerPath": "/var/lib/postgresql/data"
         }
       ],
-       "healthCheck": {
+      "healthCheck": {
         "timeout": "5s",
         "retries": 3,
         "test": "pg_isready -d plausible-db -U tipi"
