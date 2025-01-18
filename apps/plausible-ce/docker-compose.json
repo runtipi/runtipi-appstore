@@ -34,13 +34,14 @@
         "MANDRILL_API_KEY": "${PLAUSIBLE_MANDRILL_API_KEY}",
         "SENDGRID_API_KEY": "${PLAUSIBLE_SENDGRID_API_KEY}"
       },
-      "dependsOn": [
+      "dependsOn": {
         "plausible-db": {
           "condition": "service_healthy"
         },
         "plausible-events-db": {
           "condition": "service_started"
         }
+      }
     },
     {
       "name": "plausible-db",
