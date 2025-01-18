@@ -8,7 +8,7 @@
   "uid": 1000,
   "gid": 1000,
   "id": "cross-seed",
-  "tipi_version": 32,
+  "tipi_version": 33,
   "version": "6.8.9",
   "categories": ["media", "utilities"],
   "description": "An app designed to help you download torrents that you can cross seed based on your existing torrents. It is designed to match conservatively to minimize manual intervention.",

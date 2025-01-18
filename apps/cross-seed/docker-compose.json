@@ -2,7 +2,7 @@
   "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
-      "image": "ghcr.io/cross-seed/cross-seed:6.8.6",
+      "image": "ghcr.io/cross-seed/cross-seed:6.8.7",
       "name": "cross-seed",
       "command": "daemon",
       "user": "1000:1000",
