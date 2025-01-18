@@ -26,7 +26,7 @@
         "SPOTIFY_PUBLIC": "${SPOTIFY_PUBLIC}",
         "SPOTIFY_SECRET": "${SPOTIFY_SECRET}",
         "MONGO_ENDPOINT": "mongodb://your-spotify-db:27017/your_spotify",
-        "CORS": "all"
+        "CORS": "i-want-a-security-vulnerability-and-want-to-allow-all-origins"
       },
       "dependsOn": ["your-spotify-db"]
     },
