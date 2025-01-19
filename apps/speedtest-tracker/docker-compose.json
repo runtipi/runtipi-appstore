@@ -6,12 +6,6 @@
       "image": "lscr.io/linuxserver/speedtest-tracker:1.1.0",
       "isMain": true,
       "internalPort": 80,
-      "addPorts": [
-        {
-          "hostPort": 8212,
-          "containerPort": 443
-        }
-      ],
       "environment": {
         "PUID": "1000",
         "PGID": "1000",
@@ -49,7 +43,12 @@
           "hostPath": "${APP_DATA_DIR}/data/postgres",
           "containerPath": "/var/lib/postgresql/data"
         }
-      ]
+      ],
+      "healthCheck": {
+        "timeout": "5s",
+        "retries": 3,
+        "test": "pg_isready -d $$POSTGRES_DB -U $$POSTGRES_USER"
+      }
     }
   ]
 }
