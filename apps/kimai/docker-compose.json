@@ -23,7 +23,7 @@
     },
     {
       "name": "kimai",
-      "image": "kimai/kimai2:fpm-2.1.0-prod",
+      "image": "kimai/kimai2:fpm-2.27.0",
       "isMain": true,
       "environment": {
         "ADMINMAIL": "${KIMAI_ADMINMAIL}",
