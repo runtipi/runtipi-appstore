@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "port": 8090,
   "id": "azuracast",
-  "tipi_version": 37,
+  "tipi_version": 3,
   "version": "rolling",
   "categories": ["media", "audio"],
   "description": "AzuraCast is a self-hosted, all-in-one web radio management suite.",

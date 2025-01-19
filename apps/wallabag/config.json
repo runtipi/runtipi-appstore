@@ -1,5 +1,5 @@
 {
-  "$schema": "../app-info-chema.json",
+  "$schema": "../app-info-schema.json",
   "name": "Wallabag",
   "available": true,
   "exposable": true,
@@ -7,7 +7,7 @@
   "port": 8119,
   "id": "wallabag",
   "tipi_version": 37,
-  "version": "2.6.2",
+  "version": "3",
   "categories": ["productivity", "data"],
   "description": "Wallabag is a self-hosted read-it-later application for saving and organizing web articles.",
   "short_desc": "Save and organize web articles.",
