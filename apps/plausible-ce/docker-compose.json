@@ -34,7 +34,14 @@
         "MANDRILL_API_KEY": "${PLAUSIBLE_MANDRILL_API_KEY}",
         "SENDGRID_API_KEY": "${PLAUSIBLE_SENDGRID_API_KEY}"
       },
-      "dependsOn": ["plausible-db", "plausible-events-db"]
+      "dependsOn": {
+        "plausible-db": {
+          "condition": "service_healthy"
+        },
+        "plausible-events-db": {
+          "condition": "service_started"
+        }
+      }
     },
     {
       "name": "plausible-db",
@@ -49,7 +56,12 @@
           "hostPath": "${APP_DATA_DIR}/data/database",
           "containerPath": "/var/lib/postgresql/data"
         }
-      ]
+      ],
+      "healthCheck": {
+        "timeout": "5s",
+        "retries": 3,
+        "test": "pg_isready -d plausible-db -U tipi"
+      }
     },
     {
       "name": "plausible-events-db",
