@@ -5,7 +5,7 @@
   "exposable": true,
   "dynamic_config": true,
   "port": 5000,
-  "id": "grampsweb",
+  "id": "grampsweb-rasies",
   "tipi_version": 12,
   "version": "24.12.2",
   "categories": ["data", "social"],
