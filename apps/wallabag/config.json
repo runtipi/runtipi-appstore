@@ -1,5 +1,5 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-chema.json",
   "name": "Wallabag",
   "available": true,
   "exposable": true,
