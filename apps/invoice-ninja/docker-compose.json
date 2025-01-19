@@ -98,7 +98,7 @@
           "containerPath": "/tmp/data"
         }
       ],
-      "command": "bash -c \"chmod +x /tmp/data/init/init.sh && /tmp/data/init/init.sh \""
+      "command":"chmod +x /tmp/data/init/init.sh && /tmp/data/init/init.sh"
     }
   ]
 }
