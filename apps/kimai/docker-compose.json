@@ -2,7 +2,7 @@
   "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
-      "name": "nginx",
+      "name": "kimai-proxy",
       "image": "tobybatch/nginx-fpm-reverse-proxy:latest",
       "internalPort": 80,
       "dependsOn": ["kimai"],
@@ -43,7 +43,7 @@
       ]
     },
     {
-      "name": "sqldb",
+      "name": "kimai-sqldb",
       "image": "mysql:5.7",
       "environment": {
         "MYSQL_DATABASE": "kimai",
