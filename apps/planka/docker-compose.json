@@ -1,0 +1,59 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "planka",
+      "image": "ghcr.io/plankanban/planka:1.24.3",
+      "isMain": true,
+      "internalPort": 1337,
+      "environment": {
+        "BASE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
+        "TRUST_PROXY": 1,
+        "DATABASE_URL": "postgresql://postgres@planka-db/planka",
+        "SECRET_KEY": "${PLANKA_SECRET_KEY}",
+        "DEFAULT_ADMIN_EMAIL": "${PLANKA_ADMIN_EMAIL}",
+        "DEFAULT_ADMIN_NAME": "${PLANKA_ADMIN_NAME}",
+        "DEFAULT_ADMIN_USERNAME": "${PLANKA_ADMIN_USERNAME}",
+        "DEFAULT_ADMIN_PASSWORD": "${PLANKA_ADMIN_PASSWORD}"
+      },
+      "dependsOn": {
+        "planka-db": {
+          "condition": "service_healthy"
+        }
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/user-avatars",
+          "containerPath": "/app/public/user-avatars"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/project-background-images",
+          "containerPath": "/app/public/project-background-images"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/attachments",
+          "containerPath": "/app/private/attachments"
+        }
+      ]
+    },
+    {
+      "name": "planka-db",
+      "image": "postgres:14-alpine",
+      "environment": {
+        "POSTGRES_DB": "planka",
+        "POSTGRES_HOST_AUTH_METHOD": "trust"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgres",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ],
+      "healthCheck": {
+        "timeout": "5s",
+        "retries": 3,
+        "test": "pg_isready -d planka -U postgres"
+      }
+    }
+  ]
+}
