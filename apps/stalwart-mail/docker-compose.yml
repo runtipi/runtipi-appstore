@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   stalwart-mail:
-    image: stalwartlabs/mail-server:v0.11.1
+    image: stalwartlabs/mail-server:v0.11.3
     container_name: stalwart-mail
     volumes:
       - ${APP_DATA_DIR}/data:/opt/stalwart-mail
