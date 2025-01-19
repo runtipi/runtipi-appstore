@@ -34,7 +34,7 @@
       "healthCheck": {
         "timeout": "5s",
         "retries": 3,
-        "test": "pg_isready -d umami -U umami"
+        "test": "pg_isready -d $$POSTGRES_DB -U $$POSTGRES_USER"
       }
     }
   ]
