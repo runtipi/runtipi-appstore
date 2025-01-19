@@ -11,7 +11,11 @@
         "DATABASE_TYPE": "postgresql",
         "HASH_SALT": "${HASH_SALT}"
       },
-      "dependsOn": ["umami-db"]
+      "dependsOn": {
+        "umami-db": {
+          "condition": "service_healthy"
+        }
+      }
     },
     {
       "name": "umami-db",
@@ -26,7 +30,12 @@
           "hostPath": "${APP_DATA_DIR}/data/postgres",
           "containerPath": "/var/lib/postgresql/data"
         }
-      ]
+      ],
+      "healthCheck": {
+        "timeout": "5s",
+        "retries": 3,
+        "test": "pg_isready -d $$POSTGRES_DB -U $$POSTGRES_USER"
+      }
     }
   ]
 }
