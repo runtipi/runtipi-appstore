@@ -44,7 +44,7 @@
         "interval": "5s",
         "timeout": "5s",
         "retries": 5,
-        "test": "pg_isready -U tipi"
+        "test": "pg_isready -d $$POSTGRES_DB -U $$POSTGRES_USER"
       }
     }
   ]
