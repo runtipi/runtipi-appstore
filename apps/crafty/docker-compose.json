@@ -2,7 +2,7 @@
   "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
-      "image": "registry.gitlab.com/crafty-controller/crafty-4:4.4.4",
+      "image": "registry.gitlab.com/crafty-controller/crafty-4:4.4.5",
       "name": "crafty",
       "internalPort": 8443,
       "isMain": true,
