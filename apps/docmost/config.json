@@ -7,8 +7,8 @@
   "port": 9713,
   "categories": ["data", "utilities"],
   "description": "Docmost is an open-source alternative to the likes of Notion and Confluence. Whether you're managing a wiki, a knowledge base, or extensive project documentation, Docmost provides the tools you need to create, collaborate, and share knowledge effortlessly.",
-  "tipi_version": 15,
-  "version": "0.6.2",
+  "tipi_version": 16,
+  "version": "0.7.0",
   "source": "https://github.com/docmost/docmost",
   "website": "https://docmost.com/",
   "exposable": true,
@@ -30,6 +30,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1735225182457,
+  "updated_at": 1737321751000,
   "$schema": "../app-info-schema.json"
 }
