@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "esphome",
-  "tipi_version": 21,
-  "version": "2024.12.2",
+  "tipi_version": 22,
+  "version": "2024.12.4",
   "categories": ["automation"],
   "description": "ESPHome is a system to control your ESP8266/ESP32 by simple yet powerful configuration files and control them remotely through Home Automation systems.",
   "short_desc": "Control your ESP8266/ESP32.",
@@ -43,5 +43,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1723905687000,
-  "updated_at": 1734753504000
+  "updated_at": 1737135876000
 }
