@@ -7,9 +7,11 @@ services:
       - PGID=1000
       - TZ=${TZ}
       - PASSWORD=${ARKANUM_PASSWORD}
+      - HASHED_PASSWORD=${ARKANUM_HASHED_PASSWORD}
       - SUDO_PASSWORD=${ARKANUM_SUDO_PASSWORD}
-      - DEFAULT_WORKSPACE=/config/workspace
+      - DEFAULT_WORKSPACE=${ARKANUM_DEFAULT_WORKSPACE}
     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
       - ${APP_DATA_DIR}/data/config:/config
       - ${APP_DATA_DIR}/data/projects:/projects
       - ${ROOT_FOLDER_HOST}:/runtipi

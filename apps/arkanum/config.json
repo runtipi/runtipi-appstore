@@ -17,8 +17,16 @@
       "label": "Password",
       "max": 50,
       "min": 8,
-      "required": true,
+      "required": false,
+      "hint": "Optional web gui password, if Password or Hashed Password is not provided, there will be no auth.",
       "env_variable": "ARKANUM_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "Hashed Password",
+      "required": false,
+      "hint": "Optional web gui password, overrides Password, instructions on how to create in the App description.",
+      "env_variable": "ARKANUM_HASHED_PASSWORD"
     },
     {
       "type": "password",
@@ -26,7 +34,25 @@
       "max": 50,
       "min": 8,
       "required": false,
+      "hint": "If this optional variable is set, user will have sudo access in the Arkanum terminal with the specified password.",
       "env_variable": "ARKANUM_SUDO_PASSWORD"
+    },
+    {
+      "type": "password",
+      "label": "Sudo Password Hash",
+      "max": 50,
+      "min": 8,
+      "required": false,
+      "hint": "Optionally set sudo password via hash (takes priority over SUDO_PASSWORD var). Format is $type$salt$hashed.",
+      "env_variable": "ARKANUM_SUDO_PASSWORD_HASH"
+    },
+    {
+      "type": "text",
+      "label": "Default Workspace",
+      "required": false,
+      "default": "/config/workspace",
+      "hint": "If this optional variable is set, code-server will open this directory by default",
+      "env_variable": "ARKANUM_DEFAULT_WORKSPACE"
     }
   ],
   "https": true,

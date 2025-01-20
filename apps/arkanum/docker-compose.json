@@ -10,10 +10,16 @@
         "PGID": "1000",
         "TZ": "${TZ}",
         "PASSWORD": "${ARKANUM_PASSWORD}",
+        "HASHED_PASSWORD": "${ARKANUM_HASHED_PASSWORD}",
         "SUDO_PASSWORD": "${ARKANUM_SUDO_PASSWORD}",
-        "DEFAULT_WORKSPACE": "/config/workspace"
+        "SUDO_PASSWORD_HASH": "${ARKANUM_SUDO_PASSWORD_HASH}",
+        "DEFAULT_WORKSPACE": "${ARKANUM_DEFAULT_WORKSPACE}"
       },
       "volumes": [
+        {
+          "hostPath": "/var/run/docker.sock",
+          "containerPath": "/var/run/docker.sock"
+        },
         {
           "hostPath": "${APP_DATA_DIR}/data/config",
           "containerPath": "/config"
