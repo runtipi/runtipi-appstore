@@ -4,7 +4,7 @@
   "port": 8113,
   "available": true,
   "id": "resilio-sync",
-  "tipi_version": 5,
+  "tipi_version": 6,
   "version": "3.0.0",
   "uid": 1000,
   "gid": 1000,
@@ -16,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1724439921000
+  "updated_at": 1736983749682
 }

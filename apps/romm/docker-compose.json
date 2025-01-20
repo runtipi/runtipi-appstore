@@ -1,0 +1,61 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "romm",
+      "image": "ghcr.io/rommapp/romm:3.7.2",
+      "isMain": true,
+      "internalPort": 8080,
+      "environment": {
+        "DB_HOST": "romm-db",
+        "DB_NAME": "romm",
+        "DB_USER": "tipi",
+        "DB_PASSWD": "${ROMM_MYSQL_PASSWORD}",
+        "ROMM_AUTH_SECRET_KEY": "${ROMM_AUTH_SECRET_KEY}",
+        "IGDB_CLIENT_ID": "${ROMM_IGDB_CLIENT_ID}",
+        "IGDB_CLIENT_SECRET": "${ROMM_IGDB_CLIENT_SECRET}",
+        "MOBYGAMES_API_KEY": "${ROMM_MOBYGAMES_API_KEY}",
+        "STEAMGRIDDB_API_KEY": "${ROMM_STEAMGRIDDB_API_KEY}"
+      },
+      "dependsOn": ["romm-db"],
+      "volumes": [
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/data/roms",
+          "containerPath": "/romm/library"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/redis",
+          "containerPath": "/redis-data"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/romm-resources",
+          "containerPath": "/romm/resources"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/romm/config"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/assets",
+          "containerPath": "/romm/assets"
+        }
+      ]
+    },
+    {
+      "name": "romm-db",
+      "image": "lscr.io/linuxserver/mariadb:11.4.4",
+      "environment": {
+        "MYSQL_ROOT_PASSWORD": "${ROMM_MYSQL_ROOT_PASSWORD}",
+        "MYSQL_DATABASE": "romm",
+        "MYSQL_USER": "tipi",
+        "MYSQL_PASSWORD": "${ROMM_MYSQL_PASSWORD}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/mysql/config",
+          "containerPath": "/config"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "resilio-sync",
+      "image": "lscr.io/linuxserver/resilio-sync:3.0.0",
+      "isMain": true,
+      "internalPort": 8888,
+      "addPorts": [
+        {
+          "hostPort": 55555,
+          "containerPort": 55555
+        }
+      ],
+      "environment": {
+        "PUID": "1000",
+        "PGID": "1000"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/config"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/downloads",
+          "containerPath": "/downloads"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/sync",
+          "containerPath": "/sync"
+        }
+      ]
+    }
+  ]
+}
