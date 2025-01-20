@@ -1,0 +1,40 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "syncthing",
+      "image": "syncthing/syncthing:1.29",
+      "isMain": true,
+      "internalPort": 8384,
+      "addPorts": [
+        {
+          "hostPort": 22000,
+          "containerPort": 22000,
+          "tcp": true,
+          "udp": true
+        },
+        {
+          "hostPort": 21027,
+          "containerPort": 21027,
+          "udp": true
+        }
+      ],
+      "hostname": "${SYNCTHING_HOSTNAME:-tipi}",
+      "environment": {
+        "PUID": "1000",
+        "PGID": "1000"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/var/syncthing"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/data/syncthing",
+          "containerPath": "/media/data/syncthing"
+        }
+      ],
+      "stopGracePeriod": "1m"
+    }
+  ]
+}
