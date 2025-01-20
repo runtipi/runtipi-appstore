@@ -50,8 +50,9 @@
       "type": "text",
       "label": "Default Workspace",
       "required": false,
+      "placeholder": "/config/workspace",
       "default": "/config/workspace",
-      "hint": "If this optional variable is set, code-server will open this directory by default",
+      "hint": "If this optional variable is set, code-server will open this directory by default (defaults to: /config/workspace)",
       "env_variable": "ARKANUM_DEFAULT_WORKSPACE"
     }
   ],
