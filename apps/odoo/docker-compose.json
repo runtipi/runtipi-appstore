@@ -1,0 +1,54 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "odoodb",
+      "image": "postgres:15",
+      "user": "root",
+      "environment": {
+        "POSTGRES_USER": "odoo",
+        "POSTGRES_PASSWORD": "${ODOO_POSTGRES_PASSWORD}",
+        "POSTGRES_DB": "postgres"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgresql",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ]
+    },
+    {
+      "name": "odoo",
+      "image": "odoo:18",
+      "isMain": true,
+      "internalPort": 8069,
+      "user": "root",
+      "environment": {
+        "HOST": "odoodb",
+        "USER": "odoo",
+        "PASSWORD": "${ODOO_POSTGRES_PASSWORD}"
+      },
+      "dependsOn": ["odoodb"],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/addons",
+          "containerPath": "/mnt/extra-addons"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/etc",
+          "containerPath": "/etc/odoo"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/odoo-web-data",
+          "containerPath": "/var/lib/odoo"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/filestore",
+          "containerPath": "/root/.local/share"
+        }
+      ],
+      "command": "--",
+      "tty": true
+    }
+  ]
+}
