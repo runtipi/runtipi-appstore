@@ -8,8 +8,8 @@
   "port": 8333,
   "id": "bitcoind",
   "description": "Bitcoin core node",
-  "tipi_version": 7,
-  "version": "27.2",
+  "tipi_version": 8,
+  "version": "28.0",
   "categories": ["finance"],
   "short_desc": "Bitcoin core node",
   "author": "Bitcoin developers",
@@ -131,5 +131,5 @@
   ],
   "supported_architectures": ["amd64", "arm64"],
   "created_at": 1691943801422,
-  "updated_at": 1737381907000
+  "updated_at": 1737456124000
 }
