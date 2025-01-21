@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "pingvin-share",
-      "image": "stonith404/pingvin-share:v1.8.1",
+      "image": "stonith404/pingvin-share:v1.8.2",
       "isMain": true,
       "internalPort": 3000,
       "volumes": [
