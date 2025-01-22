@@ -15,12 +15,6 @@
         "API_SIGNER_URL": "http://proxitok-signer:8080/signature"
       },
       "dependsOn": ["proxitok-redis", "proxitok-signer"],
-      "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/data/cache",
-          "containerPath": "/cache"
-        }
-      ]
     },
     {
       "name": "proxitok-redis",
