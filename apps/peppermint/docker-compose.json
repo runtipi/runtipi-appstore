@@ -1,0 +1,39 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "peppermint",
+      "image": "pepperlabs/peppermint:latest",
+      "isMain": true,
+      "internalPort": 3000,
+      "addPorts": [
+        {
+          "hostPort": 8217,
+          "containerPort": 5003
+        }
+      ],
+      "environment": {
+        "DB_USERNAME": "tipi",
+        "DB_PASSWORD": "${PEPPERMINT_DB_PASSWORD}",
+        "DB_HOST": "peppermint-db",
+        "API_URL": "${APP_PROTOCOL:-http}://${PEPPERMINT_DOMAIN_API}"
+      },
+      "dependsOn": ["peppermint-db"]
+    },
+    {
+      "name": "peppermint-db",
+      "image": "postgres:latest",
+      "environment": {
+        "POSTGRES_USER": "tipi",
+        "POSTGRES_PASSWORD": "${PEPPERMINT_DB_PASSWORD}",
+        "POSTGRES_DB": "peppermint"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgres",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ]
+    }
+  ]
+}

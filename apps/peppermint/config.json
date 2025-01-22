@@ -4,8 +4,9 @@
   "port": 8216,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "peppermint",
-  "tipi_version": 5,
+  "tipi_version": 6,
   "version": "latest",
   "categories": ["utilities"],
   "description": "An open source ticket management & help desk solution.",
@@ -29,5 +30,5 @@
   ],
   "supported_architectures": ["amd64", "arm64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566285000
+  "updated_at": 1736983676165
 }
