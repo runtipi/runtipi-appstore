@@ -16,7 +16,7 @@
         "DB_USERNAME": "tipi",
         "DB_PASSWORD": "${PEPPERMINT_DB_PASSWORD}",
         "DB_HOST": "peppermint-db",
-        "API_URL": "{APP_PROTOCOL:-http}://${PEPPERMINT_DOMAIN_API}"
+        "API_URL": "${APP_PROTOCOL:-http}://${PEPPERMINT_DOMAIN_API}"
       },
       "dependsOn": ["peppermint-db"]
     },
