@@ -13,11 +13,8 @@
         "REDIS_PORT": "6379",
         "API_CHROMEDRIVER": "http://proxitok-chromedriver:9515"
       },
-      "securityOpt": {
-        "no-new-privileges": true
-      },
       "capDrop": ["ALL"],
-      "capDrop": ["CHOWN", "SETGID", "SETUID"],
+      "capAdd": ["CHOWN", "SETGID", "SETUID"],
       "dependsOn": ["proxitok-redis", "proxitok-chromedriver"]
     },
     {
