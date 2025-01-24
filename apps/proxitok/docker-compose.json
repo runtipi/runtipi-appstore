@@ -18,7 +18,7 @@
       },
       "capDrop": ["ALL"],
       "capDrop": ["CHOWN", "SETGID", "SETUID"],
-      "dependsOn": ["proxitok-redis", "proxitok-signer"]
+      "dependsOn": ["proxitok-redis", "proxitok-chromedriver"]
     },
     {
       "name": "proxitok-redis",
