@@ -19,7 +19,7 @@
       "name": "mempool-api",
       "volumes": [
         {
-          "hostPath": "${BITCOIND_DIR}",
+          "hostPath": "${BITCOIND_DIR:-${APP_DATA_DIR}/../bitcoind/data}",
           "containerPath": "/data/.bitcoin",
           "readOnly": true
         },
