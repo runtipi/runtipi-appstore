@@ -20,8 +20,6 @@
     {
       "name": "proxitok-redis",
       "image": "redis:7-alpine",
-      "command": "redis-server --save 60 1 --loglevel warning",
-      "capDrop": ["ALL"]
     },
     {
       "name": "proxitok-chromedriver",
