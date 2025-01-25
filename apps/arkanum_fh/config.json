@@ -1,11 +1,11 @@
 {
-  "id": "arkanum",
+  "id": "arkanum_fh",
   "available": true,
   "port": 8153,
   "name": "Arkanum",
   "description": "An opinionated VS Code distribution. Start coding remotely with a containerized editor.",
   "version": "1.8.3",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "short_desc": "An opinionated VS Code distribution.",
   "author": "OCram85",
   "source": "https://gitea.ocram85.com/arkanum/arkanum",
