@@ -1,5 +1,5 @@
 services:
-  arkanum:
+  arkanum-fh:
     image: gitea.ocram85.com/arkanum/arkanum:1.8.3
     container_name: arkanum_fh
     environment:
