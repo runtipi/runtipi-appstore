@@ -19,8 +19,6 @@ You can find more details on their [official website](https://goauthentik.io/).
 ## Installation
 
 The initial installation can take several minutes to complete.
-The initial installation can take several minutes to complete.
-The initial installation can take several minutes to complete.
 
 Look at the log display in the `Logs` tab of the Authentik app.
 
