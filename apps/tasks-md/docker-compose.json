@@ -1,0 +1,28 @@
+{
+  "services": [
+    {
+      "name": "tasks-md",
+      "image": "baldissaramatheus/tasks.md:2.5.4",
+      "isMain": true,
+      "internalPort": 8080,
+      "environment": {
+        "TITLE": "${TASKS_MD_TITLE}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/files",
+          "containerPath": "/tasks/"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/config/"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/stylesheets",
+          "containerPath": "/usr/share/nginx/html/stylesheets/"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

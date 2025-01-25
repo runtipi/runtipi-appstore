@@ -1,0 +1,21 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "image": "ghcr.io/autobrr/autobrr:v1.56.1",
+      "name": "autobrr",
+      "internalPort": 7474,
+      "isMain": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/autobrr",
+          "containerPath": "/config"
+        }
+      ],
+      "environment": {
+        "TZ": "${TZ}"
+      },
+      "user": "1000:1000"
+    }
+  ]
+}

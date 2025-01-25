@@ -1,0 +1,17 @@
+{
+  "services": [
+    {
+      "name": "lobe-chat",
+      "image": "lobehub/lobe-chat:v1.47.15",
+      "isMain": true,
+      "internalPort": 3210,
+      "environment": {
+        "OPENAI_API_KEY": "${OPENAI_API_KEY}",
+        "OPENAI_PROXY_URL": "${OPEANAI_PROXY_URL}",
+        "CUSTOM_MODELS": "${CUSTOM_MODELS}",
+        "ACCESS_CODE": "${ACCESS_CODE}"
+      }
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

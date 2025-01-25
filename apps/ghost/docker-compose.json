@@ -1,9 +1,9 @@
 {
-  "$schema": "../compose-schema.json",
+  "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
       "name": "ghost",
-      "image": "ghost:5.97.3",
+      "image": "ghost:5.107.0",
       "dependsOn": ["ghostdb"],
       "internalPort": 2368,
       "environment": {

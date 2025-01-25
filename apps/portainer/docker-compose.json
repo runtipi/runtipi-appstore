@@ -1,0 +1,21 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "portainer",
+      "image": "portainer/portainer-ce:2.26.1-alpine",
+      "isMain": true,
+      "internalPort": 9000,
+      "volumes": [
+        {
+          "hostPath": "/var/run/docker.sock",
+          "containerPath": "/var/run/docker.sock"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/data"
+        }
+      ]
+    }
+  ]
+}

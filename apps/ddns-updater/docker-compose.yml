@@ -2,7 +2,7 @@ version: '3.9'
 services:
   ddns-updater:
     container_name: ddns-updater
-    image: qmcgaw/ddns-updater:v2.8.1
+    image: qmcgaw/ddns-updater:v2.9.0
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/config:/updater/data

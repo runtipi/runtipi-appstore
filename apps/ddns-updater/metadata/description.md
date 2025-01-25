@@ -2,8 +2,6 @@
 
 Program to keep DNS A and/or AAAA records updated for multiple DNS providers
 
-<img height="200" alt="DDNS Updater logo" src="https://raw.githubusercontent.com/qdm12/ddns-updater/master/readme/ddnsgopher.svg">
-
 ## Versioned documentation
 
 This readme and the [docs/](docs/) directory are **versioned** to match the program version:

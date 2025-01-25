@@ -1,0 +1,15 @@
+{
+  "services": [
+    {
+      "name": "mongo",
+      "image": "mongo:7.0.2",
+      "isMain": true,
+      "internalPort": 27017,
+      "environment": {
+        "MONGO_INITDB_ROOT_USERNAME": "${MONGO_INITDB_ROOT_USERNAME}",
+        "MONGO_INITDB_ROOT_PASSWORD": "${MONGO_INITDB_ROOT_PASSWORD}"
+      }
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

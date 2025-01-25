@@ -1,0 +1,25 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "seedsync",
+      "image": "ipsingh06/seedsync:0.8.6",
+      "isMain": true,
+      "internalPort": 8800,
+      "user": "${SEEDSYNC_PUID:-1000}:${SEEDSYNC_PGID:-1000}",
+      "environment": {
+        "TZ": "${TZ}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/config"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/torrents/complete",
+          "containerPath": "/downloads"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "services": [
+    {
+      "name": "komga",
+      "image": "ghcr.io/gotson/komga:1.18.0",
+      "isMain": true,
+      "internalPort": 25600,
+      "environment": {
+        "TZ": "${TZ}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/config"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/data",
+          "containerPath": "/data"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

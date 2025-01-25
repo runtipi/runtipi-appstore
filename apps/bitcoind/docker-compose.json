@@ -1,0 +1,47 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "image": "lncm/bitcoind:v27.2",
+      "name": "bitcoind",
+      "internalPort": 8333,
+      "isMain": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/root/.bitcoin"
+        }
+      ],
+      "command": [
+        "-dbcache=${BITCOIND_DB_CACHE:-450}",
+        "-maxmempool=${BITCOIND_MAX_MEMPOOL:-300}",
+        "-listen=${BITCOIND_LISTEN:-1}",
+        "-server=${BITCOIND_SERVER:-1}",
+        "-rpcallowip=0.0.0.0/0",
+        "-rpcbind=0.0.0.0",
+        "-prune=${BITCOIND_PRUNING:-0}",
+        "-maxconnections=${BITCOIND_MAXPEERS:-125}",
+        "-txindex=${BITCOIND_TXINDEX:-1}",
+        "-peerbloomfilters=${BITCOIND_BLOOM_FILTERS:-1}",
+        "-blockfilterindex=${BITCOIND_BLOCK_FILTER:-1}",
+        "-peerblockfilters=${BITCOIND_BLOCK_FILTER:-1}"
+      ],
+      "addPorts": [
+        {
+          "containerPort": 8332,
+          "hostPort": 8332
+        },
+        {
+          "containerPort": 28332,
+          "hostPort": 28332
+        },
+        {
+          "containerPort": 28333,
+          "hostPort": 28333
+        }
+      ],
+      "user": "0:0",
+      "stopGracePeriod": "15m30s"
+    }
+  ]
+}

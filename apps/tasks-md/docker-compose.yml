@@ -3,7 +3,7 @@ version: '3'
 services:
   tasks-md:
     container_name: tasks-md
-    image: baldissaramatheus/tasks.md:2.5.3
+    image: baldissaramatheus/tasks.md:2.5.4
     ports:
       - ${APP_PORT}:8080
     volumes:

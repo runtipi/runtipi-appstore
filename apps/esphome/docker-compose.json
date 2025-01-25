@@ -1,0 +1,28 @@
+{
+  "services": [
+    {
+      "name": "esphome",
+      "image": "ghcr.io/esphome/esphome:2024.12.4",
+      "isMain": true,
+      "internalPort": 6052,
+      "environment": {
+        "TZ": "${TZ}",
+        "USERNAME": "${ESPHOME_USERNAME:-''}",
+        "PASSWORD": "${ESPHOME_PASSWORD:-''}",
+        "ESPHOME_DASHBOARD_USE_PING": "${ESPHOME_PING:-'false'}"
+      },
+      "volumes": [
+        {
+          "hostPath": "/etc/localtime",
+          "containerPath": "/etc/localtime",
+          "readOnly": true
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/config"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

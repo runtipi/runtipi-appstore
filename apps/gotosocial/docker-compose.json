@@ -1,0 +1,51 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "gotosocial",
+      "image": "superseriousbusiness/gotosocial:0.17.3",
+      "isMain": true,
+      "internalPort": 8080,
+      "user": "1000:1000",
+      "environment": {
+        "GTS_HOST": "${APP_DOMAIN}",
+        "GTS_LETSENCRYPT_ENABLED": "false",
+        "GTS_DB_TYPE": "postgres",
+        "GTS_DB_ADDRESS": "gotosocial-db",
+        "GTS_DB_PORT": "5432",
+        "GTS_DB_USER": "tipi",
+        "GTS_DB_PASSWORD": "${GTS_DB_PASSWORD}",
+        "GTS_DB_DATABASE": "gotosocial-db",
+        "GTS_ACCOUNTS_REGISTRATION_OPEN": "${GTS_ACCOUNTS_REGISTRATION_OPEN}",
+        "GTS_SMTP_HOST": "${GTS_SMTP_HOST}",
+        "GTS_SMTP_PORT": "${GTS_SMTP_PORT}",
+        "GTS_SMTP_USERNAME": "${GTS_SMTP_USERNAME}",
+        "GTS_SMTP_PASSWORD": "${GTS_SMTP_PASSWORD}",
+        "GTS_SMTP_FROM": "${GTS_SMTP_FROM}"
+      },
+      "dependsOn": ["gotosocial-db"],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/gotosocial",
+          "containerPath": "/gotosocial/storage"
+        }
+      ]
+    },
+    {
+      "name": "gotosocial-db",
+      "image": "postgres:14",
+      "environment": {
+        "POSTGRES_PASSWORD": "${GTS_DB_PASSWORD}",
+        "POSTGRES_USER": "tipi",
+        "POSTGRES_DB": "gotosocial-db",
+        "PG_DATA": "/var/lib/postgresql/data"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ]
+    }
+  ]
+}

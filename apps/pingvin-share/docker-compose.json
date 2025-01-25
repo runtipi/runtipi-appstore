@@ -1,0 +1,21 @@
+{
+  "services": [
+    {
+      "name": "pingvin-share",
+      "image": "stonith404/pingvin-share:v1.8.2",
+      "isMain": true,
+      "internalPort": 3000,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/opt/app/backend/data"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/images",
+          "containerPath": "/opt/app/frontend/public/img"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

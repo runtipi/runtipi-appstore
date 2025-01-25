@@ -1,0 +1,30 @@
+{
+  "services": [
+    {
+      "name": "podfetch",
+      "image": "samuel19982/podfetch:latest",
+      "isMain": true,
+      "internalPort": 8000,
+      "environment": {
+        "BASIC_AUTH": "true",
+        "USERNAME": "${PODFETCH_USERNAME}",
+        "PASSWORD": "${PODFETCH_PASSWORD}",
+        "POLLING_INTERVAL": "60",
+        "SERVER_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
+        "PODINDEX_API_KEY": "${PODFETCH_PODINDEX_API_KEY}",
+        "PODINDEX_API_SECRET": "${PODFETCH_PODINDEX_API_SECRET}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/podfetch-db",
+          "containerPath": "/app/db"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/data/podcasts",
+          "containerPath": "/app/podcasts"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

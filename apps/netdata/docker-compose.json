@@ -1,0 +1,58 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "netdata",
+      "image": "netdata/netdata:v2.1.1",
+      "isMain": true,
+      "internalPort": 19999,
+      "pid": "host",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/etc/netdata"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/lib",
+          "containerPath": "/var/lib/netdata"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/cache",
+          "containerPath": "/var/cache/netdata"
+        },
+        {
+          "hostPath": "/etc/passwd",
+          "containerPath": "/host/etc/passwd",
+          "readOnly": true
+        },
+        {
+          "hostPath": "/etc/group",
+          "containerPath": "/host/etc/group",
+          "readOnly": true
+        },
+        {
+          "hostPath": "/proc",
+          "containerPath": "/host/proc",
+          "readOnly": true
+        },
+        {
+          "hostPath": "/sys",
+          "containerPath": "/host/sys",
+          "readOnly": true
+        },
+        {
+          "hostPath": "/etc/os-release",
+          "containerPath": "/host/etc/os-release",
+          "readOnly": true
+        },
+        {
+          "hostPath": "/var/run/docker.sock",
+          "containerPath": "/var/run/docker.sock",
+          "readOnly": true
+        }
+      ],
+      "capAdd": ["SYS_PTRACE", "SYS_ADMIN"],
+      "securityOpt": ["apparmor:unconfined"]
+    }
+  ]
+}

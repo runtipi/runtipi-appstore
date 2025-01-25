@@ -1,0 +1,33 @@
+{
+  "services": [
+    {
+      "name": "code-server",
+      "image": "lscr.io/linuxserver/code-server:4.96.4",
+      "isMain": true,
+      "internalPort": 8443,
+      "environment": {
+        "PUID": "1000",
+        "PGID": "1000",
+        "TZ": "${TZ}",
+        "PASSWORD": "${CODESERVER_PASSWORD}",
+        "SUDO_PASSWORD": "${CODESERVER_SUDO_PASSWORD}",
+        "DEFAULT_WORKSPACE": "/config/workspace"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/config"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/projects",
+          "containerPath": "/projects"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}",
+          "containerPath": "/runtipi"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

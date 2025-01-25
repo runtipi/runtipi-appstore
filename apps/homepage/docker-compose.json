@@ -1,9 +1,9 @@
 {
-  "$schema": "../compose-schema.json",
+  "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
       "name": "homepage",
-      "image": "ghcr.io/gethomepage/homepage:v0.9.11",
+      "image": "ghcr.io/gethomepage/homepage:v0.10.9",
       "internalPort": 3000,
       "volumes": [
         {

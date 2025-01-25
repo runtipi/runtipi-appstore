@@ -1,0 +1,24 @@
+{
+  "services": [
+    {
+      "name": "flatnotes",
+      "image": "dullage/flatnotes:v5.4.1",
+      "isMain": true,
+      "internalPort": 8080,
+      "environment": {
+        "FLATNOTES_AUTH_TYPE": "${FLATNOTES_AUTH_TYPE}",
+        "FLATNOTES_USERNAME": "${FLATNOTES_USERNAME}",
+        "FLATNOTES_PASSWORD": "${FLATNOTES_PASSWORD}",
+        "FLATNOTES_SECRET_KEY": "${FLATNOTES_SECRET_KEY}",
+        "FLATNOTES_TOTP_KEY": "${FLATNOTES_TOTP_KEY}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/data"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

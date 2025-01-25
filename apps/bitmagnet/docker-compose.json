@@ -1,0 +1,79 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "image": "ghcr.io/bitmagnet-io/bitmagnet:v0.9.5",
+      "name": "bitmagnet",
+      "internalPort": 3333,
+      "isMain": true,
+      "command": ["worker", "run", "--keys=http_server", "--keys=queue_server", "--keys=dht_crawler"],
+      "environment": {
+        "POSTGRES_HOST": "bitmagnet-db",
+        "POSTGRES_NAME": "bitmagnet",
+        "POSTGRES_USER": "tipi",
+        "POSTGRES_PASSWORD": "${BITMAGNENT_DB_PASSWORD}",
+        "REDIS_ADDR": "bitmagnet-redis:6379"
+      },
+      "dependsOn": {
+        "bitmagnet-db": {
+          "condition": "service_healthy"
+        },
+        "bitmagnet-redis": {
+          "condition": "service_started"
+        }
+      },
+      "addPorts": [
+        {
+          "containerPort": 3334,
+          "hostPort": 3334,
+          "tcp": true
+        },
+        {
+          "containerPort": 3334,
+          "hostPort": 3334,
+          "udp": true
+        }
+      ]
+    },
+    {
+      "image": "postgres:17-alpine",
+      "name": "bitmagnet-db",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgres",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ],
+      "environment": {
+        "POSTGRES_PASSWORD": "${BITMAGNENT_DB_PASSWORD}",
+        "POSTGRES_USER": "tipi",
+        "POSTGRES_DB": "bitmagnet"
+      },
+      "healthCheck": {
+        "test": "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}",
+        "startPeriod": "20s",
+        "interval": "30s",
+        "retries": 5,
+        "timeout": "5s"
+      }
+    },
+    {
+      "image": "redis:alpine",
+      "name": "bitmagnet-redis",
+      "command": "--save 60 1 --loglevel warning",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/redis",
+          "containerPath": "/data"
+        }
+      ],
+      "healthCheck": {
+        "test": "redis-cli ping | grep PONG",
+        "startPeriod": "20s",
+        "interval": "30s",
+        "retries": 5,
+        "timeout": "3s"
+      }
+    }
+  ]
+}

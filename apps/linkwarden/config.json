@@ -1,15 +1,14 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "Linkwarden",
   "port": 8199,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "linkwarden",
-  "tipi_version": 23,
-  "version": "2.7.1",
-  "categories": [
-    "data"
-  ],
+  "tipi_version": 31,
+  "version": "2.9.3",
+  "categories": ["data"],
   "description": "A self-hosted, open-source collaborative bookmark manager to collect, organize and archive webpages.",
   "short_desc": "A self-hosted, open-source collaborative bookmark manager",
   "author": "Linkwarden",
@@ -36,10 +35,7 @@
       "env_variable": "LINKWARDEN_NEXT_PUBLIC_DISABLE_REGISTRATION"
     }
   ],
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ],
+  "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723905334000
+  "updated_at": 1736802184000
 }

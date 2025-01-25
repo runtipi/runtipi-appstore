@@ -1,0 +1,38 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "wikijs",
+      "image": "ghcr.io/requarks/wiki:2.5.305",
+      "isMain": true,
+      "internalPort": 3000,
+      "environment": {
+        "DB_TYPE": "postgres",
+        "DB_HOST": "wikijs-db",
+        "DB_PORT": 5432,
+        "DB_USER": "wikijs",
+        "DB_PASS": "${WIKI_JS_DB_PASS}",
+        "DB_NAME": "wiki"
+      },
+      "dependsOn": ["wikijs-db"]
+    },
+    {
+      "name": "wikijs-db",
+      "image": "postgres:11-alpine",
+      "environment": {
+        "POSTGRES_DB": "wiki",
+        "POSTGRES_PASSWORD": "${WIKI_JS_DB_PASS}",
+        "POSTGRES_USER": "wikijs"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgres",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ],
+      "logging": {
+        "driver": "none"
+      }
+    }
+  ]
+}

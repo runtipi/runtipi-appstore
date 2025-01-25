@@ -1,12 +1,13 @@
 {
-  "$schema": "../schema.json",
+  "$schema": "../app-info-schema.json",
   "name": "Deluge",
   "port": 8144,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "deluge",
-  "tipi_version": 3,
-  "version": "2.1.1",
+  "tipi_version": 5,
+  "version": "18.04.1",
   "categories": ["utilities"],
   "description": "Deluge is a lightweight, Free Software, cross-platform BitTorrent client.",
   "short_desc": "Deluge is a lightweight, Free Software, cross-platform BitTorrent client.",
@@ -15,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566284000
+  "updated_at": 1736629792000
 }

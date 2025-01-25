@@ -1,0 +1,39 @@
+services:
+  adguardhome-sync:
+    container_name: adguardhome-sync
+    image: ghcr.io/bakito/adguardhome-sync:v0.6.17
+    restart: unless-stopped
+    command: run --config /config/adguardhome-sync.yaml
+    volumes:
+      - ${APP_DATA_DIR}/data/adguardhome-sync.yaml:/config/adguardhome-sync.yaml
+    ports:
+      - ${APP_PORT}:8080
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.adguardhome-sync-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.adguardhome-sync.loadbalancer.server.port: 8080
+      # Web
+      traefik.http.routers.adguardhome-sync-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.adguardhome-sync-insecure.entrypoints: web
+      traefik.http.routers.adguardhome-sync-insecure.service: adguardhome-sync
+      traefik.http.routers.adguardhome-sync-insecure.middlewares: adguardhome-sync-web-redirect
+      # Websecure
+      traefik.http.routers.adguardhome-sync.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.adguardhome-sync.entrypoints: websecure
+      traefik.http.routers.adguardhome-sync.service: adguardhome-sync
+      traefik.http.routers.adguardhome-sync.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.adguardhome-sync-local-insecure.rule: Host(`adguardhome-sync.${LOCAL_DOMAIN}`)
+      traefik.http.routers.adguardhome-sync-local-insecure.entrypoints: web
+      traefik.http.routers.adguardhome-sync-local-insecure.service: adguardhome-sync
+      traefik.http.routers.adguardhome-sync-local-insecure.middlewares: adguardhome-sync-web-redirect
+      # Local domain secure
+      traefik.http.routers.adguardhome-sync-local.rule: Host(`adguardhome-sync.${LOCAL_DOMAIN}`)
+      traefik.http.routers.adguardhome-sync-local.entrypoints: websecure
+      traefik.http.routers.adguardhome-sync-local.service: adguardhome-sync
+      traefik.http.routers.adguardhome-sync-local.tls: true
+      # Runtipi managed
+      runtipi.managed: true

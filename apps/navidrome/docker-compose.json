@@ -1,0 +1,28 @@
+{
+  "services": [
+    {
+      "name": "navidrome",
+      "image": "deluan/navidrome:0.54.4",
+      "isMain": true,
+      "internalPort": 4533,
+      "environment": {
+        "ND_SCANSCHEDULE": "1h",
+        "ND_LOGLEVEL": "info",
+        "ND_SESSIONTIMEOUT": "24h",
+        "ND_BASEURL": ""
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/navidrome/data",
+          "containerPath": "/data"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/data/music",
+          "containerPath": "/music",
+          "readOnly": true
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

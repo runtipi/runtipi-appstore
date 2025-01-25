@@ -1,0 +1,71 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "image": "mempool/frontend:v3.0.1",
+      "name": "mempool",
+      "internalPort": 8080,
+      "isMain": true,
+      "command": "nginx -g 'daemon off;'",
+      "environment": {
+        "FRONTEND_HTTP_PORT": "8080",
+        "BACKEND_MAINNET_HTTP_HOST": "mempool-api"
+      },
+      "dependsOn": ["mempool-db"],
+      "stopGracePeriod": "1m"
+    },
+    {
+      "image": "mempool/backend:v3.0.1",
+      "name": "mempool-api",
+      "volumes": [
+        {
+          "hostPath": "${BITCOIND_DIR:-${APP_DATA_DIR}/../bitcoind/data}",
+          "containerPath": "/data/.bitcoin",
+          "readOnly": true
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/backend/cache"
+        }
+      ],
+      "command": "./start.sh",
+      "environment": {
+        "MEMPOOL_BACKEND": "electrum",
+        "ELECTRUM_HOST": "${ELECTRUM_HOST:-electrs}",
+        "ELECTRUM_PORT": "${ELECTRUM_PORT:-50001}",
+        "ELECTRUM_TLS_ENABLED": "false",
+        "CORE_RPC_HOST": "${CORE_RPC_HOST:-bitcoind}",
+        "CORE_RPC_PORT": "8332",
+        "CORE_RPC_COOKIE": "true",
+        "CORE_RPC_COOKIE_PATH": "/data/.bitcoin/.cookie",
+        "CORE_RPC_TIMEOUT": "60000",
+        "DATABASE_ENABLED": "true",
+        "DATABASE_HOST": "mempool-db",
+        "DATABASE_DATABASE": "mempool",
+        "DATABASE_USERNAME": "mempool",
+        "DATABASE_PASSWORD": "${MEMPOOL_DB_PASSWORD}",
+        "STATISTICS_ENABLED": "true"
+      },
+      "dependsOn": ["mempool-db"],
+      "stopGracePeriod": "1m",
+      "user": "0:0"
+    },
+    {
+      "image": "mariadb:10.5.21",
+      "name": "mempool-db",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/var/lib/mysql"
+        }
+      ],
+      "environment": {
+        "MYSQL_DATABASE": "mempool",
+        "MYSQL_USER": "mempool",
+        "MYSQL_PASSWORD": "${MEMPOOL_DB_PASSWORD}",
+        "MYSQL_ROOT_PASSWORD": "${MEMPOOL_DB_PASSWORD}"
+      },
+      "stopGracePeriod": "1m"
+    }
+  ]
+}

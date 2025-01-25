@@ -1,9 +1,9 @@
 {
-  "$schema": "../compose-schema.json",
+  "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
       "name": "gitea",
-      "image": "gitea/gitea:1.22.3",
+      "image": "gitea/gitea:1.23.1",
       "environment": {
         "USER_UID": "1000",
         "USER_GID": "1000",

@@ -1,0 +1,17 @@
+{
+  "services": [
+    {
+      "name": "ollama-cpu",
+      "image": "ollama/ollama:0.5.7",
+      "isMain": true,
+      "internalPort": 11434,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/.ollama",
+          "containerPath": "/root/.ollama"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

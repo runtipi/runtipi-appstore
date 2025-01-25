@@ -1,0 +1,54 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "speedtest-tracker",
+      "image": "lscr.io/linuxserver/speedtest-tracker:1.2.0",
+      "isMain": true,
+      "internalPort": 80,
+      "environment": {
+        "PUID": "1000",
+        "PGID": "1000",
+        "DB_CONNECTION": "pgsql",
+        "DB_HOST": "speedtest-tracker-db",
+        "DB_PORT": "5432",
+        "DB_DATABASE": "speedtest-tracker",
+        "DB_USERNAME": "tipi",
+        "DB_PASSWORD": "${SPEEDTEST_TRACKER_DB_PASSWORD}",
+        "SPEEDTEST_SCHEDULE": "${SPEEDTEST_SCHEDULE:-'30 * * * *'}",
+        "SPEEDTEST_SERVERS": "${SPEEDTEST_SERVERS:-''}",
+        "TZ": "${TZ}",
+        "APP_TIMEZONE": "${TZ}",
+        "DISPLAY_TIMEZONE": "${TZ}",
+        "APP_KEY": "${SPEEDTEST_APP_KEY}"
+      },
+      "dependsOn": ["speedtest-tracker-db"],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/speedtest-tracker/config",
+          "containerPath": "/config"
+        }
+      ]
+    },
+    {
+      "name": "speedtest-tracker-db",
+      "image": "postgres:15",
+      "environment": {
+        "POSTGRES_USER": "tipi",
+        "POSTGRES_PASSWORD": "${SPEEDTEST_TRACKER_DB_PASSWORD}",
+        "POSTGRES_DB": "speedtest-tracker"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgres",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ],
+      "healthCheck": {
+        "timeout": "5s",
+        "retries": 3,
+        "test": "pg_isready -d $$POSTGRES_DB -U $$POSTGRES_USER"
+      }
+    }
+  ]
+}

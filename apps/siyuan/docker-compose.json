@@ -1,0 +1,24 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "siyuan",
+      "image": "b3log/siyuan:v3.1.20",
+      "isMain": true,
+      "internalPort": 6806,
+      "user": "1000:1000",
+      "environment": {
+        "TZ": "${TZ}",
+        "PUID": "1000",
+        "PGID": "1000"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/workspace",
+          "containerPath": "/siyuan/workspace/"
+        }
+      ],
+      "command": ["--workspace=/siyuan/workspace/", "--accessAuthCode=${SIYUAN_ACCESS_AUTH_CODE}"]
+    }
+  ]
+}

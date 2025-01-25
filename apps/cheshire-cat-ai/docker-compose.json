@@ -1,0 +1,29 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "cheshire-cat-ai",
+      "image": "ghcr.io/cheshire-cat-ai/core:1.8.0",
+      "isMain": true,
+      "internalPort": 80,
+      "environment": {
+        "PYTHONUNBUFFERED": "1",
+        "WATCHFILES_FORCE_POLLING": "true"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/static",
+          "containerPath": "/app/cat/static"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/plugins",
+          "containerPath": "/app/cat/plugins"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/data",
+          "containerPath": "/app/cat/data"
+        }
+      ]
+    }
+  ]
+}
