@@ -1,4 +1,4 @@
-# Arkanum
+# Arkanum_FH
 
 An opinionated VS Code distribution.
 
