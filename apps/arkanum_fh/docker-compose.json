@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "name": "arkanum",
+      "name": "arkanum_fh",
       "image": "gitea.ocram85.com/arkanum/arkanum:1.8.3",
       "isMain": true,
       "internalPort": 8443,
