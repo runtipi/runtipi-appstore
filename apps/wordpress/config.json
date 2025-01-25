@@ -3,9 +3,10 @@
   "available": true,
   "port": 8213,
   "exposable": true,
+  "dynamic_config": true,
   "id": "wordpress",
   "description": "WordPress is a popular content management system for creating websites and blogs.",
-  "tipi_version": 13,
+  "tipi_version": 14,
   "version": "6.7.1",
   "categories": ["social"],
   "short_desc": "Popular CMS for websites and blogs",
@@ -28,6 +29,6 @@
   ],
   "supported_architectures": ["amd64", "arm64"],
   "created_at": 1691943801422,
-  "updated_at": 1732255887000,
+  "updated_at": 1736983948612,
   "$schema": "../app-info-schema.json"
 }

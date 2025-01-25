@@ -45,7 +45,7 @@
         "LOGGING__LOGLEVEL__DEFAULT": "Error",
         "LC_ALL": "${LUBELOGGER_LOCALE:-en_US.UTF-8}",
         "LANG": "${LUBELOGGER_LOCALE:-en_US.UTF-8}",
-        "POSTGRES_CONNECTION": "Host='lubelogger-db:5432;Username=tipi;Password=tipi;Database=lubelogger;",
+        "POSTGRES_CONNECTION": "Host='lubelogger-db:5432';Username=tipi;Password=tipi;Database=lubelogger;",
         "EnableAuth": "${LUBELOGGER_ENABLE_AUTH:-false}",
         "UserNameHash": "${LUBELOGGER_USERNAME_HASH}",
         "UserPasswordHash": "${LUBELOGGER_PASSWORD_HASH}",

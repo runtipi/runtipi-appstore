@@ -3,11 +3,12 @@
   "name": "ProxiTok",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 8118,
   "id": "proxitok",
   "categories": ["social"],
   "description": "",
-  "tipi_version": 5,
+  "tipi_version": 6,
   "version": "master",
   "short_desc": "Open source alternative frontend for TikTok made using PHP ",
   "author": "pablouser1",
@@ -15,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566284000
+  "updated_at": 1736983716327
 }

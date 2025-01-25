@@ -1,0 +1,23 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "firefly-iii-data-importer",
+      "image": "fireflyiii/data-importer:version-1.5.6",
+      "isMain": true,
+      "internalPort": 8080,
+      "environment": {
+        "FIREFLY_III_URL": "${FIREFLY_III_URL}",
+        "FIREFLY_III_ACCESS_TOKEN": "${FIREFLY_III_ACCESS_TOKEN}",
+        "FIREFLY_III_CLIENT_ID": "${FIREFLY_III_CLIENT_ID}",
+        "TZ": "${TZ}",
+        "TRUSTED_PROXIES": "**",
+        "VERIFY_TLS_SECURITY": "false",
+        "APP_ENV": "local",
+        "APP_DEBUG": "false",
+        "LOG_CHANNEL": "stack",
+        "LOG_LEVEL": "info"
+      }
+    }
+  ]
+}

@@ -17,6 +17,12 @@
           "containerPath": "/templates"
         }
       ],
+      "addPorts": [
+        {
+          "hostPort": 9443,
+          "containerPort": 9443
+        }
+      ],
       "environment": {
         "AUTHENTIK_REDIS__HOST": "authentik-redis",
         "AUTHENTIK_POSTGRESQL__HOST": "authentik-db",

@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "jellyseerr",
-      "image": "fallenbagel/jellyseerr:2.2.3",
+      "image": "fallenbagel/jellyseerr:2.3.0",
       "isMain": true,
       "internalPort": 5055,
       "environment": {
