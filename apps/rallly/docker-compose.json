@@ -1,0 +1,51 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "rallly",
+      "image": "lukevella/rallly:3.11.2",
+      "isMain": true,
+      "internalPort": 3000,
+      "environment": {
+        "DATABASE_URL": "postgres://tipi:${RALLLY_DB_PASSWORD}@rallly_db:5432/rallly",
+        "SECRET_PASSWORD": "${RALLLY_SECRET_KEY}",
+        "NEXT_PUBLIC_BASE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
+        "NOREPLY_EMAIL": "${RALLLY_NOREPLY_EMAIL}",
+        "SUPPORT_EMAIL": "${RALLLY_SUPPORT_EMAIL}",
+        "SMTP_HOST": "${RALLLY_SMTP_HOST}",
+        "SMTP_PORT": "${RALLLY_SMTP_PORT}",
+        "SMTP_SECURE": "${RALLLY_SMTP_SECURE}",
+        "SMTP_USER": "${RALLLY_SMTP_USER}",
+        "SMTP_PWD": "${RALLLY_SMTP_PWD}",
+        "SMTP_TLS_ENABLED": "${RALLLY_SMTP_TLS_ENABLED}",
+        "ALLOWED_EMAILS": "${RALLLY_ALLOWED_EMAILS}"
+      },
+      "dependsOn": {
+        "rallly_db": {
+          "condition": "service_healthy"
+        }
+      }
+    },
+    {
+      "name": "rallly_db",
+      "image": "postgres:14",
+      "environment": {
+        "POSTGRES_PASSWORD": "${RALLLY_DB_PASSWORD}",
+        "POSTGRES_DB": "rallly",
+        "POSTGRES_USER": "tipi"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ],
+      "healthCheck": {
+        "interval": "5s",
+        "timeout": "5s",
+        "retries": 5,
+        "test": "pg_isready -d $$POSTGRES_DB -U $$POSTGRES_USER"
+      }
+    }
+  ]
+}

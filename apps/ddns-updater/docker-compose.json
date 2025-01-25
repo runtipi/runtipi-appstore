@@ -1,0 +1,17 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "image": "qmcgaw/ddns-updater:v2.9.0",
+      "name": "ddns-updater",
+      "internalPort": 8000,
+      "isMain": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/config",
+          "containerPath": "/updater/data"
+        }
+      ]
+    }
+  ]
+}

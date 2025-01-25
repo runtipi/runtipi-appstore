@@ -2,7 +2,7 @@ version: "3.9"
 services:
   pingvin-share:
     container_name: pingvin-share
-    image: stonith404/pingvin-share:v1.8.1
+    image: stonith404/pingvin-share:v1.8.2
     restart: unless-stopped
     ports:
       - ${APP_PORT}:3000

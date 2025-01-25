@@ -4,9 +4,10 @@
   "port": 8234,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "stirling-pdf",
-  "tipi_version": 63,
-  "version": "0.36.6",
+  "tipi_version": 67,
+  "version": "0.38.0",
   "categories": ["data", "utilities"],
   "description": "Locally hosted web application that allows you to perform various operations on PDF files.",
   "short_desc": "Powerful locally hosted web based PDF manipulation tool.",
@@ -21,5 +22,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1735858678000
+  "updated_at": 1737406877000
 }

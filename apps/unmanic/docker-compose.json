@@ -1,0 +1,30 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "unmanic",
+      "image": "josh5/unmanic:staging",
+      "isMain": true,
+      "internalPort": 8888,
+      "environment": {
+        "PUID": "${TIPI_UID}",
+        "PGID": "${TIPI_GID}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/config"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/data",
+          "containerPath": "/library"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/temp",
+          "containerPath": "/tmp/unmanic"
+        }
+      ],
+      "privileged": true
+    }
+  ]
+}

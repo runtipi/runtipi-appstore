@@ -4,8 +4,9 @@
   "port": 8016,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "planka",
-  "tipi_version": 44,
+  "tipi_version": 45,
   "version": "1.24.3",
   "categories": ["development"],
   "description": "The realtime kanban board for workgroups built with React and Redux.",
@@ -15,6 +16,37 @@
   "website": "https://docs.planka.cloud/",
   "form_fields": [
     {
+      "type": "email",
+      "label": "Admin email",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "PLANKA_ADMIN_EMAIL"
+    },
+    {
+      "type": "text",
+      "label": "Admin name",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "PLANKA_ADMIN_NAME"
+    },
+    {
+      "type": "text",
+      "label": "Admin username",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "PLANKA_ADMIN_USERNAME"
+    },
+    {
+      "type": "password",
+      "label": "Admin password",
+      "max": 50,
+      "required": true,
+      "env_variable": "PLANKA_ADMIN_PASSWORD"
+    },
+    {
       "type": "random",
       "label": "Planka Secret Key",
       "min": 32,
@@ -23,5 +55,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1732813951000
+  "updated_at": 1736983694345
 }

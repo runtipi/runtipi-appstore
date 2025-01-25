@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 8255,
   "id": "whoogle",
-  "tipi_version": 6,
-  "version": "0.9.1",
+  "tipi_version": 7,
+  "version": "0.9.2",
   "categories": ["social"],
   "description": "Get Google search results, but without any ads, JavaScript, AMP links, cookies, or IP address tracking.",
   "short_desc": "A self-hosted, ad-free, privacy-respecting metasearch engine.",
@@ -16,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1734114376972
+  "updated_at": 1737337067000
 }

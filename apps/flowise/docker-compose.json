@@ -1,0 +1,33 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "flowise",
+      "image": "flowiseai/flowise:2.2.4",
+      "isMain": true,
+      "internalPort": 8009,
+      "environment": {
+        "PORT": "8009",
+        "FLOWISE_USERNAME": "${FLOWISE_USERNAME}",
+        "FLOWISE_PASSWORD": "${FLOWISE_PASSWORD}",
+        "FLOWISE_SECRETKEY_OVERWRITE": "${FLOWISE_SECRETKEY_OVERWRITE}",
+        "LANGCHAIN_ENDPOINT": "${LANGCHAIN_ENDPOINT}",
+        "LANGCHAIN_API_KEY": "${LANGCHAIN_API_KEY}",
+        "LANGCHAIN_PROJECT": "${LANGCHAIN_PROJECT}",
+        "LANGCHAIN_TRACING_V2": "${LANGCHAIN_TRACING_V2}",
+        "DISABLE_FLOWISE_TELEMETRY": "${DISABLE_FLOWISE_TELEMETRY}",
+        "DATABASE_PATH": "/root/.flowise",
+        "APIKEY_PATH": "/root/.flowise",
+        "SECRETKEY_PATH": "/root/.flowise",
+        "LOG_PATH": "/root/.flowise/logs"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/flowise",
+          "containerPath": "/root/.flowise"
+        }
+      ],
+      "entrypoint": "/bin/sh -c \"sleep 3; flowise start\""
+    }
+  ]
+}

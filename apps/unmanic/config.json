@@ -4,9 +4,10 @@
   "port": 8256,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "unmanic",
-  "tipi_version": 6,
-  "version": "0.2.8",
+  "tipi_version": 7,
+  "version": "staging",
   "categories": ["utilities", "data", "media"],
   "description": "Unmanic gives you the power to automate the management of any file library.",
   "short_desc": "Unmanic - Library Optimiser.",
@@ -16,5 +17,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1724903264000
+  "updated_at": 1736624969900
 }

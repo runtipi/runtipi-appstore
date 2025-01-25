@@ -1,0 +1,33 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "stirling-pdf",
+      "image": "stirlingtools/stirling-pdf:0.38.0",
+      "isMain": true,
+      "internalPort": 8080,
+      "environment": {
+        "DOCKER_ENABLE_SECURITY": "${STIRLING_PDF_DOCKER_ENABLE_SECURITY-false}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/trainingData",
+          "containerPath": "/usr/share/tesseract-ocr/5/tessdata"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/extraConfigs",
+          "containerPath": "/configs"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/customFiles",
+          "containerPath": "/customFiles/"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/logs",
+          "containerPath": "/logs/"
+        }
+      ],
+      "privileged": true
+    }
+  ]
+}

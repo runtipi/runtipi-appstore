@@ -1,0 +1,31 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "duplicati",
+      "image": "lscr.io/linuxserver/duplicati:2.1.0",
+      "internalPort": 8200,
+      "isMain": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/duplicati-config",
+          "containerPath": "/config"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}",
+          "containerPath": "/backups/runtipi-folder"
+        },
+        {
+          "hostPath": "/home",
+          "containerPath": "/source"
+        }
+      ],
+      "environment": {
+        "PUID": "0",
+        "PGID": "0",
+        "TZ": "${TZ}",
+        "SETTINGS_ENCRYPTION_KEY": "${DUPLICATI_ENCRYPTION_KEY}"
+      }
+    }
+  ]
+}

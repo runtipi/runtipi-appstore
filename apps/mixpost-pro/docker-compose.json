@@ -17,7 +17,14 @@
         "REDIS_HOST": "mixpost-pro-redis",
         "REDIS_PASSWORD": "${MIXPOST_REDIS_PASSWORD}"
       },
-      "dependsOn": ["mixpost-pro-mysql", "mixpost-pro-redis"],
+      "dependsOn": {
+        "mixpost-pro-mysql": {
+          "condition": "service_healthy"
+        },
+        "mixpost-pro-redis": {
+          "condition": "service_healthy"
+        }
+      },
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/mixpost-pro",
@@ -43,7 +50,7 @@
       "healthCheck": {
         "timeout": "5s",
         "retries": 3,
-        "test": "mysqladmin ping -p ${MIXPOST_MYSQL_PASSWORD}"
+        "test": "mysqladmin ping -h localhost -p$$MYSQL_ROOT_PASSWORD"
       }
     },
     {

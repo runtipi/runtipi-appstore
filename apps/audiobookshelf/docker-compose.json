@@ -2,10 +2,9 @@
   "services": [
     {
       "name": "audiobookshelf",
-      "image": "ghcr.io/advplyr/audiobookshelf:2.17.7",
+      "image": "ghcr.io/advplyr/audiobookshelf:2.18.1",
       "isMain": true,
       "internalPort": 80,
-      "restart": "unless-stopped",
       "volumes": [
         {
           "hostPath": "${ROOT_FOLDER_HOST}/media/data/books/spoken",

@@ -1,0 +1,38 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "slskd",
+      "image": "slskd/slskd:0.22.1",
+      "isMain": true,
+      "internalPort": 5030,
+      "environment": {
+        "SLSKD_WEB_USER": "${SLSKD_WEB_USER}",
+        "SLSKD_WEB_PASSWORD": "${SLSKD_WEB_PASSWORD}",
+        "SLSKD_USER": "${SLSKD_USER}",
+        "SLSKD_PASSWORD": "${SLSKD_PASSWORD}",
+        "SLSKD_REMOTE_CONFIGURATION": "${SLSKD_REMOTE_CONFIGURATION}",
+        "SLSKD_CONFIG": "/app/data/slskd.yml",
+        "SLSKD_SHARED_DIR": "/shared"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}",
+          "containerPath": "/app"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/downloads/complete",
+          "containerPath": "/downloads"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/downloads/incomplete",
+          "containerPath": "/incomplete"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/",
+          "containerPath": "/shared"
+        }
+      ]
+    }
+  ]
+}

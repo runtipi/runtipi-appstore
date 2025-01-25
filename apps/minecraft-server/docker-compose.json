@@ -1,0 +1,23 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "image": "itzg/minecraft-server:latest",
+      "name": "minecraft-server",
+      "internalPort": 25565,
+      "isMain": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/minecraft-data",
+          "containerPath": "/data"
+        }
+      ],
+      "environment": {
+        "EULA": "TRUE",
+        "VERSION": "${MC_VERSION:-LATEST}"
+      },
+      "tty": true,
+      "stdinOpen": true
+    }
+  ]
+}

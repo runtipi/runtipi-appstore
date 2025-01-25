@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "readarr",
-      "image": "lscr.io/linuxserver/readarr:0.4.8-nightly",
+      "image": "lscr.io/linuxserver/readarr:0.4.10-nightly",
       "isMain": true,
       "internalPort": 8787,
       "environment": {

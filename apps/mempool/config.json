@@ -1,13 +1,14 @@
 {
   "$schema": "../app-info-schema.json",
   "name": "Mempool",
+  "dynamic_config": true,
   "available": true,
   "exposable": true,
   "no_gui": false,
   "port": 2200,
   "id": "mempool",
   "description": "Bitcoin mempool visualizer and blockchain explorer",
-  "tipi_version": 3,
+  "tipi_version": 5,
   "version": "3.0.1",
   "categories": ["finance"],
   "short_desc": "Bitcoin mempool visualizer and blockchain explorer",
@@ -17,6 +18,14 @@
   "created_at": 1726923527000,
   "updated_at": 1727830458000,
   "form_fields": [
+    {
+      "type": "text",
+      "label": "Custom Bitcoin data folder location (for .cookie file)",
+      "hint": "Default, tipi bitcoin folder",
+      "placeholder": "/home/user/runtipi/app-data/bitcoind/data",
+      "required": true,
+      "env_variable": "BITCOIND_DIR"
+    },
     {
       "type": "text",
       "label": "Custom Bitcoin node host address",
@@ -41,14 +50,7 @@
       "required": false,
       "env_variable": "ELECTRUM_PORT"
     },
-    {
-      "type": "text",
-      "label": "Custom Bitcoin data folder location (for .cookie file)",
-      "hint": "Default, tipi bitcoin folder",
-      "placeholder": "/home/user/runtipi/app-data/bitcoind/data",
-      "required": false,
-      "env_variable": "BITCOIND_DIR"
-    },
+
     {
       "type": "random",
       "label": "Mempool DB password",

@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "paperless-ngx",
-      "image": "ghcr.io/paperless-ngx/paperless-ngx:2.13.5",
+      "image": "ghcr.io/paperless-ngx/paperless-ngx:2.14.5",
       "isMain": true,
       "internalPort": 8000,
       "environment": {
@@ -39,7 +39,7 @@
     },
     {
       "name": "broker",
-      "image": "docker.io/library/redis:7",
+      "image": "redis:7",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/redis",
@@ -49,7 +49,7 @@
     },
     {
       "name": "db",
-      "image": "docker.io/library/postgres:17",
+      "image": "postgres:17",
       "environment": {
         "POSTGRES_DB": "paperless",
         "POSTGRES_USER": "paperless",
@@ -64,7 +64,7 @@
     },
     {
       "name": "gotenberg",
-      "image": "docker.io/gotenberg/gotenberg:8.14",
+      "image": "gotenberg/gotenberg:8.14",
       "command": ["gotenberg", "--chromium-disable-javascript=true", "--chromium-allow-list=file:///tmp/.*"]
     },
     {

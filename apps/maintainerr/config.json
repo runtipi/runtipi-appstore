@@ -5,8 +5,8 @@
   "dynamic_config": true,
   "port": 8030,
   "id": "maintainerr",
-  "tipi_version": 18,
-  "version": "2.7.0",
+  "tipi_version": 19,
+  "version": "2.8.0",
   "categories": ["media", "utilities"],
   "description": "Maintainerr will manage the storage space on your plex server, launching automated actions to delete your files.",
   "short_desc": "Maintainerr will manage the storage space on your plex server, launching automated actions to delete your files.",
@@ -15,6 +15,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1736073956000,
+  "updated_at": 1736866383000,
   "$schema": "../app-info-schema.json"
 }

@@ -3,9 +3,10 @@
   "name": "Syncthing",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 8090,
   "id": "syncthing",
-  "tipi_version": 14,
+  "tipi_version": 15,
   "version": "1.29",
   "categories": ["data", "utilities"],
   "description": "Syncthing is a continuous file synchronization program. It synchronizes files between two or more computers. We strive to fulfill the goals below. The goals are listed in order of importance, the most important one being the first. This is the summary version of the goal list - for more commentary, see the full Goals document.",
@@ -25,5 +26,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1736159302000
+  "updated_at": 1736983871915
 }

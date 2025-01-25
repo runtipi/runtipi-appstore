@@ -1,0 +1,67 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "plausible",
+      "image": "plausible/analytics:v1.5.1",
+      "isMain": true,
+      "internalPort": 8000,
+      "environment": {
+        "BASE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
+        "SECRET_KEY_BASE": "${PLAUSIBLE_SECRET_KEY_BASE}",
+        "DATABASE_URL": "postgres://tipi:${PLAUSIBLE_DB_PASSWORD}@plausible-db:5432/plausible-db",
+        "CLICKHOUSE_DATABASE_URL": "http://plausible-events-db:8123/plausible_events_db",
+        "DISABLE_REGISTRATION": "${PLAUSIBLE_DISABLE_REGISTRATION}"
+      },
+      "dependsOn": {
+        "plausible-db": {
+          "condition": "service_healthy"
+        },
+        "plausible-events-db": {
+          "condition": "service_started"
+        }
+      },
+      "command": "sh -c \"sleep 10 && /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh db init-admin && /entrypoint.sh run\""
+    },
+    {
+      "name": "plausible-db",
+      "image": "postgres:14-alpine",
+      "environment": {
+        "POSTGRES_PASSWORD": "${PLAUSIBLE_DB_PASSWORD}",
+        "POSTGRES_USER": "tipi",
+        "POSTGRES_DB": "plausible-db"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/database/",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ],
+      "healthCheck": {
+        "timeout": "5s",
+        "retries": 3,
+        "test": "pg_isready -d plausible-db -U tipi"
+      }
+    },
+    {
+      "name": "plausible-events-db",
+      "image": "clickhouse/clickhouse-server:22.6-alpine",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/plausible-event-data",
+          "containerPath": "/var/lib/clickhouse"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/clickhouse/clickhouse-config.xml",
+          "containerPath": "/etc/clickhouse-server/config.d/logging.xml",
+          "readOnly": true
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/clickhouse/clickhouse-user-config.xml",
+          "containerPath": "/etc/clickhouse-server/users.d/logging.xml",
+          "readOnly": true
+        }
+      ]
+    }
+  ]
+}

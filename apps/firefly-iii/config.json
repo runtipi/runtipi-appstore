@@ -3,8 +3,9 @@
   "name": "Firefly III",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 8115,
-  "tipi_version": 7,
+  "tipi_version": 8,
   "version": "version-6.1.21",
   "id": "firefly-iii",
   "categories": ["finance"],
@@ -44,5 +45,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566283000
+  "updated_at": 1736983403097
 }

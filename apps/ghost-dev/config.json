@@ -4,9 +4,10 @@
   "port": 8225,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "ghost-dev",
-  "tipi_version": 39,
-  "version": "5.105.0",
+  "tipi_version": 42,
+  "version": "5.107.0",
   "categories": ["social", "media"],
   "description": "Ghost is a powerful app for new-media creators to publish, share, and grow a business around their content. It comes with modern tools to build a website, publish content, send newsletters & offer paid subscriptions to members.",
   "short_desc": "Ghost - Turn your audience into a business.",
@@ -16,5 +17,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1734158522000
+  "updated_at": 1737366910000
 }

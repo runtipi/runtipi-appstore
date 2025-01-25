@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "siyuan",
-      "image": "b3log/siyuan:v3.1.14",
+      "image": "b3log/siyuan:v3.1.20",
       "isMain": true,
       "internalPort": 6806,
       "user": "1000:1000",

@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 8112,
   "id": "readarr",
-  "tipi_version": 33,
-  "version": "0.4.8-nightly",
+  "tipi_version": 35,
+  "version": "0.4.10-nightly",
   "categories": ["books", "media"],
   "description": "",
   "short_desc": "Book Manager and Automation (Sonarr for Ebooks)",
@@ -16,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1736282120014
+  "updated_at": 1737406668000
 }

@@ -1,15 +1,15 @@
 {
   "$schema": "../app-info-schema.json",
   "name": "Cross-Seed",
-  "port": 2468,
   "available": true,
   "exposable": false,
+  "dynamic_config": true,
   "no_gui": true,
   "uid": 1000,
   "gid": 1000,
   "id": "cross-seed",
-  "tipi_version": 29,
-  "version": "6.8.4",
+  "tipi_version": 35,
+  "version": "6.9.1",
   "categories": ["media", "utilities"],
   "description": "An app designed to help you download torrents that you can cross seed based on your existing torrents. It is designed to match conservatively to minimize manual intervention.",
   "short_desc": "Fully-automatic cross-seeding with Torznab.",
@@ -19,5 +19,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1735957033000
+  "updated_at": 1737362405000
 }

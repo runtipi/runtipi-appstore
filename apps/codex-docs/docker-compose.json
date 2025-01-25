@@ -1,0 +1,39 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "image": "ghcr.io/codex-team/codex.docs:v2.2",
+      "name": "codex-docs",
+      "internalPort": 3000,
+      "isMain": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/uploads",
+          "containerPath": "/usr/src/app/uploads"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/usr/src/app/db"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/docs-config.yaml",
+          "containerPath": "/usr/src/app/docs-config.yaml"
+        }
+      ],
+      "environment": {
+        "APP_CONFIG_auth_password": "${CODEX_AUTH_PASSWORD}",
+        "APP_CONFIG_auth_secret": "${CODEX_AUTH_SECRET}",
+        "APP_CONFIG_database_driver": "mongodb",
+        "APP_CONFIG_database_mongodb_uri": "mongodb://tipi:${CODEX_DB_PASSWORD}@codex-db:27017"
+      }
+    },
+    {
+      "image": "mongo:latest",
+      "name": "codex-db",
+      "environment": {
+        "MONGO_INITDB_ROOT_USERNAME": "tipi",
+        "MONGO_INITDB_ROOT_PASSWORD": "${CODEX_DB_PASSWORD}"
+      }
+    }
+  ]
+}

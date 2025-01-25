@@ -1,0 +1,24 @@
+{
+  "services": [
+    {
+      "name": "homeassistant-1",
+      "image": "ghcr.io/home-assistant/home-assistant:2025.1.3",
+      "isMain": true,
+      "internalPort": 8123,
+      "environment": {
+        "TZ": "${TZ}"
+      },
+      "volumes": [
+        {
+          "hostPath": "/etc/localtime",
+          "containerPath": "/etc/localtime",
+          "readOnly": true
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/config"
+        }
+      ]
+    }
+  ]
+}

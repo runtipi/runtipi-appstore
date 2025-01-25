@@ -3,10 +3,11 @@
   "name": "Flowise AI",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 8009,
   "id": "flowise",
-  "tipi_version": 38,
-  "version": "2.2.3",
+  "tipi_version": 40,
+  "version": "2.2.4",
   "categories": ["ai", "automation"],
   "description": "Flowise AI is an Open source UI visual tool to build your customized LLM ochestration flow & AI agents. Developing LLM apps takes countless iterations. With low code approach, Flowise AI enable quick iterations to go from testing to production.",
   "short_desc": "Build LLM Apps Easily",
@@ -74,5 +75,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1734964896000
+  "updated_at": 1736983416166
 }

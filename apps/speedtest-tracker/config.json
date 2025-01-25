@@ -4,9 +4,10 @@
   "port": 8211,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "speedtest-tracker",
-  "tipi_version": 55,
-  "version": "1.0.3",
+  "tipi_version": 58,
+  "version": "1.2.0",
   "categories": ["utilities"],
   "description": "Speedtest Tracker is a self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.",
   "short_desc": "Internet performance tracking application.",
@@ -50,5 +51,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1736101316000
+  "updated_at": 1737396281000
 }
