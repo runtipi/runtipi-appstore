@@ -2,7 +2,7 @@
   "id": "authentik-fh",
   "available": true,
   "port": 9000,
-  "name": "Authentik",
+  "name": "Authentik-FH",
   "description": "The authentication glue you need.",
   "version": "2024.12.2",
   "tipi_version": 1,
