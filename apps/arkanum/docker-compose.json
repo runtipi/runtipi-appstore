@@ -1,0 +1,39 @@
+{
+  "services": [
+    {
+      "name": "arkanum",
+      "image": "gitea.ocram85.com/arkanum/arkanum:1.8.3",
+      "isMain": true,
+      "internalPort": 8443,
+      "environment": {
+        "PUID": "1000",
+        "PGID": "1000",
+        "TZ": "${TZ}",
+        "PASSWORD": "${ARKANUM_PASSWORD}",
+        "HASHED_PASSWORD": "${ARKANUM_HASHED_PASSWORD}",
+        "SUDO_PASSWORD": "${ARKANUM_SUDO_PASSWORD}",
+        "SUDO_PASSWORD_HASH": "${ARKANUM_SUDO_PASSWORD_HASH}",
+        "DEFAULT_WORKSPACE": "${ARKANUM_DEFAULT_WORKSPACE}"
+      },
+      "volumes": [
+        {
+          "hostPath": "/var/run/docker.sock",
+          "containerPath": "/var/run/docker.sock"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/config"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/projects",
+          "containerPath": "/projects"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}",
+          "containerPath": "/runtipi"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}
