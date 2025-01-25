@@ -1,0 +1,55 @@
+{
+  "id": "authentik-fh",
+  "available": true,
+  "port": 9000,
+  "name": "Authentik",
+  "description": "The authentication glue you need.",
+  "version": "2024.12.2",
+  "tipi_version": 1,
+  "short_desc": "The authentication glue you need.",
+  "author": "Authentik Security Inc.",
+  "source": "https://github.com/goauthentik/authentik",
+  "website": "https://goauthentik.io",
+  "categories": ["security"],
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "DB Password",
+      "min": 40,
+      "env_variable": "AUTHENTIK_DB_PASSWORD"
+    },
+    {
+      "type": "random",
+      "label": "Secret Key",
+      "min": 60,
+      "max": 60,
+      "env_variable": "AUTHENTIK_SECRET_KEY"
+    },
+    {
+      "type": "boolean",
+      "label": "Disable Startup Analytics",
+      "default": true,
+      "env_variable": "AUTHENTIK_DISABLE_STARTUP_ANALYTICS"
+    },
+    {
+      "type": "boolean",
+      "label": "Disable Update Check",
+      "default": false,
+      "env_variable": "AUTHENTIK_DISABLE_UPDATE_CHECK"
+    },
+    {
+      "type": "boolean",
+      "label": "Error Reporting",
+      "default": false,
+      "env_variable": "AUTHENTIK_ERROR_REPORTING__ENABLED"
+    }
+  ],
+  "https": true,
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "dynamic_config": true,
+  "min_tipi_version": "v3.8.0",
+  "created_at": 1737820254382,
+  "updated_at": 1737820254382,
+  "$schema": "../app-info-schema.json"
+}
