@@ -26,7 +26,9 @@
           "containerPath": "/storage"
         }
       ],
-      "sysctls": ["net.ipv4.ip_forward=1"],
+      "sysctls": {
+        "net.ipv4.ip_forward": 1
+      },
       "devices": ["/dev/kvm"],
       "capAdd": ["NET_ADMIN"],
       "stopGracePeriod": "2m"
