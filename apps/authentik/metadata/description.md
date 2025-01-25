@@ -2,7 +2,7 @@
 
 *Initial Install May take a bit to start up!*
 
-To start the initial setup, navigate to https://<your server's IP or hostname>:8770/if/flow/initial-setup/.
+To start the initial setup, navigate to https://<your server's IP or hostname>:9443/if/flow/initial-setup/.
 
 There you are prompted to set a password for the akadmin user (the default user).
 
