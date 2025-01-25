@@ -5,6 +5,7 @@
       "name": "scrypted",
       "image": "koush/scrypted:18-jammy-full.s6-v0.88.0",
       "isMain": true,
+      "internalPort": 8080,
       "networkMode": "host",
       "environment": {
         "SCRYPTED_WEBHOOK_UPDATE_AUTHORIZATION": "${SCRYPTED_BEARER_TOKEN}",
