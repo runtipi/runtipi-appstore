@@ -2,7 +2,7 @@
   "id": "arkanum_fh",
   "available": true,
   "port": 8153,
-  "name": "Arkanum",
+  "name": "Arkanum_FH",
   "description": "An opinionated VS Code distribution. Start coding remotely with a containerized editor.",
   "version": "1.8.3",
   "tipi_version": 2,
