@@ -3,6 +3,7 @@
   "name": "Home Assistant non exposed",
   "available": true,
   "deprecated": true,
+  "dynamic_config": true,
   "port": 8123,
   "tipi_version": 4,
   "version": "stable",
