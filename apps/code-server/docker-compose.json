@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "code-server",
-      "image": "lscr.io/linuxserver/code-server:4.96.2",
+      "image": "lscr.io/linuxserver/code-server:4.96.4",
       "isMain": true,
       "internalPort": 8443,
       "environment": {

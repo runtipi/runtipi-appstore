@@ -1,0 +1,66 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "firefly-iii",
+      "image": "fireflyiii/core:version-6.1.21",
+      "isMain": true,
+      "internalPort": 8080,
+      "environment": {
+        "APP_ENV": "local",
+        "APP_DEBUG": "false",
+        "SITE_OWNER": "${EMAIL}",
+        "APP_KEY": "${APP_KEY}",
+        "STATIC_CRON_TOKEN": "${STATIC_CRON_TOKEN}",
+        "TZ": "${TZ}",
+        "TRUSTED_PROXIES": "**",
+        "DB_CONNECTION": "mysql",
+        "DB_HOST": "firefly-iii-db",
+        "DB_PORT": "3306",
+        "DB_DATABASE": "firefly",
+        "DB_USERNAME": "firefly",
+        "DB_PASSWORD": "${MYSQL_PASSWORD}",
+        "COOKIE_PATH": "\"/\"",
+        "COOKIE_DOMAIN": "",
+        "COOKIE_SECURE": "false",
+        "COOKIE_SAMESITE": "lax",
+        "APP_NAME": "FireflyIII",
+        "BROADCAST_DRIVER": "log",
+        "QUEUE_DRIVER": "sync",
+        "CACHE_PREFIX": "firefly",
+        "IS_HEROKU": "false",
+        "FIREFLY_III_LAYOUT": "v1",
+        "APP_URL": "http://localhost:${APP_PORT}"
+      },
+      "dependsOn": ["firefly-iii-db"],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/uplodad",
+          "containerPath": "/var/www/html/storage/upload"
+        }
+      ]
+    },
+    {
+      "name": "firefly-iii-db",
+      "image": "mariadb",
+      "hostname": "fireflyiii-db",
+      "environment": {
+        "MYSQL_RANDOM_ROOT_PASSWORD": "yes",
+        "MYSQL_USER": "firefly",
+        "MYSQL_PASSWORD": "${MYSQL_PASSWORD}",
+        "MYSQL_DATABASE": "firefly"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/var/lib/mysql"
+        }
+      ]
+    },
+    {
+      "name": "firefly-iii-cron",
+      "image": "alpine",
+      "command": "sh -c \"echo \\\"0 3 * * * wget -qO- http://${APP_DOMAIN}/api/v1/cron/${STATIC_CRON_TOKEN}\\\" | crontab - && crond -f -L /dev/stdout\""
+    }
+  ]
+}

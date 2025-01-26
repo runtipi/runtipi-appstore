@@ -1,0 +1,23 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "email-oauth2-proxy",
+      "image": "ghcr.io/blacktirion/email-oauth2-proxy-docker:2024.11.19",
+      "isMain": true,
+      "internalPort": 80,
+      "environment": {
+        "DEBUG": "true",
+        "CACHE_STORE": "/config/credstore.config",
+        "LOGFILE": "true",
+        "LOCAL_SERVER_AUTH": "true"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/config"
+        }
+      ]
+    }
+  ]
+}

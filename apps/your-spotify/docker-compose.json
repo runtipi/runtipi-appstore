@@ -1,0 +1,44 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "your-spotify",
+      "image": "yooooomi/your_spotify_client:1.12.0",
+      "isMain": true,
+      "internalPort": 3000,
+      "environment": {
+        "API_ENDPOINT": "http://${INTERNAL_IP}:32500"
+      },
+      "dependsOn": ["your-spotify-server"]
+    },
+    {
+      "name": "your-spotify-server",
+      "image": "yooooomi/your_spotify_server",
+      "addPorts": [
+        {
+          "hostPort": 32500,
+          "containerPort": 8080
+        }
+      ],
+      "environment": {
+        "API_ENDPOINT": "http://${INTERNAL_IP}:32500",
+        "CLIENT_ENDPOINT": "http://${INTERNAL_IP}:${APP_PORT}",
+        "SPOTIFY_PUBLIC": "${SPOTIFY_PUBLIC}",
+        "SPOTIFY_SECRET": "${SPOTIFY_SECRET}",
+        "MONGO_ENDPOINT": "mongodb://your-spotify-db:27017/your_spotify",
+        "CORS": "i-want-a-security-vulnerability-and-want-to-allow-all-origins"
+      },
+      "dependsOn": ["your-spotify-db"]
+    },
+    {
+      "name": "your-spotify-db",
+      "image": "mongo:4.4.8",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/data/db"
+        }
+      ]
+    }
+  ]
+}

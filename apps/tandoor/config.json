@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "tandoor",
-  "tipi_version": 23,
-  "version": "1.5.27",
+  "tipi_version": 26,
+  "version": "1.5.30",
   "categories": ["data"],
   "description": "Drop your collection of links and notes. Get Tandoor and never look back onto a time without recipe management, storage, sharing and collaborative cooking!",
   "short_desc": "Recipe collection manager.",
@@ -30,5 +30,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1736079016000
+  "updated_at": 1737482097000
 }

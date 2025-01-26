@@ -3,8 +3,9 @@
   "name": "Home Assistant non exposed",
   "available": true,
   "deprecated": true,
+  "dynamic_config": true,
   "port": 8123,
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "stable",
   "id": "homeassistant",
   "categories": ["automation"],
@@ -15,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566283000
+  "updated_at": 1736983452653
 }

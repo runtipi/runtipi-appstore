@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   notemark:
-    image: ghcr.io/enchant97/note-mark-frontend:0.15.0
+    image: ghcr.io/enchant97/note-mark-frontend:0.15.1
     container_name: notemark
     restart: unless-stopped
     networks:
@@ -9,7 +9,7 @@ services:
     labels:
       runtipi.managed: true
   notemark-backend:
-    image: ghcr.io/enchant97/note-mark-backend:0.15.0
+    image: ghcr.io/enchant97/note-mark-backend:0.15.1
     container_name: notemark-backend
     restart: unless-stopped
     networks:

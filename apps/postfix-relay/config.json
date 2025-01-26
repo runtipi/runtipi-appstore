@@ -3,10 +3,11 @@
   "name": "Postfix Mail Relay",
   "available": true,
   "exposable": false,
+  "dynamic_config": true,
   "no_gui": true,
   "port": 2525,
   "id": "postfix-relay",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "1.4.0",
   "categories": ["utilities"],
   "description": "Simple SMTP relay for environments where you may have private servers with no Internet connection.",
@@ -70,5 +71,5 @@
   ],
   "supported_architectures": ["amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1724410930192
+  "updated_at": 1736983708915
 }
