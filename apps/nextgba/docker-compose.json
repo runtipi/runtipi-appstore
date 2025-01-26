@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "nextgba",
-      "image": "ghcr.io/meienberger/nextgba:v0.1.0",
+      "image": "ghcr.io/nicotsx/nextgba:v0.1.0",
       "isMain": true,
       "internalPort": 3000,
       "environment": {
