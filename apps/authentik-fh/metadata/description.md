@@ -24,7 +24,12 @@ Look at the log display in the `Logs` tab of the Authentik app.
 
 ***IMPORTANT: Wait until there are no new log entries created and wait at least 1 additional minute before proceeding ! If the WebUI of authentik is called before the installation routine completes, it will brake the setup!***
 
-Now open the app and replace in the browser url anything after `/if/` and replace it with `flow/initial-setup/` and press enter.
+Now open the app and modify the browser url as follows:
+
+- change `https` to `http`
+- change anything after `/if/` and replace it with `flow/initial-setup/`
+
+then press enter.
 
 ## Docs
 
