@@ -1,0 +1,17 @@
+{
+  "services": [
+    {
+      "name": "wud-fh",
+      "image": "getwud/wud:8.0.1",
+      "isMain": true,
+      "internalPort": 3000,
+      "volumes": [
+        {
+          "hostPath": "/var/run/docker.sock",
+          "containerPath": "/var/run/docker.sock"
+        }
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

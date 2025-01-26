@@ -1,0 +1,37 @@
+services:
+  wud-fh:
+    image: getwud/wud:8.0.1
+    container_name: wud-fh
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - ${APP_PORT}:3000
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.wud-fh-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.wud-fh.loadbalancer.server.port: 3000
+      # Web
+      traefik.http.routers.wud-fh-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wud-fh-insecure.entrypoints: web
+      traefik.http.routers.wud-fh-insecure.service: wud-fh
+      traefik.http.routers.wud-fh-insecure.middlewares: wud-fh-web-redirect
+      # Websecure
+      traefik.http.routers.wud-fh.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wud-fh.entrypoints: websecure
+      traefik.http.routers.wud-fh.service: wud-fh
+      traefik.http.routers.wud-fh.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.wud-fh-local-insecure.rule: Host(`wud-fh.${LOCAL_DOMAIN}`)
+      traefik.http.routers.wud-fh-local-insecure.entrypoints: web
+      traefik.http.routers.wud-fh-local-insecure.service: wud-fh
+      traefik.http.routers.wud-fh-local-insecure.middlewares: wud-fh-web-redirect
+      # Local domain secure
+      traefik.http.routers.wud-fh-local.rule: Host(`wud-fh.${LOCAL_DOMAIN}`)
+      traefik.http.routers.wud-fh-local.entrypoints: websecure
+      traefik.http.routers.wud-fh-local.service: wud-fh
+      traefik.http.routers.wud-fh-local.tls: true
+      runtipi.managed: true

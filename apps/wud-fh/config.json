@@ -1,0 +1,21 @@
+{
+  "id": "wud-fh",
+  "available": true,
+  "port": 9001,
+  "name": "WUD-FH",
+  "description": "WUD (aka What's up Docker?) gets you notified when a new version of your Docker Container is available.",
+  "version": "8.0.1",
+  "tipi_version": 1,
+  "short_desc": "Keep your containers up-to-date!",
+  "author": "WUD",
+  "source": "https://github.com/getwud/wud",
+  "website": "https://getwud.github.io/wud/",
+  "categories": ["utilities"],
+  "https": true,
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "dynamic_config": true,
+  "created_at": 1737893450825,
+  "updated_at": 1737893450825,
+  "$schema": "../app-info-schema.json"
+}
