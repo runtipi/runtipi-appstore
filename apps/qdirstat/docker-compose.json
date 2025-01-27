@@ -8,10 +8,12 @@
       "internalPort": 3000,
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/data/qdirstat/config"
+          "hostPath": "${APP_DATA_DIR}/data/qdirstat/config",
+          "containerPath": "/host"
         },
         {
-          "hostPath": "${APP_DATA_DIR}/data/qdirstat/app/data"
+          "hostPath": "${APP_DATA_DIR}/data/qdirstat/app/data",
+          "containerPath": "/data"
         },
         {
           "hostPath": "/",
