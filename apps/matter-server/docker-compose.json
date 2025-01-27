@@ -19,7 +19,7 @@
       ],
       "securityOpt": {
         "apparmor": "unconfined"
-      },
+      }
     }
   ]
 }
