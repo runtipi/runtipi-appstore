@@ -9,7 +9,7 @@
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/qdirstat/config",
-          "containerPath": "/host"
+          "containerPath": "/config"
         },
         {
           "hostPath": "${APP_DATA_DIR}/data/qdirstat/app/data",
