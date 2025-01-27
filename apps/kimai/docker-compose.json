@@ -4,6 +4,7 @@
     {
       "name": "kimai-proxy",
       "image": "tobybatch/nginx-fpm-reverse-proxy:latest",
+      "isMain": true,
       "internalPort": 80,
       "dependsOn": ["kimai"],
       "volumes": [
@@ -24,7 +25,6 @@
     {
       "name": "kimai",
       "image": "kimai/kimai2:fpm-2.1.0-prod",
-      "isMain": true,
       "environment": {
         "ADMINMAIL": "${KIMAI_ADMINMAIL}",
         "ADMINPASS": "${KIMAI_ADMINPASS}",
