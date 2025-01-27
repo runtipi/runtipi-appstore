@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "esphome",
-      "image": "ghcr.io/esphome/esphome:2024.12.2",
+      "image": "ghcr.io/esphome/esphome:2024.12.4",
       "isMain": true,
       "internalPort": 6052,
       "environment": {

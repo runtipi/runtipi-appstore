@@ -3,10 +3,11 @@
   "name": "Invidious",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 8095,
   "id": "invidious",
   "version": "master",
-  "tipi_version": 13,
+  "tipi_version": 14,
   "categories": ["media", "social"],
   "description": "Invidious is an open source alternative front-end to YouTube.",
   "short_desc": "An alternative front-end to YouTube",
@@ -62,5 +63,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566284000
+  "updated_at": 1736983480556
 }

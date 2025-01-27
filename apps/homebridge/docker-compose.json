@@ -1,0 +1,28 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "homebridge",
+      "image": "homebridge/homebridge:2024-05-02",
+      "isMain": true,
+      "networkMode": "host",
+      "environment": {
+        "TZ": "${TZ}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/homebridge",
+          "containerPath": "/homebridge"
+        }
+      ],
+      "privileged": true,
+      "logging": {
+        "driver": "json-file",
+        "options": {
+          "max-size": "10mb",
+          "max-file": "1"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "image": "lscr.io/linuxserver/duckdns:b14c520a-ls8",
+      "name": "duckdns",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/config"
+        }
+      ],
+      "environment": {
+        "PUID": "1000",
+        "PGID": "1000",
+        "TZ": "${TZ}",
+        "SUBDOMAINS": "${DUCKDNS_SUBDOMAINS}",
+        "TOKEN": "${DUCKDNS_TOKEN}",
+        "UPDATE_IP": "${DUCKDNS_UPDATE_IP}",
+        "LOG_FILE": "${DUCKDNS_ENABLE_LOG_FILE}"
+      }
+    }
+  ]
+}

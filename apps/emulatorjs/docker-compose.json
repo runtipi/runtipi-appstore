@@ -1,0 +1,30 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "emulatorjs",
+      "image": "lscr.io/linuxserver/emulatorjs:1.9.2",
+      "isMain": true,
+      "internalPort": 80,
+      "addPorts": [
+        {
+          "hostPort": 8165,
+          "containerPort": 3000
+        }
+      ],
+      "environment": {
+        "TZ": "${TZ}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/emulatorjs-config",
+          "containerPath": "/config"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/emulatorjs",
+          "containerPath": "/data"
+        }
+      ]
+    }
+  ]
+}

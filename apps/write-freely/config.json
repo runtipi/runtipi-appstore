@@ -3,9 +3,10 @@
   "name": "Write-Freely",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 8574,
   "id": "write-freely",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "0.15",
   "categories": ["social"],
   "description": "A clean, Markdown-based publishing platform made for writers. Write together and build a community.",
@@ -15,5 +16,5 @@
   "website": "https://writefreely.org/",
   "supported_architectures": ["amd64", "arm64"],
   "created_at": 1729978316000,
-  "updated_at": 1729978316000
+  "updated_at": 1736983956310
 }

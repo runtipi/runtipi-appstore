@@ -1,0 +1,21 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "ghost-dev",
+      "image": "ghost:5.107.0",
+      "isMain": true,
+      "internalPort": 2368,
+      "environment": {
+        "database__connection__filename": "/var/lib/ghost/content/data/ghost.db",
+        "NODE_ENV": "development"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/var/lib/ghost/content"
+        }
+      ]
+    }
+  ]
+}

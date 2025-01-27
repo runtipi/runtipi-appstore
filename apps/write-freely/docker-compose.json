@@ -1,0 +1,29 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "write-freely",
+      "image": "nephatrine/write-freely:0.15",
+      "isMain": true,
+      "internalPort": 8080,
+      "addPorts": [
+        {
+          "hostPort": 70,
+          "containerPort": 70,
+          "tcp": true
+        }
+      ],
+      "environment": {
+        "TZ": "${TZ}",
+        "PUID": 1000,
+        "PGID": 1000
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/mnt/config"
+        }
+      ]
+    }
+  ]
+}

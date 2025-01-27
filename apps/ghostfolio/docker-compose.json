@@ -1,0 +1,73 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "ghostfolio",
+      "image": "ghostfolio/ghostfolio:2.135.0",
+      "isMain": true,
+      "internalPort": 3333,
+      "environment": {
+        "NODE_ENV": "production",
+        "HOST": "0.0.0.0",
+        "PORT": 3333,
+        "ACCESS_TOKEN_SALT": "$GHOSTFOLIO_ACCESS_TOKEN_SALT",
+        "DATABASE_URL": "postgresql://ghostfolio:${GHOSTFOLIO_DB_PASSWORD}@ghostfolio-db:5432/ghostfolio?sslmode=prefer",
+        "JWT_SECRET_KEY": "${GHOSTFOLIO_JWT_SECRET_KEY}",
+        "POSTGRES_DB": "ghostfolio",
+        "POSTGRES_USER": "ghostfolio",
+        "POSTGRES_PASSWORD": "${GHOSTFOLIO_DB_PASSWORD}",
+        "REDIS_HOST": "ghostfolio-redis",
+        "REDIS_PASSWORD": "${GHOSTFOLIO_REDIS_PASSWORD}",
+        "REDIS_PORT": 6379
+      },
+      "dependsOn": {
+        "ghostfolio-db": {
+          "condition": "service_healthy"
+        },
+        "ghostfolio-redis": {
+          "condition": "service_healthy"
+        }
+      }
+    },
+    {
+      "name": "ghostfolio-db",
+      "image": "postgres:15.4-alpine",
+      "environment": {
+        "POSTGRES_DB": "ghostfolio",
+        "POSTGRES_USER": "ghostfolio",
+        "POSTGRES_PASSWORD": "${GHOSTFOLIO_DB_PASSWORD}",
+        "PGDATA": "/var/lib/postgresql/data"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ],
+      "healthCheck": {
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 5,
+        "test": "pg_isready -d ghostfolio -U ghostfolio"
+      }
+    },
+    {
+      "name": "ghostfolio-redis",
+      "image": "redis:7-alpine",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/redis",
+          "containerPath": "/data"
+        }
+      ],
+      "command": "--requirepass ${GHOSTFOLIO_REDIS_PASSWORD}",
+      "healthCheck": {
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 5,
+        "startPeriod": "30s",
+        "test": "redis-cli ping"
+      }
+    }
+  ]
+}

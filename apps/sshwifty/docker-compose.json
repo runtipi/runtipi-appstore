@@ -1,0 +1,12 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "sshwifty",
+      "image": "niruix/sshwifty:0.3.16-beta-release",
+      "isMain": true,
+      "internalPort": 8182,
+      "privileged": true
+    }
+  ]
+}

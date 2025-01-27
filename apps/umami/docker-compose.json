@@ -1,0 +1,41 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "umami",
+      "image": "ghcr.io/umami-software/umami:postgresql-v1.40.0",
+      "isMain": true,
+      "internalPort": 3000,
+      "environment": {
+        "DATABASE_URL": "postgresql://umami:${DB_PASSWORD}@umami-db:5432/umami",
+        "DATABASE_TYPE": "postgresql",
+        "HASH_SALT": "${HASH_SALT}"
+      },
+      "dependsOn": {
+        "umami-db": {
+          "condition": "service_healthy"
+        }
+      }
+    },
+    {
+      "name": "umami-db",
+      "image": "postgres:12-alpine",
+      "environment": {
+        "POSTGRES_DB": "umami",
+        "POSTGRES_USER": "umami",
+        "POSTGRES_PASSWORD": "${DB_PASSWORD}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgres",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ],
+      "healthCheck": {
+        "timeout": "5s",
+        "retries": 3,
+        "test": "pg_isready -d $$POSTGRES_DB -U $$POSTGRES_USER"
+      }
+    }
+  ]
+}

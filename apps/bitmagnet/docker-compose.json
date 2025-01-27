@@ -36,7 +36,7 @@
       ]
     },
     {
-      "image": "docker.io/library/postgres:17-alpine",
+      "image": "postgres:17-alpine",
       "name": "bitmagnet-db",
       "volumes": [
         {
@@ -58,7 +58,7 @@
       }
     },
     {
-      "image": "docker.io/library/redis:alpine",
+      "image": "redis:alpine",
       "name": "bitmagnet-redis",
       "command": "--save 60 1 --loglevel warning",
       "volumes": [
