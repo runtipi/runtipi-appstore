@@ -1,0 +1,26 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "qdirstat",
+      "image": "lscr.io/linuxserver/qdirstat:1.8.1-ls82",
+      "isMain": true,
+      "internalPort": 3000,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/qdirstat/config",
+          "containerPath": "/config"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/qdirstat/app/data",
+          "containerPath": "/data"
+        },
+        {
+          "hostPath": "/",
+          "containerPath": "/host",
+          "readOnly": true
+        }
+      ]
+    }
+  ]
+}
