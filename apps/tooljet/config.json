@@ -3,9 +3,10 @@
   "name": "Tooljet",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 9876,
   "id": "tooljet",
-  "tipi_version": 24,
+  "tipi_version": 25,
   "version": "2.4.2",
   "categories": ["automation"],
   "description": "ToolJet is an open-source low-code framework to build and deploy internal tools quickly with minimal engineering effort. ToolJet's drag and drop frontend builder allows you to build complicated responsive frontends within minutes. You can also connect to your data sources, such as databases ( PostgreSQL, MongoDB, Elasticsearch & more), API endpoints (ToolJet supports importing OpenAPI spec & OAuth2 authorization), SaaS tools (Stripe, Slack, Google Sheets, Airtable, Notion & more) and object storage services ( S3, GCS, Minio, etc ) to fetch and write data.",
@@ -38,5 +39,5 @@
   ],
   "supported_architectures": ["amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566284000
+  "updated_at": 1736983889196
 }
