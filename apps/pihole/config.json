@@ -3,12 +3,13 @@
   "name": "Pi-hole",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 8081,
   "requirements": {
     "ports": [53]
   },
   "id": "pihole",
-  "tipi_version": 19,
+  "tipi_version": 20,
   "version": "2024.07.0",
   "url_suffix": "/admin",
   "categories": ["network", "security"],
@@ -34,5 +35,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566285000
+  "updated_at": 1736983683759
 }

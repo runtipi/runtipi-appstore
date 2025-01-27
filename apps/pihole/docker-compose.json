@@ -1,0 +1,36 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "pihole",
+      "image": "pihole/pihole:2024.07.0",
+      "isMain": true,
+      "internalPort": 80,
+      "addPorts": [
+        {
+          "hostPort": 53,
+          "containerPort": 53,
+          "interface": "${NETWORK_INTERFACE:-0.0.0.0}",
+          "tcp": true,
+          "udp": true
+        }
+      ],
+      "hostname": "pihole",
+      "environment": {
+        "TZ": "${TZ}",
+        "WEBPASSWORD": "${APP_PASSWORD}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/pihole",
+          "containerPath": "/etc/pihole"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/dnsmasq",
+          "containerPath": "/etc/dnsmasq.d"
+        }
+      ],
+      "capAdd": ["NET_ADMIN"]
+    }
+  ]
+}
