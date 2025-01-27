@@ -17,7 +17,9 @@
           "containerPath": "/data"
         }
       ],
-      "securityOpt": ["apparmor=unconfined"]
+      "securityOpt": {
+        "apparmor": "unconfined"
+      },
     }
   ]
 }
