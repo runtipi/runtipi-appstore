@@ -5,7 +5,6 @@
       "name": "qbittorrent",
       "image": "lscr.io/linuxserver/qbittorrent:5.0.3",
       "isMain": true,
-      "internalPort": "${APP_PORT}",
       "addPorts": [
         {
           "hostPort": 6881,
