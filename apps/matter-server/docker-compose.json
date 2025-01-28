@@ -1,0 +1,23 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "matter-server",
+      "image": "ghcr.io/home-assistant-libs/python-matter-server:7.0.1",
+      "isMain": true,
+      "networkMode": "host",
+      "volumes": [
+        {
+          "hostPath": "/run/dbus",
+          "containerPath": "/run/dbus",
+          "readOnly": true
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/data"
+        }
+      ],
+      "securityOpt": ["apparmor=unconfined"]
+    }
+  ]
+}

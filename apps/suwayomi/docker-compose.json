@@ -1,0 +1,21 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "suwayomi",
+      "image": "ghcr.io/suwayomi/tachidesk:v1.1.1",
+      "isMain": true,
+      "internalPort": 4567,
+      "environment": {
+        "TZ": "${TZ}",
+        "BIND_IP": "0.0.0.0"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/home/suwayomi/.local/share/Tachidesk"
+        }
+      ]
+    }
+  ]
+}

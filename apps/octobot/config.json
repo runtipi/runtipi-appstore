@@ -3,9 +3,10 @@
   "port": 8825,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "octobot",
-  "tipi_version": 16,
-  "version": "2.0.7",
+  "tipi_version": 18,
+  "version": "2.0.8",
   "categories": ["automation", "finance"],
   "description": "OctoBot is a highly customizable trading bot using its configuration and tentacles system. You can build your own bot using the infinite configuration possibilities such as technical analysis, social media processing or even external statistics management like google trends.",
   "short_desc": "Octobot is a powerful open-source cryptocurrency trading robot.",
@@ -14,6 +15,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1730034937000,
+  "updated_at": 1738087134000,
   "$schema": "../app-info-schema.json"
 }

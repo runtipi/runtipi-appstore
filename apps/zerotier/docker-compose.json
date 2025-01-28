@@ -1,0 +1,17 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "zerotier",
+      "image": "zerotier/zerotier:1.14.2",
+      "isMain": true,
+      "networkMode": "host",
+      "command": "${NETWORK_ID}",
+      "devices": ["/dev/net/tun"],
+      "capAdd": ["NET_ADMIN", "SYS_ADMIN"],
+      "healthCheck": {
+        "test": "true"
+      }
+    }
+  ]
+}

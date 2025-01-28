@@ -1,0 +1,28 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "octobot",
+      "image": "drakkarsoftware/octobot:2.0.8",
+      "isMain": true,
+      "internalPort": 5001,
+      "environment": {
+        "TZ": "${TZ}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/user",
+          "containerPath": "/octobot/user"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/tentacles",
+          "containerPath": "/octobot/tentacles"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/logs",
+          "containerPath": "/octobot/logs"
+        }
+      ]
+    }
+  ]
+}
