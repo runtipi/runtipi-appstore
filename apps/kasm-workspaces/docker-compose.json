@@ -5,7 +5,6 @@
       "name": "kasm-workspaces",
       "image": "lscr.io/linuxserver/kasm:1.120.20221218",
       "isMain": true,
-      "internalPort": "${APP_PORT}",
       "addPorts": [
         {
           "hostPort": 8743,
