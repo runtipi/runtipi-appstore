@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "whoogle",
-      "image": "benbusby/whoogle-search:0.9.2",
+      "image": "benbusby/whoogle-search:0.9.3",
       "isMain": true,
       "internalPort": 8255,
       "environment": {
