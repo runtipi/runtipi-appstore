@@ -1,32 +1,769 @@
-# Install Information
+# Checklist
+## Dynamic compose for revolt
+This is a revolt update for using dynamic compose.
+##### Reaching the app :
+- [ ] http://localip:port
+- [ ] https://revolt.tipi.local
+- [ ] 🌐 Additionnal Port(s)
+##### In app tests :
+- [ ] 📝 Register and log in
+- [ ] 🖱 Basic interaction
+- [ ] 🌆 Uploading data
+- [ ] 🔄 Check data after restart
+##### Volumes mapping :
+- [ ] ${APP_DATA_DIR}/data/db:/data/db
+- [ ] ${APP_DATA_DIR}/data/minio:/data
+- [ ] ${APP_DATA_DIR}/data/CaddyFiles:/etc/caddy/
+- [ ] ${APP_DATA_DIR}/data/caddy-data:/data
+- [ ] ${APP_DATA_DIR}/data/caddy-config:/config
+##### Specific instructions :
+- [ ] 🌳 Environment
+- [ ] ⌨ Command
+- [ ] 🔗 Depends on
+- [ ] 🚪 Entrypoint (/bin/sh -c " while ! curl -s --output /dev/null --connect-timeout 1 http://revolt-minio:9000; do echo 'Waiting minio...' && sleep 0.1; done; /usr/bin/mc alias set minio http://revolt-minio:9000 minioautumn ${REVOLT_MINIO_ROOT_PASSWORD}; /usr/bin/mc mb minio/attachments; /usr/bin/mc mb minio/avatars; /usr/bin/mc mb minio/backgrounds; /usr/bin/mc mb minio/icons; /usr/bin/mc mb minio/banners; /usr/bin/mc mb minio/emojis; exit 0; "
+)
 
-# SMTP Server
-
-For Email Verfication, you need some sort of SMTP Provider 
-
-A few options are using GMAIl as a SMTP server, a SMTP Provider like SMTP2Go or MailGun, or if you host your own mailserver
-
-Here are some Methods
-- [Gmail SMTP Guide by Noted.lol](https://noted.lol/setup-gmail-smtp-sending-2023/)
-- [SMTP2Go](https://get.smtp2go.com/cplmmj203pg7)
-
-### SMTP From
-Make Sure when setting the SMTP From Adress, it matches the `Revolt <noreply@example.com>` format. An example could be `Tipi Chat <no-reply@runtipi.io>`
-
-## Invite Only Instance
-
-Set Revolt Invite Only to `1`
-
-If set, you can create invites by SSHing into your Tipi Server and running these commands
-
-1. `docker exec -i revolt-database mongosh`
-
-2.
+# New JSON
+```json
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "revolt-database",
+      "image": "mongo",
+      "environment": {
+        "MONGODB": "mongodb://revolt-database",
+        "REDIS_URI": "redis://revolt-redis/",
+        "HOSTNAME": ":80",
+        "REVOLT_APP_URL": "https://${APP_DOMAIN}",
+        "REVOLT_PUBLIC_URL": "https://${APP_DOMAIN}/api",
+        "VITE_API_URL": "https://${APP_DOMAIN}/api",
+        "REVOLT_EXTERNAL_WS_URL": "wss://${APP_DOMAIN}/ws",
+        "AUTUMN_PUBLIC_URL": "https://${APP_DOMAIN}/autumn",
+        "JANUARY_PUBLIC_URL": "https://${APP_DOMAIN}/january",
+        "REVOLT_UNSAFE_NO_CAPTCHA": "1",
+        "REVOLT_SMTP_HOST": "${REVOLT_SMTP_HOST}",
+        "REVOLT_SMTP_USERNAME": "${REVOLT_SMTP_USERNAME}",
+        "REVOLT_SMTP_PASSWORD": "${REVOLT_SMTP_PASSWORD}",
+        "REVOLT_SMTP_FROM": "${REVOLT_SMTP_FROM}",
+        "REVOLT_INVITE_ONLY": "${REVOLT_INVITE_ONLY}",
+        "REVOLT_MAX_GROUP_SIZE": "150",
+        "REVOLT_VAPID_PUBLIC_KEY": "${VAPID_PUBLIC_KEY}",
+        "REVOLT_VAPID_PRIVATE_KEY": "${VAPID_PRIVATE_KEY}",
+        "AUTUMN_S3_REGION": "minio",
+        "AUTUMN_S3_ENDPOINT": "http://revolt-minio:9000",
+        "MINIO_ROOT_USER": "minioautumn",
+        "MINIO_ROOT_PASSWORD": "${REVOLT_MINIO_ROOT_PASSWORD}",
+        "AWS_ACCESS_KEY_ID": "${REVOLT_AWS_ACCESS_KEY_ID}",
+        "AWS_SECRET_ACCESS_KEY": "${REVOLT_AWS_SECRET_ACCESS_KEY}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/data/db"
+        }
+      ]
+    },
+    {
+      "name": "revolt-redis",
+      "image": "eqalpha/keydb",
+      "environment": {
+        "MONGODB": "mongodb://revolt-database",
+        "REDIS_URI": "redis://revolt-redis/",
+        "HOSTNAME": ":80",
+        "REVOLT_APP_URL": "https://${APP_DOMAIN}",
+        "REVOLT_PUBLIC_URL": "https://${APP_DOMAIN}/api",
+        "VITE_API_URL": "https://${APP_DOMAIN}/api",
+        "REVOLT_EXTERNAL_WS_URL": "wss://${APP_DOMAIN}/ws",
+        "AUTUMN_PUBLIC_URL": "https://${APP_DOMAIN}/autumn",
+        "JANUARY_PUBLIC_URL": "https://${APP_DOMAIN}/january",
+        "REVOLT_UNSAFE_NO_CAPTCHA": "1",
+        "REVOLT_SMTP_HOST": "${REVOLT_SMTP_HOST}",
+        "REVOLT_SMTP_USERNAME": "${REVOLT_SMTP_USERNAME}",
+        "REVOLT_SMTP_PASSWORD": "${REVOLT_SMTP_PASSWORD}",
+        "REVOLT_SMTP_FROM": "${REVOLT_SMTP_FROM}",
+        "REVOLT_INVITE_ONLY": "${REVOLT_INVITE_ONLY}",
+        "REVOLT_MAX_GROUP_SIZE": "150",
+        "REVOLT_VAPID_PUBLIC_KEY": "${VAPID_PUBLIC_KEY}",
+        "REVOLT_VAPID_PRIVATE_KEY": "${VAPID_PRIVATE_KEY}",
+        "AUTUMN_S3_REGION": "minio",
+        "AUTUMN_S3_ENDPOINT": "http://revolt-minio:9000",
+        "MINIO_ROOT_USER": "minioautumn",
+        "MINIO_ROOT_PASSWORD": "${REVOLT_MINIO_ROOT_PASSWORD}",
+        "AWS_ACCESS_KEY_ID": "${REVOLT_AWS_ACCESS_KEY_ID}",
+        "AWS_SECRET_ACCESS_KEY": "${REVOLT_AWS_SECRET_ACCESS_KEY}"
+      }
+    },
+    {
+      "name": "revolt-minio",
+      "image": "minio/minio",
+      "environment": {
+        "MONGODB": "mongodb://revolt-database",
+        "REDIS_URI": "redis://revolt-redis/",
+        "HOSTNAME": ":80",
+        "REVOLT_APP_URL": "https://${APP_DOMAIN}",
+        "REVOLT_PUBLIC_URL": "https://${APP_DOMAIN}/api",
+        "VITE_API_URL": "https://${APP_DOMAIN}/api",
+        "REVOLT_EXTERNAL_WS_URL": "wss://${APP_DOMAIN}/ws",
+        "AUTUMN_PUBLIC_URL": "https://${APP_DOMAIN}/autumn",
+        "JANUARY_PUBLIC_URL": "https://${APP_DOMAIN}/january",
+        "REVOLT_UNSAFE_NO_CAPTCHA": "1",
+        "REVOLT_SMTP_HOST": "${REVOLT_SMTP_HOST}",
+        "REVOLT_SMTP_USERNAME": "${REVOLT_SMTP_USERNAME}",
+        "REVOLT_SMTP_PASSWORD": "${REVOLT_SMTP_PASSWORD}",
+        "REVOLT_SMTP_FROM": "${REVOLT_SMTP_FROM}",
+        "REVOLT_INVITE_ONLY": "${REVOLT_INVITE_ONLY}",
+        "REVOLT_MAX_GROUP_SIZE": "150",
+        "REVOLT_VAPID_PUBLIC_KEY": "${VAPID_PUBLIC_KEY}",
+        "REVOLT_VAPID_PRIVATE_KEY": "${VAPID_PRIVATE_KEY}",
+        "AUTUMN_S3_REGION": "minio",
+        "AUTUMN_S3_ENDPOINT": "http://revolt-minio:9000",
+        "MINIO_ROOT_USER": "minioautumn",
+        "MINIO_ROOT_PASSWORD": "${REVOLT_MINIO_ROOT_PASSWORD}",
+        "AWS_ACCESS_KEY_ID": "${REVOLT_AWS_ACCESS_KEY_ID}",
+        "AWS_SECRET_ACCESS_KEY": "${REVOLT_AWS_SECRET_ACCESS_KEY}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/minio",
+          "containerPath": "/data"
+        }
+      ],
+      "command": "server /data"
+    },
+    {
+      "name": "revolt-web",
+      "image": "ghcr.io/revoltchat/client:master",
+      "environment": {
+        "MONGODB": "mongodb://revolt-database",
+        "REDIS_URI": "redis://revolt-redis/",
+        "HOSTNAME": ":80",
+        "REVOLT_APP_URL": "https://${APP_DOMAIN}",
+        "REVOLT_PUBLIC_URL": "https://${APP_DOMAIN}/api",
+        "VITE_API_URL": "https://${APP_DOMAIN}/api",
+        "REVOLT_EXTERNAL_WS_URL": "wss://${APP_DOMAIN}/ws",
+        "AUTUMN_PUBLIC_URL": "https://${APP_DOMAIN}/autumn",
+        "JANUARY_PUBLIC_URL": "https://${APP_DOMAIN}/january",
+        "REVOLT_UNSAFE_NO_CAPTCHA": "1",
+        "REVOLT_SMTP_HOST": "${REVOLT_SMTP_HOST}",
+        "REVOLT_SMTP_USERNAME": "${REVOLT_SMTP_USERNAME}",
+        "REVOLT_SMTP_PASSWORD": "${REVOLT_SMTP_PASSWORD}",
+        "REVOLT_SMTP_FROM": "${REVOLT_SMTP_FROM}",
+        "REVOLT_INVITE_ONLY": "${REVOLT_INVITE_ONLY}",
+        "REVOLT_MAX_GROUP_SIZE": "150",
+        "REVOLT_VAPID_PUBLIC_KEY": "${VAPID_PUBLIC_KEY}",
+        "REVOLT_VAPID_PRIVATE_KEY": "${VAPID_PRIVATE_KEY}",
+        "AUTUMN_S3_REGION": "minio",
+        "AUTUMN_S3_ENDPOINT": "http://revolt-minio:9000",
+        "MINIO_ROOT_USER": "minioautumn",
+        "MINIO_ROOT_PASSWORD": "${REVOLT_MINIO_ROOT_PASSWORD}",
+        "AWS_ACCESS_KEY_ID": "${REVOLT_AWS_ACCESS_KEY_ID}",
+        "AWS_SECRET_ACCESS_KEY": "${REVOLT_AWS_SECRET_ACCESS_KEY}"
+      }
+    },
+    {
+      "name": "revolt-api",
+      "image": "ghcr.io/revoltchat/server:20241128-3",
+      "environment": {
+        "MONGODB": "mongodb://revolt-database",
+        "REDIS_URI": "redis://revolt-redis/",
+        "HOSTNAME": ":80",
+        "REVOLT_APP_URL": "https://${APP_DOMAIN}",
+        "REVOLT_PUBLIC_URL": "https://${APP_DOMAIN}/api",
+        "VITE_API_URL": "https://${APP_DOMAIN}/api",
+        "REVOLT_EXTERNAL_WS_URL": "wss://${APP_DOMAIN}/ws",
+        "AUTUMN_PUBLIC_URL": "https://${APP_DOMAIN}/autumn",
+        "JANUARY_PUBLIC_URL": "https://${APP_DOMAIN}/january",
+        "REVOLT_UNSAFE_NO_CAPTCHA": "1",
+        "REVOLT_SMTP_HOST": "${REVOLT_SMTP_HOST}",
+        "REVOLT_SMTP_USERNAME": "${REVOLT_SMTP_USERNAME}",
+        "REVOLT_SMTP_PASSWORD": "${REVOLT_SMTP_PASSWORD}",
+        "REVOLT_SMTP_FROM": "${REVOLT_SMTP_FROM}",
+        "REVOLT_INVITE_ONLY": "${REVOLT_INVITE_ONLY}",
+        "REVOLT_MAX_GROUP_SIZE": "150",
+        "REVOLT_VAPID_PUBLIC_KEY": "${VAPID_PUBLIC_KEY}",
+        "REVOLT_VAPID_PRIVATE_KEY": "${VAPID_PRIVATE_KEY}",
+        "AUTUMN_S3_REGION": "minio",
+        "AUTUMN_S3_ENDPOINT": "http://revolt-minio:9000",
+        "MINIO_ROOT_USER": "minioautumn",
+        "MINIO_ROOT_PASSWORD": "${REVOLT_MINIO_ROOT_PASSWORD}",
+        "AWS_ACCESS_KEY_ID": "${REVOLT_AWS_ACCESS_KEY_ID}",
+        "AWS_SECRET_ACCESS_KEY": "${REVOLT_AWS_SECRET_ACCESS_KEY}"
+      },
+      "dependsOn": [
+        "revolt-database",
+        "revolt-redis",
+        "revolt"
+      ]
+    },
+    {
+      "name": "revolt-events",
+      "image": "ghcr.io/revoltchat/bonfire:20241128-3",
+      "environment": {
+        "MONGODB": "mongodb://revolt-database",
+        "REDIS_URI": "redis://revolt-redis/",
+        "HOSTNAME": ":80",
+        "REVOLT_APP_URL": "https://${APP_DOMAIN}",
+        "REVOLT_PUBLIC_URL": "https://${APP_DOMAIN}/api",
+        "VITE_API_URL": "https://${APP_DOMAIN}/api",
+        "REVOLT_EXTERNAL_WS_URL": "wss://${APP_DOMAIN}/ws",
+        "AUTUMN_PUBLIC_URL": "https://${APP_DOMAIN}/autumn",
+        "JANUARY_PUBLIC_URL": "https://${APP_DOMAIN}/january",
+        "REVOLT_UNSAFE_NO_CAPTCHA": "1",
+        "REVOLT_SMTP_HOST": "${REVOLT_SMTP_HOST}",
+        "REVOLT_SMTP_USERNAME": "${REVOLT_SMTP_USERNAME}",
+        "REVOLT_SMTP_PASSWORD": "${REVOLT_SMTP_PASSWORD}",
+        "REVOLT_SMTP_FROM": "${REVOLT_SMTP_FROM}",
+        "REVOLT_INVITE_ONLY": "${REVOLT_INVITE_ONLY}",
+        "REVOLT_MAX_GROUP_SIZE": "150",
+        "REVOLT_VAPID_PUBLIC_KEY": "${VAPID_PUBLIC_KEY}",
+        "REVOLT_VAPID_PRIVATE_KEY": "${VAPID_PRIVATE_KEY}",
+        "AUTUMN_S3_REGION": "minio",
+        "AUTUMN_S3_ENDPOINT": "http://revolt-minio:9000",
+        "MINIO_ROOT_USER": "minioautumn",
+        "MINIO_ROOT_PASSWORD": "${REVOLT_MINIO_ROOT_PASSWORD}",
+        "AWS_ACCESS_KEY_ID": "${REVOLT_AWS_ACCESS_KEY_ID}",
+        "AWS_SECRET_ACCESS_KEY": "${REVOLT_AWS_SECRET_ACCESS_KEY}"
+      },
+      "dependsOn": [
+        "revolt-database",
+        "revolt-redis",
+        "revolt"
+      ]
+    },
+    {
+      "name": "revolt-autumn",
+      "image": "ghcr.io/revoltchat/autumn:1.1.11",
+      "environment": {
+        "AUTUMN_MONGO_URI": "mongodb://revolt-database",
+        "MONGODB": "mongodb://revolt-database",
+        "REDIS_URI": "redis://revolt-redis/",
+        "HOSTNAME": ":80",
+        "REVOLT_APP_URL": "https://${APP_DOMAIN}",
+        "REVOLT_PUBLIC_URL": "https://${APP_DOMAIN}/api",
+        "VITE_API_URL": "https://${APP_DOMAIN}/api",
+        "REVOLT_EXTERNAL_WS_URL": "wss://${APP_DOMAIN}/ws",
+        "AUTUMN_PUBLIC_URL": "https://${APP_DOMAIN}/autumn",
+        "JANUARY_PUBLIC_URL": "https://${APP_DOMAIN}/january",
+        "REVOLT_UNSAFE_NO_CAPTCHA": "1",
+        "REVOLT_SMTP_HOST": "${REVOLT_SMTP_HOST}",
+        "REVOLT_SMTP_USERNAME": "${REVOLT_SMTP_USERNAME}",
+        "REVOLT_SMTP_PASSWORD": "${REVOLT_SMTP_PASSWORD}",
+        "REVOLT_SMTP_FROM": "${REVOLT_SMTP_FROM}",
+        "REVOLT_INVITE_ONLY": "${REVOLT_INVITE_ONLY}",
+        "REVOLT_MAX_GROUP_SIZE": "150",
+        "REVOLT_VAPID_PUBLIC_KEY": "${VAPID_PUBLIC_KEY}",
+        "REVOLT_VAPID_PRIVATE_KEY": "${VAPID_PRIVATE_KEY}",
+        "AUTUMN_S3_REGION": "minio",
+        "AUTUMN_S3_ENDPOINT": "http://revolt-minio:9000",
+        "MINIO_ROOT_USER": "minioautumn",
+        "MINIO_ROOT_PASSWORD": "${REVOLT_MINIO_ROOT_PASSWORD}",
+        "AWS_ACCESS_KEY_ID": "${REVOLT_AWS_ACCESS_KEY_ID}",
+        "AWS_SECRET_ACCESS_KEY": "${REVOLT_AWS_SECRET_ACCESS_KEY}"
+      },
+      "dependsOn": [
+        "revolt-database",
+        "revolt-createbuckets",
+        "revolt"
+      ]
+    },
+    {
+      "name": "revolt-january",
+      "image": "ghcr.io/revoltchat/january:master",
+      "environment": {
+        "MONGODB": "mongodb://revolt-database",
+        "REDIS_URI": "redis://revolt-redis/",
+        "HOSTNAME": ":80",
+        "REVOLT_APP_URL": "https://${APP_DOMAIN}",
+        "REVOLT_PUBLIC_URL": "https://${APP_DOMAIN}/api",
+        "VITE_API_URL": "https://${APP_DOMAIN}/api",
+        "REVOLT_EXTERNAL_WS_URL": "wss://${APP_DOMAIN}/ws",
+        "AUTUMN_PUBLIC_URL": "https://${APP_DOMAIN}/autumn",
+        "JANUARY_PUBLIC_URL": "https://${APP_DOMAIN}/january",
+        "REVOLT_UNSAFE_NO_CAPTCHA": "1",
+        "REVOLT_SMTP_HOST": "${REVOLT_SMTP_HOST}",
+        "REVOLT_SMTP_USERNAME": "${REVOLT_SMTP_USERNAME}",
+        "REVOLT_SMTP_PASSWORD": "${REVOLT_SMTP_PASSWORD}",
+        "REVOLT_SMTP_FROM": "${REVOLT_SMTP_FROM}",
+        "REVOLT_INVITE_ONLY": "${REVOLT_INVITE_ONLY}",
+        "REVOLT_MAX_GROUP_SIZE": "150",
+        "REVOLT_VAPID_PUBLIC_KEY": "${VAPID_PUBLIC_KEY}",
+        "REVOLT_VAPID_PRIVATE_KEY": "${VAPID_PRIVATE_KEY}",
+        "AUTUMN_S3_REGION": "minio",
+        "AUTUMN_S3_ENDPOINT": "http://revolt-minio:9000",
+        "MINIO_ROOT_USER": "minioautumn",
+        "MINIO_ROOT_PASSWORD": "${REVOLT_MINIO_ROOT_PASSWORD}",
+        "AWS_ACCESS_KEY_ID": "${REVOLT_AWS_ACCESS_KEY_ID}",
+        "AWS_SECRET_ACCESS_KEY": "${REVOLT_AWS_SECRET_ACCESS_KEY}"
+      },
+      "dependsOn": [
+        "revolt"
+      ]
+    },
+    {
+      "name": "revolt-createbuckets",
+      "image": "minio/mc",
+      "environment": {
+        "MONGODB": "mongodb://revolt-database",
+        "REDIS_URI": "redis://revolt-redis/",
+        "HOSTNAME": ":80",
+        "REVOLT_APP_URL": "https://${APP_DOMAIN}",
+        "REVOLT_PUBLIC_URL": "https://${APP_DOMAIN}/api",
+        "VITE_API_URL": "https://${APP_DOMAIN}/api",
+        "REVOLT_EXTERNAL_WS_URL": "wss://${APP_DOMAIN}/ws",
+        "AUTUMN_PUBLIC_URL": "https://${APP_DOMAIN}/autumn",
+        "JANUARY_PUBLIC_URL": "https://${APP_DOMAIN}/january",
+        "REVOLT_UNSAFE_NO_CAPTCHA": "1",
+        "REVOLT_SMTP_HOST": "${REVOLT_SMTP_HOST}",
+        "REVOLT_SMTP_USERNAME": "${REVOLT_SMTP_USERNAME}",
+        "REVOLT_SMTP_PASSWORD": "${REVOLT_SMTP_PASSWORD}",
+        "REVOLT_SMTP_FROM": "${REVOLT_SMTP_FROM}",
+        "REVOLT_INVITE_ONLY": "${REVOLT_INVITE_ONLY}",
+        "REVOLT_MAX_GROUP_SIZE": "150",
+        "REVOLT_VAPID_PUBLIC_KEY": "${VAPID_PUBLIC_KEY}",
+        "REVOLT_VAPID_PRIVATE_KEY": "${VAPID_PRIVATE_KEY}",
+        "AUTUMN_S3_REGION": "minio",
+        "AUTUMN_S3_ENDPOINT": "http://revolt-minio:9000",
+        "MINIO_ROOT_USER": "minioautumn",
+        "MINIO_ROOT_PASSWORD": "${REVOLT_MINIO_ROOT_PASSWORD}",
+        "AWS_ACCESS_KEY_ID": "${REVOLT_AWS_ACCESS_KEY_ID}",
+        "AWS_SECRET_ACCESS_KEY": "${REVOLT_AWS_SECRET_ACCESS_KEY}"
+      },
+      "dependsOn": [
+        "revolt-minio"
+      ],
+      "entrypoint": "/bin/sh -c \" while ! curl -s --output /dev/null --connect-timeout 1 http://revolt-minio:9000; do echo 'Waiting minio...' && sleep 0.1; done; /usr/bin/mc alias set minio http://revolt-minio:9000 minioautumn ${REVOLT_MINIO_ROOT_PASSWORD}; /usr/bin/mc mb minio/attachments; /usr/bin/mc mb minio/avatars; /usr/bin/mc mb minio/backgrounds; /usr/bin/mc mb minio/icons; /usr/bin/mc mb minio/banners; /usr/bin/mc mb minio/emojis; exit 0; \"\n"
+    },
+    {
+      "name": "revolt",
+      "image": "caddy",
+      "isMain": true,
+      "internalPort": 80,
+      "addPorts": [
+        {
+          "hostPort": 8273,
+          "containerPort": 443
+        }
+      ],
+      "environment": {
+        "MONGODB": "mongodb://revolt-database",
+        "REDIS_URI": "redis://revolt-redis/",
+        "HOSTNAME": ":80",
+        "REVOLT_APP_URL": "https://${APP_DOMAIN}",
+        "REVOLT_PUBLIC_URL": "https://${APP_DOMAIN}/api",
+        "VITE_API_URL": "https://${APP_DOMAIN}/api",
+        "REVOLT_EXTERNAL_WS_URL": "wss://${APP_DOMAIN}/ws",
+        "AUTUMN_PUBLIC_URL": "https://${APP_DOMAIN}/autumn",
+        "JANUARY_PUBLIC_URL": "https://${APP_DOMAIN}/january",
+        "REVOLT_UNSAFE_NO_CAPTCHA": "1",
+        "REVOLT_SMTP_HOST": "${REVOLT_SMTP_HOST}",
+        "REVOLT_SMTP_USERNAME": "${REVOLT_SMTP_USERNAME}",
+        "REVOLT_SMTP_PASSWORD": "${REVOLT_SMTP_PASSWORD}",
+        "REVOLT_SMTP_FROM": "${REVOLT_SMTP_FROM}",
+        "REVOLT_INVITE_ONLY": "${REVOLT_INVITE_ONLY}",
+        "REVOLT_MAX_GROUP_SIZE": "150",
+        "REVOLT_VAPID_PUBLIC_KEY": "${VAPID_PUBLIC_KEY}",
+        "REVOLT_VAPID_PRIVATE_KEY": "${VAPID_PRIVATE_KEY}",
+        "AUTUMN_S3_REGION": "minio",
+        "AUTUMN_S3_ENDPOINT": "http://revolt-minio:9000",
+        "MINIO_ROOT_USER": "minioautumn",
+        "MINIO_ROOT_PASSWORD": "${REVOLT_MINIO_ROOT_PASSWORD}",
+        "AWS_ACCESS_KEY_ID": "${REVOLT_AWS_ACCESS_KEY_ID}",
+        "AWS_SECRET_ACCESS_KEY": "${REVOLT_AWS_SECRET_ACCESS_KEY}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/CaddyFiles",
+          "containerPath": "/etc/caddy/"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/caddy-data",
+          "containerPath": "/data"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/caddy-config",
+          "containerPath": "/config"
+        }
+      ]
+    }
+  ]
+} 
 ```
-use revolt
-db.invites.insertOne({ _id: "enter_an_invite_code_here" })
+# Original YAML
+```yaml
+version: '3.8'
+services:
+  revolt-database:
+    image: mongo
+    container_name: revolt-database
+    restart: always
+    volumes:
+    - ${APP_DATA_DIR}/data/db:/data/db
+    networks:
+    - tipi_main_network
+    environment:
+    - MONGODB=mongodb://revolt-database
+    - REDIS_URI=redis://revolt-redis/
+    - HOSTNAME=:80
+    - REVOLT_APP_URL=https://${APP_DOMAIN}
+    - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+    - VITE_API_URL=https://${APP_DOMAIN}/api
+    - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+    - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+    - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+    - REVOLT_UNSAFE_NO_CAPTCHA=1
+    - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+    - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+    - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+    - REVOLT_SMTP_FROM=${REVOLT_SMTP_FROM}
+    - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+    - REVOLT_MAX_GROUP_SIZE=150
+    - REVOLT_VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
+    - REVOLT_VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
+    - AUTUMN_S3_REGION=minio
+    - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+    - MINIO_ROOT_USER=minioautumn
+    - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+    - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+    - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+    labels:
+      runtipi.managed: true
+  revolt-redis:
+    image: eqalpha/keydb
+    container_name: revolt-redis
+    restart: always
+    networks:
+    - tipi_main_network
+    environment:
+    - MONGODB=mongodb://revolt-database
+    - REDIS_URI=redis://revolt-redis/
+    - HOSTNAME=:80
+    - REVOLT_APP_URL=https://${APP_DOMAIN}
+    - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+    - VITE_API_URL=https://${APP_DOMAIN}/api
+    - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+    - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+    - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+    - REVOLT_UNSAFE_NO_CAPTCHA=1
+    - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+    - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+    - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+    - REVOLT_SMTP_FROM=${REVOLT_SMTP_FROM}
+    - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+    - REVOLT_MAX_GROUP_SIZE=150
+    - REVOLT_VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
+    - REVOLT_VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
+    - AUTUMN_S3_REGION=minio
+    - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+    - MINIO_ROOT_USER=minioautumn
+    - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+    - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+    - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+    labels:
+      runtipi.managed: true
+  revolt-minio:
+    image: minio/minio
+    container_name: revolt-minio
+    command: server /data
+    volumes:
+    - ${APP_DATA_DIR}/data/minio:/data
+    restart: always
+    networks:
+    - tipi_main_network
+    environment:
+    - MONGODB=mongodb://revolt-database
+    - REDIS_URI=redis://revolt-redis/
+    - HOSTNAME=:80
+    - REVOLT_APP_URL=https://${APP_DOMAIN}
+    - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+    - VITE_API_URL=https://${APP_DOMAIN}/api
+    - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+    - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+    - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+    - REVOLT_UNSAFE_NO_CAPTCHA=1
+    - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+    - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+    - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+    - REVOLT_SMTP_FROM=${REVOLT_SMTP_FROM}
+    - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+    - REVOLT_MAX_GROUP_SIZE=150
+    - REVOLT_VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
+    - REVOLT_VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
+    - AUTUMN_S3_REGION=minio
+    - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+    - MINIO_ROOT_USER=minioautumn
+    - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+    - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+    - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+    labels:
+      runtipi.managed: true
+  revolt-web:
+    image: ghcr.io/revoltchat/client:master
+    container_name: revolt-web
+    restart: always
+    networks:
+    - tipi_main_network
+    environment:
+    - MONGODB=mongodb://revolt-database
+    - REDIS_URI=redis://revolt-redis/
+    - HOSTNAME=:80
+    - REVOLT_APP_URL=https://${APP_DOMAIN}
+    - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+    - VITE_API_URL=https://${APP_DOMAIN}/api
+    - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+    - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+    - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+    - REVOLT_UNSAFE_NO_CAPTCHA=1
+    - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+    - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+    - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+    - REVOLT_SMTP_FROM=${REVOLT_SMTP_FROM}
+    - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+    - REVOLT_MAX_GROUP_SIZE=150
+    - REVOLT_VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
+    - REVOLT_VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
+    - AUTUMN_S3_REGION=minio
+    - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+    - MINIO_ROOT_USER=minioautumn
+    - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+    - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+    - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+    labels:
+      runtipi.managed: true
+  revolt-api:
+    image: ghcr.io/revoltchat/server:20241128-3
+    container_name: revolt-api
+    depends_on:
+    - revolt-database
+    - revolt-redis
+    - revolt
+    restart: always
+    networks:
+    - tipi_main_network
+    environment:
+    - MONGODB=mongodb://revolt-database
+    - REDIS_URI=redis://revolt-redis/
+    - HOSTNAME=:80
+    - REVOLT_APP_URL=https://${APP_DOMAIN}
+    - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+    - VITE_API_URL=https://${APP_DOMAIN}/api
+    - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+    - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+    - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+    - REVOLT_UNSAFE_NO_CAPTCHA=1
+    - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+    - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+    - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+    - REVOLT_SMTP_FROM=${REVOLT_SMTP_FROM}
+    - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+    - REVOLT_MAX_GROUP_SIZE=150
+    - REVOLT_VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
+    - REVOLT_VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
+    - AUTUMN_S3_REGION=minio
+    - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+    - MINIO_ROOT_USER=minioautumn
+    - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+    - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+    - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+    labels:
+      runtipi.managed: true
+  revolt-events:
+    image: ghcr.io/revoltchat/bonfire:20241128-3
+    container_name: revolt-events
+    depends_on:
+    - revolt-database
+    - revolt-redis
+    - revolt
+    restart: always
+    networks:
+    - tipi_main_network
+    environment:
+    - MONGODB=mongodb://revolt-database
+    - REDIS_URI=redis://revolt-redis/
+    - HOSTNAME=:80
+    - REVOLT_APP_URL=https://${APP_DOMAIN}
+    - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+    - VITE_API_URL=https://${APP_DOMAIN}/api
+    - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+    - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+    - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+    - REVOLT_UNSAFE_NO_CAPTCHA=1
+    - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+    - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+    - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+    - REVOLT_SMTP_FROM=${REVOLT_SMTP_FROM}
+    - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+    - REVOLT_MAX_GROUP_SIZE=150
+    - REVOLT_VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
+    - REVOLT_VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
+    - AUTUMN_S3_REGION=minio
+    - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+    - MINIO_ROOT_USER=minioautumn
+    - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+    - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+    - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+    labels:
+      runtipi.managed: true
+  revolt-autumn:
+    image: ghcr.io/revoltchat/autumn:1.1.11
+    container_name: revolt-autumn
+    depends_on:
+    - revolt-database
+    - revolt-createbuckets
+    - revolt
+    restart: always
+    networks:
+    - tipi_main_network
+    environment:
+    - AUTUMN_MONGO_URI=mongodb://revolt-database
+    - MONGODB=mongodb://revolt-database
+    - REDIS_URI=redis://revolt-redis/
+    - HOSTNAME=:80
+    - REVOLT_APP_URL=https://${APP_DOMAIN}
+    - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+    - VITE_API_URL=https://${APP_DOMAIN}/api
+    - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+    - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+    - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+    - REVOLT_UNSAFE_NO_CAPTCHA=1
+    - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+    - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+    - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+    - REVOLT_SMTP_FROM=${REVOLT_SMTP_FROM}
+    - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+    - REVOLT_MAX_GROUP_SIZE=150
+    - REVOLT_VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
+    - REVOLT_VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
+    - AUTUMN_S3_REGION=minio
+    - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+    - MINIO_ROOT_USER=minioautumn
+    - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+    - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+    - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+    labels:
+      runtipi.managed: true
+  revolt-january:
+    image: ghcr.io/revoltchat/january:master
+    container_name: revolt-january
+    depends_on:
+    - revolt
+    restart: always
+    networks:
+    - tipi_main_network
+    environment:
+    - MONGODB=mongodb://revolt-database
+    - REDIS_URI=redis://revolt-redis/
+    - HOSTNAME=:80
+    - REVOLT_APP_URL=https://${APP_DOMAIN}
+    - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+    - VITE_API_URL=https://${APP_DOMAIN}/api
+    - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+    - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+    - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+    - REVOLT_UNSAFE_NO_CAPTCHA=1
+    - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+    - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+    - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+    - REVOLT_SMTP_FROM=${REVOLT_SMTP_FROM}
+    - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+    - REVOLT_MAX_GROUP_SIZE=150
+    - REVOLT_VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
+    - REVOLT_VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
+    - AUTUMN_S3_REGION=minio
+    - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+    - MINIO_ROOT_USER=minioautumn
+    - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+    - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+    - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+    labels:
+      runtipi.managed: true
+  revolt-createbuckets:
+    image: minio/mc
+    container_name: revolt-createbuckets
+    depends_on:
+    - revolt-minio
+    entrypoint: '/bin/sh -c " while ! curl -s --output /dev/null --connect-timeout
+      1 http://revolt-minio:9000; do echo ''Waiting minio...'' && sleep 0.1; done;
+      /usr/bin/mc alias set minio http://revolt-minio:9000 minioautumn ${REVOLT_MINIO_ROOT_PASSWORD};
+      /usr/bin/mc mb minio/attachments; /usr/bin/mc mb minio/avatars; /usr/bin/mc
+      mb minio/backgrounds; /usr/bin/mc mb minio/icons; /usr/bin/mc mb minio/banners;
+      /usr/bin/mc mb minio/emojis; exit 0; "
+
+      '
+    networks:
+    - tipi_main_network
+    environment:
+    - MONGODB=mongodb://revolt-database
+    - REDIS_URI=redis://revolt-redis/
+    - HOSTNAME=:80
+    - REVOLT_APP_URL=https://${APP_DOMAIN}
+    - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+    - VITE_API_URL=https://${APP_DOMAIN}/api
+    - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+    - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+    - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+    - REVOLT_UNSAFE_NO_CAPTCHA=1
+    - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+    - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+    - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+    - REVOLT_SMTP_FROM=${REVOLT_SMTP_FROM}
+    - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+    - REVOLT_MAX_GROUP_SIZE=150
+    - REVOLT_VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
+    - REVOLT_VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
+    - AUTUMN_S3_REGION=minio
+    - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+    - MINIO_ROOT_USER=minioautumn
+    - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+    - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+    - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+    labels:
+      runtipi.managed: true
+  revolt:
+    image: caddy
+    container_name: revolt
+    restart: always
+    environment:
+    - MONGODB=mongodb://revolt-database
+    - REDIS_URI=redis://revolt-redis/
+    - HOSTNAME=:80
+    - REVOLT_APP_URL=https://${APP_DOMAIN}
+    - REVOLT_PUBLIC_URL=https://${APP_DOMAIN}/api
+    - VITE_API_URL=https://${APP_DOMAIN}/api
+    - REVOLT_EXTERNAL_WS_URL=wss://${APP_DOMAIN}/ws
+    - AUTUMN_PUBLIC_URL=https://${APP_DOMAIN}/autumn
+    - JANUARY_PUBLIC_URL=https://${APP_DOMAIN}/january
+    - REVOLT_UNSAFE_NO_CAPTCHA=1
+    - REVOLT_SMTP_HOST=${REVOLT_SMTP_HOST}
+    - REVOLT_SMTP_USERNAME=${REVOLT_SMTP_USERNAME}
+    - REVOLT_SMTP_PASSWORD=${REVOLT_SMTP_PASSWORD}
+    - REVOLT_SMTP_FROM=${REVOLT_SMTP_FROM}
+    - REVOLT_INVITE_ONLY=${REVOLT_INVITE_ONLY}
+    - REVOLT_MAX_GROUP_SIZE=150
+    - REVOLT_VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
+    - REVOLT_VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
+    - AUTUMN_S3_REGION=minio
+    - AUTUMN_S3_ENDPOINT=http://revolt-minio:9000
+    - MINIO_ROOT_USER=minioautumn
+    - MINIO_ROOT_PASSWORD=${REVOLT_MINIO_ROOT_PASSWORD}
+    - AWS_ACCESS_KEY_ID=${REVOLT_AWS_ACCESS_KEY_ID}
+    - AWS_SECRET_ACCESS_KEY=${REVOLT_AWS_SECRET_ACCESS_KEY}
+    ports:
+    - ${APP_PORT}:80
+    - 8273:443
+    volumes:
+    - ${APP_DATA_DIR}/data/CaddyFiles:/etc/caddy/
+    - ${APP_DATA_DIR}/data/caddy-data:/data
+    - ${APP_DATA_DIR}/data/caddy-config:/config
+    networks:
+    - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.revolt.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.revolt.entrypoints: websecure
+      traefik.http.routers.revolt.service: revolt
+      traefik.http.routers.revolt.tls.certresolver: myresolver
+      traefik.http.services.revolt.loadbalancer.server.port: 80
+      runtipi.managed: true
+ 
 ```
-
-### Voice Server Information
- Revolts self hosted setup currently does not have a working voice server. Thier Voice Server, [Vortex](https://github.com/revoltchat/vortex), [devlopemnt is paused.](https://github.com/revoltchat/self-hosted/pull/28#issuecomment-1522325342)
-
