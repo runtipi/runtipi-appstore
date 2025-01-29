@@ -54,7 +54,7 @@
         "timeout": "5s",
         "retries": 10,
         "test": "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"
-      },
+      }
     }
   ]
 }
