@@ -1,30 +1,139 @@
-[![](https://github.com/logto-io/logto/raw/master/logo.png)](https://logto.io)
+# Checklist
+## Dynamic compose for logto
+This is a logto update for using dynamic compose.
+##### Reaching the app :
+- [ ] http://localip:port
+- [ ] https://logto.tipi.local
+- [ ] 🌐 Additionnal Port(s)
+##### In app tests :
+- [ ] 📝 Register and log in
+- [ ] 🖱 Basic interaction
+- [ ] 🌆 Uploading data
+- [ ] 🔄 Check data after restart
+##### Volumes mapping :
+- [ ] ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+##### Specific instructions :
+- [ ] 🌳 Environment
+- [ ] 🔗 Depends on
+- [ ] 🚪 Entrypoint (['sh', '-c', 'npm run cli db seed -- --swe && npm start'])
+- [ ] 🩺 Healthcheck
 
-Logto is a cost-effective open-source alternative to Auth0. It offers a seamless developer experience and is well-suited for individuals and growing companies.
-
-🧑💻 **A frontend-to-backend identity solution**
-
--   OIDC-based authentication and RBAC authorization.
--   Passwordless sign in and much more diverse options, including Email, Phone number, Username, Google, Facebook and other social sign in methods.
--   Beautiful UI components with customizable CSS to fit your business needs.
-
-📦 **Out-of-box infrastructure**
-
--   A ready-to-use management API can serve as your authentication provider, eliminating the need for extra implementation.
--   SDKs that can integrate your apps with Logto quickly, multi-platform and language compatible, tailored to your development environment.
--   Flexible connectors, scalable with community contributions, customizable with SAML, OAuth, and OIDC protocols.
-
-💻 **Enterprise-ready solutions**
-
--   RBAC to control your resource through scalable role authorization for diverse use cases.
--   User management and audit Logs to understand identity related user info and keep your security on track.
--   We are currently working on SSO, Organizations and MFA! Stay tuned!
-
-Boringly, we call it "[customer identity access management](https://en.wikipedia.org/wiki/Customer_identity_access_management)" (CIAM) or "customer identity solution."
-
-[Subscribe to us](https://logto.io/subscribe/?utm_source=github&utm_medium=repo_logto) right away to receive up-to-date information about the Logto Cloud (SaaS) as well as in-time feature updates.
-
-## Get started
-
--   Visit our 🎨 [website](https://logto.io/?utm_source=github&utm_medium=repo_logto) for a brief introduction if you are new to Logto.
--   A step-by-step guide is available on 📖 [docs.logto.io](https://docs.logto.io/?utm_source=github&utm_medium=repo_logto).
+# New JSON
+```json
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "logto",
+      "image": "svhd/logto:1.23.0",
+      "isMain": true,
+      "internalPort": 3001,
+      "addPorts": [
+        {
+          "hostPort": 8204,
+          "containerPort": 3002
+        }
+      ],
+      "environment": {
+        "NODE_ENV": "production",
+        "TRUST_PROXY_HEADER": "1",
+        "DB_URL": "postgres://tipi:${LOGTO_DB_PASSWORD}@logto-db:5432/logto",
+        "ENDPOINT": "https://${APP_DOMAIN}",
+        "ADMIN_ENDPOINT": "https://${LOGTO_ADMIN_URL}"
+      },
+      "dependsOn": {
+        "logto-db": {
+          "condition": "service_healthy"
+        }
+      },
+      "entrypoint": [
+        "sh",
+        "-c",
+        "npm run cli db seed -- --swe && npm start"
+      ]
+    },
+    {
+      "name": "logto-db",
+      "image": "postgres:14",
+      "environment": {
+        "POSTGRES_USER": "tipi",
+        "POSTGRES_PASSWORD": "${LOGTO_DB_PASSWORD}",
+        "POSTGRES_DB": "logto"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgres",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ],
+      "healthCheck": {
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 5,
+        "test": "pg_isready"
+      }
+    }
+  ]
+} 
+```
+# Original YAML
+```yaml
+version: '3.9'
+services:
+  logto:
+    depends_on:
+      logto-db:
+        condition: service_healthy
+    image: svhd/logto:1.23.0
+    container_name: logto
+    entrypoint:
+    - sh
+    - -c
+    - npm run cli db seed -- --swe && npm start
+    ports:
+    - ${APP_PORT}:3001
+    - 8204:3002
+    environment:
+    - NODE_ENV=production
+    - TRUST_PROXY_HEADER=1
+    - DB_URL=postgres://tipi:${LOGTO_DB_PASSWORD}@logto-db:5432/logto
+    - ENDPOINT=https://${APP_DOMAIN}
+    - ADMIN_ENDPOINT=https://${LOGTO_ADMIN_URL}
+    networks:
+    - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.logto.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.logto.entrypoints: websecure
+      traefik.http.routers.logto.service: logto
+      traefik.http.routers.logto.tls.certresolver: myresolver
+      traefik.http.services.logto.loadbalancer.server.port: 3001
+      traefik.http.routers.logto-admin.rule: Host(`${LOGTO_ADMIN_URL}`)
+      traefik.http.routers.logto-admin.entrypoints: websecure
+      traefik.http.routers.logto-admin.service: logto
+      traefik.http.routers.logto-admin.tls.certresolver: myresolver
+      traefik.http.services.logto-admin.loadbalancer.server.port: 3002
+      runtipi.managed: true
+  logto-db:
+    container_name: logto-db
+    image: postgres:14
+    restart: unless-stopped
+    environment:
+    - POSTGRES_USER=tipi
+    - POSTGRES_PASSWORD=${LOGTO_DB_PASSWORD}
+    - POSTGRES_DB=logto
+    volumes:
+    - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+    - tipi_main_network
+    labels:
+      runtipi.managed: true
+ 
+```
