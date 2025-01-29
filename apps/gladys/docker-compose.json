@@ -1,0 +1,38 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "gladys",
+      "image": "gladysassistant/gladys:v4.51.0",
+      "isMain": true,
+      "networkMode": "host",
+      "environment": {
+        "NODE_ENV": "production",
+        "SERVER_PORT": "8270",
+        "TZ": "${TZ}",
+        "SQLITE_FILE_PATH": "/var/lib/gladysassistant/gladys-production.db"
+      },
+      "volumes": [
+        {
+          "hostPath": "/var/run/docker.sock",
+          "containerPath": "/var/run/docker.sock"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/gladysassistant",
+          "containerPath": "/var/lib/gladysassistant"
+        },
+        {
+          "hostPath": "/dev",
+          "containerPath": "/dev"
+        },
+        {
+          "hostPath": "/run/udev",
+          "containerPath": "/run/udev",
+          "readOnly": true
+        }
+      ],
+      "privileged": true,
+      "stopGracePeriod": "1m"
+    }
+  ]
+}
