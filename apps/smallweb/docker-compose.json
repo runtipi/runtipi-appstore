@@ -1,0 +1,22 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "smallweb",
+      "image": "ghcr.io/pomdtr/smallweb:0.20.1",
+      "isMain": true,
+      "internalPort": 7777,
+      "user": "0:0",
+      "environment": {
+        "SMALLWEB_DOMAIN": "${SMALLWEB_DOMAIN}",
+        "SMALLWEB_CUSTOM_DOMAINS": "smallweb.${LOCAL_DOMAIN}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/",
+          "containerPath": "/smallweb"
+        }
+      ]
+    }
+  ]
+}
