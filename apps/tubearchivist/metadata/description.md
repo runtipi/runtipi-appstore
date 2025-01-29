@@ -1,38 +1,186 @@
-# Your self-hosted YouTube media server
+# Checklist
+## Dynamic compose for tubearchivist
+This is a tubearchivist update for using dynamic compose.
+##### Reaching the app :
+- [ ] http://localip:port
+- [ ] https://tubearchivist.tipi.local
+##### In app tests :
+- [ ] 📝 Register and log in
+- [ ] 🖱 Basic interaction
+- [ ] 🌆 Uploading data
+- [ ] 🔄 Check data after restart
+##### Volumes mapping :
+- [ ] ${ROOT_FOLDER_HOST}/media/data/youtube:/youtube
+- [ ] ${APP_DATA_DIR}/data/cache:/cache
+- [ ] ${APP_DATA_DIR}/data/redis-data:/data
+- [ ] ${APP_DATA_DIR}/data/es:/usr/share/elasticsearch/data
+##### Specific instructions :
+- [ ] 🌳 Environment
+- [ ] 🔗 Depends on
+- 🏷 DNS (skipped)
+- [ ] 🙉 Expose
+- [ ] 🧱 Ulimits
 
-![Tube Archivist](https://github.com/tubearchivist/tubearchivist/blob/master/assets/tube-archivist-banner.jpg?raw=true "Tube Archivist Banner")
-
-## Core functionality
-
-* Subscribe to your favorite YouTube channels
-* Download Videos using **yt-dlp**
-* Index and make videos searchable
-* Play videos
-* Keep track of viewed and unviewed videos
-
-## If you have issues running Tube Archivist
-
-Please visit the following URL and ensure neither of the tips resolve the issue:
-
-https://github.com/tubearchivist/tubearchivist#potential-pitfalls
-
-If they do not, please open an app here and tag @sethforprivacy:
-
-https://github.com/meienberger/runtipi-appstore/issues
-
-## Folder Info 
-
-| Root Folder                                | Container Folder |
-|--------------------------------------------|------------------|
-| /runtipi/app-data/tubearchivist/data/cache | /cache           |
-| /runtipi/media/data/youtube                | /youtube         |
-
-If your /runtipi/media folder is remote mounted with NFS, follow the app
-customization instructions to set the environment variables for HOST_UID and
-HOST_GID to the owner of your media folder.
-
-Customization documentation:
-https://www.runtipi.io/docs/guides/customize-app-config
-
-TubeArchivist installation documentation:
-https://github.com/tubearchivist/tubearchivist#installing
+# New JSON
+```json
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "tubearchivist",
+      "image": "bbilly1/tubearchivist:v0.4.13",
+      "isMain": true,
+      "internalPort": 8000,
+      "environment": {
+        "ES_URL": "http://tubearchivist-es:9200",
+        "REDIS_HOST": "tubearchivist-redis",
+        "HOST_UID": "1000",
+        "HOST_GID": "1000",
+        "TA_USERNAME": "${TA_USER}",
+        "TA_PASSWORD": "${TA_PASSWORD}",
+        "TA_HOST": "${APP_DOMAIN}",
+        "ELASTIC_PASSWORD": "${ELASTIC_PASSWORD}"
+      },
+      "dependsOn": [
+        "tubearchivist-es",
+        "tubearchivist-redis"
+      ],
+      "volumes": [
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/data/youtube",
+          "containerPath": "/youtube"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/cache",
+          "containerPath": "/cache"
+        }
+      ]
+    },
+    {
+      "name": "tubearchivist-redis",
+      "image": "redislabs/rejson:latest",
+      "dependsOn": [
+        "tubearchivist-es"
+      ],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/redis-data",
+          "containerPath": "/data"
+        }
+      ]
+    },
+    {
+      "name": "tubearchivist-es",
+      "image": "elasticsearch:8.17.1",
+      "expose": [
+        "9200"
+      ],
+      "environment": {
+        "xpack.security.enabled": "true",
+        "ELASTIC_PASSWORD": "${ELASTIC_PASSWORD}",
+        "discovery.type": "single-node",
+        "ES_JAVA_OPTS": "-Xms512m -Xmx512m",
+        "path.repo": "/usr/share/elasticsearch/data/snapshot"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/es",
+          "containerPath": "/usr/share/elasticsearch/data"
+        }
+      ],
+      "ulimits": {
+        "memlock": {
+          "soft": -1,
+          "hard": -1
+        }
+      }
+    }
+  ]
+} 
+```
+# Original YAML
+```yaml
+version: '3.7'
+services:
+  tubearchivist:
+    container_name: tubearchivist
+    restart: unless-stopped
+    image: bbilly1/tubearchivist:v0.4.13
+    ports:
+    - ${APP_PORT}:8000
+    dns:
+    - ${DNS_IP}
+    volumes:
+    - ${ROOT_FOLDER_HOST}/media/data/youtube:/youtube
+    - ${APP_DATA_DIR}/data/cache:/cache
+    environment:
+    - ES_URL=http://tubearchivist-es:9200
+    - REDIS_HOST=tubearchivist-redis
+    - HOST_UID=1000
+    - HOST_GID=1000
+    - TA_USERNAME=${TA_USER}
+    - TA_PASSWORD=${TA_PASSWORD}
+    - TA_HOST=${APP_DOMAIN}
+    - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+    depends_on:
+    - tubearchivist-es
+    - tubearchivist-redis
+    networks:
+    - tipi_main_network
+    labels:
+      traefik.enable: true
+      traefik.http.middlewares.tubearchivist-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.tubearchivist.loadbalancer.server.port: 8000
+      traefik.http.routers.tubearchivist-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.tubearchivist-insecure.entrypoints: web
+      traefik.http.routers.tubearchivist-insecure.service: tubearchivist
+      traefik.http.routers.tubearchivist-insecure.middlewares: tubearchivist-web-redirect
+      traefik.http.routers.tubearchivist.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.tubearchivist.entrypoints: websecure
+      traefik.http.routers.tubearchivist.service: tubearchivist
+      traefik.http.routers.tubearchivist.tls.certresolver: myresolver
+      traefik.http.routers.tubearchivist-local-insecure.rule: Host(`tubearchivist.${LOCAL_DOMAIN}`)
+      traefik.http.routers.tubearchivist-local-insecure.entrypoints: web
+      traefik.http.routers.tubearchivist-local-insecure.service: tubearchivist
+      traefik.http.routers.tubearchivist-local-insecure.middlewares: tubearchivist-web-redirect
+      traefik.http.routers.tubearchivist-local.rule: Host(`tubearchivist.${LOCAL_DOMAIN}`)
+      traefik.http.routers.tubearchivist-local.entrypoints: websecure
+      traefik.http.routers.tubearchivist-local.service: tubearchivist
+      traefik.http.routers.tubearchivist-local.tls: true
+      runtipi.managed: true
+  tubearchivist-redis:
+    image: redislabs/rejson:latest
+    container_name: tubearchivist-redis
+    restart: always
+    networks:
+    - tipi_main_network
+    volumes:
+    - ${APP_DATA_DIR}/data/redis-data:/data
+    depends_on:
+    - tubearchivist-es
+    labels:
+      runtipi.managed: true
+  tubearchivist-es:
+    image: elasticsearch:8.17.1
+    container_name: tubearchivist-es
+    restart: always
+    environment:
+    - xpack.security.enabled=true
+    - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+    - discovery.type=single-node
+    - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    - path.repo=/usr/share/elasticsearch/data/snapshot
+    networks:
+    - tipi_main_network
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+    - ${APP_DATA_DIR}/data/es:/usr/share/elasticsearch/data
+    expose:
+    - '9200'
+    labels:
+      runtipi.managed: true
+ 
+```
