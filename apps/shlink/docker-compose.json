@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "shlink",
-      "image": "ghcr.io/shlinkio/shlink:4.4.0",
+      "image": "ghcr.io/shlinkio/shlink:4.4.2",
       "isMain": true,
       "internalPort": 8080,
       "environment": {
