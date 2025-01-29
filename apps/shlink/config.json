@@ -7,8 +7,8 @@
   "force_expose": true,
   "port": 8207,
   "id": "shlink",
-  "tipi_version": 14,
-  "version": "4.4.0",
+  "tipi_version": 15,
+  "version": "4.4.2",
   "categories": ["utilities"],
   "description": "Shlink is a self-hosted URL shortener which provides both a REST and a CLI interface to interact with it.",
   "short_desc": "Shlink is a self-hosted URL shortener",
@@ -25,5 +25,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1735482408809
+  "updated_at": 1738159263000
 }
