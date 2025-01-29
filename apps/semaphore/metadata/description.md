@@ -1,9 +1,134 @@
-## Semaphore UI (formerly Ansible Semaphore)
+# Checklist
+## Dynamic compose for semaphore
+This is a semaphore update for using dynamic compose.
+##### Reaching the app :
+- [ ] http://localip:port
+- [ ] https://semaphore.tipi.local
+##### In app tests :
+- [ ] 📝 Register and log in
+- [ ] 🖱 Basic interaction
+- [ ] 🌆 Uploading data
+- [ ] 🔄 Check data after restart
+##### Volumes mapping :
+- [ ] ${APP_DATA_DIR}/data/repositories:/repositories
+- [ ] ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+##### Specific instructions :
+- [ ] 🌳 Environment
 
-Semaphore is a modern UI for Ansible, Terraform/OpenTofu, Bash and Pulumi. It lets you easily run Ansible playbooks, get notifications about fails, control access to deployment system.
-
-If your project has grown and deploying from the terminal is no longer for you then Semaphore UI is what you need.
-
-![responsive-ui-phone1](https://user-images.githubusercontent.com/914224/134777345-8789d9e4-ff0d-439c-b80e-ddc56b74fcee.png)
-
-> Note 📝: If you want to use a path for repository in semaphore you can add your own repo in `runtipi/app-data/semaphore/data/repositories` and in semaphore use `/repositories/myrepo`
+# New JSON
+```json
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "semaphore",
+      "image": "semaphoreui/semaphore:v2.11.2",
+      "isMain": true,
+      "internalPort": 3000,
+      "environment": {
+        "SEMAPHORE_DB_USER": "semaphore",
+        "SEMAPHORE_DB_PASS": "${SEMAPHORE_DB_PASSWORD}",
+        "SEMAPHORE_DB_HOST": "semaphore-db",
+        "SEMAPHORE_DB_PORT": "5432",
+        "SEMAPHORE_DB_DIALECT": "postgres",
+        "SEMAPHORE_DB": "semaphore",
+        "SEMAPHORE_PLAYBOOK_PATH": "/tmp/semaphore",
+        "SEMAPHORE_ADMIN_PASSWORD": "${SEMAPHORE_ADMIN_PASSWORD}",
+        "SEMAPHORE_ADMIN_NAME": "${SEMAPHORE_ADMIN_NAME}",
+        "SEMAPHORE_ADMIN_EMAIL": "${SEMAPHORE_ADMIN_EMAIL}",
+        "SEMAPHORE_ADMIN": "${SEMAPHORE_ADMIN_NAME}",
+        "SEMAPHORE_ACCESS_KEY_ENCRYPTION": "${SEMAPHORE_ACCESS_KEY_ENCRYPTION}",
+        "SEMAPHORE_LDAP_ACTIVATED": "no",
+        "TZ": "${TZ}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/repositories",
+          "containerPath": "/repositories"
+        }
+      ]
+    },
+    {
+      "name": "semaphore-db",
+      "image": "postgres:14",
+      "environment": {
+        "POSTGRES_USER": "semaphore",
+        "POSTGRES_PASSWORD": "${SEMAPHORE_DB_PASSWORD}",
+        "POSTGRES_DB": "semaphore"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ]
+    }
+  ]
+} 
+```
+# Original YAML
+```yaml
+version: '3.9'
+services:
+  semaphore:
+    container_name: semaphore
+    image: semaphoreui/semaphore:v2.11.2
+    restart: unless-stopped
+    volumes:
+    - ${APP_DATA_DIR}/data/repositories:/repositories
+    environment:
+    - SEMAPHORE_DB_USER=semaphore
+    - SEMAPHORE_DB_PASS=${SEMAPHORE_DB_PASSWORD}
+    - SEMAPHORE_DB_HOST=semaphore-db
+    - SEMAPHORE_DB_PORT=5432
+    - SEMAPHORE_DB_DIALECT=postgres
+    - SEMAPHORE_DB=semaphore
+    - SEMAPHORE_PLAYBOOK_PATH=/tmp/semaphore
+    - SEMAPHORE_ADMIN_PASSWORD=${SEMAPHORE_ADMIN_PASSWORD}
+    - SEMAPHORE_ADMIN_NAME=${SEMAPHORE_ADMIN_NAME}
+    - SEMAPHORE_ADMIN_EMAIL=${SEMAPHORE_ADMIN_EMAIL}
+    - SEMAPHORE_ADMIN=${SEMAPHORE_ADMIN_NAME}
+    - SEMAPHORE_ACCESS_KEY_ENCRYPTION=${SEMAPHORE_ACCESS_KEY_ENCRYPTION}
+    - SEMAPHORE_LDAP_ACTIVATED=no
+    - TZ=${TZ}
+    ports:
+    - ${APP_PORT}:3000
+    networks:
+    - tipi_main_network
+    labels:
+      traefik.enable: true
+      traefik.http.middlewares.semaphore-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.semaphore.loadbalancer.server.port: 3000
+      traefik.http.routers.semaphore-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.semaphore-insecure.entrypoints: web
+      traefik.http.routers.semaphore-insecure.service: semaphore
+      traefik.http.routers.semaphore-insecure.middlewares: semaphore-web-redirect
+      traefik.http.routers.semaphore.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.semaphore.entrypoints: websecure
+      traefik.http.routers.semaphore.service: semaphore
+      traefik.http.routers.semaphore.tls.certresolver: myresolver
+      traefik.http.routers.semaphore-local-insecure.rule: Host(`semaphore.${LOCAL_DOMAIN}`)
+      traefik.http.routers.semaphore-local-insecure.entrypoints: web
+      traefik.http.routers.semaphore-local-insecure.service: semaphore
+      traefik.http.routers.semaphore-local-insecure.middlewares: semaphore-web-redirect
+      traefik.http.routers.semaphore-local.rule: Host(`semaphore.${LOCAL_DOMAIN}`)
+      traefik.http.routers.semaphore-local.entrypoints: websecure
+      traefik.http.routers.semaphore-local.service: semaphore
+      traefik.http.routers.semaphore-local.tls: true
+      runtipi.managed: true
+  semaphore-db:
+    container_name: semaphore-db
+    image: postgres:14
+    restart: unless-stopped
+    volumes:
+    - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    environment:
+    - POSTGRES_USER=semaphore
+    - POSTGRES_PASSWORD=${SEMAPHORE_DB_PASSWORD}
+    - POSTGRES_DB=semaphore
+    networks:
+    - tipi_main_network
+    labels:
+      runtipi.managed: true
+ 
+```
