@@ -3,10 +3,11 @@
   "name": "Lodestone Core",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "no_gui": true,
   "port": 16662,
   "id": "lodestone-core",
-  "tipi_version": 10,
+  "tipi_version": 11,
   "version": "0.5.1",
   "categories": ["gaming"],
   "description": "A free, open source server hosting tool for Minecraft and other multiplayers.",
@@ -17,5 +18,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566285000
+  "updated_at": 1736983530794
 }

@@ -2,7 +2,7 @@ version: "3.9"
 services:
   ghost-dev:
     container_name: ghost-dev
-    image: ghost:5.107.0
+    image: ghost:5.108.1
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data:/var/lib/ghost/content

@@ -1,0 +1,35 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "nitter",
+      "image": "zedeus/nitter:latest",
+      "isMain": true,
+      "internalPort": 8080,
+      "dependsOn": ["nitter-redis"],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/nitter.conf",
+          "containerPath": "/src/nitter.conf",
+          "readOnly": true
+        }
+      ],
+      "healthCheck": {
+        "interval": "1m",
+        "timeout": "3s",
+        "test": "wget --no-verbose --tries=1 --spider http://localhost:8080"
+      }
+    },
+    {
+      "name": "nitter-redis",
+      "image": "redis:alpine",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/redis",
+          "containerPath": "/data"
+        }
+      ],
+      "command": "redis-server --save 60 1 --loglevel warning"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "image": "activepieces/activepieces:0.39.8",
+      "image": "activepieces/activepieces:0.39.9",
       "name": "activepieces",
       "internalPort": 80,
       "isMain": true,
