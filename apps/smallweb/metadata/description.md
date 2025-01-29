@@ -1,40 +1,86 @@
-# Smallweb - Host websites from your internet folder
+# Checklist
+## Dynamic compose for smallweb
+This is a smallweb update for using dynamic compose.
+##### Reaching the app :
+- [ ] http://localip:port
+- [ ] https://smallweb.tipi.local
+##### In app tests :
+- [ ] 📝 Register and log in
+- [ ] 🖱 Basic interaction
+- [ ] 🌆 Uploading data
+- [ ] 🔄 Check data after restart
+##### Volumes mapping :
+- [ ] ${APP_DATA_DIR}/data/:/smallweb
+##### Specific instructions :
+- [ ] 🌳 Environment
+- [ ] 👤 User (0:0)
 
-> Warning ⚠️: The app needs to be accessed by local domain or domain in order to work, accessing via port will ***not*** work.
-
-> Warning ⚠️: Make sure you set a domain if you are updating to version 0.17.14 (4)
-
-Smallweb is a lightweight web server based on [Deno](https://deno.com). It draws inspiration from both legacy specifications like [CGI](https://en.wikipedia.org/wiki/Common_Gateway_Interface), modern serverless platforms such as [Val Town](https://val.town) and static sites generators like [Blot.im](https://blot.im).
-
-Smallweb maps domains to folders in your filesystem. For example, if you own the `pomdtr.me` domain:
-
-- `https://www.pomdtr.me` maps to `~/smallweb/www`
-- `https://example.pomdtr.me` maps to `~/smallweb/example`
-
-Creating a new website is as simple as creating a folder and opening the corresponding URL in your browser. There's no need to configure a build step (unless you want to) or start a development server. Since servers are mapped to folders, you can manage them using standard Unix tools like `cp`, `mv`, or `rm`.
-
-## A self-hosted personal cloud
-
-Each incoming HTTP request is sandboxed in a single Deno subprocess by the Smallweb evaluation server. If there are no incoming requests, no resources are used, making it an ideal solution for low-traffic websites.
-
-Smallweb does not use Docker, but it still sandboxes your code using Deno. And if you website suddenly go viral, you can move your site to Deno Deploy in one command.
-
-## Installation
-
-All the instructions are available in the [docs](https://docs.smallweb.run).
-
-## Examples
-
-All the websites on the `smallweb.run` domain are hosted using smallweb (including this one):
-
-- <https://docs.smallweb.run>
-- <https://blog.smallweb.run>
-- <https://excalidraw.smallweb.run>
-
-Since creating smallweb websites is so easy, you can even create super simple ones. For example, when I want to invite someone to the smallweb discord server, I just send him the link <https://discord.smallweb.run>, which maps to `~/smallweb/discord/main.ts` on my vps.
-
-```ts
-export default {
-    fetch: () => Response.redirect("https://discord.gg/BsgQK42qZe"),
-};
+# New JSON
+```json
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "smallweb",
+      "image": "ghcr.io/pomdtr/smallweb:0.20.1",
+      "isMain": true,
+      "internalPort": 7777,
+      "user": "0:0",
+      "environment": {
+        "SMALLWEB_DOMAIN": "${SMALLWEB_DOMAIN}",
+        "SMALLWEB_CUSTOM_DOMAINS": "smallweb.${LOCAL_DOMAIN}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/",
+          "containerPath": "/smallweb"
+        }
+      ]
+    }
+  ]
+} 
+```
+# Original YAML
+```yaml
+services:
+  smallweb:
+    container_name: smallweb
+    image: ghcr.io/pomdtr/smallweb:0.20.1
+    restart: unless-stopped
+    user: 0:0
+    ports:
+    - ${APP_PORT}:7777
+    environment:
+    - SMALLWEB_DOMAIN=${SMALLWEB_DOMAIN}
+    - SMALLWEB_CUSTOM_DOMAINS=smallweb.${LOCAL_DOMAIN}=*;${APP_DOMAIN}=*;
+    volumes:
+    - ${APP_DATA_DIR}/data/:/smallweb
+    networks:
+    - tipi_main_network
+    labels:
+      traefik.enable: true
+      traefik.http.middlewares.smallweb-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.smallweb.loadbalancer.server.port: 7777
+      traefik.http.routers.smallweb-insecure.rule: Host(`${APP_DOMAIN}`) || HostRegexp(`.+\.${APP_DOMAIN}`)
+      traefik.http.routers.smallweb-insecure.entrypoints: web
+      traefik.http.routers.smallweb-insecure.service: smallweb
+      traefik.http.routers.smallweb-insecure.middlewares: smallweb-web-redirect
+      traefik.http.routers.smallweb.rule: Host(`${APP_DOMAIN}`) || HostRegexp(`.+\.${APP_DOMAIN}`)
+      traefik.http.routers.smallweb.entrypoints: websecure
+      traefik.http.routers.smallweb.service: smallweb
+      traefik.http.routers.smallweb.tls.certresolver: myresolver
+      traefik.http.routers.smallweb.tls.domains[0].main: ${APP_DOMAIN}
+      traefik.http.routers.smallweb.tls.domains[0].sans: '*.${APP_DOMAIN}'
+      traefik.http.routers.smallweb-local-insecure.rule: Host(`smallweb.${LOCAL_DOMAIN}`)
+        || HostRegexp(`.+\.smallweb\.${LOCAL_DOMAIN}`)
+      traefik.http.routers.smallweb-local-insecure.entrypoints: web
+      traefik.http.routers.smallweb-local-insecure.service: smallweb
+      traefik.http.routers.smallweb-local-insecure.middlewares: smallweb-web-redirect
+      traefik.http.routers.smallweb-local.rule: Host(`smallweb.${LOCAL_DOMAIN}`) ||
+        HostRegexp(`.+\.smallweb\.${LOCAL_DOMAIN}`)
+      traefik.http.routers.smallweb-local.entrypoints: websecure
+      traefik.http.routers.smallweb-local.service: smallweb
+      traefik.http.routers.smallweb-local.tls: true
+      runtipi.managed: true
+ 
 ```
