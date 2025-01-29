@@ -3,9 +3,10 @@
   "available": true,
   "port": 8645,
   "exposable": true,
+  "dynamic_config": true,
   "id": "penpot",
   "description": "Penpot - The Open-Source design & prototyping platform.",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "latest",
   "categories": ["utilities"],
   "short_desc": "Open-Source design & prototyping platform.",
@@ -22,6 +23,6 @@
     }
   ],
   "created_at": 1691943801422,
-  "updated_at": 1723566283000,
+  "updated_at": 1738177568467,
   "$schema": "../app-info-schema.json"
 }
