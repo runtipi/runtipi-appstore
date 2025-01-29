@@ -1,0 +1,24 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "lodestone-core",
+      "image": "ghcr.io/lodestone-team/lodestone_core:0.5.1",
+      "isMain": true,
+      "internalPort": 16662,
+      "addPorts": [
+        {
+          "hostPort": "25565-25575",
+          "containerPort": "25565-25575"
+        }
+      ],
+      "user": "0:0",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/lodestone-data",
+          "containerPath": "/root/.lodestone"
+        }
+      ]
+    }
+  ]
+}
