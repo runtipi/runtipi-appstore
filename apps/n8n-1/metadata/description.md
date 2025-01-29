@@ -1,16 +1,190 @@
-## Installation Notes ##
+# Checklist
+## Dynamic compose for n8n-1
+This is a n8n-1 update for using dynamic compose.
+##### Reaching the app :
+- [ ] http://localip:port
+- [ ] https://n8n-1.tipi.local
+##### In app tests :
+- [ ] 📝 Register and log in
+- [ ] 🖱 Basic interaction
+- [ ] 🌆 Uploading data
+- [ ] 🔄 Check data after restart
+##### Volumes mapping :
+- [ ] ${APP_DATA_DIR}/data/n8n:/home/node/.n8n
+- [ ] ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+- [ ] ${APP_DATA_DIR}/data/init-data.sh:/docker-entrypoint-initdb.d/init-data.sh
+- [ ] ${APP_DATA_DIR}/data/n8n:/home/node/.n8n
+##### Specific instructions :
+- [ ] 🌳 Environment
+- [ ] 🔗 Depends on
+- [ ] 🩺 Healthcheck
+- [ ] ⌨ Command
 
-To enable OAUTH integrations you will need to enable the "expose app" option and configure a URL in Tipi. This setting can be changed at a later date if an integration is identified that needs it.
-
-## Easily automate tasks across different services. 
-
-n8n is an extendable workflow automation tool. With a fair-code distribution model, n8n will always have visible source code, be available to self-host, and allow you to add your own custom functions, logic and apps. n8n's node-based approach makes it highly 
-versatile, enabling you to connect anything to everything.
-
-![Screenshot](https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-screenshot.png)
-
-## Build with LangChain and AI in n8n
-With n8n's LangChain nodes you can build AI-powered functionality within your workflows. The LangChain nodes are configurable, meaning you can choose your preferred agent, LLM, memory, and so on. Alongside the LangChain nodes, you can connect any n8n node as normal: this means you can integrate your LangChain logic with other data sources and services.
-
-## Available integrations
-n8n has 200+ different nodes to automate workflows. The list can be found on: https://n8n.io/integrations
+# New JSON
+```json
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "n8n-1",
+      "image": "n8nio/n8n:1.73.1",
+      "isMain": true,
+      "internalPort": 5678,
+      "environment": {
+        "N8N_EDITOR_BASE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
+        "N8N_SECURE_COOKIE": "false",
+        "WEBHOOK_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
+        "DB_TYPE": "postgresdb",
+        "DB_POSTGRESDB_HOST": "n8n-db",
+        "DB_POSTGRESDB_PORT": "5432",
+        "DB_POSTGRESDB_DATABASE": "n8n",
+        "DB_POSTGRESDB_USER": "n8n",
+        "DB_POSTGRESDB_PASSWORD": "${N8N_NR_DB_PASSWORD}"
+      },
+      "dependsOn": {
+        "n8n-init": {
+          "condition": "service_completed_successfully"
+        },
+        "n8n-db": {
+          "condition": "service_healthy"
+        }
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/n8n",
+          "containerPath": "/home/node/.n8n"
+        }
+      ]
+    },
+    {
+      "name": "n8n-db",
+      "image": "postgres:11",
+      "environment": {
+        "POSTGRES_USER": "tipi",
+        "POSTGRES_PASSWORD": "${N8N_DB_PASSWORD}",
+        "POSTGRES_DB": "n8n",
+        "POSTGRES_NON_ROOT_USER": "n8n",
+        "POSTGRES_NON_ROOT_PASSWORD": "${N8N_NR_DB_PASSWORD}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgres",
+          "containerPath": "/var/lib/postgresql/data"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/init-data.sh",
+          "containerPath": "/docker-entrypoint-initdb.d/init-data.sh"
+        }
+      ],
+      "healthCheck": {
+        "interval": "5s",
+        "timeout": "5s",
+        "retries": 10,
+        "test": "pg_isready -h localhost -U $$POSTGRES_USER -d $$POSTGRES_DB"
+      }
+    },
+    {
+      "name": "n8n-init",
+      "image": "bash:5.2.37",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/n8n",
+          "containerPath": "/home/node/.n8n"
+        }
+      ],
+      "command": [
+        "sh",
+        "-c",
+        "chown -R 1000:1000 /home/node/.n8n"
+      ]
+    }
+  ]
+} 
+```
+# Original YAML
+```yaml
+services:
+  n8n-1:
+    container_name: n8n-1
+    image: n8nio/n8n:1.73.1
+    restart: unless-stopped
+    ports:
+    - ${APP_PORT}:5678
+    volumes:
+    - ${APP_DATA_DIR}/data/n8n:/home/node/.n8n
+    environment:
+    - N8N_EDITOR_BASE_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+    - N8N_SECURE_COOKIE=false
+    - WEBHOOK_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+    - DB_TYPE=postgresdb
+    - DB_POSTGRESDB_HOST=n8n-db
+    - DB_POSTGRESDB_PORT=5432
+    - DB_POSTGRESDB_DATABASE=n8n
+    - DB_POSTGRESDB_USER=n8n
+    - DB_POSTGRESDB_PASSWORD=${N8N_NR_DB_PASSWORD}
+    networks:
+    - tipi_main_network
+    links:
+    - n8n-db
+    depends_on:
+      n8n-init:
+        condition: service_completed_successfully
+      n8n-db:
+        condition: service_healthy
+    labels:
+      traefik.enable: true
+      traefik.http.middlewares.n8n-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.n8n.loadbalancer.server.port: 5678
+      traefik.http.routers.n8n-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.n8n-insecure.entrypoints: web
+      traefik.http.routers.n8n-insecure.service: n8n
+      traefik.http.routers.n8n-insecure.middlewares: n8n-web-redirect
+      traefik.http.routers.n8n.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.n8n.entrypoints: websecure
+      traefik.http.routers.n8n.service: n8n
+      traefik.http.routers.n8n.tls.certresolver: myresolver
+      traefik.http.routers.n8n-local-insecure.rule: Host(`n8n.${LOCAL_DOMAIN}`)
+      traefik.http.routers.n8n-local-insecure.entrypoints: web
+      traefik.http.routers.n8n-local-insecure.service: n8n
+      traefik.http.routers.n8n-local-insecure.middlewares: n8n-web-redirect
+      traefik.http.routers.n8n-local.rule: Host(`n8n.${LOCAL_DOMAIN}`)
+      traefik.http.routers.n8n-local.entrypoints: websecure
+      traefik.http.routers.n8n-local.service: n8n
+      traefik.http.routers.n8n-local.tls: true
+      runtipi.managed: true
+  n8n-db:
+    container_name: n8n-db
+    image: postgres:11
+    restart: unless-stopped
+    networks:
+    - tipi_main_network
+    environment:
+    - POSTGRES_USER=tipi
+    - POSTGRES_PASSWORD=${N8N_DB_PASSWORD}
+    - POSTGRES_DB=n8n
+    - POSTGRES_NON_ROOT_USER=n8n
+    - POSTGRES_NON_ROOT_PASSWORD=${N8N_NR_DB_PASSWORD}
+    volumes:
+    - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    - ${APP_DATA_DIR}/data/init-data.sh:/docker-entrypoint-initdb.d/init-data.sh
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -h localhost -U $$POSTGRES_USER -d $$POSTGRES_DB
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    labels:
+      runtipi.managed: true
+  n8n-init:
+    image: bash:5.2.37
+    command:
+    - sh
+    - -c
+    - chown -R 1000:1000 /home/node/.n8n
+    volumes:
+    - ${APP_DATA_DIR}/data/n8n:/home/node/.n8n
+    labels:
+      runtipi.managed: true
+ 
+```
