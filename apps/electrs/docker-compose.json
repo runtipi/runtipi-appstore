@@ -14,8 +14,9 @@
       },
       "volumes": [
         {
-          "hostPath": "${BITCOIND_DIR",
-          "containerPath": "-${APP_DATA_DIR}/../bitcoind/data}"
+          "hostPath": "/data/.bitcoin",
+          "containerPath": "${BITCOIND_DIR:-${APP_DATA_DIR}/../bitcoind/data}",
+          "readOnly": true
         }
       ]
     },
@@ -40,8 +41,9 @@
       },
       "volumes": [
         {
-          "hostPath": "${BITCOIND_DIR",
-          "containerPath": "-${APP_DATA_DIR}/../bitcoind/data}"
+          "hostPath": "/data/.bitcoin",
+          "containerPath": "${BITCOIND_DIR:-${APP_DATA_DIR}/../bitcoind/data}",
+          "readOnly": true
         },
         {
           "hostPath": "${APP_DATA_DIR}/data",
