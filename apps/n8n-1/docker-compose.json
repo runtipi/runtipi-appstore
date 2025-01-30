@@ -1,0 +1,60 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "n8n-1",
+      "image": "n8nio/n8n:1.73.1",
+      "isMain": true,
+      "internalPort": 5678,
+      "environment": {
+        "N8N_EDITOR_BASE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
+        "N8N_SECURE_COOKIE": "false",
+        "WEBHOOK_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
+        "DB_TYPE": "postgresdb",
+        "DB_POSTGRESDB_HOST": "n8n-db",
+        "DB_POSTGRESDB_PORT": "5432",
+        "DB_POSTGRESDB_DATABASE": "n8n",
+        "DB_POSTGRESDB_USER": "n8n",
+        "DB_POSTGRESDB_PASSWORD": "${N8N_NR_DB_PASSWORD}"
+      },
+      "dependsOn": {
+        "n8n-db": {
+          "condition": "service_healthy"
+        }
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/n8n",
+          "containerPath": "/home/node/.n8n"
+        }
+      ]
+    },
+    {
+      "name": "n8n-db",
+      "image": "postgres:11",
+      "environment": {
+        "POSTGRES_USER": "tipi",
+        "POSTGRES_PASSWORD": "${N8N_DB_PASSWORD}",
+        "POSTGRES_DB": "n8n",
+        "POSTGRES_NON_ROOT_USER": "n8n",
+        "POSTGRES_NON_ROOT_PASSWORD": "${N8N_NR_DB_PASSWORD}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgres",
+          "containerPath": "/var/lib/postgresql/data"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/init-data.sh",
+          "containerPath": "/docker-entrypoint-initdb.d/init-data.sh"
+        }
+      ],
+      "healthCheck": {
+        "interval": "5s",
+        "timeout": "5s",
+        "retries": 10,
+        "test": "pg_isready -h localhost -U $$POSTGRES_USER -d $$POSTGRES_DB"
+      }
+    }
+  ]
+}
