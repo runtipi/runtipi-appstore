@@ -3,7 +3,7 @@ version: "3.7"
 services:
   nut-upsd:
     container_name: nut-upsd
-    image: binwiederhier/nut-upsd:v2.11.0
+    image: instantlinux/nut-upsd:2.8.2-r2
     environment:
       - TZ=${TZ:-Europe/Brussels}
       - API_PASSWORD=${API_PASSWORD}
