@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "komga",
-  "tipi_version": 16,
-  "version": "1.18.0",
+  "tipi_version": 17,
+  "version": "1.19.0",
   "categories": ["media"],
   "description": "A media server for your comics, mangas, BDs, magazines and eBooks.",
   "short_desc": "A media server for your comics, mangas, BDs, magazines and eBooks.",
@@ -17,5 +17,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1736958031000
+  "updated_at": 1738243696000
 }
