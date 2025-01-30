@@ -1,23 +1,14 @@
-version: "3.7"
-
 services:
   nut-upsd:
-    container_name: nut-upsd
     image: instantlinux/nut-upsd:latest
-    environment:
-      - TZ=${TZ:-Europe/Brussels}
-      - API_PASSWORD=${API_PASSWORD}
-      # Driver found with this tool https://networkupstools.org/stable-hcl.html
-      - DRIVER=usbhid-ups
-      # If you want the ups to be named something other than 'ups', set the NAME env variable
-      # -NAME=cp800avr
+    container_name: nut-upsd
     restart: unless-stopped
-    devices:
-      # Device numbers are subject to change, so map in the bus
-      - /dev/bus/usb:/dev/bus/usb
-    ports:
-      - ${APP_PORT}:3493
     network_mode: host
+    environment:
+      - TZ=${TZ:-America/Denver}
+      - API_PASSWORD=${API_PASSWORD:-YourPasswordForAPIaccess}
+      - DRIVER=usbhid-ups
     labels:
+      # Main
       traefik.enable: false
       runtipi.managed: true

@@ -1,26 +1,36 @@
 {
   "$schema": "../app-info-schema.json",
-  "name": "NUT UPS",
+  "name": "MDNS Repeater",
   "available": true,
   "exposable": false,
   "dynamic_config": true,
   "no_gui": true,
-  "port": 3493,
-  "id": "nut-ups",
-  "tipi_version": 6,
+  "port": 9998,
+  "id": "mdns-repeater",
+  "tipi_version": 3,
   "version": "latest",
-  "categories": [
-    "utilities"
+  "categories": ["utilities", "automation"],
+  "author": "angelnu",
+  "description": "This program re-broadcast mDNS packets from one interface to other interfaces.",
+  "short_desc": "Re-broadcast mDNS packets.",
+  "source": "https://github.com/angelnu/docker-mdns_repeater",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "MDNS > hostNIC (FROM network)",
+      "required": true,
+      "placeholder": "eth0",
+      "env_variable": "MDNS_HOST_NIC"
+    },
+    {
+      "type": "text",
+      "label": "MDNS > dockerNIC (TO network)",
+      "required": true,
+      "placeholder": "br-5813ba86106f",
+      "env_variable": "MDNS_DOCKER_NIC"
+    }
   ],
-  "description": "Network UPS Tools (NUT) is an open-source solution that provides support for monitoring and managing uninterruptible power supplies (UPS), power distribution units (PDU), and other power devices. It offers a server-client architecture, allowing multiple systems to access power status and initiate safe shutdowns when necessary. NUT supports a wide range of UPS models and integrates with various systems for automated power management.",
-  "short_desc": "NUT (Network UPS Tools) is an open-source power management system that monitors and controls UPS devices, ensuring reliable power status and automated shutdowns.",
-  "author": "https://github.com/networkupstools",
-  "source": "https://github.com/networkupstools/nut",
-  "website": "https://networkupstools.org/download.html",
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ],
-  "created_at": 1738276740201,
-  "updated_at": 1738276740201
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1734113996789
 }
