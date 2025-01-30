@@ -7,8 +7,8 @@
   "dynamic_config": true,
   "no_gui": true,
   "id": "authentik",
-  "tipi_version": 37,
-  "version": "2024.12.2",
+  "tipi_version": 38,
+  "version": "2024.12.3",
   "https": true,
   "categories": ["development"],
   "description": "The authentication glue you need.",
@@ -31,5 +31,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1736712591232
+  "updated_at": 1738181036000
 }

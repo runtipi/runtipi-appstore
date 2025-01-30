@@ -1,0 +1,48 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "semaphore",
+      "image": "semaphoreui/semaphore:v2.11.2",
+      "isMain": true,
+      "internalPort": 3000,
+      "environment": {
+        "SEMAPHORE_DB_USER": "semaphore",
+        "SEMAPHORE_DB_PASS": "${SEMAPHORE_DB_PASSWORD}",
+        "SEMAPHORE_DB_HOST": "semaphore-db",
+        "SEMAPHORE_DB_PORT": "5432",
+        "SEMAPHORE_DB_DIALECT": "postgres",
+        "SEMAPHORE_DB": "semaphore",
+        "SEMAPHORE_PLAYBOOK_PATH": "/tmp/semaphore",
+        "SEMAPHORE_ADMIN_PASSWORD": "${SEMAPHORE_ADMIN_PASSWORD}",
+        "SEMAPHORE_ADMIN_NAME": "${SEMAPHORE_ADMIN_NAME}",
+        "SEMAPHORE_ADMIN_EMAIL": "${SEMAPHORE_ADMIN_EMAIL}",
+        "SEMAPHORE_ADMIN": "${SEMAPHORE_ADMIN_NAME}",
+        "SEMAPHORE_ACCESS_KEY_ENCRYPTION": "${SEMAPHORE_ACCESS_KEY_ENCRYPTION}",
+        "SEMAPHORE_LDAP_ACTIVATED": "no",
+        "TZ": "${TZ}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/repositories",
+          "containerPath": "/repositories"
+        }
+      ]
+    },
+    {
+      "name": "semaphore-db",
+      "image": "postgres:14",
+      "environment": {
+        "POSTGRES_USER": "semaphore",
+        "POSTGRES_PASSWORD": "${SEMAPHORE_DB_PASSWORD}",
+        "POSTGRES_DB": "semaphore"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/db",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ]
+    }
+  ]
+}

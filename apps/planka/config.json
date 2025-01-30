@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "planka",
-  "tipi_version": 45,
-  "version": "1.24.3",
+  "tipi_version": 46,
+  "version": "1.24.4",
   "categories": ["development"],
   "description": "The realtime kanban board for workgroups built with React and Redux.",
   "short_desc": "Free open source kanban board for workgroups.",
@@ -55,5 +55,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1736983694345
+  "updated_at": 1738181035000
 }
