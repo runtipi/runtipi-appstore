@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "jellyfin",
-      "image": "lscr.io/linuxserver/jellyfin:10.10.4",
+      "image": "lscr.io/linuxserver/jellyfin:10.10.5",
       "isMain": true,
       "internalPort": 8096,
       "environment": {
