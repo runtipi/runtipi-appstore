@@ -4,6 +4,7 @@
     {
       "name": "electrs-ui",
       "image": "ghcr.io/montejojorge/electrs-ui:v0.9.2",
+      "isMain": true,
       "internalPort": 3006,
       "environment": {
         "BITCOIND_DIR": "/data/.bitcoin",
@@ -14,15 +15,15 @@
       },
       "volumes": [
         {
-          "hostPath": "${BITCOIND_DIR",
-          "containerPath": "-${APP_DATA_DIR}/../bitcoind/data}"
+          "hostPath": "/data/.bitcoin",
+          "containerPath": "${BITCOIND_DIR:-${APP_DATA_DIR}/../bitcoind/data}",
+          "readOnly": true
         }
       ]
     },
     {
       "name": "electrs",
       "image": "getumbrel/electrs:v0.10.6",
-      "isMain": true,
       "addPorts": [
         {
           "hostPort": 50001,
@@ -40,8 +41,9 @@
       },
       "volumes": [
         {
-          "hostPath": "${BITCOIND_DIR",
-          "containerPath": "-${APP_DATA_DIR}/../bitcoind/data}"
+          "hostPath": "/data/.bitcoin",
+          "containerPath": "${BITCOIND_DIR:-${APP_DATA_DIR}/../bitcoind/data}",
+          "readOnly": true
         },
         {
           "hostPath": "${APP_DATA_DIR}/data",
