@@ -7,8 +7,8 @@
   "dynamic_config": true,
   "id": "koillection",
   "description": "Koillection is a self-hosted service allowing users to manage any kind of collections.",
-  "tipi_version": 22,
-  "version": "1.6.2",
+  "tipi_version": 23,
+  "version": "1.6.6",
   "categories": ["utilities"],
   "short_desc": "Koillection allow you to manage any kind of collections.",
   "author": "https://github.com/benjaminjonard",
@@ -32,5 +32,5 @@
     }
   ],
   "created_at": 1691943801422,
-  "updated_at": 1735587424000
+  "updated_at": 1738212390000
 }

@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "koillection",
-      "image": "koillection/koillection:1.6.2",
+      "image": "koillection/koillection:1.6.6",
       "isMain": true,
       "internalPort": 80,
       "environment": {
