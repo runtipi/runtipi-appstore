@@ -17,8 +17,7 @@ services:
       - /dev/bus/usb:/dev/bus/usb
     ports:
       - ${APP_PORT}:3493
-    networks:
-      - tipi_main_network
+    network_mode: host
     labels:
       traefik.enable: false
       runtipi.managed: true

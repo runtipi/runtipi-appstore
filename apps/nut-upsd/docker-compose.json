@@ -12,7 +12,8 @@
       },
       "devices": [
         "/dev/bus/usb:/dev/bus/usb"
-      ]
+      ],
+      "networkMode": "host"
     }
   ],
   "$schema": "../dynamic-compose-schema.json"
