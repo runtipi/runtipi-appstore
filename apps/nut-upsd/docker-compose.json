@@ -1,0 +1,19 @@
+{
+  "services": [
+    {
+      "name": "NUT UPS",
+      "image": "instantlinux/nut-upsd:2.8.2-r2",
+      "isMain": true,
+      "internalPort": 3493,
+      "environment": {
+        "TZ": "${TZ:-Europe/Brussels}",
+        "API_PASSWORD": "${API_PASSWORD}",
+        "DRIVER": "usbhid-ups"
+      },
+      "devices": [
+        "/dev/bus/usb:/dev/bus/usb"
+      ]
+    }
+  ],
+  "$schema": "../dynamic-compose-schema.json"
+}

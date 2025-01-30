@@ -1,0 +1,42 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "NUT UPS",
+  "available": true,
+  "dynamic_config": true,
+  "port": 3493,
+  "id": "nut-ups",
+  "tipi_version": 6,
+  "version": "2.8",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Network UPS Tools (NUT) is an open-source solution that provides support for monitoring and managing uninterruptible power supplies (UPS), power distribution units (PDU), and other power devices. It offers a server-client architecture, allowing multiple systems to access power status and initiate safe shutdowns when necessary. NUT supports a wide range of UPS models and integrates with various systems for automated power management.",
+  "short_desc": "NUT (Network UPS Tools) is an open-source power management system that monitors and controls UPS devices, ensuring reliable power status and automated shutdowns.",
+  "author": "https://github.com/networkupstools",
+  "source": "https://github.com/networkupstools/nut",
+  "website": "https://networkupstools.org/download.html",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Timezone",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "TZ"
+    },
+    {
+      "type": "password",
+      "label": "API Password",
+      "max": 50,
+      "min": 3,
+      "required": true,
+      "env_variable": "API_PASSWORD"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "created_at": 1738276740201,
+  "updated_at": 1738276740201
+}
