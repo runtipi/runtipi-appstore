@@ -2,6 +2,7 @@
   "$schema": "../app-info-schema.json",
   "name": "NUT UPS",
   "available": true,
+  "exposable": true,
   "dynamic_config": true,
   "port": 3493,
   "id": "nut-ups",
@@ -15,24 +16,6 @@
   "author": "https://github.com/networkupstools",
   "source": "https://github.com/networkupstools/nut",
   "website": "https://networkupstools.org/download.html",
-  "form_fields": [
-    {
-      "type": "text",
-      "label": "Timezone",
-      "max": 50,
-      "min": 3,
-      "required": true,
-      "env_variable": "TZ"
-    },
-    {
-      "type": "password",
-      "label": "API Password",
-      "max": 50,
-      "min": 3,
-      "required": true,
-      "env_variable": "API_PASSWORD"
-    }
-  ],
   "supported_architectures": [
     "arm64",
     "amd64"
