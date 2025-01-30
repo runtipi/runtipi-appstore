@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "NUT UPS",
-      "image": "instantlinux/nut-upsd:2.8.2-r2",
+      "image": "instantlinux/nut-upsd:latest",
       "isMain": true,
       "internalPort": 3493,
       "environment": {

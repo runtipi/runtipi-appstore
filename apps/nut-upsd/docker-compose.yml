@@ -3,7 +3,7 @@ version: "3.7"
 services:
   nut-upsd:
     container_name: nut-upsd
-    image: instantlinux/nut-upsd:2.8.2-r2
+    image: instantlinux/nut-upsd:latest
     environment:
       - TZ=${TZ:-Europe/Brussels}
       - API_PASSWORD=${API_PASSWORD}
@@ -11,6 +11,7 @@ services:
       - DRIVER=usbhid-ups
       # If you want the ups to be named something other than 'ups', set the NAME env variable
       # -NAME=cp800avr
+    restart: unless-stopped
     devices:
       # Device numbers are subject to change, so map in the bus
       - /dev/bus/usb:/dev/bus/usb
