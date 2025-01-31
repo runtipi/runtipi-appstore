@@ -12,7 +12,7 @@
   "categories": [
     "utilities"
   ],
-  "author": "hutchYy",
+  "author": "networkupstools",
   "description": "Network UPS Tools (NUT) is an open-source solution that provides support for monitoring and managing uninterruptible power supplies (UPS), power distribution units (PDU), and other power devices. It offers a server-client architecture, allowing multiple systems to access power status and initiate safe shutdowns when necessary. NUT supports a wide range of UPS models and integrates with various systems for automated power management.",
   "short_desc": "NUT (Network UPS Tools) is an open-source power management system that monitors and controls UPS devices, ensuring reliable power status and automated shutdowns.",
   "source": "https://github.com/networkupstools/nut",
