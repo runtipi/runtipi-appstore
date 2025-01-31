@@ -1,7 +1,7 @@
 services:
   prowlarr: # Should be exact same name as "id" field in config.json
     container_name: prowlarr # Should be exact same name as "id" field in config.json
-    image: ghcr.io/linuxserver/prowlarr:1.29.2
+    image: ghcr.io/linuxserver/prowlarr:1.30.2
     environment:
       - TZ=${TZ} # Can use any env variable. List in runtipi/templates/env-sample
     dns:
