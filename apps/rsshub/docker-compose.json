@@ -7,22 +7,19 @@
       "isMain": true,
       "internalPort": 1200,
       "environment": {
-        "TZ": "${TZ}"
+        "TZ": "${TZ}",
+        "NODE_ENV": "production",
+        "PUPPETEER_WS_ENDPOINT": "ws://rsshub-browserless:3000",
+        "REDIS_URL": "redis://rsshub-redis:6379/"
       },
-      "dependsOn": ["redis", "browserless"]
+      "dependsOn": ["rsshub-redis", "rsshub-browserless"]
     },
     {
-      "name": "browserless",
-      "image": "browserless/chrome",
-      "ulimits": {
-        "core": {
-          "soft": 0,
-          "hard": 0
-        }
-      }
+      "name": "rsshub-browserless",
+      "image": "browserless/chrome"
     },
     {
-      "name": "redis",
+      "name": "rsshub-redis",
       "image": "redis:alpine",
       "volumes": [
         {
