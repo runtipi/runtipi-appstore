@@ -26,6 +26,13 @@
     },
     {
       "type": "text",
+      "label": "API User",
+      "required": false,
+      "placeholder": "upsmon",
+      "env_variable": "API_USER"
+    },
+    {
+      "type": "text",
       "label": "API Password",
       "required": true,
       "placeholder": "YourPasswordForAPIaccess",
