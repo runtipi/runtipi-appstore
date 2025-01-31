@@ -4,12 +4,16 @@
       "name": "nut-upsd",
       "image": "instantlinux/nut-upsd:latest",
       "isMain": true,
-      "networkMode": "host",
       "environment": {
         "TZ": "${TZ:-America/Denver}",
+        "API_USER": "${API_USER:-upsmon}",
         "API_PASSWORD": "${API_PASSWORD:-YourPasswordForAPIaccess}",
         "DRIVER": "usbhid-ups"
-      }
+      },
+      "internalPort": 3493,
+      "devices": [
+        "/dev/bus/usb:/dev/bus/usb"
+      ]
     }
   ],
   "$schema": "../dynamic-compose-schema.json"

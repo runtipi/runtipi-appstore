@@ -1,36 +1,35 @@
 {
   "$schema": "../app-info-schema.json",
-  "name": "MDNS Repeater",
+  "name": "NUT UPS",
   "available": true,
   "exposable": false,
   "dynamic_config": true,
   "no_gui": true,
-  "port": 9998,
+  "port": 3493,
   "id": "nut-upsd",
   "tipi_version": 1,
   "version": "latest",
   "categories": [
-    "utilities",
-    "automation"
+    "utilities"
   ],
-  "author": "angelnu",
-  "description": "This program re-broadcast mDNS packets from one interface to other interfaces.",
-  "short_desc": "Re-broadcast mDNS packets.",
-  "source": "https://github.com/angelnu/docker-mdns_repeater",
+  "author": "hutchYy",
+  "description": "Network UPS Tools (NUT) is an open-source solution that provides support for monitoring and managing uninterruptible power supplies (UPS), power distribution units (PDU), and other power devices. It offers a server-client architecture, allowing multiple systems to access power status and initiate safe shutdowns when necessary. NUT supports a wide range of UPS models and integrates with various systems for automated power management.",
+  "short_desc": "NUT (Network UPS Tools) is an open-source power management system that monitors and controls UPS devices, ensuring reliable power status and automated shutdowns.",
+  "source": "https://github.com/networkupstools/nut",
   "form_fields": [
     {
       "type": "text",
-      "label": "MDNS > hostNIC (FROM network)",
+      "label": "Timezone",
       "required": true,
-      "placeholder": "eth0",
-      "env_variable": "MDNS_HOST_NIC"
+      "placeholder": "Europe/Brussels",
+      "env_variable": "TZ"
     },
     {
       "type": "text",
-      "label": "MDNS > dockerNIC (TO network)",
+      "label": "API Password",
       "required": true,
-      "placeholder": "br-5813ba86106f",
-      "env_variable": "MDNS_DOCKER_NIC"
+      "placeholder": "YourPasswordForAPIaccess",
+      "env_variable": "API_PASSWORD"
     }
   ],
   "supported_architectures": [

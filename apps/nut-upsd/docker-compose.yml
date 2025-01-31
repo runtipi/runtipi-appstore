@@ -3,11 +3,17 @@ services:
     image: instantlinux/nut-upsd:latest
     container_name: nut-upsd
     restart: unless-stopped
-    network_mode: host
+    ports:
+      - "3493:3493"
     environment:
-      - TZ=${TZ:-America/Denver}
+      - TZ=${TZ:-Brussels/Europe}
+      - API_USER=${API_USER:-upsmon}
       - API_PASSWORD=${API_PASSWORD:-YourPasswordForAPIaccess}
       - DRIVER=usbhid-ups
+    devices:
+      # Device numbers are subject to change, so map in the whole bus. NUT
+      # will automatically find the UPS for you.
+      - /dev/bus/usb:/dev/bus/usb
     labels:
       # Main
       traefik.enable: false
