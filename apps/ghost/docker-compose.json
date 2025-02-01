@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "ghost",
-      "image": "ghost:5.108.2",
+      "image": "ghost:5.109.0",
       "dependsOn": ["ghostdb"],
       "internalPort": 2368,
       "environment": {
