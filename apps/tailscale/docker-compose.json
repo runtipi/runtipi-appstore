@@ -1,0 +1,36 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "tailscale",
+      "image": "tailscale/tailscale:v1.78.3",
+      "isMain": true,
+      "environment": {
+        "TS_SERVE_CONFIG": "${TAILSCALE_SERVE_CONFIG}",
+        "TS_ACCEPT_DNS": "${TAILSCALE_ACCEPT_DNS-false}",
+        "TS_AUTH_ONCE": "${TAILSCALE_AUTH_ONCE-false}",
+        "TS_AUTHKEY": "${TAILSCALE_AUTHKEY}",
+        "TS_HOSTNAME": "${TAILSCALE_HOSTNAME-runtipi}",
+        "TS_ROUTES": "${TAILSCALE_ROUTES}",
+        "TS_EXTRA_ARGS": "${TAILSCALE_EXTRA_ARGS}",
+        "TS_USERSPACE": "${TAILSCALE_USERSPACE-true}",
+        "TS_STATE_DIR": "/var/lib/tailscale"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/state",
+          "containerPath": "/var/lib/tailscale"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/config"
+        },
+        {
+          "hostPath": "/dev/net/tun",
+          "containerPath": "/dev/net/tun"
+        }
+      ],
+      "capAdd": ["net_admin", "sys_module"]
+    }
+  ]
+}
