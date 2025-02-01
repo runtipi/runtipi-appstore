@@ -3,7 +3,7 @@
     {
       "name": "nextcloud-fh",
       "image": "nextcloud:30.0.5-fpm-alpine",
-      "internalPort": 80,
+      "internalPort": 9000,
       "isMain": true,
       "volumes": [
         {

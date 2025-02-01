@@ -24,7 +24,7 @@ services:
       # Main
       traefik.enable: true
       traefik.http.middlewares.nextcloud-fh-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.nextcloud-fh.loadbalancer.server.port: 80
+      traefik.http.services.nextcloud-fh.loadbalancer.server.port: 9000
       # Web
       traefik.http.routers.nextcloud-fh-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.nextcloud-fh-insecure.entrypoints: web
