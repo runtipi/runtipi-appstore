@@ -23,6 +23,10 @@
       "dependsOn": ["nextcloud-fh-db", "nextcloud-fh-redis"]
     },
     {
+      "name": "nextcloud-fh-redis",
+      "image": "redis:alpine"
+    },
+    {
       "name": "nextcloud-fh-cron",
       "image": "nextcloud:30.0.5-fpm-alpine",
       "volumes": [

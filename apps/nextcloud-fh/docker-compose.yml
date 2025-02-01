@@ -65,6 +65,16 @@ services:
       # Runtipi managed
       runtipi.managed: true
 
+  nextcloud-fh-redis:
+    container_name: nextcloud-fh-redis
+    image: redis:alpine
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      # Runtipi managed
+      runtipi.managed: true
+
   nextcloud-fh-db:
     container_name: nextcloud-fh-db
     image: postgres:16-alpine
