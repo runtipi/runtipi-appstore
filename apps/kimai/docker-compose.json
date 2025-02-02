@@ -2,34 +2,15 @@
   "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
-      "name": "nginx",
-      "image": "tobybatch/nginx-fpm-reverse-proxy:latest",
-      "internalPort": 80,
-      "dependsOn": ["kimai"],
-      "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/data/public",
-          "containerPath": "/opt/kimai/public",
-          "readOnly": true
-        }
-      ],
-      "healthCheck": {
-        "interval": "20s",
-        "timeout": "10s",
-        "retries": 3,
-        "startPeriod": "10s",
-        "test": "wget --spider http://kimai-proxy/health || exit 1"
-      }
-    },
-    {
       "name": "kimai",
       "image": "kimai/kimai2:fpm-2.1.0-prod",
       "isMain": true,
+      "internalPort": 80,
       "environment": {
         "ADMINMAIL": "${KIMAI_ADMINMAIL}",
         "ADMINPASS": "${KIMAI_ADMINPASS}",
         "DATABASE_URL": "mysql://kimai:${KIMAI_DATABASE_PASSWORD}@kimai-sqldb/kimai?charset",
-        "TRUSTED_HOSTS": "kimai-proxy,localhost,127.0.0.1"
+        "TRUSTED_HOSTS": "runtipi-reverse-proxy,localhost,127.0.0.1"
       },
       "volumes": [
         {
