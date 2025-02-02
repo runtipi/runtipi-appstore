@@ -14,12 +14,21 @@ services:
       - GRIST_SESSION_SECRET=Mycobacteri@98
       - GRIST_DEFAULT_EMAIL=ianras@yahoo.com
       - GRIST_SINGLE_ORG=rasies
+<<<<<<< HEAD
     ports:
       - "${APP_PORT:-8484}:8484"
     restart: always
     volumes:
       - "${APP_DATA_DIR}/data/grist-data:/persist"
       - "${APP_DATA_DIR}/data/grist-data/tmp:/persist/tmp"
+=======
+    image: gristlabs/grist:1.1.16
+    ports:
+      - ${APP_PORT}:8484
+    restart: always
+    volumes:
+      - ${APP_DATA_DIR}/data/grist-data:/persist
+>>>>>>> a2a72c49 (Add wordpress_elderseth)
     networks:
       - tipi_main_network
     labels:
