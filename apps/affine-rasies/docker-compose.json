@@ -25,10 +25,17 @@
         "NODE_ENV": "production",
         "AFFINE_ADMIN_EMAIL": "${AFFINE_ADMIN_EMAIL}",
         "AFFINE_ADMIN_PASSWORD": "${AFFINE_ADMIN_PASSWORD}",
-        "TELEMETRY_ENABLE": "${AFFINE_TELEMETRY_ENABLE}",
-        "AFFINE_USE_COPILOT": "true",
-        "AFFINE_COPILOT_BASE_URL": "http://192.168.1.12:8080/v1",
-        "AFFINE_COPILOT_MODEL": "deepseek-r1-distill-llama-8b"
+        "TELEMETRY_ENABLE": "false",  // ❌ Disabling telemetry for privacy
+        "AFFINE_SMTP_HOST": "${SMTP_HOST}",  // ✅ Enable email notifications
+        "AFFINE_SMTP_PORT": "${SMTP_PORT}",
+        "AFFINE_SMTP_USERNAME": "${SMTP_USERNAME}",
+        "AFFINE_SMTP_PASSWORD": "${SMTP_PASSWORD}",
+        "AFFINE_SMTP_FROM": "${SMTP_FROM_EMAIL}",
+        "AFFINE_COPILOT_ENABLED": "true",  // ✅ Enable Copilot AI
+        "AFFINE_COPILOT_PROVIDER": "openai",
+        "AFFINE_COPILOT_OPENAI_API_KEY": "${OPENAI_API_KEY}",
+        "AFFINE_COPILOT_OPENAI_MODEL": "gpt-4",
+        "AFFINE_COPILOT_OPENAI_BASE_URL": "https://api.openai.com/v1"
       },
       "dependsOn": {
         "affine-redis": {
@@ -43,8 +50,7 @@
         "options": {
           "max-size": "1000m"
         }
-      },
-      "restart": "unless-stopped"
+      }
     },
     {
       "image": "redis",
@@ -55,13 +61,16 @@
           "containerPath": "/data"
         }
       ],
+      "environment": {
+        "REDIS_TIMEOUT": "300",  // ✅ Auto-expire locks after 5 minutes
+        "REDIS_MAXMEMORY_POLICY": "allkeys-lru"
+      },
       "healthCheck": {
-        "test": ["CMD", "redis-cli", "ping"],
+        "test": ["CMD", "redis-cli", "--raw", "incr", "ping"],
         "interval": "10s",
         "timeout": "5s",
         "retries": 5
-      },
-      "restart": "unless-stopped"
+      }
     },
     {
       "image": "postgres:16",
@@ -69,22 +78,20 @@
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgres",
-          "containerPath": "/var/lib/postgresql/data",
-          "type": "volume"
+          "containerPath": "/var/lib/postgresql/data"
         }
       ],
-      "healthCheck": {
-        "test": ["CMD", "pg_isready", "-U", "tipi", "-d", "affine"],
-        "interval": "10s",
-        "timeout": "5s",
-        "retries": 5
-      },
       "environment": {
         "POSTGRES_USER": "tipi",
         "POSTGRES_PASSWORD": "${AFFINE_POSTGRES_PASSWORD}",
         "POSTGRES_DB": "affine"
       },
-      "restart": "unless-stopped"
+      "healthCheck": {
+        "test": ["CMD-SHELL", "pg_isready -U tipi -d affine"],
+        "interval": "10s",
+        "timeout": "5s",
+        "retries": 5
+      }
     }
   ]
 }
