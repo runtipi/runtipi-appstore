@@ -24,7 +24,7 @@
       ]
     },
     {
-      "name": "sqldb",
+      "name": "kimai-sqldb",
       "image": "mysql:5.7",
       "environment": {
         "MYSQL_DATABASE": "kimai",
