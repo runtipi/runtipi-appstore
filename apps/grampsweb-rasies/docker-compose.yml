@@ -8,11 +8,11 @@ services:
     environment:
       GRAMPSWEB_TREE: ${GRAMPSWEB_TREE}
       GUNICORN_NUM_WORKERS: "8"
-      GUNICORN_CMD_ARGS: "--timeout 300"  # Set timeout to 300 seconds
+      GUNICORN_CMD_ARGS: "--timeout 800"  # Set timeout to 300 seconds
       GRAMPSWEB_LLM_ENABLED: "true"      # Enable LLM
       GRAMPSWEB_LLM_SERVER: "http://192.168.1.12:8080"  # LocalAI server URL
-      GRAMPSWEB_LLM_MODEL: "versatillama-llama-3.2-3b-instruct-abliterated"  # Specify model
-      GRAMPSWEB_LLM_EMBEDDER: "rwkv-6-world-7b"  # Embedder for LLM
+      GRAMPSWEB_LLM_MODEL: "deepseek-r1-distill-llama-8b"  # Specify model
+      GRAMPSWEB_LLM_EMBEDDER: "bert-embeddings"  # Embedder for LLM
     ports:
       - ${APP_PORT}:5000
     volumes:
