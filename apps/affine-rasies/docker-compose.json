@@ -1,98 +1,140 @@
 {
-  "$schema": "../dynamic-compose-schema.json",
-  "services": [
+  "name": "AFFiNE for RASIES.com",
+  "id": "affine-rasies",
+  "available": true,
+  "dynamic_config": true,
+  "short_desc": "AFFiNE is a workspace with fully merged docs, whiteboards, and databases.",
+  "author": "https://github.com/toeverything",
+  "port": 3010,
+  "categories": ["utilities"],
+  "description": "AFFiNE is a workspace with fully merged docs, whiteboards, and databases. A privacy-focused, local-first, open-source, and ready-to-use alternative for Notion & Miro.",
+  "tipi_version": 4,
+  "version": "stable",
+  "source": "https://github.com/toeverything/affine",
+  "website": "https://affine.pro",
+  "exposable": true,
+  "form_fields": [
     {
-      "image": "ghcr.io/toeverything/affine-graphql:stable",
-      "name": "affine",
-      "internalPort": 3010,
-      "isMain": true,
-      "command": ["sh", "-c", "node ./scripts/self-host-predeploy && node ./dist/index.js"],
-      "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/data/config",
-          "containerPath": "/root/.affine/config"
-        },
-        {
-          "hostPath": "${APP_DATA_DIR}/data/storage",
-          "containerPath": "/root/.affine/storage"
-        }
-      ],
-      "environment": {
-        "NODE_OPTIONS": "--import=./scripts/register.js",
-        "AFFINE_CONFIG_PATH": "/root/.affine/config",
-        "REDIS_SERVER_HOST": "affine-redis",
-        "DATABASE_URL": "postgres://tipi:${AFFINE_POSTGRES_PASSWORD}@affine-postgres:5432/affine",
-        "NODE_ENV": "production",
-        "AFFINE_ADMIN_EMAIL": "${AFFINE_ADMIN_EMAIL}",
-        "AFFINE_ADMIN_PASSWORD": "${AFFINE_ADMIN_PASSWORD}",
-        "TELEMETRY_ENABLE": "false",  // ❌ Disabling telemetry for privacy
-        "AFFINE_SMTP_HOST": "${SMTP_HOST}",  // ✅ Enable email notifications
-        "AFFINE_SMTP_PORT": "${SMTP_PORT}",
-        "AFFINE_SMTP_USERNAME": "${SMTP_USERNAME}",
-        "AFFINE_SMTP_PASSWORD": "${SMTP_PASSWORD}",
-        "AFFINE_SMTP_FROM": "${SMTP_FROM_EMAIL}",
-        "AFFINE_COPILOT_ENABLED": "true",  // ✅ Enable Copilot AI
-        "AFFINE_COPILOT_PROVIDER": "openai",
-        "AFFINE_COPILOT_OPENAI_API_KEY": "${OPENAI_API_KEY}",
-        "AFFINE_COPILOT_OPENAI_MODEL": "gpt-4",
-        "AFFINE_COPILOT_OPENAI_BASE_URL": "https://api.openai.com/v1"
-      },
-      "dependsOn": {
-        "affine-redis": {
-          "condition": "service_healthy"
-        },
-        "affine-postgres": {
-          "condition": "service_healthy"
-        }
-      },
-      "logging": {
-        "driver": "json-file",
-        "options": {
-          "max-size": "1000m"
-        }
-      }
+      "env_variable": "AFFINE_ADMIN_EMAIL",
+      "label": "Admin Email",
+      "type": "text",
+      "required": true,
+      "pattern_error": "Invalid email",
+      "regex": "^[\\w\\-\\.]+@([\\w-]+\\.)+[\\w-]{2,}$"
     },
     {
-      "image": "redis",
-      "name": "affine-redis",
-      "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/data/redis",
-          "containerPath": "/data"
-        }
-      ],
-      "environment": {
-        "REDIS_TIMEOUT": "300",  // ✅ Auto-expire locks after 5 minutes
-        "REDIS_MAXMEMORY_POLICY": "allkeys-lru"
-      },
-      "healthCheck": {
-        "test": ["CMD", "redis-cli", "--raw", "incr", "ping"],
-        "interval": "10s",
-        "timeout": "5s",
-        "retries": 5
-      }
+      "env_variable": "AFFINE_ADMIN_PASSWORD",
+      "label": "Admin Password",
+      "type": "password",
+      "required": true,
+      "min": 8,
+      "max": 128,
+      "pattern_error": "Password must contain at least 1 uppercase, 1 lowercase, 1 digit, and 1 special character.",
+      "regex": "^(?=.*\\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\\w\\d\\s:])([^\\s$]){8,128}$"
     },
     {
-      "image": "postgres:16",
-      "name": "affine-postgres",
-      "volumes": [
+      "env_variable": "AFFINE_TELEMETRY_ENABLE",
+      "label": "Enable AFFiNE telemetry?",
+      "type": "boolean",
+      "required": false
+    },
+    {
+      "env_variable": "AFFINE_POSTGRES_PASSWORD",
+      "label": "Affine PostgreSQL Password",
+      "type": "random",
+      "min": 32
+    },
+    {
+      "env_variable": "AFFINE_SMTP_HOST",
+      "label": "SMTP Server",
+      "type": "text",
+      "required": true,
+      "pattern_error": "Invalid SMTP server address",
+      "regex": "^(smtp)\\.([a-zA-Z0-9-]+)\\.([a-zA-Z]{2,})$"
+    },
+    {
+      "env_variable": "AFFINE_SMTP_PORT",
+      "label": "SMTP Port",
+      "type": "number",
+      "required": true,
+      "min": 1,
+      "max": 65535
+    },
+    {
+      "env_variable": "AFFINE_SMTP_USERNAME",
+      "label": "SMTP Username",
+      "type": "text",
+      "required": true
+    },
+    {
+      "env_variable": "AFFINE_SMTP_PASSWORD",
+      "label": "SMTP Password",
+      "type": "password",
+      "required": true,
+      "min": 8,
+      "max": 128
+    },
+    {
+      "env_variable": "AFFINE_SMTP_FROM",
+      "label": "SMTP From Email",
+      "type": "text",
+      "required": true,
+      "pattern_error": "Invalid email",
+      "regex": "^[\\w\\-\\.]+@([\\w-]+\\.)+[\\w-]{2,}$"
+    },
+    {
+      "env_variable": "AFFINE_COPILOT_ENABLED",
+      "label": "Enable Copilot AI?",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "env_variable": "AFFINE_COPILOT_PROVIDER",
+      "label": "Copilot AI Provider",
+      "type": "select",
+      "required": true,
+      "options": [
         {
-          "hostPath": "${APP_DATA_DIR}/data/postgres",
-          "containerPath": "/var/lib/postgresql/data"
+          "value": "openai",
+          "label": "OpenAI"
         }
-      ],
-      "environment": {
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_PASSWORD": "${AFFINE_POSTGRES_PASSWORD}",
-        "POSTGRES_DB": "affine"
-      },
-      "healthCheck": {
-        "test": ["CMD-SHELL", "pg_isready -U tipi -d affine"],
-        "interval": "10s",
-        "timeout": "5s",
-        "retries": 5
-      }
+      ]
+    },
+    {
+      "env_variable": "AFFINE_COPILOT_OPENAI_API_KEY",
+      "label": "OpenAI API Key",
+      "type": "password",
+      "required": true,
+      "pattern_error": "Invalid OpenAI API Key format",
+      "regex": "^sk-[a-zA-Z0-9]{48,}$"
+    },
+    {
+      "env_variable": "AFFINE_COPILOT_OPENAI_MODEL",
+      "label": "OpenAI Model",
+      "type": "select",
+      "required": true,
+      "options": [
+        {
+          "value": "gpt-4",
+          "label": "GPT-4"
+        },
+        {
+          "value": "gpt-3.5-turbo",
+          "label": "GPT-3.5 Turbo"
+        }
+      ]
+    },
+    {
+      "env_variable": "AFFINE_COPILOT_OPENAI_BASE_URL",
+      "label": "OpenAI API Base URL",
+      "type": "text",
+      "required": true,
+      "default": "https://api.openai.com/v1"
     }
-  ]
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1691943801422,
+  "updated_at": 1723566284000,
+  "$schema": "../app-info-schema.json"
 }
 

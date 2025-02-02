@@ -30,7 +30,17 @@ services:
       - AFFINE_ADMIN_EMAIL=${AFFINE_ADMIN_EMAIL}
       - AFFINE_ADMIN_PASSWORD=${AFFINE_ADMIN_PASSWORD}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - AFFINE_COPILOT_ENABLED=true
+      - AFFINE_COPILOT_PROVIDER=openai
+      - AFFINE_COPILOT_OPENAI_MODEL=gpt-4
+      - AFFINE_COPILOT_OPENAI_BASE_URL=https://api.openai.com/v1
       - TELEMETRY_ENABLE=${AFFINE_TELEMETRY_ENABLE}
+      # Email (SMTP) Settings
+      - AFFINE_SMTP_HOST=${SMTP_HOST}
+      - AFFINE_SMTP_PORT=${SMTP_PORT}
+      - AFFINE_SMTP_USERNAME=${SMTP_USERNAME}
+      - AFFINE_SMTP_PASSWORD=${SMTP_PASSWORD}
+      - AFFINE_SMTP_FROM=${SMTP_FROM_EMAIL}
     networks:
       - tipi_main_network
     labels:
@@ -59,6 +69,7 @@ services:
       traefik.http.routers.affine-local.service: affine
       traefik.http.routers.affine-local.tls: true
       runtipi.managed: true
+
   affine-redis:
     image: redis
     container_name: affine-redis
@@ -74,6 +85,7 @@ services:
       - tipi_main_network
     labels:
       runtipi.managed: true
+
   affine-postgres:
     image: postgres:16
     container_name: affine-postgres
@@ -84,16 +96,16 @@ services:
       test:
         [
           "CMD-SHELL",
-          "pg_isready -d postgres://tipi:${AFFINE_POSTGRES_PASSWORD}@affine-postgres:5432/affine",
+          "pg_isready -d postgres://tipi:${AFFINE_POSTGRES_PASSWORD}@affine-postgres:5432/affine"
         ]
       interval: 10s
       timeout: 5s
       retries: 5
     environment:
-      POSTGRES_USER: tipi
-      POSTGRES_PASSWORD: ${AFFINE_POSTGRES_PASSWORD}
-      POSTGRES_DB: affine
-    networks:
-      - tipi_main_network
-    labels:
-      runtipi.managed: true
+      - POSTGRES_USER=tipi
+      - POSTGRES_PASSWORD=${AFFINE_POSTGRES_PASSWORD}
+
+networks:
+  tipi_main_network:
+    external: true
+
