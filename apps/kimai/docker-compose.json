@@ -5,7 +5,7 @@
       "name": "kimai",
       "image": "kimai/kimai2:fpm-2.1.0-prod",
       "isMain": true,
-      "internalPort": 80,
+      "internalPort": 8001,
       "environment": {
         "ADMINMAIL": "${KIMAI_ADMINMAIL}",
         "ADMINPASS": "${KIMAI_ADMINPASS}",
