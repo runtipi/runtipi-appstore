@@ -3,10 +3,8 @@ services:
     container_name: nextcloud-fh
     image: nextcloud:30.0.5-fpm-alpine
     restart: unless-stopped
-    ports:
-      - ${APP_PORT}:80
     volumes:
-      - ${APP_DATA_DIR}/data/nextcloud:/var/www/html
+      - ${APP_DATA_DIR}/data/nextcloud-fh:/var/www/html:cached
     environment:
       - POSTGRES_HOST=nextcloud-fh-db
       - POSTGRES_DB=nextcloud
@@ -15,36 +13,55 @@ services:
       - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_FH_ADMIN_PASSWORD}
       - NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_FH_ADMIN_USER}
       - NEXTCLOUD_TRUSTED_DOMAINS=${NEXTCLOUD_FH_TRUSTED_DOMAINS}
+      - TRUSTED_PROXIES=['127.0.0.1', '172.16.0.0/12']
+      - REDIS_HOST=nextcloud-fh-redis
     depends_on:
       - nextcloud-fh-db
       - nextcloud-fh-redis
     networks:
       - tipi_main_network
     labels:
+      # Runtipi managed
+      runtipi.managed: true
+
+  nextcloud-fh-web:
+    container_name: nextcloud-fh-web
+    image: nginx
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:80
+    volumes:
+      - ${APP_DATA_DIR}/data/nextcloud-fh-web/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ${APP_DATA_DIR}/data/nextcloud-fh:/var/www/html:cached
+    environment:
+      - VIRTUAL_HOST={APP_DOMAIN}
+    networks:
+      - tipi_main_network
+    labels:
       # Main
       traefik.enable: true
       traefik.http.middlewares.nextcloud-fh-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.nextcloud-fh.loadbalancer.server.port: 9000
+      traefik.http.services.nextcloud-fh-web.loadbalancer.server.port: 80
       # Web
-      traefik.http.routers.nextcloud-fh-insecure.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.nextcloud-fh-insecure.entrypoints: web
-      traefik.http.routers.nextcloud-fh-insecure.service: nextcloud-fh
-      traefik.http.routers.nextcloud-fh-insecure.middlewares: nextcloud-fh-web-redirect
+      traefik.http.routers.nextcloud-fh-web-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nextcloud-fh-web-insecure.entrypoints: web
+      traefik.http.routers.nextcloud-fh-web-insecure.service: nextcloud-fh-web
+      traefik.http.routers.nextcloud-fh-web-insecure.middlewares: nextcloud-fh-web-redirect
       # Websecure
-      traefik.http.routers.nextcloud-fh.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.nextcloud-fh.entrypoints: websecure
-      traefik.http.routers.nextcloud-fh.service: nextcloud-fh
-      traefik.http.routers.nextcloud-fh.tls.certresolver: myresolver
+      traefik.http.routers.nextcloud-fh-web.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.nextcloud-fh-web.entrypoints: websecure
+      traefik.http.routers.nextcloud-fh-web.service: nextcloud-fh
+      traefik.http.routers.nextcloud-fh-web.tls.certresolver: myresolver
       # Local domain
-      traefik.http.routers.nextcloud-fh-local-insecure.rule: Host(`nextcloud-fh.${LOCAL_DOMAIN}`)
-      traefik.http.routers.nextcloud-fh-local-insecure.entrypoints: web
-      traefik.http.routers.nextcloud-fh-local-insecure.service: nextcloud-fh
-      traefik.http.routers.nextcloud-fh-local-insecure.middlewares: nextcloud-fh-web-redirect
+      traefik.http.routers.nextcloud-fh-web-local-insecure.rule: Host(`nextcloud-fh.${LOCAL_DOMAIN}`)
+      traefik.http.routers.nextcloud-fh-web-local-insecure.entrypoints: web
+      traefik.http.routers.nextcloud-fh-web-local-insecure.service: nextcloud-fh-web
+      traefik.http.routers.nextcloud-fh-web-local-insecure.middlewares: nextcloud-fh-web-redirect
       # Local domain secure
-      traefik.http.routers.nextcloud-fh-local.rule: Host(`nextcloud-fh.${LOCAL_DOMAIN}`)
-      traefik.http.routers.nextcloud-fh-local.entrypoints: websecure
-      traefik.http.routers.nextcloud-fh-local.service: nextcloud-fh
-      traefik.http.routers.nextcloud-fh-local.tls: true
+      traefik.http.routers.nextcloud-fh-web-local.rule: Host(`nextcloud-fh.${LOCAL_DOMAIN}`)
+      traefik.http.routers.nextcloud-fh-web-local.entrypoints: websecure
+      traefik.http.routers.nextcloud-fh-web-local.service: nextcloud-fh-web
+      traefik.http.routers.nextcloud-fh-web-local.tls: true
       # Runtipi managed
       runtipi.managed: true
 
@@ -53,10 +70,9 @@ services:
     image: nextcloud:30.0.5-fpm-alpine
     restart: unless-stopped
     volumes:
-      - ${APP_DATA_DIR}/data/nextcloud:/var/www/html
+      - ${APP_DATA_DIR}/data/nextcloud-fh:/var/www/html
     entrypoint: /cron.sh
     depends_on:
-      - nextcloud-fh
       - nextcloud-fh-db
       - nextcloud-fh-redis
     networks:
