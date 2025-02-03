@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "privatebin",
-      "image": "privatebin/nginx-fpm-alpine:1.7.5",
+      "image": "privatebin/nginx-fpm-alpine:1.7.6",
       "isMain": true,
       "internalPort": 8080,
       "volumes": [

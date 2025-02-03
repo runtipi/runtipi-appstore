@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "kapowarr",
-      "image": "mrcas/kapowarr:v1.0.0",
+      "image": "mrcas/kapowarr:v1.1.0",
       "isMain": true,
       "internalPort": 5656,
       "volumes": [

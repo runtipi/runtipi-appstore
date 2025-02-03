@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "netdata",
-      "image": "netdata/netdata:v2.1.1",
+      "image": "netdata/netdata:v2.2.3",
       "isMain": true,
       "internalPort": 19999,
       "pid": "host",
