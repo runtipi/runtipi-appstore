@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "grafana",
-      "image": "grafana/grafana-oss:11.5.0",
+      "image": "grafana/grafana-oss:11.5.1",
       "isMain": true,
       "internalPort": 3000,
       "volumes": [
