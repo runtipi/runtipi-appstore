@@ -2,7 +2,7 @@
   "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
-      "image": "lncm/bitcoind:v27.2",
+      "image": "lncm/bitcoind:v28.0",
       "name": "bitcoind",
       "internalPort": 8333,
       "isMain": true,
