@@ -9,7 +9,7 @@
   "tipi_version": 1,
   "version": "latest",
   "categories": [
-    "databases"
+    "utilities"
   ],
   "author": "whatever",
   "description": "PostgreSQL is a powerful, open source object-relational database system. This app includes PGAdmin as a web UI for easier management of your Postgres database.",
