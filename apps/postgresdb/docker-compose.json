@@ -1,0 +1,41 @@
+{
+  "services": {
+    "postgres": {
+      "image": "postgres:latest",
+      "container_name": "postgresdb",
+      "restart": "unless-stopped",
+      "environment": [
+        "TZ=${TZ:-Europe/Brussels}",
+        "POSTGRES_USER=${POSTGRES_USER:-myuser}",
+        "POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-mypassword}",
+        "POSTGRES_DB=${POSTGRES_DB:-mydb}"
+      ],
+      "volumes": [
+        "./postgres-data:/var/lib/postgresql/data"
+      ],
+      "labels": {
+        "traefik.enable": "false",
+        "runtipi.managed": "true"
+      }
+    },
+    "pgadmin": {
+      "image": "dpage/pgadmin4:latest",
+      "container_name": "pgadmin",
+      "restart": "unless-stopped",
+      "ports": [
+        "8080:80"
+      ],
+      "environment": [
+        "PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL:-admin@admin.com}",
+        "PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD:-admin}"
+      ],
+      "depends_on": [
+        "postgres"
+      ],
+      "labels": {
+        "traefik.enable": "false",
+        "runtipi.managed": "true"
+      }
+    }
+  }
+}
