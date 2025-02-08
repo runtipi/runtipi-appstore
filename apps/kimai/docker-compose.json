@@ -9,8 +9,7 @@
       "environment": {
         "ADMINMAIL": "${KIMAI_ADMINMAIL}",
         "ADMINPASS": "${KIMAI_ADMINPASS}",
-        "DATABASE_URL": "mysql://kimai:${KIMAI_DATABASE_PASSWORD}@kimai-sqldb/kimai?charset",
-        "TRUSTED_HOSTS": "runtipi-reverse-proxy,localhost,127.0.0.1"
+        "DATABASE_URL": "mysql://kimai:${KIMAI_DATABASE_PASSWORD}@kimai-sqldb/kimai?charset"
       },
       "volumes": [
         {
