@@ -7,7 +7,7 @@
       "internalPort": 8053,
       "isMain": true,
       "environment": {
-        "PORT": "8000",
+        "PORT": "8053",
         "BASE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
         "POSTGRESQL_HOST": "bewcloud-db",
         "POSTGRESQL_USER": "bewcloud",
