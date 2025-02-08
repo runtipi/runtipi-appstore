@@ -6,6 +6,8 @@
       "image": "ghcr.io/bewcloud/bewcloud:v1.4.9",
       "internalPort": 8053,
       "isMain": true,
+      "entrypoint": "bash",
+      "command": "-c \"make migrate-db && run --allow-all main.ts\"",
       "environment": {
         "PORT": "8053",
         "BASE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",

@@ -3,6 +3,8 @@ services:
     image: ghcr.io/bewcloud/bewcloud:v1.4.9
     container_name: bewcloud
     restart: unless-stopped
+    entrypoint: bash
+    command: -c "make migrate-db && run --allow-all main.ts"
     ports:
       - ${APP_PORT}:8053
     environment:
