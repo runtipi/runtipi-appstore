@@ -3,14 +3,15 @@
   "name": "bewCloud",
   "id": "bewcloud",
   "available": true,
-  "short_desc": "The Simple Web Cloud Solution",
-  "author": "BrunoBernardino",
+  "short_desc": "The Simple Web Cloud Solution.",
+  "author": "bewcloud",
   "port": 8053,
   "categories": ["data"],
-  "description": "A simpler alternative to Nextcloud and ownCloud, built with TypeScript and Deno using Fresh. 🦕 🍋 ",
+  "description": "A simpler alternative to Nextcloud and ownCloud, built with TypeScript and Deno using Fresh.",
   "tipi_version": 1,
-  "version": "v1.4.8",
+  "version": "v1.4.9",
   "source": "https://github.com/bewcloud/bewcloud",
+  "website": "https://bewcloud.com",
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],
   "form_fields": [
@@ -33,7 +34,7 @@
     {
       "type": "password",
       "label": "Brevo API key",
-      "hint": "Used to send verification emails upon signup. More info at https://developers.brevo.com/docs/getting-started#using-your-api-key-to-authenticate",
+      "hint": "Used to send verification emails upon signup. More info at https://developers.brevo.com/docs/getting-started#using-your-api-key-to-authenticate.",
       "required": false,
       "env_variable": "BREVO_API_KEY"
     },
@@ -42,7 +43,6 @@
       "label": "Database password",
       "min": 32,
       "max": 32,
-      "encoding": "base64",
       "env_variable": "DB_PASSWORD"
     },
     {
@@ -50,7 +50,6 @@
       "label": "JWT secret",
       "min": 64,
       "max": 64,
-      "encoding": "base64",
       "env_variable": "JWT_SECRET"
     },
     {
@@ -58,10 +57,9 @@
       "label": "Password salt",
       "min": 32,
       "max": 32,
-      "encoding": "base64",
       "env_variable": "PASSWORD_SALT"
     }
   ],
-  "created_at": 1736435571000,
-  "updated_at": 1736435571000
+  "created_at": 1739004791872,
+  "updated_at": 1739004791872
 }
