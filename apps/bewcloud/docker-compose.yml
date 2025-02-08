@@ -4,7 +4,7 @@ services:
     container_name: bewcloud
     restart: unless-stopped
     entrypoint: bash
-    command: -c "make migrate-db && run --allow-all main.ts"
+    command: -c "make migrate-db && deno run --allow-all main.ts"
     ports:
       - ${APP_PORT}:8053
     environment:
