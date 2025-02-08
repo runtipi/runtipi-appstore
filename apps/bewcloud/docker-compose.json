@@ -22,7 +22,8 @@
         "CONFIG_ALLOW_SIGNUPS": "${ALLOW_SIGNUPS}",
         "CONFIG_ENABLED_APPS": "news,notes,photos",
         "CONFIG_FILES_ROOT_PATH": "data-files",
-        "CONFIG_ENABLE_EMAILS": "${ENABLE_EMAIL}"
+        "CONFIG_ENABLE_EMAILS": "${ENABLE_EMAIL}",
+        "CONFIG_ALLOWED_COOKIE_DOMAINS": "${INTERNAL_IP},bewcloud.${LOCAL_DOMAIN},${APP_HOST}"
       },
       "volumes": [
         {
