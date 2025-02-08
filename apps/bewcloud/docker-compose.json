@@ -7,7 +7,7 @@
       "internalPort": 8053,
       "isMain": true,
       "entrypoint": "bash",
-      "command": "-c \"make migrate-db && deno run --allow-all main.ts\"",
+      "command": "-c \"deno run --allow-net --allow-read --allow-env migrate-db.ts && deno run --allow-all main.ts\"",
       "environment": {
         "PORT": "8053",
         "BASE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
