@@ -30,13 +30,6 @@
       "env_variable": "NEXTCLOUD_FH_ADMIN_PASSWORD"
     },
     {
-      "type": "text",
-      "label": "Nextcloud trusted domains",
-      "hint": "Add all of your trusted domains separated by a space.",
-      "required": false,
-      "env_variable": "NEXTCLOUD_FH_TRUSTED_DOMAINS"
-    },
-    {
       "type": "random",
       "label": "Nextcloud database password",
       "min": 32,
