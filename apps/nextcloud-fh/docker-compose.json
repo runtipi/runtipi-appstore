@@ -3,12 +3,11 @@
     {
       "name": "nextcloud-fh",
       "image": "nextcloud:30.0.5-fpm-alpine",
-      "internalPort": 9000,
-      "isMain": true,
+      "isMain": false,
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/data/nextcloud",
-          "containerPath": "/var/www/html"
+          "hostPath": "${APP_DATA_DIR}/data/nextcloud-fh",
+          "containerPath": "/var/www/html:cached"
         }
       ],
       "environment": {
@@ -18,25 +17,46 @@
         "POSTGRES_PASSWORD": "${NEXTCLOUD_FH_DB_PASSWORD}",
         "NEXTCLOUD_ADMIN_PASSWORD": "${NEXTCLOUD_FH_ADMIN_PASSWORD}",
         "NEXTCLOUD_ADMIN_USER": "${NEXTCLOUD_FH_ADMIN_USER}",
-        "NEXTCLOUD_TRUSTED_DOMAINS": "${NEXTCLOUD_FH_TRUSTED_DOMAINS}"
+        "NEXTCLOUD_TRUSTED_DOMAINS": "${NEXTCLOUD_FH_TRUSTED_DOMAINS}",
+        "TRUSTED_PROXIES": "127.0.0.1,172.16.0.0/12",
+        "REDIS_HOST": "nextcloud-fh-redis"
       },
       "dependsOn": ["nextcloud-fh-db", "nextcloud-fh-redis"]
     },
     {
-      "name": "nextcloud-fh-redis",
-      "image": "redis:alpine"
+      "name": "nextcloud-fh-web",
+      "image": "nginx:latest",
+      "internalPort": 80,
+      "isMain": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/nextcloud-fh-web/nginx.conf",
+          "containerPath": "/etc/nginx/nginx.conf:ro"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/nextcloud-fh",
+          "containerPath": "/var/www/html:cached"
+        }
+      ],
+      "environment": {
+        "VIRTUAL_HOST": "{APP_DOMAIN}"
+      }
     },
     {
       "name": "nextcloud-fh-cron",
       "image": "nextcloud:30.0.5-fpm-alpine",
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/data/nextcloud",
+          "hostPath": "${APP_DATA_DIR}/data/nextcloud-fh",
           "containerPath": "/var/www/html"
         }
       ],
       "entrypoint": ["/cron.sh"],
-      "dependsOn": ["nextcloud-fh", "nextcloud-fh-db", "nextcloud-fh-redis"]
+      "dependsOn": ["nextcloud-fh", "nextcloud-fh-redis"]
+    },
+    {
+      "name": "nextcloud-fh-redis",
+      "image": "redis:alpine"
     },
     {
       "name": "nextcloud-fh-db",
