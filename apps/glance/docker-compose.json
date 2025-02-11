@@ -8,7 +8,7 @@
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/glance.yml",
-          "containerPath": "/app/glance.yml"
+          "containerPath": "/app/config/glance.yml"
         }
       ]
     }
