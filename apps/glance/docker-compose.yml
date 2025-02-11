@@ -7,7 +7,7 @@ services:
     ports:
       - ${APP_PORT}:8080
     volumes:
-      - ${APP_DATA_DIR}/data/glance.yml:/app/glance.yml
+      - ${APP_DATA_DIR}/data/:/app/config/
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     networks:
