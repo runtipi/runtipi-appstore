@@ -9,7 +9,7 @@
       "environment": {
         "ADMINMAIL": "${KIMAI_ADMINMAIL}",
         "ADMINPASS": "${KIMAI_ADMINPASS}",
-        "DATABASE_URL": "mysql://kimai:${KIMAI_DATABASE_PASSWORD}@kimai-sqldb/kimai?charset"
+        "DATABASE_URL": "mysql://kimai:${KIMAI_DATABASE_PASSWORD}@kimai-sqldb/kimai?charset=utf8&serverVersion=5.7"
       },
       "volumes": [
         {
