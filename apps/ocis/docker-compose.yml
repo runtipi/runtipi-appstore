@@ -1,0 +1,47 @@
+services:
+  ocis:
+    container_name: ocis
+    image: owncloud/ocis:7.0.1
+    restart: unless-stopped
+    entrypoint: /bin/sh
+    command: ["-c", "ocis init || true; ocis server"]
+    environment:
+      - OCIS_URL=https://${APP_DOMAIN}
+      - OCIS_LOG_LEVEL=info
+      - PROXY_TLS=true
+      - OCIS_INSECURE=true
+      - PROXY_ENABLE_BASIC_AUTH=false
+      - IDM_ADMIN_PASSWORD=${OCIS_ADMIN_PASSWORD}
+      - IDM_CREATE_DEMO_USERS=false
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/etc/ocis
+      - ${APP_DATA_DIR}/data/app:/var/lib/ocis
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.ocis-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.ocis.loadbalancer.server.port: 9200
+      # Web
+      traefik.http.routers.ocis-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.ocis-insecure.entrypoints: web
+      traefik.http.routers.ocis-insecure.service: ocis
+      traefik.http.routers.ocis-insecure.middlewares: ocis-web-redirect
+      # Websecure
+      traefik.http.routers.ocis.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.ocis.entrypoints: websecure
+      traefik.http.routers.ocis.service: ocis
+      traefik.http.routers.ocis.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.ocis-local-insecure.rule: Host(`ocis.${LOCAL_DOMAIN}`)
+      traefik.http.routers.ocis-local-insecure.entrypoints: web
+      traefik.http.routers.ocis-local-insecure.service: ocis
+      traefik.http.routers.ocis-local-insecure.middlewares: ocis-web-redirect
+      # Local domain secure
+      traefik.http.routers.ocis-local.rule: Host(`ocis.${LOCAL_DOMAIN}`)
+      traefik.http.routers.ocis-local.entrypoints: websecure
+      traefik.http.routers.ocis-local.service: ocis
+      traefik.http.routers.ocis-local.tls: true
+      # Runtipi managed
+      runtipi.managed: true

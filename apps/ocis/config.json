@@ -1,0 +1,28 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "Owncloud Infinite Scale",
+  "id": "ocis",
+  "available": true,
+  "short_desc": "Owncloud Infinite Scale Stack.",
+  "author": "owncloud",
+  "port": 9200,
+  "categories": ["data"],
+  "description": "Owncloud Infinite Scale (oCIS) is the new file sync & share platform that will be the foundation of your data management platform.",
+  "tipi_version": 1,
+  "version": "7.0.1",
+  "source": "https://github.com/owncloud/ocis",
+  "website": "https://doc.owncloud.com/ocis/next",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "form_fields": [
+    {
+      "label": "Admin Password",
+      "type": "password",
+      "hint": "The password for the admin user.",
+      "required": true,
+      "env_variable": "OCIS_ADMIN_PASSWORD"
+    }
+  ],
+  "created_at": 1739624778235,
+  "updated_at": 1739624778235
+}
