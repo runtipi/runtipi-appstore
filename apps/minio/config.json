@@ -23,6 +23,7 @@
       "type": "password",
       "label": "Minio root password",
       "required": true,
+      "min": 8,
       "env_variable": "MINIO_ROOT_PASSWORD"
     },
     {

@@ -2,14 +2,14 @@
 
 Host your own Amazon S3 compatible Object Storage!
 
-## !! Installation Info !!
+## Installation Info
 
 This MinIO setup requires two exposed URLS
 
 - The console URL
 - The S3 API URL
 
-While the console URL is defined by the tipi's default expose URL you need to define the S§ API URL in the settings while install.
+While the console URL is defined by the runtipi's default expose URL you need to define the S3 API URL in the settings when installing.
 
 **Example:**
 
@@ -22,8 +22,6 @@ While the console URL is defined by the tipi's default expose URL you need to de
 | Minio Admin Console | IP:8001    | minio.mydomain.com |
 
 ## About
-
-![screenshot](https://raw.githubusercontent.com/minio/minio/master/.github/logo.svg?sanitize=true)
 
 MinIO is a High Performance Object Storage released under GNU Affero General Public License v3.0. It is API compatible with Amazon S3 cloud storage service. Use MinIO to build high performance infrastructure for machine learning, analytics and application data workloads.
 
