@@ -77,7 +77,7 @@
       ],
       "shmSize": "256mb",
       "healthCheck": {
-        "test": "pg_isready -U tipi"
+        "test": "pg_isready -U tipi -d mastodon"
       }
     },
     {
