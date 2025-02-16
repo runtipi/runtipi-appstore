@@ -32,6 +32,13 @@
     },
     {
       "type": "random",
+      "label": "Mastodon Elastic Password",
+      "min": 32,
+      "max": 32,
+      "env_variable": "MASTODON_ELASTIC_PASSWORD"
+    },
+    {
+      "type": "random",
       "label": "Mastodon Secret Key Base",
       "min": 64,
       "max": 64,
