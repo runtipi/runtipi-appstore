@@ -49,7 +49,7 @@
       "label": "SMTP Host",
       "hint": "Your SMTP Server",
       "placeholder": "smtp.example.com",
-      "required": true,
+      "required": false,
       "env_variable": "MASTODON_SMTP_SERVER"
     },
     {
@@ -65,14 +65,14 @@
       "label": "SMTP Username",
       "hint": "Your SMTP Server User/Username",
       "placeholder": "noreply@example.com",
-      "required": true,
+      "required": false,
       "env_variable": "MASTODON_SMTP_LOGIN"
     },
     {
       "type": "password",
       "label": "SMTP Password",
       "hint": "Your SMTP Server Password",
-      "required": true,
+      "required": false,
       "env_variable": "MASTODON_SMTP_PASSWORD"
     },
     {
@@ -80,7 +80,7 @@
       "label": "SMTP From Address",
       "hint": "Make sure the Format is like noreply@example.com",
       "placeholder": "noreply@example.com",
-      "required": true,
+      "required": false,
       "env_variable": "MASTODON_SMTP_FROM_ADDRESS"
     },
     {
