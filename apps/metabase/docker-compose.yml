@@ -1,7 +1,7 @@
 services:
   metabase:
     container_name: metabase
-    image: metabase/metabase:v0.53.2
+    image: metabase/metabase:v0.53.3
     restart: unless-stopped
     ports:
       - ${APP_PORT}:3000
