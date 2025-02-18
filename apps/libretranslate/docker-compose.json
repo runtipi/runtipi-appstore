@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "libretranslate",
-      "image": "libretranslate/libretranslate:v1.6.2",
+      "image": "libretranslate/libretranslate:v1.6.4",
       "isMain": true,
       "internalPort": 5000
     }
