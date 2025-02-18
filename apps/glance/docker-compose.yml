@@ -1,13 +1,13 @@
 version: "3.9"
 services:
   glance:
-    image: glanceapp/glance:v0.7.1
+    image: glanceapp/glance:v0.7.2
     restart: unless-stopped
     container_name: glance
     ports:
       - ${APP_PORT}:8080
     volumes:
-      - ${APP_DATA_DIR}/data/glance.yml:/app/glance.yml
+      - ${APP_DATA_DIR}/data/:/app/config/
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     networks:

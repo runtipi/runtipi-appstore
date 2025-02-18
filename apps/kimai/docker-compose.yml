@@ -49,7 +49,7 @@ services:
       runtipi.managed: true
   kimai:
     container_name: kimai
-    image: kimai/kimai2:fpm-2.1.0-prod
+    image: kimai/kimai2:fpm-2.19.1-prod
     environment:
       - ADMINMAIL=${KIMAI_ADMINMAIL}
       - ADMINPASS=${KIMAI_ADMINPASS}

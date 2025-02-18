@@ -2,7 +2,7 @@ version: '3.9'
 services:
   bitcoind:
     container_name: bitcoind
-    image: lncm/bitcoind:v27.2
+    image: lncm/bitcoind:v28.0
     user: 0:0
     volumes:
       - ${APP_DATA_DIR}/data:/root/.bitcoin

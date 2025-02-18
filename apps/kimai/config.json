@@ -3,10 +3,11 @@
   "available": true,
   "port": 8003,
   "exposable": true,
+  "dynamic_config": true,
   "id": "kimai",
   "description": "Kimai is a professional grade time-tracking application, free and open-source. It handles use-cases of freelancers as well as companies with dozens or hundreds of users.",
-  "tipi_version": 2,
-  "version": "fpm-2.1.0-prod",
+  "tipi_version": 3,
+  "version": "fpm-2.19.1-prod",
   "categories": ["utilities"],
   "short_desc": "Open source time-tracker",
   "author": "Kevin Papst",
@@ -44,6 +45,6 @@
   ],
   "supported_architectures": ["amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1724410930192,
+  "updated_at": 1738177468828,
   "$schema": "../app-info-schema.json"
 }
