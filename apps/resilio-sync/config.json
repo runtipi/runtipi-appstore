@@ -3,6 +3,7 @@
   "name": "Resilio",
   "port": 8113,
   "available": true,
+  "dynamic_config": true,
   "id": "resilio-sync",
   "tipi_version": 6,
   "version": "3.0.0",
