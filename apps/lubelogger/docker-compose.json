@@ -9,7 +9,7 @@
         {
           "hostPath": "/etc/localtime",
           "containerPath": "/etc/localtime",
-          "readonly": true
+          "readOnly": true
         },
         {
           "hostPath": "${APP_DATA_DIR}/data/config",
@@ -76,7 +76,7 @@
         {
           "hostPath": "${APP_DATA_DIR}/data/init/init-db.sh",
           "containerPath": "/docker-entrypoint-initdb.d/init-db.sh",
-          "readonly": true
+          "readOnly": true
         },
         {
           "hostPath": "${APP_DATA_DIR}/data/postgres",
