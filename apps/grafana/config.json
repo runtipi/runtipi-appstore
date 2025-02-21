@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "grafana",
-  "tipi_version": 43,
-  "version": "11.5.1",
+  "tipi_version": 44,
+  "version": "11.5.2",
   "categories": ["data"],
   "description": "The open and composable observability and data visualization platform",
   "short_desc": "The open and composable observability and data visualization platform",
@@ -16,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1738589146000
+  "updated_at": 1739919497000
 }
