@@ -6,7 +6,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "romm",
-  "tipi_version": 20,
+  "tipi_version": 21,
   "version": "3.7.3",
   "categories": ["gaming"],
   "description": "RomM (ROM Manager) allows you to scan, enrich, and browse your game collection with a clean and responsive interface. With support for multiple platforms, various naming schemes, and custom tags, RomM is a must-have for anyone who plays on emulators.",
@@ -49,7 +49,7 @@
       "type": "password",
       "label": "MobyGames API Key",
       "required": false,
-      "env_variable": "ROMM_RAWG_API_KEY"
+      "env_variable": "ROMM_MOBYGAMES_API_KEY"
     },
     {
       "type": "password",
