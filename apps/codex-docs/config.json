@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "port": 8101,
   "id": "codex-docs",
-  "tipi_version": 4,
+  "tipi_version": 5,
   "version": "2.2",
   "categories": ["media"],
   "description": "CodeX Docs is a free docs application. It's based on Editor.js ecosystem which gives all modern opportunities for working with content. You can use it for product documentation, for internal team docs, for personal notes or any other need.  ",
@@ -37,5 +37,6 @@
   ],
   "supported_architectures": ["amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566283000
+  "updated_at": 1740247420440,
+  "force_pull": true
 }
