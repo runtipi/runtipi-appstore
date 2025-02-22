@@ -43,7 +43,7 @@
       "name": "penpot-exporter",
       "image": "penpotapp/exporter:latest",
       "environment": {
-        "PENPOT_PUBLIC_URI": "http://penpot",
+        "PENPOT_PUBLIC_URI": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
         "PENPOT_REDIS_URI": "redis://penpot-redis/0"
       }
     },
