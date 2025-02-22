@@ -7,7 +7,6 @@
       "isMain": true,
       "internalPort": 8080,
       "environment": {
-        "PENPOT_FLAGS": "enable-registration enable-login-with-password disable-email-verification disable-smtp enable-log-emails",
         "PENPOT_BACKEND_URI": "http://penpot-backend:6060",
         "PENPOT_EXPORTER_URI": "http://penpot-exporter:6061"
       },
@@ -23,7 +22,6 @@
       "name": "penpot-backend",
       "image": "penpotapp/backend:latest",
       "environment": {
-        "PENPOT_FLAGS": "enable-registration enable-login-with-password disable-email-verification disable-smtp enable-log-emails",
         "PENPOT_PUBLIC_URI": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
         "PENPOT_DATABASE_URI": "postgresql://penpot-postgres/penpot",
         "PENPOT_DATABASE_USERNAME": "tipi",
@@ -45,7 +43,6 @@
       "name": "penpot-exporter",
       "image": "penpotapp/exporter:latest",
       "environment": {
-        "PENPOT_FLAGS": "enable-registration enable-login-with-password disable-email-verification disable-smtp enable-log-emails",
         "PENPOT_PUBLIC_URI": "http://penpot",
         "PENPOT_REDIS_URI": "redis://penpot-redis/0"
       }
