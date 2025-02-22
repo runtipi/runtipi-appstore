@@ -21,7 +21,7 @@
       "name": "penpot-backend",
       "image": "penpotapp/backend:latest",
       "environment": {
-        "PENPOT_FLAGS": "enable-registration enable-login-with-password disable-email-verification",
+        "PENPOT_FLAGS": "enable-registration enable-login-with-password disable-email-verification disable-smtp",
         "PENPOT_PUBLIC_URI": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
         "PENPOT_DATABASE_URI": "postgresql://penpot-postgres/penpot",
         "PENPOT_DATABASE_USERNAME": "tipi",
