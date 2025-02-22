@@ -6,7 +6,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "filestash",
-  "tipi_version": 5,
+  "tipi_version": 6,
   "version": "latest",
   "categories": ["utilities"],
   "description": "A modern web client for SFTP, S3, FTP, WebDAV, Git, Minio, LDAP, CalDAV, CardDAV, Mysql, Backblaze",
@@ -35,5 +35,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1736342439770
+  "updated_at": 1740247068576,
+  "force_pull": true
 }
