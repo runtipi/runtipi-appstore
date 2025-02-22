@@ -7,7 +7,7 @@
       "isMain": true,
       "internalPort": 8080,
       "environment": {
-        "PENPOT_FLAGS": "enable-registration enable-login-with-password disable-email-verification"
+        "PENPOT_FLAGS": "enable-registration enable-login-with-password disable-email-verification disable-smtp"
       },
       "dependsOn": ["penpot-backend", "penpot-exporter"],
       "volumes": [
