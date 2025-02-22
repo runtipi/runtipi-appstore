@@ -5,7 +5,7 @@
   "exposable": true,
   "id": "penpot",
   "description": "Penpot - The Open-Source design & prototyping platform.",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "latest",
   "categories": ["utilities"],
   "short_desc": "Open-Source design & prototyping platform.",
@@ -22,6 +22,7 @@
     }
   ],
   "created_at": 1691943801422,
-  "updated_at": 1723566283000,
-  "$schema": "../app-info-schema.json"
+  "updated_at": 1740247068576,
+  "$schema": "../app-info-schema.json",
+  "force_pull": true
 }

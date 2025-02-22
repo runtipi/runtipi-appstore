@@ -7,7 +7,7 @@
   "deprecated": true,
   "port": 8105,
   "id": "libreddit",
-  "tipi_version": 4,
+  "tipi_version": 5,
   "version": "latest",
   "categories": ["social"],
   "description": "LibReddit is a bloat free reddit frontend written in Rust, no ads, no tracking and strong Content Security Policy prevents any request from going to reddit, everything is proxied.",
@@ -17,5 +17,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1736281890530
+  "updated_at": 1740247068576,
+  "force_pull": true
 }

@@ -6,7 +6,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "deemix",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "latest",
   "categories": ["media", "music"],
   "description": "deemix is a barebone deezer downloader library built from the ashes of Deezloader Remix.",
@@ -17,5 +17,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1729872631894
+  "updated_at": 1740247068576,
+  "force_pull": true
 }

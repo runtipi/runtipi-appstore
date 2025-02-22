@@ -6,7 +6,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "peppermint",
-  "tipi_version": 6,
+  "tipi_version": 7,
   "version": "latest",
   "categories": ["utilities"],
   "description": "An open source ticket management & help desk solution.",
@@ -30,5 +30,6 @@
   ],
   "supported_architectures": ["amd64", "arm64"],
   "created_at": 1691943801422,
-  "updated_at": 1736983676165
+  "updated_at": 1740247068576,
+  "force_pull": true
 }
