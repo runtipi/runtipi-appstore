@@ -1,103 +1,77 @@
-[MQTTX](https://mqttx.app) is a cross-platform [MQTT 5.0](https://www.emqx.com/en/blog/introduction-to-mqtt-5) client tool open sourced by [EMQ](https://www.emqx.com/en), which can run on macOS, Linux and Windows, and supports formatting MQTT payload.
+# Checklist
+## Dynamic compose for mqttx
+This is a mqttx update for using dynamic compose.
+##### Reaching the app :
+- [ ] http://localip:port
+- [ ] https://mqttx.tipi.local
+##### In app tests :
+- [ ] 📝 Register and log in
+- [ ] 🖱 Basic interaction
+- [ ] 🌆 Uploading data
+- [ ] 🔄 Check data after restart
+##### Volumes mapping :
+- [ ] ${APP_DATA_DIR}/data/mqttx:/app/data
+- [ ] /etc/localtime:/etc/localtime:ro
 
-[MQTTX](https://mqttx.app) simplifies test operation with the help of a familiar, chat-like interface. It’s easy and quick to create multiple, simultaneous online MQTT client connections, and can test the connection, publishing, and subscription functions of MQTT/TCP, MQTT/TLS, MQTT/WebSocket as well as other MQTT protocol features.
-
-> [MQTT](https://www.emqx.com/en/blog/the-easiest-guide-to-getting-started-with-mqtt) stands for MQ Telemetry Transport. It is a publish/subscribe, extremely simple and lightweight messaging protocol, designed for constrained devices and low-bandwidth, high-latency or unreliable networks.
-
-## Preview
-
-![mqttx-preview](https://raw.githubusercontent.com/emqx/MQTTX/main/assets/mqttx-web-preview.png)
-
-## Usage
-
-See the MQTTX [documentation](https://mqttx.app/docs) or [manual](./docs/manual.md) for details.
-
-1. Get MQTT Broker Ready.
-
-   - If you do not need to deploy the MQTT Broker locally, you can use the [public MQTT 5.0 Broker](https://www.emqx.com/en/mqtt/public-mqtt5-broker) provided by [EMQX Cloud](https://www.emqx.com/en/cloud) for testing:
-
-     ```shell
-     Broker IP: broker.emqx.io
-     Broker TCP Port: 1883
-     Broker SSL Port: 8883
-     ```
-
-   - To run MQTT Broker locally, use the [Eclipse Mosquitto](https://github.com/runtipi/runtipi-appstore/blob/master/apps/eclipse-mosquitto/) Tipi app. Follow the steps mentioned in its [description](https://github.com/runtipi/runtipi-appstore/blob/master/apps/eclipse-mosquitto/metadata/description.md) to turn on Websockets so that the MQTTX web client can connect to it.
-
-2. Connection configuration. Click the `+` button in the left menu bar and fill in the corresponding required fields in the form.
-
-3. After the connection information is configured, click the `Connect` button in the upper right corner to create a connection and connect to MQTT Broker.
-
-4. After the MQTT is connected successfully, you can perform MQTT publish and subscription tests.
-
-![mqttx-gif](https://raw.githubusercontent.com/emqx/MQTTX/main/assets/mqttx-gif.gif)
-
-## Get Involved
-
-- Follow [@EMQTech on Twitter](https://twitter.com/EMQTech).
-- If you have a specific question, check out our [discussion forums](https://github.com/emqx/emqx/discussions).
-- For general discussions, join us on the [official Discord](https://discord.gg/xYGf3fQnES) team.
-- Keep updated on [EMQX YouTube](https://www.youtube.com/channel/UC5FjR77ErAxvZENEWzQaO5Q) by subscribing.
-
-## Develop
-
-Recommended version for Node environment:
-
-- v16.\*.\*
-
-```shell
-# Clone
-git clone git@github.com:emqx/MQTTX.git
-
-# Install dependencies
-cd MQTTX
-yarn install
-
-# Compiles and hot-reloads for development
-yarn run electron:serve
-
-# Compiles and minifies for production
-yarn run electron:build
+# New JSON
+```json
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "mqttx",
+      "image": "emqx/mqttx-web:v1.11.1",
+      "isMain": true,
+      "internalPort": 80,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/mqttx",
+          "containerPath": "/app/data"
+        },
+        {
+          "hostPath": "/etc/localtime",
+          "containerPath": "/etc/localtime",
+          "readOnly": true
+        }
+      ]
+    }
+  ]
+} 
 ```
-
-After the building is successful, the corresponding installation file for the successful build ing will appear in the `dist_electron` directory.
-
-If you need to package it as an installation package for an independent operating system, please refer to the following command:
-
-```shell
-# For Windows
-yarn run electron:build-win
-
-# For Linux
-yarn run electron:build-linux
-
-# For macOS
-yarn run electron:build-mac
+# Original YAML
+```yaml
+services:
+  mqttx:
+    image: emqx/mqttx-web:v1.11.1
+    container_name: mqttx
+    restart: unless-stopped
+    volumes:
+    - ${APP_DATA_DIR}/data/mqttx:/app/data
+    - /etc/localtime:/etc/localtime:ro
+    ports:
+    - ${APP_PORT}:80
+    networks:
+    - tipi_main_network
+    labels:
+      traefik.enable: true
+      traefik.http.middlewares.mqttx-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.mqttx.loadbalancer.server.port: 80
+      traefik.http.routers.mqttx-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mqttx-insecure.entrypoints: web
+      traefik.http.routers.mqttx-insecure.service: mqttx
+      traefik.http.routers.mqttx-insecure.middlewares: mqttx-web-redirect
+      traefik.http.routers.mqttx.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mqttx.entrypoints: websecure
+      traefik.http.routers.mqttx.service: mqttx
+      traefik.http.routers.mqttx.tls.certresolver: myresolver
+      traefik.http.routers.mqttx-local-insecure.rule: Host(`mqttx.${LOCAL_DOMAIN}`)
+      traefik.http.routers.mqttx-local-insecure.entrypoints: web
+      traefik.http.routers.mqttx-local-insecure.service: mqttx
+      traefik.http.routers.mqttx-local-insecure.middlewares: mqttx-web-redirect
+      traefik.http.routers.mqttx-local.rule: Host(`mqttx.${LOCAL_DOMAIN}`)
+      traefik.http.routers.mqttx-local.entrypoints: websecure
+      traefik.http.routers.mqttx-local.service: mqttx
+      traefik.http.routers.mqttx-local.tls: true
+      runtipi.managed: true
+ 
 ```
-
-## Contributing
-
-Please make sure to read the [Contributing Guide](https://github.com/emqx/MQTTX/blob/main/.github/CONTRIBUTING.md) before making a pull request.
-
-## Technology Stack
-
-- [Electron](https://electronjs.org/)
-- [Vue](https://vuejs.org/) + [Element](https://element.eleme.io)
-- [TypeScript](https://www.typescriptlang.org/)
-- [TypeORM](https://github.com/typeorm/typeorm)
-- [SQLite](https://github.com/mapbox/node-sqlite3)
-- [MQTT.js](https://github.com/mqttjs/MQTT.js)
-
-## Resources
-
-- [MQTT Programming](https://www.emqx.com/en/blog/category/mqtt-programming)
-
-  A series of blogs to help developers get started quickly with MQTT in PHP, Node.js, Python, Golang, and other programming languages.
-
-- [MQTT SDKs](https://www.emqx.com/en/mqtt-client-sdk)
-
-  We have selected popular MQTT client SDKs in various programming languages and provided code examples to help you quickly understand the use of MQTT clients.
-
-## License
-
-Apache License 2.0, see [LICENSE](https://github.com/emqx/MQTTX/blob/main/LICENSE).
