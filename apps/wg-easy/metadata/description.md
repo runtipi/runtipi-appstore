@@ -1,14 +1,108 @@
-## The easiest way to run WireGuard VPN + Web-based Admin UI.
+# Checklist
+## Dynamic compose for wg-easy
+This is a wg-easy update for using dynamic compose.
+##### Reaching the app :
+- [ ] http://localip:port
+- [ ] https://wg-easy.tipi.local
+- [ ] 🌐 Additionnal Port(s)
+##### In app tests :
+- [ ] 📝 Register and log in
+- [ ] 🖱 Basic interaction
+- [ ] 🌆 Uploading data
+- [ ] 🔄 Check data after restart
+##### Volumes mapping :
+- [ ] ${APP_DATA_DIR}/data:/etc/wireguard
+##### Specific instructions :
+- [ ] 🌳 Environment
+- [ ] ⚙ Sysctls
+- [ ] 🔓 Capacity add
 
-You have found the easiest way to install & manage WireGuard on any Linux host!
-
-* All-in-one: WireGuard + Web UI.
-* Easy installation, simple to use.
-* List, create, edit, delete, enable & disable clients.
-* Show a client's QR code.
-* Download a client's configuration file.
-* Statistics for which clients are connected.
-* Tx/Rx charts for each connected client.
-* Gravatar support.
-
-![Screenshot](https://raw.githubusercontent.com/WeeJeWel/wg-easy/master/assets/screenshot.png)
+# New JSON
+```json
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "wg-easy",
+      "image": "ghcr.io/wg-easy/wg-easy:14",
+      "isMain": true,
+      "internalPort": 51821,
+      "addPorts": [
+        {
+          "hostPort": 51820,
+          "containerPort": 51820,
+          "udp": true
+        }
+      ],
+      "environment": {
+        "WG_HOST": "${WIREGUARD_HOST}",
+        "PASSWORD_HASH": "${WIREGUARD_PASSWORD_HASH}",
+        "WG_DEFAULT_DNS": "${WIREGUARD_DNS:-8.8.8.8}",
+        "WG_ALLOWED_IPS": "0.0.0.0/0, ::/0"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/etc/wireguard"
+        }
+      ],
+      "sysctls": [
+        "net.ipv4.conf.all.src_valid_mark=1",
+        "net.ipv4.ip_forward=1"
+      ],
+      "capAdd": [
+        "NET_ADMIN",
+        "SYS_MODULE"
+      ]
+    }
+  ]
+} 
+```
+# Original YAML
+```yaml
+services:
+  wg-easy:
+    container_name: wg-easy
+    image: ghcr.io/wg-easy/wg-easy:14
+    restart: unless-stopped
+    volumes:
+    - ${APP_DATA_DIR}/data:/etc/wireguard
+    ports:
+    - 51820:51820/udp
+    - ${APP_PORT}:51821/tcp
+    environment:
+    - WG_HOST=${WIREGUARD_HOST}
+    - PASSWORD_HASH=${WIREGUARD_PASSWORD_HASH}
+    - WG_DEFAULT_DNS=${WIREGUARD_DNS:-8.8.8.8}
+    - WG_ALLOWED_IPS=0.0.0.0/0, ::/0
+    cap_add:
+    - NET_ADMIN
+    - SYS_MODULE
+    sysctls:
+    - net.ipv4.conf.all.src_valid_mark=1
+    - net.ipv4.ip_forward=1
+    networks:
+    - tipi_main_network
+    labels:
+      traefik.enable: true
+      traefik.http.middlewares.wg-easy-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.wg-easy.loadbalancer.server.port: 51821
+      traefik.http.routers.wg-easy-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wg-easy-insecure.entrypoints: web
+      traefik.http.routers.wg-easy-insecure.service: wg-easy
+      traefik.http.routers.wg-easy-insecure.middlewares: wg-easy-web-redirect
+      traefik.http.routers.wg-easy.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wg-easy.entrypoints: websecure
+      traefik.http.routers.wg-easy.service: wg-easy
+      traefik.http.routers.wg-easy.tls.certresolver: myresolver
+      traefik.http.routers.wg-easy-local-insecure.rule: Host(`wg-easy.${LOCAL_DOMAIN}`)
+      traefik.http.routers.wg-easy-local-insecure.entrypoints: web
+      traefik.http.routers.wg-easy-local-insecure.service: wg-easy
+      traefik.http.routers.wg-easy-local-insecure.middlewares: wg-easy-web-redirect
+      traefik.http.routers.wg-easy-local.rule: Host(`wg-easy.${LOCAL_DOMAIN}`)
+      traefik.http.routers.wg-easy-local.entrypoints: websecure
+      traefik.http.routers.wg-easy-local.service: wg-easy
+      traefik.http.routers.wg-easy-local.tls: true
+      runtipi.managed: true
+ 
+```
