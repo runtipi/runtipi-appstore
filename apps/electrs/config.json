@@ -3,11 +3,12 @@
   "name": "Electrs",
   "available": true,
   "exposable": false,
+  "dynamic_config": true,
   "no_gui": false,
   "port": 3006,
   "id": "electrs",
   "description": "Electrum server",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "v0.10.6",
   "categories": ["finance"],
   "short_desc": "Electrum server",
@@ -31,5 +32,5 @@
     }
   ],
   "created_at": 1691943801422,
-  "updated_at": 1731513445000
+  "updated_at": 1740331616142
 }
