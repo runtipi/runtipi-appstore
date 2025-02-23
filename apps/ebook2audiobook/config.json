@@ -1,0 +1,20 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "ebook2audiobook",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 7860,
+  "id": "ebook2audiobook",
+  "tipi_version": 1,
+  "version": "25.2.18",
+  "categories": ["books", "ai", "utilities"],
+  "description": "CPU/GPU Converter from eBooks to audiobooks with chapters and metadata using Calibre, ffmpeg, XTTSv2, Fairseq and more. Supports voice cloning and +1110 languages!",
+  "short_desc": "AConverter from eBooks to audiobooks with AI voice cloning",
+  "author": "DrewThomasson",
+  "source": "https://github.com/DrewThomasson/ebook2audiobook",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1740350859833,
+  "updated_at": 1740350859833
+}

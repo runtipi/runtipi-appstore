@@ -1,0 +1,27 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "ebook2audiobook",
+      "image": "docker.io/athomasson2/ebook2audiobook:latest",
+      "internalPort": 7860,
+      "platform": linux/amd64,
+      "tty": true,
+      "stdin_open": true,
+      "isMain": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/home/user/app",
+          "containerPath": "data",
+          "readOnly": false
+        }
+      ],
+      "healthCheck": {
+        "test": "curl --fail http://localhost || exit 1",
+        "retries": 3,
+        "interval": "30s",
+        "timeout": "10s"
+      }
+    }
+  ]
+}
