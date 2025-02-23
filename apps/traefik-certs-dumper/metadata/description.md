@@ -1,14 +1,76 @@
-# traefik-certs-dumper
+# Checklist
+## Dynamic compose for traefik-certs-dumper
+This is a traefik-certs-dumper update for using dynamic compose.
+##### Reaching the app :
+##### In app tests :
+- [ ] 📝 Register and log in
+- [ ] 🖱 Basic interaction
+- [ ] 🌆 Uploading data
+- [ ] 🔄 Check data after restart
+##### Volumes mapping :
+- [ ] ${ROOT_FOLDER_HOST}/traefik/shared/acme.json:/traefik/acme.json:ro
+- [ ] ${APP_DATA_DIR}/data/certs:/output:rw
+##### Specific instructions :
+- [ ] 🌳 Environment
+- [ ] 🩺 Healthcheck
 
-Dumps Let's Encrypt certificates of a specified domain to `.pem` and `.key` files which Traefik stores in `acme.json`.
-
-This image uses:
-
-- a bash script that derivates from [mailu/traefik-certdumper](https://hub.docker.com/r/mailu/traefik-certdumper)
-- [ldez's traefik-certs-dumper](https://github.com/ldez/traefik-certs-dumper)
-
-Special thanks to them!
-
-## Help
-
-If you need help using this image, have suggestions or want to report a problem, feel free to open an issue on GitHub!
+# New JSON
+```json
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "traefik-certs-dumper",
+      "image": "humenius/traefik-certs-dumper:1.6.1-alpine",
+      "isMain": true,
+      "environment": {
+        "ACME_FILE_PATH": "/traefik/acme.json"
+      },
+      "volumes": [
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/traefik/shared/acme.json",
+          "containerPath": "/traefik/acme.json",
+          "readOnly": true
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/certs",
+          "containerPath": "/output"
+        }
+      ],
+      "healthCheck": {
+        "interval": "30s",
+        "timeout": "10s",
+        "retries": 5,
+        "test": "/usr/bin/healthcheck"
+      }
+    }
+  ]
+} 
+```
+# Original YAML
+```yaml
+version: '3.8'
+services:
+  traefik-certs-dumper:
+    container_name: traefik-certs-dumper
+    image: humenius/traefik-certs-dumper:1.6.1-alpine
+    restart: unless-stopped
+    healthcheck:
+      test:
+      - CMD
+      - /usr/bin/healthcheck
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    volumes:
+    - ${ROOT_FOLDER_HOST}/traefik/shared/acme.json:/traefik/acme.json:ro
+    - ${APP_DATA_DIR}/data/certs:/output:rw
+    environment:
+    - ACME_FILE_PATH=/traefik/acme.json
+    networks:
+    - tipi_main_network
+    labels:
+      traefik.enable: false
+      runtipi.managed: true
+ 
+```
