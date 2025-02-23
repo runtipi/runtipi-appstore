@@ -3,9 +3,10 @@
   "name": "qBittorrent",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 8133,
   "id": "qbittorrent",
-  "tipi_version": 23,
+  "tipi_version": 24,
   "version": "5.0.4",
   "categories": ["utilities"],
   "description": "qBittorrent is a fast, easy, and free BitTorrent client.",
@@ -15,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1740005487000
+  "updated_at": 1740331761153
 }
