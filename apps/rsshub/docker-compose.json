@@ -16,7 +16,13 @@
     },
     {
       "name": "rsshub-browserless",
-      "image": "browserless/chrome"
+      "image": "browserless/chrome",
+      "ulimits": {
+        "core": {
+          "soft": 0,
+          "hard": 0
+        }
+      }
     },
     {
       "name": "rsshub-redis",
