@@ -1,0 +1,40 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "linkstack",
+      "image": "linkstackorg/linkstack:latest",
+      "isMain": true,
+      "internalPort": 443,
+      "addPorts": [
+        {
+          "hostPort": 8184,
+          "containerPort": 80
+        }
+      ],
+      "hostname": "linkstack",
+      "environment": {
+        "TZ": "${TZ}",
+        "SERVER_ADMIN": "${LINKSTACK_CUSTOM_EMAIL}",
+        "HTTP_SERVER_NAME": "${APP_DOMAIN}",
+        "HTTPS_SERVER_NAME": "${APP_DOMAIN}",
+        "LOG_LEVEL": "info",
+        "PHP_MEMORY_LIMIT": "256M",
+        "UPLOAD_MAX_FILESIZE": "8M",
+        "DB_CONNECTION": "sqlite",
+        "FORCE_HTTPS": "true"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/linkstack",
+          "containerPath": "/data"
+        }
+      ],
+      "entrypoint": "/bin/sh",
+      "command": [
+        "-c",
+        "cp -n -r /htdocs/database/ /data/database\ncp -n /htdocs/.env /data/.env\ncp -n -r /htdocs/littlelink/images /data/images\ncp -n -r /htdocs/themes /data/themes\ncp -n -r /htdocs/img /data/img\nchown -R apache:apache /data\nrm -rf /htdocs/database/\nrm /htdocs/.env\nrm -rf /htdocs/littlelink/images\nrm -rf /htdocs/themes\nrm -rf /htdocs/img\n\nsed -i 's/FORCE_HTTPS=false/FORCE_HTTPS=true/g' /data/.env\n\n# uncomment this after first start\n# to prevent the installing dialog coming up\n# if the container is recreated\n# rm /htdocs/INSTALLING\nln -s /data/database /htdocs/database\nln -s /data/.env /htdocs/.env\nln -s /data/images /htdocs/littlelink/images\nln -s /data/themes /htdocs/themes\nln -s /data/img/ /htdocs/img\ncd /htdocs\nphp artisan migrate --force\nexec /usr/local/bin/docker-entrypoint.sh server\n"
+      ]
+    }
+  ]
+}
