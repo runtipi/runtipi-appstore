@@ -1,78 +1,170 @@
-## Recommended VPN
+# Checklist
+## Dynamic compose for transmission-vpn
+This is a transmission-vpn update for using dynamic compose.
+##### Reaching the app :
+- [ ] http://localip:port
+- [ ] https://transmission-vpn.tipi.local
+##### In app tests :
+- [ ] 📝 Register and log in
+- [ ] 🖱 Basic interaction
+- [ ] 🌆 Uploading data
+- [ ] 🔄 Check data after restart
+##### Volumes mapping :
+- [ ] ${APP_DATA_DIR}/data/config:/config
+- [ ] ${APP_DATA_DIR}/data/custom:/etc/openvpn/custom
+- [ ] ${ROOT_FOLDER_HOST}/media/torrents:/media/torrents
+##### Specific instructions :
+- [ ] 🌳 Environment
+- [ ] ⚙ Sysctls
+- [ ] 📱 Devices
+- [ ] 🔓 Capacity add
+- [ ] 📃 Logging
+- 🏷 DNS (skipped)
 
-![https://airvpn.org/?referred_by=674291](https://airvpn.org/images/promotional/banner_641x91.gif)
-
-**This container is heavily tested using [AirVPN](https://airvpn.org/?referred_by=674291).**
-
-| VPN Provider               | Port Forwarding | Works ? |
-|----------------------------|-----------------|---------|
-| [AirVPN](https://airvpn.org/?referred_by=674291) | **Yes** | **Yes** |
-| [ProtonVPN](https://protonvpn.com/fr) | **Yes** | N.C. |
-| [NordVPN](https://ref.nordvpn.com/EQNOEHVwOCW)* | No | **Almost Yes** |
-
-PS: [VPN Providers with port forwarding are better for torrenting.](https://www.reddit.com/r/VPNTorrents/comments/p6h7em/answered_why_you_do_need_portforwarding_for/) (reddit.com)
-
-*[NordVPN, Get 3 months free here.](https://ref.nordvpn.com/EQNOEHVwOCW)
-
-## Features
- * Choose your Web UI !
- * Support many OpenVPN providers ([complete list](https://haugene.github.io/docker-transmission-openvpn/supported-providers/))
- * Works with traefik !
- * Pre-configured for Tipi.
- * Healthcheck
- * Highly configurable.
-
-## Documentation
-
-Don't hesitate to read related docs available here: https://haugene.github.io/docker-transmission-openvpn/
-
-## VPN Provider Settings
-### Custom
-For AirVPN, grab your custom config from: https://airvpn.org/generator/. Drop it in `runtipi/app-data/transmission-vpn/data/custom/AirVPN_XX-XXXXXX_XXXX_UDP-443-Entry3.ovpn`
-
-Don't forget to requests ports here: https://airvpn.org/ports/
-
-Fill Settings of Transmission VPN app with:
-- **OpenVPN > Username**: Your AirVPN email.
-- **OpenVPN > Password**: Your AirVPN password.
-- **OpenVPN > Default Provider Config**: Name of your generated file in your custom folder (*without .ovpn extension*)
-- **OpenVPN > Provider**: Custom Config.
-
-### Overriding with user-config
-You can configure specific settings to your provider by creating a `docker-compose.yml` file in your `user-config` directory.
-| Directory               | File |
-|-------------------------------|------------------|
-| /runtipi/user-config/transmission-vpn/ | docker-compose.yml         |
-
-With the following content by e.g. for NordVPN:
+# New JSON
+```json
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "transmission-vpn",
+      "image": "haugene/transmission-openvpn:5.3.1",
+      "isMain": true,
+      "internalPort": 9091,
+      "environment": {
+        "PUID": "${TRANSMISSION_PUID-1000}",
+        "PGID": "${TRANSMISSION_PGID-1000}",
+        "TZ": "${TZ-Europe/Paris}",
+        "USER": "${TRANSMISSION_USERNAME}",
+        "PASS": "${TRANSMISSION_PASSWORD}",
+        "OPENVPN_PROVIDER": "${TRANSMISSION_OVPN_PROVIDER-NORDVPN}",
+        "OPENVPN_CONFIG": "${TRANSMISSION_OVPN_CONFIG}",
+        "OPENVPN_USERNAME": "${TRANSMISSION_OVPN_USERNAME}",
+        "OPENVPN_PASSWORD": "${TRANSMISSION_OVPN_PASSWORD}",
+        "OPENVPN_OPTS": "--inactive 3600 --ping 10 --ping-exit 60 --pull-filter ignore ping",
+        "LOCAL_NETWORK": "${TRANSMISSION_OVPN_LOCAL_NETWORK-10.0.0.0/8,172.16.0.0/12,192.168.0.0/16}",
+        "TRANSMISSION_WEB_UI": "${TRANSMISSION_WEBUI}",
+        "LOG_TO_STDOUT": "true",
+        "GLOBAL_APPLY_PERMISSIONS": "false",
+        "CREATE_TUN_DEVICE": "${TRANSMISSION_CREATE_TUN_DEVICE-false}",
+        "PEER_DNS": "${TRANSMISSION_PEER_DNS-false}",
+        "TRANSMISSION_DOWNLOAD_DIR": "/media/torrents/complete",
+        "TRANSMISSION_INCOMPLETE_DIR_ENABLED": "true",
+        "TRANSMISSION_INCOMPLETE_DIR": "/media/torrents/incomplete",
+        "TRANSMISSION_PREALLOCATION": "1",
+        "TRANSMISSION_DHT_ENABLED": "${TRANSMISSION_DHT_ENABLED-false}",
+        "TRANSMISSION_LPD_ENABLED": "${TRANSMISSION_LPD_ENABLED-false}",
+        "TRANSMISSION_PEX_ENABLED": "${TRANSMISSION_PEX_ENABLED-false}",
+        "TRANSMISSION_BLOCKLIST_ENABLED": "${TRANSMISSION_BLOCKLIST_ENABLED-true}",
+        "TRANSMISSION_BLOCKLIST_URL": "${TRANSMISSION_BLOCKLIST_URL-http://list.iblocklist.com/?list"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/config"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/custom",
+          "containerPath": "/etc/openvpn/custom"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/torrents",
+          "containerPath": "/media/torrents"
+        }
+      ],
+      "sysctls": [
+        "net.ipv6.conf.all.disable_ipv6=0"
+      ],
+      "devices": [
+        "/dev/net/tun"
+      ],
+      "capAdd": [
+        "NET_ADMIN"
+      ],
+      "logging": {
+        "driver": "json-file",
+        "options": {
+          "max-size": "10m"
+        }
+      }
+    }
+  ]
+} 
 ```
+# Original YAML
+```yaml
 services:
   transmission-vpn:
+    image: haugene/transmission-openvpn:5.3.1
+    container_name: transmission-vpn
+    cap_add:
+    - NET_ADMIN
+    devices:
+    - /dev/net/tun
+    dns:
+    - ${DNS_IP}
     environment:
-      - NORDVPN_COUNTRY=FR
-      - NORDVPN_CATEGORY=legacy_p2p # Servers optimized for P2P usage
-      - NORDVPN_PROTOCOL=tcp
-      - NORDVPN_SERVER=fr000.nordvpn.com
+    - PUID=${TRANSMISSION_PUID-1000}
+    - PGID=${TRANSMISSION_PGID-1000}
+    - TZ=${TZ-Europe/Paris}
+    - USER=${TRANSMISSION_USERNAME}
+    - PASS=${TRANSMISSION_PASSWORD}
+    - OPENVPN_PROVIDER=${TRANSMISSION_OVPN_PROVIDER-NORDVPN}
+    - OPENVPN_CONFIG=${TRANSMISSION_OVPN_CONFIG}
+    - OPENVPN_USERNAME=${TRANSMISSION_OVPN_USERNAME}
+    - OPENVPN_PASSWORD=${TRANSMISSION_OVPN_PASSWORD}
+    - OPENVPN_OPTS=--inactive 3600 --ping 10 --ping-exit 60 --pull-filter ignore ping
+    - LOCAL_NETWORK=${TRANSMISSION_OVPN_LOCAL_NETWORK-10.0.0.0/8,172.16.0.0/12,192.168.0.0/16}
+    - TRANSMISSION_WEB_UI=${TRANSMISSION_WEBUI}
+    - LOG_TO_STDOUT=true
+    - GLOBAL_APPLY_PERMISSIONS=false
+    - CREATE_TUN_DEVICE=${TRANSMISSION_CREATE_TUN_DEVICE-false}
+    - PEER_DNS=${TRANSMISSION_PEER_DNS-false}
+    - TRANSMISSION_DOWNLOAD_DIR=/media/torrents/complete
+    - TRANSMISSION_INCOMPLETE_DIR_ENABLED=true
+    - TRANSMISSION_INCOMPLETE_DIR=/media/torrents/incomplete
+    - TRANSMISSION_PREALLOCATION=1
+    - TRANSMISSION_DHT_ENABLED=${TRANSMISSION_DHT_ENABLED-false}
+    - TRANSMISSION_LPD_ENABLED=${TRANSMISSION_LPD_ENABLED-false}
+    - TRANSMISSION_PEX_ENABLED=${TRANSMISSION_PEX_ENABLED-false}
+    - TRANSMISSION_BLOCKLIST_ENABLED=${TRANSMISSION_BLOCKLIST_ENABLED-true}
+    - TRANSMISSION_BLOCKLIST_URL=${TRANSMISSION_BLOCKLIST_URL-http://list.iblocklist.com/?list=bt_level1&fileformat=p2p&archiveformat=gz}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/custom:/etc/openvpn/custom
+    - ${ROOT_FOLDER_HOST}/media/torrents:/media/torrents
+    ports:
+    - ${APP_PORT}:9091
+    restart: unless-stopped
+    networks:
+    - tipi_main_network
+    sysctls:
+    - net.ipv6.conf.all.disable_ipv6=0
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+    labels:
+      traefik.enable: true
+      traefik.http.middlewares.transmission-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.transmission.loadbalancer.server.scheme: http
+      traefik.http.services.transmission.loadbalancer.server.port: 9091
+      traefik.http.routers.transmission-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.transmission-insecure.entrypoints: web
+      traefik.http.routers.transmission-insecure.service: transmission
+      traefik.http.routers.transmission-insecure.middlewares: transmission-web-redirect
+      traefik.http.routers.transmission.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.transmission.entrypoints: websecure
+      traefik.http.routers.transmission.service: transmission
+      traefik.http.routers.transmission.tls.certresolver: myresolver
+      traefik.http.routers.transmission-local-insecure.rule: Host(`transmission.${LOCAL_DOMAIN}`)
+      traefik.http.routers.transmission-local-insecure.entrypoints: web
+      traefik.http.routers.transmission-local-insecure.service: transmission
+      traefik.http.routers.transmission-local-insecure.middlewares: transmission-web-redirect
+      traefik.http.routers.transmission-local.rule: Host(`transmission.${LOCAL_DOMAIN}`)
+      traefik.http.routers.transmission-local.entrypoints: websecure
+      traefik.http.routers.transmission-local.service: transmission
+      traefik.http.routers.transmission-local.tls: true
+      runtipi.managed: true
+ 
 ```
-Instructions for NordVPN can be found here: https://haugene.github.io/docker-transmission-openvpn/provider-specific/
-
-For other's supported providers: https://haugene.github.io/docker-transmission-openvpn/supported-providers/
-
-## Fast, easy, and free BitTorrent client
-
-Docker container running Transmission torrent client with WebUI over an OpenVPN tunnel
-
-Transmission is a fast, easy, and free BitTorrent client. It comes in several flavors:
-  * A native macOS GUI application
-  * GTK+ and Qt GUI applications for Linux, BSD, etc.
-  * A headless daemon for servers and routers
-  * A web UI for remote controlling any of the above
-
-Visit [https://transmissionbt.com/](https://transmissionbt.com/) for more information.
-
-## Folder Info
-
-| Root Folder                   | Container Folder |
-|-------------------------------|------------------|
-| /runtipi/app-data/transmission/data/config | /config          |
-| /runtipi/media/torrents                | /media/torrents       |
