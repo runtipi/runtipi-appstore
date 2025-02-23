@@ -1,20 +1,79 @@
-# The Monero network daemon
+# Checklist
+## Dynamic compose for monerod
+This is a monerod update for using dynamic compose.
+##### Reaching the app :
+- [ ] http://localip:port
+- [ ] https://monerod.tipi.local
+##### In app tests :
+- [ ] 📝 Register and log in
+- [ ] 🖱 Basic interaction
+- [ ] 🌆 Uploading data
+- [ ] 🔄 Check data after restart
+##### Volumes mapping :
+- [ ] ${APP_DATA_DIR}/data:/home/monero/.bitmonero
+##### Specific instructions :
+- [ ] ⌨ Command
+- 🏷 DNS (skipped)
 
-Monero is a private, decentralized cryptocurrency that keeps your finances confidential and secure.
-
-## Required hardware
-  
-- 2+ vCPUs/cores
-- 4GB+ RAM
-- 75GB+ SSD
-
-## Why run your own Monero node?
-
-The Monero network relies on a distributed web of Monero nodes, each of which validate transactions, propagate transactions to the rest of the network, and helps new nodes easily and quickly synchronize to the current state of the network.
-
-Running a Monero node for yourself not only helps to give you the stronger network-level privacy guarantees, but also helps to increase the decentralization, stability, and speed of the Monero network.
-
-Each node can expose two different services, each of which has a positive impact on the network in a unique way:
-
-- Peer-to-Peer (p2p) port (default 18080): this port allows other nodes on the network to connect to your node to download the blockchain and to send you any transactions they validate that you do not yet have. It also increases overall network privacy, as your node participates in the [Dandelion++](https://www.monerooutreach.org/stories/dandelion.html) propagation of transactions.
-- Remote Procedure Call (RPC) port (default 18089 for restricted): Exposing this port (especially with the `public-node` arg) allows other users on the network, especially those using mobile wallets or the GUI wallet in "Simple" mode, to connect to your node to sync their wallets, without needing to run their own full node locally.
+# New JSON
+```json
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "monerod",
+      "image": "sethsimmons/simple-monerod:v0.18.3.4",
+      "isMain": true,
+      "internalPort": 18080,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/home/monero/.bitmonero"
+        }
+      ],
+      "command": "--rpc-restricted-bind-ip=0.0.0.0 --rpc-restricted-bind-port=18089 --public-node --no-igd --enable-dns-blocklist --prune-blockchain --zmq-pub=tcp://0.0.0.0:18083"
+    }
+  ]
+} 
+```
+# Original YAML
+```yaml
+version: '3.7'
+services:
+  monerod:
+    image: sethsimmons/simple-monerod:v0.18.3.4
+    dns:
+    - ${DNS_IP}
+    ports:
+    - ${APP_PORT}:18080
+    restart: unless-stopped
+    networks:
+    - tipi_main_network
+    container_name: monerod
+    volumes:
+    - ${APP_DATA_DIR}/data:/home/monero/.bitmonero
+    command: --rpc-restricted-bind-ip=0.0.0.0 --rpc-restricted-bind-port=18089 --public-node
+      --no-igd --enable-dns-blocklist --prune-blockchain --zmq-pub=tcp://0.0.0.0:18083
+    labels:
+      traefik.enable: true
+      traefik.http.middlewares.monerod-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.monerod.loadbalancer.server.port: 18089
+      traefik.http.routers.monerod-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.monerod-insecure.entrypoints: web
+      traefik.http.routers.monerod-insecure.service: monerod
+      traefik.http.routers.monerod-insecure.middlewares: monerod-web-redirect
+      traefik.http.routers.monerod.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.monerod.entrypoints: websecure
+      traefik.http.routers.monerod.service: monerod
+      traefik.http.routers.monerod.tls.certresolver: myresolver
+      traefik.http.routers.monerod-local-insecure.rule: Host(`monerod.${LOCAL_DOMAIN}`)
+      traefik.http.routers.monerod-local-insecure.entrypoints: web
+      traefik.http.routers.monerod-local-insecure.service: monerod
+      traefik.http.routers.monerod-local-insecure.middlewares: monerod-web-redirect
+      traefik.http.routers.monerod-local.rule: Host(`monerod.${LOCAL_DOMAIN}`)
+      traefik.http.routers.monerod-local.entrypoints: websecure
+      traefik.http.routers.monerod-local.service: monerod
+      traefik.http.routers.monerod-local.tls: true
+      runtipi.managed: true
+ 
+```
