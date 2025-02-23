@@ -8,8 +8,8 @@
   "port": 7777,
   "categories": ["development"],
   "description": "A self-hostable personal cloud inspired by serverless platforms and cgi-bin",
-  "tipi_version": 17,
-  "version": "0.23.1",
+  "tipi_version": 18,
+  "version": "0.23.2",
   "source": "https://github.com/pomdtr/smallweb",
   "website": "https://smallweb.run",
   "exposable": true,
@@ -25,5 +25,5 @@
     }
   ],
   "created_at": 1724134338800,
-  "updated_at": 1740235800000
+  "updated_at": 1740333103000
 }
