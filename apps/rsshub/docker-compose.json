@@ -1,0 +1,35 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "rsshub",
+      "image": "diygod/rsshub:2024-04-17",
+      "isMain": true,
+      "internalPort": 1200,
+      "environment": {
+        "TZ": "${TZ}"
+      },
+      "dependsOn": ["redis", "browserless"]
+    },
+    {
+      "name": "browserless",
+      "image": "browserless/chrome",
+      "ulimits": {
+        "core": {
+          "soft": 0,
+          "hard": 0
+        }
+      }
+    },
+    {
+      "name": "redis",
+      "image": "redis:alpine",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/redis",
+          "containerPath": "/data"
+        }
+      ]
+    }
+  ]
+}
