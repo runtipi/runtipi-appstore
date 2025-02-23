@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "movary",
-      "image": "leepeuker/movary:0.63.0",
+      "image": "leepeuker/movary:0.64.0",
       "isMain": true,
       "internalPort": 80,
       "user": "1000:1000",
