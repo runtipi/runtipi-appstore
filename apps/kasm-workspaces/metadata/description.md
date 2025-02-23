@@ -1,8 +1,71 @@
-## Kasm
+# Checklist
+## Dynamic compose for kasm-workspaces
+This is a kasm-workspaces update for using dynamic compose.
+##### Reaching the app :
+- [ ] http://localip:port
+- [ ] https://kasm-workspaces.tipi.local
+- [ ] 🌐 Additionnal Port(s)
+##### In app tests :
+- [ ] 📝 Register and log in
+- [ ] 🖱 Basic interaction
+- [ ] 🌆 Uploading data
+- [ ] 🔄 Check data after restart
+##### Volumes mapping :
+- [ ] ${APP_DATA_DIR}/data:/opt
+##### Specific instructions :
+- [ ] 🌳 Environment
+- [ ] 👑 Privileged
 
-Kasm Workspaces is a docker container streaming platform for delivering browser-based access to desktops, applications, and web services. Kasm uses devops-enabled Containerized Desktop Infrastructure (CDI) to create on-demand, disposable, docker containers that are accessible via web browser. Example use-cases include Remote Browser Isolation (RBI), Data Loss Prevention (DLP), Desktop as a Service (DaaS), Secure Remote Access Services (RAS), and Open Source Intelligence (OSINT) collections.
-
-The rendering of the graphical-based containers is powered by the open-source project KasmVNC
-
-**Warning:** You will firstly need to access the port 8743 for the initial setup of the container. **If you dont do this the app won't work!**<br>
-**Warning:** The app works with https if you dont access **all the ports** (setup and main) with https in the front you will get an empty response error.
+# New JSON
+```json
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "kasm-workspaces",
+      "image": "lscr.io/linuxserver/kasm:1.120.20221218",
+      "isMain": true,
+      "internalPort": "${APP_PORT}",
+      "addPorts": [
+        {
+          "hostPort": 8743,
+          "containerPort": 3000
+        }
+      ],
+      "environment": {
+        "KASM_PORT": "${APP_PORT}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/opt"
+        }
+      ],
+      "privileged": true
+    }
+  ]
+} 
+```
+# Original YAML
+```yaml
+version: '3.7'
+services:
+  kasm-workspaces:
+    image: lscr.io/linuxserver/kasm:1.120.20221218
+    container_name: kasm-workspaces
+    privileged: true
+    environment:
+    - KASM_PORT=${APP_PORT}
+    volumes:
+    - ${APP_DATA_DIR}/data:/opt
+    ports:
+    - 8743:3000
+    - ${APP_PORT}:${APP_PORT}
+    restart: unless-stopped
+    networks:
+    - tipi_main_network
+    labels:
+      traefik.enable: false
+      runtipi.managed: true
+ 
+```
