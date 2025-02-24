@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "sftpgo",
-      "image": "drakkan/sftpgo:v2.6.5-alpine",
+      "image": "drakkan/sftpgo:v2.6.6-alpine",
       "isMain": true,
       "internalPort": "${SFTPGO_BINDING_PORT-8080}",
       "addPorts": [
