@@ -54,7 +54,7 @@ services:
       runtipi.managed: true
 
   romm-db:
-    image: lscr.io/linuxserver/mariadb:11.4.4
+    image: lscr.io/linuxserver/mariadb:11.4.5
     container_name: romm-db
     environment:
       - MYSQL_ROOT_PASSWORD=${ROMM_MYSQL_ROOT_PASSWORD}
