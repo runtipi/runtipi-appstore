@@ -5,9 +5,8 @@
   "available": true,
   "exposable": true,
   "dynamic_config": true,
-  "https": true,
   "id": "portainer",
-  "tipi_version": 36,
+  "tipi_version": 37,
   "version": "2.27.0-alpine",
   "categories": ["utilities"],
   "description": "Portainer Community Edition is a lightweight service delivery platform for containerized applications that can be used to manage Docker, Swarm, Kubernetes and ACI environments.",
@@ -18,5 +17,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1740346783000
+  "updated_at": 1740429380964
 }
