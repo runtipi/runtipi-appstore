@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "pairdrop",
-  "tipi_version": 31,
-  "version": "1.11.1",
+  "tipi_version": 32,
+  "version": "1.11.2",
   "categories": ["media", "data", "utilities"],
   "description": "Local file sharing in your browser. Inspired by Apple's AirDrop",
   "short_desc": "Local file sharing in your browser. Inspired by Apple's AirDrop",
@@ -17,5 +17,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1740040875000
+  "updated_at": 1740506809000
 }
