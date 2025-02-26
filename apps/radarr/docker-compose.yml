@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   radarr:
-    image: ghcr.io/linuxserver/radarr:5.18.4
+    image: ghcr.io/linuxserver/radarr:5.19.3
     container_name: radarr
     environment:
       - PUID=1000
