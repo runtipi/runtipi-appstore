@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   bookstack:
-    image: lscr.io/linuxserver/bookstack:24.12.20241223
+    image: lscr.io/linuxserver/bookstack:25.02.20250226
     container_name: bookstack
     environment:
       - TZ=${TZ}
