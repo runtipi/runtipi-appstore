@@ -1,7 +1,7 @@
 services:
   smallweb:
     container_name: smallweb
-    image: ghcr.io/pomdtr/smallweb:0.23.3
+    image: ghcr.io/pomdtr/smallweb:0.23.4
     restart: unless-stopped
     user: 0:0
     ports:
