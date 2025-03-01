@@ -1,0 +1,43 @@
+{
+  "name": "Backrest",
+  "id": "backrest",
+  "available": true,
+  "short_desc": "Backrest is a web UI and orchestrator for restic backup.",
+  "author": "garethgeorge",
+  "port": 9898,
+  "categories": ["security", "data", "automation", "utilities"],
+  "description": "Backrest is a web-accessible backup solution built on top of restic. Backrest provides a WebUI which wraps the restic CLI and makes it easy to create repos, browse snapshots, and restore files. Additionally, Backrest can run in the background and take an opinionated approach to scheduling snapshots and orchestrating repo health operations.\n\n",
+  "tipi_version": 1,
+  "version": "v1.7.2",
+  "source": "https://github.com/garethgeorge/backrest",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "form_fields": [
+    {
+      "type": "fqdnip",
+      "label": "Hostname des SFTP-Servers",
+      "hint": "Trage hier den Hostname deines SFTP-Servers ein, auf dessen die Backups gespeichert werden sollen.",
+      "default": "none",
+      "required": true,
+      "env_variable": "SSH_HOSTNAME"
+    },
+    {
+      "type": "text",
+      "label": "Benutzername des SFTP-Servers",
+      "hint": "Trage hier den Benutzernamen ein, der eine Verbindung mit deinem SFTP-Server aufbauen kann.",
+      "default": "none",
+      "required": true,
+      "env_variable": "SSH_USER"
+    },
+    {
+      "type": "number",
+      "label": "Port des SFTP-Servers",
+      "hint": "Trage hier den Port deines SFTP-Servers ein.",
+      "default": "none",
+      "required": true,
+      "env_variable": "SSH_PORT"
+    }
+  ],
+  "created_at": 1724134338800,
+  "updated_at": 1724134338800
+}

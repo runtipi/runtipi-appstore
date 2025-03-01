@@ -1,0 +1,66 @@
+version: "3.8"
+
+services:
+  ssh-key-generator:
+    image: ghcr.io/hueske-digital/sshkey-generator:latest
+    environment:
+      - SSH_HOST=${SSH_HOST}
+      - SSH_HOSTNAME=${SSH_HOSTNAME}
+      - SSH_USER=${SSH_USER}
+      - SSH_PORT=${SSH_PORT}
+    volumes:
+      - ssh_data:/root/.ssh
+
+  backup:
+    image: garethgeorge/backrest:latest-alpine
+    hostname: docker
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:9898
+    environment:
+      - TZ=Europe/Berlin
+      - BACKREST_DATA=/data
+      - BACKREST_CONFIG=/config/config.json
+      - XDG_CACHE_HOME=/cache
+      - TMPDIR=/tmp
+      - NOTIFY_URL
+    volumes:
+      - ${APP_DATA_DIR}/data/data:/data
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${APP_DATA_DIR}/data/cache:/cache
+      - ${APP_DATA_DIR}/data/tmp:/tmp
+      - ssh_data:/root/.ssh
+      - /var/lib/docker/volumes:/mnt/volumes:ro
+      - /home:/mnt/home:ro
+      - /root:/mnt/root:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - tipi_main_network
+    labels: # Use your editors search and replace feature to replace all instances of "backrest" with your app name in the traefik labels
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.backrest-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.backrest.loadbalancer.server.port: 9898
+      # Web
+      traefik.http.routers.backrest-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.backrest-insecure.entrypoints: web
+      traefik.http.routers.backrest-insecure.service: backrest
+      traefik.http.routers.backrest-insecure.middlewares: backrest-web-redirect
+      # Websecure
+      traefik.http.routers.backrest.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.backrest.entrypoints: websecure
+      traefik.http.routers.backrest.service: backrest
+      traefik.http.routers.backrest.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.backrest-local-insecure.rule: Host(`backrest.${LOCAL_DOMAIN}`)
+      traefik.http.routers.backrest-local-insecure.entrypoints: web
+      traefik.http.routers.backrest-local-insecure.service: backrest
+      traefik.http.routers.backrest-local-insecure.middlewares: backrest-web-redirect
+      # Local domain secure
+      traefik.http.routers.backrest-local.rule: Host(`backrest.${LOCAL_DOMAIN}`)
+      traefik.http.routers.backrest-local.entrypoints: websecure
+      traefik.http.routers.backrest-local.service: backrest
+      traefik.http.routers.backrest-local.tls: true
+
+volumes:
+  ssh_data:
