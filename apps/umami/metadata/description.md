@@ -1,3 +1,5 @@
+> Warning ⚠️: This app is now deprecated. Please use the Umami Analytics app instead.
+
 ## Default credentials
 
 Username: admin
