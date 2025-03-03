@@ -1,7 +1,5 @@
 # Umami
 
-![Umami](https://umami.is/images/app.jpg)
-
 ## What is Umami?
 
 Umami is an open-source, privacy-focused web analytics tool that serves as an alternative to Google Analytics. It provides essential insights into website traffic, user behavior, and performance, all while prioritizing data privacy.
@@ -13,3 +11,8 @@ Designed to be lightweight and easy to set up, Umami can be self-hosted, giving 
 ## Getting Started
 
 A detailed getting started guide can be found at [umami.is/docs](https://umami.is/docs/).
+
+## Default credentials
+
+Username: `admin`
+Password: `umami`
