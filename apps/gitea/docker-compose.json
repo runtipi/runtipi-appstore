@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "gitea",
-      "image": "gitea/gitea:1.23.4",
+      "image": "gitea/gitea:1.23.5",
       "environment": {
         "USER_UID": "1000",
         "USER_GID": "1000",
