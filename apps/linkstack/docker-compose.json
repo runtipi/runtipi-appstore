@@ -5,7 +5,7 @@
       "name": "linkstack",
       "image": "linkstackorg/linkstack:latest",
       "isMain": true,
-      "internalPort": 443,
+      "internalPort": 80,
       "hostname": "linkstack",
       "environment": {
         "TZ": "${TZ}",
@@ -16,7 +16,7 @@
         "PHP_MEMORY_LIMIT": "256M",
         "UPLOAD_MAX_FILESIZE": "8M",
         "DB_CONNECTION": "sqlite",
-        "FORCE_HTTPS": "true"
+        "FORCE_HTTPS": "false"
       },
       "volumes": [
         {
