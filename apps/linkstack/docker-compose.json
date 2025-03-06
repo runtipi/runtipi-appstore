@@ -24,7 +24,10 @@
         }
       ],
       "entrypoint": "/bin/sh",
-      "command": ["-c","cp -n -r /htdocs/database/ /data/database\n cp -n /htdocs/.env /data/.env\n cp -n -r /htdocs/assets/images /data/images\n cp -n -r /htdocs/themes /data/themes\n cp -n -r /htdocs/assets/img /data/img\n chown -R apache:apache /data\n rm -rf /htdocs/database/\n rm /htdocs/.env\n rm -rf /htdocs/assets/images\n rm -rf /htdocs/themes\n rm -rf /htdocs/assets/img\n sed -i 's/FORCE_HTTPS=false/FORCE_HTTPS=true/g' /data/.env\n ln -s /data/database /htdocs/database\n ln -s /data/.env /htdocs/.env\n ln -s /data/images /htdocs/assets/images\n ln -s /data/themes /htdocs/themes\n ln -s /data/img/ /htdocs/assets/img\n cd /htdocs\n exec /usr/local/bin/docker-entrypoint.sh server"]
+      "command": [
+        "-c",
+        "cp -n -r /htdocs/database/ /data/database\n cp -n /htdocs/.env /data/.env\n cp -n -r /htdocs/assets/images /data/images\n cp -n -r /htdocs/themes /data/themes\n cp -n -r /htdocs/assets/img /data/img\n chown -R apache:apache /data\n rm -rf /htdocs/database/\n rm /htdocs/.env\n rm -rf /htdocs/assets/images\n rm -rf /htdocs/themes\n rm -rf /htdocs/assets/img\n sed -i 's/FORCE_HTTPS=false/FORCE_HTTPS=true/g' /data/.env\n ln -s /data/database /htdocs/database\n ln -s /data/.env /htdocs/.env\n ln -s /data/images /htdocs/assets/images\n ln -s /data/themes /htdocs/themes\n ln -s /data/img/ /htdocs/assets/img\n cd /htdocs\n exec /usr/local/bin/docker-entrypoint.sh server"
+      ]
     }
   ]
 }
