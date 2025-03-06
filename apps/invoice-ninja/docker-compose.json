@@ -2,15 +2,14 @@
   "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
-      "name": "invoice-ninja",
+      "name": "invoice-ninja-backend",
       "image": "invoiceninja/invoiceninja:5.11.41",
-      "isMain": true,
       "user": "1500:1500",
       "environment": {
         "IN_USER_EMAIL": "${INVOICE_NINJA_USER_MAIL}",
         "IN_PASSWORD": "${INVOICE_NINJA_USER_PASSWORD}",
         "APP_URL": "http://invoice-ninja-web",
-        "APP_NAME": "\"Invoice Ninja\"",
+        "APP_NAME": "Invoice Ninja",
         "APP_ENV": "production",
         "APP_KEY": "${INVOICE_NINJA_APP_KEY}",
         "APP_CIPHER": "AES-256-CBC",
@@ -46,8 +45,9 @@
       ]
     },
     {
-      "name": "invoice-ninja-web",
+      "name": "invoice-ninja",
       "image": "nginx:1.27",
+      "isMain": true,
       "internalPort": 80,
       "dependsOn": {
         "invoice-ninja": {
@@ -87,7 +87,13 @@
           "containerPath": "/var/lib/mysql"
         }
       ],
-      "command": ["mysqld", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci", "--wait_timeout=28800", "--log-warnings=0"]
+      "command": [
+        "mariadb",
+        "--character-set-server=utf8mb4",
+        "--collation-server=utf8mb4_unicode_ci",
+        "--wait_timeout=28800",
+        "--log-warnings=0"
+      ]
     },
     {
       "name": "invoice-ninja-init",
