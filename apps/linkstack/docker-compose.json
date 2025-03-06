@@ -20,10 +20,11 @@
       },
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/data/linkstack/",
-          "containerPath": "/htdocs"
+          "hostPath": "${APP_DATA_DIR}/data/linkstack",
+          "containerPath": "/data"
         }
-      ]
+      ],
+      "command": ["-c", "cp -n -r /htdocs/database/ /data/database; cp -n /htdocs/.env /data/.env; cp -n -r /htdocs/littlelink/images /data/images; cp -n -r /htdocs/themes /data/themes; cp -n -r /htdocs/img /data/img; chown -R apache:apache /data; rm -rf /htdocs/database/; rm /htdocs/.env; rm -rf /htdocs/littlelink/images; rm -rf /htdocs/themes; rm -rf /htdocs/img; sed -i 's/FORCE_HTTPS=false/FORCE_HTTPS=true/g' /data/.env;  ln -s /data/database /htdocs/database; ln -s /data/.env /htdocs/.env; ln -s /data/images /htdocs/littlelink/images; ln -s /data/themes /htdocs/themes; ln -s /data/img/ /htdocs/img; cd /htdocs; php artisan migrate --force; exec /usr/local/bin/docker-entrypoint.sh server"]
     }
   ]
 }
