@@ -34,10 +34,6 @@
         {
           "hostPath": "${APP_DATA_DIR}/data/linkstack/themes",
           "containerPath": "/htdocs/themes"
-        },
-        {
-          "hostPath": "${APP_DATA_DIR}/data/linkstack/.env",
-          "containerPath": "/htdocs/.env"
         }
       ]
     }
