@@ -76,11 +76,6 @@
         "MARIADB_PASSWORD": "ninja",
         "MARIADB_DATABASE": "ninja"
       },
-      "dependsOn": {
-        "invoice-ninja-init": {
-          "condition": "service_completed_successfully"
-        }
-      },
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/mysql",
@@ -94,17 +89,6 @@
         "--wait_timeout=28800",
         "--log-warnings=0"
       ]
-    },
-    {
-      "name": "invoice-ninja-init",
-      "image": "bash:5.2.37",
-      "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/data",
-          "containerPath": "/tmp/data"
-        }
-      ],
-      "command": "bash -c \"chmod +x /tmp/data/init/init.sh && /tmp/data/init/init.sh \""
     }
   ]
 }
