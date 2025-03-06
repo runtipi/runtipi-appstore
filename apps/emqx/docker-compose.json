@@ -22,7 +22,7 @@
         {
           "hostPort": 8883,
           "containerPort": 8883
-        },
+        }
       ],
       "environment": {
         "TZ": "${TZ}",
