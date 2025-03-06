@@ -5,24 +5,17 @@
       "name": "linkstack",
       "image": "linkstackorg/linkstack:latest",
       "isMain": true,
-      "internalPort": 443,
-      "addPorts": [
-        {
-          "hostPort": 8184,
-          "containerPort": 80
-        }
-      ],
+      "internalPort": 80,
       "hostname": "linkstack",
       "environment": {
         "TZ": "${TZ}",
-        "SERVER_ADMIN": "${LINKSTACK_CUSTOM_EMAIL}",
         "HTTP_SERVER_NAME": "${APP_DOMAIN}",
         "HTTPS_SERVER_NAME": "${APP_DOMAIN}",
         "LOG_LEVEL": "info",
         "PHP_MEMORY_LIMIT": "256M",
         "UPLOAD_MAX_FILESIZE": "8M",
         "DB_CONNECTION": "sqlite",
-        "FORCE_HTTPS": "true"
+        "FORCE_HTTPS": "false"
       },
       "volumes": [
         {
@@ -31,10 +24,7 @@
         }
       ],
       "entrypoint": "/bin/sh",
-      "command": [
-        "-c",
-        "cp -n -r /htdocs/database/ /data/database\ncp -n /htdocs/.env /data/.env\ncp -n -r /htdocs/littlelink/images /data/images\ncp -n -r /htdocs/themes /data/themes\ncp -n -r /htdocs/img /data/img\nchown -R apache:apache /data\nrm -rf /htdocs/database/\nrm /htdocs/.env\nrm -rf /htdocs/littlelink/images\nrm -rf /htdocs/themes\nrm -rf /htdocs/img\n\nsed -i 's/FORCE_HTTPS=false/FORCE_HTTPS=true/g' /data/.env\n\n# uncomment this after first start\n# to prevent the installing dialog coming up\n# if the container is recreated\n# rm /htdocs/INSTALLING\nln -s /data/database /htdocs/database\nln -s /data/.env /htdocs/.env\nln -s /data/images /htdocs/littlelink/images\nln -s /data/themes /htdocs/themes\nln -s /data/img/ /htdocs/img\ncd /htdocs\nphp artisan migrate --force\nexec /usr/local/bin/docker-entrypoint.sh server\n"
-      ]
+      "command": ["-c","cp -n -r /htdocs/database/ /data/database\n cp -n /htdocs/.env /data/.env\n cp -n -r /htdocs/assets/images /data/images\n cp -n -r /htdocs/themes /data/themes\n cp -n -r /htdocs/assets/img /data/img\n chown -R apache:apache /data\n rm -rf /htdocs/database/\n rm /htdocs/.env\n rm -rf /htdocs/assets/images\n rm -rf /htdocs/themes\n rm -rf /htdocs/assets/img\n sed -i 's/FORCE_HTTPS=false/FORCE_HTTPS=true/g' /data/.env\n ln -s /data/database /htdocs/database\n ln -s /data/.env /htdocs/.env\n ln -s /data/images /htdocs/assets/images\n ln -s /data/themes /htdocs/themes\n ln -s /data/img/ /htdocs/assets/img\n cd /htdocs\n exec /usr/local/bin/docker-entrypoint.sh server"]
     }
   ]
 }
