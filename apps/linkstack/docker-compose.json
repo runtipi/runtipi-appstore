@@ -20,20 +20,8 @@
       },
       "volumes": [
         {
-          "hostPath": "${APP_DATA_DIR}/data/linkstack/database",
-          "containerPath": "/htdocs/database"
-        },
-        {
-          "hostPath": "${APP_DATA_DIR}/data/linkstack/images",
-          "containerPath": "/htdocs/littlelink/images"
-        },
-        {
-          "hostPath": "${APP_DATA_DIR}/data/linkstack/img",
-          "containerPath": "/htdocs/img"
-        },
-        {
-          "hostPath": "${APP_DATA_DIR}/data/linkstack/themes",
-          "containerPath": "/htdocs/themes"
+          "hostPath": "${APP_DATA_DIR}/data/linkstack/",
+          "containerPath": "/htdocs"
         }
       ]
     }
