@@ -24,7 +24,8 @@
           "containerPath": "/data"
         }
       ],
-      "command": "cp -n -r /htdocs/database/ /data/database; cp -n /htdocs/.env /data/.env; cp -n -r /htdocs/littlelink/images /data/images; cp -n -r /htdocs/themes /data/themes; cp -n -r /htdocs/img /data/img; chown -R apache:apache /data; rm -rf /htdocs/database/; rm /htdocs/.env; rm -rf /htdocs/littlelink/images; rm -rf /htdocs/themes; rm -rf /htdocs/img; sed -i 's/FORCE_HTTPS=false/FORCE_HTTPS=true/g' /data/.env;  ln -s /data/database /htdocs/database; ln -s /data/.env /htdocs/.env; ln -s /data/images /htdocs/littlelink/images; ln -s /data/themes /htdocs/themes; ln -s /data/img/ /htdocs/img; cd /htdocs; php artisan migrate --force; exec /usr/local/bin/docker-entrypoint.sh server"
+      "entrypoint": "/bin/sh"
+      "command": ["-c","cp -n -r /htdocs/database/ /data/database\n cp -n /htdocs/.env /data/.env\n cp -n -r /htdocs/littlelink/images /data/images\n cp -n -r /htdocs/themes /data/themes\n cp -n -r /htdocs/img /data/img\n chown -R apache:apache /data\n rm -rf /htdocs/database/\n rm /htdocs/.env\n rm -rf /htdocs/littlelink/images\n rm -rf /htdocs/themes\n rm -rf /htdocs/img\n sed -i 's/FORCE_HTTPS=false/FORCE_HTTPS=true/g' /data/.env\n ln -s /data/database /htdocs/database\n ln -s /data/.env /htdocs/.env\n ln -s /data/images /htdocs/littlelink/images\n ln -s /data/themes /htdocs/themes\n ln -s /data/img/ /htdocs/img\n cd /htdocs\n php artisan migrate --force\n exec /usr/local/bin/docker-entrypoint.sh server"]
     }
   ]
 }
