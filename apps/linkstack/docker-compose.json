@@ -5,7 +5,7 @@
       "name": "linkstack",
       "image": "linkstackorg/linkstack:latest",
       "isMain": true,
-      "internalPort": 80,
+      "internalPort": 443,
       "hostname": "linkstack",
       "environment": {
         "TZ": "${TZ}",
