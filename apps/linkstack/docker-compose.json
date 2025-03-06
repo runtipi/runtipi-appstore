@@ -21,7 +21,7 @@
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/linkstack",
-          "containerPath": "/data"
+          "containerPath": "/htdocs"
         }
       ]
     }
