@@ -9,14 +9,12 @@
       "hostname": "linkstack",
       "environment": {
         "TZ": "${TZ}",
-        "SERVER_ADMIN": "${LINKSTACK_CUSTOM_EMAIL}",
         "HTTP_SERVER_NAME": "${APP_DOMAIN}",
         "HTTPS_SERVER_NAME": "${APP_DOMAIN}",
         "LOG_LEVEL": "info",
         "PHP_MEMORY_LIMIT": "256M",
         "UPLOAD_MAX_FILESIZE": "8M",
         "DB_CONNECTION": "sqlite",
-        "FORCE_HTTPS": "false"
       },
       "volumes": [
         {
