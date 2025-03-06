@@ -23,8 +23,7 @@
           "hostPath": "${APP_DATA_DIR}/data/linkstack",
           "containerPath": "/data"
         }
-      ],
-      "entrypoint": "/bin/sh"
+      ]
     }
   ]
 }
