@@ -24,7 +24,7 @@
           "containerPath": "/data"
         }
       ],
-      "entrypoint": "/bin/sh",
+      "entrypoint": "/bin/sh"
     }
   ]
 }
