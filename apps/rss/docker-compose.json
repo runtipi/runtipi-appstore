@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "rss",
-      "image": "codeberg.org/danb/rss:v1.5.3",
+      "image": "codeberg.org/danb/rss:v1.6.0",
       "isMain": true,
       "internalPort": 80,
       "environment": {
