@@ -4,7 +4,6 @@
     {
       "name": "outline",
       "image": "outlinewiki/outline:0.82.0",
-      "isMain": true,
       "environment": {
         "DATABASE_URL": "postgres://outline:${OUTLINE_PG_PASSWORD}@outline-postgres:5432/outline",
         "REDIS_URL": "redis://outline-redis:6379",
@@ -84,6 +83,7 @@
     {
       "name": "outline-nginx",
       "image": "nginx:alpine",
+      "isMain": true,
       "internalPort": 80,
       "dependsOn": ["outline", "outline-oidc"],
       "volumes": [
