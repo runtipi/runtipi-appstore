@@ -3,10 +3,11 @@
   "name": "Kometa",
   "available": true,
   "exposable": false,
+  "dynamic_config": true,
   "no_gui": true,
   "port": 9996,
   "id": "kometa",
-  "tipi_version": 2,
+  "tipi_version": 3,
   "version": "2.1.0",
   "categories": ["utilities", "media"],
   "author": "Kometa-Team",
@@ -16,5 +17,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1727724734000
+  "updated_at": 1740331656332
 }
