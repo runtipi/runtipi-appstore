@@ -1,0 +1,25 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "simplex-smp",
+      "image": "simplexchat/smp-server:v6.2.1",
+      "isMain": true,
+      "internalPort": 5223,
+      "environment": {
+        "PASS": "${SIMPLEX_SMP_PASSWORD}",
+        "ADDR": "${APP_DOMAIN}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/simplex/logs",
+          "containerPath": "/var/opt/simplex"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/simplex/config",
+          "containerPath": "/etc/opt/simplex"
+        }
+      ]
+    }
+  ]
+}
