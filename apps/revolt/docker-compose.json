@@ -289,7 +289,7 @@
         "AWS_SECRET_ACCESS_KEY": "${REVOLT_AWS_SECRET_ACCESS_KEY}"
       },
       "dependsOn": ["revolt-minio"],
-      "entrypoint": "/bin/sh -c \"while ! /usr/bin/mc ready minio; do /usr/bin/mc config host add minio http://minio:9000 minioautumn minioautumn; echo 'Waiting minio...' && sleep 1; done; /usr/bin/mc mb minio/revolt-uploads; exit 0;\""
+      "entrypoint": "/bin/sh -c \"while ! /usr/bin/mc ready minio; do /usr/bin/mc config host add minio http://revolt-minio:9000 minioautumn minioautumn; echo 'Waiting minio...' && sleep 1; done; /usr/bin/mc mb minio/revolt-uploads; exit 0;\""
     },
     {
       "name": "revolt",
