@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "gladys",
-      "image": "gladysassistant/gladys:v4.53.0",
+      "image": "gladysassistant/gladys:v4.54.0",
       "isMain": true,
       "networkMode": "host",
       "environment": {
