@@ -2,7 +2,7 @@ version: '3'
 
 services:
   koillection:
-    image: koillection/koillection:1.6.8
+    image: koillection/koillection:1.6.11
     container_name: koillection
     restart: unless-stopped
     ports:
