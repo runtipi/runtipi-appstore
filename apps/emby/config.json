@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 8325,
   "id": "emby",
-  "tipi_version": 4,
-  "version": "4.8.10",
+  "tipi_version": 5,
+  "version": "4.8.11",
   "categories": ["media"],
   "description": "Emby is a media server designed to organize, play, and stream audio and video to a variety of devices",
   "short_desc": "A media server for your home collection",
@@ -17,5 +17,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1734113784756
+  "updated_at": 1741603620000
 }

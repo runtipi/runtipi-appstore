@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "emby",
-      "image": "lscr.io/linuxserver/emby:4.8.10",
+      "image": "lscr.io/linuxserver/emby:4.8.11",
       "isMain": true,
       "internalPort": 8096,
       "environment": {
