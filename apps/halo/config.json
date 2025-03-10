@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 8092,
   "id": "halo",
-  "tipi_version": 43,
-  "version": "2.20.15",
+  "tipi_version": 44,
+  "version": "2.20.16",
   "description": "Halo is a powerful and easy-to-use open source website building tool.",
   "short_desc": "Halo - Open source website building tool.",
   "categories": ["social", "media"],
@@ -29,5 +29,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1740247756000
+  "updated_at": 1741637749000
 }
