@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   resilio-sync:
-    image: lscr.io/linuxserver/resilio-sync:3.0.0
+    image: lscr.io/linuxserver/resilio-sync:3.0.3
     container_name: resilio-sync
     environment:
       - PUID=1000
