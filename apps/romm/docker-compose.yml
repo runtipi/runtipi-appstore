@@ -1,6 +1,6 @@
 services:
   romm:
-    image: ghcr.io/rommapp/romm:3.7.3
+    image: ghcr.io/rommapp/romm:3.8.0
     container_name: romm
     environment:
       - DB_HOST=romm-db
