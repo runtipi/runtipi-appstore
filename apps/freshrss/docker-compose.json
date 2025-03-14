@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "freshrss",
-      "image": "lscr.io/linuxserver/freshrss:1.25.0",
+      "image": "lscr.io/linuxserver/freshrss:1.26.1",
       "isMain": true,
       "internalPort": 80,
       "environment": {
