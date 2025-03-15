@@ -2,10 +2,11 @@
   "name": "Minio",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 8001,
   "id": "minio",
   "description": "MinIO is a high-performance, S3 compatible object store. It is built for large scale AI/ML, data lake and database workloads.",
-  "tipi_version": 4,
+  "tipi_version": 5,
   "version": "RELEASE.2025-02-07T23-21-09Z",
   "categories": ["development"],
   "short_desc": "High Performance Object Storage.",
@@ -36,7 +37,7 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1740247420440,
+  "updated_at": 1742038537982,
   "$schema": "../app-info-schema.json",
   "force_pull": true
 }
