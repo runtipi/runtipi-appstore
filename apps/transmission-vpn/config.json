@@ -3,9 +3,10 @@
   "name": "Transmission (VPN)",
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "port": 9091,
   "id": "transmission-vpn",
-  "tipi_version": 8,
+  "tipi_version": 9,
   "version": "5.3.1",
   "categories": ["utilities", "security"],
   "description": "Transmission is running only when OpenVPN has an active tunnel. It has built-in support for many popular VPN providers to make the setup easier.",
@@ -337,5 +338,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566285000
+  "updated_at": 1742038605230
 }
