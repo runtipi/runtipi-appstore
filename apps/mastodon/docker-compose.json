@@ -57,7 +57,10 @@
           "hostPath": "${APP_DATA_DIR}/data/mastodon-config",
           "containerPath": "/config"
         }
-      ]
+      ],
+      "extraLabels": {
+        "traefik.http.services.mastodon.loadbalancer.serverstransport": "insecuretransport@file"
+      }
     },
     {
       "name": "mastodon-db",
