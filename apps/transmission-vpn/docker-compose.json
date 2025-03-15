@@ -31,7 +31,7 @@
         "TRANSMISSION_LPD_ENABLED": "${TRANSMISSION_LPD_ENABLED-false}",
         "TRANSMISSION_PEX_ENABLED": "${TRANSMISSION_PEX_ENABLED-false}",
         "TRANSMISSION_BLOCKLIST_ENABLED": "${TRANSMISSION_BLOCKLIST_ENABLED-true}",
-        "TRANSMISSION_BLOCKLIST_URL": "${TRANSMISSION_BLOCKLIST_URL-http://list.iblocklist.com/?list"
+        "TRANSMISSION_BLOCKLIST_URL": "${TRANSMISSION_BLOCKLIST_URL-http://list.iblocklist.com/?list=bt_level1&fileformat=p2p&archiveformat=gz}"
       },
       "volumes": [
         {
@@ -48,7 +48,7 @@
         }
       ],
       "sysctls": {
-        "net.ipv6.conf.all.disable_ipv6": "0"
+        "net.ipv6.conf.all.disable_ipv6": 0
       },
       "devices": ["/dev/net/tun"],
       "capAdd": ["NET_ADMIN"],
