@@ -1,30 +1,201 @@
-<h1 align="center">
-  <br>
-  <img src="https://penpot.app/images/readme/git-readme-header.png" alt="PENPOT">
-</h1>
+# Checklist
+## Dynamic compose for penpot
+This is a penpot update for using dynamic compose.
+##### Reaching the app :
+- [ ] http://localip:port
+- [ ] https://penpot.tipi.local
+##### In app tests :
+- [ ] 📝 Register and log in
+- [ ] 🖱 Basic interaction
+- [ ] 🌆 Uploading data
+- [ ] 🔄 Check data after restart
+##### Volumes mapping :
+- [ ] ${APP_DATA_DIR}/data/assets:/opt/data/assets
+- [ ] ${APP_DATA_DIR}/data/assets:/opt/data/assets
+- [ ] ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+##### Specific instructions :
+- [ ] 🌳 Environment
+- [ ] 🔗 Depends on
+- [ ] 🛑 Stop signal
 
-🎇 **Penpot Fest exceeded all expectations - it was a complete success!** 🎇 Penpot Fest is our first Design event that brought designers and developers from the Open Source communities and beyond. Watch the replay of the talks on our [Youtube channel](https://www.youtube.com/playlist?list=PLgcCPfOv5v56-fghJo2dHNBqL9zlDTslh) or [Peertube channel](https://peertube.kaleidos.net/w/p/1tWgyJTt8sKbWwCEcBimZW)
-
-Penpot is the first **Open Source** design and prototyping platform meant for cross-domain teams. Non dependent on operating systems, Penpot is web based and works with open standards (SVG). Penpot invites designers all over the world to fall in love with open source while getting developers excited about the design process in return.
-
-![feature-readme](https://user-images.githubusercontent.com/1045247/189871786-0b44f7cf-3a0a-4445-a87b-9919ec398bf7.gif)
-
-## Why Penpot
-
-Penpot makes design and prototyping accessible to every team in the world.
-
-### For cross-domain teams
-
-We have a clear focus on design and code teams and our capabilities reflect exactly that. The less hand-off mindset, the more fun for everyone.
-
-### Multiplatform
-
-Being web based, Penpot is not dependent on operating systems or local installations, you will only need to run a modern browser.
-
-### Open Standards
-
-Using SVG as no other design and prototyping tool does, Penpot files sport compatibility with most of the vectorial tools, are tech friendly and extremely easy to use on the web. We make sure you will always own your work.
-
-<p align="center">
-  <img src="https://penpot.app/images/readme/git-open.png" alt="Open Source" style="width: 65%;">
-</p>
+# New JSON
+```json
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "penpot",
+      "image": "penpotapp/frontend:latest",
+      "isMain": true,
+      "internalPort": 80,
+      "environment": {
+        "PENPOT_FLAGS": "enable-registration enable-login-with-password"
+      },
+      "dependsOn": [
+        "penpot-backend",
+        "penpot-exporter"
+      ],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/assets",
+          "containerPath": "/opt/data/assets"
+        }
+      ]
+    },
+    {
+      "name": "penpot-backend",
+      "image": "penpotapp/backend:latest",
+      "environment": {
+        "PENPOT_FLAGS": "enable-registration enable-login-with-password disable-email-verification",
+        "PENPOT_PUBLIC_URI": "${APP_PROTOCOL:-http}://${APP_DOMAIN}:${APP_PORT}",
+        "PENPOT_DATABASE_URI": "postgresql://penpot-postgres/penpot",
+        "PENPOT_DATABASE_USERNAME": "tipi",
+        "PENPOT_DATABASE_PASSWORD": "${PENPOT_POSTGRES_PASSWORD}",
+        "PENPOT_REDIS_URI": "redis://penpot-redis/0",
+        "PENPOT_ASSETS_STORAGE_BACKEND": "assets-fs",
+        "PENPOT_STORAGE_ASSETS_FS_DIRECTORY": "/opt/data/assets",
+        "PENPOT_TELEMETRY_ENABLED": "false"
+      },
+      "dependsOn": [
+        "penpot-postgres",
+        "penpot-redis"
+      ],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/assets",
+          "containerPath": "/opt/data/assets"
+        }
+      ]
+    },
+    {
+      "name": "penpot-exporter",
+      "image": "penpotapp/exporter:latest",
+      "environment": {
+        "PENPOT_PUBLIC_URI": "http://penpot",
+        "PENPOT_REDIS_URI": "redis://penpot-redis/0"
+      }
+    },
+    {
+      "name": "penpot-postgres",
+      "image": "postgres:14",
+      "environment": {
+        "POSTGRES_INITDB_ARGS": "--data-checksums",
+        "POSTGRES_DB": "penpot",
+        "POSTGRES_USER": "tipi",
+        "POSTGRES_PASSWORD": "${PENPOT_POSTGRES_PASSWORD}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgres",
+          "containerPath": "/var/lib/postgresql/data"
+        }
+      ],
+      "stopSignal": "SIGINT"
+    },
+    {
+      "name": "penpot-redis",
+      "image": "redis:7"
+    }
+  ]
+} 
+```
+# Original YAML
+```yaml
+version: '3.9'
+services:
+  penpot:
+    image: penpotapp/frontend:latest
+    container_name: penpot
+    restart: unless-stopped
+    ports:
+    - ${APP_PORT}:80
+    volumes:
+    - ${APP_DATA_DIR}/data/assets:/opt/data/assets
+    depends_on:
+    - penpot-backend
+    - penpot-exporter
+    networks:
+    - tipi_main_network
+    labels:
+      traefik.enable: true
+      traefik.http.middlewares.penpot-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.penpot.loadbalancer.server.port: 80
+      traefik.http.routers.penpot-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.penpot-insecure.entrypoints: web
+      traefik.http.routers.penpot-insecure.service: penpot
+      traefik.http.routers.penpot-insecure.middlewares: penpot-web-redirect
+      traefik.http.routers.penpot.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.penpot.entrypoints: websecure
+      traefik.http.routers.penpot.service: penpot
+      traefik.http.routers.penpot.tls.certresolver: myresolver
+      traefik.http.routers.penpot-local-insecure.rule: Host(`penpot.${LOCAL_DOMAIN}`)
+      traefik.http.routers.penpot-local-insecure.entrypoints: web
+      traefik.http.routers.penpot-local-insecure.service: penpot
+      traefik.http.routers.penpot-local-insecure.middlewares: penpot-web-redirect
+      traefik.http.routers.penpot-local.rule: Host(`penpot.${LOCAL_DOMAIN}`)
+      traefik.http.routers.penpot-local.entrypoints: websecure
+      traefik.http.routers.penpot-local.service: penpot
+      traefik.http.routers.penpot-local.tls: true
+      runtipi.managed: true
+    environment:
+    - PENPOT_FLAGS=enable-registration enable-login-with-password
+  penpot-backend:
+    image: penpotapp/backend:latest
+    container_name: penpot-backend
+    restart: unless-stopped
+    volumes:
+    - ${APP_DATA_DIR}/data/assets:/opt/data/assets
+    depends_on:
+    - penpot-postgres
+    - penpot-redis
+    networks:
+    - tipi_main_network
+    environment:
+    - PENPOT_FLAGS=enable-registration enable-login-with-password disable-email-verification
+    - PENPOT_PUBLIC_URI=${APP_PROTOCOL:-http}://${APP_DOMAIN}:${APP_PORT}
+    - PENPOT_DATABASE_URI=postgresql://penpot-postgres/penpot
+    - PENPOT_DATABASE_USERNAME=tipi
+    - PENPOT_DATABASE_PASSWORD=${PENPOT_POSTGRES_PASSWORD}
+    - PENPOT_REDIS_URI=redis://penpot-redis/0
+    - PENPOT_ASSETS_STORAGE_BACKEND=assets-fs
+    - PENPOT_STORAGE_ASSETS_FS_DIRECTORY=/opt/data/assets
+    - PENPOT_TELEMETRY_ENABLED=false
+    labels:
+      runtipi.managed: true
+  penpot-exporter:
+    image: penpotapp/exporter:latest
+    container_name: penpot-exporter
+    restart: unless-stopped
+    networks:
+    - tipi_main_network
+    environment:
+    - PENPOT_PUBLIC_URI=http://penpot
+    - PENPOT_REDIS_URI=redis://penpot-redis/0
+    labels:
+      runtipi.managed: true
+  penpot-postgres:
+    image: postgres:14
+    restart: unless-stopped
+    container_name: penpot-postgres
+    stop_signal: SIGINT
+    volumes:
+    - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+    networks:
+    - tipi_main_network
+    environment:
+    - POSTGRES_INITDB_ARGS=--data-checksums
+    - POSTGRES_DB=penpot
+    - POSTGRES_USER=tipi
+    - POSTGRES_PASSWORD=${PENPOT_POSTGRES_PASSWORD}
+    labels:
+      runtipi.managed: true
+  penpot-redis:
+    image: redis:7
+    container_name: penpot-redis
+    restart: unless-stopped
+    networks:
+    - tipi_main_network
+    labels:
+      runtipi.managed: true
+ 
+```
