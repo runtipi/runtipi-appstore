@@ -5,7 +5,7 @@
       "name": "emqx",
       "image": "emqx/emqx:5.8.5",
       "isMain": true,
-      "internalPort": 18083
+      "internalPort": 18083,
       "addPorts": [
         {
           "hostPort": 1883,
