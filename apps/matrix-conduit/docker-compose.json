@@ -33,6 +33,36 @@
       "image": null,
       "environment": {
         "APP_DOMAIN": "${APP_DOMAIN}"
+      },
+      "extraLabels": {
+        "traefikMain": {
+          "redirectScheme": "https",
+          "serverPort": 80
+        },
+        "traefikWeb": {
+          "rule": "Host(`${APP_DOMAIN}`) && PathPrefix(`/.well-known/matrix`)",
+          "entryPoints": "web",
+          "service": "matrix-well-knows",
+          "middlewares": "matrix-well-knows-web-redirect"
+        },
+        "traefikWebSecure": {
+          "rule": "Host(`${APP_DOMAIN}`) && PathPrefix(`/.well-known/matrix`)",
+          "entryPoints": "websecure",
+          "service": "matrix-well-knows",
+          "certResolver": "myresolver"
+        },
+        "traefikLocal": {
+          "rule": "Host(`matrix-well-knows.${LOCAL_DOMAIN}`) && PathPrefix(`/.well-known/matrix`)",
+          "entryPoints": "web",
+          "service": "matrix-well-knows",
+          "middlewares": "matrix-well-knows-web-redirect"
+        },
+        "traefikLocalSecure": {
+          "rule": "Host(`matrix-well-knows.${LOCAL_DOMAIN}`) && PathPrefix(`/.well-known/matrix`)",
+          "entryPoints": "websecure",
+          "service": "matrix-well-knows",
+          "tls": true
+        }
       }
     }
   ]
