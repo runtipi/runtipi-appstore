@@ -36,6 +36,7 @@
         "traefik.http.middlewares.nextcloud_redirect.redirectregex.replacement": "https://$${1}/remote.php/dav/",
         "traefik.http.routers.nextcloud.middlewares": "nextcloud,nextcloud_redirect,nextcloud-https",
         "traefik.http.middlewares.nextcloud.headers.customRequestHeaders.X-Forwarded-Proto": "https",
+        "traefik.http.middlewares.nextcloud-https.redirectscheme.scheme": "https",
         "traefik.http.routers.nextcloud-http.middlewares": "nextcloud-https@docker"
       }
     },
