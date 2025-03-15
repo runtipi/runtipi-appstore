@@ -5,13 +5,7 @@
       "name": "mastodon",
       "image": "lscr.io/linuxserver/mastodon:4.3.6",
       "isMain": true,
-      "internalPort": 443,
-      "addPorts": [
-        {
-          "hostPort": 8209,
-          "containerPort": 80
-        }
-      ],
+      "internalPort": 80,
       "environment": {
         "PUID": "1000",
         "PGID": "1000",
