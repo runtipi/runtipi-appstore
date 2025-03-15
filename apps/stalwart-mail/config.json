@@ -15,14 +15,7 @@
   "source": "https://github.com/stalwartlabs",
   "website": "https://stalw.art",
   "requirements": {
-    "ports": [
-      25,
-      143,
-      465,
-      587,
-      993,
-      4190
-    ]
+    "ports": [25, 143, 465, 587, 993, 4190]
   },
   "form_fields": [
     {
