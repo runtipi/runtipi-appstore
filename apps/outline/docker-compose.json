@@ -72,11 +72,13 @@
         },
         {
           "hostPath": "${APP_DATA_DIR}/data/uc/db",
-          "containerPath": "/app/db"
+          "containerPath": "/app/db",
+          "shared": true
         },
         {
           "hostPath": "${APP_DATA_DIR}/data/uc/static_root",
-          "containerPath": "/app/static_root"
+          "containerPath": "/app/static_root",
+          "shared": true
         }
       ]
     },

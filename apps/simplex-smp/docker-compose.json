@@ -13,11 +13,13 @@
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/simplex/logs",
-          "containerPath": "/var/opt/simplex"
+          "containerPath": "/var/opt/simplex",
+          "shared": true
         },
         {
           "hostPath": "${APP_DATA_DIR}/data/simplex/config",
-          "containerPath": "/etc/opt/simplex"
+          "containerPath": "/etc/opt/simplex",
+          "shared": true
         }
       ]
     }
