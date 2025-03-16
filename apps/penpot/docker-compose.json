@@ -5,7 +5,7 @@
       "name": "penpot",
       "image": "penpotapp/frontend:latest",
       "isMain": true,
-      "internalPort": 80,
+      "internalPort": 8080,
       "environment": {
         "PENPOT_FLAGS": "enable-registration enable-login-with-password"
       },
@@ -22,7 +22,7 @@
       "image": "penpotapp/backend:latest",
       "environment": {
         "PENPOT_FLAGS": "enable-registration enable-login-with-password disable-email-verification",
-        "PENPOT_PUBLIC_URI": "${APP_PROTOCOL:-http}://${APP_DOMAIN}:${APP_PORT}",
+        "PENPOT_PUBLIC_URI": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
         "PENPOT_DATABASE_URI": "postgresql://penpot-postgres/penpot",
         "PENPOT_DATABASE_USERNAME": "tipi",
         "PENPOT_DATABASE_PASSWORD": "${PENPOT_POSTGRES_PASSWORD}",
