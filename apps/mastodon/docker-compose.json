@@ -6,12 +6,6 @@
       "image": "lscr.io/linuxserver/mastodon:4.3.6",
       "isMain": true,
       "internalPort": 443,
-      "addPorts": [
-        {
-          "hostPort": 8209,
-          "containerPort": 80
-        }
-      ],
       "environment": {
         "PUID": "1000",
         "PGID": "1000",
@@ -57,7 +51,11 @@
           "hostPath": "${APP_DATA_DIR}/data/mastodon-config",
           "containerPath": "/config"
         }
-      ]
+      ],
+      "extraLabels": {
+        "traefik.http.services.mastodon.loadbalancer.serverstransport": "insecuretransport@file",
+        "traefik.http.services.mastodon.loadbalancer.server.scheme": "https"
+      }
     },
     {
       "name": "mastodon-db",
@@ -77,7 +75,7 @@
       ],
       "shmSize": "256mb",
       "healthCheck": {
-        "test": "pg_isready -U tipi"
+        "test": "pg_isready -U tipi -d mastodon"
       }
     },
     {
