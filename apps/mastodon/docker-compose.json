@@ -59,7 +59,8 @@
         }
       ],
       "extraLabels": {
-        "traefik.http.services.mastodon.loadbalancer.serverstransport": "insecuretransport@file"
+        "traefik.http.services.mastodon.loadbalancer.serverstransport": "insecuretransport@file",
+        "traefik.http.services.mastodon.loadbalancer.server.scheme": "https"
       }
     },
     {
