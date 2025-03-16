@@ -24,7 +24,7 @@
         "traefik.http.routers.smallweb-local.rule": "Host(`smallweb.${LOCAL_DOMAIN}`) || HostRegexp(`.+\\.smallweb\\.${LOCAL_DOMAIN}`)"
       },
       "extraLabels": {
-        "traefik.http.routers.smallweb.tls.domains[0].main": "${APP_DOMAIN}"
+        "traefik.http.routers.smallweb.tls.domains[0].main": "${APP_DOMAIN}",
         "traefik.http.routers.smallweb.tls.domains[0].sans": "*.${APP_DOMAIN}"
       }
     }
