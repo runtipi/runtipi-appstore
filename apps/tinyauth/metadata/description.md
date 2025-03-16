@@ -6,8 +6,7 @@
 
 Tinyauth is a simple authentication middleware that adds simple username/password login or OAuth with Google, Github, Tailscale and any generic OAuth provider to all of your docker apps.
 
-> [!NOTE]
-> Tinyauth is intended for homelab use and it is not made for production use cases. If you are looking for something production ready please use [authentik](https://goauthentik.io).
+> **Note 📝:** Tinyauth is intended for homelab use and it is not made for production use cases. If you are looking for something production ready please use [authentik](https://goauthentik.io).
 
 ## Getting Started
 
