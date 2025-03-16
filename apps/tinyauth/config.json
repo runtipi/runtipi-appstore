@@ -88,18 +88,18 @@
       "env_variable": "TINYAUTH_OAUTH_WHITELIST"
     },
     {
-      "type": "boolean",
-      "label": "Disable Continue",
-      "hint": "Check this if you want to disable the continue screen and immediately redirect to your app after you login.",
-      "required": false,
-      "env_variable": "TINYAUTH_DISABLE_CONTINUE"
-    },
-    {
       "type": "text",
       "label": "Title",
       "hint": "Set a custom title for the login screen, e.g. 'My Homelab'.",
       "required": false,
       "env_variable": "TINYAUTH_TITLE"
+    },
+    {
+      "type": "boolean",
+      "label": "Disable Continue",
+      "hint": "Check this if you want to disable the continue screen and immediately redirect to your app after you login.",
+      "required": false,
+      "env_variable": "TINYAUTH_DISABLE_CONTINUE"
     }
   ]
 }
