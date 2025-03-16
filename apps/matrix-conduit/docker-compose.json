@@ -30,39 +30,29 @@
     },
     {
       "name": "matrix-conduit-well-known",
-      "image": null,
+      "image": "nginx",
       "environment": {
         "APP_DOMAIN": "${APP_DOMAIN}"
       },
       "extraLabels": {
-        "traefikMain": {
-          "redirectScheme": "https",
-          "serverPort": 80
-        },
-        "traefikWeb": {
-          "rule": "Host(`${APP_DOMAIN}`) && PathPrefix(`/.well-known/matrix`)",
-          "entryPoints": "web",
-          "service": "matrix-well-knows",
-          "middlewares": "matrix-well-knows-web-redirect"
-        },
-        "traefikWebSecure": {
-          "rule": "Host(`${APP_DOMAIN}`) && PathPrefix(`/.well-known/matrix`)",
-          "entryPoints": "websecure",
-          "service": "matrix-well-knows",
-          "certResolver": "myresolver"
-        },
-        "traefikLocal": {
-          "rule": "Host(`matrix-well-knows.${LOCAL_DOMAIN}`) && PathPrefix(`/.well-known/matrix`)",
-          "entryPoints": "web",
-          "service": "matrix-well-knows",
-          "middlewares": "matrix-well-knows-web-redirect"
-        },
-        "traefikLocalSecure": {
-          "rule": "Host(`matrix-well-knows.${LOCAL_DOMAIN}`) && PathPrefix(`/.well-known/matrix`)",
-          "entryPoints": "websecure",
-          "service": "matrix-well-knows",
-          "tls": true
-        }
+        "traefik.http.middlewares.{{RUNTIPI_APP_ID}}-well-knows-web-redirect.redirectscheme.scheme": "https",
+        "traefik.http.services.{{RUNTIPI_APP_ID}}-well-knows.loadbalancer.server.port": "80",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-well-knows-insecure.rule": "Host(`${APP_DOMAIN}`) && PathPrefix(`/.well-known/{{RUNTIPI_APP_ID}}`)",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-well-knows-insecure.entrypoints": "web",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-well-knows-insecure.service": "{{RUNTIPI_APP_ID}}-well-knows",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-well-knows-insecure.middlewares": "{{RUNTIPI_APP_ID}}-well-knows-web-redirect",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-well-knows.rule": "Host(`${APP_DOMAIN}`) && PathPrefix(`/.well-known/{{RUNTIPI_APP_ID}}`)",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-well-knows.entrypoints": "websecure",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-well-knows.service": "{{RUNTIPI_APP_ID}}-well-knows",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-well-knows.tls.certresolver": "myresolver",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-well-knows-local-insecure.rule": "Host(`{{RUNTIPI_APP_ID}}-well-knows.${LOCAL_DOMAIN}`) && PathPrefix(`/.well-known/{{RUNTIPI_APP_ID}}`)",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-well-knows-local-insecure.entrypoints": "web",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-well-knows-local-insecure.service": "{{RUNTIPI_APP_ID}}-well-knows",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-well-knows-local-insecure.middlewares": "{{RUNTIPI_APP_ID}}-well-knows-web-redirect",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-well-knows-local.rule": "Host(`{{RUNTIPI_APP_ID}}-well-knows.${LOCAL_DOMAIN}`) && PathPrefix(`/.well-known/{{RUNTIPI_APP_ID}}`)",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-well-knows-local.entrypoints": "websecure",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-well-knows-local.service": "{{RUNTIPI_APP_ID}}-well-knows",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-well-knows-local.tls": "true"
       }
     }
   ]
