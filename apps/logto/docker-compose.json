@@ -26,11 +26,11 @@
       },
       "entrypoint": ["sh", "-c", "npm run cli db seed -- --swe && npm start"],
       "extraLabels": {
-        "traefik.http.routers.{{RUNTIPI_APP_ID}}-admin.rule": "Host(`${LOGTO_ADMIN_URL}`)",
-        "traefik.http.routers.{{RUNTIPI_APP_ID}}-admin.entrypoints": "websecure",
-        "traefik.http.routers.{{RUNTIPI_APP_ID}}-admin.service": "logto",
-        "traefik.http.routers.{{RUNTIPI_APP_ID}}-admin.tls.certresolver": "myresolver",
-        "traefik.http.services.{{RUNTIPI_APP_ID}}-admin.loadbalancer.server.port": 3002
+        "traefik.http.routers.logto-admin.rule": "Host(`${LOGTO_ADMIN_URL}`)",
+        "traefik.http.routers.logto-admin.entrypoints": "websecure",
+        "traefik.http.routers.logto-admin.service": "logto",
+        "traefik.http.routers.logto-admin.tls.certresolver": "myresolver",
+        "traefik.http.services.logto-admin.loadbalancer.server.port": 3002
       }
     },
     {
