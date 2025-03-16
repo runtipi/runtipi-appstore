@@ -30,7 +30,7 @@
         "traefik.http.routers.logto-admin.entrypoints": "websecure",
         "traefik.http.routers.logto-admin.service": "logto",
         "traefik.http.routers.logto-admin.tls.certresolver": "myresolver",
-        "traefik.http.services.logto-admin.loadbalancer.server.port": 3002
+        "traefik.http.services.logto-admin.loadbalancer.server.port": "3002"
       }
     },
     {
