@@ -3,14 +3,13 @@
   "services": [
     {
       "name": "invoice-ninja",
-      "image": "invoiceninja/invoiceninja:5.11.55",
-      "isMain": true,
+      "image": "invoiceninja/invoiceninja:5.11.55", 
       "user": "1500:1500",
       "environment": {
         "IN_USER_EMAIL": "${INVOICE_NINJA_USER_MAIL}",
         "IN_PASSWORD": "${INVOICE_NINJA_USER_PASSWORD}",
         "APP_URL": "http://invoice-ninja-web",
-        "APP_NAME": "\"Invoice Ninja\"",
+        "APP_NAME": "Invoice Ninja",
         "APP_ENV": "production",
         "APP_KEY": "${INVOICE_NINJA_APP_KEY}",
         "APP_CIPHER": "AES-256-CBC",
@@ -34,20 +33,15 @@
           "containerPath": "/var/www/app/storage"
         },
         {
-          "hostPath": "${APP_DATA_DIR}/data/php/php.ini",
-          "containerPath": "/usr/local/etc/php/php.ini",
+          "hostPath": "${APP_DATA_DIR}/data/php",
+          "containerPath": "/usr/local/etc/php",
           "readOnly": true
-        },
-        {
-          "hostPath": "${APP_DATA_DIR}/data/php/php-cli.ini",
-          "containerPath": "/usr/local/etc/php/php-cli.ini",
-          "readOnly": true
-        }
       ]
     },
     {
       "name": "invoice-ninja-web",
       "image": "nginx:1.27",
+      "isMain": true,
       "internalPort": 80,
       "dependsOn": {
         "invoice-ninja": {
