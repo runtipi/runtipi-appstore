@@ -24,7 +24,14 @@
           "condition": "service_healthy"
         }
       },
-      "entrypoint": ["sh", "-c", "npm run cli db seed -- --swe && npm start"]
+      "entrypoint": ["sh", "-c", "npm run cli db seed -- --swe && npm start"],
+      "extraLabels": {
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-admin.rule": "Host(`${LOGTO_ADMIN_URL}`)",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-admin.entrypoints": "websecure",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-admin.service": "logto",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-admin.tls.certresolver": "myresolver",
+        "traefik.http.services.{{RUNTIPI_APP_ID}}-admin.loadbalancer.server.port": "3002"
+      }
     },
     {
       "name": "logto-db",
