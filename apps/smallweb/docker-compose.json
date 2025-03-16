@@ -16,7 +16,17 @@
           "hostPath": "${APP_DATA_DIR}/data/",
           "containerPath": "/smallweb"
         }
-      ]
+      ],
+      "traefikOverrides": {
+        "traefik.http.routers.smallweb-insecure.rule": "Host(`${APP_DOMAIN}`) || HostRegexp(`.+\.${APP_DOMAIN}`)",
+        "traefik.http.routers.smallweb.rule": "Host(`${APP_DOMAIN}`) || HostRegexp(`.+\.${APP_DOMAIN}`)",
+        "traefik.http.routers.smallweb-local-insecure.rule": "Host(`smallweb.${LOCAL_DOMAIN}`) || HostRegexp(`.+\.smallweb\.${LOCAL_DOMAIN}`)",
+        "traefik.http.routers.smallweb-local.rule": "Host(`smallweb.${LOCAL_DOMAIN}`) || HostRegexp(`.+\.smallweb\.${LOCAL_DOMAIN}`)"
+      },
+      "extraLabels": {
+        "traefik.http.routers.smallweb.tls.domains[0].main": "${APP_DOMAIN}"
+        "traefik.http.routers.smallweb.tls.domains[0].sans": "*.${APP_DOMAIN}"
+      }
     }
   ]
 }
