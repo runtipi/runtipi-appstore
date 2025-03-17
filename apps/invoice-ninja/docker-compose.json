@@ -40,7 +40,7 @@
       "isMain": true,
       "internalPort": 443,
       "dependsOn": {
-        "invoice-ninja": {
+        "invoice-ninja-backend": {
           "condition": "service_started"
         }
       },
