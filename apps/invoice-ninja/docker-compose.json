@@ -38,7 +38,7 @@
       "name": "invoice-ninja",
       "image": "nginx:1.27",
       "isMain": true,
-      "internalPort": 443,
+      "internalPort": 80,
       "dependsOn": {
         "invoice-ninja-backend": {
           "condition": "service_started"
