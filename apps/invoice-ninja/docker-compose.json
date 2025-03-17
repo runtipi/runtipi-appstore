@@ -86,7 +86,7 @@
         "invoice-ninja-init": {
           "condition": "service_completed_successfully"
         }
-      },
+      }
     },
     {
       "name": "invoice-ninja-init",
