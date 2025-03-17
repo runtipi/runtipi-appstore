@@ -2,7 +2,7 @@
   "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
-      "name": "invoice-ninja",
+      "name": "invoice-ninja-backend",
       "image": "invoiceninja/invoiceninja:5.11.55", 
       "user": "1500:1500",
       "environment": {
@@ -35,10 +35,10 @@
       ]
     },
     {
-      "name": "invoice-ninja-web",
+      "name": "invoice-ninja",
       "image": "nginx:1.27",
       "isMain": true,
-      "internalPort": 80,
+      "internalPort": 443,
       "dependsOn": {
         "invoice-ninja": {
           "condition": "service_started"
