@@ -17,13 +17,11 @@
           "containerPath": "/smallweb"
         }
       ],
-      "traefikOverrides": {
+      "extraLabels": {
         "traefik.http.routers.{{RUNTIPI_APP_ID}}-insecure.rule": "Host(`${APP_DOMAIN}`) || HostRegexp(`.+\\.${APP_DOMAIN}`)",
         "traefik.http.routers.{{RUNTIPI_APP_ID}}.rule": "Host(`${APP_DOMAIN}`) || HostRegexp(`.+\\.${APP_DOMAIN}`)",
         "traefik.http.routers.{{RUNTIPI_APP_ID}}-local-insecure.rule": "Host(`{{RUNTIPI_APP_ID}}.${LOCAL_DOMAIN}`) || HostRegexp(`.+\\.{{RUNTIPI_APP_ID}}\\.${LOCAL_DOMAIN}`)",
-        "traefik.http.routers.{{RUNTIPI_APP_ID}}-local.rule": "Host(`{{RUNTIPI_APP_ID}}.${LOCAL_DOMAIN}`) || HostRegexp(`.+\\.{{RUNTIPI_APP_ID}}\\.${LOCAL_DOMAIN}`)"
-      },
-      "extraLabels": {
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-local.rule": "Host(`{{RUNTIPI_APP_ID}}.${LOCAL_DOMAIN}`) || HostRegexp(`.+\\.{{RUNTIPI_APP_ID}}\\.${LOCAL_DOMAIN}`)",
         "traefik.http.routers.{{RUNTIPI_APP_ID}}.tls.domains[0].main": "${APP_DOMAIN}",
         "traefik.http.routers.{{RUNTIPI_APP_ID}}.tls.domains[0].sans": "*.${APP_DOMAIN}"
       }
