@@ -3,14 +3,13 @@
   "services": [
     {
       "name": "invoice-ninja",
-      "image": "invoiceninja/invoiceninja:5.11.55",
-      "isMain": true,
+      "image": "invoiceninja/invoiceninja:5.10.62", 
       "user": "1500:1500",
       "environment": {
         "IN_USER_EMAIL": "${INVOICE_NINJA_USER_MAIL}",
         "IN_PASSWORD": "${INVOICE_NINJA_USER_PASSWORD}",
-        "APP_URL": "http://invoice-ninja-web",
-        "APP_NAME": "\"Invoice Ninja\"",
+        "APP_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
+        "APP_NAME": "Invoice Ninja",
         "APP_ENV": "production",
         "APP_KEY": "${INVOICE_NINJA_APP_KEY}",
         "APP_CIPHER": "AES-256-CBC",
@@ -48,6 +47,7 @@
     {
       "name": "invoice-ninja-web",
       "image": "nginx:1.27",
+      "isMain": true,
       "internalPort": 80,
       "dependsOn": {
         "invoice-ninja": {
@@ -76,29 +76,12 @@
         "MARIADB_PASSWORD": "ninja",
         "MARIADB_DATABASE": "ninja"
       },
-      "dependsOn": {
-        "invoice-ninja-init": {
-          "condition": "service_completed_successfully"
-        }
-      },
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/mysql",
           "containerPath": "/var/lib/mysql"
         }
-      ],
-      "command": ["mysqld", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci", "--wait_timeout=28800", "--log-warnings=0"]
-    },
-    {
-      "name": "invoice-ninja-init",
-      "image": "bash:5.2.37",
-      "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/data",
-          "containerPath": "/tmp/data"
-        }
-      ],
-      "command": "bash -c \"chmod +x /tmp/data/init/init.sh && /tmp/data/init/init.sh \""
+      ]
     }
   ]
 }
