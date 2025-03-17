@@ -36,6 +36,7 @@
           "hostPath": "${APP_DATA_DIR}/data/php",
           "containerPath": "/usr/local/etc/php",
           "readOnly": true
+        }
       ]
     },
     {
