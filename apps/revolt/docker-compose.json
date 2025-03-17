@@ -295,13 +295,7 @@
       "name": "revolt",
       "image": "caddy",
       "isMain": true,
-      "internalPort": 80,
-      "addPorts": [
-        {
-          "hostPort": 8273,
-          "containerPort": 443
-        }
-      ],
+      "internalPort": 443,
       "environment": {
         "MONGODB": "mongodb://revolt-database",
         "REDIS_URI": "redis://revolt-redis/",
