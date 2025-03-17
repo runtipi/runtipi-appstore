@@ -65,7 +65,7 @@
         "POSTGRES_USER": "tipi",
         "POSTGRES_DB": "mastodon",
         "PG_DATA": "/var/lib/postgresql/data",
-        "POSTGRES_HOST_AUTH_METHODL": "trust"
+        "POSTGRES_HOST_AUTH_METHOD": "trust"
       },
       "volumes": [
         {
