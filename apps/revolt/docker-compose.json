@@ -7,7 +7,7 @@
       "environment": {
         "MONGODB": "mongodb://revolt-database",
         "REDIS_URI": "redis://revolt-redis/",
-        "HOSTNAME": ":80",
+        "HOSTNAME": "https://${APP_DOMAIN}",
         "REVOLT_APP_URL": "https://${APP_DOMAIN}",
         "REVOLT_PUBLIC_URL": "https://${APP_DOMAIN}/api",
         "VITE_API_URL": "https://${APP_DOMAIN}/api",
@@ -43,7 +43,7 @@
       "environment": {
         "MONGODB": "mongodb://revolt-database",
         "REDIS_URI": "redis://revolt-redis/",
-        "HOSTNAME": ":80",
+        "HOSTNAME": "https://${APP_DOMAIN}",
         "REVOLT_APP_URL": "https://${APP_DOMAIN}",
         "REVOLT_PUBLIC_URL": "https://${APP_DOMAIN}/api",
         "VITE_API_URL": "https://${APP_DOMAIN}/api",
@@ -73,7 +73,7 @@
       "environment": {
         "MONGODB": "mongodb://revolt-database",
         "REDIS_URI": "redis://revolt-redis/",
-        "HOSTNAME": ":80",
+        "HOSTNAME": "https://${APP_DOMAIN}",
         "REVOLT_APP_URL": "https://${APP_DOMAIN}",
         "REVOLT_PUBLIC_URL": "https://${APP_DOMAIN}/api",
         "VITE_API_URL": "https://${APP_DOMAIN}/api",
@@ -110,7 +110,7 @@
       "environment": {
         "MONGODB": "mongodb://revolt-database",
         "REDIS_URI": "redis://revolt-redis/",
-        "HOSTNAME": ":80",
+        "HOSTNAME": "https://${APP_DOMAIN}",
         "REVOLT_APP_URL": "https://${APP_DOMAIN}",
         "REVOLT_PUBLIC_URL": "https://${APP_DOMAIN}/api",
         "VITE_API_URL": "https://${APP_DOMAIN}/api",
@@ -171,7 +171,7 @@
       "environment": {
         "MONGODB": "mongodb://revolt-database",
         "REDIS_URI": "redis://revolt-redis/",
-        "HOSTNAME": ":80",
+        "HOSTNAME": "https://${APP_DOMAIN}",
         "REVOLT_APP_URL": "https://${APP_DOMAIN}",
         "REVOLT_PUBLIC_URL": "https://${APP_DOMAIN}/api",
         "VITE_API_URL": "https://${APP_DOMAIN}/api",
@@ -203,7 +203,7 @@
         "AUTUMN_MONGO_URI": "mongodb://revolt-database",
         "MONGODB": "mongodb://revolt-database",
         "REDIS_URI": "redis://revolt-redis/",
-        "HOSTNAME": ":80",
+        "HOSTNAME": "https://${APP_DOMAIN}",
         "REVOLT_APP_URL": "https://${APP_DOMAIN}",
         "REVOLT_PUBLIC_URL": "https://${APP_DOMAIN}/api",
         "VITE_API_URL": "https://${APP_DOMAIN}/api",
@@ -234,7 +234,7 @@
       "environment": {
         "MONGODB": "mongodb://revolt-database",
         "REDIS_URI": "redis://revolt-redis/",
-        "HOSTNAME": ":80",
+        "HOSTNAME": "https://${APP_DOMAIN}",
         "REVOLT_APP_URL": "https://${APP_DOMAIN}",
         "REVOLT_PUBLIC_URL": "https://${APP_DOMAIN}/api",
         "VITE_API_URL": "https://${APP_DOMAIN}/api",
@@ -265,7 +265,7 @@
       "environment": {
         "MONGODB": "mongodb://revolt-database",
         "REDIS_URI": "redis://revolt-redis/",
-        "HOSTNAME": ":80",
+        "HOSTNAME": "https://${APP_DOMAIN}",
         "REVOLT_APP_URL": "https://${APP_DOMAIN}",
         "REVOLT_PUBLIC_URL": "https://${APP_DOMAIN}/api",
         "VITE_API_URL": "https://${APP_DOMAIN}/api",
@@ -295,11 +295,11 @@
       "name": "revolt",
       "image": "caddy",
       "isMain": true,
-      "internalPort": 443,
+      "internalPort": 80,
       "environment": {
         "MONGODB": "mongodb://revolt-database",
         "REDIS_URI": "redis://revolt-redis/",
-        "HOSTNAME": ":80",
+        "HOSTNAME": "https://${APP_DOMAIN}",
         "REVOLT_APP_URL": "https://${APP_DOMAIN}",
         "REVOLT_PUBLIC_URL": "https://${APP_DOMAIN}/api",
         "VITE_API_URL": "https://${APP_DOMAIN}/api",
