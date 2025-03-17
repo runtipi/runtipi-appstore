@@ -8,7 +8,7 @@
       "environment": {
         "IN_USER_EMAIL": "${INVOICE_NINJA_USER_MAIL}",
         "IN_PASSWORD": "${INVOICE_NINJA_USER_PASSWORD}",
-        "APP_URL": "http://invoice-ninja-web",
+        "APP_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
         "APP_NAME": "Invoice Ninja",
         "APP_ENV": "production",
         "APP_KEY": "${INVOICE_NINJA_APP_KEY}",
