@@ -59,7 +59,7 @@
     },
     {
       "name": "invoice-ninja-db",
-      "image": "mariadb:10.7",
+      "image": "mysql:8",
       "environment": {
         "MARIADB_ROOT_PASSWORD": "${INVOICE_NINJA_BDD_PASSWORD}",
         "MARIADB_USER": "ninja",
