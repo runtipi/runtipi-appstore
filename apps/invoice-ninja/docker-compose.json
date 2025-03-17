@@ -31,6 +31,16 @@
         {
           "hostPath": "${APP_DATA_DIR}/data/storage",
           "containerPath": "/var/www/app/storage"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/php/php.ini",
+          "containerPath": "/usr/local/etc/php/php.ini",
+          "readOnly": true
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/php/php-cli.ini",
+          "containerPath": "/usr/local/etc/php/php-cli.ini",
+          "readOnly": true
         }
       ]
     },
