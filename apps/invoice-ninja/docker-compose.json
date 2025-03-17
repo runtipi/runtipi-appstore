@@ -81,7 +81,24 @@
           "hostPath": "${APP_DATA_DIR}/data/mysql",
           "containerPath": "/var/lib/mysql"
         }
-      ]
+      ],
+      "dependsOn": {
+        "invoice-ninja-init": {
+          "condition": "service_completed_successfully"
+        }
+      },
+    },
+    {
+      "name": "invoice-ninja-init",
+      "image": "bash:5.2.37",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data",
+          "containerPath": "/tmp/data"
+        }
+      ],
+      "entrypoint": "/bin/bash",
+      "command": "mkdir -p /tmp/data/storage /tmp/data/public; chmod 755 /tmp/data/public; chown -R 1500:1500 /tmp/data/php /tmp/data/public /tmp/data/storage"
     }
   ]
 }
