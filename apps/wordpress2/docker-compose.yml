@@ -1,0 +1,59 @@
+version: "3.9"
+services:
+      
+  wordpress2:
+    container_name: wordpress2
+    image: wordpress:6.7.2
+    environment:
+      - WORDPRESS_DB_HOST=wordpress2-db
+      - WORDPRESS_DB_NAME=wordpress2
+      - WORDPRESS_DB_USER=tipi
+      - WORDPRESS_DB_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}/data/wordpress2:/var/www/html
+    ports:
+      - ${APP_PORT}:80
+    restart: unless-stopped
+    depends_on:
+      - wordpress2-db
+    networks:
+      - tipi_main_network
+    labels:
+        # Main
+        traefik.enable: true
+        traefik.http.middlewares.wordpress2-redirect.redirectscheme.scheme: https
+        traefik.http.services.wordpress2.loadbalancer.server.port: 80
+        # Web
+        traefik.http.routers.wordpress2-insecure.rule: Host(`${APP_DOMAIN}`)
+        traefik.http.routers.wordpress2-insecure.entrypoints: web
+        traefik.http.routers.wordpress2-insecure.service: wordpress2
+        traefik.http.routers.wordpress2-insecure.middlewares: wordpress2-redirect
+        # Websecure
+        traefik.http.routers.wordpress2.rule: Host(`${APP_DOMAIN}`)
+        traefik.http.routers.wordpress2.entrypoints: websecure
+        traefik.http.routers.wordpress2.service: wordpress2
+        traefik.http.routers.wordpress2.tls.certresolver: myresolver
+        # Local domain
+        traefik.http.routers.wordpress2-local-insecure.rule: Host(`wordpress2.${LOCAL_DOMAIN}`)
+        traefik.http.routers.wordpress2-local-insecure.entrypoints: web
+        traefik.http.routers.wordpress2-local-insecure.service: wordpress2
+        traefik.http.routers.wordpress2-local-insecure.middlewares: wordpress2-redirect
+        # Local domain secure
+        traefik.http.routers.wordpress2-local.rule: Host(`wordpress2.${LOCAL_DOMAIN}`)
+        traefik.http.routers.wordpress2-local.entrypoints: websecure
+        traefik.http.routers.wordpress2-local.service: wordpress2
+        traefik.http.routers.wordpress2-local.tls: true
+        runtipi.managed: true
+  wordpress2-db:
+    container_name: wordpress2-db
+    image: mariadb:11.1.3
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MYSQL_DATABASE=wordpress2
+      - MYSQL_USER=tipi
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}/data/wordpress2-db:/var/lib/mysql
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
