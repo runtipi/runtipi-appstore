@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "spoolman",
-      "image": "ghcr.io/donkie/spoolman:0.22.0",
+      "image": "ghcr.io/donkie/spoolman:0.22.1",
       "isMain": true,
       "internalPort": 8000,
       "environment": {
