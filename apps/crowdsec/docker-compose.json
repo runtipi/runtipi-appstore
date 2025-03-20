@@ -58,7 +58,7 @@
       "dependsOn": ["crowdsec"]
     },
     {
-      "image": "metabase/metabase",
+      "image": "crowdsecurity/crowdsec:v1.6.6",
       "name": "crowdsec-dashboard",
       "internalPort": 3000,
       "isMain": true,
