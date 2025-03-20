@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   eclipse-mosquitto:
-    image: eclipse-mosquitto:2.0.20
+    image: eclipse-mosquitto:2.0.21
     container_name: eclipse-mosquitto
     environment:
       - TZ=${TZ}

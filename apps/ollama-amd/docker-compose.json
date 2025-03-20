@@ -1,0 +1,21 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "ollama-amd",
+      "image": "ollama/ollama:0.6.2-rocm",
+      "isMain": true,
+      "internalPort": 11434,
+      "environment": {
+        "PORT": "11434"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/.ollama",
+          "containerPath": "/root/.ollama"
+        }
+      ],
+      "devices": ["/dev/kfd", "/dev/dri"]
+    }
+  ]
+}
