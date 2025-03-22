@@ -34,6 +34,12 @@
       "environment": {
         "APP_DOMAIN": "${APP_DOMAIN}"
       },
+      "volumes": [
+        {
+          "hostPath": "./nginx"
+          "containerPath": "/etc/nginx/templates"
+        }
+      ]
       "extraLabels": {
         "traefik.enable": "true",
         "traefik.http.middlewares.{{RUNTIPI_APP_ID}}-well-knows-web-redirect.redirectscheme.scheme": "https",
