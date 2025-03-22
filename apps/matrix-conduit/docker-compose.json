@@ -26,7 +26,28 @@
           "hostPath": "${APP_DATA_DIR}/data",
           "containerPath": "/var/lib/matrix-conduit/"
         }
-      ]
+      ],
+      "extraLabels": {
+        "traefik.enable": "true",
+        "traefik.http.middlewares.{{RUNTIPI_APP_ID}}-conduit-web-redirect.redirectscheme.scheme": "https",
+        "traefik.http.services.{{RUNTIPI_APP_ID}}-conduit.loadbalancer.server.port": "6167",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-conduit-insecure.rule": "Host(`${APP_DOMAIN}`)",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-conduit-insecure.entrypoints": "web",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-conduit-insecure.service": "{{RUNTIPI_APP_ID}}-conduit",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-conduit-insecure.middlewares": "{{RUNTIPI_APP_ID}}-conduit-web-redirect",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-conduit.rule": "Host(`${APP_DOMAIN}`)",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-conduit.entrypoints": "websecure",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-conduit.service": "{{RUNTIPI_APP_ID}}-conduit",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-conduit.tls.certresolver": "myresolver",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-conduit-local-insecure.rule": "Host(`{{RUNTIPI_APP_ID}}-conduit.${LOCAL_DOMAIN}`)",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-conduit-local-insecure.entrypoints": "web",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-conduit-local-insecure.service": "{{RUNTIPI_APP_ID}}-conduit",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-conduit-local-insecure.middlewares": "{{RUNTIPI_APP_ID}}-conduit-web-redirect",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-conduit-local.rule": "Host(`{{RUNTIPI_APP_ID}}-conduit.${LOCAL_DOMAIN}`)",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-conduit-local.entrypoints": "websecure",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-conduit-local.service": "{{RUNTIPI_APP_ID}}-conduit",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-conduit-local.tls": "true"
+      }
     },
     {
       "name": "matrix-conduit-well-known",
