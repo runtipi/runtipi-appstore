@@ -36,10 +36,10 @@
       },
       "volumes": [
         {
-          "hostPath": "./nginx"
+          "hostPath": "./nginx",
           "containerPath": "/etc/nginx/templates"
         }
-      ]
+      ],
       "extraLabels": {
         "traefik.enable": "true",
         "traefik.http.middlewares.{{RUNTIPI_APP_ID}}-well-knows-web-redirect.redirectscheme.scheme": "https",
