@@ -1,6 +1,6 @@
 services:
   hoarder:
-    image: ghcr.io/hoarder-app/hoarder:0.22.0
+    image: ghcr.io/hoarder-app/hoarder:0.23.0
     container_name: hoarder
     restart: unless-stopped
     volumes:
