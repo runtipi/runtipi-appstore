@@ -4,26 +4,17 @@
   "port": 8154,
   "available": true,
   "exposable": true,
+  "dynamic_config": true,
   "id": "linkstack",
-  "tipi_version": 3,
+  "tipi_version": 4,
   "version": "latest",
   "categories": ["media"],
   "description": "LinkStack is a highly customizable link sharing platform with an intuitive, easy to use user interface",
   "short_desc": "LinkStack is a highly customizable link sharing platform with an intuitive, easy to use user interface",
   "author": "LinkStackOrg",
   "source": "https://github.com/LinkStackOrg/linkstack-docker",
-  "form_fields": [
-    {
-      "type": "email",
-      "label": "Admin email",
-      "max": 50,
-      "min": 3,
-      "required": true,
-      "env_variable": "LINKSTACK_CUSTOM_EMAIL"
-    }
-  ],
+  "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1740247068576,
-  "force_pull": true
+  "updated_at": 1740331663373
 }

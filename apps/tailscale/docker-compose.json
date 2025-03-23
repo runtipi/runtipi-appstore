@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "tailscale",
-      "image": "tailscale/tailscale:v1.80.0",
+      "image": "tailscale/tailscale:v1.80.3",
       "isMain": true,
       "environment": {
         "TS_SERVE_CONFIG": "${TAILSCALE_SERVE_CONFIG}",

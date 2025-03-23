@@ -1,0 +1,37 @@
+{
+  "$schema": "../dynamic-compose-schema.json",
+  "services": [
+    {
+      "name": "windows",
+      "image": "dockurr/windows:4.25",
+      "isMain": true,
+      "internalPort": 8006,
+      "addPorts": [
+        {
+          "hostPort": 3389,
+          "containerPort": 3389,
+          "tcp": true,
+          "udp": true
+        }
+      ],
+      "environment": {
+        "RAM_SIZE": "${WINDOWS_RAM_GB}G",
+        "CPU_CORE": "${WINDOWS_CPU_CORES}",
+        "DISK_SIZE": "${WINDOWS_DISK_SIZE_GB}G",
+        "VERSION": "${WINDOWS_VERSION}"
+      },
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/storage",
+          "containerPath": "/storage"
+        }
+      ],
+      "sysctls": {
+        "net.ipv4.ip_forward": 1
+      },
+      "devices": ["/dev/kvm"],
+      "capAdd": ["NET_ADMIN"],
+      "stopGracePeriod": "2m"
+    }
+  ]
+}
