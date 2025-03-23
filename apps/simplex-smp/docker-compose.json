@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "simplex-smp",
-      "image": "simplexchat/smp-server:v6.3.0",
+      "image": "simplexchat/smp-server:v6.3.1",
       "isMain": true,
       "internalPort": 5223,
       "environment": {
