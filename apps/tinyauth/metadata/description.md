@@ -1,8 +1,4 @@
-<div align="center">
-    <img alt="Tinyauth" title="Tinyauth" width="256" src="https://github.com/steveiliop56/tinyauth/blob/main/site/public/logo.png?raw=true">
-    <h1>Tinyauth</h1>
-    <p>The easiest way to secure your apps with a login screen.</p>
-</div>
+# Tinyauth
 
 Tinyauth is a simple authentication middleware that adds simple username/password login or OAuth with Google, Github, Tailscale and any generic OAuth provider to all of your docker apps.
 
