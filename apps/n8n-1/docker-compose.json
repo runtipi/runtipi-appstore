@@ -15,7 +15,8 @@
         "DB_POSTGRESDB_PORT": "5432",
         "DB_POSTGRESDB_DATABASE": "n8n",
         "DB_POSTGRESDB_USER": "n8n",
-        "DB_POSTGRESDB_PASSWORD": "${N8N_NR_DB_PASSWORD}"
+        "DB_POSTGRESDB_PASSWORD": "${N8N_NR_DB_PASSWORD}",
+        "N8N_DEFAULT_BINARY_DATA_MODE": "filesystem"
       },
       "dependsOn": {
         "n8n-db": {
