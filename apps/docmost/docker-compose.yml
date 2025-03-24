@@ -1,7 +1,7 @@
 services:
   docmost:
     container_name: docmost
-    image: docmost/docmost:0.8.4
+    image: docmost/docmost:0.9.0
     depends_on:
       - docmost-db
       - docmost-redis
