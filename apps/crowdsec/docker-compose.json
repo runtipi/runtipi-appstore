@@ -2,7 +2,7 @@
   "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
-      "image": "crowdsecurity/crowdsec:v1.6.5",
+      "image": "crowdsecurity/crowdsec:v1.6.6",
       "name": "crowdsec",
       "volumes": [
         {
@@ -58,7 +58,7 @@
       "dependsOn": ["crowdsec"]
     },
     {
-      "image": "crowdsecurity/crowdsec:v1.6.6",
+      "image": "metabase/metabase",
       "name": "crowdsec-dashboard",
       "internalPort": 3000,
       "isMain": true,
