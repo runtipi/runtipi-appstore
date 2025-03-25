@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "emqx",
-      "image": "emqx/emqx:5.8.5",
+      "image": "emqx/emqx:5.8.6",
       "isMain": true,
       "internalPort": 18083,
       "addPorts": [
