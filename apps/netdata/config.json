@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "id": "netdata",
   "description": "Stream any metrics from every physical and virtual server, container and IoT device, to one dashboard, in real-time.",
-  "tipi_version": 37,
-  "version": "2.3.0",
+  "tipi_version": 38,
+  "version": "2.3.1",
   "categories": ["utilities"],
   "short_desc": "Open-source, real-time, performance and health monitoring.",
   "author": "netdata",
@@ -16,6 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1742537032000,
+  "updated_at": 1742871094000,
   "$schema": "../app-info-schema.json"
 }
