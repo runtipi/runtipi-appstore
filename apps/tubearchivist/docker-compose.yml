@@ -65,7 +65,7 @@ services:
     labels:
       runtipi.managed: true
   tubearchivist-es:
-    image: elasticsearch:8.17.3
+    image: elasticsearch:8.17.4
     container_name: tubearchivist-es
     restart: always
     environment:
