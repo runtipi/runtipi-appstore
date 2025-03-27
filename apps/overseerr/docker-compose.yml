@@ -1,7 +1,7 @@
 services:
   overseerr:
     container_name: overseerr
-    image: ghcr.io/linuxserver/overseerr:1.33.2
+    image: ghcr.io/linuxserver/overseerr:1.34.0
     environment:
       - PUID=1000
       - PGID=1000
