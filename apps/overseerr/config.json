@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 8116,
   "id": "overseerr",
-  "tipi_version": 11,
-  "version": "1.33.2",
+  "tipi_version": 12,
+  "version": "1.34.0",
   "categories": ["media", "utilities"],
   "description": "Overseerr is a free and open source software application for managing requests for your media library. It integrates with your existing services, such as Sonarr, Radarr, and Plex!",
   "short_desc": "Request management and media discovery tool for the Plex ecosystem",
@@ -16,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1736282041603
+  "updated_at": 1743046790000
 }
