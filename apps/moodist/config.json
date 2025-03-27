@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "moodist",
-  "tipi_version": 6,
-  "version": "1.5.1",
+  "tipi_version": 7,
+  "version": "2.0.1",
   "categories": ["media"],
   "description": "Ambient sounds for focus and calm.",
   "short_desc": "Ambient sounds for focus and calm.",
@@ -16,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1729872782092
+  "updated_at": 1743059596000
 }
