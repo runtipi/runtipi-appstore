@@ -7,7 +7,7 @@
   "dynamic_config": true,
   "no_gui": true,
   "id": "authentik",
-  "tipi_version": 41,
+  "tipi_version": 42,
   "version": "2025.2.3",
   "https": true,
   "categories": ["development"],
@@ -31,5 +31,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1743182894000
+  "updated_at": 1743182894001
 }
