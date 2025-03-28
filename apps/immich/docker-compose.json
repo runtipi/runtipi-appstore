@@ -26,7 +26,7 @@
     },
     {
       "name": "immich-machine-learning",
-      "image": "ghcr.io/immich-app/immich-machine-learning:v1.125.7",
+      "image": "ghcr.io/immich-app/immich-machine-learning:v1.130.3",
       "environment": {
         "NODE_ENV": "production",
         "DB_HOSTNAME": "immich-db",
