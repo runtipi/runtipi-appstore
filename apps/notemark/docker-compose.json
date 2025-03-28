@@ -20,7 +20,7 @@
     },
     {
       "name": "notemark-proxy",
-      "image": "ghcr.io/enchant97/note-mark-frontend:0.15.2",
+      "image": "ghcr.io/enchant97/note-mark-frontend:0.15.3",
       "isMain": true,
       "internalPort": 80,
       "volumes": [
