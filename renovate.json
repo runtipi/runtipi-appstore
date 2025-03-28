@@ -24,7 +24,7 @@
     {
       "managers": ["docker-compose", "dockerfile"],
       "packagePatterns": [
-        "^([^\\/]+\\/)?(mysql|mariadb|mongodb|mongo|postgres|redis|clickhouse-server|clickhouse|nginx|couchdb|documentserver|invoiceninja|crowdsec|goauthentik)(:|$)"
+        "^([^\\/]+\\/)?(mysql|mariadb|mongodb|mongo|postgres|redis|clickhouse-server|clickhouse|nginx|couchdb|documentserver|invoiceninja|crowdsec|goauthentik|immich-server|immich-machine-learning)(:|$)"
       ],
       "enabled": false
     },
