@@ -50,7 +50,6 @@
       "required": false,
       "env_variable": "ELECTRUM_PORT"
     },
-
     {
       "type": "random",
       "label": "Mempool DB password",
