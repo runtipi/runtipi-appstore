@@ -4,9 +4,6 @@
     "id": {
       "type": "string"
     },
-    "urn": {
-      "type": "string"
-    },
     "available": {
       "type": "boolean"
     },
@@ -188,11 +185,15 @@
       "minimum": 0,
       "default": 0
     },
+    "force_pull": {
+      "type": "boolean",
+      "default": false
+    },
     "$schema": {
       "type": "string"
     }
   },
-  "required": ["id", "available", "port", "name", "tipi_version", "short_desc", "author", "source", "$schema"],
+  "required": ["id", "available", "name", "tipi_version", "short_desc", "author", "source"],
   "additionalProperties": false,
   "$schema": "http://json-schema.org/draft-07/schema#"
 }

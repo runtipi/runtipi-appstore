@@ -13,8 +13,22 @@ const dependsOnSchema = z.union([
 ]);
 
 const ulimitsSchema = z.object({
-  nproc: z.number().or(z.object({ soft: z.number(), hard: z.number() })),
-  nofile: z.number().or(z.object({ soft: z.number(), hard: z.number() })),
+  nproc: z
+    .number()
+    .or(z.object({ soft: z.number(), hard: z.number() }))
+    .optional(),
+  nofile: z
+    .number()
+    .or(z.object({ soft: z.number(), hard: z.number() }))
+    .optional(),
+  core: z
+    .number()
+    .or(z.object({ soft: z.number(), hard: z.number() }))
+    .optional(),
+  memlock: z
+    .number()
+    .or(z.object({ soft: z.number(), hard: z.number() }))
+    .optional(),
 });
 
 const deploySchema = z.object({
@@ -46,16 +60,17 @@ const deploySchema = z.object({
 const serviceSchema = z.object({
   image: z.string(),
   name: z.string(),
-  internalPort: z.number().optional(),
+  internalPort: z.number().or(z.string()).optional(),
   isMain: z.boolean().optional(),
   networkMode: z.string().optional(),
   extraHosts: z.array(z.string()).optional(),
   ulimits: ulimitsSchema.optional(),
+  addToMainNetwork: z.boolean().optional(),
   addPorts: z
     .array(
       z.object({
-        containerPort: z.number(),
-        hostPort: z.number(),
+        containerPort: z.number().or(z.string()),
+        hostPort: z.number().or(z.string()),
         udp: z.boolean().optional(),
         tcp: z.boolean().optional(),
         interface: z.string().optional(),
@@ -69,10 +84,13 @@ const serviceSchema = z.object({
         hostPath: z.string(),
         containerPath: z.string(),
         readOnly: z.boolean().optional(),
+        shared: z.boolean().optional(),
+        private: z.boolean().optional(),
       }),
     )
     .optional(),
   environment: z.record(z.union([z.string(), z.number()])).optional(),
+  sysctls: z.record(z.string(), z.number()).optional(),
   healthCheck: z
     .object({
       test: z.string(),
@@ -99,7 +117,7 @@ const serviceSchema = z.object({
   logging: z
     .object({
       driver: z.string(),
-      options: z.record(z.string()),
+      options: z.record(z.string()).optional(),
     })
     .optional(),
   readOnly: z.boolean().optional(),
@@ -107,19 +125,13 @@ const serviceSchema = z.object({
   stopSignal: z.string().optional(),
   stopGracePeriod: z.string().optional(),
   stdinOpen: z.boolean().optional(),
+  extraLabels: z.record(z.string().or(z.boolean())).optional(),
 });
 
 const dynamicComposeSchema = z.object({
   services: serviceSchema.array(),
-  $schema: z.string(),
+  $schema: z.string().optional(),
 });
-
-type AppUrn = `${string}:${string}` & {
-  readonly __type: "urn";
-  split: (separator: ":") => [string, string];
-};
-
-const ARCHITECTURES = ["arm64", "amd64"] as const;
 
 const APP_CATEGORIES = [
   "network",
@@ -143,6 +155,8 @@ const FIELD_TYPES = ["text", "password", "email", "number", "fqdn", "ip", "fqdni
 
 const RANDOM_ENCODINGS = ["hex", "base64"] as const;
 
+const ARCHITECTURES = ["arm64", "amd64"] as const;
+
 const formFieldSchema = z.object({
   type: z.enum(FIELD_TYPES),
   label: z.string(),
@@ -161,10 +175,6 @@ const formFieldSchema = z.object({
 
 const appInfoSchema = z.object({
   id: z.string().refine((v) => v.split(":").length === 1),
-  urn: z
-    .string()
-    .refine((v) => v.split(":").length === 2)
-    .optional() as unknown as z.ZodType<AppUrn, ZodStringDef>,
   available: z.boolean(),
   deprecated: z.boolean().optional().default(false),
   port: z.number().min(1).max(65535).optional(),
@@ -203,7 +213,8 @@ const appInfoSchema = z.object({
     .refine((v) => v < Date.now())
     .optional()
     .default(0),
-  $schema: z.string(),
+  force_pull: z.boolean().optional().default(false),
+  $schema: z.string().optional(),
 });
 
 const dynamicComposeJsonSchema = zodToJsonSchema(dynamicComposeSchema);
