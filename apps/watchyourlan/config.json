@@ -8,8 +8,8 @@
   "port": 8840,
   "categories": ["network", "utilities"],
   "description": "Lightweight network IP scanner, can be used to notify about new hosts and monitor host online/offline history",
-  "tipi_version": 4,
-  "version": "2.1.1",
+  "tipi_version": 5,
+  "version": "2.1.2",
   "source": "https://github.com/aceberg/WatchYourLAN",
   "exposable": false,
   "supported_architectures": ["arm64", "amd64"],
@@ -25,5 +25,5 @@
   ],
   "dynamic_config": true,
   "created_at": 1724134338800,
-  "updated_at": 1742942299000
+  "updated_at": 1743458397000
 }

@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "watchyourlan",
-      "image": "aceberg/watchyourlan:2.1.1",
+      "image": "aceberg/watchyourlan:2.1.2",
       "internalPort": 8840,
       "isMain": true,
       "networkMode": "host",
