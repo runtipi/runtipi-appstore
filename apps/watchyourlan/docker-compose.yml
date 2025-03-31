@@ -1,6 +1,6 @@
 services:
   watchyourlan:
-    image: aceberg/watchyourlan:2.1.1
+    image: aceberg/watchyourlan:2.1.2
     container_name: watchyourlan
     restart: unless-stopped
     network-mode: host
