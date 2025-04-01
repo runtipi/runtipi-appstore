@@ -1,0 +1,6 @@
+{
+    "domain": "${APP_DOMAIN}",
+    "additionalDomains": [
+        "smallweb.${LOCAL_DOMAIN}"
+    ]
+}

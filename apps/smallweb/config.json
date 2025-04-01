@@ -6,7 +6,9 @@
   "short_desc": "Your internet folder",
   "author": "pomdtr",
   "port": 7777,
-  "categories": ["development"],
+  "categories": [
+    "development"
+  ],
   "description": "A self-hostable personal cloud inspired by serverless platforms and cgi-bin",
   "tipi_version": 30,
   "version": "0.25.3",
@@ -14,16 +16,9 @@
   "website": "https://smallweb.run",
   "exposable": true,
   "dynamic_config": true,
-  "supported_architectures": ["arm64", "amd64"],
-  "form_fields": [
-    {
-      "env_variable": "SMALLWEB_DOMAIN",
-      "placeholder": "smallweb.mydomain.com",
-      "hint": "Smallweb requires a main domain to function properly, this can be the domain you set in the expose field or the .local one",
-      "label": "Smallweb Domain",
-      "type": "text",
-      "required": true
-    }
+  "supported_architectures": [
+    "arm64",
+    "amd64"
   ],
   "created_at": 1724134338800,
   "updated_at": 1743458548000
