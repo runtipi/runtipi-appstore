@@ -8,7 +8,7 @@
   "force_expose": true,
   "generate_vapid_keys": true,
   "id": "revolt",
-  "tipi_version": 15,
+  "tipi_version": 16,
   "version": "20230810-3",
   "categories": ["media"],
   "description": "Open source user-first chat platform.",
@@ -94,5 +94,6 @@
   "supported_architectures": ["amd64"],
   "created_at": 1691943801422,
   "updated_at": 1742038579720,
-  "force_pull": true
+  "force_pull": true,
+  "deprecated": true
 }

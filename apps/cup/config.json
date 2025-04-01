@@ -8,13 +8,13 @@
   "port": 8465,
   "categories": ["utilities"],
   "description": "Cup is the easiest way to check for container image updates.",
-  "tipi_version": 14,
-  "version": "3.2.0",
+  "tipi_version": 16,
+  "version": "3.2.2",
   "source": "https://github.com/sergi0g/cup",
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],
   "form_fields": [],
   "dynamic_config": true,
   "created_at": 1691943801422,
-  "updated_at": 1742241161000
+  "updated_at": 1743006023000
 }

@@ -13,7 +13,7 @@
             "type": "string"
           },
           "internalPort": {
-            "type": "number"
+            "type": ["number", "string"]
           },
           "isMain": {
             "type": "boolean"
@@ -69,10 +69,52 @@
                     "additionalProperties": false
                   }
                 ]
+              },
+              "core": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "soft": {
+                        "type": "number"
+                      },
+                      "hard": {
+                        "type": "number"
+                      }
+                    },
+                    "required": ["soft", "hard"],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "memlock": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "soft": {
+                        "type": "number"
+                      },
+                      "hard": {
+                        "type": "number"
+                      }
+                    },
+                    "required": ["soft", "hard"],
+                    "additionalProperties": false
+                  }
+                ]
               }
             },
-            "required": ["nproc", "nofile"],
             "additionalProperties": false
+          },
+          "addToMainNetwork": {
+            "type": "boolean"
           },
           "addPorts": {
             "type": "array",
@@ -80,10 +122,10 @@
               "type": "object",
               "properties": {
                 "containerPort": {
-                  "type": "number"
+                  "type": ["number", "string"]
                 },
                 "hostPort": {
-                  "type": "number"
+                  "type": ["number", "string"]
                 },
                 "udp": {
                   "type": "boolean"
@@ -139,6 +181,12 @@
                 },
                 "readOnly": {
                   "type": "boolean"
+                },
+                "shared": {
+                  "type": "boolean"
+                },
+                "private": {
+                  "type": "boolean"
                 }
               },
               "required": ["hostPath", "containerPath"],
@@ -149,6 +197,12 @@
             "type": "object",
             "additionalProperties": {
               "type": ["string", "number"]
+            }
+          },
+          "sysctls": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number"
             }
           },
           "healthCheck": {
@@ -277,7 +331,6 @@
                     "additionalProperties": false
                   }
                 },
-                "required": ["limits", "reservations"],
                 "additionalProperties": false
               }
             },
@@ -343,7 +396,7 @@
                 }
               }
             },
-            "required": ["driver", "options"],
+            "required": ["driver"],
             "additionalProperties": false
           },
           "readOnly": {
@@ -363,6 +416,12 @@
           },
           "stdinOpen": {
             "type": "boolean"
+          },
+          "extraLabels": {
+            "type": "object",
+            "additionalProperties": {
+              "type": ["string", "boolean"]
+            }
           }
         },
         "required": ["image", "name"],
@@ -373,7 +432,7 @@
       "type": "string"
     }
   },
-  "required": ["services", "$schema"],
+  "required": ["services"],
   "additionalProperties": false,
   "$schema": "http://json-schema.org/draft-07/schema#"
 }

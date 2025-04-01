@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "emqx",
-  "tipi_version": 8,
-  "version": "5.8.5",
+  "tipi_version": 9,
+  "version": "5.8.6",
   "categories": ["utilities", "automation"],
   "description": "The most scalable open-source MQTT broker for IoT, IIoT, and connected vehicles.",
   "short_desc": "Scalable open-source MQTT broker.",
@@ -17,5 +17,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1727127845000,
-  "updated_at": 1742038497780
+  "updated_at": 1742917543000
 }
