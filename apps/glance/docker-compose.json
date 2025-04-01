@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "image": "glanceapp/glance:v0.7.8",
+      "image": "glanceapp/glance:v0.7.9",
       "name": "glance",
       "internalPort": 8080,
       "isMain": true,
