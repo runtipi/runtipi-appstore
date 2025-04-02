@@ -5,8 +5,8 @@
   "available": true,
   "exposable": true,
   "id": "lubelogger",
-  "tipi_version": 17,
-  "version": "1.4.5",
+  "tipi_version": 18,
+  "version": "1.4.6",
   "dynamic_config": true,
   "categories": ["utilities"],
   "description": "Self-hosted, open-source, collaborative Vehicle Maintenance and Fuel Mileage Tracker.",
@@ -171,5 +171,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1724244178000,
-  "updated_at": 1741304007000
+  "updated_at": 1743607461000
 }
