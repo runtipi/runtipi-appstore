@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "lubelogger",
-      "image": "ghcr.io/hargata/lubelogger:v1.4.5",
+      "image": "ghcr.io/hargata/lubelogger:v1.4.6",
       "internalPort": 8080,
       "isMain": true,
       "volumes": [
