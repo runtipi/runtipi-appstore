@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 8934,
   "id": "flightlog",
-  "tipi_version": 6,
-  "version": "2.1.3",
+  "tipi_version": 7,
+  "version": "2.1.4",
   "categories": ["utilities", "data"],
   "description": "Easily keep track of your flight history",
   "short_desc": "Flightlog, a web application that keeps track of your personal flight history",
@@ -16,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1740261883000
+  "updated_at": 1743689819000
 }

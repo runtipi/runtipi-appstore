@@ -3,7 +3,7 @@ version: '3.7'
 services:
   flightlog:
     container_name: flightlog
-    image: perdian/flightlog:v2.1.3
+    image: perdian/flightlog:v2.1.4
     environment:
       - FLIGHTLOG_SERVER_CONTEXT_PATH=/
     volumes:
