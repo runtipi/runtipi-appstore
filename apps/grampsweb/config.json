@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 5000,
   "id": "grampsweb",
-  "tipi_version": 16,
-  "version": "25.3.1",
+  "tipi_version": 17,
+  "version": "25.4.0",
   "categories": ["data", "social"],
   "description": "Gramps Web is a web app for collaborative genealogy. It is based on and interoperable with Gramps, the leading open source genealogy desktop application. Gramps Web is free & open source software and puts your privacy and your control of your research data first.",
   "short_desc": "Web app for collaborative genealogy.",
@@ -25,5 +25,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1741544145000
+  "updated_at": 1743575760000
 }

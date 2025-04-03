@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "kometa",
-      "image": "ghcr.io/linuxserver/kometa:2.1.0",
+      "image": "ghcr.io/linuxserver/kometa:2.2.0",
       "isMain": true,
       "environment": {
         "PUID": "1000",
