@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "moodist",
-      "image": "ghcr.io/remvze/moodist:v1.5.1",
+      "image": "ghcr.io/remvze/moodist:v2.0.1",
       "isMain": true,
       "internalPort": 8080,
       "volumes": [
