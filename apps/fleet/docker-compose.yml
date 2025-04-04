@@ -11,9 +11,9 @@ services:
       - FLEET_MYSQL_USERNAME=${MYSQL_USERNAME}
       - FLEET_MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - FLEET_MYSQL_DATABASE=${MYSQL_DATABASE}
-      - FLEET_SERVER_ADDRESS=${FLEET_IP}:${APP_PORT}
-      - FLEET_MYSQL_ADDRESS=${MYSQL_IP}:${MYSQL_PORT}
-      - FLEET_REDIS_ADDRESS=${REDIS_IP}:${REDIS_PORT}
+      - FLEET_SERVER_ADDRESS=${IP}:${APP_PORT}
+      - FLEET_MYSQL_ADDRESS=${IP}:${MYSQL_PORT}
+      - FLEET_REDIS_ADDRESS=${IP}:${REDIS_PORT}
       - FLEET_SERVER_TLS=false
     ports:
       - ${APP_PORT}:8080/tcp
@@ -59,9 +59,9 @@ services:
       - FLEET_MYSQL_USERNAME=${MYSQL_USERNAME}
       - FLEET_MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - FLEET_MYSQL_DATABASE=${MYSQL_DATABASE}
-      - FLEET_SERVER_ADDRESS=${FLEET_IP}:${FLEET_PORT}
-      - FLEET_MYSQL_ADDRESS=${MYSQL_IP}:${MYSQL_PORT}
-      - FLEET_REDIS_ADDRESS=${REDIS_IP}:${REDIS_PORT}
+      - FLEET_SERVER_ADDRESS=${IP}:${FLEET_PORT}
+      - FLEET_MYSQL_ADDRESS=${IP}:${MYSQL_PORT}
+      - FLEET_REDIS_ADDRESS=${IP}:${REDIS_PORT}
       - FLEET_SERVER_TLS=false
     networks:
       - tipi_main_network # That should not be changed
@@ -79,7 +79,7 @@ services:
       - TZ=${TZ} # Can use any env variable. See "environment variables" section in the docs
       ## See the "Settings" section in README.md for more details
 
-      - MYSQL_HOST=${MYSQL_IP}
+      - MYSQL_HOST=${IP}
       - MYSQL_USER=${MYSQL_USERNAME}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
