@@ -1,0 +1,111 @@
+version: '3.9'
+services:
+  fleet: # Should be exact same name as "id" field in config.json
+    container_name: lancache # Should be exact same name as "id" field in config.json
+    image: fleetdm/fleet:main # Try to avoid "latest" tag. As it may break configs in the future.
+    restart: unless-stopped # Do not change this
+    environment:
+      - TZ=${TZ} # Can use any env variable. See "environment variables" section in the docs
+      ## See the "Settings" section in README.md for more details
+
+      - FLEET_MYSQL_USERNAME=${MYSQL_USERNAME}
+      - FLEET_MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - FLEET_MYSQL_DATABASE=${MYSQL_DATABASE}
+      - FLEET_SERVER_ADDRESS=${FLEET_IP}:${FLEET_PORT}
+      - FLEET_MYSQL_ADDRESS=${MYSQL_IP}:${MYSQL_PORT}
+      - FLEET_REDIS_ADDRESS=${REDIS_IP}:${REDIS_PORT}
+      - FLEET_SERVER_TLS=false
+    ports:
+      - ${APP_PORT}:8080/tcp
+    networks:
+      - tipi_main_network # That should not be changed
+    labels: # Use your editors search and replace feature to replace all instances of "myapp" with your app name in the traefik labels
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.fleet-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.fleet.loadbalancer.server.port: 8080 # Should be the same as the app internal port so for this example 9443
+      # Web
+      traefik.http.routers.fleet-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.fleet-insecure.entrypoints: web
+      traefik.http.routers.fleet-insecure.service: fleet
+      traefik.http.routers.fleet-insecure.middlewares: fleet-web-redirect
+      # Websecure
+      traefik.http.routers.fleet.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.fleet.entrypoints: websecure
+      traefik.http.routers.fleet.service: fleet
+      traefik.http.routers.fleet.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.fleet-local-insecure.rule: Host(`fleet.${LOCAL_DOMAIN}`)
+      traefik.http.routers.fleet-local-insecure.entrypoints: web
+      traefik.http.routers.fleet-local-insecure.service: fleet
+      traefik.http.routers.fleet-local-insecure.middlewares: fleet-web-redirect
+      # Local domain secure
+      traefik.http.routers.fleet-local.rule: Host(`fleet.${LOCAL_DOMAIN}`)
+      traefik.http.routers.fleet-local.entrypoints: websecure
+      traefik.http.routers.fleet-local.service: fleet
+      traefik.http.routers.fleet-local.tls: true
+    depends_on:
+      - fleet-prepare-db
+      - fleet-redis
+    command: "/usr/bin/fleet serve"
+  fleet-prepare-db:
+    container_name: fleet-prepare-db # Should be exact same name as "id" field
+    image: fleetdm/fleet:main # Try to avoid "latest" tag. As it may break configs in the future.
+    restart: no # Do not change this (should be unless-stopped)
+    environment:
+      - TZ=${TZ} # Can use any env variable. See "environment variables" section in the docs
+      ## See the "Settings" section in README.md for more details
+
+      - FLEET_MYSQL_USERNAME=${MYSQL_USERNAME}
+      - FLEET_MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - FLEET_MYSQL_DATABASE=${MYSQL_DATABASE}
+      - FLEET_SERVER_ADDRESS=${FLEET_IP}:${FLEET_PORT}
+      - FLEET_MYSQL_ADDRESS=${MYSQL_IP}:${MYSQL_PORT}
+      - FLEET_REDIS_ADDRESS=${REDIS_IP}:${REDIS_PORT}
+      - FLEET_SERVER_TLS=false
+    networks:
+      - tipi_main_network # That should not be changed
+    labels:
+      # Main
+      traefik.enable: false
+    depends_on:
+      - fleet-db
+    command: "/usr/bin/fleet prepare db --no-prompt --logging_debug"
+  fleet-db:
+    container_name: fleet-db # Should be exact same name as "id" field
+    image: mysql:8.0 # Try to avoid "latest" tag. As it may break configs in the future.
+    restart: unless-stopped # Do not change this
+    environment:
+      - TZ=${TZ} # Can use any env variable. See "environment variables" section in the docs
+      ## See the "Settings" section in README.md for more details
+
+      - MYSQL_HOST=${MYSQL_IP}
+      - MYSQL_USER=${MYSQL_USERNAME}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}/mysql:/var/lib/mysql
+    ports:
+      - ${MYSQL_PORT}:3306/tcp
+    networks:
+      - tipi_main_network # That should not be changed
+    labels:
+      # Main
+      traefik.enable: false
+  fleet-redis:
+    container_name: fleet-redis # Should be exact same name as "id" field
+    image: eqalpha/keydb:x86_64_v6.3.0 # Try to avoid "latest" tag. As it may break configs in the future.
+    restart: unless-stopped # Do not change this
+    environment:
+      - TZ=${TZ} # Can use any env variable. See "environment variables" section in the docs
+      ## See the "Settings" section in README.md for more details
+    volumes:
+      - ${APP_DATA_DIR}/redis:/var/lib/redis
+    ports:
+      - ${REDIS_PORT}:6379/tcp
+    networks:
+      - tipi_main_network # That should not be changed
+    labels:
+      # Main
+      traefik.enable: false
