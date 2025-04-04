@@ -1,0 +1,75 @@
+{
+  "name": "Fleet ",
+  "id": "fleet",
+  "available": true,
+  "short_desc": "One agent for every OS, script, config, etc.",
+  "author": "Fleet Device Management Inc.",
+  "port": 7693,
+  "categories": ["utilities", "automation", "security"],
+  "description": "Replace the sprawl with lightning fast device management that lets employees see what's going on.",
+  "tipi_version": 1,
+  "version": "v1.0.0",
+  "source": "https://github.com/fleetdm/fleet",
+  "website": "https://fleetdm.com/",
+  "exposable": true,
+  "no_gui": false,
+  "supported_architectures": ["amd64"],
+  "form_fiels": [
+    {
+      "type": "ip",
+      "label": "IP",
+      "hint": "IP address that services are reachable on.",
+      "placeholder": "192.168.2.100",
+      "default": "",
+      "required": true,
+      "env_variable": "IP"
+    },
+    {
+      "type": "number",
+      "label": "Redis port",
+      "hint": "Port that Redis is reachable on.",
+      "placeholder": "61120",
+      "default": "61120",
+      "required": true,
+      "env_variable": "REDIS_PORT"
+    },
+    {
+      "type": "number",
+      "label": "MySQL port",
+      "hint": "Port that MySQL is reachable on.",
+      "placeholder": "44235",
+      "default": "44235",
+      "required": true,
+      "env_variable": "MYSQL_PORT"
+    },
+    {
+      "type": "text",
+      "label": "MySQL username",
+      "hint": "The username for MySQL.",
+      "placeholder": "fleet",
+      "default": "fleet",
+      "required": true,
+      "env_variable": "MYSQL_USERNAME"
+    },
+    {
+      "type": "password",
+      "label": "MySQL password",
+      "hint": "The password for MySQL.",
+      "placeholder": "",
+      "default": "",
+      "required": true,
+      "env_variable": "MYSQL_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "MySQL database",
+      "hint": "The database name for MySQL.",
+      "placeholder": "fleet",
+      "default": "fleet",
+      "required": true,
+      "env_variable": "MYSQL_DATABASE"
+    }
+  ],
+  "created_at": 1743775149000,
+  "updated_at": 1743775149000
+}
