@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "dockge",
-      "image": "louislam/dockge:1.4.2",
+      "image": "louislam/dockge:1.5.0",
       "isMain": true,
       "internalPort": 5001,
       "environment": {
