@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "logto",
-      "image": "svhd/logto:1.25.0",
+      "image": "svhd/logto:1.26.0",
       "isMain": true,
       "internalPort": 3001,
       "addPorts": [
