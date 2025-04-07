@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "dockge",
-  "tipi_version": 11,
-  "version": "1.4.2",
+  "tipi_version": 12,
+  "version": "1.5.0",
   "categories": ["utilities"],
   "description": "A fancy, easy-to-use and reactive self-hosted docker compose.yaml stack-oriented manager.",
   "short_desc": "Docker compose.yaml stack-oriented manager.",
@@ -16,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1729872633727
+  "updated_at": 1743819141000
 }

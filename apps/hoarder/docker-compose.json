@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "hoarder",
-      "image": "ghcr.io/hoarder-app/hoarder:0.23.0",
+      "image": "ghcr.io/hoarder-app/hoarder:0.23.2",
       "isMain": true,
       "internalPort": 3000,
       "environment": {
