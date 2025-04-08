@@ -12,3 +12,7 @@ The Pi-hole® is a [DNS sinkhole](https://en.wikipedia.org/wiki/DNS_Sinkhole) th
 - **Scalable**: [capable of handling hundreds of millions of queries](https://pi-hole.net/2017/05/24/how-much-traffic-can-pi-hole-handle/) when installed on server-grade hardware
 - **Modern**: blocks ads over both IPv4 and IPv6
 - **Free**: open source software that helps ensure _you_ are the sole person in control of your privacy
+
+### If Pi-hole can't be started
+
+The port 53 may be already in use on your host (check your logs) : [explanation and fix](https://github.com/pi-hole/docker-pi-hole?tab=readme-ov-file#installing-on-ubuntu-or-fedora)
