@@ -6,11 +6,6 @@
       "image": "ghcr.io/pomdtr/smallweb:0.25.6",
       "isMain": true,
       "internalPort": 7777,
-      "user": "0:0",
-      "environment": {
-        "SMALLWEB_DOMAIN": "${SMALLWEB_DOMAIN}",
-        "SMALLWEB_ADDITIONAL_DOMAINS": "smallweb.${LOCAL_DOMAIN};${APP_DOMAIN}"
-      },
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/",
