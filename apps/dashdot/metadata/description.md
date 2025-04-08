@@ -8,7 +8,7 @@ _Feel free to join the **[Discord](https://discord.gg/3teHFBNQ9W)** and **star t
 
   
 
-[Live Demo](https://dash.mauz.io) | [Docker Image](https://hub.docker.com/r/mauricenino/dashdot)
+[Live Demo](https://dash.mauz.dev) | [Docker Image](https://hub.docker.com/r/mauricenino/dashdot)
 
 **dash.** is a open-source project, so any contribution is highly appreciated. If you are interested in further developing this project, have a look at the [Contributing.md](https://github.com/MauriceNino/dashdot/blob/main/.github/CONTRIBUTING.md).
 
