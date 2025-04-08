@@ -1,0 +1,4 @@
+{
+  "$schema": "https://schemas.smallweb.run/latest/config",
+  "domain": "{{APP_DOMAIN}}"
+}
