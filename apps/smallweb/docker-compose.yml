@@ -3,12 +3,8 @@ services:
     container_name: smallweb
     image: ghcr.io/pomdtr/smallweb:0.25.6
     restart: unless-stopped
-    user: 0:0
     ports:
       - ${APP_PORT}:7777
-    environment:
-      - SMALLWEB_DOMAIN=${SMALLWEB_DOMAIN}
-      - SMALLWEB_ADDITIONAL_DOMAINS=smallweb.${LOCAL_DOMAIN};${APP_DOMAIN}
     volumes:
       - ${APP_DATA_DIR}/data/:/smallweb
     networks:
