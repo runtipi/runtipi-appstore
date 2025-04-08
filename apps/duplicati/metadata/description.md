@@ -1,9 +1,11 @@
-# Folder Info
+# Default configuration
 
 By default, The template has a few folders mounted
 
 - /backups/runtipi-folder - Tipi Root Folder
 - /source - Home Directory
+
+It also have a default password : `changeme`
 
 # Duplicati
 
