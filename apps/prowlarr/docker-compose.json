@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "prowlarr",
-      "image": "ghcr.io/linuxserver/prowlarr:1.32.2",
+      "image": "ghcr.io/linuxserver/prowlarr:1.33.3",
       "isMain": true,
       "internalPort": 9696,
       "environment": {
