@@ -6,7 +6,6 @@
       "isMain": true,
       "internalPort": 8080,
       "environment": {
-        "BIND_ADDRESS": "0.0.0.0:8080",
         "BASE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}/",
         "SEARXNG_SECRET": "${SEARXNG_SECRET_KEY}"
       },
