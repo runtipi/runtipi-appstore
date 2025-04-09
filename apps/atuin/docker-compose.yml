@@ -3,7 +3,7 @@ services:
   atuin:
     container_name: atuin
     restart: unless-stopped
-    image: ghcr.io/atuinsh/atuin:18.4.0
+    image: ghcr.io/atuinsh/atuin:v18.5.0
     command: server start
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
