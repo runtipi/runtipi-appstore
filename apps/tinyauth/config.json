@@ -8,14 +8,14 @@
   "port": 8357,
   "categories": ["utilities", "security"],
   "description": "Tinyauth is a simple authentication middleware that adds simple username/password login or OAuth with Google, Github and any generic OAuth provider to all of your docker apps.",
-  "tipi_version": 3,
-  "version": "v3.1.0",
+  "tipi_version": 4,
+  "version": "3.2.0",
   "source": "https://github.com/steveiliop56/tinyauth",
   "website": "https://tinyauth.app",
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1742119744755,
-  "updated_at": 1742728386426,
+  "updated_at": 1744218374000,
   "dynamic_config": true,
   "form_fields": [
     {
