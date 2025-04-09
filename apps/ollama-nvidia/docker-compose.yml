@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   ollama-nvidia:
-    image: ollama/ollama:0.6.4
+    image: ollama/ollama:0.6.5
     restart: unless-stopped
     container_name: ollama-nvidia
     ports:
