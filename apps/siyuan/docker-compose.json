@@ -6,7 +6,6 @@
       "image": "b3log/siyuan:v3.1.27",
       "isMain": true,
       "internalPort": 6806,
-      "user": "1000:1000",
       "environment": {
         "TZ": "${TZ}",
         "PUID": "1000",
