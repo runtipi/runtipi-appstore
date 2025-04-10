@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "hedgedoc",
-  "tipi_version": 8,
-  "version": "1.10.2",
+  "tipi_version": 9,
+  "version": "1.10.3",
   "categories": ["media"],
   "description": "HedgeDoc (formerly known as CodiMD) is an open-source, web-based, self-hosted, collaborative markdown editor. You can use it to easily collaborate on notes, graphs and even presentations in real-time. All you need to do is to share your note-link to your co-workers and they’re ready to go.",
   "short_desc": "A Collaborative Markdown and Note Taking App",
@@ -32,5 +32,5 @@
     }
   ],
   "created_at": 1691943801422,
-  "updated_at": 1739584838000
+  "updated_at": 1744288126000
 }
