@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "cheshire-cat-ai",
-      "image": "ghcr.io/cheshire-cat-ai/core:1.9.0",
+      "image": "ghcr.io/cheshire-cat-ai/core:1.9.1",
       "isMain": true,
       "internalPort": 80,
       "environment": {
