@@ -2,7 +2,7 @@ version: "3.9"
 services:
   cup:
     container_name: cup
-    image: ghcr.io/sergi0g/cup:v3.2.2
+    image: ghcr.io/sergi0g/cup:v3.2.3
     restart: unless-stopped
     command: serve
     volumes:
