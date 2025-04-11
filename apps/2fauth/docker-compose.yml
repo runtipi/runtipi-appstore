@@ -1,6 +1,6 @@
 services:
   2fauth:
-    image: 2fauth/2fauth:5.5.0
+    image: 2fauth/2fauth:5.5.2
     container_name: 2fauth
     volumes:
       - ${APP_DATA_DIR}/data:/2fauth
