@@ -6,7 +6,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "ryot",
-  "tipi_version": 26,
+  "tipi_version": 27,
   "version": "2.24.2",
   "categories": ["media"],
   "description": "Roll your own tracker!",
