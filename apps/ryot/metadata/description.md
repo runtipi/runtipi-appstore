@@ -1,6 +1,7 @@
 ## Install Info
 
-If you want to setup Video Tracking, you need to set a Twitch Client ID and Secret. Please read the [Ryot Documentation](https://ignisda.github.io/ryot/guides/video-games.html) if you do not know how to get them
+If you want to setup Video Tracking, you need to set a Twitch Client ID and Secret. Please read the [Ryot Documentation](https://docs.ryot.io/guides/video-games) if you do not know how to get them.
+
 # Ryot
 
 ### A self hosted platform for tracking various facets of your life - media, fitness etc.
@@ -9,7 +10,7 @@ Ryot (**R**oll **Y**our **O**wn **T**racker), pronounced "riot", aims to be the 
 
 ## 💻 Demo
 
-You can use the demo instance hosted on [Fly.io](https://ryot.fly.dev). Login and register with the username `demo` and password `demo-password`. This instance is automatically deployed from the latest release.
+You can use the [demo instance](https://demo.ryot.io/_s/acl_QQ7Bb9JvtOrj). This instance is automatically deployed from the latest release.
 
 **NOTE**: The data in this instance can be deleted randomly.
 
