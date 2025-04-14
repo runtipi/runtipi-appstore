@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "dashdot",
-  "tipi_version": 21,
-  "version": "5.9.2",
+  "tipi_version": 22,
+  "version": "6.0.0",
   "categories": ["utilities"],
   "description": "dash. (or dashdot) is a modern server dashboard, running on the latest tech, designed with glassmorphism in mind. It is intended to be used for smaller VPS and private servers.",
   "short_desc": "A simple, modern server dashboard, primarily used by smaller private server",
@@ -17,5 +17,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1742384533000
+  "updated_at": 1743960485000
 }

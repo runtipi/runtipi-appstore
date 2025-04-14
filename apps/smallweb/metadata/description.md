@@ -1,5 +1,7 @@
 # Smallweb - Host websites from your internet folder
 
+> Warning ⚠️: Make sure to customize the `domain` and `additionalDomains` properties in the smallweb config (`.smallweb/config.json`) to your own needs. For more information check the documentation [here](https://www.smallweb.run/docs/reference/config).
+
 Smallweb is a lightweight web server based on [Deno](https://deno.com). It draws inspiration from both legacy specifications like [CGI](https://en.wikipedia.org/wiki/Common_Gateway_Interface), modern serverless platforms such as [Val Town](https://val.town) and static sites generators like [Blot.im](https://blot.im).
 
 Smallweb maps domains to folders in your filesystem. For example, if you own the `pomdtr.me` domain:

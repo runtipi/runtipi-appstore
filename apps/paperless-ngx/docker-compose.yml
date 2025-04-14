@@ -2,7 +2,7 @@ version: "3.7"
 services:
   paperless-ngx:
     container_name: paperless-ngx
-    image: ghcr.io/paperless-ngx/paperless-ngx:2.14.7
+    image: ghcr.io/paperless-ngx/paperless-ngx:2.15.1
     restart: unless-stopped
     depends_on:
       - db
@@ -82,7 +82,7 @@ services:
     labels:
       runtipi.managed: true
   gotenberg:
-    image: gotenberg/gotenberg:8.19
+    image: gotenberg/gotenberg:8.20
     restart: unless-stopped
     # The gotenberg chromium route is used to convert .eml files. We do not
     # want to allow external content like tracking pixels or even javascript.

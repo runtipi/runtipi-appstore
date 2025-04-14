@@ -2,7 +2,7 @@
   "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
-      "image": "mempool/frontend:v3.0.1",
+      "image": "mempool/frontend:v3.2.0",
       "name": "mempool",
       "internalPort": 8080,
       "isMain": true,

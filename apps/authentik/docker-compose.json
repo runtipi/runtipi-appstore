@@ -2,7 +2,7 @@
   "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
-      "image": "ghcr.io/goauthentik/server:2025.2.3",
+      "image": "ghcr.io/goauthentik/server:2025.2.4",
       "name": "authentik",
       "internalPort": 9000,
       "isMain": true,

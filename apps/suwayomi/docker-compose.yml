@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   suwayomi:
-    image: ghcr.io/suwayomi/tachidesk:v1.1.1
+    image: ghcr.io/suwayomi/tachidesk:v1.1.1725
     container_name: suwayomi
     environment:
       - TZ=${TZ}

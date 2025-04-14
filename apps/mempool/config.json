@@ -8,15 +8,15 @@
   "port": 2200,
   "id": "mempool",
   "description": "Bitcoin mempool visualizer and blockchain explorer",
-  "tipi_version": 5,
-  "version": "3.0.1",
+  "tipi_version": 6,
+  "version": "3.2.0",
   "categories": ["finance"],
   "short_desc": "Bitcoin mempool visualizer and blockchain explorer",
   "author": "The mempool team",
   "source": "https://github.com/mempool/mempool",
   "supported_architectures": ["amd64", "arm64"],
   "created_at": 1726923527000,
-  "updated_at": 1727830458000,
+  "updated_at": 1744218978000,
   "form_fields": [
     {
       "type": "text",

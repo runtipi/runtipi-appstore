@@ -1,7 +1,7 @@
 services:
   tinyauth:
     container_name: tinyauth
-    image: ghcr.io/steveiliop56/tinyauth:v3.1.0
+    image: ghcr.io/steveiliop56/tinyauth:v3.2.1
     restart: unless-stopped
     environment:
       - SECRET=${TINYAUTH_SECRET}
@@ -11,8 +11,6 @@ services:
       - GITHUB_CLIENT_SECRET=${TINYAUTH_GITHUB_CLIENT_SECRET}
       - GOOGLE_CLIENT_ID=${TINYAUTH_GOOGLE_CLIENT_ID}
       - GOOGLE_CLIENT_SECRET=${TINYAUTH_GOOGLE_CLIENT_SECRET}
-      - TAILSCALE_CLIENT_ID=${TINYAUTH_TAILSCALE_CLIENT_ID}
-      - TAILSCALE_CLIENT_SECRET=${TINYAUTH_TAILSCALE_CLIENT_SECRET}
       - OAUTH_WHITELIST=${TINYAUTH_OAUTH_WHITELIST}
       - DISABLE_CONTINUE=${TINYAUTH_DISABLE_CONTINUE}
       - APP_TITLE=${TINYAUTH_APP_TITLE}

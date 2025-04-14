@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "sabnzbd",
-  "tipi_version": 20,
-  "version": "4.5.0",
+  "tipi_version": 21,
+  "version": "4.5.1",
   "categories": ["media", "utilities"],
   "description": "Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can. All you have to do is add an .nzb. SABnzbd takes over from there, where it will be automatically downloaded, verified, repaired, extracted and filed away with zero human interaction.",
   "short_desc": "Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can",
@@ -16,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1743819279000
+  "updated_at": 1744372964000
 }

@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "2fauth",
-      "image": "2fauth/2fauth:5.5.0",
+      "image": "2fauth/2fauth:5.5.2",
       "internalPort": 8000,
       "isMain": true,
       "volumes": [

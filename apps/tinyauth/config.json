@@ -8,14 +8,14 @@
   "port": 8357,
   "categories": ["utilities", "security"],
   "description": "Tinyauth is a simple authentication middleware that adds simple username/password login or OAuth with Google, Github and any generic OAuth provider to all of your docker apps.",
-  "tipi_version": 3,
-  "version": "v3.1.0",
+  "tipi_version": 6,
+  "version": "3.2.1",
   "source": "https://github.com/steveiliop56/tinyauth",
   "website": "https://tinyauth.app",
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1742119744755,
-  "updated_at": 1742728386426,
+  "updated_at": 1744291428000,
   "dynamic_config": true,
   "form_fields": [
     {
@@ -65,20 +65,6 @@
       "hint": "Fill this with your Google client secret if you want to enable Google login.",
       "required": false,
       "env_variable": "TINYAUTH_GOOGLE_CLIENT_SECRET"
-    },
-    {
-      "type": "text",
-      "label": "Tailscale Client ID",
-      "hint": "Fill this with your Tailscale client ID if you want to enable Tailscale login.",
-      "required": false,
-      "env_variable": "TINYAUTH_TAILSCALE_CLIENT_ID"
-    },
-    {
-      "type": "password",
-      "label": "Tailscale Client Secret",
-      "hint": "Fill this with your Tailscale client secret if you want to enable Tailscale login.",
-      "required": false,
-      "env_variable": "TINYAUTH_TAILSCALE_CLIENT_SECRET"
     },
     {
       "type": "text",

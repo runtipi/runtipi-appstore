@@ -2,7 +2,7 @@
   "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
-      "image": "ghcr.io/atuinsh/atuin:18.4.0",
+      "image": "ghcr.io/atuinsh/atuin:v18.5.0",
       "name": "atuin",
       "internalPort": 8888,
       "isMain": true,

@@ -82,7 +82,7 @@
     },
     {
       "name": "outline-nginx",
-      "image": "nginx:alpine",
+      "image": "outlinewiki/outline:0.83.0",
       "isMain": true,
       "internalPort": 80,
       "dependsOn": ["outline", "outline-oidc"],
