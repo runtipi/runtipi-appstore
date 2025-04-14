@@ -3,7 +3,7 @@ name: Readme Generator
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 1'
+    - cron: "0 0 * * 1"
 
 jobs:
   generate-readme-file:
@@ -16,7 +16,7 @@ jobs:
         uses: oven-sh/setup-bun@v2
 
       - name: Generate new README.md file
-        run: bun .github/scripts/readme-generator.ts
+        run: bun .github/scripts/readme-gen.ts
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
