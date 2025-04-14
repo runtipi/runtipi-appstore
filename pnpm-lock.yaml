@@ -20,13 +20,13 @@ importers:
         version: 1.9.4
       '@commitlint/cli':
         specifier: ^19.8.0
-        version: 19.8.0(@types/node@22.13.17)(typescript@5.8.2)
+        version: 19.8.0(@types/node@22.14.1)(typescript@5.8.3)
       '@commitlint/config-conventional':
         specifier: ^19.8.0
         version: 19.8.0
       '@commitlint/cz-commitlint':
         specifier: ^19.8.0
-        version: 19.8.0(@types/node@22.13.17)(commitizen@4.3.1(@types/node@22.13.17)(typescript@5.8.2))(inquirer@9.2.23)(typescript@5.8.2)
+        version: 19.8.0(@types/node@22.14.1)(commitizen@4.3.1(@types/node@22.14.1)(typescript@5.8.3))(inquirer@9.2.23)(typescript@5.8.3)
       '@playwright/test':
         specifier: ^1.51.1
         version: 1.51.1
@@ -37,32 +37,32 @@ importers:
         specifier: ^4.0.9
         version: 4.0.9
       '@types/node':
-        specifier: ^22.13.17
-        version: 22.13.17
+        specifier: ^22.14.1
+        version: 22.14.1
       '@types/semver':
         specifier: ^7.7.0
         version: 7.7.0
       commitizen:
         specifier: ^4.3.1
-        version: 4.3.1(@types/node@22.13.17)(typescript@5.8.2)
+        version: 4.3.1(@types/node@22.14.1)(typescript@5.8.3)
       jest:
         specifier: ^28.1.3
-        version: 28.1.3(@types/node@22.13.17)
+        version: 28.1.3(@types/node@22.14.1)
       js-yaml:
         specifier: ^4.1.0
         version: 4.1.0
       lefthook:
-        specifier: ^1.11.6
-        version: 1.11.6
+        specifier: ^1.11.10
+        version: 1.11.10
       semver:
         specifier: ^7.7.1
         version: 7.7.1
       ts-jest:
         specifier: ^28.0.7
-        version: 28.0.7(@babel/core@7.18.9)(@jest/types@28.1.3)(babel-jest@28.1.3(@babel/core@7.18.9))(jest@28.1.3(@types/node@22.13.17))(typescript@5.8.2)
+        version: 28.0.7(@babel/core@7.18.9)(@jest/types@28.1.3)(babel-jest@28.1.3(@babel/core@7.18.9))(jest@28.1.3(@types/node@22.14.1))(typescript@5.8.3)
       typescript:
-        specifier: ^5.8.2
-        version: 5.8.2
+        specifier: ^5.8.3
+        version: 5.8.3
 
 packages:
 
@@ -580,8 +580,8 @@ packages:
   '@types/js-yaml@4.0.9':
     resolution: {integrity: sha512-k4MGaQl5TGo/iipqb2UDG2UwjXziSWkh0uysQelTlJpX1qGlpUZYm8PnO4DxG1qBomtJUdYJ6qR6xdIah10JLg==}
 
-  '@types/node@22.13.17':
-    resolution: {integrity: sha512-nAJuQXoyPj04uLgu+obZcSmsfOenUg6DxPKogeUy6yNCFwWaj5sBF8/G/pNo8EtBJjAfSVgfIlugR/BCOleO+g==}
+  '@types/node@22.14.1':
+    resolution: {integrity: sha512-u0HuPQwe/dHrItgHHpmw3N2fYCR6x4ivMNbPHRkBVP4CvN+kiRrKHWk3i8tXiO/joPwXLMYvF9TTF0eqgHIuOw==}
 
   '@types/prettier@2.6.4':
     resolution: {integrity: sha512-fOwvpvQYStpb/zHMx0Cauwywu9yLDmzWiiQBC7gJyq5tYLUXFZvDG7VK1B7WBxxjBJNKFOZ0zLoOQn8vmATbhw==}
@@ -1415,58 +1415,58 @@ packages:
     resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
     engines: {node: '>=6'}
 
-  lefthook-darwin-arm64@1.11.6:
-    resolution: {integrity: sha512-gWgdWrKgZgX+bKc6Vs/x7JkO+58lLOpRzpteLx//82D0MKVPlNZwjd4zz4AbIBXtM4Hcj+6gSsOzQ7QDXxjVvQ==}
+  lefthook-darwin-arm64@1.11.10:
+    resolution: {integrity: sha512-Rufl8BRP77GRFtgNwW95/FHPD0VDfu5bRyzASPcyVrFczJiBK1glAHRdYrErBDNqJhEEjkyv9+EkCZS/MnDKPQ==}
     cpu: [arm64]
     os: [darwin]
 
-  lefthook-darwin-x64@1.11.6:
-    resolution: {integrity: sha512-Ia0TjTKuYcSaDTuoCnbWtpPZ2VEoKzgn33OB90VjNaSVs4ooE0PIdpO+w00x1elqIaf1pbrpq6HgeB26Du8KbQ==}
+  lefthook-darwin-x64@1.11.10:
+    resolution: {integrity: sha512-3ReMyC103S+RozcYQlej9RVa1tKr9t8/PGqXbCiWcPAgA9To3GywPk8533qzTs7Nz9fYDiqJMYyQoXovX0Q4SA==}
     cpu: [x64]
     os: [darwin]
 
-  lefthook-freebsd-arm64@1.11.6:
-    resolution: {integrity: sha512-PxIwj+hmjLahyzEmcIfalIBDhgklAQCavwM4sGCgbzDi4/+VQX+4aEs4pQqtd7v3aohmjtO/4n2emzTI8donww==}
+  lefthook-freebsd-arm64@1.11.10:
+    resolution: {integrity: sha512-UQOdQuvoVEe0HnoVX4Uz8beegndBDKE6Igo5flV3OkrBuO1Cz7dGbTQwzsYg6gBLYUOa8Ecb3Xur80oviQqwnA==}
     cpu: [arm64]
     os: [freebsd]
 
-  lefthook-freebsd-x64@1.11.6:
-    resolution: {integrity: sha512-3o1lMKxz1VtWaP/o117wgUn3ZOpefMoSf+8LuiTzI3/PDprIuzgyw2nXKlBZAMDpNPHMNnJeQNts9XLMRmkldg==}
+  lefthook-freebsd-x64@1.11.10:
+    resolution: {integrity: sha512-IkoywmTzw9dKDtN34HJ8AZkbY3CGu1XpAVU08pIIvlhv0y7PlLGHYTdmx90SC1d4FhTlTMyiANgXyIaAnXjucw==}
     cpu: [x64]
     os: [freebsd]
 
-  lefthook-linux-arm64@1.11.6:
-    resolution: {integrity: sha512-nKPFZ5cA9f5tVn0ybDVqcXXlpTHZqo05N4KQRhWTj5Nem+JoD2YzJIlvZhdJhUrldERqj6deDMXChH5T3z4Rrw==}
+  lefthook-linux-arm64@1.11.10:
+    resolution: {integrity: sha512-l/lH4FSljNSIetcptPKLI5sTBpjS6dJZ4gk9oXoGM0ftvb22AlLcZI4l6NFCC1oLVWM0CbhkbStDGTI5txsVaA==}
     cpu: [arm64]
     os: [linux]
 
-  lefthook-linux-x64@1.11.6:
-    resolution: {integrity: sha512-naN8dllLCOEeP+wznLnq+oXrs1dvt/iMLkcl+pOPWLqFccPfDiHzr8V8GslaTa+rSFsAnvjR7SJIOi5C29xedA==}
+  lefthook-linux-x64@1.11.10:
+    resolution: {integrity: sha512-yAIIP711p7t0Z9zLfPtdSx1d7pSgtnuVC5B9PANud3I0JOs82aCzmqpc9Q/zp+imWXdI2PpZlFyKx8GLrDW5BQ==}
     cpu: [x64]
     os: [linux]
 
-  lefthook-openbsd-arm64@1.11.6:
-    resolution: {integrity: sha512-dPxhJfYQ667T+U3pz1+O3mTRNHzXH/BvPlXSH+oy8uiSry4AtVNRXkVvXPUcpLlrAy6HuFYodsrpCIlWFeYwiQ==}
+  lefthook-openbsd-arm64@1.11.10:
+    resolution: {integrity: sha512-OAqg9BLsTaeioCJduzZrRLupA2dhTOwHOX0GkO4HTSrOD85JuEPqr5RbYoJ7zuzTQcJEXTJYzaeATM2QHjp/aQ==}
     cpu: [arm64]
     os: [openbsd]
 
-  lefthook-openbsd-x64@1.11.6:
-    resolution: {integrity: sha512-9D26kcSsjiW4D0AuVDdi+0ZqrsOzRWOpMS/kcUbLfrU99yCvma0rMTqKbbDMkVur/znS7qL53oGahXCXDNA+IQ==}
+  lefthook-openbsd-x64@1.11.10:
+    resolution: {integrity: sha512-EiUU3mFvqcUdnj3gt0V0gRpQQp0b70cLDSA0LgZyFMM4UimeMbA7OgNYl72RKJgrHcTPHrQc4Vj7Mowbhb/X5w==}
     cpu: [x64]
     os: [openbsd]
 
-  lefthook-windows-arm64@1.11.6:
-    resolution: {integrity: sha512-xdCenr4+BFnfBEhiXj6GJp02EPmcwTAGa7NYm6hVTfDwGXw24tuLv7lpnGjgK3kovN6EukgLH1FYkeyDOBEMnA==}
+  lefthook-windows-arm64@1.11.10:
+    resolution: {integrity: sha512-clKfI95dCpzxJ1zVgcuYWlSl2oNbtAALoMGqYrzJsoy+CAi+vIs54sqJoGOE60+zrVbdk65z8hriCoYNr98SgA==}
     cpu: [arm64]
     os: [win32]
 
-  lefthook-windows-x64@1.11.6:
-    resolution: {integrity: sha512-Fg2GzLhzeDV/GX8+ydrI0wBOytQWpPkNdngx+a8B/feCDbwjAiFklDG5oV4ytuWrtg1JPEEWLJd6nHefj4wtHA==}
+  lefthook-windows-x64@1.11.10:
+    resolution: {integrity: sha512-zpf/0sG50xsGnwVG/a2giUbmaM/g0uIRqxN5qBbmwKCf0P4PPD2r1xiFZNDb520+tUTC1lWe0RWVoSSwZbBQRA==}
     cpu: [x64]
     os: [win32]
 
-  lefthook@1.11.6:
-    resolution: {integrity: sha512-j0VmMM50WlPDassmgvapRum9po29Tv1BXzBNFpzGkk9E91CEG9jKik/OHyH/r/na+q8qNIUUyPL6QQuTN/UhQQ==}
+  lefthook@1.11.10:
+    resolution: {integrity: sha512-nuiRqBADcRiU6dzwf2H1zBCsdcWGEOsxY8hqoXw5nkEuoTEYN1Bwi2vskHXjIzJ62iCOCo4FZhcHBAzT9gwL5g==}
     hasBin: true
 
   leven@3.1.0:
@@ -1937,13 +1937,13 @@ packages:
     resolution: {integrity: sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==}
     engines: {node: '>=10'}
 
-  typescript@5.8.2:
-    resolution: {integrity: sha512-aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ==}
+  typescript@5.8.3:
+    resolution: {integrity: sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==}
     engines: {node: '>=14.17'}
     hasBin: true
 
-  undici-types@6.20.0:
-    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
+  undici-types@6.21.0:
+    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
 
   unicorn-magic@0.1.0:
     resolution: {integrity: sha512-lRfVq8fE8gz6QMBuDM6a+LO3IAzTi05H6gCVaUpir2E1Rwpo4ZUog45KpNXKC/Mn3Yb9UDuHumeFTo9iV/D9FQ==}
@@ -2336,11 +2336,11 @@ snapshots:
   '@biomejs/cli-win32-x64@1.9.4':
     optional: true
 
-  '@commitlint/cli@19.8.0(@types/node@22.13.17)(typescript@5.8.2)':
+  '@commitlint/cli@19.8.0(@types/node@22.14.1)(typescript@5.8.3)':
     dependencies:
       '@commitlint/format': 19.8.0
       '@commitlint/lint': 19.8.0
-      '@commitlint/load': 19.8.0(@types/node@22.13.17)(typescript@5.8.2)
+      '@commitlint/load': 19.8.0(@types/node@22.14.1)(typescript@5.8.3)
       '@commitlint/read': 19.8.0
       '@commitlint/types': 19.8.0
       tinyexec: 0.3.2
@@ -2359,13 +2359,13 @@ snapshots:
       '@commitlint/types': 19.8.0
       ajv: 8.17.1
 
-  '@commitlint/cz-commitlint@19.8.0(@types/node@22.13.17)(commitizen@4.3.1(@types/node@22.13.17)(typescript@5.8.2))(inquirer@9.2.23)(typescript@5.8.2)':
+  '@commitlint/cz-commitlint@19.8.0(@types/node@22.14.1)(commitizen@4.3.1(@types/node@22.14.1)(typescript@5.8.3))(inquirer@9.2.23)(typescript@5.8.3)':
     dependencies:
       '@commitlint/ensure': 19.8.0
-      '@commitlint/load': 19.8.0(@types/node@22.13.17)(typescript@5.8.2)
+      '@commitlint/load': 19.8.0(@types/node@22.14.1)(typescript@5.8.3)
       '@commitlint/types': 19.8.0
       chalk: 5.4.1
-      commitizen: 4.3.1(@types/node@22.13.17)(typescript@5.8.2)
+      commitizen: 4.3.1(@types/node@22.14.1)(typescript@5.8.3)
       inquirer: 9.2.23
       lodash.isplainobject: 4.0.6
       word-wrap: 1.2.5
@@ -2401,15 +2401,15 @@ snapshots:
       '@commitlint/rules': 19.8.0
       '@commitlint/types': 19.8.0
 
-  '@commitlint/load@19.8.0(@types/node@22.13.17)(typescript@5.8.2)':
+  '@commitlint/load@19.8.0(@types/node@22.14.1)(typescript@5.8.3)':
     dependencies:
       '@commitlint/config-validator': 19.8.0
       '@commitlint/execute-rule': 19.8.0
       '@commitlint/resolve-extends': 19.8.0
       '@commitlint/types': 19.8.0
       chalk: 5.4.1
-      cosmiconfig: 9.0.0(typescript@5.8.2)
-      cosmiconfig-typescript-loader: 6.1.0(@types/node@22.13.17)(cosmiconfig@9.0.0(typescript@5.8.2))(typescript@5.8.2)
+      cosmiconfig: 9.0.0(typescript@5.8.3)
+      cosmiconfig-typescript-loader: 6.1.0(@types/node@22.14.1)(cosmiconfig@9.0.0(typescript@5.8.3))(typescript@5.8.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -2475,7 +2475,7 @@ snapshots:
   '@jest/console@28.1.3':
     dependencies:
       '@jest/types': 28.1.3
-      '@types/node': 22.13.17
+      '@types/node': 22.14.1
       chalk: 4.1.2
       jest-message-util: 28.1.3
       jest-util: 28.1.3
@@ -2488,14 +2488,14 @@ snapshots:
       '@jest/test-result': 28.1.3
       '@jest/transform': 28.1.3
       '@jest/types': 28.1.3
-      '@types/node': 22.13.17
+      '@types/node': 22.14.1
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       ci-info: 3.3.2
       exit: 0.1.2
       graceful-fs: 4.2.10
       jest-changed-files: 28.1.3
-      jest-config: 28.1.3(@types/node@22.13.17)
+      jest-config: 28.1.3(@types/node@22.14.1)
       jest-haste-map: 28.1.3
       jest-message-util: 28.1.3
       jest-regex-util: 28.0.2
@@ -2520,7 +2520,7 @@ snapshots:
     dependencies:
       '@jest/fake-timers': 28.1.3
       '@jest/types': 28.1.3
-      '@types/node': 22.13.17
+      '@types/node': 22.14.1
       jest-mock: 28.1.3
 
   '@jest/expect-utils@28.1.3':
@@ -2538,7 +2538,7 @@ snapshots:
     dependencies:
       '@jest/types': 28.1.3
       '@sinonjs/fake-timers': 9.1.2
-      '@types/node': 22.13.17
+      '@types/node': 22.14.1
       jest-message-util: 28.1.3
       jest-mock: 28.1.3
       jest-util: 28.1.3
@@ -2559,7 +2559,7 @@ snapshots:
       '@jest/transform': 28.1.3
       '@jest/types': 28.1.3
       '@jridgewell/trace-mapping': 0.3.14
-      '@types/node': 22.13.17
+      '@types/node': 22.14.1
       chalk: 4.1.2
       collect-v8-coverage: 1.0.1
       exit: 0.1.2
@@ -2630,7 +2630,7 @@ snapshots:
       '@jest/schemas': 28.1.3
       '@types/istanbul-lib-coverage': 2.0.4
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 22.13.17
+      '@types/node': 22.14.1
       '@types/yargs': 17.0.10
       chalk: 4.1.2
 
@@ -2710,11 +2710,11 @@ snapshots:
 
   '@types/conventional-commits-parser@5.0.1':
     dependencies:
-      '@types/node': 22.13.17
+      '@types/node': 22.14.1
 
   '@types/graceful-fs@4.1.5':
     dependencies:
-      '@types/node': 22.13.17
+      '@types/node': 22.14.1
 
   '@types/istanbul-lib-coverage@2.0.4': {}
 
@@ -2733,9 +2733,9 @@ snapshots:
 
   '@types/js-yaml@4.0.9': {}
 
-  '@types/node@22.13.17':
+  '@types/node@22.14.1':
     dependencies:
-      undici-types: 6.20.0
+      undici-types: 6.21.0
 
   '@types/prettier@2.6.4': {}
 
@@ -2962,10 +2962,10 @@ snapshots:
 
   color-name@1.1.4: {}
 
-  commitizen@4.3.1(@types/node@22.13.17)(typescript@5.8.2):
+  commitizen@4.3.1(@types/node@22.14.1)(typescript@5.8.3):
     dependencies:
       cachedir: 2.3.0
-      cz-conventional-changelog: 3.3.0(@types/node@22.13.17)(typescript@5.8.2)
+      cz-conventional-changelog: 3.3.0(@types/node@22.14.1)(typescript@5.8.3)
       dedent: 0.7.0
       detect-indent: 6.1.0
       find-node-modules: 2.1.3
@@ -3010,21 +3010,21 @@ snapshots:
     dependencies:
       safe-buffer: 5.1.2
 
-  cosmiconfig-typescript-loader@6.1.0(@types/node@22.13.17)(cosmiconfig@9.0.0(typescript@5.8.2))(typescript@5.8.2):
+  cosmiconfig-typescript-loader@6.1.0(@types/node@22.14.1)(cosmiconfig@9.0.0(typescript@5.8.3))(typescript@5.8.3):
     dependencies:
-      '@types/node': 22.13.17
-      cosmiconfig: 9.0.0(typescript@5.8.2)
+      '@types/node': 22.14.1
+      cosmiconfig: 9.0.0(typescript@5.8.3)
       jiti: 2.4.2
-      typescript: 5.8.2
+      typescript: 5.8.3
 
-  cosmiconfig@9.0.0(typescript@5.8.2):
+  cosmiconfig@9.0.0(typescript@5.8.3):
     dependencies:
       env-paths: 2.2.1
       import-fresh: 3.3.1
       js-yaml: 4.1.0
       parse-json: 5.2.0
     optionalDependencies:
-      typescript: 5.8.2
+      typescript: 5.8.3
 
   cross-spawn@7.0.6:
     dependencies:
@@ -3032,16 +3032,16 @@ snapshots:
       shebang-command: 2.0.0
       which: 2.0.2
 
-  cz-conventional-changelog@3.3.0(@types/node@22.13.17)(typescript@5.8.2):
+  cz-conventional-changelog@3.3.0(@types/node@22.14.1)(typescript@5.8.3):
     dependencies:
       chalk: 2.4.2
-      commitizen: 4.3.1(@types/node@22.13.17)(typescript@5.8.2)
+      commitizen: 4.3.1(@types/node@22.14.1)(typescript@5.8.3)
       conventional-commit-types: 3.0.0
       lodash.map: 4.6.0
       longest: 2.0.1
       word-wrap: 1.2.5
     optionalDependencies:
-      '@commitlint/load': 19.8.0(@types/node@22.13.17)(typescript@5.8.2)
+      '@commitlint/load': 19.8.0(@types/node@22.14.1)(typescript@5.8.3)
     transitivePeerDependencies:
       - '@types/node'
       - typescript
@@ -3444,7 +3444,7 @@ snapshots:
       '@jest/expect': 28.1.3
       '@jest/test-result': 28.1.3
       '@jest/types': 28.1.3
-      '@types/node': 22.13.17
+      '@types/node': 22.14.1
       chalk: 4.1.2
       co: 4.6.0
       dedent: 0.7.0
@@ -3462,7 +3462,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  jest-cli@28.1.3(@types/node@22.13.17):
+  jest-cli@28.1.3(@types/node@22.14.1):
     dependencies:
       '@jest/core': 28.1.3
       '@jest/test-result': 28.1.3
@@ -3471,7 +3471,7 @@ snapshots:
       exit: 0.1.2
       graceful-fs: 4.2.10
       import-local: 3.1.0
-      jest-config: 28.1.3(@types/node@22.13.17)
+      jest-config: 28.1.3(@types/node@22.14.1)
       jest-util: 28.1.3
       jest-validate: 28.1.3
       prompts: 2.4.2
@@ -3481,7 +3481,7 @@ snapshots:
       - supports-color
       - ts-node
 
-  jest-config@28.1.3(@types/node@22.13.17):
+  jest-config@28.1.3(@types/node@22.14.1):
     dependencies:
       '@babel/core': 7.18.9
       '@jest/test-sequencer': 28.1.3
@@ -3506,7 +3506,7 @@ snapshots:
       slash: 3.0.0
       strip-json-comments: 3.1.1
     optionalDependencies:
-      '@types/node': 22.13.17
+      '@types/node': 22.14.1
     transitivePeerDependencies:
       - supports-color
 
@@ -3534,7 +3534,7 @@ snapshots:
       '@jest/environment': 28.1.3
       '@jest/fake-timers': 28.1.3
       '@jest/types': 28.1.3
-      '@types/node': 22.13.17
+      '@types/node': 22.14.1
       jest-mock: 28.1.3
       jest-util: 28.1.3
 
@@ -3544,7 +3544,7 @@ snapshots:
     dependencies:
       '@jest/types': 28.1.3
       '@types/graceful-fs': 4.1.5
-      '@types/node': 22.13.17
+      '@types/node': 22.14.1
       anymatch: 3.1.2
       fb-watchman: 2.0.1
       graceful-fs: 4.2.10
@@ -3583,7 +3583,7 @@ snapshots:
   jest-mock@28.1.3:
     dependencies:
       '@jest/types': 28.1.3
-      '@types/node': 22.13.17
+      '@types/node': 22.14.1
 
   jest-pnp-resolver@1.2.2(jest-resolve@28.1.3):
     optionalDependencies:
@@ -3617,7 +3617,7 @@ snapshots:
       '@jest/test-result': 28.1.3
       '@jest/transform': 28.1.3
       '@jest/types': 28.1.3
-      '@types/node': 22.13.17
+      '@types/node': 22.14.1
       chalk: 4.1.2
       emittery: 0.10.2
       graceful-fs: 4.2.10
@@ -3694,7 +3694,7 @@ snapshots:
   jest-util@28.1.3:
     dependencies:
       '@jest/types': 28.1.3
-      '@types/node': 22.13.17
+      '@types/node': 22.14.1
       chalk: 4.1.2
       ci-info: 3.3.2
       graceful-fs: 4.2.10
@@ -3713,7 +3713,7 @@ snapshots:
     dependencies:
       '@jest/test-result': 28.1.3
       '@jest/types': 28.1.3
-      '@types/node': 22.13.17
+      '@types/node': 22.14.1
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       emittery: 0.10.2
@@ -3722,16 +3722,16 @@ snapshots:
 
   jest-worker@28.1.3:
     dependencies:
-      '@types/node': 22.13.17
+      '@types/node': 22.14.1
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
-  jest@28.1.3(@types/node@22.13.17):
+  jest@28.1.3(@types/node@22.14.1):
     dependencies:
       '@jest/core': 28.1.3
       '@jest/types': 28.1.3
       import-local: 3.1.0
-      jest-cli: 28.1.3(@types/node@22.13.17)
+      jest-cli: 28.1.3(@types/node@22.14.1)
     transitivePeerDependencies:
       - '@types/node'
       - supports-color
@@ -3768,48 +3768,48 @@ snapshots:
 
   kleur@3.0.3: {}
 
-  lefthook-darwin-arm64@1.11.6:
+  lefthook-darwin-arm64@1.11.10:
     optional: true
 
-  lefthook-darwin-x64@1.11.6:
+  lefthook-darwin-x64@1.11.10:
     optional: true
 
-  lefthook-freebsd-arm64@1.11.6:
+  lefthook-freebsd-arm64@1.11.10:
     optional: true
 
-  lefthook-freebsd-x64@1.11.6:
+  lefthook-freebsd-x64@1.11.10:
     optional: true
 
-  lefthook-linux-arm64@1.11.6:
+  lefthook-linux-arm64@1.11.10:
     optional: true
 
-  lefthook-linux-x64@1.11.6:
+  lefthook-linux-x64@1.11.10:
     optional: true
 
-  lefthook-openbsd-arm64@1.11.6:
+  lefthook-openbsd-arm64@1.11.10:
     optional: true
 
-  lefthook-openbsd-x64@1.11.6:
+  lefthook-openbsd-x64@1.11.10:
     optional: true
 
-  lefthook-windows-arm64@1.11.6:
+  lefthook-windows-arm64@1.11.10:
     optional: true
 
-  lefthook-windows-x64@1.11.6:
+  lefthook-windows-x64@1.11.10:
     optional: true
 
-  lefthook@1.11.6:
+  lefthook@1.11.10:
     optionalDependencies:
-      lefthook-darwin-arm64: 1.11.6
-      lefthook-darwin-x64: 1.11.6
-      lefthook-freebsd-arm64: 1.11.6
-      lefthook-freebsd-x64: 1.11.6
-      lefthook-linux-arm64: 1.11.6
-      lefthook-linux-x64: 1.11.6
-      lefthook-openbsd-arm64: 1.11.6
-      lefthook-openbsd-x64: 1.11.6
-      lefthook-windows-arm64: 1.11.6
-      lefthook-windows-x64: 1.11.6
+      lefthook-darwin-arm64: 1.11.10
+      lefthook-darwin-x64: 1.11.10
+      lefthook-freebsd-arm64: 1.11.10
+      lefthook-freebsd-x64: 1.11.10
+      lefthook-linux-arm64: 1.11.10
+      lefthook-linux-x64: 1.11.10
+      lefthook-openbsd-arm64: 1.11.10
+      lefthook-openbsd-x64: 1.11.10
+      lefthook-windows-arm64: 1.11.10
+      lefthook-windows-x64: 1.11.10
 
   leven@3.1.0: {}
 
@@ -4177,17 +4177,17 @@ snapshots:
     dependencies:
       is-number: 7.0.0
 
-  ts-jest@28.0.7(@babel/core@7.18.9)(@jest/types@28.1.3)(babel-jest@28.1.3(@babel/core@7.18.9))(jest@28.1.3(@types/node@22.13.17))(typescript@5.8.2):
+  ts-jest@28.0.7(@babel/core@7.18.9)(@jest/types@28.1.3)(babel-jest@28.1.3(@babel/core@7.18.9))(jest@28.1.3(@types/node@22.14.1))(typescript@5.8.3):
     dependencies:
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
-      jest: 28.1.3(@types/node@22.13.17)
+      jest: 28.1.3(@types/node@22.14.1)
       jest-util: 28.1.3
       json5: 2.2.3
       lodash.memoize: 4.1.2
       make-error: 1.3.6
       semver: 7.7.1
-      typescript: 5.8.2
+      typescript: 5.8.3
       yargs-parser: 21.0.1
     optionalDependencies:
       '@babel/core': 7.18.9
@@ -4202,9 +4202,9 @@ snapshots:
 
   type-fest@0.21.3: {}
 
-  typescript@5.8.2: {}
+  typescript@5.8.3: {}
 
-  undici-types@6.20.0: {}
+  undici-types@6.21.0: {}
 
   unicorn-magic@0.1.0: {}
 
