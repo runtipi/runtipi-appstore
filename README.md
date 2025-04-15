@@ -20,9 +20,9 @@ If you want to see new apps on Tipi you can either:
 - [Join the Discord](https://discord.gg/Bu9qEPnHsc) members of the community will add it.
 - Fork this repo and create the necessary files for a Tipi app. Follow this [guide](https://www.runtipi.io/docs/contributing/adding-a-new-app)`
 
-## Apps available (268)
+## Apps available (267)
 
-| Name                                                                         | Description                                                                                                                                                         | Port      | Dynamic (268) |
+| Name                                                                         | Description                                                                                                                                                         | Port      | Dynamic (267) |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------- |
 | [2FAuth](https://github.com/Bubka/2FAuth)                                    | Manage your Two-Factor Authentication codes.                                                                                                                        | 8235      | yes           |
 | [Activepieces](https://github.com/activepieces/activepieces)                 | True zapier alternative.                                                                                                                                            | 8605      | yes           |
@@ -232,7 +232,6 @@ If you want to see new apps on Tipi you can either:
 | [Readarr](https://github.com/Readarr/Readarr)                                | Book Manager and Automation (Sonarr for Ebooks)                                                                                                                     | 8112      | yes           |
 | [Recyclarr](https://github.com/recyclarr/recyclarr)                          | Sync TRaSH Guides.                                                                                                                                                  | 1111      | yes           |
 | [Resilio](https://github.com/bt-sync)                                        | Fast, reliable, and simple file sync and share solution.                                                                                                            | 8113      | yes           |
-| [Revolt Chat](https://github.com/revoltchat)                                 | Open source user-first chat platform.                                                                                                                               | 8272      | yes           |
 | [RomM](https://github.com/rommapp/romm)                                      | Your beautiful, powerful, self-hosted rom manager.                                                                                                                  | 8178      | yes           |
 | [RSS](https://github.com/ssddanbrown/rss)                                    | A simple, opinionated, RSS feed aggregator.                                                                                                                         | 8141      | yes           |
 | [RSSHub](https://github.com/DIYgod/RSSHub)                                   | Everything is RSSible with RSSHub                                                                                                                                   | 8223      | yes           |
