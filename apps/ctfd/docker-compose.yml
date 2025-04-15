@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   ctfd:
-    image: ctfd/ctfd:3.7.6
+    image: ctfd/ctfd:3.7.7
     container_name: ctfd
     restart: unless-stopped
     ports:
