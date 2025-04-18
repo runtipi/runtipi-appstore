@@ -1,6 +1,6 @@
 services:
   rsshub:
-    image: diygod/rsshub:2024-04-17
+    image: diygod/rsshub:2025-04-17
     container_name: rsshub
     restart: unless-stopped
     ports:
