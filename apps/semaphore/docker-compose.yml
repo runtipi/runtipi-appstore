@@ -2,7 +2,7 @@ version: '3.9'
 services:
   semaphore:
     container_name: semaphore
-    image: semaphoreui/semaphore:v2.13.13
+    image: semaphoreui/semaphore:v2.13.14
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/repositories:/repositories
