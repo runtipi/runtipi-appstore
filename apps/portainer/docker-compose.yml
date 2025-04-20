@@ -1,6 +1,6 @@
 services:
   portainer:
-    image: portainer/portainer-ce:2.28.1-alpine
+    image: portainer/portainer-ce:2.29.0-alpine
     container_name: portainer
     restart: unless-stopped
     ports:

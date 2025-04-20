@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   kapowarr:
-    image: mrcas/kapowarr:v1.1.1
+    image: mrcas/kapowarr:v1.2.0
     container_name: kapowarr
     volumes:
       - /etc/localtime:/etc/localtime:ro

@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "adguardhome-sync",
-      "image": "ghcr.io/bakito/adguardhome-sync:v0.7.2",
+      "image": "ghcr.io/bakito/adguardhome-sync:v0.7.3",
       "isMain": true,
       "internalPort": 8080,
       "command": "run --config /config/adguardhome-sync.yaml",
