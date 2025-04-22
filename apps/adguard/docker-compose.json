@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "adguard",
-      "image": "adguard/adguardhome:v0.107.60",
+      "image": "adguard/adguardhome:v0.107.61",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/work",
