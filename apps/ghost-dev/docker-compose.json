@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "ghost-dev",
-      "image": "ghost:5.117.0",
+      "image": "ghost:5.118.0",
       "isMain": true,
       "internalPort": 2368,
       "environment": {
