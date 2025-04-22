@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "ghostfolio",
-      "image": "ghostfolio/ghostfolio:2.153.0",
+      "image": "ghostfolio/ghostfolio:2.154.0",
       "isMain": true,
       "internalPort": 3333,
       "environment": {

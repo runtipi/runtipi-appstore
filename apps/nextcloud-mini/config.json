@@ -8,8 +8,8 @@
   "port": 8564,
   "categories": ["data"],
   "description": "The most popular open source content collaboration platform for tens of millions of users at thousands of organizations across the globe.",
-  "tipi_version": 10,
-  "version": "29.0.14-apache",
+  "tipi_version": 11,
+  "version": "29.0.16-apache",
   "source": "https://github.com/nextcloud/server",
   "website": "https://nextcloud.com",
   "exposable": true,
@@ -44,6 +44,6 @@
     }
   ],
   "created_at": 1724969173127,
-  "updated_at": 1742450562000,
+  "updated_at": 1745293341000,
   "dynamic_config": true
 }
