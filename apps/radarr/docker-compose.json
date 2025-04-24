@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "radarr",
-      "image": "ghcr.io/linuxserver/radarr:5.21.1",
+      "image": "ghcr.io/linuxserver/radarr:5.22.4",
       "isMain": true,
       "internalPort": 7878,
       "environment": {
