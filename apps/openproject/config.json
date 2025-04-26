@@ -1,0 +1,48 @@
+{
+    "name": "OpenProject",
+    "available": true,
+    "port": 8080,
+    "exposable": true,
+    "dynamic_config": true,
+    "id": "openproject",
+    "description": "OpenProject - это программное обеспечение для управления проектами с открытым исходным кодом. Оно включает в себя множество функций для планирования проектов, отслеживания задач и совместной работы.",
+    "tipi_version": 3,
+    "version": "15.0.0",
+    "categories": ["development", "utilities"],
+    "short_desc": "Управление проектами и совместная работа с открытым исходным кодом",
+    "author": "OpenProject Foundation",
+    "source": "https://github.com/opf/openproject",
+    "website": "https://www.openproject.org/",
+    "form_fields": [
+      {
+        "type": "random",
+        "label": "Пароль базы данных",
+        "min": 32,
+        "env_variable": "OP_POSTGRES_PASSWORD"
+      },
+      {
+        "type": "random",
+        "label": "Секретный ключ",
+        "min": 64,
+        "env_variable": "OP_SECRET_KEY_BASE"
+      },
+      {
+        "type": "text",
+        "label": "Имя домена",
+        "hint": "Домен, на котором будет работать OpenProject (оставьте пустым для использования IP)",
+        "required": false,
+        "env_variable": "OP_HOST_NAME"
+      },
+      {
+        "type": "boolean",
+        "label": "HTTPS",
+        "hint": "Включить HTTPS доступ к OpenProject",
+        "default": false,
+        "required": false,
+        "env_variable": "OPENPROJECT_HTTPS"
+      }
+    ],
+    "supported_architectures": ["arm64", "amd64"],
+    "created_at": 1746123456789,
+    "updated_at": 1746123456789
+  }

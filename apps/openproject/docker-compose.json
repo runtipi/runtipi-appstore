@@ -1,0 +1,70 @@
+{
+    "services": [
+      {
+        "name": "openproject",
+        "image": "openproject/community:15",
+        "isMain": true,
+        "internalPort": 8080,
+        "environment": {
+          "DATABASE_URL": "postgres://postgres:${OP_POSTGRES_PASSWORD}@openproject-postgres:5432/openproject",
+          "SECRET_KEY_BASE": "${OP_SECRET_KEY_BASE}",
+          "OPENPROJECT_HOST__NAME": "${OP_HOST_NAME}",
+          "OPENPROJECT_HTTPS": "${OPENPROJECT_HTTPS}",
+          "RAILS_MIN_THREADS": "4",
+          "RAILS_MAX_THREADS": "16",
+          "PGPASSWORD": "${OP_POSTGRES_PASSWORD}"
+        },
+        "volumes": [
+          {
+            "hostPath": "${APP_DATA_DIR}/data/assets",
+            "containerPath": "/var/openproject/assets"
+          },
+          {
+            "hostPath": "${APP_DATA_DIR}/data/pgdata",
+            "containerPath": "/var/openproject/pgdata"
+          }
+        ],
+        "dependsOn": {
+          "openproject-postgres": {
+            "condition": "service_healthy"
+          },
+          "openproject-cache": {
+            "condition": "service_started"
+          }
+        }
+      },
+      {
+        "name": "openproject-postgres",
+        "image": "postgres:14",
+        "environment": {
+          "POSTGRES_PASSWORD": "${OP_POSTGRES_PASSWORD}",
+          "POSTGRES_USER": "postgres",
+          "POSTGRES_DB": "openproject",
+          "PGDATA": "/var/lib/postgresql/data"
+        },
+        "volumes": [
+          {
+            "hostPath": "${APP_DATA_DIR}/data/postgres",
+            "containerPath": "/var/lib/postgresql/data"
+          }
+        ],
+        "healthCheck": {
+          "test": "pg_isready -U postgres",
+          "interval": "10s",
+          "timeout": "5s",
+          "retries": 5
+        }
+      },
+      {
+        "name": "openproject-cache",
+        "image": "redis:7.0",
+        "volumes": [
+          {
+            "hostPath": "${APP_DATA_DIR}/data/redis",
+            "containerPath": "/data"
+          }
+        ],
+        "command": ["redis-server", "--save", "900", "1", "--save", "300", "10", "--save", "60", "10000"]
+      }
+    ]
+  }
