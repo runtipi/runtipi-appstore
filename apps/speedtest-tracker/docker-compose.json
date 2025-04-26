@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "speedtest-tracker",
-      "image": "lscr.io/linuxserver/speedtest-tracker:1.4.2",
+      "image": "lscr.io/linuxserver/speedtest-tracker:1.5.0",
       "isMain": true,
       "internalPort": 80,
       "environment": {
