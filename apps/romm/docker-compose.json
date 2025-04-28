@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "romm",
-      "image": "ghcr.io/rommapp/romm:3.8.3",
+      "image": "ghcr.io/rommapp/romm:3.9.0",
       "isMain": true,
       "internalPort": 8080,
       "environment": {

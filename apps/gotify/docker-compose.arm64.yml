@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   gotify:
-    image: gotify/server-arm64:2.6.1
+    image: gotify/server-arm64:2.6.3
     container_name: gotify
     restart: unless-stopped
     volumes:

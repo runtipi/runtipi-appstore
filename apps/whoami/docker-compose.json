@@ -1,0 +1,10 @@
+{
+  "services": [
+    {
+      "name": "whoami",
+      "image": "traefik/whoami:v1.11.0",
+      "isMain": true,
+      "internalPort": "80"
+    }
+  ]
+}

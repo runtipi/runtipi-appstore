@@ -1,0 +1,19 @@
+{
+  "name": "Whoami",
+  "id": "whoami",
+  "available": true,
+  "short_desc": "Tiny Go server that prints os information and HTTP request to output.",
+  "author": "traefik",
+  "port": 8382,
+  "categories": ["utilities"],
+  "description": "Tiny Go webserver that prints OS information and HTTP request to output.",
+  "tipi_version": 1,
+  "version": "v1.11.0",
+  "source": "https://github.com/traefik/whoami",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1745082405284,
+  "updated_at": 1745082405284,
+  "dynamic_config": true,
+  "form_fields": []
+}
