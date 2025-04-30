@@ -18,9 +18,9 @@ services:
     labels:
       # Main
       traefik.enable: true
-      traefik.http.middlewares.testHeader.headers.framedeny: true
-      traefik.http.middlewares.testHeader.headers.browserxssfilter: true
       traefik.http.middlewares.searxng-web-redirect.redirectscheme.scheme: https
+      traefik.http.middlewares.searxng-web-header.headers.framedeny: true
+      traefik.http.middlewares.searxng-web-header.headers.browserxssfilter: true
       traefik.http.services.searxng.loadbalancer.server.port: 8080
       # Web
       traefik.http.routers.searxng-insecure.rule: Host(`${APP_DOMAIN}`)
