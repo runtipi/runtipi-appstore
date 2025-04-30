@@ -1,6 +1,6 @@
 {
   "name": "SLSKD",
-  "available": true,
+  "available": false,
   "port": 5030,
   "exposable": true,
   "dynamic_config": true,

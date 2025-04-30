@@ -1,6 +1,6 @@
 {
   "name": "Windows",
-  "available": true,
+  "available": false,
   "port": 8006,
   "exposable": true,
   "dynamic_config": true,
