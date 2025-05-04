@@ -6,6 +6,7 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
       - ${APP_DATA_DIR}/data/data:/data
+      - ${ROOT_FOLDER_HOST}/media:/media
     environment:
       - TZ=${TZ}
     ports:
