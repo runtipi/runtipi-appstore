@@ -16,6 +16,10 @@
         {
           "hostPath": "${APP_DATA_DIR}/data/data",
           "containerPath": "/data"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media",
+          "containerPath": "/media"
         }
       ]
     }
