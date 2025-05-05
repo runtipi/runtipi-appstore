@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "invidious",
-      "image": "quay.io/invidious/invidious:master",
+      "image": "quay.io/invidious/invidious:master${INVIDIOUS_DOCKER_IMAGE_SUFFIX}",
       "isMain": true,
       "internalPort": 3000,
       "environment": {
