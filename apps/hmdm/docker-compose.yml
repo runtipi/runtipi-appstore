@@ -3,12 +3,10 @@ version: "3.7"
 services:
   hmdm-db:
     image: postgres:12-alpine
-    ports:
-      - 5432:5432
     environment:
-      POSTGRES_USER: ${SQL_USER}
+      POSTGRES_USER: tipi
       POSTGRES_PASSWORD: ${SQL_PASS}
-      POSTGRES_DB: ${SQL_BASE}
+      POSTGRES_DB: hmdm
     volumes:
       - ./volumes/db:/var/lib/postgresql/data
     labels:

@@ -7,7 +7,7 @@
   "port": 8687,
   "categories": ["development"],
   "description": "Headwind MDM is the open-source MDM solution for all kinds of Android devices.",
-  "tipi_version": 1,
+  "tipi_version": 2,
   "version": "0.1.5",
   "source": "https://github.com/h-mdm/hmdm-docker",
   "exposable": true,
