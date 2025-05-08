@@ -1,0 +1,81 @@
+{
+  "name": "Headwind MDM",
+  "id": "hmdm",
+  "available": true,
+  "short_desc": "Headwind MDM is the open-source MDM solution for all kinds of Android devices.",
+  "author": "headwind mdm",
+  "port": 8687,
+  "categories": ["development"],
+  "description": "Headwind MDM is the open-source MDM solution for all kinds of Android devices.",
+  "tipi_version": 1,
+  "version": "0.1.5",
+  "source": "https://github.com/h-mdm/hmdm-docker",
+  "exposable": true,
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1746689473000,
+  "updated_at": 1746689473000,
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "SQL_PASS",
+      "min": 32,
+      "env_variable": "SQL_PASS"
+    },
+    {
+      "type": "email",
+      "label": "ADMIN_EMAIL",
+      "max": 1024,
+      "min": 1,
+      "required": true,
+      "env_variable": "ADMIN_EMAIL"
+    },
+    {
+      "label": "Protocol",
+      "type": "text",
+      "required": true,
+      "options": [
+        {
+          "label": "HTTP",
+          "value": "http"
+        },
+        {
+          "label": "HTTPS",
+          "value": "https"
+        }
+      ],
+      "env_variable": "PROTOCOL"
+    },
+    {
+      "type": "text",
+      "label": "SHARED_SECRET",
+      "env_variable": "SHARED_SECRET"
+    },
+    {
+      "label": "Variant",
+      "type": "text",
+      "required": true,
+      "options": [
+        {
+          "label": "OS",
+          "value": "os"
+        }
+      ],
+      "env_variable": "HMDM_VARIANT"
+    },
+    {
+      "type": "fqdn",
+      "label": "HMDM_URL",
+      "env_variable": "HMDM_URL"
+    },
+    {
+      "type": "boolean",
+      "label": "FORCE_RECONFIGURE",
+      "env_variable": "FORCE_RECONFIGURE"
+    },
+    {
+      "type": "text",
+      "label": "CLIENT_VERSION",
+      "env_variable": "CLIENT_VERSION"
+    }
+  ]
+}

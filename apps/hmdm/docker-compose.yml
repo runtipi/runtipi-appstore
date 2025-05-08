@@ -1,0 +1,70 @@
+version: "3.7"
+
+services:
+  hmdm-db:
+    image: postgres:12-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: ${SQL_USER}
+      POSTGRES_PASSWORD: ${SQL_PASS}
+      POSTGRES_DB: ${SQL_BASE}
+    volumes:
+      - ./volumes/db:/var/lib/postgresql/data
+    labels:
+      runtipi.managed: true
+  hmdm:
+    image: headwindmdm/hmdm:0.1.5
+    container_name: hmdm
+    restart: unless-stopped
+    ports:
+      # Uncomment this port forwarding if you want to use plain HTTP instead of HTTPS
+      #- 80:8080
+      - ${APP_PORT}:8443
+      - 31000:31000
+    volumes:
+      - ${APP_DATA_DIR}/data/work:/usr/local/tomcat/work
+      - ${APP_DATA_DIR}/data/hmdm-config:/usr/local/tomcat/conf/Catalina/localhost
+    networks:
+      - tipi_main_network # That should not be changed
+    environment:
+      SQL_HOST: hmdm-db
+      SQL_USER: tipi
+      SQL_BASE: hmdm
+      SQL_PASS: ${SQL_PASS}
+      BASE_DOMAIN: ${APP_DOMAIN}
+      LOCAL_IP: ${LOCAL_IP}
+      PROTOCOL: ${PROTOCOL}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      SHARED_SECRET: ${SHARED_SECRET}
+      HMDM_VARIANT: ${HMDM_VARIANT}
+      DOWNLOAD_CREDENTIALS: ${DOWNLOAD_CREDENTIALS}
+      HMDM_URL: ${HMDM_URL}
+      CLIENT_VERSION: ${CLIENT_VERSION}
+      FORCE_RECONFIGURE: ${FORCE_RECONFIGURE}
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.hmdm-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.hmdm.loadbalancer.server.port: 8443 # Should be the same as the app internal port so for this example 9443
+      # Web
+      traefik.http.routers.hmdm-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.hmdm-insecure.entrypoints: web
+      traefik.http.routers.hmdm-insecure.service: hmdm
+      traefik.http.routers.hmdm-insecure.middlewares: hmdm-web-redirect
+      # Websecure
+      traefik.http.routers.hmdm.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.hmdm.entrypoints: websecure
+      traefik.http.routers.hmdm.service: hmdm
+      traefik.http.routers.hmdm.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.hmdm-local-insecure.rule: Host(`hmdm.${LOCAL_DOMAIN}`)
+      traefik.http.routers.hmdm-local-insecure.entrypoints: web
+      traefik.http.routers.hmdm-local-insecure.service: hmdm
+      traefik.http.routers.hmdm-local-insecure.middlewares: hmdm-web-redirect
+      # Local domain secure
+      traefik.http.routers.hmdm-local.rule: Host(`hmdm.${LOCAL_DOMAIN}`)
+      traefik.http.routers.hmdm-local.entrypoints: websecure
+      traefik.http.routers.hmdm-local.service: hmdm
+      traefik.http.routers.hmdm-local.tls: true
+      runtipi.managed: true
