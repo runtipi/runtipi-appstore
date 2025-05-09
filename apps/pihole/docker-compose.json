@@ -18,7 +18,7 @@
       "hostname": "pihole",
       "environment": {
         "TZ": "${TZ}",
-        "WEBPASSWORD": "${APP_PASSWORD}"
+        "FTLCONF_webserver_api_password": "${APP_PASSWORD}"
       },
       "volumes": [
         {
