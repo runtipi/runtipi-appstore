@@ -17,7 +17,7 @@ services:
       - ${APP_DATA_DIR}/data/dnsmasq:/etc/dnsmasq.d
     environment:
       TZ: ${TZ}
-      WEBPASSWORD: ${APP_PASSWORD}
+      FTLCONF_webserver_api_password: ${APP_PASSWORD}
     cap_add:
       - NET_ADMIN
     networks:
