@@ -42,8 +42,8 @@
           "udp": true
         },
         {
-          "hostPort": "25500-25510",
-          "containerPort": "25500-25510"
+          "hostPort": "25500-25600",
+          "containerPort": "25500-25600"
         }
       ]
     }
