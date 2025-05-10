@@ -25,7 +25,7 @@ services:
       traefik.http.middlewares.crafty-web-redirect.redirectscheme.scheme: https
       traefik.http.services.crafty.loadbalancer.server.port: 8443
       traefik.http.services.crafty.loadbalancer.server.scheme: https
-      traefik.http.services.crafty.loadbalancer.serverstransport: insecuretransport
+      traefik.http.services.crafty.loadbalancer.serverstransport: insecuretransport@file
       # Web
       traefik.http.routers.crafty-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.crafty-insecure.entrypoints: web
