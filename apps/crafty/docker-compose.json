@@ -45,7 +45,10 @@
           "hostPort": "25500-25600",
           "containerPort": "25500-25600"
         }
-      ]
+      ],
+      "extraLabels": {
+        "traefik.http.services.{{RUNTIPI_APP_ID}}.loadbalancer.server.scheme": "https"
+      }
     }
   ]
 }
