@@ -59,23 +59,6 @@
       "required": false,
       "hint": "Generate poToken: https://github.com/iv-org/youtube-trusted-session-generator?tab=readme-ov-file#tutorial-without-docker",
       "env_variable": "INVIDIOUS_PO_TOKEN"
-    },
-    {
-      "label": "ARM architecture",
-      "type": "text",
-      "hint": "Does your host machine use an arm64 architecture (ex. Raspberry Pi)",
-      "required": true,
-      "options": [
-        {
-          "label": "No",
-          "value": " "
-        },
-        {
-          "label": "Yes",
-          "value": "-arm64"
-        }
-      ],
-      "env_variable": "INVIDIOUS_DOCKER_IMAGE_SUFFIX"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],
