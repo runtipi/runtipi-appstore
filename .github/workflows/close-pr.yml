@@ -17,4 +17,4 @@ jobs:
       - uses: superbrothers/close-pull-request@v3
         if: ${{ steps.is-fork.outputs.is-fork == 'true' }}
         with:
-          comment: "Thank you for your contribution!\n\nUnfortunately, this repository is in maintenance mode and we are no longer accepting pull requests.\n\nWe suggest you to use one of the community maintained stores or to create your own. [Check out the Documentation](https://runtipi.io/docs/guides/create-your-own-app-store)
+          comment: "Thank you for your contribution!\n\nUnfortunately, this repository is in maintenance mode and we are no longer accepting pull requests.\n\nWe suggest you to use one of the community maintained stores or to create your own. [Check out the Documentation](https://runtipi.io/docs/guides/create-your-own-app-store)"
