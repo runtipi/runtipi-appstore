@@ -5,7 +5,7 @@
   "exposable": true,
   "port": 8536,
   "id": "open-webui",
-  "tipi_version": 58,
+  "tipi_version": 59,
   "version": "0.6.9",
   "categories": ["ai"],
   "description": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted WebUI designed to operate entirely offline.",
