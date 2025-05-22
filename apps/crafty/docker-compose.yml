@@ -5,43 +5,45 @@ services:
     image: registry.gitlab.com/crafty-controller/crafty-4:4.4.7
     restart: unless-stopped
     environment:
-        - TZ=${TZ}
+      - TZ=${TZ}
     ports:
-        - ${APP_PORT}:8443
-        - 8123:8123
-        - 19132:19132/udp
-        - 25500-25600:25500-25600
+      - ${APP_PORT}:8443
+      - 8123:8123
+      - 19132:19132/udp
+      - 25500-25600:25500-25600
     networks:
       - tipi_main_network
     volumes:
-        - ${APP_DATA_DIR}/data/backups:/crafty/backups
-        - ${APP_DATA_DIR}/data/logs:/crafty/logs
-        - ${APP_DATA_DIR}/data/servers:/crafty/servers
-        - ${APP_DATA_DIR}/data/config:/crafty/app/config
-        - ${APP_DATA_DIR}/data/import:/crafty/import
+      - ${APP_DATA_DIR}/data/backups:/crafty/backups
+      - ${APP_DATA_DIR}/data/logs:/crafty/logs
+      - ${APP_DATA_DIR}/data/servers:/crafty/servers
+      - ${APP_DATA_DIR}/data/config:/crafty/app/config
+      - ${APP_DATA_DIR}/data/import:/crafty/import
     labels:
       # Main
       traefik.enable: true
-      traefik.http.middlewares.crafty-docs-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.crafty-docs.loadbalancer.server.port: 8443
+      traefik.http.middlewares.crafty-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.crafty.loadbalancer.server.port: 8443
+      traefik.http.services.crafty.loadbalancer.server.scheme: https
+      traefik.http.services.crafty.loadbalancer.serverstransport: insecuretransport@file
       # Web
-      traefik.http.routers.crafty-docs-insecure.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.crafty-docs-insecure.entrypoints: web
-      traefik.http.routers.crafty-docs-insecure.service: crafty-docs
-      traefik.http.routers.crafty-docs-insecure.middlewares: crafty-docs-web-redirect
+      traefik.http.routers.crafty-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.crafty-insecure.entrypoints: web
+      traefik.http.routers.crafty-insecure.service: crafty
+      traefik.http.routers.crafty-insecure.middlewares: crafty-web-redirect
       # Websecure
-      traefik.http.routers.crafty-docs.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.crafty-docs.entrypoints: websecure
-      traefik.http.routers.crafty-docs.service: crafty-docs
-      traefik.http.routers.crafty-docs.tls.certresolver: myresolver
+      traefik.http.routers.crafty.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.crafty.entrypoints: websecure
+      traefik.http.routers.crafty.service: crafty
+      traefik.http.routers.crafty.tls.certresolver: myresolver
       # Local domain
-      traefik.http.routers.crafty-docs-local-insecure.rule: Host(`crafty-docs.${LOCAL_DOMAIN}`)
-      traefik.http.routers.crafty-docs-local-insecure.entrypoints: web
-      traefik.http.routers.crafty-docs-local-insecure.service: crafty-docs
-      traefik.http.routers.crafty-docs-local-insecure.middlewares: crafty-docs-web-redirect
+      traefik.http.routers.crafty-local-insecure.rule: Host(`crafty.${LOCAL_DOMAIN}`)
+      traefik.http.routers.crafty-local-insecure.entrypoints: web
+      traefik.http.routers.crafty-local-insecure.service: crafty
+      traefik.http.routers.crafty-local-insecure.middlewares: crafty-web-redirect
       # Local domain secure
-      traefik.http.routers.crafty-docs-local.rule: Host(`crafty-docs.${LOCAL_DOMAIN}`)
-      traefik.http.routers.crafty-docs-local.entrypoints: websecure
-      traefik.http.routers.crafty-docs-local.service: crafty-docs
-      traefik.http.routers.crafty-docs-local.tls: true
+      traefik.http.routers.crafty-local.rule: Host(`crafty.${LOCAL_DOMAIN}`)
+      traefik.http.routers.crafty-local.entrypoints: websecure
+      traefik.http.routers.crafty-local.service: crafty
+      traefik.http.routers.crafty-local.tls: true
       runtipi.managed: true

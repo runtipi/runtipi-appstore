@@ -17,5 +17,5 @@
   "form_fields": [],
   "created_at": 1729171012912,
   "updated_at": 1743905718000,
-  "force_pull": true
+  "force_pull": false
 }

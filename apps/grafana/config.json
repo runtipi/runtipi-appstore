@@ -6,15 +6,16 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "grafana",
-  "tipi_version": 47,
+  "tipi_version": 48,
   "version": "11.6.1",
   "categories": ["data"],
-  "description": "The open and composable observability and data visualization platform",
-  "short_desc": "The open and composable observability and data visualization platform",
-  "author": "Grafana Labs",
+  "description": "Grafana allows you to query, visualize, alert on and understand your metrics no matter where they are stored. Create, explore, and share dashboards with your team and foster a data-driven culture.",
+  "short_desc": "The open and composable observability and data visualization platform.",
+  "author": "grafana",
   "source": "https://github.com/grafana/grafana",
+  "website": "https://grafana.com/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1745448722000
+  "updated_at": 1747400036082
 }

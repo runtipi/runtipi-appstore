@@ -61,5 +61,16 @@
         "test": "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"
       }
     }
+  ],
+  "overrides": [
+    {
+      "architecture": "arm64",
+      "services": [
+        {
+          "name": "invidious",
+          "image": "quay.io/invidious/invidious:master-arm64"
+        }
+      ]
+    }
   ]
 }

@@ -132,5 +132,5 @@
   "supported_architectures": ["amd64", "arm64"],
   "created_at": 1691943801422,
   "updated_at": 1740247420440,
-  "force_pull": true
+  "force_pull": false
 }

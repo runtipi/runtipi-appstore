@@ -111,5 +111,5 @@
   "created_at": 1691943801422,
   "updated_at": 1745156641000,
   "$schema": "../app-info-schema.json",
-  "force_pull": true
+  "force_pull": false
 }

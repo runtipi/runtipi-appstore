@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   grafana:
     container_name: grafana
@@ -35,4 +33,5 @@ services:
       traefik.http.routers.grafana-local.entrypoints: websecure
       traefik.http.routers.grafana-local.service: grafana
       traefik.http.routers.grafana-local.tls: true
+      # Runtipi managed
       runtipi.managed: true
