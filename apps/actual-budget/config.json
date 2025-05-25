@@ -7,7 +7,7 @@
   "port": 8011,
   "id": "actual-budget",
   "tipi_version": 33,
-  "version": "25.4.0",
+  "version": "25.5.0",
   "categories": ["finance"],
   "description": "Actual is a local-first personal finance tool. It is 100% free and open-source, written in NodeJS, it has a synchronization element so that all your changes can move between devices without any heavy lifting.",
   "short_desc": "Local-first OpenSource Budget tool",
@@ -16,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1743830569000
+  "updated_at": 1748196682400
 }

@@ -3,7 +3,7 @@
   "services": [
     {
       "isMain": true,
-      "image": "actualbudget/actual-server:25.4.0",
+      "image": "actualbudget/actual-server:25.5.0",
       "name": "actual-budget",
       "internalPort": 5006,
       "volumes": [
