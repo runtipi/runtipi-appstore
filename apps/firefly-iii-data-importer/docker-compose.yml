@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   firefly-iii-data-importer:
-    image: fireflyiii/data-importer:version-1.5.6
+    image: fireflyiii/data-importer:version-1.6.2
     container_name: firefly-iii-data-importer
     restart: unless-stopped
     ports:
