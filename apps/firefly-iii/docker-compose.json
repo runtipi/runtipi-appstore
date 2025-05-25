@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "firefly-iii",
-      "image": "fireflyiii/core:version-6.1.21",
+      "image": "fireflyiii/core:version-6.2.15",
       "isMain": true,
       "internalPort": 8080,
       "environment": {
