@@ -1,8 +1,5 @@
 # Tipi App Store ⛺️
 
-> [!WARNING]  
-> This repository is still being updated but is being deprecated. Please do not submit PRs here. Look for community maintained stores or [create your own](https://runtipi.io/docs/guides/create-your-own-app-store)
-
 This is the official repository for the Tipi App Store. It contains all the apps that are available for download on [Tipi](https://github.com/runtipi/runtipi).
 
 ## How to get started
@@ -109,7 +106,7 @@ If you want to see new apps on Tipi you can either:
 | [Glances](https://github.com/nicolargo/glances)                              | An eye on your system                                                                                                                                               | 8420      | yes           |
 | [Gotify](https://github.com/gotify/server)                                   | Gotify, a simple server for sending and receiving notification messages.                                                                                            | 8129      | yes           |
 | [GoToSocial](https://github.com/superseriousbusiness/gotosocial)             | Fast, fun, ActivityPub server, powered by Go.                                                                                                                       | 8188      | yes           |
-| [Grafana](https://github.com/grafana/grafana)                                | The open and composable observability and data visualization platform                                                                                               | 8160      | yes           |
+| [Grafana](https://github.com/grafana/grafana)                                | The open and composable observability and data visualization platform.                                                                                              | 8160      | yes           |
 | [Gramps Web](https://github.com/gramps-project/gramps-web)                   | Web app for collaborative genealogy.                                                                                                                                | 5000      | yes           |
 | [Grav](https://github.com/getgrav/grav)                                      | Grav is a Fast, Simple, and Flexible, file-based Web-platform.                                                                                                      | 8161      | yes           |
 | [Grist](https://github.com/gristlabs/grist-core)                             | Grist is the evolution of spreadsheets.                                                                                                                             | 8484      | yes           |
@@ -235,7 +232,6 @@ If you want to see new apps on Tipi you can either:
 | [Readarr](https://github.com/Readarr/Readarr)                                | Book Manager and Automation (Sonarr for Ebooks)                                                                                                                     | 8112      | yes           |
 | [Recyclarr](https://github.com/recyclarr/recyclarr)                          | Sync TRaSH Guides.                                                                                                                                                  | 1111      | yes           |
 | [Resilio](https://github.com/bt-sync)                                        | Fast, reliable, and simple file sync and share solution.                                                                                                            | 8113      | yes           |
-| [Revolt Chat](https://github.com/revoltchat)                                 | Open source user-first chat platform.                                                                                                                               | 8272      | yes           |
 | [RomM](https://github.com/rommapp/romm)                                      | Your beautiful, powerful, self-hosted rom manager.                                                                                                                  | 8178      | yes           |
 | [RSS](https://github.com/ssddanbrown/rss)                                    | A simple, opinionated, RSS feed aggregator.                                                                                                                         | 8141      | yes           |
 | [RSSHub](https://github.com/DIYgod/RSSHub)                                   | Everything is RSSible with RSSHub                                                                                                                                   | 8223      | yes           |
@@ -285,6 +281,7 @@ If you want to see new apps on Tipi you can either:
 | [Wekan](https://github.com/wekan/wekan)                                      | Open-Source, customizable, and privacy-focused kanban                                                                                                               | 8678      | yes           |
 | [Wireguard](https://github.com/wg-easy/wg-easy)                              | VPN server for your homeserver.                                                                                                                                     | 8082      | yes           |
 | [Whisparr](https://github.com/Whisparr/Whisparr)                             | Adult movie collection manager.                                                                                                                                     | 6969      | yes           |
+| [Whoami](https://github.com/traefik/whoami)                                  | Tiny Go server that prints os information and HTTP request to output.                                                                                               | 8382      | yes           |
 | [Whoogle Search](https://github.com/benbusby/whoogle-search)                 | A self-hosted, ad-free, privacy-respecting metasearch engine.                                                                                                       | 8255      | yes           |
 | [WikiJS](https://github.com/requarks/wiki)                                   | A modern and powerful wiki app built on Node.js                                                                                                                     | 8148      | yes           |
 | [Windows](https://github.com/dockur/windows/)                                | Full windows vm in your browser                                                                                                                                     | 8006      | yes           |
