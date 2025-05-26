@@ -28,7 +28,7 @@
     "@playwright/test": "^1.52.0",
     "@types/jest": "^28.1.6",
     "@types/js-yaml": "^4.0.9",
-    "@types/node": "^22.15.19",
+    "@types/node": "^22.15.21",
     "@types/semver": "^7.7.0",
     "commitizen": "^4.3.1",
     "jest": "^28.1.3",
