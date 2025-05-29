@@ -63,6 +63,7 @@ async function main() {
 
       // Process updates
       for (const image of checkResult.images) {
+        console.log(`Processing image: ${image.reference}`);
         const service = compose.services.find((s) => image.reference.includes(s.image));
         const yamlServiceName = dockerComposeYml
           ? Object.keys(dockerComposeYml.services).find((serviceName) => image.reference.includes(dockerComposeYml.services[serviceName].image))

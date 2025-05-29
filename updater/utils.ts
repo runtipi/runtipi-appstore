@@ -103,6 +103,8 @@ export async function getAppData(appId: string): Promise<{
 }
 
 export async function checkImages(images: string[]): Promise<Data> {
+  console.log(`Checking images: ${images.join(" ")}`);
+
   const command = `docker run -v /var/run/docker.sock:/var/run/docker.sock -t ghcr.io/sergi0g/cup check -r ${images.join(" ")}`;
   const { stdout } = await execAsync(command);
   return JSON.parse(stdout);
