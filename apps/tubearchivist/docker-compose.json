@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "tubearchivist",
-      "image": "bbilly1/tubearchivist:v0.5.1",
+      "image": "bbilly1/tubearchivist:v0.5.2",
       "isMain": true,
       "internalPort": 8000,
       "environment": {
@@ -16,7 +16,10 @@
         "TA_HOST": "${APP_DOMAIN}",
         "ELASTIC_PASSWORD": "${ELASTIC_PASSWORD}"
       },
-      "dependsOn": ["tubearchivist-es", "tubearchivist-redis"],
+      "dependsOn": [
+        "tubearchivist-es",
+        "tubearchivist-redis"
+      ],
       "volumes": [
         {
           "hostPath": "${ROOT_FOLDER_HOST}/media/data/youtube",
@@ -31,7 +34,9 @@
     {
       "name": "tubearchivist-redis",
       "image": "redislabs/rejson:latest",
-      "dependsOn": ["tubearchivist-es"],
+      "dependsOn": [
+        "tubearchivist-es"
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/redis-data",
@@ -41,7 +46,7 @@
     },
     {
       "name": "tubearchivist-es",
-      "image": "elasticsearch:8.17.2",
+      "image": "elasticsearch:9.0.1",
       "environment": {
         "xpack.security.enabled": "true",
         "ELASTIC_PASSWORD": "${ELASTIC_PASSWORD}",
