@@ -13,9 +13,7 @@
         "CORE_DATABASE_URL": "postgres://tipi:${ZIPLINE_DB_PASSWORD}@zipline-db/zipline",
         "CORE_LOGGER": "true"
       },
-      "dependsOn": [
-        "zipline-db"
-      ],
+      "dependsOn": ["zipline-db"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/uploads",
