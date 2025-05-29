@@ -1,15 +1,18 @@
-version: "3.9"
+version: '3.9'
 services:
   logto:
     depends_on:
       logto-db:
         condition: service_healthy
-    image: svhd/logto:1.26.0
+    image: svhd/logto:1.28.0
     container_name: logto
-    entrypoint: ["sh", "-c", "npm run cli db seed -- --swe && npm start"]
+    entrypoint:
+      - sh
+      - '-c'
+      - npm run cli db seed -- --swe && npm start
     ports:
       - ${APP_PORT}:3001
-      - 8204:3002
+      - '8204:3002'
     environment:
       - NODE_ENV=production
       - TRUST_PROXY_HEADER=1
@@ -42,7 +45,9 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready"]
+      test:
+        - CMD-SHELL
+        - pg_isready
       interval: 10s
       timeout: 5s
       retries: 5
