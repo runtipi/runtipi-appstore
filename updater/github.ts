@@ -21,7 +21,13 @@ const REPO = "runtipi-appstore";
 
 export async function createPullRequest(appId: string, updates: UpdateInfo): Promise<void> {
   const baseBranch = "master";
-  const updateType = semver.diff(updates.oldVersion, updates.newVersion);
+  let updateType = "major";
+
+  try {
+    updateType = semver.diff(updates.oldVersion, updates.newVersion) ?? "major";
+  } catch (error) {
+    console.error(`Error determining update type for ${appId}:`, error);
+  }
 
   const prTitle = `chore(${appId}): update to ${updates.newVersion} (${updateType})`;
 
@@ -34,7 +40,7 @@ export async function createPullRequest(appId: string, updates: UpdateInfo): Pro
       console.log(`PR #${existingPR.number} already has the latest version ${updates.newVersion}, skipping update.`);
       return;
     }
-    await updateExistingPR(existingPR, updates);
+    await updateExistingPR(existingPR, updates, prTitle);
   } else {
     console.log(`No existing PR found for ${appId}, creating a new one...`);
     await createNewPR(appId, updates, prTitle, baseBranch);
@@ -96,7 +102,7 @@ async function createNewPR(appId: string, updates: UpdateInfo, prTitle: string, 
   });
 }
 
-async function updateExistingPR(existingPR: PullRequest, updates: UpdateInfo): Promise<void> {
+async function updateExistingPR(existingPR: PullRequest, updates: UpdateInfo, prTitle: string): Promise<void> {
   const branch = existingPR.head.ref;
   const appId = updates.appId;
 
@@ -113,6 +119,7 @@ async function updateExistingPR(existingPR: PullRequest, updates: UpdateInfo): P
   await octokit.pulls.update({
     owner: OWNER,
     repo: REPO,
+    title: prTitle,
     pull_number: existingPR.number,
     body: formatPRDescription(updates),
   });
