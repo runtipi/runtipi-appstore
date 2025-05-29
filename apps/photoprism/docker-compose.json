@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "photoprism",
-      "image": "photoprism/photoprism:240420",
+      "image": "photoprism/photoprism:20220121",
       "isMain": true,
       "internalPort": 2342,
       "environment": {
@@ -33,7 +33,9 @@
         "PHOTOPRISM_DATABASE_PASSWORD": "${DB_PASSWORD}",
         "PHOTOPRISM_SITE_CAPTION": "AI-Powered Photos App"
       },
-      "dependsOn": ["photoprism-db"],
+      "dependsOn": [
+        "photoprism-db"
+      ],
       "volumes": [
         {
           "hostPath": "${ROOT_FOLDER_HOST}/media/data/images",
@@ -48,7 +50,7 @@
     },
     {
       "name": "photoprism-db",
-      "image": "mariadb:10.8",
+      "image": "mariadb:11.7",
       "environment": {
         "MARIADB_DATABASE": "photoprism",
         "MARIADB_USER": "photoprism",
