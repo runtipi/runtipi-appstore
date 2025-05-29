@@ -2,7 +2,7 @@ name: Update
 on:
   workflow_dispatch:
   schedule:
-    - cron: 0 2 * * *
+    - cron: "0/30 * * * *"
 
 permissions:
   contents: write
