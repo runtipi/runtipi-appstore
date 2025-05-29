@@ -22,9 +22,7 @@
         "QUEUE_CONNECTION": "database",
         "IS_DOCKER": "TRUE"
       },
-      "dependsOn": [
-        "invoice-ninja-db"
-      ],
+      "dependsOn": ["invoice-ninja-db"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/public",
