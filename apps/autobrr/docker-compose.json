@@ -2,7 +2,7 @@
   "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
-      "image": "ghcr.io/autobrr/autobrr:v1.61.0",
+      "image": "ghcr.io/autobrr/autobrr:v1.62.0",
       "name": "autobrr",
       "internalPort": 7474,
       "isMain": true,
