@@ -1,8 +1,7 @@
 version: '3'
-
 services:
   koillection:
-    image: koillection/koillection:1.6.12
+    image: koillection/koillection:1.6.13
     container_name: koillection
     restart: unless-stopped
     ports:
@@ -31,26 +30,21 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.koillection-web-redirect.redirectscheme.scheme: https
       traefik.http.services.koillection.loadbalancer.server.port: 8080
-      # Web
       traefik.http.routers.koillection-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.koillection-insecure.entrypoints: web
       traefik.http.routers.koillection-insecure.service: koillection
       traefik.http.routers.koillection-insecure.middlewares: koillection-web-redirect
-      # Websecure
       traefik.http.routers.koillection.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.koillection.entrypoints: websecure
       traefik.http.routers.koillection.service: koillection
       traefik.http.routers.koillection.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.koillection-local-insecure.rule: Host(`koillection.${LOCAL_DOMAIN}`)
       traefik.http.routers.koillection-local-insecure.entrypoints: web
       traefik.http.routers.koillection-local-insecure.service: koillection
       traefik.http.routers.koillection-local-insecure.middlewares: koillection-web-redirect
-      # Local domain secure
       traefik.http.routers.koillection-local.rule: Host(`koillection.${LOCAL_DOMAIN}`)
       traefik.http.routers.koillection-local.entrypoints: websecure
       traefik.http.routers.koillection-local.service: koillection
@@ -64,7 +58,6 @@ services:
       - POSTGRES_DB=koillection
       - POSTGRES_USER={KOILLECTION_DB_USER}
       - POSTGRES_PASSWORD={KOILLECTION_DB_PASSWORD}
-
     volumes:
       - ${APP_DATA_DIR}/data/volumes/postgresql:/var/lib/postgresql/data
     networks:
