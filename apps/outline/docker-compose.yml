@@ -1,9 +1,8 @@
-version: "3.8"
-
+version: '3.8'
 services:
   outline:
     container_name: outline
-    image: outlinewiki/outline:0.83.0
+    image: outlinewiki/outline:0.84.0
     restart: unless-stopped
     environment:
       - DATABASE_URL=postgres://outline:${OUTLINE_PG_PASSWORD}@outline-postgres:5432/outline
@@ -91,7 +90,6 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.outline-web-redirect.redirectscheme.scheme: https
       traefik.http.services.outline.loadbalancer.server.port: 80
