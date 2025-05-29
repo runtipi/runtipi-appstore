@@ -21,29 +21,30 @@ const REPO = "runtipi-appstore";
 
 export async function createPullRequest(appId: string, updates: UpdateInfo): Promise<void> {
   const baseBranch = "master";
-  let updateType = "major";
+  let updateType = "patch";
 
-  try {
-    updateType = semver.diff(updates.oldVersion, updates.newVersion) ?? "major";
-  } catch (error) {
-    console.error(`Error determining update type for ${appId}:`, error);
+  if (updates.updates.some((u) => u.updateType === "minor")) {
+    updateType = "minor";
+  }
+  if (updates.updates.some((u) => u.updateType === "major")) {
+    updateType = "major";
   }
 
-  const prTitle = `chore(${appId}): update to ${updates.newVersion} (${updateType})`;
+  const prTitle = `chore(${appId}): update ${updates.oldVersion} → ${updates.newVersion} (${updateType})`;
 
   // Check for existing PR
   const existingPR = await findExistingPR(appId);
 
   if (existingPR) {
     console.log(`Found existing PR #${existingPR.number} for ${appId}, updating it...`);
-    if (existingPR.title.includes(`update to ${updates.newVersion}`)) {
+    if (existingPR.title.includes(`→ ${updates.newVersion}`)) {
       console.log(`PR #${existingPR.number} already has the latest version ${updates.newVersion}, skipping update.`);
       return;
     }
-    await updateExistingPR(existingPR, updates, prTitle);
+    await updateExistingPR(existingPR, updates, prTitle, updateType);
   } else {
     console.log(`No existing PR found for ${appId}, creating a new one...`);
-    await createNewPR(appId, updates, prTitle, baseBranch);
+    await createNewPR(appId, updates, prTitle, baseBranch, updateType);
   }
 }
 
@@ -64,7 +65,7 @@ async function findExistingPR(appId: string) {
   }
 }
 
-async function createNewPR(appId: string, updates: UpdateInfo, prTitle: string, baseBranch: string): Promise<void> {
+async function createNewPR(appId: string, updates: UpdateInfo, prTitle: string, baseBranch: string, updateType: string): Promise<void> {
   const branch = `chore/update-${appId}-${Date.now()}`;
 
   // Get default branch SHA
@@ -92,7 +93,7 @@ async function createNewPR(appId: string, updates: UpdateInfo, prTitle: string, 
   await updateFileInRepo(branch, `apps/${appId}/docker-compose.json`, updatedCompose, `Update docker-compose.json for ${appId}`);
 
   // Create PR
-  await octokit.pulls.create({
+  const { data } = await octokit.pulls.create({
     owner: OWNER,
     repo: REPO,
     title: prTitle,
@@ -100,9 +101,22 @@ async function createNewPR(appId: string, updates: UpdateInfo, prTitle: string, 
     base: baseBranch,
     body: formatPRDescription(updates),
   });
+
+  // Add labels
+  const labels = [updateType];
+  if (updateType === "minor" || updateType === "patch") {
+    labels.push("automerge");
+  }
+
+  await octokit.issues.addLabels({
+    owner: OWNER,
+    repo: REPO,
+    issue_number: data.number,
+    labels,
+  });
 }
 
-async function updateExistingPR(existingPR: PullRequest, updates: UpdateInfo, prTitle: string): Promise<void> {
+async function updateExistingPR(existingPR: PullRequest, updates: UpdateInfo, prTitle: string, updateType: string): Promise<void> {
   const branch = existingPR.head.ref;
   const appId = updates.appId;
 
@@ -122,6 +136,36 @@ async function updateExistingPR(existingPR: PullRequest, updates: UpdateInfo, pr
     title: prTitle,
     pull_number: existingPR.number,
     body: formatPRDescription(updates),
+  });
+
+  const currentLabels = await octokit.issues.listLabelsOnIssue({
+    owner: OWNER,
+    repo: REPO,
+    issue_number: existingPR.number,
+  });
+
+  const labelsToRemove = currentLabels.data.filter((label) => ["patch", "minor", "major"].includes(label.name)).map((label) => label.name);
+
+  for (const labelName of labelsToRemove) {
+    await octokit.issues.removeLabel({
+      owner: OWNER,
+      repo: REPO,
+      issue_number: existingPR.number,
+      name: labelName,
+    });
+  }
+
+  // Add new labels
+  const labels = [updateType];
+  if (updateType === "minor" || updateType === "patch") {
+    labels.push("automerge");
+  }
+
+  await octokit.issues.addLabels({
+    owner: OWNER,
+    repo: REPO,
+    issue_number: existingPR.number,
+    labels,
   });
 }
 
