@@ -6,19 +6,13 @@
   "short_desc": "Synchronize AdGuard Home config to replicas",
   "author": "bakito",
   "port": 8436,
-  "categories": [
-    "network",
-    "utilities"
-  ],
+  "categories": ["network", "utilities"],
   "description": "Synchronize AdGuardHome config to replica instances",
   "tipi_version": 12,
   "version": "0.7.6",
   "source": "https://github.com/bakito/adguardhome-sync",
   "exposable": true,
-  "supported_architectures": [
-    "arm64",
-    "amd64"
-  ],
+  "supported_architectures": ["arm64", "amd64"],
   "dynamic_config": true,
   "form_fields": [
     {
@@ -47,5 +41,5 @@
     }
   ],
   "created_at": 1730236492823,
-  "updated_at": 1748514318213
+  "updated_at": 1748547839572
 }
