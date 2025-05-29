@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "nextcloud",
-      "image": "nextcloud:26.0.13-apache",
+      "image": "nextcloud:31.0.5-apache",
       "isMain": true,
       "internalPort": 80,
       "environment": {
@@ -18,7 +18,10 @@
         "TRUSTED_PROXIES": "172.16.0.0/12",
         "OVERWRITEPROTOCOL": "${APP_PROTOCOL:-http}"
       },
-      "dependsOn": ["db-nextcloud", "redis-nextcloud"],
+      "dependsOn": [
+        "db-nextcloud",
+        "redis-nextcloud"
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/nextcloud",
@@ -68,8 +71,11 @@
     },
     {
       "name": "cron",
-      "image": "nextcloud:25.0.13-apache",
-      "dependsOn": ["db-nextcloud", "redis-nextcloud"],
+      "image": "nextcloud:31.0.5-apache",
+      "dependsOn": [
+        "db-nextcloud",
+        "redis-nextcloud"
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/nextcloud",
