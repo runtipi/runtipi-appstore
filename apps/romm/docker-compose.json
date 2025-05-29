@@ -17,7 +17,9 @@
         "MOBYGAMES_API_KEY": "${ROMM_MOBYGAMES_API_KEY}",
         "STEAMGRIDDB_API_KEY": "${ROMM_STEAMGRIDDB_API_KEY}"
       },
-      "dependsOn": ["romm-db"],
+      "dependsOn": [
+        "romm-db"
+      ],
       "volumes": [
         {
           "hostPath": "${ROOT_FOLDER_HOST}/media/data/roms",
@@ -43,7 +45,7 @@
     },
     {
       "name": "romm-db",
-      "image": "lscr.io/linuxserver/mariadb:11.4.4",
+      "image": "lscr.io/linuxserver/mariadb:11.4.5",
       "environment": {
         "MYSQL_ROOT_PASSWORD": "${ROMM_MYSQL_ROOT_PASSWORD}",
         "MYSQL_DATABASE": "romm",
