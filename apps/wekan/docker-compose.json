@@ -11,9 +11,7 @@
         "MAIL_URL": "smtp://${MAIL_ADDRESS}:${MAIL_PASSWORD}@smtp.gmail.com:587",
         "MAIL_FROM": "Wekan Notifications <noreply.wekan@${APP_DOMAIN}>"
       },
-      "dependsOn": [
-        "wekan-db"
-      ],
+      "dependsOn": ["wekan-db"],
       "volumes": [
         {
           "hostPath": "/etc/localtime",
