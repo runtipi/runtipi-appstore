@@ -1,10 +1,8 @@
 version: '3.8'
-
 services:
-
   calcom:
     container_name: calcom
-    image: calcom/cal.com:v5.0.19
+    image: calcom/cal.com:v5.3.4
     restart: unless-stopped
     ports:
       - ${APP_PORT}:3000
@@ -36,26 +34,21 @@ services:
       - EMAIL_SERVER_USER=${EMAIL_SERVER_USER}
       - NODE_ENV=production
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.calcom-web-redirect.redirectscheme.scheme: https
       traefik.http.services.calcom.loadbalancer.server.port: 3000
-      # Web
       traefik.http.routers.calcom-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.calcom-insecure.entrypoints: web
       traefik.http.routers.calcom-insecure.service: calcom
       traefik.http.routers.calcom-insecure.middlewares: calcom-web-redirect
-      # Websecure
       traefik.http.routers.calcom.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.calcom.entrypoints: websecure
       traefik.http.routers.calcom.service: calcom
       traefik.http.routers.calcom.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.calcom-local-insecure.rule: Host(`calcom.${LOCAL_DOMAIN}`)
       traefik.http.routers.calcom-local-insecure.entrypoints: web
       traefik.http.routers.calcom-local-insecure.service: calcom
       traefik.http.routers.calcom-local-insecure.middlewares: calcom-web-redirect
-      # Local domain secure
       traefik.http.routers.calcom-local.rule: Host(`calcom.${LOCAL_DOMAIN}`)
       traefik.http.routers.calcom-local.entrypoints: websecure
       traefik.http.routers.calcom-local.service: calcom
