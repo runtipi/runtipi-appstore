@@ -1,11 +1,10 @@
-version: "3"
-
+version: '3'
 services:
   mastodon:
     container_name: mastodon
-    image: lscr.io/linuxserver/mastodon:4.3.7
+    image: lscr.io/linuxserver/mastodon:4.3.8
     ports:
-      - 8209:80
+      - '8209:80'
       - ${APP_PORT}:443
     volumes:
       - ${APP_DATA_DIR}/data/mastodon-config:/config
@@ -26,10 +25,6 @@ services:
       - DB_PASS=${MASTODON_POSTGRES_PASSWORD}
       - DB_PORT=5432
       - ES_ENABLED=false
-      #- ES_HOST=mastodon-es
-      #- ES_PORT=9200
-      #- ES_USER=elastic
-      #- ES_PASS=${MASTODON_ELASTIC_PASSWORD}
       - SECRET_KEY_BASE=${MASTODON_SECRET_KEY_BASE}
       - OTP_SECRET=${MASTODON_OTP_SECRET}
       - SMTP_SERVER=${MASTODON_SMTP_SERVER}
@@ -38,17 +33,12 @@ services:
       - SMTP_PASSWORD=${MASTODON_SMTP_PASSWORD}
       - SMTP_FROM_ADDRESS=${MASTODON_SMTP_FROM_ADDRESS}
       - S3_ENABLED=false
-      #- S3_BUCKET=files.example.com
-      # - AWS_ACCESS_KEY_ID=
-      #- AWS_SECRET_ACCESS_KEY=
-      #- S3_ALIAS_HOST=files.example.com
       - SIDEKIQ_ONLY=false
       - SIDEKIQ_DEFAULT=false
       - SIDEKIQ_THREADS=5
       - ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY=${MASTODON_ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY}
       - ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT=${MASTODON_ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT}
       - ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY=${MASTODON_ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY}
-
     restart: unless-stopped
     networks:
       - tipi_main_network
@@ -67,7 +57,6 @@ services:
         condition: service_healthy
       mastodon-redis:
         condition: service_healthy
-
   mastodon-db:
     restart: always
     container_name: mastodon-db
@@ -82,7 +71,11 @@ services:
     networks:
       - tipi_main_network
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "tipi"]
+      test:
+        - CMD
+        - pg_isready
+        - '-U'
+        - tipi
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
     labels:
@@ -95,7 +88,10 @@ services:
     networks:
       - tipi_main_network
     healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
+      test:
+        - CMD
+        - redis-cli
+        - ping
     volumes:
       - ${APP_DATA_DIR}/data/redis:/data
     labels:
