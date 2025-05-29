@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "transmission",
-      "image": "lscr.io/linuxserver/transmission:4.0.6",
+      "image": "lscr.io/linuxserver/transmission:2021.11.18",
       "isMain": true,
       "internalPort": 9091,
       "addPorts": [
