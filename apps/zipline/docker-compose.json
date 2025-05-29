@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "zipline",
-      "image": "ghcr.io/diced/zipline:3.7.13",
+      "image": "ghcr.io/diced/zipline:4.1.0",
       "isMain": true,
       "internalPort": 3000,
       "environment": {
@@ -13,7 +13,9 @@
         "CORE_DATABASE_URL": "postgres://tipi:${ZIPLINE_DB_PASSWORD}@zipline-db/zipline",
         "CORE_LOGGER": "true"
       },
-      "dependsOn": ["zipline-db"],
+      "dependsOn": [
+        "zipline-db"
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/uploads",
