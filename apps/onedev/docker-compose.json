@@ -23,9 +23,7 @@
         "initial_email": "${ONEDEV_EMAIL}",
         "initial_server_url": "${APP_DOMAIN}"
       },
-      "dependsOn": [
-        "onedev-db"
-      ],
+      "dependsOn": ["onedev-db"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/onedev",
