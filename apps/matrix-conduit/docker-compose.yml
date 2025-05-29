@@ -1,9 +1,8 @@
-version: "3.7"
-
+version: '3.7'
 services:
   matrix-conduit:
     container_name: matrix-conduit
-    image: matrixconduit/matrix-conduit:v0.9.0
+    image: matrixconduit/matrix-conduit:v0.10.3
     environment:
       CONDUIT_SERVER_NAME: ${APP_DOMAIN}
       CONDUIT_DATABASE_PATH: /var/lib/matrix-conduit/
@@ -18,33 +17,28 @@ services:
       CONDUIT_ALLOW_CHECK_FOR_UPDATES: false
       CONDUIT_TURN_URIS: ${TURN_URIS:-["turn:localhost?transport=udp", "turn:localhost?transport=tcp"]}
       CONDUIT_TURN_SECRET: ${TURN_SECRET:-turnsecret}
-      CONDUIT_CONFIG: "" # Ignore this
+      CONDUIT_CONFIG: ''
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data:/var/lib/matrix-conduit/
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.matrix-conduit-web-redirect.redirectscheme.scheme: https
       traefik.http.services.matrix-conduit.loadbalancer.server.port: 6167
-      # Web
       traefik.http.routers.matrix-conduit-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.matrix-conduit-insecure.entrypoints: web
       traefik.http.routers.matrix-conduit-insecure.service: matrix-conduit
       traefik.http.routers.matrix-conduit-insecure.middlewares: matrix-conduit-web-redirect
-      # Websecure
       traefik.http.routers.matrix-conduit.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.matrix-conduit.entrypoints: websecure
       traefik.http.routers.matrix-conduit.service: matrix-conduit
       traefik.http.routers.matrix-conduit.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.matrix-conduit-local-insecure.rule: Host(`matrix-conduit.${LOCAL_DOMAIN}`)
       traefik.http.routers.matrix-conduit-local-insecure.entrypoints: web
       traefik.http.routers.matrix-conduit-local-insecure.service: matrix-conduit
       traefik.http.routers.matrix-conduit-local-insecure.middlewares: matrix-conduit-web-redirect
-      # Local domain secure
       traefik.http.routers.matrix-conduit-local.rule: Host(`matrix-conduit.${LOCAL_DOMAIN}`)
       traefik.http.routers.matrix-conduit-local.entrypoints: websecure
       traefik.http.routers.matrix-conduit-local.service: matrix-conduit
@@ -61,26 +55,21 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.matrix-well-knows-web-redirect.redirectscheme.scheme: https
       traefik.http.services.matrix-well-knows.loadbalancer.server.port: 80
-      # Web
       traefik.http.routers.matrix-well-knows-insecure.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/.well-known/matrix`)
       traefik.http.routers.matrix-well-knows-insecure.entrypoints: web
       traefik.http.routers.matrix-well-knows-insecure.service: matrix-well-knows
       traefik.http.routers.matrix-well-knows-insecure.middlewares: matrix-well-knows-web-redirect
-      # Websecure
       traefik.http.routers.matrix-well-knows.rule: Host(`${APP_DOMAIN}`) && PathPrefix(`/.well-known/matrix`)
       traefik.http.routers.matrix-well-knows.entrypoints: websecure
       traefik.http.routers.matrix-well-knows.service: matrix-well-knows
       traefik.http.routers.matrix-well-knows.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.matrix-well-knows-local-insecure.rule: Host(`matrix-well-knows.${LOCAL_DOMAIN}`) && PathPrefix(`/.well-known/matrix`)
       traefik.http.routers.matrix-well-knows-local-insecure.entrypoints: web
       traefik.http.routers.matrix-well-knows-local-insecure.service: matrix-well-knows
       traefik.http.routers.matrix-well-knows-local-insecure.middlewares: matrix-well-knows-web-redirect
-      # Local domain secure
       traefik.http.routers.matrix-well-knows-local.rule: Host(`matrix-well-knows.${LOCAL_DOMAIN}`) && PathPrefix(`/.well-known/matrix`)
       traefik.http.routers.matrix-well-knows-local.entrypoints: websecure
       traefik.http.routers.matrix-well-knows-local.service: matrix-well-knows
