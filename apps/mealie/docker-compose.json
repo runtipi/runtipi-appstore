@@ -2,7 +2,7 @@
   "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
-      "image": "hkotel/mealie:v0.5.6",
+      "image": "hkotel/mealie:v2.8.0",
       "name": "mealie",
       "internalPort": 80,
       "isMain": true,
