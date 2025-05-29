@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "invoice-ninja",
-      "image": "invoiceninja/invoiceninja:5.10.62",
+      "image": "invoiceninja/invoiceninja:5.11.80",
       "user": "1500:1500",
       "environment": {
         "IN_USER_EMAIL": "${INVOICE_NINJA_USER_MAIL}",
@@ -22,7 +22,9 @@
         "QUEUE_CONNECTION": "database",
         "IS_DOCKER": "TRUE"
       },
-      "dependsOn": ["invoice-ninja-db"],
+      "dependsOn": [
+        "invoice-ninja-db"
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/public",
@@ -46,7 +48,7 @@
     },
     {
       "name": "invoice-ninja-web",
-      "image": "nginx:1.27",
+      "image": "nginx:1.28",
       "isMain": true,
       "internalPort": 80,
       "dependsOn": {
