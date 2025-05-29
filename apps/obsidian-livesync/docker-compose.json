@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "obsidian-livesync",
-      "image": "couchdb:3.1.2",
+      "image": "couchdb:3.5.0",
       "isMain": true,
       "internalPort": 5984,
       "environment": {
