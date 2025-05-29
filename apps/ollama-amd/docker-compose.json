@@ -15,10 +15,7 @@
           "containerPath": "/root/.ollama"
         }
       ],
-      "devices": [
-        "/dev/kfd",
-        "/dev/dri"
-      ]
+      "devices": ["/dev/kfd", "/dev/dri"]
     }
   ]
 }
