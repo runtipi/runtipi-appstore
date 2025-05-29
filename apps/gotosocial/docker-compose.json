@@ -23,9 +23,7 @@
         "GTS_SMTP_PASSWORD": "${GTS_SMTP_PASSWORD}",
         "GTS_SMTP_FROM": "${GTS_SMTP_FROM}"
       },
-      "dependsOn": [
-        "gotosocial-db"
-      ],
+      "dependsOn": ["gotosocial-db"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/gotosocial",
