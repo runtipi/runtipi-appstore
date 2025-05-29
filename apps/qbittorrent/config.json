@@ -6,15 +6,20 @@
   "dynamic_config": true,
   "port": 8133,
   "id": "qbittorrent",
-  "tipi_version": 24,
-  "version": "5.0.4",
-  "categories": ["utilities"],
+  "tipi_version": 25,
+  "version": "14.3.9",
+  "categories": [
+    "utilities"
+  ],
   "description": "qBittorrent is a fast, easy, and free BitTorrent client.",
   "short_desc": "Fast, easy, and free BitTorrent client",
   "author": "qBittorrent project",
   "source": "https://github.com/qbittorrent/qBittorrent",
   "form_fields": [],
-  "supported_architectures": ["arm64", "amd64"],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
   "created_at": 1691943801422,
-  "updated_at": 1740331761153
+  "updated_at": 1748514537658
 }
