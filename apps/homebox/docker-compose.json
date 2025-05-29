@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "homebox",
-      "image": "ghcr.io/sysadminsmedia/homebox:0.18.0-rootless",
+      "image": "ghcr.io/sysadminsmedia/homebox:0.19.0-rootless",
       "isMain": true,
       "internalPort": 7745,
       "user": "1000:1000",
