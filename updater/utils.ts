@@ -8,9 +8,11 @@ import type { Data } from "./types/cup";
 
 const execAsync = promisify(exec);
 
+const EXCLUDED_FOLDERS = ["__tests__"];
+
 export async function getAppList(): Promise<string[]> {
   const entries = await fs.readdir(APPS_DIR, { withFileTypes: true });
-  return entries.filter((entry) => entry.isDirectory()).map((dir) => dir.name);
+  return entries.filter((entry) => entry.isDirectory() && !EXCLUDED_FOLDERS.includes(entry.name)).map((dir) => dir.name);
 }
 
 export async function readJsonFile<T>(filepath: string): Promise<T> {
