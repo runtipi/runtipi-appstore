@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "linkwarden",
-      "image": "ghcr.io/linkwarden/linkwarden:v2.10.0",
+      "image": "ghcr.io/linkwarden/linkwarden:v2.10.2",
       "isMain": true,
       "internalPort": 3000,
       "environment": {
@@ -11,7 +11,9 @@
         "NEXTAUTH_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}/api/v1/auth",
         "NEXT_PUBLIC_DISABLE_REGISTRATION": "${LINKWARDEN_NEXT_PUBLIC_DISABLE_REGISTRATION}"
       },
-      "dependsOn": ["linkwarden-db"],
+      "dependsOn": [
+        "linkwarden-db"
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/linkwarden",
