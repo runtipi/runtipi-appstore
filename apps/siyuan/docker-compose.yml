@@ -1,9 +1,11 @@
 services:
   siyuan:
-    image: b3log/siyuan:v3.1.28
+    image: b3log/siyuan:v3.1.31
     container_name: siyuan
-    command: ['--workspace=/siyuan/workspace/', '--accessAuthCode=${SIYUAN_ACCESS_AUTH_CODE}']
-    user: "1000:1000"
+    command:
+      - '--workspace=/siyuan/workspace/'
+      - '--accessAuthCode=${SIYUAN_ACCESS_AUTH_CODE}'
+    user: '1000:1000'
     restart: unless-stopped
     environment:
       - TZ=${TZ}
@@ -16,31 +18,23 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.siyuan-web-redirect.redirectscheme.scheme: https
       traefik.http.services.siyuan.loadbalancer.server.port: 6806
-      # Web
       traefik.http.routers.siyuan-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.siyuan-insecure.entrypoints: web
       traefik.http.routers.siyuan-insecure.service: siyuan
       traefik.http.routers.siyuan-insecure.middlewares: siyuan-web-redirect
-      # Websecure
       traefik.http.routers.siyuan.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.siyuan.entrypoints: websecure
       traefik.http.routers.siyuan.service: siyuan
       traefik.http.routers.siyuan.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.siyuan-local-insecure.rule: Host(`siyuan.${LOCAL_DOMAIN}`)
       traefik.http.routers.siyuan-local-insecure.entrypoints: web
       traefik.http.routers.siyuan-local-insecure.service: siyuan
       traefik.http.routers.siyuan-local-insecure.middlewares: siyuan-web-redirect
-      # Local domain secure
       traefik.http.routers.siyuan-local.rule: Host(`siyuan.${LOCAL_DOMAIN}`)
       traefik.http.routers.siyuan-local.entrypoints: websecure
       traefik.http.routers.siyuan-local.service: siyuan
       traefik.http.routers.siyuan-local.tls: true
       runtipi.managed: true
-
-
-      
