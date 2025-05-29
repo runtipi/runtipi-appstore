@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "octobot",
-      "image": "drakkarsoftware/octobot:2.0.9",
+      "image": "drakkarsoftware/octobot:2.0.10",
       "isMain": true,
       "internalPort": 5001,
       "environment": {
