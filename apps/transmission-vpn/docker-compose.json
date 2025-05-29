@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "transmission-vpn",
-      "image": "haugene/transmission-openvpn:5.3.1",
+      "image": "haugene/transmission-openvpn:5.3.2",
       "isMain": true,
       "internalPort": 9091,
       "environment": {
@@ -50,8 +50,12 @@
       "sysctls": {
         "net.ipv6.conf.all.disable_ipv6": 0
       },
-      "devices": ["/dev/net/tun"],
-      "capAdd": ["NET_ADMIN"],
+      "devices": [
+        "/dev/net/tun"
+      ],
+      "capAdd": [
+        "NET_ADMIN"
+      ],
       "logging": {
         "driver": "json-file",
         "options": {
