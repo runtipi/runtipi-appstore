@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   stirling-pdf:
-    image: stirlingtools/stirling-pdf:0.45.6
+    image: stirlingtools/stirling-pdf:0.46.2
     restart: unless-stopped
     container_name: stirling-pdf
     privileged: true

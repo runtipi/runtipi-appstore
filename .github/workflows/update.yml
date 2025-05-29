@@ -9,8 +9,8 @@ permissions:
   pull-requests: write
 
 jobs:
-  timeout-minutes: 20
   update:
+    timeout-minutes: 20
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
