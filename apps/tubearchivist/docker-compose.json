@@ -16,10 +16,7 @@
         "TA_HOST": "${APP_DOMAIN}",
         "ELASTIC_PASSWORD": "${ELASTIC_PASSWORD}"
       },
-      "dependsOn": [
-        "tubearchivist-es",
-        "tubearchivist-redis"
-      ],
+      "dependsOn": ["tubearchivist-es", "tubearchivist-redis"],
       "volumes": [
         {
           "hostPath": "${ROOT_FOLDER_HOST}/media/data/youtube",
@@ -34,9 +31,7 @@
     {
       "name": "tubearchivist-redis",
       "image": "redislabs/rejson:latest",
-      "dependsOn": [
-        "tubearchivist-es"
-      ],
+      "dependsOn": ["tubearchivist-es"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/redis-data",
