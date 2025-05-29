@@ -4,9 +4,7 @@
     {
       "name": "ghost",
       "image": "ghost:5.120.4",
-      "dependsOn": [
-        "ghostdb"
-      ],
+      "dependsOn": ["ghostdb"],
       "internalPort": 2368,
       "environment": {
         "database__client": "mysql",
