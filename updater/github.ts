@@ -1,7 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { Octokit } from "@octokit/rest";
-import semver from "semver";
 import type { UpdateInfo } from "./types/app";
 
 type PullRequest = {
@@ -58,6 +57,8 @@ async function findExistingPR(appId: string) {
       query: `chore(${appId}):`,
     });
 
+    console.log(`Found ${pulls.length} open PRs for ${appId}`);
+
     return pulls.find((pr) => pr.title.startsWith(`chore(${appId}):`));
   } catch (error) {
     console.error(`Error searching for existing PR for ${appId}:`, error);
@@ -86,11 +87,27 @@ async function createNewPR(appId: string, updates: UpdateInfo, prTitle: string, 
   // Get updated file contents
   const configPath = path.join("apps", appId, "config.json");
   const composePath = path.join("apps", appId, "docker-compose.json");
+  const dockerComposeYmlPath = path.join("apps", appId, "docker-compose.yml");
+
   const [updatedConfig, updatedCompose] = await Promise.all([fs.readFile(configPath, "utf-8"), fs.readFile(composePath, "utf-8")]);
+
+  // Check if docker-compose.yml exists
+  let updatedDockerComposeYml: string | null = null;
+  try {
+    await fs.access(dockerComposeYmlPath);
+    updatedDockerComposeYml = await fs.readFile(dockerComposeYmlPath, "utf-8");
+  } catch {
+    // docker-compose.yml doesn't exist, which is fine
+  }
 
   // Update files in the new branch
   await updateFileInRepo(branch, `apps/${appId}/config.json`, updatedConfig, `Update config.json for ${appId}`);
   await updateFileInRepo(branch, `apps/${appId}/docker-compose.json`, updatedCompose, `Update docker-compose.json for ${appId}`);
+
+  // Update docker-compose.yml if it exists
+  if (updatedDockerComposeYml) {
+    await updateFileInRepo(branch, `apps/${appId}/docker-compose.yml`, updatedDockerComposeYml, `Update docker-compose.yml for ${appId}`);
+  }
 
   // Create PR
   const { data } = await octokit.pulls.create({
@@ -123,11 +140,27 @@ async function updateExistingPR(existingPR: PullRequest, updates: UpdateInfo, pr
   // Get updated file contents
   const configPath = path.join("apps", appId, "config.json");
   const composePath = path.join("apps", appId, "docker-compose.json");
+  const dockerComposeYmlPath = path.join("apps", appId, "docker-compose.yml");
+
   const [updatedConfig, updatedCompose] = await Promise.all([fs.readFile(configPath, "utf-8"), fs.readFile(composePath, "utf-8")]);
+
+  // Check if docker-compose.yml exists
+  let updatedDockerComposeYml: string | null = null;
+  try {
+    await fs.access(dockerComposeYmlPath);
+    updatedDockerComposeYml = await fs.readFile(dockerComposeYmlPath, "utf-8");
+  } catch {
+    // docker-compose.yml doesn't exist, which is fine
+  }
 
   // Update files in the existing branch
   await updateFileInRepo(branch, `apps/${appId}/config.json`, updatedConfig, `Update config.json for ${appId}`);
   await updateFileInRepo(branch, `apps/${appId}/docker-compose.json`, updatedCompose, `Update docker-compose.json for ${appId}`);
+
+  // Update docker-compose.yml if it exists
+  if (updatedDockerComposeYml) {
+    await updateFileInRepo(branch, `apps/${appId}/docker-compose.yml`, updatedDockerComposeYml, `Update docker-compose.yml for ${appId}`);
+  }
 
   // Update PR description
   await octokit.pulls.update({

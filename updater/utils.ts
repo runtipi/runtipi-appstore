@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { promisify } from "node:util";
 import type { AppInfo, DynamicCompose, Service } from "@runtipi/common/schemas";
+import * as yaml from "js-yaml";
 import { APPS_DIR, IGNORED_PREFIXES } from "./constants";
 import type { Data } from "./types/cup";
 
@@ -44,16 +45,61 @@ export function shouldCheckImage(image: string): boolean {
   return !matchesIgnoredPrefix && tagContainsNumber;
 }
 
+// Define a type for docker-compose.yml structure
+interface DockerComposeYml {
+  services: Record<
+    string,
+    {
+      image: string;
+      [key: string]: unknown;
+    }
+  >;
+  [key: string]: unknown;
+}
+
+// Extract images from docker-compose.yml services
+export function getImagesFromYaml(dockerComposeYml: DockerComposeYml): string[] {
+  if (!dockerComposeYml?.services) return [];
+  return Object.values(dockerComposeYml.services)
+    .map((service) => service.image)
+    .filter(Boolean);
+}
+
+// Update docker-compose.yml with new images
+export function updateYamlWithNewImages(dockerComposeYml: DockerComposeYml, updates: Array<{ service: string; newImage: string }>): DockerComposeYml {
+  const updatedYml = JSON.parse(JSON.stringify(dockerComposeYml)); // Deep clone
+
+  for (const update of updates) {
+    // Find service by name in the YAML
+    if (updatedYml.services[update.service]) {
+      updatedYml.services[update.service].image = update.newImage;
+    }
+  }
+
+  return updatedYml;
+}
+
 export async function getAppData(appId: string): Promise<{
   config: AppInfo;
   compose: DynamicCompose;
+  dockerComposeYml?: DockerComposeYml;
 }> {
   const configPath = path.join(APPS_DIR, appId, "config.json");
   const composePath = path.join(APPS_DIR, appId, "docker-compose.json");
+  const dockerComposeYmlPath = path.join(APPS_DIR, appId, "docker-compose.yml");
+
+  // Check if docker-compose.yml exists
+  let dockerComposeYml: DockerComposeYml | undefined = undefined;
+  try {
+    await fs.access(dockerComposeYmlPath);
+    dockerComposeYml = await readYamlFile<DockerComposeYml>(dockerComposeYmlPath);
+  } catch {
+    // docker-compose.yml doesn't exist, which is fine
+  }
 
   const [config, compose] = await Promise.all([readJsonFile<AppInfo>(configPath), readJsonFile<DynamicCompose>(composePath)]);
 
-  return { config, compose };
+  return { config, compose, dockerComposeYml };
 }
 
 export async function checkImages(images: string[]): Promise<Data> {
@@ -64,4 +110,19 @@ export async function checkImages(images: string[]): Promise<Data> {
 
 export function findMainService(services: DynamicCompose["services"], version: string): Service | undefined {
   return services.find((service) => service.isMain || service.image.includes(`:${version}`));
+}
+
+export async function readYamlFile<T>(filepath: string): Promise<T> {
+  const content = await fs.readFile(filepath, "utf-8");
+  return yaml.load(content) as T;
+}
+
+export async function writeYamlFile<T>(filepath: string, data: T): Promise<void> {
+  const yamlContent = yaml.dump(data, {
+    lineWidth: -1,
+    noRefs: true,
+    sortKeys: false,
+    indent: 2,
+  });
+  await fs.writeFile(filepath, yamlContent, "utf-8");
 }

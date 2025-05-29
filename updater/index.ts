@@ -1,9 +1,19 @@
 import path from "node:path";
 import { createPullRequest } from "./github";
 import type { UpdateInfo } from "./types/app";
-import { checkImages, findMainService, getAppData, getAppList, shouldCheckImage, writeJsonFile } from "./utils";
+import {
+  checkImages,
+  findMainService,
+  getAppData,
+  getAppList,
+  getImagesFromYaml,
+  shouldCheckImage,
+  updateYamlWithNewImages,
+  writeJsonFile,
+  writeYamlFile,
+} from "./utils";
 
-const MAX_PRS = 5; // Maximum number of PRs to create in one run
+const MAX_PRS = 1; // Maximum number of PRs to create in one run
 
 async function main() {
   try {
@@ -20,15 +30,18 @@ async function main() {
       console.log(`Processing ${appId}...`);
 
       // Get app configuration and compose file
-      const { config, compose } = await getAppData(appId);
+      const { config, compose, dockerComposeYml } = await getAppData(appId);
 
       if (!config.version || config.version === "latest") {
         console.warn(`Skipping ${appId} because no version is declared in config`);
         continue;
       }
 
-      // Get list of images to check
-      const imagesToCheck = compose.services.map((service) => service.image).filter(shouldCheckImage);
+      // Get list of images to check from both JSON and YAML compose files
+      const imagesToCheck = [
+        ...compose.services.map((service) => service.image),
+        ...(dockerComposeYml ? getImagesFromYaml(dockerComposeYml) : []),
+      ].filter(shouldCheckImage);
 
       if (imagesToCheck.length === 0) {
         console.log(`No images to check for ${appId}`);
@@ -51,7 +64,11 @@ async function main() {
       // Process updates
       for (const image of checkResult.images) {
         const service = compose.services.find((s) => image.reference.includes(s.image));
-        if (!service || !image.result.has_update || !image.result.info) continue;
+        const yamlServiceName = dockerComposeYml
+          ? Object.keys(dockerComposeYml.services).find((serviceName) => image.reference.includes(dockerComposeYml.services[serviceName].image))
+          : null;
+
+        if ((!service && !yamlServiceName) || !image.result.has_update || !image.result.info) continue;
 
         const updateInfo = image.result.info;
         if (updateInfo.type !== "version") continue;
@@ -61,12 +78,14 @@ async function main() {
           newVersion = updateInfo.new_version;
         }
 
+        const newImage = `${image.parts.registry}/${image.parts.repository}:${updateInfo.new_tag}`
+          .replace(/^registry-1\.docker\.io\//, "")
+          .replace(/^library\//, "");
+
         appUpdates.push({
-          service: service.name,
+          service: service?.name || yamlServiceName || "unknown",
           oldImage: image.reference,
-          newImage: `${image.parts.registry}/${image.parts.repository}:${updateInfo.new_tag}`
-            .replace(/^registry-1\.docker\.io\//, "")
-            .replace(/^library\//, ""),
+          newImage,
           updateType: updateInfo.version_update_type,
         });
       }
@@ -92,6 +111,17 @@ async function main() {
           }),
         };
         await writeJsonFile(composePath, newCompose);
+
+        // Update docker-compose.yml if it exists
+        if (dockerComposeYml) {
+          const dockerComposeYmlPath = path.join("apps", appId, "docker-compose.yml");
+          const yamlUpdates = appUpdates.filter((update) => Object.keys(dockerComposeYml.services).includes(update.service));
+
+          if (yamlUpdates.length > 0) {
+            const newDockerComposeYml = updateYamlWithNewImages(dockerComposeYml, yamlUpdates);
+            await writeYamlFile(dockerComposeYmlPath, newDockerComposeYml);
+          }
+        }
 
         // Create or update PR for this app
         await createPullRequest(appId, {
