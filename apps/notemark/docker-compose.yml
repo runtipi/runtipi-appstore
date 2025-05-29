@@ -1,4 +1,4 @@
-version: "3.7"
+version: '3.7'
 services:
   notemark:
     image: ghcr.io/enchant97/note-mark-frontend:0.15.4
@@ -17,8 +17,8 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data:/data
     environment:
-      JWT_SECRET: "${NOTEMARK_SERVICE_SECRET}"
-      CORS_ORIGINS: "*"
+      JWT_SECRET: ${NOTEMARK_SERVICE_SECRET}
+      CORS_ORIGINS: '*'
     labels:
       runtipi.managed: true
   notemark-proxy:
@@ -32,26 +32,21 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.notemark-web-redirect.redirectscheme.scheme: https
       traefik.http.services.notemark.loadbalancer.server.port: 80
-      # Web
       traefik.http.routers.notemark-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.notemark-insecure.entrypoints: web
       traefik.http.routers.notemark-insecure.service: notemark
       traefik.http.routers.notemark-insecure.middlewares: notemark-web-redirect
-      # Websecure
       traefik.http.routers.notemark.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.notemark.entrypoints: websecure
       traefik.http.routers.notemark.service: notemark
       traefik.http.routers.notemark.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.notemark-local-insecure.rule: Host(`notemark.${LOCAL_DOMAIN}`)
       traefik.http.routers.notemark-local-insecure.entrypoints: web
       traefik.http.routers.notemark-local-insecure.service: notemark
       traefik.http.routers.notemark-local-insecure.middlewares: notemark-web-redirect
-      # Local domain secure
       traefik.http.routers.notemark-local.rule: Host(`notemark.${LOCAL_DOMAIN}`)
       traefik.http.routers.notemark-local.entrypoints: websecure
       traefik.http.routers.notemark-local.service: notemark
