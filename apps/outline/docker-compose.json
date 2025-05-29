@@ -23,10 +23,7 @@
         "OIDC_DISPLAY_NAME": "OpenID",
         "OIDC_SCOPES": "openid profile email"
       },
-      "dependsOn": [
-        "outline-postgres",
-        "outline-redis"
-      ],
+      "dependsOn": ["outline-postgres", "outline-redis"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/outline",
@@ -88,10 +85,7 @@
       "image": "nginx:alpine",
       "isMain": true,
       "internalPort": 80,
-      "dependsOn": [
-        "outline",
-        "outline-oidc"
-      ],
+      "dependsOn": ["outline", "outline-oidc"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/nginx/",
