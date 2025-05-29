@@ -9,6 +9,7 @@ permissions:
   pull-requests: write
 
 jobs:
+  timeout-minutes: 20
   update:
     runs-on: ubuntu-latest
     steps:
