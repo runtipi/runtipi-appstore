@@ -1,0 +1,30 @@
+name: Update
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 2 * * *
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Set up updater
+        run: |
+          cd updater
+          bun install
+          cd ..
+
+      - name: Run updater
+        run: bun run updater/index.ts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
