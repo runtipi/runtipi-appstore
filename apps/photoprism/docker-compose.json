@@ -50,7 +50,7 @@
     },
     {
       "name": "photoprism-db",
-      "image": "mariadb:11.7",
+      "image": "mariadb:10.8",
       "environment": {
         "MARIADB_DATABASE": "photoprism",
         "MARIADB_USER": "photoprism",
