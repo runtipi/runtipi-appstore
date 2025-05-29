@@ -1,11 +1,11 @@
-version: "3.7"
+version: '3.7'
 services:
   adguard:
-    image: adguard/adguardhome:v0.107.61
+    image: adguard/adguardhome:v0.107.62
     container_name: adguard
     volumes:
-      - "${APP_DATA_DIR}/data/work:/opt/adguardhome/work"
-      - "${APP_DATA_DIR}/data/conf:/opt/adguardhome/conf"
+      - ${APP_DATA_DIR}/data/work:/opt/adguardhome/work
+      - ${APP_DATA_DIR}/data/conf:/opt/adguardhome/conf
     restart: unless-stopped
     networks:
       - tipi_main_network
@@ -16,26 +16,21 @@ services:
       - ${NETWORK_INTERFACE:-0.0.0.0}:853:853/udp
       - ${APP_PORT}:80
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.adguard-web-redirect.redirectscheme.scheme: https
       traefik.http.services.adguard.loadbalancer.server.port: 80
-      # Web
       traefik.http.routers.adguard-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.adguard-insecure.entrypoints: web
       traefik.http.routers.adguard-insecure.service: adguard
       traefik.http.routers.adguard-insecure.middlewares: adguard-web-redirect
-      # Websecure
       traefik.http.routers.adguard.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.adguard.entrypoints: websecure
       traefik.http.routers.adguard.service: adguard
       traefik.http.routers.adguard.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.adguard-local-insecure.rule: Host(`adguard.${LOCAL_DOMAIN}`)
       traefik.http.routers.adguard-local-insecure.entrypoints: web
       traefik.http.routers.adguard-local-insecure.service: adguard
       traefik.http.routers.adguard-local-insecure.middlewares: adguard-web-redirect
-      # Local domain secure
       traefik.http.routers.adguard-local.rule: Host(`adguard.${LOCAL_DOMAIN}`)
       traefik.http.routers.adguard-local.entrypoints: websecure
       traefik.http.routers.adguard-local.service: adguard
