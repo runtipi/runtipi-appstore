@@ -33,7 +33,7 @@
     },
     {
       "name": "mosquitto-management-center",
-      "image": "eclipse-mosquitto:2.0.21",
+      "image": "cedalo/management-center:2",
       "environment": {
         "TZ": "${TZ}",
         "CEDALO_MC_BROKER_ID": "mosquitto-broker",
