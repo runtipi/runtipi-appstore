@@ -2,7 +2,7 @@
   "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
-      "image": "ghcr.io/goauthentik/server:2025.2.4",
+      "image": "ghcr.io/goauthentik/server:2025.4.1",
       "name": "authentik",
       "internalPort": 9000,
       "isMain": true,
@@ -31,10 +31,13 @@
         "AUTHENTIK_POSTGRESQL__PASSWORD": "${AUTHENTIK_DB_PASSWORD}",
         "AUTHENTIK_SECRET_KEY": "${AUTHENTIK_SECRET_KEY}"
       },
-      "dependsOn": ["authentik-db", "authentik-redis"]
+      "dependsOn": [
+        "authentik-db",
+        "authentik-redis"
+      ]
     },
     {
-      "image": "ghcr.io/goauthentik/server:2025.2.3",
+      "image": "ghcr.io/goauthentik/server:2025.4.1",
       "name": "authentik-worker",
       "command": "worker",
       "user": "root",
@@ -64,7 +67,10 @@
         "AUTHENTIK_POSTGRESQL__PASSWORD": "${AUTHENTIK_DB_PASSWORD}",
         "AUTHENTIK_SECRET_KEY": "${AUTHENTIK_SECRET_KEY}"
       },
-      "dependsOn": ["authentik-db", "authentik-redis"]
+      "dependsOn": [
+        "authentik-db",
+        "authentik-redis"
+      ]
     },
     {
       "image": "postgres:12-alpine",
