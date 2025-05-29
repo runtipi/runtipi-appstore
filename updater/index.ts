@@ -13,7 +13,7 @@ import {
   writeYamlFile,
 } from "./utils";
 
-const MAX_PRS = 10;
+const MAX_PRS = 5;
 
 async function main() {
   try {
