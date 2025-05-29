@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "koillection",
-      "image": "koillection/koillection:1.6.12",
+      "image": "koillection/koillection:1.6.13",
       "isMain": true,
       "internalPort": 80,
       "environment": {
@@ -23,7 +23,9 @@
         "DB_PASSWORD": "{KOILLECTION_DB_PASSWORD}",
         "DB_VERSION": "15"
       },
-      "dependsOn": ["koillection-db"],
+      "dependsOn": [
+        "koillection-db"
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/uploads",
