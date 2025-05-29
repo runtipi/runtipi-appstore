@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "matter-server",
-      "image": "ghcr.io/home-assistant-libs/python-matter-server:7.0.1",
+      "image": "ghcr.io/home-assistant-libs/python-matter-server:8.0.0",
       "isMain": true,
       "networkMode": "host",
       "volumes": [
@@ -17,7 +17,9 @@
           "containerPath": "/data"
         }
       ],
-      "securityOpt": ["apparmor=unconfined"]
+      "securityOpt": [
+        "apparmor=unconfined"
+      ]
     }
   ]
 }
