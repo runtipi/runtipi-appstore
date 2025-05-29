@@ -1,7 +1,7 @@
-version: "3.9"
+version: '3.9'
 services:
   nginx:
-    image: nginx:1.25.3
+    image: nginx:1.28.0
     container_name: nginx
     restart: unless-stopped
     ports:
@@ -9,26 +9,21 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.nginx-web-redirect.redirectscheme.scheme: https
       traefik.http.services.nginx.loadbalancer.server.port: 80
-      # Web
       traefik.http.routers.nginx-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.nginx-insecure.entrypoints: web
       traefik.http.routers.nginx-insecure.service: nginx
       traefik.http.routers.nginx-insecure.middlewares: nginx-web-redirect
-      # Websecure
       traefik.http.routers.nginx.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.nginx.entrypoints: websecure
       traefik.http.routers.nginx.service: nginx
       traefik.http.routers.nginx.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.nginx-local-insecure.rule: Host(`nginx.${LOCAL_DOMAIN}`)
       traefik.http.routers.nginx-local-insecure.entrypoints: web
       traefik.http.routers.nginx-local-insecure.service: nginx
       traefik.http.routers.nginx-local-insecure.middlewares: nginx-web-redirect
-      # Local domain secure
       traefik.http.routers.nginx-local.rule: Host(`nginx.${LOCAL_DOMAIN}`)
       traefik.http.routers.nginx-local.entrypoints: websecure
       traefik.http.routers.nginx-local.service: nginx
