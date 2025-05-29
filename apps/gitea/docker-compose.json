@@ -26,9 +26,7 @@
           "containerPort": 22
         }
       ],
-      "dependsOn": [
-        "gitea-db"
-      ],
+      "dependsOn": ["gitea-db"],
       "isMain": true
     },
     {
