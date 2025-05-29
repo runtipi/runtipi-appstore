@@ -29,12 +29,8 @@
       "sysctls": {
         "net.ipv4.ip_forward": 1
       },
-      "devices": [
-        "/dev/kvm"
-      ],
-      "capAdd": [
-        "NET_ADMIN"
-      ],
+      "devices": ["/dev/kvm"],
+      "capAdd": ["NET_ADMIN"],
       "stopGracePeriod": "2m"
     }
   ]
