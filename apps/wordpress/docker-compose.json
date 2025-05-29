@@ -12,9 +12,7 @@
         "WORDPRESS_DB_USER": "tipi",
         "WORDPRESS_DB_PASSWORD": "${DB_PASSWORD}"
       },
-      "dependsOn": [
-        "wordpress-db"
-      ],
+      "dependsOn": ["wordpress-db"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/wordpress",
