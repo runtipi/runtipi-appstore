@@ -23,9 +23,7 @@
         "DB_PASSWORD": "{KOILLECTION_DB_PASSWORD}",
         "DB_VERSION": "15"
       },
-      "dependsOn": [
-        "koillection-db"
-      ],
+      "dependsOn": ["koillection-db"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/uploads",
