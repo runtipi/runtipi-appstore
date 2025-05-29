@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "beszel-agent",
-      "image": "henrygd/beszel-agent:0.10.2",
+      "image": "henrygd/beszel-agent:0.11.1",
       "isMain": true,
       "internalPort": 45876,
       "networkMode": "host",
