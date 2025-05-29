@@ -6,9 +6,11 @@
   "dynamic_config": true,
   "id": "wordpress",
   "description": "WordPress is a popular content management system for creating websites and blogs.",
-  "tipi_version": 16,
-  "version": "6.8.0",
-  "categories": ["social"],
+  "tipi_version": 17,
+  "version": "6.8.1",
+  "categories": [
+    "social"
+  ],
   "short_desc": "Popular CMS for websites and blogs",
   "author": "WordPress.org",
   "source": "https://github.com/WordPress/WordPress",
@@ -27,8 +29,11 @@
       "env_variable": "DB_ROOT_PASSWORD"
     }
   ],
-  "supported_architectures": ["amd64", "arm64"],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
   "created_at": 1691943801422,
-  "updated_at": 1744945653000,
+  "updated_at": 1748513859072,
   "$schema": "../app-info-schema.json"
 }
