@@ -33,9 +33,7 @@
         "PHOTOPRISM_DATABASE_PASSWORD": "${DB_PASSWORD}",
         "PHOTOPRISM_SITE_CAPTION": "AI-Powered Photos App"
       },
-      "dependsOn": [
-        "photoprism-db"
-      ],
+      "dependsOn": ["photoprism-db"],
       "volumes": [
         {
           "hostPath": "${ROOT_FOLDER_HOST}/media/data/images",
