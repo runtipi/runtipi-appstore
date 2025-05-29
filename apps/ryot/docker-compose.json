@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "ryot",
-      "image": "ghcr.io/ignisda/ryot:v2.24.2",
+      "image": "ghcr.io/ignisda/ryot:v8.8.7",
       "isMain": true,
       "internalPort": 8000,
       "environment": {
@@ -12,7 +12,9 @@
         "VIDEO_GAMES_TWITCH_CLIENT_ID": "${RYOT_VIDEO_GAMES_TWITCH_CLIENT_ID}",
         "VIDEO_GAMES_TWITCH_CLIENT_SECRET": " ${RYOT_VIDEO_GAMES_TWITCH_CLIENT_SECRET}"
       },
-      "dependsOn": ["ryot-db"]
+      "dependsOn": [
+        "ryot-db"
+      ]
     },
     {
       "name": "ryot-db",
