@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "smallweb",
-      "image": "ghcr.io/pomdtr/smallweb:0.25.6",
+      "image": "ghcr.io/pomdtr/smallweb:0.26.14",
       "isMain": true,
       "internalPort": 7777,
       "volumes": [
