@@ -3,11 +3,20 @@ import { createPullRequest } from "./github";
 import type { UpdateInfo } from "./types/app";
 import { checkImages, findMainService, getAppData, getAppList, shouldCheckImage, writeJsonFile } from "./utils";
 
+const MAX_PRS = 5; // Maximum number of PRs to create in one run
+
 async function main() {
   try {
     const apps = await getAppList();
 
+    let prCount = 0;
+
     for (const appId of apps) {
+      if (prCount >= MAX_PRS) {
+        console.log("Reached maximum number of PRs to create in this run. Exiting.");
+        break;
+      }
+
       console.log(`Processing ${appId}...`);
 
       // Get app configuration and compose file
@@ -91,6 +100,7 @@ async function main() {
           newVersion,
           updates: appUpdates,
         });
+        prCount++;
         console.log(`Processed pull request for ${appId}`);
       } else {
         console.log(`No updates found for ${appId}`);
