@@ -11,11 +11,13 @@
         "FRONTEND_HTTP_PORT": "8080",
         "BACKEND_MAINNET_HTTP_HOST": "mempool-api"
       },
-      "dependsOn": ["mempool-db"],
+      "dependsOn": [
+        "mempool-db"
+      ],
       "stopGracePeriod": "1m"
     },
     {
-      "image": "mempool/backend:v3.0.1",
+      "image": "mempool/backend:v3.2.1",
       "name": "mempool-api",
       "volumes": [
         {
@@ -46,7 +48,9 @@
         "DATABASE_PASSWORD": "${MEMPOOL_DB_PASSWORD}",
         "STATISTICS_ENABLED": "true"
       },
-      "dependsOn": ["mempool-db"],
+      "dependsOn": [
+        "mempool-db"
+      ],
       "stopGracePeriod": "1m",
       "user": "0:0"
     },
