@@ -1,7 +1,7 @@
-version: "3.7"
+version: '3.7'
 services:
   netdata:
-    image: netdata/netdata:v2.4.0
+    image: netdata/netdata:v2.5.2
     container_name: netdata
     pid: host
     restart: unless-stopped
@@ -25,26 +25,21 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.netdata-web-redirect.redirectscheme.scheme: https
       traefik.http.services.netdata.loadbalancer.server.port: 19999
-      # Web
       traefik.http.routers.netdata-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.netdata-insecure.entrypoints: web
       traefik.http.routers.netdata-insecure.service: netdata
       traefik.http.routers.netdata-insecure.middlewares: netdata-web-redirect
-      # Websecure
       traefik.http.routers.netdata.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.netdata.entrypoints: websecure
       traefik.http.routers.netdata.service: netdata
       traefik.http.routers.netdata.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.netdata-local-insecure.rule: Host(`netdata.${LOCAL_DOMAIN}`)
       traefik.http.routers.netdata-local-insecure.entrypoints: web
       traefik.http.routers.netdata-local-insecure.service: netdata
       traefik.http.routers.netdata-local-insecure.middlewares: netdata-web-redirect
-      # Local domain secure
       traefik.http.routers.netdata-local.rule: Host(`netdata.${LOCAL_DOMAIN}`)
       traefik.http.routers.netdata-local.entrypoints: websecure
       traefik.http.routers.netdata-local.service: netdata
