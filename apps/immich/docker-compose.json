@@ -16,10 +16,7 @@
         "REDIS_HOSTNAME": "immich-redis",
         "JWT_SECRET": "${JWT_SECRET}"
       },
-      "dependsOn": [
-        "immich-redis",
-        "immich-db"
-      ],
+      "dependsOn": ["immich-redis", "immich-db"],
       "volumes": [
         {
           "hostPath": "${ROOT_FOLDER_HOST}/media/data/images/immich",
@@ -38,9 +35,7 @@
         "DB_NAME": "immich",
         "DB_DATABASE_NAME": "immich"
       },
-      "dependsOn": [
-        "immich-db"
-      ],
+      "dependsOn": ["immich-db"],
       "volumes": [
         {
           "hostPath": "${ROOT_FOLDER_HOST}/media/data/images/immich",
