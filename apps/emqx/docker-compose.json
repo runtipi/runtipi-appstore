@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "emqx",
-      "image": "emqx/emqx:5.8.6",
+      "image": "emqx/emqx:5.9.0",
       "isMain": true,
       "internalPort": 18083,
       "addPorts": [
@@ -45,7 +45,7 @@
     },
     {
       "name": "emqx-n2",
-      "image": "emqx/emqx:5.8.5",
+      "image": "emqx/emqx:5.9.0",
       "environment": {
         "TZ": "${TZ}",
         "EMQX_NODE_NAME": "emqx@emqx-n2",
