@@ -13,7 +13,7 @@ import {
   writeYamlFile,
 } from "./utils";
 
-const MAX_PRS = 15;
+const MAX_PRS = 30;
 
 const processApp = async (appId: string): Promise<boolean> => {
   console.log(`Processing ${appId}...`);
@@ -135,7 +135,7 @@ async function main() {
     for (const appId of apps) {
       if (prCount >= MAX_PRS) {
         console.log("Reached maximum number of PRs to create in this run. Exiting.");
-        break;
+        process.exit(0);
       }
 
       const promiseApp = processApp(appId);
