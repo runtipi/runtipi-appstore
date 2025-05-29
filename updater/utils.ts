@@ -22,6 +22,16 @@ export async function readJsonFile<T>(filepath: string): Promise<T> {
 
 export async function writeJsonFile<T>(filepath: string, data: T): Promise<void> {
   await fs.writeFile(filepath, `${JSON.stringify(data, null, 2)}\n`, "utf-8");
+  await runBiomCheck(filepath);
+}
+
+async function runBiomCheck(configFile: string): Promise<void> {
+  try {
+    const command = `npx @biomejs/biome check "${configFile}" --write`;
+    await execAsync(command);
+  } catch (error) {
+    console.error(`Error running biome check on ${configFile}:`, error);
+  }
 }
 
 export function shouldCheckImage(image: string): boolean {
