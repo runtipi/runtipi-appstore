@@ -13,7 +13,7 @@ import {
   writeYamlFile,
 } from "./utils";
 
-const MAX_PRS = 5;
+const MAX_PRS = 15;
 
 const processApp = async (appId: string): Promise<boolean> => {
   console.log(`Processing ${appId}...`);
