@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "ollama-amd",
-      "image": "ollama/ollama:0.6.6-rocm",
+      "image": "ollama/ollama:0.8.0-rocm",
       "isMain": true,
       "internalPort": 11434,
       "environment": {
@@ -15,7 +15,10 @@
           "containerPath": "/root/.ollama"
         }
       ],
-      "devices": ["/dev/kfd", "/dev/dri"]
+      "devices": [
+        "/dev/kfd",
+        "/dev/dri"
+      ]
     }
   ]
 }
