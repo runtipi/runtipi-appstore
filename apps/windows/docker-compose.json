@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "windows",
-      "image": "dockurr/windows:4.34",
+      "image": "dockurr/windows:4.35",
       "isMain": true,
       "internalPort": 8006,
       "addPorts": [
@@ -29,8 +29,12 @@
       "sysctls": {
         "net.ipv4.ip_forward": 1
       },
-      "devices": ["/dev/kvm"],
-      "capAdd": ["NET_ADMIN"],
+      "devices": [
+        "/dev/kvm"
+      ],
+      "capAdd": [
+        "NET_ADMIN"
+      ],
       "stopGracePeriod": "2m"
     }
   ]
