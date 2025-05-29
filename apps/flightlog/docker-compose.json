@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "flightlog",
-      "image": "perdian/flightlog:v2.1.4",
+      "image": "perdian/flightlog:v2.1.5",
       "isMain": true,
       "internalPort": 8080,
       "environment": {
