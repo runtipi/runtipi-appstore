@@ -32,9 +32,7 @@
         "FIREFLY_III_LAYOUT": "v1",
         "APP_URL": "http://localhost:${APP_PORT}"
       },
-      "dependsOn": [
-        "firefly-iii-db"
-      ],
+      "dependsOn": ["firefly-iii-db"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/uplodad",
