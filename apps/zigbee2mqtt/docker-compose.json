@@ -15,9 +15,7 @@
           "containerPath": "/app/data"
         }
       ],
-      "devices": [
-        "${Z2M_DEVICE}:/dev/ttyACM0"
-      ]
+      "devices": ["${Z2M_DEVICE}:/dev/ttyACM0"]
     }
   ]
 }
