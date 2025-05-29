@@ -30,10 +30,7 @@
           "containerPath": "/dev/net/tun"
         }
       ],
-      "capAdd": [
-        "net_admin",
-        "sys_module"
-      ]
+      "capAdd": ["net_admin", "sys_module"]
     }
   ]
 }
