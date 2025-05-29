@@ -114,14 +114,14 @@ const processApp = async (appId: string): Promise<boolean> => {
     }
 
     // Create or update PR for this app
-    await createPullRequest(appId, {
+    const res = await createPullRequest(appId, {
       appId,
       oldVersion: config.version,
       newVersion,
       updates: appUpdates,
     });
     console.log(`Processed pull request for ${appId}`);
-    return true;
+    return res;
   }
   console.log(`No updates found for ${appId}`);
   return false;
