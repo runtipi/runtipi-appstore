@@ -1,7 +1,7 @@
 services:
   tailscale:
     container_name: tailscale
-    image: tailscale/tailscale:v1.82.0
+    image: tailscale/tailscale:v1.84.0
     environment:
       - TS_SERVE_CONFIG=${TAILSCALE_SERVE_CONFIG}
       - TS_ACCEPT_DNS=${TAILSCALE_ACCEPT_DNS-false}
