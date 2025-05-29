@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "umami",
-      "image": "ghcr.io/umami-software/umami:postgresql-v1.40.0",
+      "image": "ghcr.io/umami-software/umami:postgresql-v2.18.1",
       "isMain": true,
       "internalPort": 3000,
       "environment": {
