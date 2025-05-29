@@ -3,8 +3,13 @@
   "services": [
     {
       "name": "eclipse-mosquitto",
-      "image": "eclipse-mosquitto:2.0.20",
-      "command": ["/dynsec-setup.sh", "/usr/sbin/mosquitto", "-c", "/mosquitto/config/mosquitto.conf"],
+      "image": "eclipse-mosquitto:2.0.21",
+      "command": [
+        "/dynsec-setup.sh",
+        "/usr/sbin/mosquitto",
+        "-c",
+        "/mosquitto/config/mosquitto.conf"
+      ],
       "environment": {
         "TZ": "${TZ}",
         "MQTT_DYNSEC_ADMIN_USER": "admin",
@@ -44,7 +49,9 @@
         "CEDALO_MC_USERNAME": "admin",
         "CEDALO_MC_PASSWORD": "${CEDALO_MC_PASSWORD}"
       },
-      "dependsOn": ["eclipse-mosquitto"],
+      "dependsOn": [
+        "eclipse-mosquitto"
+      ],
       "internalPort": 8088,
       "isMain": true
     }
