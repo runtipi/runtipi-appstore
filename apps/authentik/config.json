@@ -7,10 +7,12 @@
   "dynamic_config": true,
   "no_gui": true,
   "id": "authentik",
-  "tipi_version": 43,
-  "version": "2025.2.4",
+  "tipi_version": 44,
+  "version": "2025.4.1",
   "https": true,
-  "categories": ["development"],
+  "categories": [
+    "development"
+  ],
   "description": "The authentication glue you need.",
   "short_desc": "The authentication glue you need.",
   "author": "goauthentik",
@@ -29,7 +31,10 @@
       "env_variable": "AUTHENTIK_SECRET_KEY"
     }
   ],
-  "supported_architectures": ["arm64", "amd64"],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
   "created_at": 1691943801422,
-  "updated_at": 1744153676000
+  "updated_at": 1748513988361
 }
