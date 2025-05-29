@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "onedev",
-      "image": "1dev/server:11.8.7",
+      "image": "1dev/server:11.9.9",
       "isMain": true,
       "internalPort": 6610,
       "addPorts": [
@@ -23,7 +23,9 @@
         "initial_email": "${ONEDEV_EMAIL}",
         "initial_server_url": "${APP_DOMAIN}"
       },
-      "dependsOn": ["onedev-db"],
+      "dependsOn": [
+        "onedev-db"
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/onedev",
