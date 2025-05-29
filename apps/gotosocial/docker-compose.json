@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "gotosocial",
-      "image": "superseriousbusiness/gotosocial:0.19.0",
+      "image": "superseriousbusiness/gotosocial:0.19.1",
       "isMain": true,
       "internalPort": 8080,
       "user": "1000:1000",
@@ -23,7 +23,9 @@
         "GTS_SMTP_PASSWORD": "${GTS_SMTP_PASSWORD}",
         "GTS_SMTP_FROM": "${GTS_SMTP_FROM}"
       },
-      "dependsOn": ["gotosocial-db"],
+      "dependsOn": [
+        "gotosocial-db"
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/gotosocial",
