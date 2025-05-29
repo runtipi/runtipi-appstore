@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@octokit/rest": "^21.1.1",
-    "@runtipi/common": "^0.8.1"
+    "@runtipi/common": "^0.8.1",
+    "semver": "^7.7.2"
   }
 }

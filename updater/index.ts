@@ -84,14 +84,14 @@ async function main() {
         };
         await writeJsonFile(composePath, newCompose);
 
-        // Create PR for this app
+        // Create or update PR for this app
         await createPullRequest(appId, {
           appId,
           oldVersion: config.version,
           newVersion,
           updates: appUpdates,
         });
-        console.log(`Created pull request for ${appId}`);
+        console.log(`Processed pull request for ${appId}`);
       } else {
         console.log(`No updates found for ${appId}`);
       }
