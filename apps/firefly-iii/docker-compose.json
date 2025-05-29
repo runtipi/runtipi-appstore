@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "firefly-iii",
-      "image": "fireflyiii/core:version-6.2.15",
+      "image": "fireflyiii/core:version-6.2.16",
       "isMain": true,
       "internalPort": 8080,
       "environment": {
@@ -32,7 +32,9 @@
         "FIREFLY_III_LAYOUT": "v1",
         "APP_URL": "http://localhost:${APP_PORT}"
       },
-      "dependsOn": ["firefly-iii-db"],
+      "dependsOn": [
+        "firefly-iii-db"
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/uplodad",
