@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "speedtest-tracker",
-      "image": "lscr.io/linuxserver/speedtest-tracker:1.5.0",
+      "image": "lscr.io/linuxserver/speedtest-tracker:1.6.0",
       "isMain": true,
       "internalPort": 80,
       "environment": {
@@ -22,7 +22,9 @@
         "DISPLAY_TIMEZONE": "${TZ}",
         "APP_KEY": "${SPEEDTEST_APP_KEY}"
       },
-      "dependsOn": ["speedtest-tracker-db"],
+      "dependsOn": [
+        "speedtest-tracker-db"
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/speedtest-tracker/config",
