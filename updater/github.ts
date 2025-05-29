@@ -54,10 +54,8 @@ async function findExistingPR(appId: string) {
       repo: REPO,
       state: "open",
       base: "master",
-      query: `chore(${appId}):`,
+      per_page: 100,
     });
-
-    console.log(`Found ${pulls.length} open PRs for ${appId}`);
 
     return pulls.find((pr) => pr.title.startsWith(`chore(${appId}):`));
   } catch (error) {

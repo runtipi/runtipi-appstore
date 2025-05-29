@@ -13,7 +13,7 @@ import {
   writeYamlFile,
 } from "./utils";
 
-const MAX_PRS = 1; // Maximum number of PRs to create in one run
+const MAX_PRS = 10;
 
 async function main() {
   try {
