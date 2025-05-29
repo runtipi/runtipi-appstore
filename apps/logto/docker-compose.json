@@ -24,11 +24,7 @@
           "condition": "service_healthy"
         }
       },
-      "entrypoint": [
-        "sh",
-        "-c",
-        "npm run cli db seed -- --swe && npm start"
-      ],
+      "entrypoint": ["sh", "-c", "npm run cli db seed -- --swe && npm start"],
       "extraLabels": {
         "traefik.http.routers.{{RUNTIPI_APP_ID}}-admin.rule": "Host(`${LOGTO_ADMIN_URL}`)",
         "traefik.http.routers.{{RUNTIPI_APP_ID}}-admin.entrypoints": "websecure",
