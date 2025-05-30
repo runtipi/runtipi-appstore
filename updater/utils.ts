@@ -13,7 +13,15 @@ const EXCLUDED_FOLDERS = ["__tests__"];
 
 export async function getAppList(): Promise<string[]> {
   const entries = await fs.readdir(APPS_DIR, { withFileTypes: true });
-  return entries.filter((entry) => entry.isDirectory() && !EXCLUDED_FOLDERS.includes(entry.name)).map((dir) => dir.name);
+
+  const currentHour = new Date().getHours();
+
+  const offset = Math.ceil(entries.length / 24);
+  const startIndex = (currentHour * offset) % entries.length;
+
+  return [...entries.slice(startIndex), ...entries.slice(0, startIndex)]
+    .filter((entry) => entry.isDirectory() && !EXCLUDED_FOLDERS.includes(entry.name))
+    .map((dir) => dir.name);
 }
 
 export async function readJsonFile<T>(filepath: string): Promise<T> {

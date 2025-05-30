@@ -1,43 +1,36 @@
 version: '3.7'
-
 services:
   ollama-amd:
-    image: ollama/ollama:0.6.6-rocm
+    image: ollama/ollama:0.9.0-rocm
     restart: unless-stopped
     container_name: ollama-amd
     environment:
       - PORT=11434
     ports:
-      - '${APP_PORT}:11434'
+      - ${APP_PORT}:11434
     networks:
       - tipi_main_network
     volumes:
       - ${APP_DATA_DIR}/data/.ollama:/root/.ollama
     devices:
-      # Attach GPU
       - /dev/kfd
       - /dev/dri
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.ollama-amd-web-redirect.redirectscheme.scheme: https
       traefik.http.services.ollama-amd.loadbalancer.server.port: 11434
-      # Web
       traefik.http.routers.ollama-amd-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.ollama-amd-insecure.entrypoints: web
       traefik.http.routers.ollama-amd-insecure.service: ollama-amd
       traefik.http.routers.ollama-amd-insecure.middlewares: ollama-amd-web-redirect
-      # Websecure
       traefik.http.routers.ollama-amd.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.ollama-amd.entrypoints: websecure
       traefik.http.routers.ollama-amd.service: ollama-amd
       traefik.http.routers.ollama-amd.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.ollama-amd-local-insecure.rule: Host(`ollama-amd.${LOCAL_DOMAIN}`)
       traefik.http.routers.ollama-amd-local-insecure.entrypoints: web
       traefik.http.routers.ollama-amd-local-insecure.service: ollama-amd
       traefik.http.routers.ollama-amd-local-insecure.middlewares: ollama-amd-web-redirect
-      # Local domain secure
       traefik.http.routers.ollama-amd-local.rule: Host(`ollama-amd.${LOCAL_DOMAIN}`)
       traefik.http.routers.ollama-amd-local.entrypoints: websecure
       traefik.http.routers.ollama-amd-local.service: ollama-amd

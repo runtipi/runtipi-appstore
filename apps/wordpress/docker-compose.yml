@@ -1,9 +1,8 @@
-version: "3.9"
+version: '3.9'
 services:
-      
   wordpress:
     container_name: wordpress
-    image: wordpress:6.8.0
+    image: wordpress:6.8.1
     environment:
       - WORDPRESS_DB_HOST=wordpress-db
       - WORDPRESS_DB_NAME=wordpress
@@ -19,31 +18,26 @@ services:
     networks:
       - tipi_main_network
     labels:
-        # Main
-        traefik.enable: true
-        traefik.http.middlewares.wordpress-redirect.redirectscheme.scheme: https
-        traefik.http.services.wordpress.loadbalancer.server.port: 80
-        # Web
-        traefik.http.routers.wordpress-insecure.rule: Host(`${APP_DOMAIN}`)
-        traefik.http.routers.wordpress-insecure.entrypoints: web
-        traefik.http.routers.wordpress-insecure.service: wordpress
-        traefik.http.routers.wordpress-insecure.middlewares: wordpress-redirect
-        # Websecure
-        traefik.http.routers.wordpress.rule: Host(`${APP_DOMAIN}`)
-        traefik.http.routers.wordpress.entrypoints: websecure
-        traefik.http.routers.wordpress.service: wordpress
-        traefik.http.routers.wordpress.tls.certresolver: myresolver
-        # Local domain
-        traefik.http.routers.wordpress-local-insecure.rule: Host(`wordpress.${LOCAL_DOMAIN}`)
-        traefik.http.routers.wordpress-local-insecure.entrypoints: web
-        traefik.http.routers.wordpress-local-insecure.service: wordpress
-        traefik.http.routers.wordpress-local-insecure.middlewares: wordpress-redirect
-        # Local domain secure
-        traefik.http.routers.wordpress-local.rule: Host(`wordpress.${LOCAL_DOMAIN}`)
-        traefik.http.routers.wordpress-local.entrypoints: websecure
-        traefik.http.routers.wordpress-local.service: wordpress
-        traefik.http.routers.wordpress-local.tls: true
-        runtipi.managed: true
+      traefik.enable: true
+      traefik.http.middlewares.wordpress-redirect.redirectscheme.scheme: https
+      traefik.http.services.wordpress.loadbalancer.server.port: 80
+      traefik.http.routers.wordpress-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wordpress-insecure.entrypoints: web
+      traefik.http.routers.wordpress-insecure.service: wordpress
+      traefik.http.routers.wordpress-insecure.middlewares: wordpress-redirect
+      traefik.http.routers.wordpress.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wordpress.entrypoints: websecure
+      traefik.http.routers.wordpress.service: wordpress
+      traefik.http.routers.wordpress.tls.certresolver: myresolver
+      traefik.http.routers.wordpress-local-insecure.rule: Host(`wordpress.${LOCAL_DOMAIN}`)
+      traefik.http.routers.wordpress-local-insecure.entrypoints: web
+      traefik.http.routers.wordpress-local-insecure.service: wordpress
+      traefik.http.routers.wordpress-local-insecure.middlewares: wordpress-redirect
+      traefik.http.routers.wordpress-local.rule: Host(`wordpress.${LOCAL_DOMAIN}`)
+      traefik.http.routers.wordpress-local.entrypoints: websecure
+      traefik.http.routers.wordpress-local.service: wordpress
+      traefik.http.routers.wordpress-local.tls: true
+      runtipi.managed: true
   wordpress-db:
     container_name: wordpress-db
     image: mariadb:11.1.3

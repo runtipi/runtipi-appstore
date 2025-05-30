@@ -1,14 +1,11 @@
-version: "3.7"
-
+version: '3.7'
 services:
   wekan:
-    image: ghcr.io/wekan/wekan:v7.88
+    image: ghcr.io/wekan/wekan:v7.91
     container_name: wekan
     environment:
-      # https://github.com/wekan/wekan/blob/main/docker-compose.yml
       - MONGO_URL=mongodb://wekan-db:27017/wekan
       - ROOT_URL=https://${APP_DOMAIN}
-      # https://github.com/wekan/wekan/wiki/Troubleshooting-Mail
       - MAIL_URL=smtp://${MAIL_ADDRESS}:${MAIL_PASSWORD}@smtp.gmail.com:587
       - MAIL_FROM=Wekan Notifications <noreply.wekan@${APP_DOMAIN}>
     restart: unless-stopped
@@ -23,26 +20,21 @@ services:
       - tipi_main_network
       - backend_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.wekan-web-redirect.redirectscheme.scheme: https
       traefik.http.services.wekan.loadbalancer.server.port: 8080
-      # Web
       traefik.http.routers.wekan-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.wekan-insecure.entrypoints: web
       traefik.http.routers.wekan-insecure.service: wekan
       traefik.http.routers.wekan-insecure.middlewares: wekan-web-redirect
-      # Websecure
       traefik.http.routers.wekan.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.wekan.entrypoints: websecure
       traefik.http.routers.wekan.service: wekan
       traefik.http.routers.wekan.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.wekan-local-insecure.rule: Host(`wekan.${LOCAL_DOMAIN}`)
       traefik.http.routers.wekan-local-insecure.entrypoints: web
       traefik.http.routers.wekan-local-insecure.service: wekan
       traefik.http.routers.wekan-local-insecure.middlewares: wekan-web-redirect
-      # Local domain secure
       traefik.http.routers.wekan-local.rule: Host(`wekan.${LOCAL_DOMAIN}`)
       traefik.http.routers.wekan-local.entrypoints: websecure
       traefik.http.routers.wekan-local.service: wekan
@@ -62,4 +54,4 @@ services:
     labels:
       runtipi.managed: true
 networks:
-  backend_network:
+  backend_network: null

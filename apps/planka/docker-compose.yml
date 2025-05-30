@@ -1,10 +1,9 @@
 version: '3'
-
 services:
   planka:
-    image: ghcr.io/plankanban/planka:1.26.1
+    image: ghcr.io/plankanban/planka:1.26.2
     container_name: planka
-    command: >
+    command: |
       bash -c
         "for i in `seq 1 30`; do
           ./start.sh &&
@@ -27,26 +26,21 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.planka-web-redirect.redirectscheme.scheme: https
       traefik.http.services.planka.loadbalancer.server.port: 1337
-      # Web
       traefik.http.routers.planka-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.planka-insecure.entrypoints: web
       traefik.http.routers.planka-insecure.service: planka
       traefik.http.routers.planka-insecure.middlewares: planka-web-redirect
-      # Websecure
       traefik.http.routers.planka.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.planka.entrypoints: websecure
       traefik.http.routers.planka.service: planka
       traefik.http.routers.planka.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.planka-local-insecure.rule: Host(`planka.${LOCAL_DOMAIN}`)
       traefik.http.routers.planka-local-insecure.entrypoints: web
       traefik.http.routers.planka-local-insecure.service: planka
       traefik.http.routers.planka-local-insecure.middlewares: planka-web-redirect
-      # Local domain secure
       traefik.http.routers.planka-local.rule: Host(`planka.${LOCAL_DOMAIN}`)
       traefik.http.routers.planka-local.entrypoints: websecure
       traefik.http.routers.planka-local.service: planka
@@ -54,7 +48,6 @@ services:
       runtipi.managed: true
     depends_on:
       - postgres
-
   postgres:
     image: postgres:14-alpine
     container_name: planka-db
@@ -62,8 +55,8 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
     environment:
-      POSTGRES_DB: "planka"
-      POSTGRES_HOST_AUTH_METHOD: "trust"
+      POSTGRES_DB: planka
+      POSTGRES_HOST_AUTH_METHOD: trust
     networks:
       - tipi_main_network
     labels:

@@ -1,8 +1,8 @@
 services:
   cross-seed:
     container_name: cross-seed
-    image: ghcr.io/cross-seed/cross-seed:6.12.2
-    user: 1000:1000
+    image: ghcr.io/cross-seed/cross-seed:6.12.6
+    user: '1000:1000'
     restart: unless-stopped
     command: daemon
     environment:
@@ -14,6 +14,5 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: false
       runtipi.managed: true

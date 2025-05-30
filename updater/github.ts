@@ -18,7 +18,7 @@ const octokit = new Octokit({
 const OWNER = "runtipi";
 const REPO = "runtipi-appstore";
 
-export async function createPullRequest(appId: string, updates: UpdateInfo): Promise<void> {
+export async function createPullRequest(appId: string, updates: UpdateInfo): Promise<boolean> {
   const baseBranch = "master";
   let updateType = "patch";
 
@@ -38,13 +38,15 @@ export async function createPullRequest(appId: string, updates: UpdateInfo): Pro
     console.log(`Found existing PR #${existingPR.number} for ${appId}, updating it...`);
     if (existingPR.title.includes(`→ ${updates.newVersion}`)) {
       console.log(`PR #${existingPR.number} already has the latest version ${updates.newVersion}, skipping update.`);
-      return;
+      return false;
     }
     await updateExistingPR(existingPR, updates, prTitle, updateType);
-  } else {
-    console.log(`No existing PR found for ${appId}, creating a new one...`);
-    await createNewPR(appId, updates, prTitle, baseBranch, updateType);
+    return true;
   }
+
+  console.log(`No existing PR found for ${appId}, creating a new one...`);
+  await createNewPR(appId, updates, prTitle, baseBranch, updateType);
+  return true;
 }
 
 async function findExistingPR(appId: string) {

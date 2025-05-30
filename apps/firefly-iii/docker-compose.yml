@@ -1,8 +1,7 @@
-version: "3.9"
-
+version: '3.9'
 services:
   firefly-iii:
-    image: fireflyiii/core:version-6.2.15
+    image: fireflyiii/core:version-6.2.16
     container_name: firefly-iii
     restart: unless-stopped
     volumes:
@@ -19,21 +18,16 @@ services:
       - STATIC_CRON_TOKEN=${STATIC_CRON_TOKEN}
       - TZ=${TZ}
       - TRUSTED_PROXIES=**
-
-      # Database
       - DB_CONNECTION=mysql
       - DB_HOST=firefly-iii-db
       - DB_PORT=3306
       - DB_DATABASE=firefly
       - DB_USERNAME=firefly
       - DB_PASSWORD=${MYSQL_PASSWORD}
-
-      # Cookie settings
       - COOKIE_PATH="/"
       - COOKIE_DOMAIN=
       - COOKIE_SECURE=false
       - COOKIE_SAMESITE=lax
-
       - APP_NAME=FireflyIII
       - BROADCAST_DRIVER=log
       - QUEUE_DRIVER=sync
@@ -44,26 +38,21 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.firefly-iii-web-redirect.redirectscheme.scheme: https
       traefik.http.services.firefly-iii.loadbalancer.server.port: 8080
-      # Web
       traefik.http.routers.firefly-iii-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.firefly-iii-insecure.entrypoints: web
       traefik.http.routers.firefly-iii-insecure.service: firefly-iii
       traefik.http.routers.firefly-iii-insecure.middlewares: firefly-iii-web-redirect
-      # Websecure
       traefik.http.routers.firefly-iii.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.firefly-iii.entrypoints: websecure
       traefik.http.routers.firefly-iii.service: firefly-iii
       traefik.http.routers.firefly-iii.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.firefly-iii-local-insecure.rule: Host(`firefly-iii.${LOCAL_DOMAIN}`)
       traefik.http.routers.firefly-iii-local-insecure.entrypoints: web
       traefik.http.routers.firefly-iii-local-insecure.service: firefly-iii
       traefik.http.routers.firefly-iii-local-insecure.middlewares: firefly-iii-web-redirect
-      # Local domain secure
       traefik.http.routers.firefly-iii-local.rule: Host(`firefly-iii.${LOCAL_DOMAIN}`)
       traefik.http.routers.firefly-iii-local.entrypoints: websecure
       traefik.http.routers.firefly-iii-local.service: firefly-iii

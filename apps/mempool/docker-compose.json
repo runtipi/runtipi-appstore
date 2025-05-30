@@ -15,7 +15,7 @@
       "stopGracePeriod": "1m"
     },
     {
-      "image": "mempool/backend:v3.0.1",
+      "image": "mempool/backend:v3.2.1",
       "name": "mempool-api",
       "volumes": [
         {

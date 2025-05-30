@@ -1,8 +1,8 @@
-version: "3.9"
+version: '3.9'
 services:
   windows:
     container_name: windows
-    image: dockurr/windows:4.34
+    image: dockurr/windows:4.35
     restart: unless-stopped
     devices:
       - /dev/kvm
@@ -25,26 +25,21 @@ services:
     sysctls:
       - net.ipv4.ip_forward=1
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.windows-web-redirect.redirectscheme.scheme: https
       traefik.http.services.windows.loadbalancer.server.port: 8006
-      # Web
       traefik.http.routers.windows-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.windows-insecure.entrypoints: web
       traefik.http.routers.windows-insecure.service: windows
       traefik.http.routers.windows-insecure.middlewares: windows-web-redirect
-      # Websecure
       traefik.http.routers.windows.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.windows.entrypoints: websecure
       traefik.http.routers.windows.service: windows
       traefik.http.routers.windows.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.windows-local-insecure.rule: Host(`windows.${LOCAL_DOMAIN}`)
       traefik.http.routers.windows-local-insecure.entrypoints: web
       traefik.http.routers.windows-local-insecure.service: windows
       traefik.http.routers.windows-local-insecure.middlewares: windows-web-redirect
-      # Local domain secure
       traefik.http.routers.windows-local.rule: Host(`windows.${LOCAL_DOMAIN}`)
       traefik.http.routers.windows-local.entrypoints: websecure
       traefik.http.routers.windows-local.service: windows
