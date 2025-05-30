@@ -1,8 +1,8 @@
-version: "3.9"
+version: '3.9'
 services:
   cup:
     container_name: cup
-    image: ghcr.io/sergi0g/cup:v3.2.3
+    image: ghcr.io/sergi0g/cup:v3.4.0
     restart: unless-stopped
     command: serve
     volumes:
@@ -12,29 +12,23 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.cup-web-redirect.redirectscheme.scheme: https
       traefik.http.services.cup.loadbalancer.server.port: 8000
-      # Web
       traefik.http.routers.cup-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.cup-insecure.entrypoints: web
       traefik.http.routers.cup-insecure.service: cup
       traefik.http.routers.cup-insecure.middlewares: cup-web-redirect
-      # Websecure
       traefik.http.routers.cup.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.cup.entrypoints: websecure
       traefik.http.routers.cup.service: cup
       traefik.http.routers.cup.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.cup-local-insecure.rule: Host(`cup.${LOCAL_DOMAIN}`)
       traefik.http.routers.cup-local-insecure.entrypoints: web
       traefik.http.routers.cup-local-insecure.service: cup
       traefik.http.routers.cup-local-insecure.middlewares: cup-web-redirect
-      # Local domain secure
       traefik.http.routers.cup-local.rule: Host(`cup.${LOCAL_DOMAIN}`)
       traefik.http.routers.cup-local.entrypoints: websecure
       traefik.http.routers.cup-local.service: cup
       traefik.http.routers.cup-local.tls: true
-      # Runtipi Managed
       runtipi.managed: true

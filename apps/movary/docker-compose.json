@@ -34,7 +34,7 @@
     },
     {
       "name": "movary-migration",
-      "image": "leepeuker/movary:0.62.2",
+      "image": "leepeuker/movary:0.64.1",
       "user": "1000:1000",
       "environment": {
         "TMDB_API_KEY": "${MOVARY_TMDB_API_KEY}",

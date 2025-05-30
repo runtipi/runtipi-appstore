@@ -1,7 +1,7 @@
 services:
   umami-analytics:
     container_name: umami-analytics
-    image: ghcr.io/umami-software/umami:postgresql-v2.16.1
+    image: ghcr.io/umami-software/umami:postgresql-v2.18.1
     restart: unless-stopped
     ports:
       - ${APP_PORT}:3000
@@ -12,33 +12,26 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.umami-analytics-web-redirect.redirectscheme.scheme: https
       traefik.http.services.umami-analytics.loadbalancer.server.port: 3000
-      # Web
       traefik.http.routers.umami-analytics-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.umami-analytics-insecure.entrypoints: web
       traefik.http.routers.umami-analytics-insecure.service: umami-analytics
       traefik.http.routers.umami-analytics-insecure.middlewares: umami-analytics-web-redirect
-      # Websecure
       traefik.http.routers.umami-analytics.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.umami-analytics.entrypoints: websecure
       traefik.http.routers.umami-analytics.service: umami-analytics
       traefik.http.routers.umami-analytics.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.umami-analytics-local-insecure.rule: Host(`umami-analytics.${LOCAL_DOMAIN}`)
       traefik.http.routers.umami-analytics-local-insecure.entrypoints: web
       traefik.http.routers.umami-analytics-local-insecure.service: umami-analytics
       traefik.http.routers.umami-analytics-local-insecure.middlewares: umami-analytics-web-redirect
-      # Local domain secure
       traefik.http.routers.umami-analytics-local.rule: Host(`umami-analytics.${LOCAL_DOMAIN}`)
       traefik.http.routers.umami-analytics-local.entrypoints: websecure
       traefik.http.routers.umami-analytics-local.service: umami-analytics
       traefik.http.routers.umami-analytics-local.tls: true
-      # Runtipi managed
       runtipi.managed: true
-
   umami-analytics-db:
     container_name: umami-analytics-db
     image: postgres:15-alpine
@@ -52,5 +45,4 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Runtipi managed
       runtipi.managed: true

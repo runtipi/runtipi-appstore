@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   beszel-agent:
-    image: henrygd/beszel-agent:0.10.2
+    image: henrygd/beszel-agent:0.11.1
     container_name: beszel-agent
     restart: unless-stopped
     network_mode: host
@@ -11,7 +11,5 @@ services:
       - PORT=45876
       - KEY=${BESZEL_AGENT_KEY}
     labels:
-      # Disable traefik
       traefik.enable: false
-      # Runtipi managed
       runtipi.managed: true

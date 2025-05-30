@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "eclipse-mosquitto",
-      "image": "eclipse-mosquitto:2.0.20",
+      "image": "eclipse-mosquitto:2.0.21",
       "command": ["/dynsec-setup.sh", "/usr/sbin/mosquitto", "-c", "/mosquitto/config/mosquitto.conf"],
       "environment": {
         "TZ": "${TZ}",
@@ -33,7 +33,7 @@
     },
     {
       "name": "mosquitto-management-center",
-      "image": "eclipse-mosquitto:2.0.21",
+      "image": "cedalo/management-center:2",
       "environment": {
         "TZ": "${TZ}",
         "CEDALO_MC_BROKER_ID": "mosquitto-broker",

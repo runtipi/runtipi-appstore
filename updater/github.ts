@@ -1,7 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { Octokit } from "@octokit/rest";
-import semver from "semver";
 import type { UpdateInfo } from "./types/app";
 
 type PullRequest = {
@@ -19,32 +18,35 @@ const octokit = new Octokit({
 const OWNER = "runtipi";
 const REPO = "runtipi-appstore";
 
-export async function createPullRequest(appId: string, updates: UpdateInfo): Promise<void> {
+export async function createPullRequest(appId: string, updates: UpdateInfo): Promise<boolean> {
   const baseBranch = "master";
-  let updateType = "major";
+  let updateType = "patch";
 
-  try {
-    updateType = semver.diff(updates.oldVersion, updates.newVersion) ?? "major";
-  } catch (error) {
-    console.error(`Error determining update type for ${appId}:`, error);
+  if (updates.updates.some((u) => u.updateType === "minor")) {
+    updateType = "minor";
+  }
+  if (updates.updates.some((u) => u.updateType === "major")) {
+    updateType = "major";
   }
 
-  const prTitle = `chore(${appId}): update to ${updates.newVersion} (${updateType})`;
+  const prTitle = `chore(${appId}): update ${updates.oldVersion} → ${updates.newVersion} (${updateType})`;
 
   // Check for existing PR
   const existingPR = await findExistingPR(appId);
 
   if (existingPR) {
     console.log(`Found existing PR #${existingPR.number} for ${appId}, updating it...`);
-    if (existingPR.title.includes(`update to ${updates.newVersion}`)) {
+    if (existingPR.title.includes(`→ ${updates.newVersion}`)) {
       console.log(`PR #${existingPR.number} already has the latest version ${updates.newVersion}, skipping update.`);
-      return;
+      return false;
     }
-    await updateExistingPR(existingPR, updates, prTitle);
-  } else {
-    console.log(`No existing PR found for ${appId}, creating a new one...`);
-    await createNewPR(appId, updates, prTitle, baseBranch);
+    await updateExistingPR(existingPR, updates, prTitle, updateType);
+    return true;
   }
+
+  console.log(`No existing PR found for ${appId}, creating a new one...`);
+  await createNewPR(appId, updates, prTitle, baseBranch, updateType);
+  return true;
 }
 
 async function findExistingPR(appId: string) {
@@ -54,7 +56,7 @@ async function findExistingPR(appId: string) {
       repo: REPO,
       state: "open",
       base: "master",
-      query: `chore(${appId}):`,
+      per_page: 100,
     });
 
     return pulls.find((pr) => pr.title.startsWith(`chore(${appId}):`));
@@ -64,7 +66,7 @@ async function findExistingPR(appId: string) {
   }
 }
 
-async function createNewPR(appId: string, updates: UpdateInfo, prTitle: string, baseBranch: string): Promise<void> {
+async function createNewPR(appId: string, updates: UpdateInfo, prTitle: string, baseBranch: string, updateType: string): Promise<void> {
   const branch = `chore/update-${appId}-${Date.now()}`;
 
   // Get default branch SHA
@@ -85,14 +87,30 @@ async function createNewPR(appId: string, updates: UpdateInfo, prTitle: string, 
   // Get updated file contents
   const configPath = path.join("apps", appId, "config.json");
   const composePath = path.join("apps", appId, "docker-compose.json");
+  const dockerComposeYmlPath = path.join("apps", appId, "docker-compose.yml");
+
   const [updatedConfig, updatedCompose] = await Promise.all([fs.readFile(configPath, "utf-8"), fs.readFile(composePath, "utf-8")]);
+
+  // Check if docker-compose.yml exists
+  let updatedDockerComposeYml: string | null = null;
+  try {
+    await fs.access(dockerComposeYmlPath);
+    updatedDockerComposeYml = await fs.readFile(dockerComposeYmlPath, "utf-8");
+  } catch {
+    // docker-compose.yml doesn't exist, which is fine
+  }
 
   // Update files in the new branch
   await updateFileInRepo(branch, `apps/${appId}/config.json`, updatedConfig, `Update config.json for ${appId}`);
   await updateFileInRepo(branch, `apps/${appId}/docker-compose.json`, updatedCompose, `Update docker-compose.json for ${appId}`);
 
+  // Update docker-compose.yml if it exists
+  if (updatedDockerComposeYml) {
+    await updateFileInRepo(branch, `apps/${appId}/docker-compose.yml`, updatedDockerComposeYml, `Update docker-compose.yml for ${appId}`);
+  }
+
   // Create PR
-  await octokit.pulls.create({
+  const { data } = await octokit.pulls.create({
     owner: OWNER,
     repo: REPO,
     title: prTitle,
@@ -100,20 +118,49 @@ async function createNewPR(appId: string, updates: UpdateInfo, prTitle: string, 
     base: baseBranch,
     body: formatPRDescription(updates),
   });
+
+  // Add labels
+  const labels = [updateType];
+  if (updateType === "minor" || updateType === "patch") {
+    labels.push("automerge");
+  }
+
+  await octokit.issues.addLabels({
+    owner: OWNER,
+    repo: REPO,
+    issue_number: data.number,
+    labels,
+  });
 }
 
-async function updateExistingPR(existingPR: PullRequest, updates: UpdateInfo, prTitle: string): Promise<void> {
+async function updateExistingPR(existingPR: PullRequest, updates: UpdateInfo, prTitle: string, updateType: string): Promise<void> {
   const branch = existingPR.head.ref;
   const appId = updates.appId;
 
   // Get updated file contents
   const configPath = path.join("apps", appId, "config.json");
   const composePath = path.join("apps", appId, "docker-compose.json");
+  const dockerComposeYmlPath = path.join("apps", appId, "docker-compose.yml");
+
   const [updatedConfig, updatedCompose] = await Promise.all([fs.readFile(configPath, "utf-8"), fs.readFile(composePath, "utf-8")]);
+
+  // Check if docker-compose.yml exists
+  let updatedDockerComposeYml: string | null = null;
+  try {
+    await fs.access(dockerComposeYmlPath);
+    updatedDockerComposeYml = await fs.readFile(dockerComposeYmlPath, "utf-8");
+  } catch {
+    // docker-compose.yml doesn't exist, which is fine
+  }
 
   // Update files in the existing branch
   await updateFileInRepo(branch, `apps/${appId}/config.json`, updatedConfig, `Update config.json for ${appId}`);
   await updateFileInRepo(branch, `apps/${appId}/docker-compose.json`, updatedCompose, `Update docker-compose.json for ${appId}`);
+
+  // Update docker-compose.yml if it exists
+  if (updatedDockerComposeYml) {
+    await updateFileInRepo(branch, `apps/${appId}/docker-compose.yml`, updatedDockerComposeYml, `Update docker-compose.yml for ${appId}`);
+  }
 
   // Update PR description
   await octokit.pulls.update({
@@ -122,6 +169,36 @@ async function updateExistingPR(existingPR: PullRequest, updates: UpdateInfo, pr
     title: prTitle,
     pull_number: existingPR.number,
     body: formatPRDescription(updates),
+  });
+
+  const currentLabels = await octokit.issues.listLabelsOnIssue({
+    owner: OWNER,
+    repo: REPO,
+    issue_number: existingPR.number,
+  });
+
+  const labelsToRemove = currentLabels.data.filter((label) => ["patch", "minor", "major"].includes(label.name)).map((label) => label.name);
+
+  for (const labelName of labelsToRemove) {
+    await octokit.issues.removeLabel({
+      owner: OWNER,
+      repo: REPO,
+      issue_number: existingPR.number,
+      name: labelName,
+    });
+  }
+
+  // Add new labels
+  const labels = [updateType];
+  if (updateType === "minor" || updateType === "patch") {
+    labels.push("automerge");
+  }
+
+  await octokit.issues.addLabels({
+    owner: OWNER,
+    repo: REPO,
+    issue_number: existingPR.number,
+    labels,
   });
 }
 

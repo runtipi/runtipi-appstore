@@ -1,9 +1,9 @@
 services:
   invoice-ninja:
-    image: invoiceninja/invoiceninja:5.10.62
+    image: invoiceninja/invoiceninja:5.11.80
     container_name: invoice-ninja
     restart: unless-stopped
-    user: 1500:1500
+    user: '1500:1500'
     environment:
       - IN_USER_EMAIL=${INVOICE_NINJA_USER_MAIL}
       - IN_PASSWORD=${INVOICE_NINJA_USER_PASSWORD}
@@ -32,7 +32,7 @@ services:
     labels:
       runtipi.managed: true
   invoice-ninja-web:
-    image: nginx:1.27
+    image: nginx:1.28
     container_name: invoice-ninja-web
     restart: unless-stopped
     volumes:
@@ -46,26 +46,21 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.invoice-ninja-web-redirect.redirectscheme.scheme: https
       traefik.http.services.invoice-ninja.loadbalancer.server.port: 80
-      # Web
       traefik.http.routers.invoice-ninja-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.invoice-ninja-insecure.entrypoints: web
       traefik.http.routers.invoice-ninja-insecure.service: invoice-ninja
       traefik.http.routers.invoice-ninja-insecure.middlewares: invoice-ninja-web-redirect
-      # Websecure
       traefik.http.routers.invoice-ninja.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.invoice-ninja.entrypoints: websecure
       traefik.http.routers.invoice-ninja.service: invoice-ninja
       traefik.http.routers.invoice-ninja.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.invoice-ninja-local-insecure.rule: Host(`invoice-ninja.${LOCAL_DOMAIN}`)
       traefik.http.routers.invoice-ninja-local-insecure.entrypoints: web
       traefik.http.routers.invoice-ninja-local-insecure.service: invoice-ninja
       traefik.http.routers.invoice-ninja-local-insecure.middlewares: invoice-ninja-web-redirect
-      # Local domain secure
       traefik.http.routers.invoice-ninja-local.rule: Host(`invoice-ninja.${LOCAL_DOMAIN}`)
       traefik.http.routers.invoice-ninja-local.entrypoints: websecure
       traefik.http.routers.invoice-ninja-local.service: invoice-ninja
@@ -87,8 +82,12 @@ services:
     depends_on:
       invoice-ninja-init:
         condition: service_completed_successfully
-    # This command is required to set important mariadb defaults
-    command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --wait_timeout=28800, --log-warnings=0]
+    command:
+      - mysqld
+      - '--character-set-server=utf8mb4'
+      - '--collation-server=utf8mb4_unicode_ci'
+      - '--wait_timeout=28800'
+      - '--log-warnings=0'
     labels:
       runtipi.managed: true
   invoice-ninja-init:

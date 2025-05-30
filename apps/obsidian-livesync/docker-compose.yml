@@ -1,9 +1,8 @@
 version: '3.7'
-
 services:
   obsidian-livesync:
     container_name: obsidian-livesync
-    image: couchdb:3.1.2
+    image: couchdb:3.5.0
     ports:
       - ${OBSIDIAN_LIVESYNC_PORT:-${APP_PORT}}:5984
     environment:
@@ -15,27 +14,22 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.obsidian-livesync-web-redirect.redirectscheme.scheme: https
       traefik.http.services.obsidian-livesync.loadbalancer.passhostheader: true
       traefik.http.services.obsidian-livesync.loadbalancer.server.port: 5984
-      # Web
       traefik.http.routers.obsidian-livesync-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.obsidian-livesync-insecure.entrypoints: web
       traefik.http.routers.obsidian-livesync-insecure.service: obsidian-livesync
       traefik.http.routers.obsidian-livesync-insecure.middlewares: obsidian-livesync-web-redirect
-      # Websecure
       traefik.http.routers.obsidian-livesync.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.obsidian-livesync.entrypoints: websecure
       traefik.http.routers.obsidian-livesync.service: obsidian-livesync
       traefik.http.routers.obsidian-livesync.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.obsidian-livesync-local-insecure.rule: Host(`obsidian-livesync.${LOCAL_DOMAIN}`)
       traefik.http.routers.obsidian-livesync-local-insecure.entrypoints: web
       traefik.http.routers.obsidian-livesync-local-insecure.service: obsidian-livesync
       traefik.http.routers.obsidian-livesync-local-insecure.middlewares: obsidian-livesync-web-redirect
-      # Local domain secure
       traefik.http.routers.obsidian-livesync-local.rule: Host(`obsidian-livesync.${LOCAL_DOMAIN}`)
       traefik.http.routers.obsidian-livesync-local.entrypoints: websecure
       traefik.http.routers.obsidian-livesync-local.service: obsidian-livesync

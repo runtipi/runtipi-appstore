@@ -1,8 +1,7 @@
-version: "3.7"
-
+version: '3.7'
 services:
   linkwarden:
-    image: ghcr.io/linkwarden/linkwarden:v2.10.0
+    image: ghcr.io/linkwarden/linkwarden:v2.10.2
     container_name: linkwarden
     environment:
       - DATABASE_URL=postgresql://tipi:${LINKWARDEN_DB_PASSWORD}@linkwarden-db:5432/linkwarden
@@ -19,26 +18,21 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.linkwarden-web-redirect.redirectscheme.scheme: https
       traefik.http.services.linkwarden.loadbalancer.server.port: 3000
-      # Web
       traefik.http.routers.linkwarden-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.linkwarden-insecure.entrypoints: web
       traefik.http.routers.linkwarden-insecure.service: linkwarden
       traefik.http.routers.linkwarden-insecure.middlewares: linkwarden-web-redirect
-      # Websecure
       traefik.http.routers.linkwarden.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.linkwarden.entrypoints: websecure
       traefik.http.routers.linkwarden.service: linkwarden
       traefik.http.routers.linkwarden.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.linkwarden-local-insecure.rule: Host(`linkwarden.${LOCAL_DOMAIN}`)
       traefik.http.routers.linkwarden-local-insecure.entrypoints: web
       traefik.http.routers.linkwarden-local-insecure.service: linkwarden
       traefik.http.routers.linkwarden-local-insecure.middlewares: linkwarden-web-redirect
-      # Local domain secure
       traefik.http.routers.linkwarden-local.rule: Host(`linkwarden.${LOCAL_DOMAIN}`)
       traefik.http.routers.linkwarden-local.entrypoints: websecure
       traefik.http.routers.linkwarden-local.service: linkwarden

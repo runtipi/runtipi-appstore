@@ -1,10 +1,9 @@
-version: "3"
-
+version: '3'
 services:
   gotosocial:
     container_name: gotosocial
-    image: superseriousbusiness/gotosocial:0.19.0
-    user: 1000:1000
+    image: superseriousbusiness/gotosocial:0.19.1
+    user: '1000:1000'
     ports:
       - ${APP_PORT}:8080
     volumes:
@@ -30,26 +29,21 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.gotosocial-web-redirect.redirectscheme.scheme: https
       traefik.http.services.gotosocial.loadbalancer.server.port: 8080
-      # Web
       traefik.http.routers.gotosocial-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.gotosocial-insecure.entrypoints: web
       traefik.http.routers.gotosocial-insecure.service: gotosocial
       traefik.http.routers.gotosocial-insecure.middlewares: gotosocial-web-redirect
-      # Websecure
       traefik.http.routers.gotosocial.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.gotosocial.entrypoints: websecure
       traefik.http.routers.gotosocial.service: gotosocial
       traefik.http.routers.gotosocial.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.gotosocial-local-insecure.rule: Host(`gotosocial.${LOCAL_DOMAIN}`)
       traefik.http.routers.gotosocial-local-insecure.entrypoints: web
       traefik.http.routers.gotosocial-local-insecure.service: gotosocial
       traefik.http.routers.gotosocial-local-insecure.middlewares: gotosocial-web-redirect
-      # Local domain secure
       traefik.http.routers.gotosocial-local.rule: Host(`gotosocial.${LOCAL_DOMAIN}`)
       traefik.http.routers.gotosocial-local.entrypoints: websecure
       traefik.http.routers.gotosocial-local.service: gotosocial

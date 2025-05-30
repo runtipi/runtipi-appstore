@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 5230,
   "id": "memos",
-  "tipi_version": 40,
-  "version": "0.24.2",
+  "tipi_version": 41,
+  "version": "0.24.3",
   "categories": ["utilities"],
   "description": "Memo hub for knowledge management and collaboration.",
   "short_desc": "Memo hub for knowledge management and collaboration.",
@@ -17,5 +17,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1742728866000
+  "updated_at": 1748545590261
 }

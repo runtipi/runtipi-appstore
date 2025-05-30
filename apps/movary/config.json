@@ -8,7 +8,7 @@
   "uid": 1000,
   "gid": 1000,
   "id": "movary",
-  "tipi_version": 38,
+  "tipi_version": 39,
   "version": "0.64.1",
   "categories": ["media"],
   "description": "Movary is a self-hosted web application to track and rate your watched movies (like a digital movie diary). You can import/export your history and ratings from/to third parties like trakt.tv or letterboxd.com, scrobble your watches via Plex and Jellyfin and more.",
@@ -44,5 +44,5 @@
   ],
   "supported_architectures": ["amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1740346783000
+  "updated_at": 1748545662217
 }

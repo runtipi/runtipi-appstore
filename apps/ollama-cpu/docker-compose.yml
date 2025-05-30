@@ -1,37 +1,31 @@
 version: '3.7'
-
 services:
   ollama-cpu:
-    image: ollama/ollama:0.6.6
+    image: ollama/ollama:0.9.0
     restart: unless-stopped
     container_name: ollama-cpu
     ports:
-      - '${APP_PORT}:11434'
+      - ${APP_PORT}:11434
     networks:
       - tipi_main_network
     volumes:
       - ${APP_DATA_DIR}/data/.ollama:/root/.ollama
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.ollama-cpu-web-redirect.redirectscheme.scheme: https
       traefik.http.services.ollama-cpu.loadbalancer.server.port: 11434
-      # Web
       traefik.http.routers.ollama-cpu-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.ollama-cpu-insecure.entrypoints: web
       traefik.http.routers.ollama-cpu-insecure.service: ollama-cpu
       traefik.http.routers.ollama-cpu-insecure.middlewares: ollama-cpu-web-redirect
-      # Websecure
       traefik.http.routers.ollama-cpu.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.ollama-cpu.entrypoints: websecure
       traefik.http.routers.ollama-cpu.service: ollama-cpu
       traefik.http.routers.ollama-cpu.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.ollama-cpu-local-insecure.rule: Host(`ollama-cpu.${LOCAL_DOMAIN}`)
       traefik.http.routers.ollama-cpu-local-insecure.entrypoints: web
       traefik.http.routers.ollama-cpu-local-insecure.service: ollama-cpu
       traefik.http.routers.ollama-cpu-local-insecure.middlewares: ollama-cpu-web-redirect
-      # Local domain secure
       traefik.http.routers.ollama-cpu-local.rule: Host(`ollama-cpu.${LOCAL_DOMAIN}`)
       traefik.http.routers.ollama-cpu-local.entrypoints: websecure
       traefik.http.routers.ollama-cpu-local.service: ollama-cpu

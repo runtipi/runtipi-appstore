@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "mixpost",
-  "tipi_version": 20,
-  "version": "2.1.3",
+  "tipi_version": 21,
+  "version": "2.2.0",
   "categories": ["social"],
   "description": "Mixpost it's the coolest Self-hosted social media management software.",
   "short_desc": "Self-hosted social media management. Schedule and organize your social content. ",
@@ -37,5 +37,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1741277363000
+  "updated_at": 1748547766670
 }

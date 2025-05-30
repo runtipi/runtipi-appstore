@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 8166,
   "id": "ntfy",
-  "tipi_version": 6,
-  "version": "2.11.0",
+  "tipi_version": 7,
+  "version": "2.12.0",
   "categories": ["utilities"],
   "description": "Send push notifications to any devices using a simple HTTP PUT or POST request.",
   "short_desc": "Ntfy, a simple server for sending and receiving notification messages.",
@@ -17,5 +17,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1729872799587
+  "updated_at": 1748568339069
 }

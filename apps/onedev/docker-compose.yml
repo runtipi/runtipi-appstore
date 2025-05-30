@@ -1,8 +1,7 @@
-version: "3.7"
-
+version: '3.7'
 services:
   onedev:
-    image: 1dev/server:11.8.7
+    image: 1dev/server:11.9.9
     container_name: onedev
     environment:
       - hibernate_dialect=io.onedev.server.persistence.PostgreSQLDialect
@@ -20,32 +19,27 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - ${APP_PORT}:6610
-      - "6611:6611"
+      - '6611:6611'
     depends_on:
       - onedev-db
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.onedev-web-redirect.redirectscheme.scheme: https
       traefik.http.services.onedev.loadbalancer.server.port: 6610
-      # Web
       traefik.http.routers.onedev-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.onedev-insecure.entrypoints: web
       traefik.http.routers.onedev-insecure.service: onedev
       traefik.http.routers.onedev-insecure.middlewares: onedev-web-redirect
-      # Websecure
       traefik.http.routers.onedev.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.onedev.entrypoints: websecure
       traefik.http.routers.onedev.service: onedev
       traefik.http.routers.onedev.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.onedev-local-insecure.rule: Host(`onedev.${LOCAL_DOMAIN}`)
       traefik.http.routers.onedev-local-insecure.entrypoints: web
       traefik.http.routers.onedev-local-insecure.service: onedev
       traefik.http.routers.onedev-local-insecure.middlewares: onedev-web-redirect
-      # Local domain secure
       traefik.http.routers.onedev-local.rule: Host(`onedev.${LOCAL_DOMAIN}`)
       traefik.http.routers.onedev-local.entrypoints: websecure
       traefik.http.routers.onedev-local.service: onedev

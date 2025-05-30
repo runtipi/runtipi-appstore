@@ -2,7 +2,7 @@ name: Update
 on:
   workflow_dispatch:
   schedule:
-    - cron: 0 2 * * *
+    - cron: '0,30 * * * *'
 
 permissions:
   contents: write
@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   update:
+    timeout-minutes: 20
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,4 +28,4 @@ jobs:
       - name: Run updater
         run: bun run updater/index.ts
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
