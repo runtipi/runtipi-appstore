@@ -2,11 +2,11 @@
   "services": [
     {
       "name": "notemark",
-      "image": "ghcr.io/enchant97/note-mark-frontend:0.15.4"
+      "image": "ghcr.io/enchant97/note-mark-frontend:0.16.0"
     },
     {
       "name": "notemark-backend",
-      "image": "ghcr.io/enchant97/note-mark-backend:0.15.4",
+      "image": "ghcr.io/enchant97/note-mark-backend:0.16.0",
       "environment": {
         "JWT_SECRET": "${NOTEMARK_SERVICE_SECRET}",
         "CORS_ORIGINS": "*"
