@@ -23,7 +23,7 @@ services:
       runtipi.managed: true
   notemark-proxy:
     container_name: notemark-proxy
-    image: nginx:alpine
+    image: ghcr.io/enchant97/note-mark-frontend:0.16.0
     ports:
       - ${APP_PORT}:80
     volumes:
