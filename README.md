@@ -21,7 +21,8 @@ If you want to see new apps on Tipi you can either:
 
 - [Create a discussion](https://github.com/runtipi/runtipi-appstore/discussions) on this repository and members of the community will add it
 - [Join the Discord](https://discord.gg/Bu9qEPnHsc) members of the community will add it.
-- Fork this repo and create the necessary files for a Tipi app. Follow this [guide](https://www.runtipi.io/docs/contributing/adding-a-new-app)`
+- Check the Discord channel `appstores` and see if the app you want is already available in some else's appstore. 
+- Fork the [example appstore](https://github.com/runtipi/example-appstore) repo and [create your own](https://runtipi.io/docs/guides/create-your-own-app-store)!
 
 ## Apps available (268)
 
