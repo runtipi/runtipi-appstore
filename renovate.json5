@@ -1,8 +1,6 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: ["config:recommended"],
-  addLabels: ["renovate"],
-  automergeStrategy: "rebase",
   automerge: false,
   customManagers: [
     {
@@ -16,6 +14,7 @@
     {
       matchUpdateTypes: ["minor", "patch"],
       addLabels: ["automerge"],
+      automerge: false,
     },
     {
       matchPackageNames: [
