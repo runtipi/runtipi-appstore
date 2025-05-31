@@ -1,4 +1,7 @@
-# Tipi App Store ⛺️
+# Tipi App Store ⛺
+
+> [!WARNING]  
+> This repository is still being updated but is being deprecated. Please do not submit PRs here. Look for community maintained stores or [create your own](https://runtipi.io/docs/guides/create-your-own-app-store)
 
 This is the official repository for the Tipi App Store. It contains all the apps that are available for download on [Tipi](https://github.com/runtipi/runtipi).
 
