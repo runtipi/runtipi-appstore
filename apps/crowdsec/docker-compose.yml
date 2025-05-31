@@ -1,7 +1,7 @@
 services:
   crowdsec:
     container_name: crowdsec
-    image: crowdsecurity/crowdsec:v1.6.6
+    image: crowdsecurity/crowdsec:v1.6.8
     restart: unless-stopped
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -11,16 +11,9 @@ services:
       - ${APP_DATA_DIR}/data/crowdsec/db:/var/lib/crowdsec/data
       - /var/log/auth.log:/var/log/auth.log:ro
       - /var/log/traefik:/var/log/traefik:ro
-      # other containers will output their log files too
-      # sudo mkdir /var/log/crowdsec
       - /var/log/crowdsec:/var/log/crowdsec:ro
     environment:
-      - COLLECTIONS=
-        crowdsecurity/linux
-        crowdsecurity/traefik
-        crowdsecurity/http-cve
-        crowdsecurity/whitelist-good-actors
-        crowdsecurity/sshd
+      - COLLECTIONS= crowdsecurity/linux crowdsecurity/traefik crowdsecurity/http-cve crowdsecurity/whitelist-good-actors crowdsecurity/sshd
       - GID=${GID-1000}
     networks:
       - tipi_main_network
@@ -28,14 +21,11 @@ services:
       runtipi.managed: true
   crowdsec-bouncer-traefik:
     container_name: crowdsec-bouncer-traefik
-    image: fbonalair/traefik-crowdsec-bouncer:latest
+    image: fbonalair/traefik-crowdsec-bouncer:v1.6.8
     restart: unless-stopped
     depends_on:
       - crowdsec
     environment:
-      # the CROWDSEC_BOUNCER_API_KEY needs to be created of the crowdsec container with:
-      # To create the CROWDSEC_BOUNCER_API_KEY, execute the following command in the crowdsec container:
-      # docker compose exec -t crowdsec cscli bouncers add crowdsec-bouncer-traefik
       - CROWDSEC_BOUNCER_API_KEY=${CROWDSEC_BOUNCER_API_KEY}
       - CROWDSEC_AGENT_HOST=crowdsec:8080
     networks:
@@ -44,8 +34,6 @@ services:
       runtipi.managed: true
   crowdsec-dashboard:
     container_name: crowdsec-dashboard
-    #we're using a custom Dockerfile so that metabase pops with pre-configured dashboards
-    #build: ./crowdsec_config/dashboard
     image: metabase/metabase
     restart: unless-stopped
     ports:
@@ -61,26 +49,21 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.crowdsec-web-redirect.redirectscheme.scheme: https
       traefik.http.services.crowdsec.loadbalancer.server.port: 3000
-      # Web
       traefik.http.routers.crowdsec-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.crowdsec-insecure.entrypoints: web
       traefik.http.routers.crowdsec-insecure.service: crowdsec
       traefik.http.routers.crowdsec-insecure.middlewares: crowdsec-web-redirect
-      # Websecure
       traefik.http.routers.crowdsec.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.crowdsec.entrypoints: websecure
       traefik.http.routers.crowdsec.service: crowdsec
       traefik.http.routers.crowdsec.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.crowdsec-local-insecure.rule: Host(`crowdsec.${LOCAL_DOMAIN}`)
       traefik.http.routers.crowdsec-local-insecure.entrypoints: web
       traefik.http.routers.crowdsec-local-insecure.service: crowdsec
       traefik.http.routers.crowdsec-local-insecure.middlewares: crowdsec-web-redirect
-      # Local domain secure
       traefik.http.routers.crowdsec-local.rule: Host(`crowdsec.${LOCAL_DOMAIN}`)
       traefik.http.routers.crowdsec-local.entrypoints: websecure
       traefik.http.routers.crowdsec-local.service: crowdsec
