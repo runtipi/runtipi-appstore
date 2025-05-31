@@ -3,7 +3,7 @@
   "extends": ["config:recommended"],
   "addLabels": ["renovate"],
   "automergeStrategy": "rebase",
-  "allowedCommands": ["bun ./scripts/update-config.ts", "bun install && bun run test"],
+  "automerge": false,
   "customManagers": [
     {
       "customType": "regex",
@@ -16,10 +16,6 @@
     {
       "matchUpdateTypes": ["minor", "patch"],
       "addLabels": ["automerge"]
-    },
-    {
-      "matchDepTypes": ["devDependencies"],
-      "automerge": false
     },
     {
       "matchPackageNames": ["mariadb", "mysql", "monogdb", "postgres", "redis", "immich"],

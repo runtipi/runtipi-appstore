@@ -22,11 +22,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
       - name: Install bun
         uses: oven-sh/setup-bun@v2
 
       - name: Install Renovate
-        run: bun install -g renovate re2
+        run: bun install -g renovate@40
 
       - name: Echo repository
         run: echo ${{ github.repository }}
