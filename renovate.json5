@@ -1,37 +1,48 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
-  "addLabels": ["renovate"],
-  "automergeStrategy": "rebase",
-  "automerge": false,
-  "customManagers": [
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: ["config:recommended"],
+  addLabels: ["renovate"],
+  automergeStrategy: "rebase",
+  automerge: false,
+  customManagers: [
     {
-      "customType": "regex",
-      "fileMatch": ["^.*docker-compose\\.json$"],
-      "matchStrings": ["\"image\": \"(?<depName>.*?):(?<currentValue>.*?)\","],
-      "datasourceTemplate": "docker"
-    }
+      customType: "regex",
+      fileMatch: ["^.*docker-compose\\.json$"],
+      matchStrings: ['"image": "(?<depName>.*?):(?<currentValue>.*?)",'],
+      datasourceTemplate: "docker",
+    },
   ],
-  "packageRules": [
+  packageRules: [
     {
-      "matchUpdateTypes": ["minor", "patch"],
-      "addLabels": ["automerge"]
+      matchUpdateTypes: ["minor", "patch"],
+      addLabels: ["automerge"],
     },
     {
-      "matchPackageNames": ["mariadb", "mysql", "monogdb", "postgres", "redis", "immich"],
-      "enabled": false
-    }
+      matchPackageNames: [
+        "mariadb",
+        "mysql",
+        "monogdb",
+        "postgres",
+        "redis",
+        "immich",
+      ],
+      enabled: false,
+    },
   ],
-  "hostRules": [
+  hostRules: [
     {
-      "matchHost": "docker.io",
-      "username": "{{ secrets.DOCKERHUB_USERNAME }}",
-      "password": "{{ secrets.DOCKERHUB_TOKEN }}",
-    }
+      matchHost: "index.docker.io",
+      hostType: "docker",
+      username: "{{ secrets.DOCKERHUB_USERNAME }}",
+      password: "{{ secrets.DOCKERHUB_TOKEN }}",
+    },
   ],
-  "postUpgradeTasks": {
-    "commands": ["bun ./scripts/update-config.ts {{packageFile}} {{newVersion}}", "bun install && bun run test"],
-    "fileFilters": ["**/*"],
-    "executionMode": "update"
-  }
+  postUpgradeTasks: {
+    commands: [
+      "bun ./scripts/update-config.ts {{packageFile}} {{newVersion}}",
+      "bun install && bun run test",
+    ],
+    fileFilters: ["**/*"],
+    executionMode: "update",
+  },
 }
