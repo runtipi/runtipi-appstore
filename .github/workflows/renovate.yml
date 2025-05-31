@@ -37,4 +37,8 @@ jobs:
         run: echo ${{ github.repository }}
 
       - name: Run renovate
+        env:
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
         run: LOG_LEVEL=${{ github.event.inputs.log_level || 'INFO' }} renovate --token ${{ secrets.PERSONAL_TOKEN }} ${{ github.repository }}

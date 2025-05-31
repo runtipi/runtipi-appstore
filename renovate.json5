@@ -22,6 +22,13 @@
       "enabled": false
     }
   ],
+  "hostRules": [
+    {
+      "matchHost": "docker.io",
+      "username": "{{ secrets.DOCKERHUB_USERNAME }}",
+      "password": "{{ secrets.DOCKERHUB_TOKEN }}",
+    }
+  ],
   "postUpgradeTasks": {
     "commands": ["bun ./scripts/update-config.ts {{packageFile}} {{newVersion}}", "bun install && bun run test"],
     "fileFilters": ["**/*"],
