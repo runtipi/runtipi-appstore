@@ -1,0 +1,35 @@
+name: Renovate
+on:
+  workflow_dispatch:
+    inputs:
+      log_level:
+        type: choice
+        description: Log level
+        default: INFO
+        options:
+          - DEBUG
+          - INFO
+          - WARN
+          - ERROR
+          - FATAL
+  schedule:
+    - cron: 0 2 * * *
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install Renovate
+        run: bun install -g renovate re2
+
+      - name: Echo repository
+        run: echo ${{ github.repository }}
+
+      - name: Run renovate
+        run: LOG_LEVEL=${{ github.event.inputs.log_level || 'INFO' }} renovate --token ${{ secrets.PERSONAL_TOKEN }} ${{ github.repository }}
