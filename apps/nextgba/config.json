@@ -11,7 +11,7 @@
   "categories": ["gaming"],
   "short_desc": "Gameboy in your browser",
   "author": "meienberger",
-  "source": "https://github.com/meienberger/nextgba",
+  "source": "https://github.com/nicotsx/nextgba",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
