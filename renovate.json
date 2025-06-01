@@ -25,7 +25,7 @@
       "addLabels": ["patch", "automerge"]
     },
     {
-      "matchPackageNames": ["mariadb", "mysql", "monogdb", "postgres", "redis", "immich"],
+      "matchPackageNames": ["mariadb", "mysql", "monogdb", "postgres", "redis", "immich", "immich{-,}**"],
       "enabled": false
     }
   ],

@@ -25,7 +25,6 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@commitlint/cz-commitlint": "^19.8.1",
-    "@playwright/test": "^1.52.0",
     "@types/jest": "^28.1.6",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^22.15.21",
@@ -44,8 +43,6 @@
     }
   },
   "dependencies": {
-    "@runtipi/common": "^0.8.1",
-    "zod": "^3.25.3",
-    "zod-to-json-schema": "^3.24.5"
+    "@runtipi/common": "^0.8.1"
   }
 }
