@@ -50,12 +50,8 @@
       "sysctls": {
         "net.ipv6.conf.all.disable_ipv6": 0
       },
-      "devices": [
-        "/dev/net/tun"
-      ],
-      "capAdd": [
-        "NET_ADMIN"
-      ],
+      "devices": ["/dev/net/tun"],
+      "capAdd": ["NET_ADMIN"],
       "logging": {
         "driver": "json-file",
         "options": {
