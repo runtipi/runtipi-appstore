@@ -1,6 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "automerge": false,
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 5,
+  "enabledManagers": [],
   "rebaseWhen": "conflicted",
   "customManagers": [
     {
