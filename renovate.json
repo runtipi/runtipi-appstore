@@ -31,12 +31,6 @@
   ],
   "hostRules": [
     {
-      "matchHost": "index.docker.io",
-      "hostType": "docker",
-      "username": "{{ secrets.DOCKERHUB_USERNAME }}",
-      "password": "{{ secrets.DOCKERHUB_TOKEN }}"
-    },
-    {
       "matchHost": "docker.io",
       "concurrentRequestLimit": 2
     }
