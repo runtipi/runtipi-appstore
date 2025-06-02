@@ -43,7 +43,7 @@ const updateAppConfig = async (packageFile: string, newVersion: string) => {
     if (dockerComposeYml) {
       dockerComposeYml.services = Object.fromEntries(
         Object.entries(dockerComposeYml.services).map(([serviceName, service]) => {
-          if (service.image) {
+          if (serviceName === config.id) {
             const newImage = service.image.replace(/:[^:]+$/, `:${newVersion}`);
             return [serviceName, { ...service, image: newImage }];
           }
