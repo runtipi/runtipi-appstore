@@ -7,7 +7,6 @@ on:
 
 jobs:
   ci:
-    if: "!contains(github.head_ref, 'renovate/')"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
