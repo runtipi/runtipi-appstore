@@ -2,10 +2,9 @@
   "services": [
     {
       "name": "metube",
-      "image": "ghcr.io/alexta69/metube:2023-08-13",
+      "image": "ghcr.io/alexta69/metube:latest",
       "isMain": true,
       "internalPort": 8081,
-      "restart": "unless-stopped",
       "volumes": [
         {
           "hostPath": "${ROOT_FOLDER_HOST}/media/downloads/complete/",

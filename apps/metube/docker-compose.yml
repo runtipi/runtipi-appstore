@@ -1,8 +1,6 @@
-version: "3.7"
-
 services:
   metube:
-    image: ghcr.io/alexta69/metube:2023-08-13
+    image: ghcr.io/alexta69/metube:latest
     container_name: metube
     restart: unless-stopped
     ports:
