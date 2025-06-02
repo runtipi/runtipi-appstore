@@ -9,7 +9,7 @@
     {
       "customType": "regex",
       "managerFilePatterns": ["^.*docker-compose\\.json$"],
-      "matchStrings": ["\"image\": \"(?<depName>.*?):(?<currentValue>.*?)\""],
+      "matchStrings": ["\"image\": \"(?<depName>.*?):(?<currentValue>.*?)\","],
       "datasourceTemplate": "docker"
     }
   ],
