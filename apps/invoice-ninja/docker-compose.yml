@@ -1,6 +1,6 @@
 services:
   invoice-ninja:
-    image: invoiceninja/invoiceninja:5.11.80
+    image: invoiceninja/invoiceninja:5.11.81
     container_name: invoice-ninja
     restart: unless-stopped
     user: '1500:1500'
@@ -32,7 +32,7 @@ services:
     labels:
       runtipi.managed: true
   invoice-ninja-web:
-    image: nginx:1.28
+    image: nginx:5.11.81
     container_name: invoice-ninja-web
     restart: unless-stopped
     volumes:
@@ -67,7 +67,7 @@ services:
       traefik.http.routers.invoice-ninja-local.tls: true
       runtipi.managed: true
   invoice-ninja-db:
-    image: mariadb:10.7
+    image: mariadb:5.11.81
     container_name: invoice-ninja-db
     restart: unless-stopped
     environment:
@@ -91,7 +91,7 @@ services:
     labels:
       runtipi.managed: true
   invoice-ninja-init:
-    image: bash:5.2.37
+    image: bash:5.11.81
     container_name: invoice-ninja-init
     volumes:
       - ${APP_DATA_DIR}/data:/tmp/data
