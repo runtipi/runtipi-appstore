@@ -7,8 +7,8 @@
   "no_gui": true,
   "port": 1999,
   "id": "email-oauth2-proxy",
-  "tipi_version": 17,
-  "version": "2025.04.28",
+  "tipi_version": 18,
+  "version": "2025.06.02",
   "categories": ["utilities", "security"],
   "description": "Transparently add OAuth 2.0 support to IMAP/POP/SMTP client applications, scripts or any other email use-cases that don't support this authentication method.",
   "short_desc": "OAuth Proxy for IMAP/POP/SMTP.",
@@ -17,5 +17,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1745806359000
+  "updated_at": 1748977761385
 }
