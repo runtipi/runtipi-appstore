@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "audiobookshelf",
-      "image": "ghcr.io/advplyr/audiobookshelf:2.23.0",
+      "image": "ghcr.io/advplyr/audiobookshelf:2.24.0",
       "isMain": true,
       "internalPort": 80,
       "volumes": [
