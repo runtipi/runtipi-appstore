@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 6767,
   "id": "bazarr",
-  "tipi_version": 20,
-  "version": "1.5.1",
+  "tipi_version": 21,
+  "version": "1.5.2",
   "categories": ["media", "utilities"],
   "description": "Bazarr is a companion application to Sonarr and Radarr that manages and downloads subtitles based on your requirements.",
   "short_desc": "A companion application to Sonarr and Radarr that manages and downloads subtitles",
@@ -16,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1736281703975
+  "updated_at": 1748976402869
 }
