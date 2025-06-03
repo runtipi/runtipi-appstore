@@ -4,8 +4,10 @@
   "prHourlyLimit": 0,
   "prConcurrentLimit": 5,
   "extends": ["config:recommended"],
-  "enabledManagers": ["regex", "custom.regex"],
   "rebaseWhen": "conflicted",
+  "docker-compose": {
+    "enabled": false
+  },
   "customManagers": [
     {
       "customType": "regex",
