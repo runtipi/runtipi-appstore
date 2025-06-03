@@ -4,7 +4,7 @@
   "prHourlyLimit": 0,
   "prConcurrentLimit": 5,
   "extends": ["config:recommended"],
-  "enabledManagers": ["custom"],
+  "enabledManagers": ["regex"],
   "rebaseWhen": "conflicted",
   "customManagers": [
     {
