@@ -45,7 +45,7 @@
     },
     {
       "name": "plausible-events-db",
-      "image": "clickhouse/clickhouse-server:22.6-alpine",
+      "image": "clickhouse/clickhouse-server:22.12-alpine",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/plausible-event-data",
