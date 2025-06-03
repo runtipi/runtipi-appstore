@@ -7,9 +7,9 @@
   "dynamic_config": true,
   "no_gui": true,
   "id": "flaresolverr",
-  "tipi_version": 21,
+  "tipi_version": 22,
   "min_tipi_version": "3.6.0",
-  "version": "3.3.21",
+  "version": "v3.3.22",
   "categories": ["media", "security", "utilities"],
   "description": "FlareSolverr is a proxy server to bypass Cloudflare and DDoS-GUARD protection.",
   "short_desc": "Bypass Cloudflare and DDoS-GuARD.",
@@ -19,5 +19,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566285000
+  "updated_at": 1748974969242
 }
