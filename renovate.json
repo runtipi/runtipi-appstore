@@ -5,13 +5,11 @@
   "prConcurrentLimit": 5,
   "extends": ["config:recommended"],
   "rebaseWhen": "conflicted",
-  "docker-compose": {
-    "enabled": false
-  },
+  "enabledManagers": ["regex"],
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": ["^.*docker-compose\\.json$"],
+      "fileMatch": ["^.*docker-compose\\.json$"],
       "matchStrings": ["\"image\": \"(?<depName>.*?):(?<currentValue>.*?)\","],
       "datasourceTemplate": "docker"
     }
