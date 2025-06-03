@@ -25,7 +25,11 @@
     }
   ],
   "postUpgradeTasks": {
-    "commands": ["bun ./scripts/update-config.ts {{packageFile}} {{newVersion}}", "bunx @biomejs/biome check --write", "bun install && bun run test"],
+    "commands": [
+      "bun ./scripts/update-config.ts {{packageFile}} {{newVersion}} {{packageName}}",
+      "bunx @biomejs/biome check --write",
+      "bun install && bun run test"
+    ],
     "fileFilters": ["**/*"],
     "executionMode": "update"
   }

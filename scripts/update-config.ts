@@ -5,6 +5,9 @@ import * as yaml from "js-yaml";
 
 const packageFile = process.argv[2];
 const newVersion = process.argv[3];
+const packageName = process.argv[4];
+
+console.log(`Updating app config for package: ${packageFile}, new version: ${newVersion}, package name: ${packageName}`);
 
 interface DockerComposeYml {
   services: Record<
@@ -43,7 +46,7 @@ const updateAppConfig = async (packageFile: string, newVersion: string) => {
     if (dockerComposeYml) {
       dockerComposeYml.services = Object.fromEntries(
         Object.entries(dockerComposeYml.services).map(([serviceName, service]) => {
-          if (serviceName === config.id) {
+          if (service.image.startsWith(packageName)) {
             const newImage = service.image.replace(/:[^:]+$/, `:${newVersion}`);
             return [serviceName, { ...service, image: newImage }];
           }
