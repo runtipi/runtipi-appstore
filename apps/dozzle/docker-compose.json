@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "dozzle",
-      "image": "amir20/dozzle:v8.12.19",
+      "image": "amir20/dozzle:v8.12.20",
       "isMain": true,
       "internalPort": 8080,
       "environment": {
