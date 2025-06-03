@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "mongo",
-      "image": "mongo:7.0.2",
+      "image": "mongo:7.0.20",
       "isMain": true,
       "internalPort": 27017,
       "environment": {
