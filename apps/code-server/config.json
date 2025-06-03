@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 8138,
   "id": "code-server",
-  "tipi_version": 54,
-  "version": "4.100.2",
+  "tipi_version": 55,
+  "version": "4.100.3",
   "categories": ["development"],
   "description": "Code-server is VS Code running on a remote server, accessible through the browser.",
   "short_desc": "VS Code in the browser",
@@ -33,5 +33,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1748545364677
+  "updated_at": 1748988602178
 }
