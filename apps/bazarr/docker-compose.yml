@@ -1,7 +1,7 @@
-version: "3.7"
+version: '3.7'
 services:
   bazarr:
-    image: lscr.io/linuxserver/bazarr:1.5.1
+    image: lscr.io/linuxserver/bazarr:1.5.2
     container_name: bazarr
     environment:
       - PUID=1000
@@ -19,26 +19,21 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.bazarr-web-redirect.redirectscheme.scheme: https
       traefik.http.services.bazarr.loadbalancer.server.port: 6767
-      # Web
       traefik.http.routers.bazarr-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.bazarr-insecure.entrypoints: web
       traefik.http.routers.bazarr-insecure.service: bazarr
       traefik.http.routers.bazarr-insecure.middlewares: bazarr-web-redirect
-      # Websecure
       traefik.http.routers.bazarr.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.bazarr.entrypoints: websecure
       traefik.http.routers.bazarr.service: bazarr
       traefik.http.routers.bazarr.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.bazarr-local-insecure.rule: Host(`bazarr.${LOCAL_DOMAIN}`)
       traefik.http.routers.bazarr-local-insecure.entrypoints: web
       traefik.http.routers.bazarr-local-insecure.service: bazarr
       traefik.http.routers.bazarr-local-insecure.middlewares: bazarr-web-redirect
-      # Local domain secure
       traefik.http.routers.bazarr-local.rule: Host(`bazarr.${LOCAL_DOMAIN}`)
       traefik.http.routers.bazarr-local.entrypoints: websecure
       traefik.http.routers.bazarr-local.service: bazarr
