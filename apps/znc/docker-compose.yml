@@ -1,0 +1,15 @@
+---
+services:
+    znc:
+        image: znc:1.9.1
+        container_name: znc
+        environment:
+            - TZ=${TZ}
+        volumes:
+            - ${APP_DATA_DIR}/data/config:/config:/znc-data
+        ports:
+            - ${APP_PORT}:6667
+        restart: unless-stopped
+
+networks:
+    - name: tipi_main_network
