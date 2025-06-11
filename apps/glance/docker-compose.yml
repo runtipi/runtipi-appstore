@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   glance:
-    image: glanceapp/glance:v0.8.3
+    image: glanceapp/glance:v0.8.4
     restart: unless-stopped
     container_name: glance
     ports:
