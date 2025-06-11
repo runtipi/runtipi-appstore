@@ -1,16 +1,15 @@
-version: "3.7"
-
+version: '3.7'
 services:
   tubearchivist:
     container_name: tubearchivist
     restart: unless-stopped
-    image: bbilly1/tubearchivist:v0.5.2
+    image: bbilly1/tubearchivist:v0.5.4
     ports:
       - ${APP_PORT}:8000
     dns:
       - ${DNS_IP}
     volumes:
-      - ${ROOT_FOLDER_HOST}/media/data/youtube:/youtube 
+      - ${ROOT_FOLDER_HOST}/media/data/youtube:/youtube
       - ${APP_DATA_DIR}/data/cache:/cache
     environment:
       - ES_URL=http://tubearchivist-es:9200
@@ -27,26 +26,21 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.tubearchivist-web-redirect.redirectscheme.scheme: https
       traefik.http.services.tubearchivist.loadbalancer.server.port: 8000
-      # Web
       traefik.http.routers.tubearchivist-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.tubearchivist-insecure.entrypoints: web
       traefik.http.routers.tubearchivist-insecure.service: tubearchivist
       traefik.http.routers.tubearchivist-insecure.middlewares: tubearchivist-web-redirect
-      # Websecure
       traefik.http.routers.tubearchivist.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.tubearchivist.entrypoints: websecure
       traefik.http.routers.tubearchivist.service: tubearchivist
       traefik.http.routers.tubearchivist.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.tubearchivist-local-insecure.rule: Host(`tubearchivist.${LOCAL_DOMAIN}`)
       traefik.http.routers.tubearchivist-local-insecure.entrypoints: web
       traefik.http.routers.tubearchivist-local-insecure.service: tubearchivist
       traefik.http.routers.tubearchivist-local-insecure.middlewares: tubearchivist-web-redirect
-      # Local domain secure
       traefik.http.routers.tubearchivist-local.rule: Host(`tubearchivist.${LOCAL_DOMAIN}`)
       traefik.http.routers.tubearchivist-local.entrypoints: websecure
       traefik.http.routers.tubearchivist-local.service: tubearchivist
@@ -69,11 +63,11 @@ services:
     container_name: tubearchivist-es
     restart: always
     environment:
-      - "xpack.security.enabled=true"
-      - "ELASTIC_PASSWORD=${ELASTIC_PASSWORD}"
-      - "discovery.type=single-node"
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      - "path.repo=/usr/share/elasticsearch/data/snapshot"
+      - xpack.security.enabled=true
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      - path.repo=/usr/share/elasticsearch/data/snapshot
     networks:
       - tipi_main_network
     ulimits:
@@ -83,6 +77,6 @@ services:
     volumes:
       - ${APP_DATA_DIR}/data/es:/usr/share/elasticsearch/data
     expose:
-      - "9200"
+      - '9200'
     labels:
       runtipi.managed: true
