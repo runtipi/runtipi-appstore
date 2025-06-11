@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "plex",
-      "image": "lscr.io/linuxserver/plex:1.41.7",
+      "image": "lscr.io/linuxserver/plex:1.41.8",
       "isMain": true,
       "internalPort": 32400,
       "networkMode": "host",
