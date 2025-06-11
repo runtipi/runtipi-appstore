@@ -2,7 +2,7 @@ version: '3.9'
 services:
   octobot:
     container_name: octobot
-    image: drakkarsoftware/octobot:2.0.10
+    image: drakkarsoftware/octobot:2.0.12
     environment:
       - TZ=${TZ}
     volumes:

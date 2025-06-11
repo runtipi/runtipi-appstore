@@ -1,7 +1,7 @@
 services:
   tinyauth:
     container_name: tinyauth
-    image: ghcr.io/steveiliop56/tinyauth:v3.4.0
+    image: ghcr.io/steveiliop56/tinyauth:v3.4.1
     restart: unless-stopped
     environment:
       - SECRET=${TINYAUTH_SECRET}
