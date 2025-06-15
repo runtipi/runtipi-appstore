@@ -32,7 +32,7 @@
     },
     {
       "name": "your-spotify-db",
-      "image": "mongo:4.4.8",
+      "image": "mongo:4.4.29",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/db",
