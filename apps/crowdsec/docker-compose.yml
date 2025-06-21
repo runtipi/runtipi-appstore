@@ -1,7 +1,7 @@
 services:
   crowdsec:
     container_name: crowdsec
-    image: crowdsecurity/crowdsec:v1.6.8
+    image: crowdsecurity/crowdsec:v1.6.9
     restart: unless-stopped
     volumes:
       - /etc/localtime:/etc/localtime:ro
