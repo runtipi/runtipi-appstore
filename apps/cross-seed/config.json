@@ -8,8 +8,8 @@
   "uid": 1000,
   "gid": 1000,
   "id": "cross-seed",
-  "tipi_version": 44,
-  "version": "6.12.6",
+  "tipi_version": 45,
+  "version": "6.12.7",
   "categories": ["media", "utilities"],
   "description": "An app designed to help you download torrents that you can cross seed based on your existing torrents. It is designed to match conservatively to minimize manual intervention.",
   "short_desc": "Fully-automatic cross-seeding with Torznab.",
@@ -19,5 +19,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1748547847000
+  "updated_at": 1750494932193
 }
