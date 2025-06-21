@@ -1,5 +1,5 @@
 export default {
-  allowedCommands: ["bun ./scripts/update-config.ts", "bunx @biomejs/biome check --write", "bun install && bun run test"],
+  allowedCommands: ["bun ./scripts/update-config.ts", "bunx @biomejs/biome@2.0.0 check --write", "bun install && bun run test"],
   hostRules: [
     {
       hostType: "docker",
