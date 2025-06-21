@@ -1,8 +1,7 @@
 version: '3.7'
-
 services:
   forgejo:
-    image: codeberg.org/forgejo/forgejo:11.0.1
+    image: codeberg.org/forgejo/forgejo:11.0.2
     container_name: forgejo
     environment:
       - USER_UID=1000
@@ -23,26 +22,21 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.forgejo-web-redirect.redirectscheme.scheme: https
       traefik.http.services.forgejo.loadbalancer.server.port: 3000
-      # Web
       traefik.http.routers.forgejo-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.forgejo-insecure.entrypoints: web
       traefik.http.routers.forgejo-insecure.service: forgejo
       traefik.http.routers.forgejo-insecure.middlewares: forgejo-web-redirect
-      # Websecure
       traefik.http.routers.forgejo.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.forgejo.entrypoints: websecure
       traefik.http.routers.forgejo.service: forgejo
       traefik.http.routers.forgejo.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.forgejo-local-insecure.rule: Host(`forgejo.${LOCAL_DOMAIN}`)
       traefik.http.routers.forgejo-local-insecure.entrypoints: web
       traefik.http.routers.forgejo-local-insecure.service: forgejo
       traefik.http.routers.forgejo-local-insecure.middlewares: forgejo-web-redirect
-      # Local domain secure
       traefik.http.routers.forgejo-local.rule: Host(`forgejo.${LOCAL_DOMAIN}`)
       traefik.http.routers.forgejo-local.entrypoints: websecure
       traefik.http.routers.forgejo-local.service: forgejo
