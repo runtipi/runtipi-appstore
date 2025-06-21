@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "cross-seed",
-      "image": "ghcr.io/cross-seed/cross-seed:6.12.6",
+      "image": "ghcr.io/cross-seed/cross-seed:6.12.7",
       "isMain": true,
       "command": "daemon",
       "user": "1000:1000",
