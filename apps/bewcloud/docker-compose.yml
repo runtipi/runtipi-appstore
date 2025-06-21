@@ -1,6 +1,6 @@
 services:
   bewcloud:
-    image: ghcr.io/bewcloud/bewcloud:v1.8.0
+    image: ghcr.io/bewcloud/bewcloud:v1.9.2
     container_name: bewcloud
     restart: unless-stopped
     entrypoint: bash
