@@ -2,7 +2,7 @@
   "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
-      "image": "crowdsecurity/crowdsec:v1.6.8",
+      "image": "crowdsecurity/crowdsec:v1.6.9",
       "name": "crowdsec",
       "volumes": [
         {
