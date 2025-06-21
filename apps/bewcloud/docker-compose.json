@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "bewcloud",
-      "image": "ghcr.io/bewcloud/bewcloud:v1.8.0",
+      "image": "ghcr.io/bewcloud/bewcloud:v1.9.2",
       "internalPort": 8053,
       "isMain": true,
       "entrypoint": "bash",
