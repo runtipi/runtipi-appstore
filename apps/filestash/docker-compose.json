@@ -23,7 +23,7 @@
     },
     {
       "name": "filestash-onlyoffice",
-      "image": "onlyoffice/documentserver:7.3.3.50",
+      "image": "onlyoffice/documentserver:7.5.1.1",
       "securityOpt": ["seccomp:unconfined"]
     }
   ]
