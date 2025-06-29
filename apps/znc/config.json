@@ -1,0 +1,15 @@
+{
+    "name": "ZNC",
+    "id": "znc",
+    "available": true,
+    "short_desc": "ZNC is an IRC network bouncer or BNC.",
+    "author": "Laurent Fough",
+    "port": 7666,
+    "categories": ["social", "network", "utilities"],
+    "description": "It can detach the client from the actual IRC server, and also from selected channels.",
+    "tipi_version": 1,
+    "version": "v1.9.1",
+    "source": "https://github.com/znc/znc-docker",
+    "exposable": true,
+    "supported_architectures": ["arm64", "amd64", "arm64v8"]
+}
