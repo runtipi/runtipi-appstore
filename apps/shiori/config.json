@@ -1,0 +1,22 @@
+{
+  "$schema": "../schema.json",
+  "name": "Shiori",
+  "available": true,
+  "exposable": true,
+  "force_expose": true,
+  "port": 8207,
+  "id": "shiori",
+  "tipi_version": 1,
+  "version": "1.7.0",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Shiori is a simple bookmarks manager written in the Go language. Intended as a simple clone of Pocket.",
+  "short_desc": "Shlink is a self-hosted bookmark manager.",
+  "author": "Radhi Fadlillah",
+  "source": "https://github.com/go-shiori/shiori",
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ]
+}
