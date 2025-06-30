@@ -8,7 +8,7 @@
   "port": 8436,
   "categories": ["network", "utilities"],
   "description": "Synchronize AdGuardHome config to replica instances",
-  "tipi_version": 12,
+  "tipi_version": 13,
   "version": "0.7.6",
   "source": "https://github.com/bakito/adguardhome-sync",
   "exposable": true,
@@ -21,25 +21,23 @@
       "required": true,
       "hint": "Cron schedule to run the sync",
       "env_variable": "ADGUARDHOME_SYNC_CRON",
-      "regex": "(@(annually|yearly|monthly|weekly|daily|hourly|reboot))|(@every (\\d+(ns|us|µs|ms|s|m|h))+)|((((\\d+,)+\\d+|(\\d+(/|-)\\d+)|\\d+|\\*) ?){5,7})"
+      "regex": "(@(annually|yearly|monthly|weekly|daily|hourly))|(@every (\\d+(ns|us|µs|ms|s|m|h))+)|((((\\d+,)+\\d+|(\\d+(/|-)\\d+)|\\d+|\\*) ?){5,7})"
     },
     {
-      "type": "text",
+      "type": "url",
       "label": "AdGuard Home Origin URL",
       "required": true,
       "hint": "URL of the Origin AdGuard Home instance",
-      "env_variable": "ADGUARDHOME_SYNC_ORIGIN_URL",
-      "regex": "[(http(s)?)://(www\\.)?a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}"
+      "env_variable": "ADGUARDHOME_SYNC_ORIGIN_URL"
     },
     {
-      "type": "text",
+      "type": "url",
       "label": "AdGuard Home Replica URL",
       "required": true,
       "hint": "URL of the Replica AdGuard Home instance",
-      "env_variable": "ADGUARDHOME_SYNC_REPLICA_URL",
-      "regex": "[(http(s)?)://(www\\.)?a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}"
+      "env_variable": "ADGUARDHOME_SYNC_REPLICA_URL"
     }
   ],
   "created_at": 1730236492823,
-  "updated_at": 1748547839572
+  "updated_at": 1751319218728
 }
