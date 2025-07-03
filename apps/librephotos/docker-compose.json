@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "librephotos",
-      "image": "reallibrephotos/librephotos-proxy:2023w48",
+      "image": "reallibrephotos/librephotos-proxy:2025w24",
       "isMain": true,
       "internalPort": 80,
       "dependsOn": ["librephotos-backend", "librephotos-frontend"],
@@ -45,12 +45,12 @@
     },
     {
       "name": "librephotos-frontend",
-      "image": "reallibrephotos/librephotos-frontend:2023w48",
+      "image": "reallibrephotos/librephotos-frontend:2025w24",
       "dependsOn": ["librephotos-backend"]
     },
     {
       "name": "librephotos-backend",
-      "image": "reallibrephotos/librephotos:2023w48",
+      "image": "reallibrephotos/librephotos:2025w24",
       "environment": {
         "SECRET_KEY": "${LIBREPHOTOS_SECRET_KEY}",
         "BACKEND_HOST": "librephotos-backend",

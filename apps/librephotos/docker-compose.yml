@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   librephotos:
-    image: reallibrephotos/librephotos-proxy:2023w48
+    image: reallibrephotos/librephotos-proxy:2025w24
     container_name: librephotos
     restart: unless-stopped
     volumes:
@@ -62,7 +62,7 @@ services:
     labels:
       runtipi.managed: true
   librephotos-frontend:
-    image: reallibrephotos/librephotos-frontend:2023w48
+    image: reallibrephotos/librephotos-frontend:2025w24
     container_name: librephotos-frontend
     restart: unless-stopped
     depends_on:
@@ -72,7 +72,7 @@ services:
     labels:
       runtipi.managed: true
   librephotos-backend:
-    image: reallibrephotos/librephotos:2023w48
+    image: reallibrephotos/librephotos:2025w24
     container_name: librephotos-backend
     restart: unless-stopped
     volumes:
