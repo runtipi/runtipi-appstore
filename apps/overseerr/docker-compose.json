@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "overseerr",
-      "image": "ghcr.io/linuxserver/overseerr:1.34.0",
+      "image": "ghcr.io/linuxserver/overseerr:2021.12.12",
       "isMain": true,
       "internalPort": 5055,
       "environment": {
