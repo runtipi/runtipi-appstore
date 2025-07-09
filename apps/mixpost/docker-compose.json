@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "mixpost",
-      "image": "inovector/mixpost:v2.2.0",
+      "image": "inovector/mixpost:v2.3.0",
       "isMain": true,
       "internalPort": 80,
       "environment": {
