@@ -1,6 +1,6 @@
 services:
   romm:
-    image: ghcr.io/rommapp/romm:3.9.0
+    image: ghcr.io/rommapp/romm:3.10.2
     container_name: romm
     environment:
       - DB_HOST=romm-db
@@ -26,33 +26,26 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.romm-web-redirect.redirectscheme.scheme: https
       traefik.http.services.romm.loadbalancer.server.port: 8080
-      # Web
       traefik.http.routers.romm-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.romm-insecure.entrypoints: web
       traefik.http.routers.romm-insecure.service: romm
       traefik.http.routers.romm-insecure.middlewares: romm-web-redirect
-      # Websecure
       traefik.http.routers.romm.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.romm.entrypoints: websecure
       traefik.http.routers.romm.service: romm
       traefik.http.routers.romm.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.romm-local-insecure.rule: Host(`romm.${LOCAL_DOMAIN}`)
       traefik.http.routers.romm-local-insecure.entrypoints: web
       traefik.http.routers.romm-local-insecure.service: romm
       traefik.http.routers.romm-local-insecure.middlewares: romm-web-redirect
-      # Local domain secure
       traefik.http.routers.romm-local.rule: Host(`romm.${LOCAL_DOMAIN}`)
       traefik.http.routers.romm-local.entrypoints: websecure
       traefik.http.routers.romm-local.service: romm
       traefik.http.routers.romm-local.tls: true
-      # Runtipi managed
       runtipi.managed: true
-
   romm-db:
     image: lscr.io/linuxserver/mariadb:11.4.5
     container_name: romm-db
@@ -67,5 +60,4 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Runtipi managed
       runtipi.managed: true
