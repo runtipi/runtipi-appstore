@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "portainer",
-      "image": "portainer/portainer-ce:2.30.1-alpine",
+      "image": "portainer/portainer-ce:2.31.3-alpine",
       "isMain": true,
       "internalPort": 9000,
       "volumes": [
