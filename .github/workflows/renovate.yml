@@ -13,7 +13,7 @@ on:
           - ERROR
           - FATAL
   schedule:
-    - cron: 0 0 * * *
+    - cron: 20 4 * * *
 
 jobs:
   renovate:
