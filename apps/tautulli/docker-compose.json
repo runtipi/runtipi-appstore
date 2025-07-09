@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "tautulli",
-      "image": "lscr.io/linuxserver/tautulli:2.15.2",
+      "image": "lscr.io/linuxserver/tautulli:2021.12.16",
       "isMain": true,
       "internalPort": 8181,
       "environment": {
