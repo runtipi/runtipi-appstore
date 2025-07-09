@@ -1,9 +1,8 @@
-version: "3"
-
+version: '3'
 services:
   jellyseerr:
     container_name: jellyseerr
-    image: fallenbagel/jellyseerr:2.5.2
+    image: fallenbagel/jellyseerr:2.7.0
     ports:
       - ${APP_PORT}:5055
     volumes:
@@ -15,26 +14,21 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.jellyseerr-web-redirect.redirectscheme.scheme: https
       traefik.http.services.jellyseerr.loadbalancer.server.port: 5055
-      # Web
       traefik.http.routers.jellyseerr-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.jellyseerr-insecure.entrypoints: web
       traefik.http.routers.jellyseerr-insecure.service: jellyseerr
       traefik.http.routers.jellyseerr-insecure.middlewares: jellyseerr-web-redirect
-      # Websecure
       traefik.http.routers.jellyseerr.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.jellyseerr.entrypoints: websecure
       traefik.http.routers.jellyseerr.service: jellyseerr
       traefik.http.routers.jellyseerr.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.jellyseerr-local-insecure.rule: Host(`jellyseerr.${LOCAL_DOMAIN}`)
       traefik.http.routers.jellyseerr-local-insecure.entrypoints: web
       traefik.http.routers.jellyseerr-local-insecure.service: jellyseerr
       traefik.http.routers.jellyseerr-local-insecure.middlewares: jellyseerr-web-redirect
-      # Local domain secure
       traefik.http.routers.jellyseerr-local.rule: Host(`jellyseerr.${LOCAL_DOMAIN}`)
       traefik.http.routers.jellyseerr-local.entrypoints: websecure
       traefik.http.routers.jellyseerr-local.service: jellyseerr
