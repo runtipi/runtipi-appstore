@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "wizarr",
-      "image": "ghcr.io/wizarrrr/wizarr:4.2.0",
+      "image": "ghcr.io/wizarrrr/wizarr:2025.7.2",
       "isMain": true,
       "internalPort": 5690,
       "volumes": [
