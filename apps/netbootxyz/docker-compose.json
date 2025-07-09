@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "netbootxyz",
-      "image": "netbootxyz/netbootxyz:0.7.5-nbxyz3",
+      "image": "netbootxyz/netbootxyz:0.7.6-nbxyz3",
       "isMain": true,
       "internalPort": 3000,
       "addPorts": [
