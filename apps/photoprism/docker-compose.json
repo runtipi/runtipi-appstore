@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "photoprism",
-      "image": "photoprism/photoprism:240420",
+      "image": "photoprism/photoprism:20220121",
       "isMain": true,
       "internalPort": 2342,
       "environment": {
