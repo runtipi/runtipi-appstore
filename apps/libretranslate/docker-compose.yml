@@ -1,8 +1,8 @@
-version: "3.7"
+version: '3.7'
 services:
   libretranslate:
     container_name: libretranslate
-    image: libretranslate/libretranslate:v1.6.5
+    image: libretranslate/libretranslate:v1.7.2
     dns:
       - ${DNS_IP}
     ports:
@@ -11,26 +11,21 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.libretranslate-web-redirect.redirectscheme.scheme: https
       traefik.http.services.libretranslate.loadbalancer.server.port: 5000
-      # Web
       traefik.http.routers.libretranslate-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.libretranslate-insecure.entrypoints: web
       traefik.http.routers.libretranslate-insecure.service: libretranslate
       traefik.http.routers.libretranslate-insecure.middlewares: libretranslate-web-redirect
-      # Websecure
       traefik.http.routers.libretranslate.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.libretranslate.entrypoints: websecure
       traefik.http.routers.libretranslate.service: libretranslate
       traefik.http.routers.libretranslate.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.libretranslate-local-insecure.rule: Host(`libretranslate.${LOCAL_DOMAIN}`)
       traefik.http.routers.libretranslate-local-insecure.entrypoints: web
       traefik.http.routers.libretranslate-local-insecure.service: libretranslate
       traefik.http.routers.libretranslate-local-insecure.middlewares: libretranslate-web-redirect
-      # Local domain secure
       traefik.http.routers.libretranslate-local.rule: Host(`libretranslate.${LOCAL_DOMAIN}`)
       traefik.http.routers.libretranslate-local.entrypoints: websecure
       traefik.http.routers.libretranslate-local.service: libretranslate
