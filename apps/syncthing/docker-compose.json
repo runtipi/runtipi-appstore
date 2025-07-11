@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "syncthing",
-      "image": "syncthing/syncthing:1.29",
+      "image": "syncthing/syncthing:1.30",
       "isMain": true,
       "internalPort": 8384,
       "addPorts": [
