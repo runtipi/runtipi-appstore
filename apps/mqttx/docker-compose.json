@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "mqttx",
-      "image": "emqx/mqttx-web:v1.11.1",
+      "image": "emqx/mqttx-web:v1.12.0",
       "isMain": true,
       "internalPort": 80,
       "volumes": [
