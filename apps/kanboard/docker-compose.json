@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "kanboard",
-      "image": "kanboard/kanboard:v1.2.45",
+      "image": "kanboard/kanboard:v1.2.46",
       "isMain": true,
       "internalPort": 80,
       "environment": {
