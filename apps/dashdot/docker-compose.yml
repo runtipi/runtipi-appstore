@@ -1,7 +1,7 @@
-version: "3.5"
+version: '3.5'
 services:
   dashdot:
-    image: mauricenino/dashdot:6.0.0
+    image: mauricenino/dashdot:6.1.0
     restart: unless-stopped
     container_name: dashdot
     privileged: true
@@ -20,26 +20,21 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.dashdot-web-redirect.redirectscheme.scheme: https
       traefik.http.services.dashdot.loadbalancer.server.port: 3001
-      # Web
       traefik.http.routers.dashdot-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.dashdot-insecure.entrypoints: web
       traefik.http.routers.dashdot-insecure.service: dashdot
       traefik.http.routers.dashdot-insecure.middlewares: dashdot-web-redirect
-      # Websecure
       traefik.http.routers.dashdot.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.dashdot.entrypoints: websecure
       traefik.http.routers.dashdot.service: dashdot
       traefik.http.routers.dashdot.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.dashdot-local-insecure.rule: Host(`dashdot.${LOCAL_DOMAIN}`)
       traefik.http.routers.dashdot-local-insecure.entrypoints: web
       traefik.http.routers.dashdot-local-insecure.service: dashdot
       traefik.http.routers.dashdot-local-insecure.middlewares: dashdot-web-redirect
-      # Local domain secure
       traefik.http.routers.dashdot-local.rule: Host(`dashdot.${LOCAL_DOMAIN}`)
       traefik.http.routers.dashdot-local.entrypoints: websecure
       traefik.http.routers.dashdot-local.service: dashdot
