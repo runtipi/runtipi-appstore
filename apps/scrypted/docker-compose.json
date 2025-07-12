@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "scrypted",
-      "image": "koush/scrypted:18-jammy-full.s6-v0.94.5",
+      "image": "koush/scrypted:20-jammy-full.s6-v0.94.5",
       "isMain": true,
       "networkMode": "host",
       "environment": {
