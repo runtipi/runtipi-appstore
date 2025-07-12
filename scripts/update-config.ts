@@ -55,7 +55,7 @@ const updateAppConfig = async (packageFile: string, newVersion: string) => {
       );
     }
 
-    if (packageName.includes(packageRoot)) {
+    if (packageName.includes(packageRoot.split(path.sep)[1])) {
       config.version = newVersion;
     }
 
