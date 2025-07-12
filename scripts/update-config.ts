@@ -55,8 +55,11 @@ const updateAppConfig = async (packageFile: string, newVersion: string) => {
       );
     }
 
+    if (packageName.includes(packageRoot)) {
+      config.version = newVersion;
+    }
+
     config.tipi_version = config.tipi_version + 1;
-    config.version = newVersion;
     config.updated_at = Date.now();
 
     await fs.writeFile(dockerComposeYmlPath, yaml.dump(dockerComposeYml, { lineWidth: -1, noRefs: true, sortKeys: false, indent: 2 }));
