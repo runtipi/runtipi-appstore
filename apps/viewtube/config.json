@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "viewtube",
-  "tipi_version": 15,
-  "version": "0.17.0",
+  "tipi_version": 16,
+  "version": "8",
   "categories": ["media"],
   "description": "The open source, privacy-conscious way to enjoy your favorite YouTube content.",
   "short_desc": "The open source, privacy-conscious way to enjoy your favorite YouTube content.",
@@ -16,5 +16,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1735482522927
+  "updated_at": 1752335341159
 }

@@ -26,7 +26,7 @@
     },
     {
       "name": "wekan-db",
-      "image": "mongo:6",
+      "image": "mongo:8",
       "volumes": [
         {
           "hostPath": "/etc/localtime",
