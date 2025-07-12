@@ -32,7 +32,7 @@ services:
     labels:
       runtipi.managed: true
   invoice-ninja-web:
-    image: nginx:1.28
+    image: nginx:1.29
     container_name: invoice-ninja-web
     restart: unless-stopped
     volumes:
