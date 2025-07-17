@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "eclipse-mosquitto",
-      "image": "eclipse-mosquitto:2.0.21",
+      "image": "eclipse-mosquitto:2.0.22",
       "command": ["/dynsec-setup.sh", "/usr/sbin/mosquitto", "-c", "/mosquitto/config/mosquitto.conf"],
       "environment": {
         "TZ": "${TZ}",

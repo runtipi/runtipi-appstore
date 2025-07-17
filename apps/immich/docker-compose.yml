@@ -2,7 +2,7 @@ version: '3.7'
 services:
   immich:
     container_name: immich
-    image: ghcr.io/immich-app/immich-server:v1.134.0
+    image: ghcr.io/immich-app/immich-server:v1.135.3
     volumes:
       - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
     environment:
@@ -45,7 +45,7 @@ services:
       runtipi.managed: true
   immich-machine-learning:
     container_name: immich-machine-learning
-    image: ghcr.io/immich-app/immich-machine-learning:v1.134.0
+    image: ghcr.io/immich-app/immich-machine-learning:v1.135.3
     volumes:
       - ${ROOT_FOLDER_HOST}/media/data/images/immich:/usr/src/app/upload
       - ${APP_DATA_DIR}/data/immich-ml-cache:/cache

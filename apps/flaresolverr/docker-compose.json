@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "flaresolverr",
-      "image": "ghcr.io/flaresolverr/flaresolverr:v3.3.24",
+      "image": "ghcr.io/flaresolverr/flaresolverr:v3.3.25",
       "internalPort": 8191,
       "isMain": true,
       "environment": {

@@ -7,6 +7,7 @@
       "internalPort": 80,
       "environment": {
         "APP_KEY": "${MONICA_APP_KEY}",
+        "APP_TRUSTED_PROXIES": "172.18.0.0/16",
         "DB_HOST": "monica-db",
         "DB_USERNAME": "usermonica",
         "DB_PASSWORD": "${MONICA_DB_PASS}"

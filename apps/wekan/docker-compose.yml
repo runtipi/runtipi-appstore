@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   wekan:
-    image: ghcr.io/wekan/wekan:v7.91
+    image: ghcr.io/wekan/wekan:v7.92
     container_name: wekan
     environment:
       - MONGO_URL=mongodb://wekan-db:27017/wekan

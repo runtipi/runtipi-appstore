@@ -65,7 +65,7 @@
     },
     {
       "name": "plausible-events-db",
-      "image": "clickhouse/clickhouse-server:24.3.3.102-alpine",
+      "image": "clickhouse/clickhouse-server:24.12.6.70-alpine",
       "environment": {
         "POSTGRES_DB": "plausible-db",
         "POSTGRES_USER": "tipi",

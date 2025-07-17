@@ -2,11 +2,11 @@
   "services": [
     {
       "name": "notemark",
-      "image": "ghcr.io/enchant97/note-mark-frontend:0.16.0"
+      "image": "ghcr.io/enchant97/note-mark-frontend:0.16.3"
     },
     {
       "name": "notemark-backend",
-      "image": "ghcr.io/enchant97/note-mark-backend:0.16.2",
+      "image": "ghcr.io/enchant97/note-mark-backend:0.16.3",
       "environment": {
         "JWT_SECRET": "${NOTEMARK_SERVICE_SECRET}",
         "CORS_ORIGINS": "*"
@@ -20,7 +20,7 @@
     },
     {
       "name": "notemark-proxy",
-      "image": "ghcr.io/enchant97/note-mark-frontend:0.16.2",
+      "image": "ghcr.io/enchant97/note-mark-frontend:0.16.3",
       "isMain": true,
       "internalPort": 80,
       "volumes": [

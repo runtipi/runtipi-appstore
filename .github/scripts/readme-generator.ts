@@ -34,7 +34,7 @@ const getAppsList = async () => {
           dynamic: appConfigJson.dynamic_config,
         };
       }
-    } catch (e) {
+    } catch (_) {
       console.error(`Error parsing config for ${app}`);
     }
   }

@@ -1,6 +1,6 @@
 services:
   lubelogger:
-    image: ghcr.io/hargata/lubelogger:v1.4.7
+    image: ghcr.io/hargata/lubelogger:v1.4.9
     container_name: lubelogger
     environment:
       - TZ=${TZ}
@@ -44,26 +44,21 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.lubelogger-web-redirect.redirectscheme.scheme: https
       traefik.http.services.lubelogger.loadbalancer.server.port: 8080
-      # Web
       traefik.http.routers.lubelogger-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.lubelogger-insecure.entrypoints: web
       traefik.http.routers.lubelogger-insecure.service: lubelogger
       traefik.http.routers.lubelogger-insecure.middlewares: lubelogger-web-redirect
-      # Websecure
       traefik.http.routers.lubelogger.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.lubelogger.entrypoints: websecure
       traefik.http.routers.lubelogger.service: lubelogger
       traefik.http.routers.lubelogger.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.lubelogger-local-insecure.rule: Host(`lubelogger.${LOCAL_DOMAIN}`)
       traefik.http.routers.lubelogger-local-insecure.entrypoints: web
       traefik.http.routers.lubelogger-local-insecure.service: lubelogger
       traefik.http.routers.lubelogger-local-insecure.middlewares: lubelogger-web-redirect
-      # Local domain secure
       traefik.http.routers.lubelogger-local.rule: Host(`lubelogger.${LOCAL_DOMAIN}`)
       traefik.http.routers.lubelogger-local.entrypoints: websecure
       traefik.http.routers.lubelogger-local.service: lubelogger
@@ -82,7 +77,9 @@ services:
       POSTGRES_USER: tipi
       POSTGRES_PASSWORD: tipi
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      test:
+        - CMD-SHELL
+        - pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
     networks:
       - tipi_main_network
     labels:

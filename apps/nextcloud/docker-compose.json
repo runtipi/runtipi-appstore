@@ -34,10 +34,10 @@
         "traefik.http.middlewares.nextcloud_redirect.redirectregex.permanent": "true",
         "traefik.http.middlewares.nextcloud_redirect.redirectregex.regex": "https://(.*)/.well-known/(card|cal)dav",
         "traefik.http.middlewares.nextcloud_redirect.redirectregex.replacement": "https://$${1}/remote.php/dav/",
-        "traefik.http.routers.nextcloud.middlewares": "nextcloud,nextcloud_redirect,nextcloud-https",
+        "traefik.http.routers.nextcloud.middlewares": "{{RUNTIPI_APP_ID}},{{RUNTIPI_APP_ID}}_redirect,{{RUNTIPI_APP_ID}}-https",
         "traefik.http.middlewares.nextcloud.headers.customRequestHeaders.X-Forwarded-Proto": "https",
         "traefik.http.middlewares.nextcloud-https.redirectscheme.scheme": "https",
-        "traefik.http.routers.nextcloud-http.middlewares": "nextcloud-https@docker"
+        "traefik.http.routers.nextcloud-http.middlewares": "{{RUNTIPI_APP_ID}}-https@docker"
       }
     },
     {

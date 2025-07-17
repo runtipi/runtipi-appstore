@@ -8,8 +8,8 @@
   "port": 8053,
   "categories": ["data"],
   "description": "A simpler alternative to Nextcloud and ownCloud, built with TypeScript and Deno using Fresh.",
-  "tipi_version": 11,
-  "version": "1.8.0",
+  "tipi_version": 12,
+  "version": "v1.9.2",
   "source": "https://github.com/bewcloud/bewcloud",
   "website": "https://bewcloud.com",
   "exposable": true,
@@ -61,6 +61,6 @@
     }
   ],
   "created_at": 1739004791872,
-  "updated_at": 1748540412466,
+  "updated_at": 1750500551724,
   "dynamic_config": true
 }

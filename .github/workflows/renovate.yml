@@ -13,7 +13,7 @@ on:
           - ERROR
           - FATAL
   schedule:
-    - cron: 0 * * * *
+    - cron: 20 4 * * *
 
 jobs:
   renovate:
@@ -52,4 +52,5 @@ jobs:
           PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+          RENOVATE_REDIS_URL: ${{ secrets.RENOVATE_REDIS_URL }}
         run: LOG_LEVEL=${{ github.event.inputs.log_level || 'INFO' }} renovate --token ${{ steps.app-token.outputs.token }} ${{ github.repository }}
