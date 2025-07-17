@@ -34,6 +34,15 @@ export async function readJsonFile<T>(filepath: string): Promise<T> {
   return JSON.parse(content);
 }
 
+const stripVersioning = (packageName: string) => {
+  const parts = packageName.split("-");
+  if (!Number.isNaN(Number.parseInt(parts[parts.length - 1], 10))) {
+    parts.pop();
+    return parts.join("-");
+  }
+  return packageName;
+};
+
 const updateAppConfig = async (packageFile: string, newVersion: string) => {
   try {
     const packageRoot = path.dirname(packageFile);
@@ -55,7 +64,7 @@ const updateAppConfig = async (packageFile: string, newVersion: string) => {
       );
     }
 
-    if (packageName.includes(packageRoot)) {
+    if (packageName.includes(stripVersioning(packageRoot.split(path.sep)[1]))) {
       config.version = newVersion;
     }
 
