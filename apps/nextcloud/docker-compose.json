@@ -34,7 +34,7 @@
         "traefik.http.middlewares.{{RUNTIPI_APP_ID}}_redirect.redirectregex.permanent": "true",
         "traefik.http.middlewares.{{RUNTIPI_APP_ID}}_redirect.redirectregex.regex": "https://(.*)/.well-known/(card|cal)dav",
         "traefik.http.middlewares.{{RUNTIPI_APP_ID}}_redirect.redirectregex.replacement": "https://$${1}/remote.php/dav/",
-        "traefik.http.routers.{{RUNTIPI_APP_ID}}.middlewares": "{{RUNTIPI_APP_ID}},{{RUNTIPI_APP_ID}}_redirect,{{RUNTIPI_APP_ID}}-https"
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}.middlewares": "{{RUNTIPI_APP_ID}},{{RUNTIPI_APP_ID}}_redirect,{{RUNTIPI_APP_ID}}-https",
         "traefik.http.routers.{{RUNTIPI_APP_ID}}-http.middlewares": "{{RUNTIPI_APP_ID}}-https@docker"
     },
     {
