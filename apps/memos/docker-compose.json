@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "memos",
-      "image": "neosmemo/memos:0.24.4",
+      "image": "neosmemo/memos:0.25.0",
       "isMain": true,
       "internalPort": 5230,
       "volumes": [
