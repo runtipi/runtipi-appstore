@@ -39,36 +39,27 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.plausible-web-redirect.redirectscheme.scheme: https
       traefik.http.services.plausible.loadbalancer.server.port: 8000
-      # Web
       traefik.http.routers.plausible-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.plausible-insecure.entrypoints: web
       traefik.http.routers.plausible-insecure.service: plausible
       traefik.http.routers.plausible-insecure.middlewares: plausible-web-redirect
-      # Websecure
       traefik.http.routers.plausible.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.plausible.entrypoints: websecure
       traefik.http.routers.plausible.service: plausible
       traefik.http.routers.plausible.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.plausible-local-insecure.rule: Host(`plausible.${LOCAL_DOMAIN}`)
       traefik.http.routers.plausible-local-insecure.entrypoints: web
       traefik.http.routers.plausible-local-insecure.service: plausible
       traefik.http.routers.plausible-local-insecure.middlewares: plausible-web-redirect
-      # Local domain secure
       traefik.http.routers.plausible-local.rule: Host(`plausible.${LOCAL_DOMAIN}`)
       traefik.http.routers.plausible-local.entrypoints: websecure
       traefik.http.routers.plausible-local.service: plausible
       traefik.http.routers.plausible-local.tls: true
-      # Runtipi managed
       runtipi.managed: true
-
   plausible-db:
-    # Plausible v2.1.1 was tested against PostgreSQL versions 15 and 16
-    # https://github.com/plausible/analytics/blob/v2.1.1/.github/workflows/elixir.yml#L21-L32
     container_name: plausible-db
     image: postgres:16-alpine
     restart: unless-stopped
@@ -81,12 +72,10 @@ services:
       - POSTGRES_USER=tipi
       - POSTGRES_DB=plausible-db
     labels:
-      # Runtipi managed
       runtipi.managed: true
-
   plausible-events-db:
     container_name: plausible-events-db
-    image: clickhouse/clickhouse-server:24.3.3.102-alpine
+    image: clickhouse/clickhouse-server:24.12.6.70
     restart: unless-stopped
     networks:
       - tipi_main_network
@@ -100,5 +89,4 @@ services:
         soft: 262144
         hard: 262144
     labels:
-      # Runtipi managed
       runtipi.managed: true

@@ -2,7 +2,7 @@ version: '3'
 services:
   jellyseerr:
     container_name: jellyseerr
-    image: fallenbagel/jellyseerr:2.7.0
+    image: fallenbagel/jellyseerr:2.7.1
     ports:
       - ${APP_PORT}:5055
     volumes:
