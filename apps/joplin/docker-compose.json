@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "joplin",
-      "image": "joplin/server:3.3.13",
+      "image": "joplin/server:3.4.1",
       "isMain": true,
       "internalPort": 22300,
       "environment": {
