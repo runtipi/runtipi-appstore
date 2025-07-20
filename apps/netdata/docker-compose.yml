@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   netdata:
-    image: netdata/netdata:v2.5.4
+    image: netdata/netdata:v2.6.0
     container_name: netdata
     pid: host
     restart: unless-stopped
