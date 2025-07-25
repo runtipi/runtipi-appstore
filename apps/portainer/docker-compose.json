@@ -5,7 +5,7 @@
       "name": "portainer",
       "image": "portainer/portainer-ce:2.32.0",
       "isMain": true,
-      "internalPort": 9000,
+      "internalPort": 9443,
       "volumes": [
         {
           "hostPath": "/var/run/docker.sock",
