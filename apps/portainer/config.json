@@ -2,12 +2,13 @@
   "$schema": "../app-info-schema.json",
   "name": "Portainer",
   "port": 9443,
+  "https": true,
   "available": true,
   "exposable": true,
   "dynamic_config": true,
   "id": "portainer",
-  "tipi_version": 45,
-  "version": "2.31.3",
+  "tipi_version": 46,
+  "version": "2.32.0",
   "categories": ["utilities"],
   "description": "Portainer Community Edition is a lightweight service delivery platform for containerized applications that can be used to manage Docker, Swarm, Kubernetes and ACI environments.",
   "short_desc": "Making Docker and Kubernetes management easy.",
@@ -17,5 +18,5 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1752088434279
+  "updated_at": 1753447852532
 }

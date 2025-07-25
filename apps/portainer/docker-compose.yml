@@ -1,6 +1,6 @@
 services:
   portainer:
-    image: portainer/portainer-ce:2.31.3
+    image: portainer/portainer-ce:2.32.0
     container_name: portainer
     restart: unless-stopped
     ports:
@@ -14,6 +14,8 @@ services:
       traefik.enable: true
       traefik.http.middlewares.portainer-web-redirect.redirectscheme.scheme: https
       traefik.http.services.portainer.loadbalancer.server.port: 9000
+      traefik.http.services.crafty.loadbalancer.server.scheme: https
+      traefik.http.services.crafty.loadbalancer.serverstransport: insecuretransport@file
       traefik.http.routers.portainer-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.portainer-insecure.entrypoints: web
       traefik.http.routers.portainer-insecure.service: portainer
