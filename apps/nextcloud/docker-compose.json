@@ -24,21 +24,7 @@
           "hostPath": "${APP_DATA_DIR}/data/nextcloud",
           "containerPath": "/var/www/html"
         }
-      ],
-      "extraLabels": {
-        "traefik.http.middlewares.nextcloud.headers.browserXSSFilter": "true",
-        "traefik.http.middlewares.nextcloud.headers.contentTypeNosniff": "true",
-        "traefik.http.middlewares.nextcloud.headers.stsIncludeSubdomains": "true",
-        "traefik.http.middlewares.nextcloud.headers.stsPreload": "true",
-        "traefik.http.middlewares.nextcloud.headers.stsSeconds": "155520011",
-        "traefik.http.middlewares.nextcloud_redirect.redirectregex.permanent": "true",
-        "traefik.http.middlewares.nextcloud_redirect.redirectregex.regex": "https://(.*)/.well-known/(card|cal)dav",
-        "traefik.http.middlewares.nextcloud_redirect.redirectregex.replacement": "https://$${1}/remote.php/dav/",
-        "traefik.http.routers.nextcloud.middlewares": "{{RUNTIPI_APP_ID}},{{RUNTIPI_APP_ID}}_redirect,{{RUNTIPI_APP_ID}}-https",
-        "traefik.http.middlewares.nextcloud.headers.customRequestHeaders.X-Forwarded-Proto": "https",
-        "traefik.http.middlewares.nextcloud-https.redirectscheme.scheme": "https",
-        "traefik.http.routers.nextcloud-http.middlewares": "{{RUNTIPI_APP_ID}}-https@docker"
-      }
+      ]
     },
     {
       "name": "db-nextcloud",

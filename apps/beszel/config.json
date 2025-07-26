@@ -8,13 +8,13 @@
   "port": 8999,
   "categories": ["utilities"],
   "description": "A lightweight server monitoring hub with historical data, docker stats, and alerts.",
-  "tipi_version": 21,
-  "version": "0.11.1",
+  "tipi_version": 23,
+  "version": "0.12.1",
   "source": "https://github.com/henrygd/beszel",
   "exposable": true,
   "dynamic_config": true,
   "supported_architectures": ["arm64", "amd64"],
   "form_fields": [],
   "created_at": 1724537201221,
-  "updated_at": 1745891127000
+  "updated_at": 1753565997078
 }
