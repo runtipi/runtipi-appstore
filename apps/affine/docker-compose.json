@@ -6,7 +6,7 @@
       "name": "affine",
       "internalPort": 3010,
       "isMain": true,
-      "command": ["sh", "-c", "node ./scripts/self-host-predeploy && node ./dist/index.js"],
+      "command": ["sh", "-c", "node ./scripts/self-host-predeploy && node ./dist/main.js"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/config",
@@ -18,7 +18,6 @@
         }
       ],
       "environment": {
-        "NODE_OPTIONS": "--import=./scripts/register.js",
         "AFFINE_CONFIG_PATH": "/root/.affine/config",
         "REDIS_SERVER_HOST": "affine-redis",
         "DATABASE_URL": "postgres://tipi:${AFFINE_POSTGRES_PASSWORD}@affine-postgres:5432/affine",
