@@ -8,8 +8,8 @@
   "port": 27017,
   "categories": ["development", "data"],
   "description": "MongoDB is an open-source document-oriented database that is designed to store a large scale of data and also allows you to work with that data very efficiently. It is categorized under the NoSQL (Not only SQL) database because the storage and retrieval of data in the MongoDB are not in the form of tables.",
-  "tipi_version": 5,
-  "version": "7.0.21",
+  "tipi_version": 6,
+  "version": "7.0.22",
   "source": "https://github.com/mongodb/mongo",
   "website": "https://www.mongodb.com/",
   "exposable": true,
@@ -35,5 +35,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1749004769521
+  "updated_at": 1753566050973
 }
