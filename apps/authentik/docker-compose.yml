@@ -70,7 +70,7 @@ services:
       runtipi.managed: true
   authentik-db:
     container_name: authentik-db
-    image: postgres:12-alpine
+    image: postgres:13-alpine
     restart: unless-stopped
     healthcheck:
       test:
