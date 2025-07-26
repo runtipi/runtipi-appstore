@@ -67,7 +67,7 @@
       "dependsOn": ["authentik-db", "authentik-redis"]
     },
     {
-      "image": "postgres:12-alpine",
+      "image": "postgres:13-alpine",
       "name": "authentik-db",
       "volumes": [
         {

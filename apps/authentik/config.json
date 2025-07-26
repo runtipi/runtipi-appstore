@@ -5,9 +5,8 @@
   "available": true,
   "exposable": true,
   "dynamic_config": true,
-  "no_gui": true,
   "id": "authentik",
-  "tipi_version": 48,
+  "tipi_version": 49,
   "version": "2025.6.4",
   "https": true,
   "categories": ["development"],
@@ -31,5 +30,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1753565940966
+  "updated_at": 1753569483388
 }
