@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "trilium",
-      "image": "ghcr.io/zadam/trilium:0.63.7",
+      "image": "ghcr.io/triliumnext/trilium:v0.97.1",
       "isMain": true,
       "internalPort": 8080,
       "environment": {
