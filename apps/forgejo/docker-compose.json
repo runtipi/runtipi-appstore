@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "forgejo",
-      "image": "codeberg.org/forgejo/forgejo:11.0.3",
+      "image": "codeberg.org/forgejo/forgejo:12.0.1",
       "isMain": true,
       "internalPort": 3000,
       "addPorts": [
