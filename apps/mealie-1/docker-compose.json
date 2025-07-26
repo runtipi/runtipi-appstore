@@ -2,7 +2,7 @@
   "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
-      "image": "ghcr.io/mealie-recipes/mealie:v3.0.1",
+      "image": "ghcr.io/mealie-recipes/mealie:v3.0.2",
       "name": "mealie-1",
       "internalPort": 9000,
       "isMain": true,
