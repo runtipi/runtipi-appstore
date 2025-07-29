@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "id": "activepieces",
   "description": "Your friendliest open source all-in-one automation tool.",
-  "tipi_version": 108,
-  "version": "0.66.5",
+  "tipi_version": 109,
+  "version": "0.66.6",
   "categories": ["automation"],
   "short_desc": "True zapier alternative.",
   "author": "Activepieces",
@@ -41,6 +41,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1753505565627,
+  "updated_at": 1753765295266,
   "$schema": "../app-info-schema.json"
 }
