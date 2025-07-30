@@ -2,7 +2,7 @@
   "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
-      "image": "ghcr.io/toeverything/affine-graphql:stable",
+      "image": "ghcr.io/toeverything/affine:stable",
       "name": "affine",
       "internalPort": 3010,
       "isMain": true,
