@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "nodered",
-      "image": "nodered/node-red:4.0.9",
+      "image": "nodered/node-red:4.1.0",
       "isMain": true,
       "internalPort": 1880,
       "volumes": [
