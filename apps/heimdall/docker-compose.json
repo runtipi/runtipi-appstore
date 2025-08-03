@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "heimdall",
-      "image": "lscr.io/linuxserver/heimdall:2.7.3",
+      "image": "lscr.io/linuxserver/heimdall:2.7.4",
       "isMain": true,
       "internalPort": 80,
       "environment": {
