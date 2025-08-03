@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "inspircd",
-      "image": "inspircd/inspircd-docker:4.7.0",
+      "image": "inspircd/inspircd-docker:4.8.0",
       "isMain": true,
       "internalPort": 6697,
       "volumes": [
