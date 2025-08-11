@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "budibase",
-      "image": "budibase/budibase:3.13.28",
+      "image": "budibase/budibase:3.15.0",
       "isMain": true,
       "internalPort": 80,
       "volumes": [
