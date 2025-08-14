@@ -1,11 +1,14 @@
 version: '3.9'
 services:
   cloudflared:
-    image: wisdomsky/cloudflared-web:2025.7.0
+    image: wisdomsky/cloudflared-web:2025.8.0
     container_name: cloudflared
     restart: unless-stopped
     network_mode: host
     volumes:
       - ${APP_DATA_DIR}/data/cloudflared/config:/config
+    environment:
+      BASIC_AUTH_USER: ${BASIC_AUTH_USER}
+      BASIC_AUTH_PASS: ${BASIC_AUTH_PASS}
     labels:
       runtipi.managed: true
