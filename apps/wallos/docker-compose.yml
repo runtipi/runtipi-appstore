@@ -1,7 +1,7 @@
 version: '3'
 services:
   wallos:
-    image: bellamy/wallos:4.0.0
+    image: bellamy/wallos:4.1.1
     container_name: wallos
     environment:
       - TZ=${TZ}
