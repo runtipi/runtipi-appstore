@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "mastodon",
-      "image": "lscr.io/linuxserver/mastodon:4.4.2",
+      "image": "lscr.io/linuxserver/mastodon:4.4.3",
       "isMain": true,
       "internalPort": 443,
       "environment": {
