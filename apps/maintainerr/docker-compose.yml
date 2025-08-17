@@ -1,7 +1,7 @@
 version: '3'
 services:
   maintainerr:
-    image: ghcr.io/jorenn92/maintainerr:2.18.2
+    image: ghcr.io/jorenn92/maintainerr:2.19.0
     container_name: maintainerr
     volumes:
       - ${APP_DATA_DIR}/data/config:/opt/data
