@@ -12,8 +12,8 @@
         }
       ],
       "environment": {
-        "ASSET_URL": "https://${APP_DOMAIN}",
-        "APP_URL": "https://${APP_DOMAIN}"
+        "ASSET_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
+        "APP_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
       }
     }
   ],
