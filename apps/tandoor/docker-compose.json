@@ -8,6 +8,7 @@
       "environment": {
         "SECRET_KEY": "${TANDOOR_SECRET_KEY}",
         "DB_ENGINE": "django.db.backends.postgresql",
+        "GUNICORN_MEDIA": "1",
         "POSTGRES_HOST": "tandoor-db",
         "POSTGRES_PORT": "5432",
         "POSTGRES_USER": "tandoor",
