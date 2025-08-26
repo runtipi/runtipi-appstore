@@ -7,7 +7,7 @@
   "port": 8128,
   "id": "immich",
   "tipi_version": 147,
-  "version": "v1.139.3",
+  "version": "v1.139.4",
   "categories": ["data", "photography"],
   "description": "Photo and video backup solution directly from your mobile phone.",
   "short_desc": "Photo and video backup solution directly from your mobile phone.",
