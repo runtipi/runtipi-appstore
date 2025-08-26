@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "homebox",
-  "tipi_version": 27,
-  "version": "0.20.2",
+  "tipi_version": 28,
+  "version": "0.21.0",
   "uid": 1000,
   "gid": 1000,
   "categories": ["utilities"],
@@ -28,5 +28,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1752275350443
+  "updated_at": 1756170597058
 }

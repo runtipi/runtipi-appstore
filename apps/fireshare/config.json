@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "fireshare",
-  "tipi_version": 18,
-  "version": "v1.2.27",
+  "tipi_version": 19,
+  "version": "v1.2.28",
   "categories": ["development"],
   "description": "Self host your media and share with unique links. Share your game clips, videos, or other media via unique links.",
   "short_desc": "Self host your media and share with unique links",
@@ -39,5 +39,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1754938161539
+  "updated_at": 1756169992395
 }

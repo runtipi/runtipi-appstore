@@ -1,7 +1,7 @@
 services:
   flaresolverr:
     container_name: flaresolverr
-    image: ghcr.io/flaresolverr/flaresolverr:v3.3.25
+    image: ghcr.io/flaresolverr/flaresolverr:v3.4.0
     restart: unless-stopped
     ports:
       - ${APP_PORT}:8191

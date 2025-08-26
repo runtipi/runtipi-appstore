@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "lobe-chat",
-      "image": "lobehub/lobe-chat:1.111.11",
+      "image": "lobehub/lobe-chat:1.114.6",
       "isMain": true,
       "internalPort": 3210,
       "environment": {

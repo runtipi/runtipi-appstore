@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "matter-server",
-      "image": "ghcr.io/home-assistant-libs/python-matter-server:8.0.0",
+      "image": "ghcr.io/home-assistant-libs/python-matter-server:8.1.0",
       "isMain": true,
       "networkMode": "host",
       "volumes": [

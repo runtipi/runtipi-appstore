@@ -2,7 +2,7 @@ version: '3.7'
 services:
   tandoor:
     container_name: tandoor
-    image: ghcr.io/tandoorrecipes/recipes:2.0.1
+    image: ghcr.io/tandoorrecipes/recipes:2.0.3
     volumes:
       - ${APP_DATA_DIR}/data/staticfiles:/opt/recipes/staticfiles
       - ${APP_DATA_DIR}/data/mediafiles:/opt/recipes/mediafiles
@@ -11,6 +11,7 @@ services:
     environment:
       - SECRET_KEY=${TANDOOR_SECRET_KEY}
       - DB_ENGINE=django.db.backends.postgresql
+      - GUNICORN_MEDIA=1
       - POSTGRES_HOST=tandoor-db
       - POSTGRES_PORT=5432
       - POSTGRES_USER=tandoor
