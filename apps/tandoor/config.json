@@ -6,7 +6,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "tandoor",
-  "tipi_version": 34,
+  "tipi_version": 35,
   "version": "2.0.3",
   "categories": ["data"],
   "description": "Drop your collection of links and notes. Get Tandoor and never look back onto a time without recipe management, storage, sharing and collaborative cooking!",
