@@ -11,7 +11,11 @@
           "hostPath": "${APP_DATA_DIR}/data/cloudflared/config",
           "containerPath": "/config"
         }
-      ]
+      ],
+      "environment": {
+        "BASIC_AUTH_USER": "${BASIC_AUTH_USER}",
+        "BASIC_AUTH_PASS": "${BASIC_AUTH_PASS}"
+      }
     }
   ],
   "$schema": "../dynamic-compose-schema.json"
