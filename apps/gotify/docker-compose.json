@@ -17,5 +17,16 @@
       ]
     }
   ],
+  "overrides": [
+    {
+      "architecture": "arm64",
+      "services": [
+        {
+          "name": "gotify",
+          "image": "gotify/server-arm64:2.6.3"
+        }
+      ]
+    }
+  ],
   "$schema": "../dynamic-compose-schema.json"
 }
