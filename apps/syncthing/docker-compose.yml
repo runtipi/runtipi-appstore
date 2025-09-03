@@ -2,7 +2,7 @@ version: '3.7'
 services:
   syncthing:
     container_name: syncthing
-    image: syncthing/syncthing:1.30
+    image: syncthing/syncthing:2.0
     stop_grace_period: 1m
     hostname: ${SYNCTHING_HOSTNAME:-tipi}
     environment:
