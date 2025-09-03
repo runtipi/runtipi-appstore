@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "tasks-md",
-      "image": "baldissaramatheus/tasks.md:3.0.6",
+      "image": "baldissaramatheus/tasks.md:3.0.7",
       "isMain": true,
       "internalPort": 8080,
       "environment": {
