@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "firefly-iii-data-importer",
-      "image": "fireflyiii/data-importer:version-1.6.2",
+      "image": "fireflyiii/data-importer:version-1.7.10",
       "isMain": true,
       "internalPort": 8080,
       "environment": {
