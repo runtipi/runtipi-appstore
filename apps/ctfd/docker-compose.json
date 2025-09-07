@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "ctfd",
-      "image": "ctfd/ctfd:3.7.7",
+      "image": "ctfd/ctfd:3.8.0",
       "isMain": true,
       "internalPort": 8000,
       "environment": {
