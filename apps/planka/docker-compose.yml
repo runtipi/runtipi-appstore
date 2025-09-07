@@ -1,7 +1,7 @@
 version: '3'
 services:
   planka:
-    image: ghcr.io/plankanban/planka:1.26.2
+    image: ghcr.io/plankanban/planka:1.26.3
     container_name: planka
     command: |
       bash -c
