@@ -9,7 +9,7 @@
     "ports": [51413]
   },
   "id": "transmission",
-  "tipi_version": 11,
+  "tipi_version": 12,
   "version": "4.0.6",
   "categories": ["utilities"],
   "description": "Transmission is a fast, easy, and free BitTorrent client.",

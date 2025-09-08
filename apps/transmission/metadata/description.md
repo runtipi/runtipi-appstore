@@ -12,7 +12,7 @@ Visit [https://transmissionbt.com/](https://transmissionbt.com/) for more inform
 
 When first installed the download path is set to a non-existent directory `/downloads`.
 To set a correct path :
-  1. Access to the Transmission WebUI
+  1. Access the Transmission WebUI
   2. Click on the top-right menu bar
   3. Select **Edit preferences**
   4. In **Download to** enter `/media/torrents/complete`

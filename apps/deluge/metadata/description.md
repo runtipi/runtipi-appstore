@@ -11,7 +11,7 @@
 
 When first installed the download path is set to a non-existent directory `/downloads`.
 To set a correct path :
-  1. Access to the Deluge WebUI
+  1. Access the Deluge WebUI
   2. Go to **Preferences** on the top bar
   3. In **Downloads** check the **Folders** section
   4. Edit **Download to** and enter `/media/torrents/complete`
