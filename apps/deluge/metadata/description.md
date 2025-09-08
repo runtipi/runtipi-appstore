@@ -1,3 +1,25 @@
+# [Deluge](https://github.com/linuxserver/docker-deluge)
+
+[Deluge](http://deluge-torrent.org/) is a lightweight, Free Software, cross-platform BitTorrent client.
+
+- Full Encryption
+- WebUI
+- Plugin System
+- Much more...
+
+## [](https://github.com/linuxserver/docker-deluge#application-setup)Application Setup
+
+When first installed the download path is set to a non-existent directory `/downloads`.
+To set a correct path :
+  1. Access the Deluge WebUI
+  2. Go to **Preferences** on the top bar
+  3. In **Downloads** check the **Folders** section
+  4. Edit **Download to** and enter `/media/torrents/complete`
+
+Feel free to adapt the settings further to your convenience.
+
+If you still encounter an error, make sure that user `1000` has access to the directory. If you work with another user, change the environment variables `PUID` & `PGID` accordingly through user-config.
+
 # Default credentials
 
 Username: admin
@@ -11,26 +33,3 @@ Password: deluge
 |----------------------------------------------|------------------|
 | /runtipi/app-data/deluge/data/deluge/config	 | /config          |
 | /runtipi/media/torrents                 | /media/torrents       |
-
----
-
-# [linuxserver/deluge](https://github.com/linuxserver/docker-deluge)
-
-[Deluge](http://deluge-torrent.org/) is a lightweight, Free Software, cross-platform BitTorrent client.
-
-- Full Encryption
-- WebUI
-- Plugin System
-- Much more...
-
-## [](https://github.com/linuxserver/docker-deluge#supported-architectures)Supported Architectures
-
-We utilise the docker manifest for multi-platform awareness. More information is available from docker [here](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list) and our announcement [here](https://blog.linuxserver.io/2019/02/21/the-lsio-pipeline-project/).
-
-Simply pulling `lscr.io/linuxserver/deluge:latest` should retrieve the correct image for your arch, but you can also pull specific arch images via tags.
-
-## [](https://github.com/linuxserver/docker-deluge#application-setup)Application Setup
-
-The admin interface is available at `http://SERVER-IP:8112` with a default user/password of admin/deluge.
-
-To change the password (recommended) log in to the web interface and go to Preferences->Interface->Password.
