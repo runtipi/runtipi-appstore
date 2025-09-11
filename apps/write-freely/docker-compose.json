@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "write-freely",
-      "image": "nephatrine/write-freely:0.15",
+      "image": "nephatrine/write-freely:0.16",
       "isMain": true,
       "internalPort": 8080,
       "addPorts": [
