@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "matrix-conduit",
-      "image": "matrixconduit/matrix-conduit:v0.10.8",
+      "image": "matrixconduit/matrix-conduit:v0.10.9",
       "isMain": true,
       "environment": {
         "CONDUIT_SERVER_NAME": "${APP_DOMAIN}",
