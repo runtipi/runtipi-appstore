@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "id": "changedetection",
   "description": "The best and simplest free open source website change detection, restock monitor and notification service.",
-  "tipi_version": 65,
-  "version": "0.50.13",
+  "tipi_version": 66,
+  "version": "0.50.14",
   "categories": ["utilities"],
   "short_desc": "Website change detection.",
   "author": "dgtlmoon",
@@ -16,6 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1758035574350,
+  "updated_at": 1758381436746,
   "$schema": "../app-info-schema.json"
 }
