@@ -1,6 +1,6 @@
 services:
   emqx:
-    image: emqx/emqx:5.10.0
+    image: emqx/emqx:5.10.1
     container_name: emqx
     environment:
       - TZ=${TZ}
@@ -49,7 +49,7 @@ services:
       traefik.http.routers.emqx-local.tls: true
       runtipi.managed: true
   emqx-n2:
-    image: emqx/emqx:5.10.0
+    image: emqx/emqx:5.10.1
     container_name: emqx-n2
     environment:
       - TZ=${TZ}
