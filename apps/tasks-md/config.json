@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "tasks-md",
-  "tipi_version": 14,
-  "version": "3.0.7",
+  "tipi_version": 15,
+  "version": "3.0.9",
   "categories": ["development"],
   "description": "A self-hosted, file based task management board that supports Markdown syntax",
   "short_desc": "A self-hosted, file based task management board.",
@@ -24,5 +24,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1756899959153
+  "updated_at": 1758602132932
 }
