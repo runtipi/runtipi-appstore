@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "beszel",
-      "image": "henrygd/beszel:0.12.9",
+      "image": "henrygd/beszel:0.12.11",
       "isMain": true,
       "internalPort": 8090,
       "volumes": [
