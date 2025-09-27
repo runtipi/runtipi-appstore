@@ -22,6 +22,13 @@
       "env_variable": "INVIDIOUS_HMAC_KEY"
     },
     {
+      "type": "random",
+      "min": 16,
+      "max": 16,
+      "label": "Companion key",
+      "env_variable": "INVIDIOUS_COMPANION_KEY"
+    },
+    {
       "type": "fqdnip",
       "label": "Domain",
       "hint": "The domain or IP you use to access the instance",
