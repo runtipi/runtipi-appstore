@@ -7,14 +7,11 @@
       "isMain": true,
       "internalPort": 3000,
       "environment": {
-        "INVIDIOUS_CONFIG": "db:\n  dbname: invidious\n  user: tipi\n  password: tipi\n  host: invidious-db\n  port: 5432\ncheck_tables: true\nhmac_key: ${INVIDIOUS_HMAC_KEY}\nuse_innertube_for_captions: true\ndomain: ${INVIDIOUS_DOMAIN}\nexternal_port: ${INVIDIOUS_EXTERNAL_PORT:-${APP_PORT}}\nhttps_only: ${INVIDIOUS_HTTPS_ONLY}\nsignature_server: inv_sig_helper:12999\nvisitor_data: ${INVIDIOUS_VISITOR_DATA}\npo_token: ${INVIDIOUS_PO_TOKEN}\n"
+        "INVIDIOUS_CONFIG": "db:\n  dbname: invidious\n  user: tipi\n  password: tipi\n  host: invidious-db\n  port: 5432\ncheck_tables: true\ninvidious_companion:\n- private_url: \"http://invidious-companion:8282/companion\"\ninvidious_companion_key: ${INVIDIOUS_COMPANION_KEY}\nhmac_key: ${INVIDIOUS_HMAC_KEY}\nuse_innertube_for_captions: true\ndomain: ${INVIDIOUS_DOMAIN}\nexternal_port: ${INVIDIOUS_EXTERNAL_PORT:-${APP_PORT}}\nhttps_only: ${INVIDIOUS_HTTPS_ONLY}"
       },
       "dependsOn": {
         "invidious-db": {
           "condition": "service_healthy"
-        },
-        "inv_sig_helper": {
-          "condition": "service_started"
         }
       },
       "healthCheck": {
@@ -25,13 +22,11 @@
       }
     },
     {
-      "name": "inv_sig_helper",
-      "image": "quay.io/invidious/inv-sig-helper:latest",
+      "name": "invidious-companion",
+      "image": "quay.io/invidious/invidious-companion:latest",
       "environment": {
-        "RUST_LOG": "info"
+        "SERVER_SECRET_KEY": "${INVIDIOUS_COMPANION_KEY}"
       },
-      "readOnly": true,
-      "command": ["--tcp", "0.0.0.0:12999"],
       "capDrop": ["ALL"],
       "securityOpt": ["no-new-privileges:true"]
     },
