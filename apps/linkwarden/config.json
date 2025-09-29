@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "linkwarden",
-  "tipi_version": 40,
-  "version": "v2.12.2",
+  "tipi_version": 41,
+  "version": "v2.13.0",
   "categories": ["data"],
   "description": "A self-hosted, open-source collaborative bookmark manager to collect, organize and archive webpages.",
   "short_desc": "A self-hosted, open-source collaborative bookmark manager",
@@ -37,5 +37,5 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1756567113956
+  "updated_at": 1759141916178
 }
