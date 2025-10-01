@@ -3,7 +3,7 @@
   "services": [
     {
       "name": "immich",
-      "image": "ghcr.io/immich-app/immich-server:v1.144.1",
+      "image": "ghcr.io/immich-app/immich-server:v2.0.0",
       "isMain": true,
       "internalPort": 2283,
       "environment": {
@@ -26,7 +26,7 @@
     },
     {
       "name": "immich-machine-learning",
-      "image": "ghcr.io/immich-app/immich-machine-learning:v1.144.1",
+      "image": "ghcr.io/immich-app/immich-machine-learning:v2.0.0",
       "environment": {
         "NODE_ENV": "production",
         "DB_HOSTNAME": "immich-db",
