@@ -23,7 +23,7 @@
   "devDependencies": {
     "@biomejs/biome": "^2.1.1",
     "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
+    "@commitlint/config-conventional": "^20.0.0",
     "@commitlint/cz-commitlint": "^19.8.1",
     "@types/jest": "^28.1.6",
     "@types/js-yaml": "^4.0.9",
