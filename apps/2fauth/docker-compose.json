@@ -1,4 +1,6 @@
 {
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
+  "schemaVersion": 2,
   "services": [
     {
       "name": "2fauth",
@@ -11,11 +13,10 @@
           "containerPath": "/2fauth"
         }
       ],
-      "environment": {
-        "ASSET_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
-        "APP_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
-      }
+      "environment": [
+        { "key": "ASSET_URL", "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}" },
+        { "key": "APP_URL", "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}" }
+      ]
     }
-  ],
-  "$schema": "../dynamic-compose-schema.json"
+  ]
 }
