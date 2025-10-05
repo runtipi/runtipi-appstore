@@ -21,7 +21,6 @@
         "DB_USERNAME": "firefly",
         "DB_PASSWORD": "${MYSQL_PASSWORD}",
         "COOKIE_PATH": "\"/\"",
-        "COOKIE_DOMAIN": "",
         "COOKIE_SECURE": "false",
         "COOKIE_SAMESITE": "lax",
         "APP_NAME": "FireflyIII",

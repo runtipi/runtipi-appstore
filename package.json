@@ -7,7 +7,7 @@
     "commit": "git-cz",
     "lint": "biome check",
     "lint:ci": "biome ci --changed --error-on-warnings --no-errors-on-unmatched",
-    "test": "jest",
+    "test": "bun test",
     "prepare": "lefthook install"
   },
   "repository": {
@@ -43,6 +43,6 @@
     }
   },
   "dependencies": {
-    "@runtipi/common": "^0.8.1"
+    "@runtipi/common": "^1.0.0"
   }
 }

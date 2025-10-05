@@ -18,8 +18,7 @@
         "CONDUIT_TRUSTED_SERVERS": "${TRUSTED_SERVERS:-[]}",
         "CONDUIT_ALLOW_CHECK_FOR_UPDATES": "false",
         "CONDUIT_TURN_URIS": "${TURN_URIS:-[\"turn:localhost?transport=udp\", \"turn:localhost?transport=tcp\"]}",
-        "CONDUIT_TURN_SECRET": "${TURN_SECRET:-turnsecret}",
-        "CONDUIT_CONFIG": ""
+        "CONDUIT_TURN_SECRET": "${TURN_SECRET:-turnsecret}"
       },
       "volumes": [
         {
