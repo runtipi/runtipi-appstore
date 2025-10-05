@@ -5,6 +5,7 @@
       "name": "runtipi-appstore",
       "dependencies": {
         "@runtipi/common": "^1.0.0",
+        "ajv": "^8.17.1",
       },
       "devDependencies": {
         "@biomejs/biome": "^2.1.1",
