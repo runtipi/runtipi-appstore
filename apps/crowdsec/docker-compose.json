@@ -2,7 +2,7 @@
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
-      "image": "crowdsecurity/crowdsec:v1.6.11",
+      "image": "crowdsecurity/crowdsec:v1.7.0",
       "name": "crowdsec",
       "volumes": [
         {
