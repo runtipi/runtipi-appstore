@@ -19,12 +19,6 @@
   "dynamic_config": true,
   "form_fields": [
     {
-      "type": "random",
-      "label": "Secret",
-      "min": 32,
-      "env_variable": "TINYAUTH_SECRET"
-    },
-    {
       "type": "text",
       "label": "App URL",
       "hint": "The URL tinyauth will use to redirect you to the login screen and back, this needs to match with the local domain or the expose domain, e.g. 'https://tinyauth.example.com'.",
@@ -79,13 +73,6 @@
       "hint": "Set a custom title for the login screen, e.g. 'My Homelab'.",
       "required": false,
       "env_variable": "TINYAUTH_APP_TITLE"
-    },
-    {
-      "type": "boolean",
-      "label": "Disable Continue",
-      "hint": "Check this if you want to disable the continue screen and immediately redirect to your app after you login.",
-      "required": false,
-      "env_variable": "TINYAUTH_DISABLE_CONTINUE"
     }
   ]
 }
