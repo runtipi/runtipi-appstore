@@ -8,22 +8,16 @@
   "port": 8357,
   "categories": ["security"],
   "description": "Tinyauth is a simple authentication middleware that adds a simple login screen or OAuth with Google, Github and any provider to all of your docker apps. It supports all the popular proxies like Traefik, Nginx and Caddy.",
-  "tipi_version": 13,
-  "version": "v3.6.2",
+  "tipi_version": 14,
+  "version": "v4.0.0",
   "source": "https://github.com/steveiliop56/tinyauth",
   "website": "https://tinyauth.app",
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1742119744755,
-  "updated_at": 1752756557044,
+  "updated_at": 1760015943611,
   "dynamic_config": true,
   "form_fields": [
-    {
-      "type": "random",
-      "label": "Secret",
-      "min": 32,
-      "env_variable": "TINYAUTH_SECRET"
-    },
     {
       "type": "text",
       "label": "App URL",
@@ -79,13 +73,6 @@
       "hint": "Set a custom title for the login screen, e.g. 'My Homelab'.",
       "required": false,
       "env_variable": "TINYAUTH_APP_TITLE"
-    },
-    {
-      "type": "boolean",
-      "label": "Disable Continue",
-      "hint": "Check this if you want to disable the continue screen and immediately redirect to your app after you login.",
-      "required": false,
-      "env_variable": "TINYAUTH_DISABLE_CONTINUE"
     }
   ]
 }
