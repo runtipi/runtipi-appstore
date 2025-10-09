@@ -2,7 +2,7 @@
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
-      "image": "ghcr.io/autobrr/autobrr:v1.67.0",
+      "image": "ghcr.io/autobrr/autobrr:v1.68.0",
       "name": "autobrr",
       "internalPort": 7474,
       "isMain": true,
