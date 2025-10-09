@@ -13,7 +13,7 @@ services:
       - PROVIDERS_GOOGLE_CLIENT_SECRET=${TINYAUTH_GOOGLE_CLIENT_SECRET}
       - OAUTH_WHITELIST=${TINYAUTH_OAUTH_WHITELIST}
     volumes:
-      - ${APP_DATA_DIR}/data/data:/data
+      - ${APP_DATA_DIR}/data:/data
     networks:
       - tipi_main_network
     labels:
