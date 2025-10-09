@@ -16,7 +16,9 @@
   "form_fields": [
     {
       "type": "text",
-      "label": "Gramps tree",
+      "label": "Gramps tree name",
+      "hint": "Your family tree name",
+      "placeholder": "Family Name",
       "max": 50,
       "min": 3,
       "required": true,
