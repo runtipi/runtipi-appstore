@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "silverbullet",
-      "image": "zefhemel/silverbullet:2.1.7",
+      "image": "zefhemel/silverbullet:2.1.9",
       "isMain": true,
       "internalPort": 3000,
       "environment": {
