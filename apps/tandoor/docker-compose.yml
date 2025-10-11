@@ -7,7 +7,7 @@ services:
       - ${APP_DATA_DIR}/data/staticfiles:/opt/recipes/staticfiles
       - ${APP_DATA_DIR}/data/mediafiles:/opt/recipes/mediafiles
     ports:
-      - ${APP_PORT}:8080
+      - ${APP_PORT}:80
     environment:
       - SECRET_KEY=${TANDOOR_SECRET_KEY}
       - DB_ENGINE=django.db.backends.postgresql
@@ -21,7 +21,7 @@ services:
       - tipi_main_network
     restart: unless-stopped
     healthcheck:
-      test: wget --no-verbose --tries=1 --spider http://localhost:8080
+      test: wget --no-verbose --tries=1 --spider http://localhost:80
       interval: 10s
       timeout: 5s
       retries: 5
@@ -29,7 +29,7 @@ services:
     labels:
       traefik.enable: true
       traefik.http.middlewares.tandoor-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.tandoor.loadbalancer.server.port: 8080
+      traefik.http.services.tandoor.loadbalancer.server.port: 80
       traefik.http.routers.tandoor-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.tandoor-insecure.entrypoints: web
       traefik.http.routers.tandoor-insecure.service: tandoor
@@ -67,8 +67,10 @@ services:
       test:
         - CMD-SHELL
         - pg_isready
+        - '-U'
+        - $$POSTGRES_USER
         - '-d'
-        - tandoor
+        - $$POSTGRES_DB
       interval: 10s
       timeout: 5s
       retries: 5
