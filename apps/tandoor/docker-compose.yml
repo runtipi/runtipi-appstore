@@ -11,6 +11,7 @@ services:
     environment:
       - SECRET_KEY=${TANDOOR_SECRET_KEY}
       - DB_ENGINE=django.db.backends.postgresql
+      - TANDOOR_PORT=8080
       - GUNICORN_MEDIA=1
       - POSTGRES_HOST=tandoor-db
       - POSTGRES_PORT=5432
@@ -67,8 +68,10 @@ services:
       test:
         - CMD-SHELL
         - pg_isready
+        - '-U'
+        - $$POSTGRES_USER
         - '-d'
-        - tandoor
+        - $$POSTGRES_DB
       interval: 10s
       timeout: 5s
       retries: 5
