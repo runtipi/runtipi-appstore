@@ -58,7 +58,7 @@
         "timeout": "5s",
         "retries": 5,
         "startPeriod": "30s",
-        "test": "pg_isready -d tandoor"
+        "test": "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"
       }
     }
   ],
