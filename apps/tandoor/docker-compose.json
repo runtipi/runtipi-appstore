@@ -4,7 +4,7 @@
       "name": "tandoor",
       "image": "ghcr.io/tandoorrecipes/recipes:2.3.1",
       "isMain": true,
-      "internalPort": 8080,
+      "internalPort": 80,
       "environment": {
         "SECRET_KEY": "${TANDOOR_SECRET_KEY}",
         "DB_ENGINE": "django.db.backends.postgresql",
