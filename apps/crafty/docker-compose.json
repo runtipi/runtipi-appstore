@@ -2,7 +2,7 @@
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
-      "image": "registry.gitlab.com/crafty-controller/crafty-4:4.5.4",
+      "image": "registry.gitlab.com/crafty-controller/crafty-4:4.5.5",
       "name": "crafty",
       "internalPort": 8443,
       "isMain": true,
