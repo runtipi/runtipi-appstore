@@ -1,6 +1,6 @@
 services:
   siyuan:
-    image: b3log/siyuan:v3.3.4
+    image: b3log/siyuan:v3.3.5
     container_name: siyuan
     command:
       - '--workspace=/siyuan/workspace/'
