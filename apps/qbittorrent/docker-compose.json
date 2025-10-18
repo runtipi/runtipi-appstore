@@ -5,7 +5,7 @@
       "name": "qbittorrent",
       "image": "lscr.io/linuxserver/qbittorrent:5.1.2",
       "isMain": true,
-      "internalPort": "4141",
+      "internalPort": "${APP_PORT}",
       "addPorts": [
         {
           "hostPort": 6881,
@@ -17,7 +17,7 @@
         "PUID": "1000",
         "PGID": "1000",
         "TZ": "${TZ}",
-        "WEBUI_PORT": "4141"
+        "WEBUI_PORT": "${APP_PORT}"
       },
       "volumes": [
         {

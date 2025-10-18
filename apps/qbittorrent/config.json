@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "port": 8133,
   "id": "qbittorrent",
-  "tipi_version": 27,
+  "tipi_version": 28,
   "version": "5.1.2",
   "categories": ["utilities"],
   "description": "qBittorrent is a fast, easy, and free BitTorrent client.",
