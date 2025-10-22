@@ -54,7 +54,7 @@ services:
       - tipi_main_network
     labels:
       runtipi.managed: true
-  proxitok-signer:
+  proxitok-chromedriver:
     container_name: proxitok-chromedriver
     image: zenika/alpine-chrome:with-chromedriver
     networks:

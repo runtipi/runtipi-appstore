@@ -13,7 +13,7 @@
         "REDIS_PORT": "6379",
         "API_CHROMEDRIVER": "http://proxitok-chromedriver:9515"
       },
-      "dependsOn": ["proxitok-chromedriver", "proxitok-signer"],
+      "dependsOn": ["proxitok-redis", "proxitok-chromedriver"],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/cache",
