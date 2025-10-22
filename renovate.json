@@ -2,53 +2,28 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "automerge": false,
   "prHourlyLimit": 5,
-  "extends": [
-    "config:recommended"
-  ],
+  "extends": ["config:recommended"],
   "rebaseWhen": "conflicted",
-  "enabledManagers": [
-    "custom.regex"
-  ],
+  "enabledManagers": ["custom.regex"],
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": [
-        "/^.*docker-compose\\.json$/"
-      ],
-      "matchStrings": [
-        "\"image\": \"(?<depName>.*?):(?<currentValue>.*?)\","
-      ],
+      "managerFilePatterns": ["/^.*docker-compose\\.json$/"],
+      "matchStrings": ["\"image\": \"(?<depName>.*?):(?<currentValue>.*?)\","],
       "datasourceTemplate": "docker"
     }
   ],
   "packageRules": [
     {
-      "matchUpdateTypes": [
-        "major"
-      ],
-      "addLabels": [
-        "major"
-      ]
+      "matchUpdateTypes": ["major"],
+      "addLabels": ["major"]
     },
     {
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
-      "addLabels": [
-        "automerge"
-      ]
+      "matchUpdateTypes": ["minor", "patch"],
+      "addLabels": ["automerge"]
     },
     {
-      "matchPackageNames": [
-        "mariadb",
-        "mysql",
-        "monogdb",
-        "postgres",
-        "redis",
-        "immich",
-        "immich{-,}**"
-      ],
+      "matchPackageNames": ["mariadb","mysql", "monogdb", "postgres", "redis", "immich", "immich{-,}**"],
       "enabled": false
     }
   ],
@@ -58,9 +33,7 @@
       "bunx @biomejs/biome check --write",
       "bun install && bun run test"
     ],
-    "fileFilters": [
-      "**/*"
-    ],
+    "fileFilters": ["**/*"],
     "executionMode": "update"
   }
 }
