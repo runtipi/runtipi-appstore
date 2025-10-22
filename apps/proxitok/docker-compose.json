@@ -11,8 +11,7 @@
         "API_CACHE": "redis",
         "REDIS_HOST": "proxitok-redis",
         "REDIS_PORT": "6379",
-        "API_SIGNER": "remote",
-        "API_SIGNER_URL": "http://proxitok-signer:8080/signature"
+        "API_CHROMEDRIVER": "http://proxitok-chromedriver:9515"
       },
       "dependsOn": ["proxitok-redis", "proxitok-signer"],
       "volumes": [
@@ -24,12 +23,12 @@
     },
     {
       "name": "proxitok-redis",
-      "image": "redis:7-alpine",
+      "image": "redis:7.4-alpine",
       "command": "redis-server --save 60 1 --loglevel warning"
     },
     {
-      "name": "proxitok-signer",
-      "image": "ghcr.io/pablouser1/signtok:master"
+      "name": "proxitok-chromedriver",
+      "image": "zenika/alpine-chrome:with-chromedriver"
     }
   ]
 }
