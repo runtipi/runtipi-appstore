@@ -4,11 +4,11 @@
   "prHourlyLimit": 5,
   "extends": ["config:recommended"],
   "rebaseWhen": "conflicted",
-  "enabledManagers": ["regex"],
+  "enabledManagers": ["custom.regex"],
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["^.*docker-compose\\.json$"],
+      "managerFilePatterns": ["/^.*docker-compose\\.json$/"],
       "matchStrings": ["\"image\": \"(?<depName>.*?):(?<currentValue>.*?)\","],
       "datasourceTemplate": "docker"
     }
