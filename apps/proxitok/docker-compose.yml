@@ -16,7 +16,7 @@ services:
       - "${APP_DATA_DIR}/data/cache:/cache"
     depends_on:
       - proxitok-redis
-      - proxitok-signer
+      - proxitok-chromedriver
     networks:
       - tipi_main_network
     labels:
