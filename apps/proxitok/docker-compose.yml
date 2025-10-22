@@ -11,13 +11,12 @@ services:
       - "API_CACHE=redis"
       - "REDIS_HOST=proxitok-redis"
       - "REDIS_PORT=6379"
-      - "API_SIGNER=remote"
-      - "API_SIGNER_URL=http://proxitok-signer:8080/signature"
+      - "API_CHROMEDRIVER=http://proxitok-chromedriver:9515"
     volumes:
-      - "proxitok-cache:/cache"
+      - "${APP_DATA_DIR}/data/cache:/cache"
     depends_on:
       - proxitok-redis
-      - proxitok-signer
+      - proxitok-chromedriver
     networks:
       - tipi_main_network
     labels:
@@ -48,16 +47,16 @@ services:
       runtipi.managed: true
   proxitok-redis:
     container_name: proxitok-redis
-    image: redis:7-alpine
+    image: redis:7.4-alpine
     restart: unless-stopped
     command: redis-server --save 60 1 --loglevel warning
     networks:
       - tipi_main_network
     labels:
       runtipi.managed: true
-  proxitok-signer:
-    container_name: proxitok-signer
-    image: ghcr.io/pablouser1/signtok:master
+  proxitok-chromedriver:
+    container_name: proxitok-chromedriver
+    image: zenika/alpine-chrome:with-chromedriver
     networks:
       - tipi_main_network
     labels:
