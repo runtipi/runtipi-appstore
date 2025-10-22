@@ -14,7 +14,7 @@ services:
       - "API_SIGNER=remote"
       - "API_SIGNER_URL=http://proxitok-signer:8080/signature"
     volumes:
-      - "proxitok-cache:/cache"
+      - "${APP_DATA_DIR}/data/cache:/cache"
     depends_on:
       - proxitok-redis
       - proxitok-signer
