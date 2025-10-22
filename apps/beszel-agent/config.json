@@ -8,8 +8,8 @@
   "port": 45876,
   "categories": ["utilities"],
   "description": "This is the agent software for the Beszel app.",
-  "tipi_version": 34,
-  "version": "0.13.2",
+  "tipi_version": 35,
+  "version": "0.14.1",
   "source": "https://github.com/henrygd/beszel",
   "exposable": false,
   "dynamic_config": true,
@@ -27,5 +27,5 @@
   ],
   "no_gui": true,
   "created_at": 1724537201221,
-  "updated_at": 1760172509031
+  "updated_at": 1761149908708
 }
