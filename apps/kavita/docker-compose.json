@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "kavita",
-      "image": "jvmilazz0/kavita:0.8.7",
+      "image": "jvmilazz0/kavita:0.8.8",
       "isMain": true,
       "internalPort": 5000,
       "environment": {
