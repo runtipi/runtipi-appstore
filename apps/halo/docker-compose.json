@@ -34,12 +34,24 @@
     {
       "name": "halodb",
       "image": "postgres:latest",
-      "environment": {
-        "POSTGRES_PASSWORD": "${HALO_DATABASE_PASSWORD}",
-        "POSTGRES_USER": "halo",
-        "POSTGRES_DB": "halo",
-        "PGUSER": "halo"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${HALO_DATABASE_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "halo"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "halo"
+        },
+        {
+          "key": "PGUSER",
+          "value": "halo"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/db",
@@ -54,5 +66,6 @@
       }
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

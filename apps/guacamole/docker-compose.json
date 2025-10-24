@@ -1,19 +1,36 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "guacamole",
       "image": "guacamole/guacamole:1.6.0",
       "isMain": true,
       "internalPort": 8080,
-      "environment": {
-        "TOTP_ENABLED": "${GUACAMOLE_TOTP_ENABLED}",
-        "POSTGRESQL_DATABASE": "guacamole",
-        "POSTGRESQL_USER": "guacamole",
-        "POSTGRESQL_PASSWORD": "${GUACAMOLE_DB_PASSWORD}",
-        "GUACD_HOSTNAME": "guacamole-guacd",
-        "POSTGRESQL_HOSTNAME": "guacamole-db"
-      }
+      "environment": [
+        {
+          "key": "TOTP_ENABLED",
+          "value": "${GUACAMOLE_TOTP_ENABLED}"
+        },
+        {
+          "key": "POSTGRESQL_DATABASE",
+          "value": "guacamole"
+        },
+        {
+          "key": "POSTGRESQL_USER",
+          "value": "guacamole"
+        },
+        {
+          "key": "POSTGRESQL_PASSWORD",
+          "value": "${GUACAMOLE_DB_PASSWORD}"
+        },
+        {
+          "key": "GUACD_HOSTNAME",
+          "value": "guacamole-guacd"
+        },
+        {
+          "key": "POSTGRESQL_HOSTNAME",
+          "value": "guacamole-db"
+        }
+      ]
     },
     {
       "name": "guacamole-guacd",
@@ -22,11 +39,20 @@
     {
       "name": "guacamole-db",
       "image": "postgres:14",
-      "environment": {
-        "POSTGRES_DB": "guacamole",
-        "POSTGRES_USER": "guacamole",
-        "POSTGRES_PASSWORD": "${GUACAMOLE_DB_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_DB",
+          "value": "guacamole"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "guacamole"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${GUACAMOLE_DB_PASSWORD}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/db",
@@ -42,5 +68,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

@@ -5,17 +5,44 @@
       "image": "ctfd/ctfd:3.8.0",
       "isMain": true,
       "internalPort": 8000,
-      "environment": {
-        "UPLOAD_FOLDER": "/var/uploads",
-        "DATABASE_URL": "mysql+pymysql://tipi:${CTFD_MYSQL_DB_PASSWORD}@ctfd-db/ctfd",
-        "REDIS_URL": "redis://ctfd-redis:6379",
-        "WORKERS": "1",
-        "LOG_FOLDER": "/var/log/CTFd",
-        "ACCESS_LOG": "-",
-        "ERROR_LOG": "-",
-        "REVERSE_PROXY": "true",
-        "SECRET_KEY": "${CTFD_SECRET_KEY}"
-      },
+      "environment": [
+        {
+          "key": "UPLOAD_FOLDER",
+          "value": "/var/uploads"
+        },
+        {
+          "key": "DATABASE_URL",
+          "value": "mysql+pymysql://tipi:${CTFD_MYSQL_DB_PASSWORD}@ctfd-db/ctfd"
+        },
+        {
+          "key": "REDIS_URL",
+          "value": "redis://ctfd-redis:6379"
+        },
+        {
+          "key": "WORKERS",
+          "value": "1"
+        },
+        {
+          "key": "LOG_FOLDER",
+          "value": "/var/log/CTFd"
+        },
+        {
+          "key": "ACCESS_LOG",
+          "value": "-"
+        },
+        {
+          "key": "ERROR_LOG",
+          "value": "-"
+        },
+        {
+          "key": "REVERSE_PROXY",
+          "value": "true"
+        },
+        {
+          "key": "SECRET_KEY",
+          "value": "${CTFD_SECRET_KEY}"
+        }
+      ],
       "dependsOn": ["ctfd-db"],
       "volumes": [
         {
@@ -31,12 +58,24 @@
     {
       "name": "ctfd-db",
       "image": "mariadb:10.4.12",
-      "environment": {
-        "MYSQL_ROOT_PASSWORD": "${CTFD_MYSQL_ROOT_PASSWORD}",
-        "MYSQL_USER": "tipi",
-        "MYSQL_PASSWORD": "${CTFD_MYSQL_DB_PASSWORD}",
-        "MYSQL_DATABASE": "ctfd"
-      },
+      "environment": [
+        {
+          "key": "MYSQL_ROOT_PASSWORD",
+          "value": "${CTFD_MYSQL_ROOT_PASSWORD}"
+        },
+        {
+          "key": "MYSQL_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "MYSQL_PASSWORD",
+          "value": "${CTFD_MYSQL_DB_PASSWORD}"
+        },
+        {
+          "key": "MYSQL_DATABASE",
+          "value": "ctfd"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/db",
@@ -56,5 +95,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

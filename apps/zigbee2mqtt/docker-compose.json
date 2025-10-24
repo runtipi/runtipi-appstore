@@ -1,14 +1,16 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "zigbee2mqtt",
       "image": "koenkk/zigbee2mqtt:2.6.2",
       "isMain": true,
       "internalPort": 8080,
-      "environment": {
-        "TZ": "${TZ}"
-      },
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/",
@@ -17,5 +19,7 @@
       ],
       "devices": ["${Z2M_DEVICE}:/dev/ttyACM0"]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

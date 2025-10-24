@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "duplicati",
@@ -20,12 +19,26 @@
           "containerPath": "/source"
         }
       ],
-      "environment": {
-        "PUID": "0",
-        "PGID": "0",
-        "TZ": "${TZ}",
-        "SETTINGS_ENCRYPTION_KEY": "${DUPLICATI_ENCRYPTION_KEY}"
-      }
+      "environment": [
+        {
+          "key": "PUID",
+          "value": "0"
+        },
+        {
+          "key": "PGID",
+          "value": "0"
+        },
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "SETTINGS_ENCRYPTION_KEY",
+          "value": "${DUPLICATI_ENCRYPTION_KEY}"
+        }
+      ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

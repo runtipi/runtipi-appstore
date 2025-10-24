@@ -5,14 +5,32 @@
       "image": "phitux/dailytxt:1.0.15",
       "isMain": true,
       "internalPort": 8765,
-      "environment": {
-        "PORT": "8765",
-        "SECRET_KEY": "${DAILYTXT_SECRET_KEY}",
-        "ALLOW_REGISTRATION": "${DAILYTXT_ALLOW_REGISTRATION}",
-        "DATA_INDENT": "2",
-        "JWT_EXP_DAYS": "60",
-        "ENABLE_UPDATE_CHECK": "True"
-      },
+      "environment": [
+        {
+          "key": "PORT",
+          "value": "8765"
+        },
+        {
+          "key": "SECRET_KEY",
+          "value": "${DAILYTXT_SECRET_KEY}"
+        },
+        {
+          "key": "ALLOW_REGISTRATION",
+          "value": "${DAILYTXT_ALLOW_REGISTRATION}"
+        },
+        {
+          "key": "DATA_INDENT",
+          "value": "2"
+        },
+        {
+          "key": "JWT_EXP_DAYS",
+          "value": "60"
+        },
+        {
+          "key": "ENABLE_UPDATE_CHECK",
+          "value": "True"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/dailytxt",
@@ -21,5 +39,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

@@ -9,7 +9,7 @@
   "url_suffix": "/guacamole",
   "categories": ["utilities"],
   "description": "Apache Guacamole is a clientless remote desktop gateway. It supports standard protocols like VNC, RDP, and SSH",
-  "tipi_version": 4,
+  "tipi_version": 6,
   "version": "1.6.0",
   "source": "https://github.com/apache/guacamole-server",
   "website": "https://guacamole.apache.org",
@@ -30,5 +30,6 @@
     }
   ],
   "created_at": 1691943801422,
-  "updated_at": 1753569975010
+  "updated_at": 1761338378470,
+  "min_tipi_version": "4.5.0"
 }

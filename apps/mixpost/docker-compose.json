@@ -5,17 +5,44 @@
       "image": "inovector/mixpost:v2.3.0",
       "isMain": true,
       "internalPort": 80,
-      "environment": {
-        "APP_NAME": "'Mixpost'",
-        "APP_KEY": "'${MIXPOST_APP_KEY}'",
-        "APP_URL": "'${APP_PROTOCOL:-http}://${APP_DOMAIN}'",
-        "DB_HOST": "mixpost-mysql",
-        "DB_DATABASE": "mixpost",
-        "DB_USERNAME": "tipi",
-        "DB_PASSWORD": "${MIXPOST_MYSQL_PASSWORD}",
-        "REDIS_HOST": "mixpost-redis",
-        "REDIS_PASSWORD": "${MIXPOST_REDIS_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "APP_NAME",
+          "value": "'Mixpost'"
+        },
+        {
+          "key": "APP_KEY",
+          "value": "'${MIXPOST_APP_KEY}'"
+        },
+        {
+          "key": "APP_URL",
+          "value": "'${APP_PROTOCOL:-http}://${APP_DOMAIN}'"
+        },
+        {
+          "key": "DB_HOST",
+          "value": "mixpost-mysql"
+        },
+        {
+          "key": "DB_DATABASE",
+          "value": "mixpost"
+        },
+        {
+          "key": "DB_USERNAME",
+          "value": "tipi"
+        },
+        {
+          "key": "DB_PASSWORD",
+          "value": "${MIXPOST_MYSQL_PASSWORD}"
+        },
+        {
+          "key": "REDIS_HOST",
+          "value": "mixpost-redis"
+        },
+        {
+          "key": "REDIS_PASSWORD",
+          "value": "${MIXPOST_REDIS_PASSWORD}"
+        }
+      ],
       "dependsOn": {
         "mixpost-mysql": {
           "condition": "service_healthy"
@@ -42,12 +69,24 @@
     {
       "name": "mixpost-mysql",
       "image": "mysql/mysql-server:8.0",
-      "environment": {
-        "MYSQL_ROOT_PASSWORD": "${MIXPOST_MYSQL_PASSWORD}",
-        "MYSQL_USER": "tipi",
-        "MYSQL_PASSWORD": "${MIXPOST_MYSQL_PASSWORD}",
-        "MYSQL_DATABASE": "mixpost"
-      },
+      "environment": [
+        {
+          "key": "MYSQL_ROOT_PASSWORD",
+          "value": "${MIXPOST_MYSQL_PASSWORD}"
+        },
+        {
+          "key": "MYSQL_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "MYSQL_PASSWORD",
+          "value": "${MIXPOST_MYSQL_PASSWORD}"
+        },
+        {
+          "key": "MYSQL_DATABASE",
+          "value": "mixpost"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/mysql",
@@ -77,5 +116,6 @@
       }
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

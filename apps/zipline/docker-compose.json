@@ -5,14 +5,32 @@
       "image": "ghcr.io/diced/zipline:3.7.13",
       "isMain": true,
       "internalPort": 3000,
-      "environment": {
-        "CORE_RETURN_HTTPS": "false",
-        "CORE_SECRET": "${ZIPLINE_CORE_SECRET}",
-        "CORE_HOST": "0.0.0.0",
-        "CORE_PORT": "3000",
-        "CORE_DATABASE_URL": "postgres://tipi:${ZIPLINE_DB_PASSWORD}@zipline-db/zipline",
-        "CORE_LOGGER": "true"
-      },
+      "environment": [
+        {
+          "key": "CORE_RETURN_HTTPS",
+          "value": "false"
+        },
+        {
+          "key": "CORE_SECRET",
+          "value": "${ZIPLINE_CORE_SECRET}"
+        },
+        {
+          "key": "CORE_HOST",
+          "value": "0.0.0.0"
+        },
+        {
+          "key": "CORE_PORT",
+          "value": "3000"
+        },
+        {
+          "key": "CORE_DATABASE_URL",
+          "value": "postgres://tipi:${ZIPLINE_DB_PASSWORD}@zipline-db/zipline"
+        },
+        {
+          "key": "CORE_LOGGER",
+          "value": "true"
+        }
+      ],
       "dependsOn": ["zipline-db"],
       "volumes": [
         {
@@ -28,11 +46,20 @@
     {
       "name": "zipline-db",
       "image": "postgres:14",
-      "environment": {
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_PASSWORD": "${ZIPLINE_DB_PASSWORD}",
-        "POSTGRES_DB": "zipline"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${ZIPLINE_DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "zipline"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgres",
@@ -47,5 +74,6 @@
       }
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

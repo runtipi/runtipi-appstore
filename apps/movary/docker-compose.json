@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "movary",
@@ -7,19 +6,52 @@
       "isMain": true,
       "internalPort": 80,
       "user": "1000:1000",
-      "environment": {
-        "TMDB_API_KEY": "${MOVARY_TMDB_API_KEY}",
-        "TIMEZONE": "${TZ}",
-        "DATABASE_MODE": "mysql",
-        "DATABASE_MYSQL_HOST": "movary-db",
-        "DATABASE_MYSQL_NAME": "movary",
-        "DATABASE_MYSQL_USER": "tipi",
-        "DATABASE_MYSQL_PASSWORD": "${MOVARY_MYSQL_PASSWORD}",
-        "TMDB_ENABLE_IMAGE_CACHING": "1",
-        "APPLICATION_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
-        "PLEX_IDENTIFIER": "${MOVARY_PLEX_IDENTIFIER}",
-        "JELLYFIN_DEVICE_ID": "${MOVARY_JELLYFIN_IDENTIFIER}"
-      },
+      "environment": [
+        {
+          "key": "TMDB_API_KEY",
+          "value": "${MOVARY_TMDB_API_KEY}"
+        },
+        {
+          "key": "TIMEZONE",
+          "value": "${TZ}"
+        },
+        {
+          "key": "DATABASE_MODE",
+          "value": "mysql"
+        },
+        {
+          "key": "DATABASE_MYSQL_HOST",
+          "value": "movary-db"
+        },
+        {
+          "key": "DATABASE_MYSQL_NAME",
+          "value": "movary"
+        },
+        {
+          "key": "DATABASE_MYSQL_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "DATABASE_MYSQL_PASSWORD",
+          "value": "${MOVARY_MYSQL_PASSWORD}"
+        },
+        {
+          "key": "TMDB_ENABLE_IMAGE_CACHING",
+          "value": "1"
+        },
+        {
+          "key": "APPLICATION_URL",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+        },
+        {
+          "key": "PLEX_IDENTIFIER",
+          "value": "${MOVARY_PLEX_IDENTIFIER}"
+        },
+        {
+          "key": "JELLYFIN_DEVICE_ID",
+          "value": "${MOVARY_JELLYFIN_IDENTIFIER}"
+        }
+      ],
       "dependsOn": {
         "movary-db": {
           "condition": "service_healthy"
@@ -36,19 +68,52 @@
       "name": "movary-migration",
       "image": "leepeuker/movary:0.68.0",
       "user": "1000:1000",
-      "environment": {
-        "TMDB_API_KEY": "${MOVARY_TMDB_API_KEY}",
-        "TIMEZONE": "${TZ}",
-        "DATABASE_MODE": "mysql",
-        "DATABASE_MYSQL_HOST": "movary-db",
-        "DATABASE_MYSQL_NAME": "movary",
-        "DATABASE_MYSQL_USER": "tipi",
-        "DATABASE_MYSQL_PASSWORD": "${MOVARY_MYSQL_PASSWORD}",
-        "TMDB_ENABLE_IMAGE_CACHING": "1",
-        "APPLICATION_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
-        "PLEX_IDENTIFIER": "${MOVARY_PLEX_IDENTIFIER}",
-        "JELLYFIN_DEVICE_ID": "${MOVARY_JELLYFIN_IDENTIFIER}"
-      },
+      "environment": [
+        {
+          "key": "TMDB_API_KEY",
+          "value": "${MOVARY_TMDB_API_KEY}"
+        },
+        {
+          "key": "TIMEZONE",
+          "value": "${TZ}"
+        },
+        {
+          "key": "DATABASE_MODE",
+          "value": "mysql"
+        },
+        {
+          "key": "DATABASE_MYSQL_HOST",
+          "value": "movary-db"
+        },
+        {
+          "key": "DATABASE_MYSQL_NAME",
+          "value": "movary"
+        },
+        {
+          "key": "DATABASE_MYSQL_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "DATABASE_MYSQL_PASSWORD",
+          "value": "${MOVARY_MYSQL_PASSWORD}"
+        },
+        {
+          "key": "TMDB_ENABLE_IMAGE_CACHING",
+          "value": "1"
+        },
+        {
+          "key": "APPLICATION_URL",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+        },
+        {
+          "key": "PLEX_IDENTIFIER",
+          "value": "${MOVARY_PLEX_IDENTIFIER}"
+        },
+        {
+          "key": "JELLYFIN_DEVICE_ID",
+          "value": "${MOVARY_JELLYFIN_IDENTIFIER}"
+        }
+      ],
       "dependsOn": {
         "movary-db": {
           "condition": "service_healthy"
@@ -65,12 +130,24 @@
     {
       "name": "movary-db",
       "image": "mysql:8.0",
-      "environment": {
-        "MYSQL_DATABASE": "movary",
-        "MYSQL_USER": "tipi",
-        "MYSQL_PASSWORD": "${MOVARY_MYSQL_PASSWORD}",
-        "MYSQL_ROOT_PASSWORD": "${MOVARY_MYSQL_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "MYSQL_DATABASE",
+          "value": "movary"
+        },
+        {
+          "key": "MYSQL_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "MYSQL_PASSWORD",
+          "value": "${MOVARY_MYSQL_PASSWORD}"
+        },
+        {
+          "key": "MYSQL_ROOT_PASSWORD",
+          "value": "${MOVARY_MYSQL_PASSWORD}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/mysql",
@@ -83,5 +160,7 @@
         "test": "mysqladmin ping -h localhost"
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

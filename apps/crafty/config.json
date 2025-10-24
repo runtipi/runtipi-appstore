@@ -7,7 +7,7 @@
   "port": 8456,
   "id": "crafty",
   "https": true,
-  "tipi_version": 26,
+  "tipi_version": 28,
   "version": "4.5.5",
   "categories": ["gaming"],
   "description": "Crafty 4 is the next iteration of our Minecraft Server Wrapper / Controller / Launcher.",
@@ -18,5 +18,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1760565964338
+  "updated_at": 1761338378455,
+  "min_tipi_version": "4.5.0"
 }

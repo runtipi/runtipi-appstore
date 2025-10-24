@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "gotosocial",
@@ -7,22 +6,64 @@
       "isMain": true,
       "internalPort": 8080,
       "user": "1000:1000",
-      "environment": {
-        "GTS_HOST": "${APP_DOMAIN}",
-        "GTS_LETSENCRYPT_ENABLED": "false",
-        "GTS_DB_TYPE": "postgres",
-        "GTS_DB_ADDRESS": "gotosocial-db",
-        "GTS_DB_PORT": "5432",
-        "GTS_DB_USER": "tipi",
-        "GTS_DB_PASSWORD": "${GTS_DB_PASSWORD}",
-        "GTS_DB_DATABASE": "gotosocial-db",
-        "GTS_ACCOUNTS_REGISTRATION_OPEN": "${GTS_ACCOUNTS_REGISTRATION_OPEN}",
-        "GTS_SMTP_HOST": "${GTS_SMTP_HOST}",
-        "GTS_SMTP_PORT": "${GTS_SMTP_PORT}",
-        "GTS_SMTP_USERNAME": "${GTS_SMTP_USERNAME}",
-        "GTS_SMTP_PASSWORD": "${GTS_SMTP_PASSWORD}",
-        "GTS_SMTP_FROM": "${GTS_SMTP_FROM}"
-      },
+      "environment": [
+        {
+          "key": "GTS_HOST",
+          "value": "${APP_DOMAIN}"
+        },
+        {
+          "key": "GTS_LETSENCRYPT_ENABLED",
+          "value": "false"
+        },
+        {
+          "key": "GTS_DB_TYPE",
+          "value": "postgres"
+        },
+        {
+          "key": "GTS_DB_ADDRESS",
+          "value": "gotosocial-db"
+        },
+        {
+          "key": "GTS_DB_PORT",
+          "value": "5432"
+        },
+        {
+          "key": "GTS_DB_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "GTS_DB_PASSWORD",
+          "value": "${GTS_DB_PASSWORD}"
+        },
+        {
+          "key": "GTS_DB_DATABASE",
+          "value": "gotosocial-db"
+        },
+        {
+          "key": "GTS_ACCOUNTS_REGISTRATION_OPEN",
+          "value": "${GTS_ACCOUNTS_REGISTRATION_OPEN}"
+        },
+        {
+          "key": "GTS_SMTP_HOST",
+          "value": "${GTS_SMTP_HOST}"
+        },
+        {
+          "key": "GTS_SMTP_PORT",
+          "value": "${GTS_SMTP_PORT}"
+        },
+        {
+          "key": "GTS_SMTP_USERNAME",
+          "value": "${GTS_SMTP_USERNAME}"
+        },
+        {
+          "key": "GTS_SMTP_PASSWORD",
+          "value": "${GTS_SMTP_PASSWORD}"
+        },
+        {
+          "key": "GTS_SMTP_FROM",
+          "value": "${GTS_SMTP_FROM}"
+        }
+      ],
       "dependsOn": ["gotosocial-db"],
       "volumes": [
         {
@@ -34,12 +75,24 @@
     {
       "name": "gotosocial-db",
       "image": "postgres:14",
-      "environment": {
-        "POSTGRES_PASSWORD": "${GTS_DB_PASSWORD}",
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_DB": "gotosocial-db",
-        "PG_DATA": "/var/lib/postgresql/data"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${GTS_DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "gotosocial-db"
+        },
+        {
+          "key": "PG_DATA",
+          "value": "/var/lib/postgresql/data"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/db",
@@ -47,5 +100,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

@@ -5,11 +5,20 @@
       "image": "amir20/dozzle:v8.14.5",
       "isMain": true,
       "internalPort": 8080,
-      "environment": {
-        "DOZZLE_NO_ANALYTICS": "${DOZZLE_NO_ANALYTICS:-true}",
-        "DOZZLE_AUTH_PROVIDER": "${DOZZLE_AUTH_PROVIDER:-none}",
-        "DOZZLE_ENABLE_ACTIONS": "${DOZZLE_ENABLE_ACTIONS:-true}"
-      },
+      "environment": [
+        {
+          "key": "DOZZLE_NO_ANALYTICS",
+          "value": "${DOZZLE_NO_ANALYTICS:-true}"
+        },
+        {
+          "key": "DOZZLE_AUTH_PROVIDER",
+          "value": "${DOZZLE_AUTH_PROVIDER:-none}"
+        },
+        {
+          "key": "DOZZLE_ENABLE_ACTIONS",
+          "value": "${DOZZLE_ENABLE_ACTIONS:-true}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "/var/run/docker.sock",
@@ -22,5 +31,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

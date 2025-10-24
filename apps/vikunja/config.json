@@ -7,7 +7,7 @@
   "port": 8135,
   "id": "vikunja",
   "categories": ["utilities"],
-  "tipi_version": 16,
+  "tipi_version": 18,
   "version": "0.24.6",
   "description": "The Todo-app to organize your life.",
   "short_desc": "The Todo-app to organize your life.",
@@ -28,5 +28,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1734908806202
+  "updated_at": 1761338378520,
+  "min_tipi_version": "4.5.0"
 }

@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
@@ -17,15 +18,15 @@
           "containerPath": "/root/.affine/storage"
         }
       ],
-      "environment": {
-        "AFFINE_CONFIG_PATH": "/root/.affine/config",
-        "REDIS_SERVER_HOST": "affine-redis",
-        "DATABASE_URL": "postgres://tipi:${AFFINE_POSTGRES_PASSWORD}@affine-postgres:5432/affine",
-        "NODE_ENV": "production",
-        "AFFINE_ADMIN_EMAIL": "${AFFINE_ADMIN_EMAIL}",
-        "AFFINE_ADMIN_PASSWORD": "${AFFINE_ADMIN_PASSWORD}",
-        "TELEMETRY_ENABLE": "${AFFINE_TELEMETRY_ENABLE}"
-      },
+      "environment": [
+        { "key": "AFFINE_CONFIG_PATH", "value": "/root/.affine/config" },
+        { "key": "REDIS_SERVER_HOST", "value": "affine-redis" },
+        { "key": "DATABASE_URL", "value": "postgres://tipi:${AFFINE_POSTGRES_PASSWORD}@affine-postgres:5432/affine" },
+        { "key": "NODE_ENV", "value": "production" },
+        { "key": "AFFINE_ADMIN_EMAIL", "value": "${AFFINE_ADMIN_EMAIL}" },
+        { "key": "AFFINE_ADMIN_PASSWORD", "value": "${AFFINE_ADMIN_PASSWORD}" },
+        { "key": "TELEMETRY_ENABLE", "value": "${AFFINE_TELEMETRY_ENABLE}" }
+      ],
       "dependsOn": {
         "affine-redis": {
           "condition": "service_healthy"
@@ -72,11 +73,11 @@
         "timeout": "5s",
         "retries": 5
       },
-      "environment": {
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_PASSWORD": "${AFFINE_POSTGRES_PASSWORD}",
-        "POSTGRES_DB": "affine"
-      }
+      "environment": [
+        { "key": "POSTGRES_USER", "value": "tipi" },
+        { "key": "POSTGRES_PASSWORD", "value": "${AFFINE_POSTGRES_PASSWORD}" },
+        { "key": "POSTGRES_DB", "value": "affine" }
+      ]
     }
   ]
 }

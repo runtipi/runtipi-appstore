@@ -5,9 +5,12 @@
       "image": "baldissaramatheus/tasks.md:3.1.0",
       "isMain": true,
       "internalPort": 8080,
-      "environment": {
-        "TITLE": "${TASKS_MD_TITLE}"
-      },
+      "environment": [
+        {
+          "key": "TITLE",
+          "value": "${TASKS_MD_TITLE}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/files",
@@ -24,5 +27,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

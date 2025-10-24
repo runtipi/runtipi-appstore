@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "pihole",
@@ -16,10 +15,16 @@
         }
       ],
       "hostname": "pihole",
-      "environment": {
-        "TZ": "${TZ}",
-        "FTLCONF_webserver_api_password": "${APP_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "FTLCONF_webserver_api_password",
+          "value": "${APP_PASSWORD}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/pihole",
@@ -32,5 +37,7 @@
       ],
       "capAdd": ["NET_ADMIN"]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

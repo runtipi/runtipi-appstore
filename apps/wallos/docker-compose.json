@@ -5,9 +5,12 @@
       "image": "bellamy/wallos:4.5.0",
       "isMain": true,
       "internalPort": 80,
-      "environment": {
-        "TZ": "${TZ}"
-      },
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "/etc/localtime",
@@ -25,5 +28,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

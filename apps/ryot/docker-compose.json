@@ -5,23 +5,47 @@
       "image": "ghcr.io/ignisda/ryot:v2.24.2",
       "isMain": true,
       "internalPort": 8000,
-      "environment": {
-        "DATABASE_URL": "postgres://tipi:${RYOT_DB_PASSWORD}@ryot-db:5432/ryot",
-        "SERVER_INSECURE_COOKIE": "true",
-        "USERS_ALLOW_REGISTRATION": "${RYOT_ALLOW_REGISTRATION}",
-        "VIDEO_GAMES_TWITCH_CLIENT_ID": "${RYOT_VIDEO_GAMES_TWITCH_CLIENT_ID}",
-        "VIDEO_GAMES_TWITCH_CLIENT_SECRET": " ${RYOT_VIDEO_GAMES_TWITCH_CLIENT_SECRET}"
-      },
+      "environment": [
+        {
+          "key": "DATABASE_URL",
+          "value": "postgres://tipi:${RYOT_DB_PASSWORD}@ryot-db:5432/ryot"
+        },
+        {
+          "key": "SERVER_INSECURE_COOKIE",
+          "value": "true"
+        },
+        {
+          "key": "USERS_ALLOW_REGISTRATION",
+          "value": "${RYOT_ALLOW_REGISTRATION}"
+        },
+        {
+          "key": "VIDEO_GAMES_TWITCH_CLIENT_ID",
+          "value": "${RYOT_VIDEO_GAMES_TWITCH_CLIENT_ID}"
+        },
+        {
+          "key": "VIDEO_GAMES_TWITCH_CLIENT_SECRET",
+          "value": " ${RYOT_VIDEO_GAMES_TWITCH_CLIENT_SECRET}"
+        }
+      ],
       "dependsOn": ["ryot-db"]
     },
     {
       "name": "ryot-db",
       "image": "postgres:15-alpine",
-      "environment": {
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_PASSWORD": "${RYOT_DB_PASSWORD}",
-        "POSTGRES_DB": "ryot"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${RYOT_DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "ryot"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgres",
@@ -30,5 +54,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

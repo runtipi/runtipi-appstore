@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "image": "itzg/minecraft-server:latest",
@@ -12,12 +11,20 @@
           "containerPath": "/data"
         }
       ],
-      "environment": {
-        "EULA": "TRUE",
-        "VERSION": "${MC_VERSION:-LATEST}"
-      },
+      "environment": [
+        {
+          "key": "EULA",
+          "value": "TRUE"
+        },
+        {
+          "key": "VERSION",
+          "value": "${MC_VERSION:-LATEST}"
+        }
+      ],
       "tty": true,
       "stdinOpen": true
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

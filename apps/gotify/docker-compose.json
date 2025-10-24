@@ -5,10 +5,16 @@
       "image": "gotify/server:2.7.3",
       "isMain": true,
       "internalPort": 80,
-      "environment": {
-        "GOTIFY_DEFAULTUSER_NAME": "${GOTIFY_DEFAULTUSER_NAME}",
-        "GOTIFY_DEFAULTUSER_PASS": "${GOTIFY_DEFAULTUSER_PASS}"
-      },
+      "environment": [
+        {
+          "key": "GOTIFY_DEFAULTUSER_NAME",
+          "value": "${GOTIFY_DEFAULTUSER_NAME}"
+        },
+        {
+          "key": "GOTIFY_DEFAULTUSER_PASS",
+          "value": "${GOTIFY_DEFAULTUSER_PASS}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data",
@@ -28,5 +34,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

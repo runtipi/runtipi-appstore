@@ -1,25 +1,60 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "rallly",
       "image": "lukevella/rallly:4.4.1",
       "isMain": true,
       "internalPort": 3000,
-      "environment": {
-        "DATABASE_URL": "postgres://tipi:${RALLLY_DB_PASSWORD}@rallly_db:5432/rallly",
-        "SECRET_PASSWORD": "${RALLLY_SECRET_KEY}",
-        "NEXT_PUBLIC_BASE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
-        "NOREPLY_EMAIL": "${RALLLY_NOREPLY_EMAIL}",
-        "SUPPORT_EMAIL": "${RALLLY_SUPPORT_EMAIL}",
-        "SMTP_HOST": "${RALLLY_SMTP_HOST}",
-        "SMTP_PORT": "${RALLLY_SMTP_PORT}",
-        "SMTP_SECURE": "${RALLLY_SMTP_SECURE}",
-        "SMTP_USER": "${RALLLY_SMTP_USER}",
-        "SMTP_PWD": "${RALLLY_SMTP_PWD}",
-        "SMTP_TLS_ENABLED": "${RALLLY_SMTP_TLS_ENABLED}",
-        "ALLOWED_EMAILS": "${RALLLY_ALLOWED_EMAILS}"
-      },
+      "environment": [
+        {
+          "key": "DATABASE_URL",
+          "value": "postgres://tipi:${RALLLY_DB_PASSWORD}@rallly_db:5432/rallly"
+        },
+        {
+          "key": "SECRET_PASSWORD",
+          "value": "${RALLLY_SECRET_KEY}"
+        },
+        {
+          "key": "NEXT_PUBLIC_BASE_URL",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+        },
+        {
+          "key": "NOREPLY_EMAIL",
+          "value": "${RALLLY_NOREPLY_EMAIL}"
+        },
+        {
+          "key": "SUPPORT_EMAIL",
+          "value": "${RALLLY_SUPPORT_EMAIL}"
+        },
+        {
+          "key": "SMTP_HOST",
+          "value": "${RALLLY_SMTP_HOST}"
+        },
+        {
+          "key": "SMTP_PORT",
+          "value": "${RALLLY_SMTP_PORT}"
+        },
+        {
+          "key": "SMTP_SECURE",
+          "value": "${RALLLY_SMTP_SECURE}"
+        },
+        {
+          "key": "SMTP_USER",
+          "value": "${RALLLY_SMTP_USER}"
+        },
+        {
+          "key": "SMTP_PWD",
+          "value": "${RALLLY_SMTP_PWD}"
+        },
+        {
+          "key": "SMTP_TLS_ENABLED",
+          "value": "${RALLLY_SMTP_TLS_ENABLED}"
+        },
+        {
+          "key": "ALLOWED_EMAILS",
+          "value": "${RALLLY_ALLOWED_EMAILS}"
+        }
+      ],
       "dependsOn": {
         "rallly_db": {
           "condition": "service_healthy"
@@ -29,11 +64,20 @@
     {
       "name": "rallly_db",
       "image": "postgres:14",
-      "environment": {
-        "POSTGRES_PASSWORD": "${RALLLY_DB_PASSWORD}",
-        "POSTGRES_DB": "rallly",
-        "POSTGRES_USER": "tipi"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${RALLLY_DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "rallly"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/db",
@@ -47,5 +91,7 @@
         "test": "pg_isready -d $$POSTGRES_DB -U $$POSTGRES_USER"
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

@@ -5,7 +5,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "octobot",
-  "tipi_version": 22,
+  "tipi_version": 24,
   "version": "2.1.13",
   "categories": ["automation", "finance"],
   "description": "OctoBot is a highly customizable trading bot using its configuration and tentacles system. You can build your own bot using the infinite configuration possibilities such as technical analysis, social media processing or even external statistics management like google trends.",
@@ -15,6 +15,7 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1761149784151,
-  "$schema": "../app-info-schema.json"
+  "updated_at": 1761338378490,
+  "$schema": "../app-info-schema.json",
+  "min_tipi_version": "4.5.0"
 }

@@ -11,11 +11,18 @@
           "containerPath": "/app/backend/data"
         }
       ],
-      "environment": {
-        "OLLAMA_BASE_URL": "${OPENWEBUI_OLLAMA_URL}",
-        "OPENAI_API_KEY": "${OPENWEBUI_OPENAI_KEY}"
-      }
+      "environment": [
+        {
+          "key": "OLLAMA_BASE_URL",
+          "value": "${OPENWEBUI_OLLAMA_URL}"
+        },
+        {
+          "key": "OPENAI_API_KEY",
+          "value": "${OPENWEBUI_OPENAI_KEY}"
+        }
+      ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

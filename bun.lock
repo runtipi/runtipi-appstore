@@ -4,7 +4,7 @@
     "": {
       "name": "runtipi-appstore",
       "dependencies": {
-        "@runtipi/common": "^1.0.0",
+        "@runtipi/common": "^1.0.1",
         "ajv": "^8.17.1",
       },
       "devDependencies": {
@@ -195,7 +195,7 @@
 
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.25", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ=="],
 
-    "@runtipi/common": ["@runtipi/common@1.0.0", "", { "peerDependencies": { "arktype": ">=2", "typescript": ">=5", "zod": ">=4" } }, "sha512-YsUOwy/1qjl8TNXZGmj7lzGVPpzXJy3hUoSrUhEOq86I+ATHJHk7ricF4WHFdl/8JnJTRcx1E48fidhI4dh3gg=="],
+    "@runtipi/common": ["@runtipi/common@1.0.1", "", { "peerDependencies": { "arktype": ">=2", "typescript": ">=5", "zod": ">=4" } }, "sha512-9i/3meaIXPSfhGoWLMYM6y8UgrGhR7tfgRPleBfZjEjLpH/oHPw+ROegbEYi0cZ1/ze04pbyW8Cr7HO36026nQ=="],
 
     "@sinclair/typebox": ["@sinclair/typebox@0.24.51", "", {}, "sha512-1P1OROm/rdubP5aFDSZQILU0vrLCJ4fvHt6EoqHEM+2D/G5MK3bIaymUKLit8Js9gbns5UyJnkP/TZROLw4tUA=="],
 

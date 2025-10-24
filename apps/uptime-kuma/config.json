@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "port": 8125,
   "id": "uptime-kuma",
-  "tipi_version": 6,
+  "tipi_version": 8,
   "version": "2",
   "categories": ["utilities"],
   "description": "It is a self-hosted monitoring tool like Uptime Robot.",
@@ -16,6 +16,7 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1761150085209,
-  "force_pull": true
+  "updated_at": 1761338378519,
+  "force_pull": true,
+  "min_tipi_version": "4.5.0"
 }

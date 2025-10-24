@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "image": "lscr.io/linuxserver/duckdns:b14c520a-ls8",
@@ -10,15 +9,38 @@
           "containerPath": "/config"
         }
       ],
-      "environment": {
-        "PUID": "1000",
-        "PGID": "1000",
-        "TZ": "${TZ}",
-        "SUBDOMAINS": "${DUCKDNS_SUBDOMAINS}",
-        "TOKEN": "${DUCKDNS_TOKEN}",
-        "UPDATE_IP": "${DUCKDNS_UPDATE_IP}",
-        "LOG_FILE": "${DUCKDNS_ENABLE_LOG_FILE}"
-      }
+      "environment": [
+        {
+          "key": "PUID",
+          "value": "1000"
+        },
+        {
+          "key": "PGID",
+          "value": "1000"
+        },
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "SUBDOMAINS",
+          "value": "${DUCKDNS_SUBDOMAINS}"
+        },
+        {
+          "key": "TOKEN",
+          "value": "${DUCKDNS_TOKEN}"
+        },
+        {
+          "key": "UPDATE_IP",
+          "value": "${DUCKDNS_UPDATE_IP}"
+        },
+        {
+          "key": "LOG_FILE",
+          "value": "${DUCKDNS_ENABLE_LOG_FILE}"
+        }
+      ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

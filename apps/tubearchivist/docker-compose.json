@@ -1,21 +1,44 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "tubearchivist",
       "image": "bbilly1/tubearchivist:v0.5.7",
       "isMain": true,
       "internalPort": 8000,
-      "environment": {
-        "ES_URL": "http://tubearchivist-es:9200",
-        "REDIS_CON": "redis://tubearchivist-redis:6379",
-        "HOST_UID": "1000",
-        "HOST_GID": "1000",
-        "TA_USERNAME": "${TA_USER}",
-        "TA_PASSWORD": "${TA_PASSWORD}",
-        "TA_HOST": "${APP_DOMAIN}",
-        "ELASTIC_PASSWORD": "${ELASTIC_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "ES_URL",
+          "value": "http://tubearchivist-es:9200"
+        },
+        {
+          "key": "REDIS_CON",
+          "value": "redis://tubearchivist-redis:6379"
+        },
+        {
+          "key": "HOST_UID",
+          "value": "1000"
+        },
+        {
+          "key": "HOST_GID",
+          "value": "1000"
+        },
+        {
+          "key": "TA_USERNAME",
+          "value": "${TA_USER}"
+        },
+        {
+          "key": "TA_PASSWORD",
+          "value": "${TA_PASSWORD}"
+        },
+        {
+          "key": "TA_HOST",
+          "value": "${APP_DOMAIN}"
+        },
+        {
+          "key": "ELASTIC_PASSWORD",
+          "value": "${ELASTIC_PASSWORD}"
+        }
+      ],
       "dependsOn": ["tubearchivist-es", "tubearchivist-redis"],
       "volumes": [
         {
@@ -42,13 +65,28 @@
     {
       "name": "tubearchivist-es",
       "image": "elasticsearch:8.17.2",
-      "environment": {
-        "xpack.security.enabled": "true",
-        "ELASTIC_PASSWORD": "${ELASTIC_PASSWORD}",
-        "discovery.type": "single-node",
-        "ES_JAVA_OPTS": "-Xms512m -Xmx512m",
-        "path.repo": "/usr/share/elasticsearch/data/snapshot"
-      },
+      "environment": [
+        {
+          "key": "xpack.security.enabled",
+          "value": "true"
+        },
+        {
+          "key": "ELASTIC_PASSWORD",
+          "value": "${ELASTIC_PASSWORD}"
+        },
+        {
+          "key": "discovery.type",
+          "value": "single-node"
+        },
+        {
+          "key": "ES_JAVA_OPTS",
+          "value": "-Xms512m -Xmx512m"
+        },
+        {
+          "key": "path.repo",
+          "value": "/usr/share/elasticsearch/data/snapshot"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/es",
@@ -62,5 +100,7 @@
         }
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

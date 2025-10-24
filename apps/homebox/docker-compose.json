@@ -6,12 +6,24 @@
       "isMain": true,
       "internalPort": 7745,
       "user": "1000:1000",
-      "environment": {
-        "HBOX_LOG_LEVEL": "info",
-        "HBOX_LOG_FORMAT": "text",
-        "HBOX_WEB_MAX_UPLOAD_SIZE": "10",
-        "HBOX_OPTIONS_ALLOW_REGISTRATION": "${HBOX_OPTIONS_ALLOW_REGISTRATION}"
-      },
+      "environment": [
+        {
+          "key": "HBOX_LOG_LEVEL",
+          "value": "info"
+        },
+        {
+          "key": "HBOX_LOG_FORMAT",
+          "value": "text"
+        },
+        {
+          "key": "HBOX_WEB_MAX_UPLOAD_SIZE",
+          "value": "10"
+        },
+        {
+          "key": "HBOX_OPTIONS_ALLOW_REGISTRATION",
+          "value": "${HBOX_OPTIONS_ALLOW_REGISTRATION}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/homebox-data",
@@ -20,5 +32,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

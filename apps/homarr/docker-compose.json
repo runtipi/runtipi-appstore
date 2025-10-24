@@ -5,9 +5,12 @@
       "image": "ghcr.io/ajnart/homarr:0.16.0",
       "isMain": true,
       "internalPort": 7575,
-      "environment": {
-        "TZ": "${TZ}"
-      },
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/config",
@@ -28,5 +31,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

@@ -5,15 +5,36 @@
       "image": "vikunja/vikunja:0.24.6",
       "isMain": true,
       "internalPort": 3456,
-      "environment": {
-        "VIKUNJA_DATABASE_HOST": "vikunja-db",
-        "VIKUNJA_DATABASE_PASSWORD": "${VIKUNJA_DB_PASSWORD}",
-        "VIKUNJA_DATABASE_TYPE": "postgres",
-        "VIKUNJA_DATABASE_USER": "tipi",
-        "VIKUNJA_DATABASE_DATABASE": "vikunja",
-        "VIKUNJA_SERVICE_JWTSECRET": "${VIKUNJA_SERVICE_SECRET}",
-        "VIKUNJA_SERVICE_PUBLICURL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}/"
-      },
+      "environment": [
+        {
+          "key": "VIKUNJA_DATABASE_HOST",
+          "value": "vikunja-db"
+        },
+        {
+          "key": "VIKUNJA_DATABASE_PASSWORD",
+          "value": "${VIKUNJA_DB_PASSWORD}"
+        },
+        {
+          "key": "VIKUNJA_DATABASE_TYPE",
+          "value": "postgres"
+        },
+        {
+          "key": "VIKUNJA_DATABASE_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "VIKUNJA_DATABASE_DATABASE",
+          "value": "vikunja"
+        },
+        {
+          "key": "VIKUNJA_SERVICE_JWTSECRET",
+          "value": "${VIKUNJA_SERVICE_SECRET}"
+        },
+        {
+          "key": "VIKUNJA_SERVICE_PUBLICURL",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}/"
+        }
+      ],
       "dependsOn": {
         "vikunja-db": {
           "condition": "service_healthy"
@@ -29,11 +50,20 @@
     {
       "name": "vikunja-db",
       "image": "postgres:14",
-      "environment": {
-        "POSTGRES_PASSWORD": "${VIKUNJA_DB_PASSWORD}",
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_DB": "vikunja"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${VIKUNJA_DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "vikunja"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/db",
@@ -48,5 +78,6 @@
       }
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

@@ -40,34 +40,112 @@
           "containerPath": "/App/wwwroot/temp"
         }
       ],
-      "environment": {
-        "TZ": "${TZ}",
-        "LOGGING__LOGLEVEL__DEFAULT": "Error",
-        "LC_ALL": "${LUBELOGGER_LOCALE:-en_US.UTF-8}",
-        "LANG": "${LUBELOGGER_LOCALE:-en_US.UTF-8}",
-        "POSTGRES_CONNECTION": "Host='lubelogger-db:5432';Username=tipi;Password=tipi;Database=lubelogger;",
-        "EnableAuth": "${LUBELOGGER_ENABLE_AUTH:-false}",
-        "UserNameHash": "${LUBELOGGER_USERNAME_HASH}",
-        "UserPasswordHash": "${LUBELOGGER_PASSWORD_HASH}",
-        "LUBELOGGER_ALLOWED_FILE_EXTENSIONS": "${LUBELOGGER_ALLOWED_FILE_EXTENSIONS:-*}",
-        "LUBELOGGER_LOGO_URL": "${LUBELOGGER_CUSTOM_LOGO_URL}",
-        "LUBELOGGER_MOTD": "${LUBELOGGER_MOTD}",
-        "LUBELOGGER_WEBHOOK": "${LUBELOGGER_WEBHOOK_URL}",
-        "MailConfig__EmailServer": "${LUBELOGGER_EMAIL_SERVER}",
-        "MailConfig__EmailFrom": "${LUBELOGGER_EMAIL_FROM}",
-        "MailConfig__UseSSL": "${LUBELOGGER_EMAIL_USE_SSL:-false}",
-        "MailConfig__Port": "${LUBELOGGER_EMAIL_PORT:-587}",
-        "MailConfig__Username": "${LUBELOGGER_EMAIL_USERNAME}",
-        "MailConfig__Password": "${LUBELOGGER_EMAIL_PASSWORD}",
-        "OpenIDConfig__Name": "${LUBELOGGER_OPENID_NAME}",
-        "OpenIDConfig__ClientId": "${LUBELOGGER_OPENID_CLIENT_ID}",
-        "OpenIDConfig__ClientSecret": "${LUBELOGGER_OPENID_CLIENT_SECRET}",
-        "OpenIDConfig__AuthURL": "${LUBELOGGER_OPENID_AUTH_URL}",
-        "OpenIDConfig__TokenURL": "${LUBELOGGER_OPENID_TOKEN_URL}",
-        "OpenIDConfig__RedirectURL": "${LUBELOGGER_OPENID_REDIRECT_URL}",
-        "OpenIDConfig__Scope": "${LUBELOGGER_OPENID_SCOPE}",
-        "OpenIDConfig__ValidateState": "${LUBELOGGER_OPENID_VALIDATE_STATE:-false}"
-      }
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "LOGGING__LOGLEVEL__DEFAULT",
+          "value": "Error"
+        },
+        {
+          "key": "LC_ALL",
+          "value": "${LUBELOGGER_LOCALE:-en_US.UTF-8}"
+        },
+        {
+          "key": "LANG",
+          "value": "${LUBELOGGER_LOCALE:-en_US.UTF-8}"
+        },
+        {
+          "key": "POSTGRES_CONNECTION",
+          "value": "Host='lubelogger-db:5432';Username=tipi;Password=tipi;Database=lubelogger;"
+        },
+        {
+          "key": "EnableAuth",
+          "value": "${LUBELOGGER_ENABLE_AUTH:-false}"
+        },
+        {
+          "key": "UserNameHash",
+          "value": "${LUBELOGGER_USERNAME_HASH}"
+        },
+        {
+          "key": "UserPasswordHash",
+          "value": "${LUBELOGGER_PASSWORD_HASH}"
+        },
+        {
+          "key": "LUBELOGGER_ALLOWED_FILE_EXTENSIONS",
+          "value": "${LUBELOGGER_ALLOWED_FILE_EXTENSIONS:-*}"
+        },
+        {
+          "key": "LUBELOGGER_LOGO_URL",
+          "value": "${LUBELOGGER_CUSTOM_LOGO_URL}"
+        },
+        {
+          "key": "LUBELOGGER_MOTD",
+          "value": "${LUBELOGGER_MOTD}"
+        },
+        {
+          "key": "LUBELOGGER_WEBHOOK",
+          "value": "${LUBELOGGER_WEBHOOK_URL}"
+        },
+        {
+          "key": "MailConfig__EmailServer",
+          "value": "${LUBELOGGER_EMAIL_SERVER}"
+        },
+        {
+          "key": "MailConfig__EmailFrom",
+          "value": "${LUBELOGGER_EMAIL_FROM}"
+        },
+        {
+          "key": "MailConfig__UseSSL",
+          "value": "${LUBELOGGER_EMAIL_USE_SSL:-false}"
+        },
+        {
+          "key": "MailConfig__Port",
+          "value": "${LUBELOGGER_EMAIL_PORT:-587}"
+        },
+        {
+          "key": "MailConfig__Username",
+          "value": "${LUBELOGGER_EMAIL_USERNAME}"
+        },
+        {
+          "key": "MailConfig__Password",
+          "value": "${LUBELOGGER_EMAIL_PASSWORD}"
+        },
+        {
+          "key": "OpenIDConfig__Name",
+          "value": "${LUBELOGGER_OPENID_NAME}"
+        },
+        {
+          "key": "OpenIDConfig__ClientId",
+          "value": "${LUBELOGGER_OPENID_CLIENT_ID}"
+        },
+        {
+          "key": "OpenIDConfig__ClientSecret",
+          "value": "${LUBELOGGER_OPENID_CLIENT_SECRET}"
+        },
+        {
+          "key": "OpenIDConfig__AuthURL",
+          "value": "${LUBELOGGER_OPENID_AUTH_URL}"
+        },
+        {
+          "key": "OpenIDConfig__TokenURL",
+          "value": "${LUBELOGGER_OPENID_TOKEN_URL}"
+        },
+        {
+          "key": "OpenIDConfig__RedirectURL",
+          "value": "${LUBELOGGER_OPENID_REDIRECT_URL}"
+        },
+        {
+          "key": "OpenIDConfig__Scope",
+          "value": "${LUBELOGGER_OPENID_SCOPE}"
+        },
+        {
+          "key": "OpenIDConfig__ValidateState",
+          "value": "${LUBELOGGER_OPENID_VALIDATE_STATE:-false}"
+        }
+      ]
     },
     {
       "name": "lubelogger-db",
@@ -83,12 +161,24 @@
           "containerPath": "/var/lib/postgresql/data"
         }
       ],
-      "environment": {
-        "TZ": "${TZ}",
-        "POSTGRES_DB": "lubelogger",
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_PASSWORD": "tipi"
-      },
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "lubelogger"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "tipi"
+        }
+      ],
       "healthCheck": {
         "test": "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB",
         "retries": 3,
@@ -97,5 +187,6 @@
       }
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

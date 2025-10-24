@@ -1,21 +1,44 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "immich",
       "image": "ghcr.io/immich-app/immich-server:v2.1.0",
       "isMain": true,
       "internalPort": 2283,
-      "environment": {
-        "NODE_ENV": "production",
-        "DB_HOSTNAME": "immich-db",
-        "DB_USERNAME": "tipi",
-        "DB_PASSWORD": "${DB_PASSWORD}",
-        "ENABLE_MAPBOX": "false",
-        "DB_DATABASE_NAME": "immich",
-        "REDIS_HOSTNAME": "immich-redis",
-        "JWT_SECRET": "${JWT_SECRET}"
-      },
+      "environment": [
+        {
+          "key": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "key": "DB_HOSTNAME",
+          "value": "immich-db"
+        },
+        {
+          "key": "DB_USERNAME",
+          "value": "tipi"
+        },
+        {
+          "key": "DB_PASSWORD",
+          "value": "${DB_PASSWORD}"
+        },
+        {
+          "key": "ENABLE_MAPBOX",
+          "value": "false"
+        },
+        {
+          "key": "DB_DATABASE_NAME",
+          "value": "immich"
+        },
+        {
+          "key": "REDIS_HOSTNAME",
+          "value": "immich-redis"
+        },
+        {
+          "key": "JWT_SECRET",
+          "value": "${JWT_SECRET}"
+        }
+      ],
       "dependsOn": ["immich-redis", "immich-db"],
       "volumes": [
         {
@@ -27,14 +50,32 @@
     {
       "name": "immich-machine-learning",
       "image": "ghcr.io/immich-app/immich-machine-learning:v2.1.0",
-      "environment": {
-        "NODE_ENV": "production",
-        "DB_HOSTNAME": "immich-db",
-        "DB_USERNAME": "tipi",
-        "DB_PASSWORD": "${DB_PASSWORD}",
-        "DB_NAME": "immich",
-        "DB_DATABASE_NAME": "immich"
-      },
+      "environment": [
+        {
+          "key": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "key": "DB_HOSTNAME",
+          "value": "immich-db"
+        },
+        {
+          "key": "DB_USERNAME",
+          "value": "tipi"
+        },
+        {
+          "key": "DB_PASSWORD",
+          "value": "${DB_PASSWORD}"
+        },
+        {
+          "key": "DB_NAME",
+          "value": "immich"
+        },
+        {
+          "key": "DB_DATABASE_NAME",
+          "value": "immich"
+        }
+      ],
       "dependsOn": ["immich-db"],
       "volumes": [
         {
@@ -57,12 +98,24 @@
     {
       "name": "immich-db",
       "image": "ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0",
-      "environment": {
-        "POSTGRES_PASSWORD": "${DB_PASSWORD}",
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_DB": "immich",
-        "PG_DATA": "/var/lib/postgresql/data"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "immich"
+        },
+        {
+          "key": "PG_DATA",
+          "value": "/var/lib/postgresql/data"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/db",
@@ -70,5 +123,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

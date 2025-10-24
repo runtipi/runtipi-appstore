@@ -5,14 +5,32 @@
       "image": "teddit/teddit:latest",
       "isMain": true,
       "internalPort": 8080,
-      "environment": {
-        "REDIS_HOST": "teddit-redis",
-        "DOMAIN": "${APP_DOMAIN}",
-        "THEME": "dark",
-        "HTTPS_ENABLED": "false",
-        "REDIRECT_HTTP_TO_HTTPS": "false",
-        "REDIRECT_WWW": "false"
-      },
+      "environment": [
+        {
+          "key": "REDIS_HOST",
+          "value": "teddit-redis"
+        },
+        {
+          "key": "DOMAIN",
+          "value": "${APP_DOMAIN}"
+        },
+        {
+          "key": "THEME",
+          "value": "dark"
+        },
+        {
+          "key": "HTTPS_ENABLED",
+          "value": "false"
+        },
+        {
+          "key": "REDIRECT_HTTP_TO_HTTPS",
+          "value": "false"
+        },
+        {
+          "key": "REDIRECT_WWW",
+          "value": "false"
+        }
+      ],
       "dependsOn": ["teddit-redis"],
       "healthCheck": {
         "test": "wget --no-verbose --tries=1 --spider http://localhost:8080/about",
@@ -38,5 +56,6 @@
       }
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

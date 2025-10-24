@@ -1,20 +1,40 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "postfix-relay",
       "image": "simenduev/postfix-relay:1.4.0",
       "isMain": true,
       "internalPort": 25,
-      "environment": {
-        "ACCEPTED_NETWORKS": "${RELAY_ACCEPTED_NETWORKS}",
-        "SMTP_HOST": "${RELAY_SMTP_HOST}",
-        "SMTP_LOGIN": "${RELAY_SMTP_LOGIN}",
-        "SMTP_PASSWORD": "${RELAY_SMTP_PASSWORD}",
-        "SMTP_PORT": "${RELAY_SMTP_PORT}",
-        "TLS_VERIFY": "${RELAY_TLS_VERIFY}",
-        "USE_TLS": "${RELAY_USE_TLS}"
-      },
+      "environment": [
+        {
+          "key": "ACCEPTED_NETWORKS",
+          "value": "${RELAY_ACCEPTED_NETWORKS}"
+        },
+        {
+          "key": "SMTP_HOST",
+          "value": "${RELAY_SMTP_HOST}"
+        },
+        {
+          "key": "SMTP_LOGIN",
+          "value": "${RELAY_SMTP_LOGIN}"
+        },
+        {
+          "key": "SMTP_PASSWORD",
+          "value": "${RELAY_SMTP_PASSWORD}"
+        },
+        {
+          "key": "SMTP_PORT",
+          "value": "${RELAY_SMTP_PORT}"
+        },
+        {
+          "key": "TLS_VERIFY",
+          "value": "${RELAY_TLS_VERIFY}"
+        },
+        {
+          "key": "USE_TLS",
+          "value": "${RELAY_USE_TLS}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/config",
@@ -29,5 +49,7 @@
         "test": "netstat -an | grep 25 > /dev/null; if [ 0 != $? ]; then exit 1; fi;"
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

@@ -1,25 +1,63 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "matrix-conduit",
       "image": "matrixconduit/matrix-conduit:v0.10.9",
       "isMain": true,
-      "environment": {
-        "CONDUIT_SERVER_NAME": "${APP_DOMAIN}",
-        "CONDUIT_DATABASE_PATH": "/var/lib/matrix-conduit/",
-        "CONDUIT_DATABASE_BACKEND": "rocksdb",
-        "CONDUIT_ADDRESS": "0.0.0.0",
-        "CONDUIT_PORT": "6167",
-        "CONDUIT_LOG": "${LOG:-warn,rocket=off,_=off,sled=off}",
-        "CONDUIT_MAX_REQUEST_SIZE": "${MAX_REQUEST_SIZE:-20000000}",
-        "CONDUIT_ALLOW_REGISTRATION": "${ALLOW_REGISTRATION:-false}",
-        "CONDUIT_ALLOW_FEDERATION": "${ALLOW_FEDERATION:-false}",
-        "CONDUIT_TRUSTED_SERVERS": "${TRUSTED_SERVERS:-[]}",
-        "CONDUIT_ALLOW_CHECK_FOR_UPDATES": "false",
-        "CONDUIT_TURN_URIS": "${TURN_URIS:-[\"turn:localhost?transport=udp\", \"turn:localhost?transport=tcp\"]}",
-        "CONDUIT_TURN_SECRET": "${TURN_SECRET:-turnsecret}"
-      },
+      "environment": [
+        {
+          "key": "CONDUIT_SERVER_NAME",
+          "value": "${APP_DOMAIN}"
+        },
+        {
+          "key": "CONDUIT_DATABASE_PATH",
+          "value": "/var/lib/matrix-conduit/"
+        },
+        {
+          "key": "CONDUIT_DATABASE_BACKEND",
+          "value": "rocksdb"
+        },
+        {
+          "key": "CONDUIT_ADDRESS",
+          "value": "0.0.0.0"
+        },
+        {
+          "key": "CONDUIT_PORT",
+          "value": "6167"
+        },
+        {
+          "key": "CONDUIT_LOG",
+          "value": "${LOG:-warn,rocket=off,_=off,sled=off}"
+        },
+        {
+          "key": "CONDUIT_MAX_REQUEST_SIZE",
+          "value": "${MAX_REQUEST_SIZE:-20000000}"
+        },
+        {
+          "key": "CONDUIT_ALLOW_REGISTRATION",
+          "value": "${ALLOW_REGISTRATION:-false}"
+        },
+        {
+          "key": "CONDUIT_ALLOW_FEDERATION",
+          "value": "${ALLOW_FEDERATION:-false}"
+        },
+        {
+          "key": "CONDUIT_TRUSTED_SERVERS",
+          "value": "${TRUSTED_SERVERS:-[]}"
+        },
+        {
+          "key": "CONDUIT_ALLOW_CHECK_FOR_UPDATES",
+          "value": "false"
+        },
+        {
+          "key": "CONDUIT_TURN_URIS",
+          "value": "${TURN_URIS:-[\"turn:localhost?transport=udp\", \"turn:localhost?transport=tcp\"]}"
+        },
+        {
+          "key": "CONDUIT_TURN_SECRET",
+          "value": "${TURN_SECRET:-turnsecret}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data",
@@ -51,9 +89,12 @@
     {
       "name": "matrix-conduit-well-known",
       "image": "nginx",
-      "environment": {
-        "APP_DOMAIN": "${APP_DOMAIN}"
-      },
+      "environment": [
+        {
+          "key": "APP_DOMAIN",
+          "value": "${APP_DOMAIN}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "./nginx",
@@ -82,5 +123,7 @@
         "traefik.http.routers.{{RUNTIPI_APP_ID}}-well-knows-local.tls": "true"
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

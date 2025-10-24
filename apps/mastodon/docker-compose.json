@@ -1,43 +1,132 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "mastodon",
       "image": "lscr.io/linuxserver/mastodon:4.4.8",
       "isMain": true,
       "internalPort": 443,
-      "environment": {
-        "PUID": "1000",
-        "PGID": "1000",
-        "TZ": "${TZ}",
-        "LOCAL_DOMAIN": "${MASTODON_LOCAL_DOMAIN}",
-        "WEB_DOMAIN": "${APP_DOMAIN}",
-        "VAPID_PUBLIC_KEY": "${VAPID_PUBLIC_KEY}",
-        "VAPID_PRIVATE_KEY": "${VAPID_PRIVATE_KEY}",
-        "REDIS_HOST": "mastodon-redis",
-        "REDIS_PASSWORD": "${MASTODON_REDIS_PASSWORD}",
-        "REDIS_PORT": "6379",
-        "DB_HOST": "mastodon-db",
-        "DB_USER": "tipi",
-        "DB_NAME": "mastodon",
-        "DB_PASS": "${MASTODON_POSTGRES_PASSWORD}",
-        "DB_PORT": "5432",
-        "ES_ENABLED": "false",
-        "SECRET_KEY_BASE": "${MASTODON_SECRET_KEY_BASE}",
-        "OTP_SECRET": "${MASTODON_OTP_SECRET}",
-        "SMTP_SERVER": "${MASTODON_SMTP_SERVER}",
-        "SMTP_PORT": "${MASTODON_SMTP_PORT}",
-        "SMTP_LOGIN": "${MASTODON_SMTP_LOGIN}",
-        "SMTP_PASSWORD": "${MASTODON_SMTP_PASSWORD}",
-        "SMTP_FROM_ADDRESS": "${MASTODON_SMTP_FROM_ADDRESS}",
-        "S3_ENABLED": "false",
-        "SIDEKIQ_ONLY": "false",
-        "SIDEKIQ_DEFAULT": "false",
-        "SIDEKIQ_THREADS": "5",
-        "ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY": "${MASTODON_ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY}",
-        "ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT": "${MASTODON_ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT}",
-        "ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY": "${MASTODON_ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY}"
-      },
+      "environment": [
+        {
+          "key": "PUID",
+          "value": "1000"
+        },
+        {
+          "key": "PGID",
+          "value": "1000"
+        },
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "LOCAL_DOMAIN",
+          "value": "${MASTODON_LOCAL_DOMAIN}"
+        },
+        {
+          "key": "WEB_DOMAIN",
+          "value": "${APP_DOMAIN}"
+        },
+        {
+          "key": "VAPID_PUBLIC_KEY",
+          "value": "${VAPID_PUBLIC_KEY}"
+        },
+        {
+          "key": "VAPID_PRIVATE_KEY",
+          "value": "${VAPID_PRIVATE_KEY}"
+        },
+        {
+          "key": "REDIS_HOST",
+          "value": "mastodon-redis"
+        },
+        {
+          "key": "REDIS_PASSWORD",
+          "value": "${MASTODON_REDIS_PASSWORD}"
+        },
+        {
+          "key": "REDIS_PORT",
+          "value": "6379"
+        },
+        {
+          "key": "DB_HOST",
+          "value": "mastodon-db"
+        },
+        {
+          "key": "DB_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "DB_NAME",
+          "value": "mastodon"
+        },
+        {
+          "key": "DB_PASS",
+          "value": "${MASTODON_POSTGRES_PASSWORD}"
+        },
+        {
+          "key": "DB_PORT",
+          "value": "5432"
+        },
+        {
+          "key": "ES_ENABLED",
+          "value": "false"
+        },
+        {
+          "key": "SECRET_KEY_BASE",
+          "value": "${MASTODON_SECRET_KEY_BASE}"
+        },
+        {
+          "key": "OTP_SECRET",
+          "value": "${MASTODON_OTP_SECRET}"
+        },
+        {
+          "key": "SMTP_SERVER",
+          "value": "${MASTODON_SMTP_SERVER}"
+        },
+        {
+          "key": "SMTP_PORT",
+          "value": "${MASTODON_SMTP_PORT}"
+        },
+        {
+          "key": "SMTP_LOGIN",
+          "value": "${MASTODON_SMTP_LOGIN}"
+        },
+        {
+          "key": "SMTP_PASSWORD",
+          "value": "${MASTODON_SMTP_PASSWORD}"
+        },
+        {
+          "key": "SMTP_FROM_ADDRESS",
+          "value": "${MASTODON_SMTP_FROM_ADDRESS}"
+        },
+        {
+          "key": "S3_ENABLED",
+          "value": "false"
+        },
+        {
+          "key": "SIDEKIQ_ONLY",
+          "value": "false"
+        },
+        {
+          "key": "SIDEKIQ_DEFAULT",
+          "value": "false"
+        },
+        {
+          "key": "SIDEKIQ_THREADS",
+          "value": "5"
+        },
+        {
+          "key": "ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY",
+          "value": "${MASTODON_ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY}"
+        },
+        {
+          "key": "ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT",
+          "value": "${MASTODON_ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT}"
+        },
+        {
+          "key": "ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY",
+          "value": "${MASTODON_ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY}"
+        }
+      ],
       "dependsOn": {
         "mastodon-db": {
           "condition": "service_healthy"
@@ -60,13 +149,28 @@
     {
       "name": "mastodon-db",
       "image": "postgres:14-alpine",
-      "environment": {
-        "POSTGRES_PASSWORD": "${MASTODON_POSTGRES_PASSWORD}",
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_DB": "mastodon",
-        "PG_DATA": "/var/lib/postgresql/data",
-        "POSTGRES_HOST_AUTH_METHOD": "trust"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${MASTODON_POSTGRES_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "mastodon"
+        },
+        {
+          "key": "PG_DATA",
+          "value": "/var/lib/postgresql/data"
+        },
+        {
+          "key": "POSTGRES_HOST_AUTH_METHOD",
+          "value": "trust"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgres",
@@ -92,5 +196,7 @@
         "test": "redis-cli ping"
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

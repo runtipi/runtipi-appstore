@@ -6,7 +6,7 @@
   "exposable": false,
   "dynamic_config": true,
   "id": "cloudflared",
-  "tipi_version": 37,
+  "tipi_version": 39,
   "version": "2025.10.0",
   "categories": ["utilities"],
   "description": "Cloudflared-web is a docker image that packages both cloudflared cli and a no-frills Web UI for easy starting/stopping of cloudflare tunnel.",
@@ -29,5 +29,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1761150011716
+  "updated_at": 1761338378453,
+  "min_tipi_version": "4.5.0"
 }

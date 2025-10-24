@@ -5,15 +5,36 @@
       "image": "samuel19982/podfetch:latest",
       "isMain": true,
       "internalPort": 8000,
-      "environment": {
-        "BASIC_AUTH": "true",
-        "USERNAME": "${PODFETCH_USERNAME}",
-        "PASSWORD": "${PODFETCH_PASSWORD}",
-        "POLLING_INTERVAL": "60",
-        "SERVER_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
-        "PODINDEX_API_KEY": "${PODFETCH_PODINDEX_API_KEY}",
-        "PODINDEX_API_SECRET": "${PODFETCH_PODINDEX_API_SECRET}"
-      },
+      "environment": [
+        {
+          "key": "BASIC_AUTH",
+          "value": "true"
+        },
+        {
+          "key": "USERNAME",
+          "value": "${PODFETCH_USERNAME}"
+        },
+        {
+          "key": "PASSWORD",
+          "value": "${PODFETCH_PASSWORD}"
+        },
+        {
+          "key": "POLLING_INTERVAL",
+          "value": "60"
+        },
+        {
+          "key": "SERVER_URL",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+        },
+        {
+          "key": "PODINDEX_API_KEY",
+          "value": "${PODFETCH_PODINDEX_API_KEY}"
+        },
+        {
+          "key": "PODINDEX_API_SECRET",
+          "value": "${PODFETCH_PODINDEX_API_SECRET}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/podfetch-db",
@@ -26,5 +47,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

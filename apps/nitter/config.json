@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "port": 8106,
   "id": "nitter",
-  "tipi_version": 5,
+  "tipi_version": 7,
   "version": "latest",
   "categories": ["social"],
   "description": "A free and open source alternative Twitter front-end focused on privacy and performance.",
@@ -16,6 +16,7 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1740247068576,
-  "force_pull": true
+  "updated_at": 1761338378488,
+  "force_pull": true,
+  "min_tipi_version": "4.5.0"
 }

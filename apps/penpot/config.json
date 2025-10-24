@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "id": "penpot",
   "description": "Penpot - The Open-Source design & prototyping platform.",
-  "tipi_version": 3,
+  "tipi_version": 5,
   "version": "latest",
   "categories": ["utilities"],
   "short_desc": "Open-Source design & prototyping platform.",
@@ -23,7 +23,8 @@
     }
   ],
   "created_at": 1691943801422,
-  "updated_at": 1742038570918,
+  "updated_at": 1761338378495,
   "$schema": "../app-info-schema.json",
-  "force_pull": true
+  "force_pull": true,
+  "min_tipi_version": "4.5.0"
 }

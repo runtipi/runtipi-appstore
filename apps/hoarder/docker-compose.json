@@ -5,16 +5,40 @@
       "image": "ghcr.io/hoarder-app/hoarder:0.27.1",
       "isMain": true,
       "internalPort": 3000,
-      "environment": {
-        "MEILI_ADDR": "http://hoarder-meilisearch:7700",
-        "BROWSER_WEB_URL": "http://hoarder-chrome:9222",
-        "DATA_DIR": "/data",
-        "HOARDER_VERSION": "0.20.0",
-        "OPENAI_API_KEY": "${OPENAI_API_KEY}",
-        "NEXTAUTH_SECRET": "${NEXTAUTH_SECRET}",
-        "MEILI_MASTER_KEY": "${MEILI_MASTER_KEY}",
-        "NEXTAUTH_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
-      },
+      "environment": [
+        {
+          "key": "MEILI_ADDR",
+          "value": "http://hoarder-meilisearch:7700"
+        },
+        {
+          "key": "BROWSER_WEB_URL",
+          "value": "http://hoarder-chrome:9222"
+        },
+        {
+          "key": "DATA_DIR",
+          "value": "/data"
+        },
+        {
+          "key": "HOARDER_VERSION",
+          "value": "0.20.0"
+        },
+        {
+          "key": "OPENAI_API_KEY",
+          "value": "${OPENAI_API_KEY}"
+        },
+        {
+          "key": "NEXTAUTH_SECRET",
+          "value": "${NEXTAUTH_SECRET}"
+        },
+        {
+          "key": "MEILI_MASTER_KEY",
+          "value": "${MEILI_MASTER_KEY}"
+        },
+        {
+          "key": "NEXTAUTH_URL",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/app",
@@ -37,10 +61,16 @@
     {
       "name": "hoarder-meilisearch",
       "image": "getmeili/meilisearch:v1.24",
-      "environment": {
-        "MEILI_NO_ANALYTICS": "true",
-        "MEILI_MASTER_KEY": "${MEILI_MASTER_KEY}"
-      },
+      "environment": [
+        {
+          "key": "MEILI_NO_ANALYTICS",
+          "value": "true"
+        },
+        {
+          "key": "MEILI_MASTER_KEY",
+          "value": "${MEILI_MASTER_KEY}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/melli_data",
@@ -49,5 +79,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

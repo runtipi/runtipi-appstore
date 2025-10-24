@@ -6,34 +6,112 @@
       "command": "sh -c 'sleep 10 && /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh run'",
       "internalPort": 8000,
       "isMain": true,
-      "environment": {
-        "BASE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
-        "SECRET_KEY_BASE": "${PLAUSIBLE_SECRET_KEY_BASE}",
-        "DATABASE_URL": "postgres://tipi:${PLAUSIBLE_DB_PASSWORD}@plausible-db:5432/plausible-db",
-        "CLICKHOUSE_DATABASE_URL": "http://plausible-events-db:8123/plausible_events_db",
-        "DISABLE_REGISTRATION": "${PLAUSIBLE_DISABLE_REGISTRATION:-invite-only}",
-        "ENABLE_EMAIL_VERIFICATION": "${PLAUSIBLE_ENABLE_EMAIL_VERIFICATION:-false}",
-        "TOTP_VAULT_KEY": "${PLAUSIBLE_TOTP_VAULT_KEY}",
-        "GOOGLE_CLIENT_ID": "${PLAUSIBLE_GOOGLE_CLIENT_ID}",
-        "GOOGLE_CLIENT_SECRET": "${PLAUSIBLE_GOOGLE_CLIENT_SECRET}",
-        "MAXMIND_LICENSE_KEY": "${PLAUSIBLE_MAXMIND_LICENSE_KEY}",
-        "MAXMIND_EDITION": "${PLAUSIBLE_MAXMIND_EDITION:-GeoLite2-City}",
-        "MAILER_ADAPTER": "${PLAUSIBLE_MAILER_ADAPTER:-Bamboo.SMTPAdapter}",
-        "MAILER_EMAIL": "${PLAUSIBLE_MAILER_EMAIL:-plausible@${APP_DOMAIN}}",
-        "MAILER_NAME": "${PLAUSIBLE_MAILER_NAME:-Plausible}",
-        "SMTP_HOST_ADDR": "${PLAUSIBLE_SMTP_HOST_ADDR}",
-        "SMTP_HOST_PORT": "${PLAUSIBLE_SMTP_HOST_PORT}",
-        "SMTP_USER_NAME": "${PLAUSIBLE_SMTP_USER_NAME}",
-        "SMTP_USER_PWD": "${PLAUSIBLE_SMTP_USER_PWD}",
-        "SMTP_HOST_SSL_ENABLED": "${PLAUSIBLE_SMTP_HOST_SSL_ENABLED:-false}",
-        "SMTP_RETRIES": "${PLAUSIBLE_SMTP_RETRIES:-2}",
-        "POSTMARK_API_KEY": "${PLAUSIBLE_POSTMARK_API_KEY}",
-        "MAILGUN_API_KEY": "${PLAUSIBLE_MAILGUN_API_KEY}",
-        "MAILGUN_DOMAIN": "${PLAUSIBLE_MAILGUN_DOMAIN}",
-        "MAILGUN_BASE_URI": "${PLAUSIBLE_MAILGUN_BASE_URI:-https://api.mailgun.net/v3}",
-        "MANDRILL_API_KEY": "${PLAUSIBLE_MANDRILL_API_KEY}",
-        "SENDGRID_API_KEY": "${PLAUSIBLE_SENDGRID_API_KEY}"
-      },
+      "environment": [
+        {
+          "key": "BASE_URL",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+        },
+        {
+          "key": "SECRET_KEY_BASE",
+          "value": "${PLAUSIBLE_SECRET_KEY_BASE}"
+        },
+        {
+          "key": "DATABASE_URL",
+          "value": "postgres://tipi:${PLAUSIBLE_DB_PASSWORD}@plausible-db:5432/plausible-db"
+        },
+        {
+          "key": "CLICKHOUSE_DATABASE_URL",
+          "value": "http://plausible-events-db:8123/plausible_events_db"
+        },
+        {
+          "key": "DISABLE_REGISTRATION",
+          "value": "${PLAUSIBLE_DISABLE_REGISTRATION:-invite-only}"
+        },
+        {
+          "key": "ENABLE_EMAIL_VERIFICATION",
+          "value": "${PLAUSIBLE_ENABLE_EMAIL_VERIFICATION:-false}"
+        },
+        {
+          "key": "TOTP_VAULT_KEY",
+          "value": "${PLAUSIBLE_TOTP_VAULT_KEY}"
+        },
+        {
+          "key": "GOOGLE_CLIENT_ID",
+          "value": "${PLAUSIBLE_GOOGLE_CLIENT_ID}"
+        },
+        {
+          "key": "GOOGLE_CLIENT_SECRET",
+          "value": "${PLAUSIBLE_GOOGLE_CLIENT_SECRET}"
+        },
+        {
+          "key": "MAXMIND_LICENSE_KEY",
+          "value": "${PLAUSIBLE_MAXMIND_LICENSE_KEY}"
+        },
+        {
+          "key": "MAXMIND_EDITION",
+          "value": "${PLAUSIBLE_MAXMIND_EDITION:-GeoLite2-City}"
+        },
+        {
+          "key": "MAILER_ADAPTER",
+          "value": "${PLAUSIBLE_MAILER_ADAPTER:-Bamboo.SMTPAdapter}"
+        },
+        {
+          "key": "MAILER_EMAIL",
+          "value": "${PLAUSIBLE_MAILER_EMAIL:-plausible@${APP_DOMAIN}}"
+        },
+        {
+          "key": "MAILER_NAME",
+          "value": "${PLAUSIBLE_MAILER_NAME:-Plausible}"
+        },
+        {
+          "key": "SMTP_HOST_ADDR",
+          "value": "${PLAUSIBLE_SMTP_HOST_ADDR}"
+        },
+        {
+          "key": "SMTP_HOST_PORT",
+          "value": "${PLAUSIBLE_SMTP_HOST_PORT}"
+        },
+        {
+          "key": "SMTP_USER_NAME",
+          "value": "${PLAUSIBLE_SMTP_USER_NAME}"
+        },
+        {
+          "key": "SMTP_USER_PWD",
+          "value": "${PLAUSIBLE_SMTP_USER_PWD}"
+        },
+        {
+          "key": "SMTP_HOST_SSL_ENABLED",
+          "value": "${PLAUSIBLE_SMTP_HOST_SSL_ENABLED:-false}"
+        },
+        {
+          "key": "SMTP_RETRIES",
+          "value": "${PLAUSIBLE_SMTP_RETRIES:-2}"
+        },
+        {
+          "key": "POSTMARK_API_KEY",
+          "value": "${PLAUSIBLE_POSTMARK_API_KEY}"
+        },
+        {
+          "key": "MAILGUN_API_KEY",
+          "value": "${PLAUSIBLE_MAILGUN_API_KEY}"
+        },
+        {
+          "key": "MAILGUN_DOMAIN",
+          "value": "${PLAUSIBLE_MAILGUN_DOMAIN}"
+        },
+        {
+          "key": "MAILGUN_BASE_URI",
+          "value": "${PLAUSIBLE_MAILGUN_BASE_URI:-https://api.mailgun.net/v3}"
+        },
+        {
+          "key": "MANDRILL_API_KEY",
+          "value": "${PLAUSIBLE_MANDRILL_API_KEY}"
+        },
+        {
+          "key": "SENDGRID_API_KEY",
+          "value": "${PLAUSIBLE_SENDGRID_API_KEY}"
+        }
+      ],
       "dependsOn": {
         "plausible-db": {
           "condition": "service_healthy"
@@ -46,11 +124,20 @@
     {
       "name": "plausible-db",
       "image": "postgres:16-alpine",
-      "environment": {
-        "POSTGRES_DB": "plausible-db",
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_PASSWORD": "${PLAUSIBLE_DB_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_DB",
+          "value": "plausible-db"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${PLAUSIBLE_DB_PASSWORD}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/database",
@@ -66,11 +153,20 @@
     {
       "name": "plausible-events-db",
       "image": "clickhouse/clickhouse-server:24.12.6.70-alpine",
-      "environment": {
-        "POSTGRES_DB": "plausible-db",
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_PASSWORD": "${PLAUSIBLE_DB_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_DB",
+          "value": "plausible-db"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${PLAUSIBLE_DB_PASSWORD}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/event-data",
@@ -93,5 +189,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

@@ -5,9 +5,12 @@
       "image": "ghcr.io/nicotsx/nextgba:v0.1.0",
       "isMain": true,
       "internalPort": 3000,
-      "environment": {
-        "NODE_ENV": "production"
-      },
+      "environment": [
+        {
+          "key": "NODE_ENV",
+          "value": "production"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/games",
@@ -16,5 +19,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

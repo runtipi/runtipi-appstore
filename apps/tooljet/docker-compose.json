@@ -1,14 +1,16 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "tooljet",
       "image": "tooljet/tooljet-client-ce:v2.4.2",
       "isMain": true,
       "internalPort": 80,
-      "environment": {
-        "SERVER_HOST": "tooljet-server"
-      },
+      "environment": [
+        {
+          "key": "SERVER_HOST",
+          "value": "tooljet-server"
+        }
+      ],
       "dependsOn": ["tooljet-server"],
       "command": "openresty -g \"daemon off;\"",
       "tty": true,
@@ -17,19 +19,52 @@
     {
       "name": "tooljet-server",
       "image": "tooljet/tooljet-server-ce:v2.24.0",
-      "environment": {
-        "SERVE_CLIENT": "false",
-        "SERVER_HOST": "tooljet-server",
-        "TOOLJET_HOST": "https://${APP_DOMAIN}",
-        "LOCKBOX_MASTER_KEY": "${LOCKBOX_MASTER_KEY}",
-        "SECRET_KEY_BASE": "${SECRET_KEY_BASE}",
-        "PG_DB": "tooljet",
-        "PG_USER": "tooljet",
-        "PG_HOST": "db-tooljet",
-        "PG_PASS": "${DB_PASSWORD}",
-        "CHECK_FOR_UPDATES": "check_if_updates_are_available",
-        "DEFAULT_FROM_EMAIL": "hello@tooljet.io"
-      },
+      "environment": [
+        {
+          "key": "SERVE_CLIENT",
+          "value": "false"
+        },
+        {
+          "key": "SERVER_HOST",
+          "value": "tooljet-server"
+        },
+        {
+          "key": "TOOLJET_HOST",
+          "value": "https://${APP_DOMAIN}"
+        },
+        {
+          "key": "LOCKBOX_MASTER_KEY",
+          "value": "${LOCKBOX_MASTER_KEY}"
+        },
+        {
+          "key": "SECRET_KEY_BASE",
+          "value": "${SECRET_KEY_BASE}"
+        },
+        {
+          "key": "PG_DB",
+          "value": "tooljet"
+        },
+        {
+          "key": "PG_USER",
+          "value": "tooljet"
+        },
+        {
+          "key": "PG_HOST",
+          "value": "db-tooljet"
+        },
+        {
+          "key": "PG_PASS",
+          "value": "${DB_PASSWORD}"
+        },
+        {
+          "key": "CHECK_FOR_UPDATES",
+          "value": "check_if_updates_are_available"
+        },
+        {
+          "key": "DEFAULT_FROM_EMAIL",
+          "value": "hello@tooljet.io"
+        }
+      ],
       "command": "npm run start:prod",
       "tty": true,
       "stdinOpen": true
@@ -37,12 +72,24 @@
     {
       "name": "db-tooljet",
       "image": "postgres:11",
-      "environment": {
-        "POSTGRES_USER": "tooljet",
-        "POSTGRES_PASSWORD": "${DB_PASSWORD}",
-        "POSTGRES_DB": "tooljet",
-        "PGDATA": "/data/postgres"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_USER",
+          "value": "tooljet"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "tooljet"
+        },
+        {
+          "key": "PGDATA",
+          "value": "/data/postgres"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/db",
@@ -50,5 +97,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

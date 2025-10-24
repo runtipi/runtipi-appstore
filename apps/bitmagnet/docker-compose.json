@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "image": "ghcr.io/bitmagnet-io/bitmagnet:v0.10.0",
@@ -7,13 +6,28 @@
       "internalPort": 3333,
       "isMain": true,
       "command": ["worker", "run", "--keys=http_server", "--keys=queue_server", "--keys=dht_crawler"],
-      "environment": {
-        "POSTGRES_HOST": "bitmagnet-db",
-        "POSTGRES_NAME": "bitmagnet",
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_PASSWORD": "${BITMAGNENT_DB_PASSWORD}",
-        "REDIS_ADDR": "bitmagnet-redis:6379"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_HOST",
+          "value": "bitmagnet-db"
+        },
+        {
+          "key": "POSTGRES_NAME",
+          "value": "bitmagnet"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${BITMAGNENT_DB_PASSWORD}"
+        },
+        {
+          "key": "REDIS_ADDR",
+          "value": "bitmagnet-redis:6379"
+        }
+      ],
       "dependsOn": {
         "bitmagnet-db": {
           "condition": "service_healthy"
@@ -44,11 +58,20 @@
           "containerPath": "/var/lib/postgresql/data"
         }
       ],
-      "environment": {
-        "POSTGRES_PASSWORD": "${BITMAGNENT_DB_PASSWORD}",
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_DB": "bitmagnet"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${BITMAGNENT_DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "bitmagnet"
+        }
+      ],
       "healthCheck": {
         "test": "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}",
         "startPeriod": "20s",
@@ -75,5 +98,7 @@
         "timeout": "3s"
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

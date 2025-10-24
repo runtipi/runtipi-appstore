@@ -1,27 +1,68 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "semaphore",
       "image": "semaphoreui/semaphore:v2.16.34",
       "isMain": true,
       "internalPort": 3000,
-      "environment": {
-        "SEMAPHORE_DB_USER": "semaphore",
-        "SEMAPHORE_DB_PASS": "${SEMAPHORE_DB_PASSWORD}",
-        "SEMAPHORE_DB_HOST": "semaphore-db",
-        "SEMAPHORE_DB_PORT": "5432",
-        "SEMAPHORE_DB_DIALECT": "postgres",
-        "SEMAPHORE_DB": "semaphore",
-        "SEMAPHORE_PLAYBOOK_PATH": "/tmp/semaphore",
-        "SEMAPHORE_ADMIN_PASSWORD": "${SEMAPHORE_ADMIN_PASSWORD}",
-        "SEMAPHORE_ADMIN_NAME": "${SEMAPHORE_ADMIN_NAME}",
-        "SEMAPHORE_ADMIN_EMAIL": "${SEMAPHORE_ADMIN_EMAIL}",
-        "SEMAPHORE_ADMIN": "${SEMAPHORE_ADMIN_NAME}",
-        "SEMAPHORE_ACCESS_KEY_ENCRYPTION": "${SEMAPHORE_ACCESS_KEY_ENCRYPTION}",
-        "SEMAPHORE_LDAP_ACTIVATED": "no",
-        "TZ": "${TZ}"
-      },
+      "environment": [
+        {
+          "key": "SEMAPHORE_DB_USER",
+          "value": "semaphore"
+        },
+        {
+          "key": "SEMAPHORE_DB_PASS",
+          "value": "${SEMAPHORE_DB_PASSWORD}"
+        },
+        {
+          "key": "SEMAPHORE_DB_HOST",
+          "value": "semaphore-db"
+        },
+        {
+          "key": "SEMAPHORE_DB_PORT",
+          "value": "5432"
+        },
+        {
+          "key": "SEMAPHORE_DB_DIALECT",
+          "value": "postgres"
+        },
+        {
+          "key": "SEMAPHORE_DB",
+          "value": "semaphore"
+        },
+        {
+          "key": "SEMAPHORE_PLAYBOOK_PATH",
+          "value": "/tmp/semaphore"
+        },
+        {
+          "key": "SEMAPHORE_ADMIN_PASSWORD",
+          "value": "${SEMAPHORE_ADMIN_PASSWORD}"
+        },
+        {
+          "key": "SEMAPHORE_ADMIN_NAME",
+          "value": "${SEMAPHORE_ADMIN_NAME}"
+        },
+        {
+          "key": "SEMAPHORE_ADMIN_EMAIL",
+          "value": "${SEMAPHORE_ADMIN_EMAIL}"
+        },
+        {
+          "key": "SEMAPHORE_ADMIN",
+          "value": "${SEMAPHORE_ADMIN_NAME}"
+        },
+        {
+          "key": "SEMAPHORE_ACCESS_KEY_ENCRYPTION",
+          "value": "${SEMAPHORE_ACCESS_KEY_ENCRYPTION}"
+        },
+        {
+          "key": "SEMAPHORE_LDAP_ACTIVATED",
+          "value": "no"
+        },
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/repositories",
@@ -32,11 +73,20 @@
     {
       "name": "semaphore-db",
       "image": "postgres:14",
-      "environment": {
-        "POSTGRES_USER": "semaphore",
-        "POSTGRES_PASSWORD": "${SEMAPHORE_DB_PASSWORD}",
-        "POSTGRES_DB": "semaphore"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_USER",
+          "value": "semaphore"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${SEMAPHORE_DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "semaphore"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/db",
@@ -44,5 +94,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

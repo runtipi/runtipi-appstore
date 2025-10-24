@@ -11,15 +11,36 @@
           "containerPath": "/var/www/html"
         }
       ],
-      "environment": {
-        "POSTGRES_HOST": "nextcloud-mini-db",
-        "POSTGRES_DB": "nextcloud",
-        "POSTGRES_USER": "nextcloud",
-        "POSTGRES_PASSWORD": "${NEXTCLOUD_MINI_DB_PASSWORD}",
-        "NEXTCLOUD_ADMIN_PASSWORD": "${NEXTCLOUD_MINI_ADMIN_PASSWORD}",
-        "NEXTCLOUD_ADMIN_USER": "${NEXTCLOUD_MINI_ADMIN_USER}",
-        "NEXTCLOUD_TRUSTED_DOMAINS": "${NEXTCLOUD_MINI_TRUSTED_DOMAINS}"
-      }
+      "environment": [
+        {
+          "key": "POSTGRES_HOST",
+          "value": "nextcloud-mini-db"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "nextcloud"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "nextcloud"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${NEXTCLOUD_MINI_DB_PASSWORD}"
+        },
+        {
+          "key": "NEXTCLOUD_ADMIN_PASSWORD",
+          "value": "${NEXTCLOUD_MINI_ADMIN_PASSWORD}"
+        },
+        {
+          "key": "NEXTCLOUD_ADMIN_USER",
+          "value": "${NEXTCLOUD_MINI_ADMIN_USER}"
+        },
+        {
+          "key": "NEXTCLOUD_TRUSTED_DOMAINS",
+          "value": "${NEXTCLOUD_MINI_TRUSTED_DOMAINS}"
+        }
+      ]
     },
     {
       "name": "nextcloud-mini-db",
@@ -30,12 +51,22 @@
           "containerPath": "/var/lib/postgresql/data"
         }
       ],
-      "environment": {
-        "POSTGRES_DB": "nextcloud",
-        "POSTGRES_USER": "nextcloud",
-        "POSTGRES_PASSWORD": "${NEXTCLOUD_MINI_DB_PASSWORD}"
-      }
+      "environment": [
+        {
+          "key": "POSTGRES_DB",
+          "value": "nextcloud"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "nextcloud"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${NEXTCLOUD_MINI_DB_PASSWORD}"
+        }
+      ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

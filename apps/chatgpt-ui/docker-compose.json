@@ -5,25 +5,55 @@
       "image": "wongsaang/chatgpt-ui-client:v2.5.9",
       "isMain": true,
       "internalPort": 80,
-      "environment": {
-        "SERVER_DOMAIN": "http://chatgpt-ui-web-server",
-        "DEFAULT_LOCALE": "en"
-      },
+      "environment": [
+        {
+          "key": "SERVER_DOMAIN",
+          "value": "http://chatgpt-ui-web-server"
+        },
+        {
+          "key": "DEFAULT_LOCALE",
+          "value": "en"
+        }
+      ],
       "dependsOn": ["chatgpt-ui-web-server"]
     },
     {
       "name": "chatgpt-ui-wsgi-server",
       "image": "wongsaang/chatgpt-ui-wsgi-server:v2.5.2",
-      "environment": {
-        "APP_DOMAIN": "${INTERNAL_IP}:8201",
-        "SERVER_WORKERS": "3",
-        "WORKER_TIMEOUT": "180",
-        "DB_URL": "mysql://tipi:${CHATGPT_UI_DB_PASSWORD}@chatgpt-ui-db:3306/chatgptdb",
-        "DJANGO_SUPERUSER_USERNAME": "${CHATGPT_UI_SUPERUSER_USERNAME}",
-        "DJANGO_SUPERUSER_PASSWORD": "${CHATGPT_UI_SUPERUSER_PASSWORD}",
-        "DJANGO_SUPERUSER_EMAIL": "${CHATGPT_UI_SUPERUSER_EMAIL}",
-        "ACCOUNT_EMAIL_VERIFICATION": "none"
-      },
+      "environment": [
+        {
+          "key": "APP_DOMAIN",
+          "value": "${INTERNAL_IP}:8201"
+        },
+        {
+          "key": "SERVER_WORKERS",
+          "value": "3"
+        },
+        {
+          "key": "WORKER_TIMEOUT",
+          "value": "180"
+        },
+        {
+          "key": "DB_URL",
+          "value": "mysql://tipi:${CHATGPT_UI_DB_PASSWORD}@chatgpt-ui-db:3306/chatgptdb"
+        },
+        {
+          "key": "DJANGO_SUPERUSER_USERNAME",
+          "value": "${CHATGPT_UI_SUPERUSER_USERNAME}"
+        },
+        {
+          "key": "DJANGO_SUPERUSER_PASSWORD",
+          "value": "${CHATGPT_UI_SUPERUSER_PASSWORD}"
+        },
+        {
+          "key": "DJANGO_SUPERUSER_EMAIL",
+          "value": "${CHATGPT_UI_SUPERUSER_EMAIL}"
+        },
+        {
+          "key": "ACCOUNT_EMAIL_VERIFICATION",
+          "value": "none"
+        }
+      ],
       "dependsOn": ["chatgpt-ui-db"]
     },
     {
@@ -35,20 +65,35 @@
           "containerPort": 80
         }
       ],
-      "environment": {
-        "BACKEND_URL": "http://chatgpt-ui-wsgi-server:8000"
-      },
+      "environment": [
+        {
+          "key": "BACKEND_URL",
+          "value": "http://chatgpt-ui-wsgi-server:8000"
+        }
+      ],
       "dependsOn": ["chatgpt-ui-wsgi-server", "chatgpt-ui-db"]
     },
     {
       "name": "chatgpt-ui-db",
       "image": "lscr.io/linuxserver/mariadb:latest",
-      "environment": {
-        "MYSQL_ROOT_PASSWORD": "${CHATGPT_UI_DB_PASSWORD}",
-        "MYSQL_DATABASE": "chatgptdb",
-        "MYSQL_USER": "tipi",
-        "MYSQL_PASSWORD": "${CHATGPT_UI_DB_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "MYSQL_ROOT_PASSWORD",
+          "value": "${CHATGPT_UI_DB_PASSWORD}"
+        },
+        {
+          "key": "MYSQL_DATABASE",
+          "value": "chatgptdb"
+        },
+        {
+          "key": "MYSQL_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "MYSQL_PASSWORD",
+          "value": "${CHATGPT_UI_DB_PASSWORD}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/mysql/config",
@@ -57,5 +102,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

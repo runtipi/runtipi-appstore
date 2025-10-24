@@ -5,14 +5,32 @@
       "image": "lscr.io/linuxserver/code-server:4.105.1",
       "isMain": true,
       "internalPort": 8443,
-      "environment": {
-        "PUID": "1000",
-        "PGID": "1000",
-        "TZ": "${TZ}",
-        "PASSWORD": "${CODESERVER_PASSWORD}",
-        "SUDO_PASSWORD": "${CODESERVER_SUDO_PASSWORD}",
-        "DEFAULT_WORKSPACE": "/config/workspace"
-      },
+      "environment": [
+        {
+          "key": "PUID",
+          "value": "1000"
+        },
+        {
+          "key": "PGID",
+          "value": "1000"
+        },
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "PASSWORD",
+          "value": "${CODESERVER_PASSWORD}"
+        },
+        {
+          "key": "SUDO_PASSWORD",
+          "value": "${CODESERVER_SUDO_PASSWORD}"
+        },
+        {
+          "key": "DEFAULT_WORKSPACE",
+          "value": "/config/workspace"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/config",
@@ -29,5 +47,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

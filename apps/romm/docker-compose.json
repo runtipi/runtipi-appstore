@@ -1,22 +1,48 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "romm",
       "image": "ghcr.io/rommapp/romm:4.3.2",
       "isMain": true,
       "internalPort": 8080,
-      "environment": {
-        "DB_HOST": "romm-db",
-        "DB_NAME": "romm",
-        "DB_USER": "tipi",
-        "DB_PASSWD": "${ROMM_MYSQL_PASSWORD}",
-        "ROMM_AUTH_SECRET_KEY": "${ROMM_AUTH_SECRET_KEY}",
-        "IGDB_CLIENT_ID": "${ROMM_IGDB_CLIENT_ID}",
-        "IGDB_CLIENT_SECRET": "${ROMM_IGDB_CLIENT_SECRET}",
-        "MOBYGAMES_API_KEY": "${ROMM_MOBYGAMES_API_KEY}",
-        "STEAMGRIDDB_API_KEY": "${ROMM_STEAMGRIDDB_API_KEY}"
-      },
+      "environment": [
+        {
+          "key": "DB_HOST",
+          "value": "romm-db"
+        },
+        {
+          "key": "DB_NAME",
+          "value": "romm"
+        },
+        {
+          "key": "DB_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "DB_PASSWD",
+          "value": "${ROMM_MYSQL_PASSWORD}"
+        },
+        {
+          "key": "ROMM_AUTH_SECRET_KEY",
+          "value": "${ROMM_AUTH_SECRET_KEY}"
+        },
+        {
+          "key": "IGDB_CLIENT_ID",
+          "value": "${ROMM_IGDB_CLIENT_ID}"
+        },
+        {
+          "key": "IGDB_CLIENT_SECRET",
+          "value": "${ROMM_IGDB_CLIENT_SECRET}"
+        },
+        {
+          "key": "MOBYGAMES_API_KEY",
+          "value": "${ROMM_MOBYGAMES_API_KEY}"
+        },
+        {
+          "key": "STEAMGRIDDB_API_KEY",
+          "value": "${ROMM_STEAMGRIDDB_API_KEY}"
+        }
+      ],
       "dependsOn": ["romm-db"],
       "volumes": [
         {
@@ -44,12 +70,24 @@
     {
       "name": "romm-db",
       "image": "lscr.io/linuxserver/mariadb:11.4.4",
-      "environment": {
-        "MYSQL_ROOT_PASSWORD": "${ROMM_MYSQL_ROOT_PASSWORD}",
-        "MYSQL_DATABASE": "romm",
-        "MYSQL_USER": "tipi",
-        "MYSQL_PASSWORD": "${ROMM_MYSQL_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "MYSQL_ROOT_PASSWORD",
+          "value": "${ROMM_MYSQL_ROOT_PASSWORD}"
+        },
+        {
+          "key": "MYSQL_DATABASE",
+          "value": "romm"
+        },
+        {
+          "key": "MYSQL_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "MYSQL_PASSWORD",
+          "value": "${ROMM_MYSQL_PASSWORD}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/mysql/config",
@@ -57,5 +95,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

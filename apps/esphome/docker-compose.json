@@ -5,12 +5,24 @@
       "image": "ghcr.io/esphome/esphome:2025.10.2",
       "isMain": true,
       "internalPort": 6052,
-      "environment": {
-        "TZ": "${TZ}",
-        "USERNAME": "${ESPHOME_USERNAME:-''}",
-        "PASSWORD": "${ESPHOME_PASSWORD:-''}",
-        "ESPHOME_DASHBOARD_USE_PING": "${ESPHOME_PING:-'false'}"
-      },
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "USERNAME",
+          "value": "${ESPHOME_USERNAME:-''}"
+        },
+        {
+          "key": "PASSWORD",
+          "value": "${ESPHOME_PASSWORD:-''}"
+        },
+        {
+          "key": "ESPHOME_DASHBOARD_USE_PING",
+          "value": "${ESPHOME_PING:-'false'}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "/etc/localtime",
@@ -24,5 +36,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

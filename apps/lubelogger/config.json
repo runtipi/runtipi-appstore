@@ -5,7 +5,7 @@
   "available": true,
   "exposable": true,
   "id": "lubelogger",
-  "tipi_version": 24,
+  "tipi_version": 26,
   "version": "v1.5.3",
   "dynamic_config": true,
   "categories": ["utilities"],
@@ -171,5 +171,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1724244178000,
-  "updated_at": 1760503038200
+  "updated_at": 1761338378480,
+  "min_tipi_version": "4.5.0"
 }

@@ -5,14 +5,32 @@
       "image": "shaneisrael/fireshare:v1.2.30",
       "isMain": true,
       "internalPort": 80,
-      "environment": {
-        "ADMIN_USERNAME": "${FIRESHARE_USERNAME}",
-        "ADMIN_PASSWORD": "${FIRESHARE_PASSWORD}",
-        "SECRET_KEY": "${FIRESHARE_SECRET_KEY}",
-        "MINUTES_BETWEEN_VIDEO_SCANS": "5",
-        "PUID": "1000",
-        "PGID": "1000"
-      },
+      "environment": [
+        {
+          "key": "ADMIN_USERNAME",
+          "value": "${FIRESHARE_USERNAME}"
+        },
+        {
+          "key": "ADMIN_PASSWORD",
+          "value": "${FIRESHARE_PASSWORD}"
+        },
+        {
+          "key": "SECRET_KEY",
+          "value": "${FIRESHARE_SECRET_KEY}"
+        },
+        {
+          "key": "MINUTES_BETWEEN_VIDEO_SCANS",
+          "value": "5"
+        },
+        {
+          "key": "PUID",
+          "value": "1000"
+        },
+        {
+          "key": "PGID",
+          "value": "1000"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/fireshare_data",
@@ -29,5 +47,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

@@ -12,15 +12,36 @@
           "containerPath": "/config"
         }
       ],
-      "environment": {
-        "TZ": "${TZ}",
-        "APP_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
-        "APP_KEY": "base64:${APP_KEY}",
-        "DB_HOST": "bookstack-db",
-        "DB_USERNAME": "tipi",
-        "DB_PASSWORD": "${BOOKSTACK_DB_PASS}",
-        "DB_DATABASE": "bookstackapp"
-      }
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "APP_URL",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+        },
+        {
+          "key": "APP_KEY",
+          "value": "base64:${APP_KEY}"
+        },
+        {
+          "key": "DB_HOST",
+          "value": "bookstack-db"
+        },
+        {
+          "key": "DB_USERNAME",
+          "value": "tipi"
+        },
+        {
+          "key": "DB_PASSWORD",
+          "value": "${BOOKSTACK_DB_PASS}"
+        },
+        {
+          "key": "DB_DATABASE",
+          "value": "bookstackapp"
+        }
+      ]
     },
     {
       "name": "bookstack-db",
@@ -32,14 +53,30 @@
           "containerPath": "/config"
         }
       ],
-      "environment": {
-        "TZ": "${TZ}",
-        "MYSQL_ROOT_PASSWORD": "${ROOT_ACCESS_PASSWORD}",
-        "MYSQL_DATABASE": "bookstackapp",
-        "MYSQL_USER": "tipi",
-        "MYSQL_PASSWORD": "${BOOKSTACK_DB_PASS}"
-      }
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "MYSQL_ROOT_PASSWORD",
+          "value": "${ROOT_ACCESS_PASSWORD}"
+        },
+        {
+          "key": "MYSQL_DATABASE",
+          "value": "bookstackapp"
+        },
+        {
+          "key": "MYSQL_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "MYSQL_PASSWORD",
+          "value": "${BOOKSTACK_DB_PASS}"
+        }
+      ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

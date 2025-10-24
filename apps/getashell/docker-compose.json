@@ -6,11 +6,20 @@
       "isMain": true,
       "internalPort": 3000,
       "extraHosts": ["host.docker.internal:host-gateway"],
-      "environment": {
-        "USERNAME": "${GETASHELL_USERNAME}",
-        "PASSWORD": "${GETASHELL_PASSWORD}",
-        "SECRET_KEY": "${GETASHELL_SECRET_KEY}"
-      },
+      "environment": [
+        {
+          "key": "USERNAME",
+          "value": "${GETASHELL_USERNAME}"
+        },
+        {
+          "key": "PASSWORD",
+          "value": "${GETASHELL_PASSWORD}"
+        },
+        {
+          "key": "SECRET_KEY",
+          "value": "${GETASHELL_SECRET_KEY}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/",
@@ -24,5 +33,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

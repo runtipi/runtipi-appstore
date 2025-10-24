@@ -8,14 +8,14 @@
   "port": 8357,
   "categories": ["security"],
   "description": "Tinyauth is a simple authentication middleware that adds a simple login screen or OAuth with Google, Github and any provider to all of your docker apps. It supports all the popular proxies like Traefik, Nginx and Caddy.",
-  "tipi_version": 15,
+  "tipi_version": 17,
   "version": "v4.0.1",
   "source": "https://github.com/steveiliop56/tinyauth",
   "website": "https://tinyauth.app",
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1742119744755,
-  "updated_at": 1760566318427,
+  "updated_at": 1761338378516,
   "dynamic_config": true,
   "form_fields": [
     {
@@ -74,5 +74,6 @@
       "required": false,
       "env_variable": "TINYAUTH_APP_TITLE"
     }
-  ]
+  ],
+  "min_tipi_version": "4.5.0"
 }

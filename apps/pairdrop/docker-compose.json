@@ -5,14 +5,30 @@
       "image": "lscr.io/linuxserver/pairdrop:1.11.2",
       "isMain": true,
       "internalPort": 3000,
-      "environment": {
-        "PUID": "1000",
-        "PGID": "1000",
-        "TZ": "${TZ}",
-        "RATE_LIMIT": "false",
-        "WS_FALLBACK": "false"
-      }
+      "environment": [
+        {
+          "key": "PUID",
+          "value": "1000"
+        },
+        {
+          "key": "PGID",
+          "value": "1000"
+        },
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "RATE_LIMIT",
+          "value": "false"
+        },
+        {
+          "key": "WS_FALLBACK",
+          "value": "false"
+        }
+      ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

@@ -5,11 +5,18 @@
       "image": "ghcr.io/flaresolverr/flaresolverr:v3.4.2",
       "internalPort": 8191,
       "isMain": true,
-      "environment": {
-        "LOG_LEVEL": "${FLARESOLVERR_LOG_LEVEL-info}",
-        "TZ": "${TZ}"
-      }
+      "environment": [
+        {
+          "key": "LOG_LEVEL",
+          "value": "${FLARESOLVERR_LOG_LEVEL-info}"
+        },
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        }
+      ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

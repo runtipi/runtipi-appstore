@@ -1,4 +1,6 @@
 {
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "kapowarr",
@@ -25,6 +27,5 @@
         }
       ]
     }
-  ],
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
+  ]
 }

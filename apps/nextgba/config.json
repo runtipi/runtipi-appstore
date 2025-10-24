@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "id": "nextgba",
   "description": "All of your favorite gameboy games in your browser",
-  "tipi_version": 6,
+  "tipi_version": 8,
   "version": "0.1.0",
   "categories": ["gaming"],
   "short_desc": "Gameboy in your browser",
@@ -15,6 +15,7 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1729872793139,
-  "$schema": "../app-info-schema.json"
+  "updated_at": 1761338378488,
+  "$schema": "../app-info-schema.json",
+  "min_tipi_version": "4.5.0"
 }

@@ -5,9 +5,12 @@
       "image": "ghcr.io/spacedriveapp/spacedrive/server:0.4.2",
       "isMain": true,
       "internalPort": 8080,
-      "environment": {
-        "SD_AUTH": "${SD_AUTH_USER}:${SD_AUTH_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "SD_AUTH",
+          "value": "${SD_AUTH_USER}:${SD_AUTH_PASSWORD}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/spacedrive",
@@ -16,5 +19,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

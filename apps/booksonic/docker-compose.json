@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "image": "lscr.io/linuxserver/booksonic-air:2201.1.0",
@@ -20,12 +19,26 @@
           "containerPath": "/podcasts"
         }
       ],
-      "environment": {
-        "PUID": "1000",
-        "PGID": "1000",
-        "TZ": "${TZ}",
-        "CONTEXT_PATH": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
-      }
+      "environment": [
+        {
+          "key": "PUID",
+          "value": "1000"
+        },
+        {
+          "key": "PGID",
+          "value": "1000"
+        },
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "CONTEXT_PATH",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+        }
+      ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

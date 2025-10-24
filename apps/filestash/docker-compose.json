@@ -1,18 +1,32 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "filestash",
       "image": "machines/filestash:latest",
       "isMain": true,
       "internalPort": 8334,
-      "environment": {
-        "APPLICATION_URL": "${APP_DOMAIN}",
-        "GDRIVE_CLIENT_ID": "${FILESTASH_GDRIVE_CLIENT_ID}",
-        "GDRIVE_CLIENT_SECRET": "${FILESTASH_GDRIVE_CLIENT_SECRET}",
-        "DROPBOX_CLIENT_ID": "${FILESTASH_DROPBOX_CLIENT_ID}",
-        "ONLYOFFICE_URL": "http://filestash-onlyoffice"
-      },
+      "environment": [
+        {
+          "key": "APPLICATION_URL",
+          "value": "${APP_DOMAIN}"
+        },
+        {
+          "key": "GDRIVE_CLIENT_ID",
+          "value": "${FILESTASH_GDRIVE_CLIENT_ID}"
+        },
+        {
+          "key": "GDRIVE_CLIENT_SECRET",
+          "value": "${FILESTASH_GDRIVE_CLIENT_SECRET}"
+        },
+        {
+          "key": "DROPBOX_CLIENT_ID",
+          "value": "${FILESTASH_DROPBOX_CLIENT_ID}"
+        },
+        {
+          "key": "ONLYOFFICE_URL",
+          "value": "http://filestash-onlyoffice"
+        }
+      ],
       "dependsOn": ["filestash-onlyoffice"],
       "volumes": [
         {
@@ -26,5 +40,7 @@
       "image": "onlyoffice/documentserver:7.5.1.1",
       "securityOpt": ["seccomp:unconfined"]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

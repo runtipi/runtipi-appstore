@@ -25,11 +25,20 @@
     {
       "name": "librephotos-db",
       "image": "postgres:14",
-      "environment": {
-        "POSTGRES_PASSWORD": "${LIBREPHOTOS_DB_PASSWORD}",
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_DB": "librephotos"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${LIBREPHOTOS_DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "librephotos"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/db",
@@ -51,24 +60,72 @@
     {
       "name": "librephotos-backend",
       "image": "reallibrephotos/librephotos:2023w48",
-      "environment": {
-        "SECRET_KEY": "${LIBREPHOTOS_SECRET_KEY}",
-        "BACKEND_HOST": "librephotos-backend",
-        "ADMIN_EMAIL": "${LIBREPHOTOS_EMAIL}",
-        "ADMIN_USERNAME": "${LIBREPHOTOS_USERNAME}",
-        "ADMIN_PASSWORD": "${LIBREPHOTOS_PASSWORD}",
-        "DB_BACKEND": "postgresql",
-        "DB_NAME": "librephotos",
-        "DB_USER": "tipi",
-        "DB_PASS": "${LIBREPHOTOS_DB_PASSWORD}",
-        "DB_HOST": "librephotos-db",
-        "DB_PORT": "5432",
-        "REDIS_HOST": "librephotos-redis",
-        "REDIS_PORT": "6379",
-        "ALLOW_UPLOAD": "true",
-        "DEBUG": "0",
-        "CSRF_TRUSTED_ORIGINS": "${APP_PROTOCOL:-http}://${APP_DOMAIN},http://${INTERNAL_IP}:${APP_PORT}"
-      },
+      "environment": [
+        {
+          "key": "SECRET_KEY",
+          "value": "${LIBREPHOTOS_SECRET_KEY}"
+        },
+        {
+          "key": "BACKEND_HOST",
+          "value": "librephotos-backend"
+        },
+        {
+          "key": "ADMIN_EMAIL",
+          "value": "${LIBREPHOTOS_EMAIL}"
+        },
+        {
+          "key": "ADMIN_USERNAME",
+          "value": "${LIBREPHOTOS_USERNAME}"
+        },
+        {
+          "key": "ADMIN_PASSWORD",
+          "value": "${LIBREPHOTOS_PASSWORD}"
+        },
+        {
+          "key": "DB_BACKEND",
+          "value": "postgresql"
+        },
+        {
+          "key": "DB_NAME",
+          "value": "librephotos"
+        },
+        {
+          "key": "DB_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "DB_PASS",
+          "value": "${LIBREPHOTOS_DB_PASSWORD}"
+        },
+        {
+          "key": "DB_HOST",
+          "value": "librephotos-db"
+        },
+        {
+          "key": "DB_PORT",
+          "value": "5432"
+        },
+        {
+          "key": "REDIS_HOST",
+          "value": "librephotos-redis"
+        },
+        {
+          "key": "REDIS_PORT",
+          "value": "6379"
+        },
+        {
+          "key": "ALLOW_UPLOAD",
+          "value": "true"
+        },
+        {
+          "key": "DEBUG",
+          "value": "0"
+        },
+        {
+          "key": "CSRF_TRUSTED_ORIGINS",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN},http://${INTERNAL_IP}:${APP_PORT}"
+        }
+      ],
       "dependsOn": {
         "librephotos-db": {
           "condition": "service_healthy"
@@ -98,5 +155,6 @@
       "image": "redis:6"
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

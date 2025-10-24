@@ -5,16 +5,40 @@
       "image": "ghcr.io/tandoorrecipes/recipes:2.3.3",
       "isMain": true,
       "internalPort": 80,
-      "environment": {
-        "SECRET_KEY": "${TANDOOR_SECRET_KEY}",
-        "DB_ENGINE": "django.db.backends.postgresql",
-        "GUNICORN_MEDIA": "1",
-        "POSTGRES_HOST": "tandoor-db",
-        "POSTGRES_PORT": "5432",
-        "POSTGRES_USER": "tandoor",
-        "POSTGRES_PASSWORD": "${TANDOOR_POSTGRESS_PASSWORD}",
-        "POSTGRES_DB": "tandoordb"
-      },
+      "environment": [
+        {
+          "key": "SECRET_KEY",
+          "value": "${TANDOOR_SECRET_KEY}"
+        },
+        {
+          "key": "DB_ENGINE",
+          "value": "django.db.backends.postgresql"
+        },
+        {
+          "key": "GUNICORN_MEDIA",
+          "value": "1"
+        },
+        {
+          "key": "POSTGRES_HOST",
+          "value": "tandoor-db"
+        },
+        {
+          "key": "POSTGRES_PORT",
+          "value": "5432"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tandoor"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${TANDOOR_POSTGRESS_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "tandoordb"
+        }
+      ],
       "dependsOn": {
         "tandoor-db": {
           "condition": "service_healthy"
@@ -41,12 +65,24 @@
     {
       "name": "tandoor-db",
       "image": "postgres:15-alpine",
-      "environment": {
-        "POSTGRES_PORT": "5432",
-        "POSTGRES_USER": "tandoor",
-        "POSTGRES_PASSWORD": "${TANDOOR_POSTGRESS_PASSWORD}",
-        "POSTGRES_DB": "tandoordb"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_PORT",
+          "value": "5432"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tandoor"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${TANDOOR_POSTGRESS_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "tandoordb"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgresql",
@@ -62,5 +98,6 @@
       }
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

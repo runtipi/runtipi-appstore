@@ -5,15 +5,36 @@
       "image": "ghcr.io/havenweb/haven:latest",
       "isMain": true,
       "internalPort": 3000,
-      "environment": {
-        "RAILS_ENV": "production",
-        "HAVEN_DB_HOST": "haven-db",
-        "HAVEN_DB_NAME": "haven",
-        "HAVEN_DB_ROLE": "haven",
-        "HAVEN_DB_PASSWORD": "${HAVEN_DB_PASSWORD}",
-        "HAVEN_USER_EMAIL": "${HAVEN_USER_EMAIL}",
-        "HAVEN_USER_PASS": "${HAVEN_USER_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "RAILS_ENV",
+          "value": "production"
+        },
+        {
+          "key": "HAVEN_DB_HOST",
+          "value": "haven-db"
+        },
+        {
+          "key": "HAVEN_DB_NAME",
+          "value": "haven"
+        },
+        {
+          "key": "HAVEN_DB_ROLE",
+          "value": "haven"
+        },
+        {
+          "key": "HAVEN_DB_PASSWORD",
+          "value": "${HAVEN_DB_PASSWORD}"
+        },
+        {
+          "key": "HAVEN_USER_EMAIL",
+          "value": "${HAVEN_USER_EMAIL}"
+        },
+        {
+          "key": "HAVEN_USER_PASS",
+          "value": "${HAVEN_USER_PASSWORD}"
+        }
+      ],
       "dependsOn": ["haven-db"],
       "volumes": [
         {
@@ -25,10 +46,16 @@
     {
       "name": "haven-db",
       "image": "postgres:13.2-alpine",
-      "environment": {
-        "POSTGRES_HOST_AUTH_METHOD": "trust",
-        "POSTGRES_USER": "haven"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_HOST_AUTH_METHOD",
+          "value": "trust"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "haven"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/db",
@@ -54,5 +81,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

@@ -5,9 +5,12 @@
       "image": "louislam/dockge:1.5.0",
       "isMain": true,
       "internalPort": 5001,
-      "environment": {
-        "DOCKGE_STACKS_DIR": "${APP_DATA_DIR}/data/stacks"
-      },
+      "environment": [
+        {
+          "key": "DOCKGE_STACKS_DIR",
+          "value": "${APP_DATA_DIR}/data/stacks"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "/var/run/docker.sock",
@@ -24,5 +27,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

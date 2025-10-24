@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "logto",
@@ -12,13 +11,28 @@
           "containerPort": 3002
         }
       ],
-      "environment": {
-        "NODE_ENV": "production",
-        "TRUST_PROXY_HEADER": "1",
-        "DB_URL": "postgres://tipi:${LOGTO_DB_PASSWORD}@logto-db:5432/logto",
-        "ENDPOINT": "https://${APP_DOMAIN}",
-        "ADMIN_ENDPOINT": "https://${LOGTO_ADMIN_URL}"
-      },
+      "environment": [
+        {
+          "key": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "key": "TRUST_PROXY_HEADER",
+          "value": "1"
+        },
+        {
+          "key": "DB_URL",
+          "value": "postgres://tipi:${LOGTO_DB_PASSWORD}@logto-db:5432/logto"
+        },
+        {
+          "key": "ENDPOINT",
+          "value": "https://${APP_DOMAIN}"
+        },
+        {
+          "key": "ADMIN_ENDPOINT",
+          "value": "https://${LOGTO_ADMIN_URL}"
+        }
+      ],
       "dependsOn": {
         "logto-db": {
           "condition": "service_healthy"
@@ -36,11 +50,20 @@
     {
       "name": "logto-db",
       "image": "postgres:14",
-      "environment": {
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_PASSWORD": "${LOGTO_DB_PASSWORD}",
-        "POSTGRES_DB": "logto"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${LOGTO_DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "logto"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgres",
@@ -54,5 +77,7 @@
         "test": "pg_isready"
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

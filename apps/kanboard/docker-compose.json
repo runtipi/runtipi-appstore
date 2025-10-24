@@ -5,9 +5,12 @@
       "image": "kanboard/kanboard:v1.2.48",
       "isMain": true,
       "internalPort": 80,
-      "environment": {
-        "PLUGIN_INSTALLER": "${PLUGIN_INSTALLER}"
-      },
+      "environment": [
+        {
+          "key": "PLUGIN_INSTALLER",
+          "value": "${PLUGIN_INSTALLER}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/kanboard_data",
@@ -20,5 +23,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

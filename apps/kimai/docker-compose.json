@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "kimai-proxy",
@@ -25,12 +24,24 @@
     {
       "name": "kimai",
       "image": "kimai/kimai2:fpm-2.19.1-prod",
-      "environment": {
-        "ADMINMAIL": "${KIMAI_ADMINMAIL}",
-        "ADMINPASS": "${KIMAI_ADMINPASS}",
-        "DATABASE_URL": "mysql://kimai:${KIMAI_DATABASE_PASSWORD}@kimai-sqldb/kimai?charset=utf8&serverVersion=5.7",
-        "TRUSTED_HOSTS": "kimai-proxy,localhost,127.0.0.1"
-      },
+      "environment": [
+        {
+          "key": "ADMINMAIL",
+          "value": "${KIMAI_ADMINMAIL}"
+        },
+        {
+          "key": "ADMINPASS",
+          "value": "${KIMAI_ADMINPASS}"
+        },
+        {
+          "key": "DATABASE_URL",
+          "value": "mysql://kimai:${KIMAI_DATABASE_PASSWORD}@kimai-sqldb/kimai?charset=utf8&serverVersion=5.7"
+        },
+        {
+          "key": "TRUSTED_HOSTS",
+          "value": "kimai-proxy,localhost,127.0.0.1"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/public",
@@ -45,12 +56,24 @@
     {
       "name": "kimai-sqldb",
       "image": "mysql:5.7",
-      "environment": {
-        "MYSQL_DATABASE": "kimai",
-        "MYSQL_USER": "kimai",
-        "MYSQL_PASSWORD": "${KIMAI_DATABASE_PASSWORD}",
-        "MYSQL_ROOT_PASSWORD": "${KIMAI_DATABASE_ROOT_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "MYSQL_DATABASE",
+          "value": "kimai"
+        },
+        {
+          "key": "MYSQL_USER",
+          "value": "kimai"
+        },
+        {
+          "key": "MYSQL_PASSWORD",
+          "value": "${KIMAI_DATABASE_PASSWORD}"
+        },
+        {
+          "key": "MYSQL_ROOT_PASSWORD",
+          "value": "${KIMAI_DATABASE_ROOT_PASSWORD}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/mysql",
@@ -66,5 +89,7 @@
         "test": "mysqladmin -p$$MYSQL_ROOT_PASSWORD ping -h localhost"
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "image": "ghcr.io/mealie-recipes/mealie:v3.3.2",
@@ -12,15 +11,36 @@
           "containerPath": "/app/data"
         }
       ],
-      "environment": {
-        "ALLOW_SIGNUP": "${MEALIE_ALLOW_SIGNUP}",
-        "PUID": "1000",
-        "PGID": "1000",
-        "TZ": "${TZ}",
-        "MAX_WORKERS": "1",
-        "WEB_CONCURRENCY": "1",
-        "BASE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
-      },
+      "environment": [
+        {
+          "key": "ALLOW_SIGNUP",
+          "value": "${MEALIE_ALLOW_SIGNUP}"
+        },
+        {
+          "key": "PUID",
+          "value": "1000"
+        },
+        {
+          "key": "PGID",
+          "value": "1000"
+        },
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "MAX_WORKERS",
+          "value": "1"
+        },
+        {
+          "key": "WEB_CONCURRENCY",
+          "value": "1"
+        },
+        {
+          "key": "BASE_URL",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+        }
+      ],
       "deploy": {
         "resources": {
           "limits": {
@@ -29,5 +49,7 @@
         }
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

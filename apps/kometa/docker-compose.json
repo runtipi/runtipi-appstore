@@ -1,35 +1,103 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "kometa",
       "image": "ghcr.io/linuxserver/kometa:2.2.2",
       "isMain": true,
-      "environment": {
-        "PUID": "1000",
-        "PGID": "1000",
-        "TZ": "${TZ}",
-        "KOMETA_CONFIG": "/config/config.yml",
-        "KOMETA_TIME": "${CONF_KOMETA_TIME-02:00}",
-        "KOMETA_RUN": "${CONF_KOMETA_RUN-false}",
-        "KOMETA_TEST": "${CONF_KOMETA_TEST-false}",
-        "KOMETA_NO_MISSING": "false",
-        "KOMETA_DEBUG": "${CONF_KOMETA_DEBUG-false}",
-        "KOMETA_TRACE": "${CONF_KOMETA_TRACE-false}",
-        "KOMETA_LOG_REQUESTS": "${CONF_KOMETA_LOG_REQUESTS-false}",
-        "KOMETA_TIMEOUT": "${CONF_KOMETA_TIMEOUT-180}",
-        "KOMETA_NO_VERIFY_SSL": "${CONF_KOMETA_NO_VERIFY_SSL-false}",
-        "KOMETA_COLLECTIONS_ONLY": "false",
-        "KOMETA_METADATA_ONLY": "false",
-        "KOMETA_PLAYLISTS_ONLY": "false",
-        "KOMETA_OPERATIONS_ONLY": "false",
-        "KOMETA_OVERLAYS_ONLY": "false",
-        "KOMETA_IGNORE_SCHEDULES": "false",
-        "KOMETA_IGNORE_GHOST": "false",
-        "KOMETA_DELETE_COLLECTIONS": "false",
-        "KOMETA_DELETE_LABELS": "false",
-        "KOMETA_NO_REPORT": "false"
-      },
+      "environment": [
+        {
+          "key": "PUID",
+          "value": "1000"
+        },
+        {
+          "key": "PGID",
+          "value": "1000"
+        },
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "KOMETA_CONFIG",
+          "value": "/config/config.yml"
+        },
+        {
+          "key": "KOMETA_TIME",
+          "value": "${CONF_KOMETA_TIME-02:00}"
+        },
+        {
+          "key": "KOMETA_RUN",
+          "value": "${CONF_KOMETA_RUN-false}"
+        },
+        {
+          "key": "KOMETA_TEST",
+          "value": "${CONF_KOMETA_TEST-false}"
+        },
+        {
+          "key": "KOMETA_NO_MISSING",
+          "value": "false"
+        },
+        {
+          "key": "KOMETA_DEBUG",
+          "value": "${CONF_KOMETA_DEBUG-false}"
+        },
+        {
+          "key": "KOMETA_TRACE",
+          "value": "${CONF_KOMETA_TRACE-false}"
+        },
+        {
+          "key": "KOMETA_LOG_REQUESTS",
+          "value": "${CONF_KOMETA_LOG_REQUESTS-false}"
+        },
+        {
+          "key": "KOMETA_TIMEOUT",
+          "value": "${CONF_KOMETA_TIMEOUT-180}"
+        },
+        {
+          "key": "KOMETA_NO_VERIFY_SSL",
+          "value": "${CONF_KOMETA_NO_VERIFY_SSL-false}"
+        },
+        {
+          "key": "KOMETA_COLLECTIONS_ONLY",
+          "value": "false"
+        },
+        {
+          "key": "KOMETA_METADATA_ONLY",
+          "value": "false"
+        },
+        {
+          "key": "KOMETA_PLAYLISTS_ONLY",
+          "value": "false"
+        },
+        {
+          "key": "KOMETA_OPERATIONS_ONLY",
+          "value": "false"
+        },
+        {
+          "key": "KOMETA_OVERLAYS_ONLY",
+          "value": "false"
+        },
+        {
+          "key": "KOMETA_IGNORE_SCHEDULES",
+          "value": "false"
+        },
+        {
+          "key": "KOMETA_IGNORE_GHOST",
+          "value": "false"
+        },
+        {
+          "key": "KOMETA_DELETE_COLLECTIONS",
+          "value": "false"
+        },
+        {
+          "key": "KOMETA_DELETE_LABELS",
+          "value": "false"
+        },
+        {
+          "key": "KOMETA_NO_REPORT",
+          "value": "false"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/",
@@ -37,5 +105,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

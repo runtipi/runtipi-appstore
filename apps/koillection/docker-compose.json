@@ -5,24 +5,72 @@
       "image": "koillection/koillection:1.7.0",
       "isMain": true,
       "internalPort": 80,
-      "environment": {
-        "APP_DEBUG": "0",
-        "APP_ENV": "prod",
-        "HTTPS_ENABLED": "{APP_EXPOSED}",
-        "UPLOAD_MAX_FILESIZE": "20M",
-        "PHP_MEMORY_LIMIT": "512M",
-        "PHP_TZ": "${TZ}",
-        "CORS_ALLOW_ORIGIN": "*",
-        "JWT_SECRET_KEY": "%kernel.project_dir%/config/jwt/private.pem",
-        "JWT_PUBLIC_KEY": "%kernel.project_dir%/config/jwt/public.pem",
-        "DB_DRIVER": "pdo_pgsql",
-        "DB_NAME": "koillection",
-        "DB_HOST": "koillection-db",
-        "DB_PORT": "5432",
-        "DB_USER": "{KOILLECTION_DB_USER}",
-        "DB_PASSWORD": "{KOILLECTION_DB_PASSWORD}",
-        "DB_VERSION": "15"
-      },
+      "environment": [
+        {
+          "key": "APP_DEBUG",
+          "value": "0"
+        },
+        {
+          "key": "APP_ENV",
+          "value": "prod"
+        },
+        {
+          "key": "HTTPS_ENABLED",
+          "value": "{APP_EXPOSED}"
+        },
+        {
+          "key": "UPLOAD_MAX_FILESIZE",
+          "value": "20M"
+        },
+        {
+          "key": "PHP_MEMORY_LIMIT",
+          "value": "512M"
+        },
+        {
+          "key": "PHP_TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "CORS_ALLOW_ORIGIN",
+          "value": "*"
+        },
+        {
+          "key": "JWT_SECRET_KEY",
+          "value": "%kernel.project_dir%/config/jwt/private.pem"
+        },
+        {
+          "key": "JWT_PUBLIC_KEY",
+          "value": "%kernel.project_dir%/config/jwt/public.pem"
+        },
+        {
+          "key": "DB_DRIVER",
+          "value": "pdo_pgsql"
+        },
+        {
+          "key": "DB_NAME",
+          "value": "koillection"
+        },
+        {
+          "key": "DB_HOST",
+          "value": "koillection-db"
+        },
+        {
+          "key": "DB_PORT",
+          "value": "5432"
+        },
+        {
+          "key": "DB_USER",
+          "value": "{KOILLECTION_DB_USER}"
+        },
+        {
+          "key": "DB_PASSWORD",
+          "value": "{KOILLECTION_DB_PASSWORD}"
+        },
+        {
+          "key": "DB_VERSION",
+          "value": "15"
+        }
+      ],
       "dependsOn": ["koillection-db"],
       "volumes": [
         {
@@ -34,11 +82,20 @@
     {
       "name": "koillection-db",
       "image": "postgres:15",
-      "environment": {
-        "POSTGRES_DB": "koillection",
-        "POSTGRES_USER": "{KOILLECTION_DB_USER}",
-        "POSTGRES_PASSWORD": "{KOILLECTION_DB_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_DB",
+          "value": "koillection"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "{KOILLECTION_DB_USER}"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "{KOILLECTION_DB_PASSWORD}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/volumes/postgresql",
@@ -47,5 +104,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

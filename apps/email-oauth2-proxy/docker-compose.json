@@ -1,17 +1,28 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "email-oauth2-proxy",
       "image": "ghcr.io/blacktirion/email-oauth2-proxy-docker:2025.10.09",
       "isMain": true,
       "internalPort": 80,
-      "environment": {
-        "DEBUG": "true",
-        "CACHE_STORE": "/config/credstore.config",
-        "LOGFILE": "true",
-        "LOCAL_SERVER_AUTH": "true"
-      },
+      "environment": [
+        {
+          "key": "DEBUG",
+          "value": "true"
+        },
+        {
+          "key": "CACHE_STORE",
+          "value": "/config/credstore.config"
+        },
+        {
+          "key": "LOGFILE",
+          "value": "true"
+        },
+        {
+          "key": "LOCAL_SERVER_AUTH",
+          "value": "true"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/config",
@@ -19,5 +30,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

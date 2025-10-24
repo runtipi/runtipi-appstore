@@ -5,13 +5,28 @@
       "image": "monica:4.1.2",
       "isMain": true,
       "internalPort": 80,
-      "environment": {
-        "APP_KEY": "${MONICA_APP_KEY}",
-        "APP_TRUSTED_PROXIES": "172.18.0.0/16",
-        "DB_HOST": "monica-db",
-        "DB_USERNAME": "usermonica",
-        "DB_PASSWORD": "${MONICA_DB_PASS}"
-      },
+      "environment": [
+        {
+          "key": "APP_KEY",
+          "value": "${MONICA_APP_KEY}"
+        },
+        {
+          "key": "APP_TRUSTED_PROXIES",
+          "value": "172.18.0.0/16"
+        },
+        {
+          "key": "DB_HOST",
+          "value": "monica-db"
+        },
+        {
+          "key": "DB_USERNAME",
+          "value": "usermonica"
+        },
+        {
+          "key": "DB_PASSWORD",
+          "value": "${MONICA_DB_PASS}"
+        }
+      ],
       "dependsOn": ["monica-db"],
       "volumes": [
         {
@@ -23,13 +38,28 @@
     {
       "name": "monica-db",
       "image": "mariadb:10.6.11",
-      "environment": {
-        "TZ": "${TZ}",
-        "MARIADB_RANDOM_ROOT_PASSWORD": "true",
-        "MARIADB_DATABASE": "monica",
-        "MARIADB_USER": "usermonica",
-        "MARIADB_PASSWORD": "${MONICA_DB_PASS}"
-      },
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "MARIADB_RANDOM_ROOT_PASSWORD",
+          "value": "true"
+        },
+        {
+          "key": "MARIADB_DATABASE",
+          "value": "monica"
+        },
+        {
+          "key": "MARIADB_USER",
+          "value": "usermonica"
+        },
+        {
+          "key": "MARIADB_PASSWORD",
+          "value": "${MONICA_DB_PASS}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/mysql",
@@ -38,5 +68,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

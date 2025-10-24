@@ -5,11 +5,20 @@
       "image": "ghcr.io/donkie/spoolman:0.22.1",
       "isMain": true,
       "internalPort": 8000,
-      "environment": {
-        "TZ": "${TZ}",
-        "PUID": "0",
-        "PGID": "0"
-      },
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "PUID",
+          "value": "0"
+        },
+        {
+          "key": "PGID",
+          "value": "0"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data",
@@ -18,5 +27,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

@@ -1,27 +1,71 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "invoice-ninja",
       "image": "invoiceninja/invoiceninja:5.12.8",
       "user": "1500:1500",
-      "environment": {
-        "IN_USER_EMAIL": "${INVOICE_NINJA_USER_MAIL}",
-        "IN_PASSWORD": "${INVOICE_NINJA_USER_PASSWORD}",
-        "APP_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
-        "APP_NAME": "Invoice Ninja",
-        "APP_ENV": "production",
-        "APP_KEY": "${INVOICE_NINJA_APP_KEY}",
-        "APP_CIPHER": "AES-256-CBC",
-        "DB_HOST": "invoice-ninja-db",
-        "DB_PORT": "3306",
-        "DB_DATABASE": "ninja",
-        "DB_USERNAME": "ninja",
-        "DB_PASSWORD": "ninja",
-        "REQUIRE_HTTPS": "false",
-        "QUEUE_CONNECTION": "database",
-        "IS_DOCKER": "TRUE"
-      },
+      "environment": [
+        {
+          "key": "IN_USER_EMAIL",
+          "value": "${INVOICE_NINJA_USER_MAIL}"
+        },
+        {
+          "key": "IN_PASSWORD",
+          "value": "${INVOICE_NINJA_USER_PASSWORD}"
+        },
+        {
+          "key": "APP_URL",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+        },
+        {
+          "key": "APP_NAME",
+          "value": "Invoice Ninja"
+        },
+        {
+          "key": "APP_ENV",
+          "value": "production"
+        },
+        {
+          "key": "APP_KEY",
+          "value": "${INVOICE_NINJA_APP_KEY}"
+        },
+        {
+          "key": "APP_CIPHER",
+          "value": "AES-256-CBC"
+        },
+        {
+          "key": "DB_HOST",
+          "value": "invoice-ninja-db"
+        },
+        {
+          "key": "DB_PORT",
+          "value": "3306"
+        },
+        {
+          "key": "DB_DATABASE",
+          "value": "ninja"
+        },
+        {
+          "key": "DB_USERNAME",
+          "value": "ninja"
+        },
+        {
+          "key": "DB_PASSWORD",
+          "value": "ninja"
+        },
+        {
+          "key": "REQUIRE_HTTPS",
+          "value": "false"
+        },
+        {
+          "key": "QUEUE_CONNECTION",
+          "value": "database"
+        },
+        {
+          "key": "IS_DOCKER",
+          "value": "TRUE"
+        }
+      ],
       "dependsOn": ["invoice-ninja-db"],
       "volumes": [
         {
@@ -70,12 +114,24 @@
     {
       "name": "invoice-ninja-db",
       "image": "mariadb:10.7",
-      "environment": {
-        "MARIADB_ROOT_PASSWORD": "${INVOICE_NINJA_BDD_PASSWORD}",
-        "MARIADB_USER": "ninja",
-        "MARIADB_PASSWORD": "ninja",
-        "MARIADB_DATABASE": "ninja"
-      },
+      "environment": [
+        {
+          "key": "MARIADB_ROOT_PASSWORD",
+          "value": "${INVOICE_NINJA_BDD_PASSWORD}"
+        },
+        {
+          "key": "MARIADB_USER",
+          "value": "ninja"
+        },
+        {
+          "key": "MARIADB_PASSWORD",
+          "value": "ninja"
+        },
+        {
+          "key": "MARIADB_DATABASE",
+          "value": "ninja"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/mysql",
@@ -83,5 +139,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

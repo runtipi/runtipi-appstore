@@ -5,10 +5,16 @@
       "image": "vaultwarden/server:1.34.3",
       "isMain": true,
       "internalPort": 80,
-      "environment": {
-        "WEBSOCKET_ENABLED": "true",
-        "ADMIN_TOKEN": "${VAULTWARDEN_ADMIN_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "WEBSOCKET_ENABLED",
+          "value": "true"
+        },
+        {
+          "key": "ADMIN_TOKEN",
+          "value": "${VAULTWARDEN_ADMIN_PASSWORD}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data",
@@ -17,5 +23,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

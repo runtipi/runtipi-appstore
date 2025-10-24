@@ -1,20 +1,40 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "slskd",
       "image": "slskd/slskd:0.23.2",
       "isMain": true,
       "internalPort": 5030,
-      "environment": {
-        "SLSKD_WEB_USER": "${SLSKD_WEB_USER}",
-        "SLSKD_WEB_PASSWORD": "${SLSKD_WEB_PASSWORD}",
-        "SLSKD_USER": "${SLSKD_USER}",
-        "SLSKD_PASSWORD": "${SLSKD_PASSWORD}",
-        "SLSKD_REMOTE_CONFIGURATION": "${SLSKD_REMOTE_CONFIGURATION}",
-        "SLSKD_CONFIG": "/app/data/slskd.yml",
-        "SLSKD_SHARED_DIR": "/shared"
-      },
+      "environment": [
+        {
+          "key": "SLSKD_WEB_USER",
+          "value": "${SLSKD_WEB_USER}"
+        },
+        {
+          "key": "SLSKD_WEB_PASSWORD",
+          "value": "${SLSKD_WEB_PASSWORD}"
+        },
+        {
+          "key": "SLSKD_USER",
+          "value": "${SLSKD_USER}"
+        },
+        {
+          "key": "SLSKD_PASSWORD",
+          "value": "${SLSKD_PASSWORD}"
+        },
+        {
+          "key": "SLSKD_REMOTE_CONFIGURATION",
+          "value": "${SLSKD_REMOTE_CONFIGURATION}"
+        },
+        {
+          "key": "SLSKD_CONFIG",
+          "value": "/app/data/slskd.yml"
+        },
+        {
+          "key": "SLSKD_SHARED_DIR",
+          "value": "/shared"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}",
@@ -34,5 +54,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

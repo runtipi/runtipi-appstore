@@ -5,13 +5,26 @@
       "image": "maulik9898/barrage:0.3.0",
       "isMain": true,
       "internalPort": 3000,
-      "environment": {
-        "NEXTAUTH_SECRET": "${NEXTAUTH_SECRET}",
-        "DELUGE_URL": "${DELUGE_URL}",
-        "DELUGE_PASSWORD": "${DELUGE_PASSWORD}",
-        "BARRAGE_PASSWORD": "${BARRAGE_PASSWORD}"
-      }
+      "environment": [
+        {
+          "key": "NEXTAUTH_SECRET",
+          "value": "${NEXTAUTH_SECRET}"
+        },
+        {
+          "key": "DELUGE_URL",
+          "value": "${DELUGE_URL}"
+        },
+        {
+          "key": "DELUGE_PASSWORD",
+          "value": "${DELUGE_PASSWORD}"
+        },
+        {
+          "key": "BARRAGE_PASSWORD",
+          "value": "${BARRAGE_PASSWORD}"
+        }
+      ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

@@ -5,12 +5,24 @@
       "image": "mauriceo/viewtube:0.17.0",
       "isMain": true,
       "internalPort": 8066,
-      "environment": {
-        "VIEWTUBE_DATABASE_HOST": "viewtube-mongodb",
-        "VIEWTUBE_REDIS_HOST": "viewtube-redis",
-        "VIEWTUBE_SECURE": "true",
-        "VIEWTUBE_CORS_ORIGIN": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
-      },
+      "environment": [
+        {
+          "key": "VIEWTUBE_DATABASE_HOST",
+          "value": "viewtube-mongodb"
+        },
+        {
+          "key": "VIEWTUBE_REDIS_HOST",
+          "value": "viewtube-redis"
+        },
+        {
+          "key": "VIEWTUBE_SECURE",
+          "value": "true"
+        },
+        {
+          "key": "VIEWTUBE_CORS_ORIGIN",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+        }
+      ],
       "dependsOn": ["viewtube-mongodb", "viewtube-redis"],
       "volumes": [
         {
@@ -40,5 +52,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

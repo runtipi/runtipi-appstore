@@ -1,14 +1,16 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "your-spotify",
       "image": "yooooomi/your_spotify_client:1.14.0",
       "isMain": true,
       "internalPort": 3000,
-      "environment": {
-        "API_ENDPOINT": "http://${INTERNAL_IP}:32500"
-      },
+      "environment": [
+        {
+          "key": "API_ENDPOINT",
+          "value": "http://${INTERNAL_IP}:32500"
+        }
+      ],
       "dependsOn": ["your-spotify-server"]
     },
     {
@@ -20,14 +22,32 @@
           "containerPort": 8080
         }
       ],
-      "environment": {
-        "API_ENDPOINT": "http://${INTERNAL_IP}:32500",
-        "CLIENT_ENDPOINT": "http://${INTERNAL_IP}:${APP_PORT}",
-        "SPOTIFY_PUBLIC": "${SPOTIFY_PUBLIC}",
-        "SPOTIFY_SECRET": "${SPOTIFY_SECRET}",
-        "MONGO_ENDPOINT": "mongodb://your-spotify-db:27017/your_spotify",
-        "CORS": "i-want-a-security-vulnerability-and-want-to-allow-all-origins"
-      },
+      "environment": [
+        {
+          "key": "API_ENDPOINT",
+          "value": "http://${INTERNAL_IP}:32500"
+        },
+        {
+          "key": "CLIENT_ENDPOINT",
+          "value": "http://${INTERNAL_IP}:${APP_PORT}"
+        },
+        {
+          "key": "SPOTIFY_PUBLIC",
+          "value": "${SPOTIFY_PUBLIC}"
+        },
+        {
+          "key": "SPOTIFY_SECRET",
+          "value": "${SPOTIFY_SECRET}"
+        },
+        {
+          "key": "MONGO_ENDPOINT",
+          "value": "mongodb://your-spotify-db:27017/your_spotify"
+        },
+        {
+          "key": "CORS",
+          "value": "i-want-a-security-vulnerability-and-want-to-allow-all-origins"
+        }
+      ],
       "dependsOn": ["your-spotify-db"]
     },
     {
@@ -40,5 +60,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

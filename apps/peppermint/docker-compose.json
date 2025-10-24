@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "peppermint",
@@ -12,22 +11,43 @@
           "containerPort": 5003
         }
       ],
-      "environment": {
-        "DB_USERNAME": "tipi",
-        "DB_PASSWORD": "${PEPPERMINT_DB_PASSWORD}",
-        "DB_HOST": "peppermint-db",
-        "API_URL": "${APP_PROTOCOL:-http}://${PEPPERMINT_DOMAIN_API}"
-      },
+      "environment": [
+        {
+          "key": "DB_USERNAME",
+          "value": "tipi"
+        },
+        {
+          "key": "DB_PASSWORD",
+          "value": "${PEPPERMINT_DB_PASSWORD}"
+        },
+        {
+          "key": "DB_HOST",
+          "value": "peppermint-db"
+        },
+        {
+          "key": "API_URL",
+          "value": "${APP_PROTOCOL:-http}://${PEPPERMINT_DOMAIN_API}"
+        }
+      ],
       "dependsOn": ["peppermint-db"]
     },
     {
       "name": "peppermint-db",
       "image": "postgres:latest",
-      "environment": {
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_PASSWORD": "${PEPPERMINT_DB_PASSWORD}",
-        "POSTGRES_DB": "peppermint"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${PEPPERMINT_DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "peppermint"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgres",
@@ -35,5 +55,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

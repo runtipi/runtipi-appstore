@@ -1,18 +1,38 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "gitea",
       "image": "gitea/gitea:1.24.6",
-      "environment": {
-        "USER_UID": "1000",
-        "USER_GID": "1000",
-        "GITEA__database__DB_TYPE": "postgres",
-        "GITEA__database__DB_HOST": "gitea-db:5432",
-        "GITEA__database__DB_NAME": "gitea",
-        "GITEA__database__DB_USER": "gitea",
-        "GITEA__database__DB_PASSWD": "gitea"
-      },
+      "environment": [
+        {
+          "key": "USER_UID",
+          "value": "1000"
+        },
+        {
+          "key": "USER_GID",
+          "value": "1000"
+        },
+        {
+          "key": "GITEA__database__DB_TYPE",
+          "value": "postgres"
+        },
+        {
+          "key": "GITEA__database__DB_HOST",
+          "value": "gitea-db:5432"
+        },
+        {
+          "key": "GITEA__database__DB_NAME",
+          "value": "gitea"
+        },
+        {
+          "key": "GITEA__database__DB_USER",
+          "value": "gitea"
+        },
+        {
+          "key": "GITEA__database__DB_PASSWD",
+          "value": "gitea"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/gitea",
@@ -32,11 +52,20 @@
     {
       "name": "gitea-db",
       "image": "postgres:14",
-      "environment": {
-        "POSTGRES_USER": "gitea",
-        "POSTGRES_PASSWORD": "gitea",
-        "POSTGRES_DB": "gitea"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_USER",
+          "value": "gitea"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "gitea"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "gitea"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgres",
@@ -44,5 +73,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

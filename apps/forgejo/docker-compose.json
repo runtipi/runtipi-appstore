@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "forgejo",
@@ -12,15 +11,36 @@
           "containerPort": 22
         }
       ],
-      "environment": {
-        "USER_UID": "1000",
-        "USER_GID": "1000",
-        "FORGEJO__database__DB_TYPE": "postgres",
-        "FORGEJO__database__HOST": "forgejo-db:5432",
-        "FORGEJO__database__NAME": "forgejo",
-        "FORGEJO__database__USER": "forgejo",
-        "FORGEJO__database__PASSWD": "${FORGEJO_DB_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "USER_UID",
+          "value": "1000"
+        },
+        {
+          "key": "USER_GID",
+          "value": "1000"
+        },
+        {
+          "key": "FORGEJO__database__DB_TYPE",
+          "value": "postgres"
+        },
+        {
+          "key": "FORGEJO__database__HOST",
+          "value": "forgejo-db:5432"
+        },
+        {
+          "key": "FORGEJO__database__NAME",
+          "value": "forgejo"
+        },
+        {
+          "key": "FORGEJO__database__USER",
+          "value": "forgejo"
+        },
+        {
+          "key": "FORGEJO__database__PASSWD",
+          "value": "${FORGEJO_DB_PASSWORD}"
+        }
+      ],
       "dependsOn": ["forgejo-db"],
       "volumes": [
         {
@@ -32,11 +52,20 @@
     {
       "name": "forgejo-db",
       "image": "postgres:14",
-      "environment": {
-        "POSTGRES_USER": "forgejo",
-        "POSTGRES_PASSWORD": "${FORGEJO_DB_PASSWORD}",
-        "POSTGRES_DB": "forgejo"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_USER",
+          "value": "forgejo"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${FORGEJO_DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "forgejo"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgres",
@@ -44,5 +73,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

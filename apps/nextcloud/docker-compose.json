@@ -1,23 +1,52 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "nextcloud",
       "image": "nextcloud:26.0.13-apache",
       "isMain": true,
       "internalPort": 80,
-      "environment": {
-        "POSTGRES_HOST": "db-nextcloud",
-        "REDIS_HOST": "redis-nextcloud",
-        "POSTGRES_PASSWORD": "tipi",
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_DB": "nextcloud",
-        "NEXTCLOUD_ADMIN_USER": "${NEXTCLOUD_ADMIN_USER}",
-        "NEXTCLOUD_ADMIN_PASSWORD": "${NEXTCLOUD_ADMIN_PASSWORD}",
-        "NEXTCLOUD_TRUSTED_DOMAINS": "${APP_DOMAIN}",
-        "TRUSTED_PROXIES": "172.16.0.0/12",
-        "OVERWRITEPROTOCOL": "${APP_PROTOCOL:-http}"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_HOST",
+          "value": "db-nextcloud"
+        },
+        {
+          "key": "REDIS_HOST",
+          "value": "redis-nextcloud"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "nextcloud"
+        },
+        {
+          "key": "NEXTCLOUD_ADMIN_USER",
+          "value": "${NEXTCLOUD_ADMIN_USER}"
+        },
+        {
+          "key": "NEXTCLOUD_ADMIN_PASSWORD",
+          "value": "${NEXTCLOUD_ADMIN_PASSWORD}"
+        },
+        {
+          "key": "NEXTCLOUD_TRUSTED_DOMAINS",
+          "value": "${APP_DOMAIN}"
+        },
+        {
+          "key": "TRUSTED_PROXIES",
+          "value": "172.16.0.0/12"
+        },
+        {
+          "key": "OVERWRITEPROTOCOL",
+          "value": "${APP_PROTOCOL:-http}"
+        }
+      ],
       "dependsOn": ["db-nextcloud", "redis-nextcloud"],
       "volumes": [
         {
@@ -29,11 +58,20 @@
     {
       "name": "db-nextcloud",
       "image": "postgres:14.2",
-      "environment": {
-        "POSTGRES_PASSWORD": "tipi",
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_DB": "nextcloud"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "nextcloud"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/db",
@@ -64,5 +102,7 @@
       ],
       "entrypoint": "/cron.sh"
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

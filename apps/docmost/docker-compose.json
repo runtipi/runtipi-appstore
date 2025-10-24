@@ -5,12 +5,24 @@
       "image": "docmost/docmost:0.23.2",
       "isMain": true,
       "internalPort": 3000,
-      "environment": {
-        "APP_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
-        "APP_SECRET": "${DOCMOST_APP_SECRET}",
-        "DATABASE_URL": "postgresql://docmost:${DOCMOST_PG_PASSWORD}@docmost-db:5432/docmost?schema",
-        "REDIS_URL": "redis://docmost-redis:6379"
-      },
+      "environment": [
+        {
+          "key": "APP_URL",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+        },
+        {
+          "key": "APP_SECRET",
+          "value": "${DOCMOST_APP_SECRET}"
+        },
+        {
+          "key": "DATABASE_URL",
+          "value": "postgresql://docmost:${DOCMOST_PG_PASSWORD}@docmost-db:5432/docmost?schema"
+        },
+        {
+          "key": "REDIS_URL",
+          "value": "redis://docmost-redis:6379"
+        }
+      ],
       "dependsOn": ["docmost-db", "docmost-redis"],
       "volumes": [
         {
@@ -22,11 +34,20 @@
     {
       "name": "docmost-db",
       "image": "postgres:16-alpine",
-      "environment": {
-        "POSTGRES_DB": "docmost",
-        "POSTGRES_USER": "docmost",
-        "POSTGRES_PASSWORD": "${DOCMOST_PG_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_DB",
+          "value": "docmost"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "docmost"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${DOCMOST_PG_PASSWORD}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgresql",
@@ -45,5 +66,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

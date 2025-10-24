@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "image": "ghcr.io/codex-team/codex.docs:v2.2",
@@ -20,20 +19,40 @@
           "containerPath": "/usr/src/app/docs-config.yaml"
         }
       ],
-      "environment": {
-        "APP_CONFIG_auth_password": "${CODEX_AUTH_PASSWORD}",
-        "APP_CONFIG_auth_secret": "${CODEX_AUTH_SECRET}",
-        "APP_CONFIG_database_driver": "mongodb",
-        "APP_CONFIG_database_mongodb_uri": "mongodb://tipi:${CODEX_DB_PASSWORD}@codex-db:27017"
-      }
+      "environment": [
+        {
+          "key": "APP_CONFIG_auth_password",
+          "value": "${CODEX_AUTH_PASSWORD}"
+        },
+        {
+          "key": "APP_CONFIG_auth_secret",
+          "value": "${CODEX_AUTH_SECRET}"
+        },
+        {
+          "key": "APP_CONFIG_database_driver",
+          "value": "mongodb"
+        },
+        {
+          "key": "APP_CONFIG_database_mongodb_uri",
+          "value": "mongodb://tipi:${CODEX_DB_PASSWORD}@codex-db:27017"
+        }
+      ]
     },
     {
       "image": "mongo:latest",
       "name": "codex-db",
-      "environment": {
-        "MONGO_INITDB_ROOT_USERNAME": "tipi",
-        "MONGO_INITDB_ROOT_PASSWORD": "${CODEX_DB_PASSWORD}"
-      }
+      "environment": [
+        {
+          "key": "MONGO_INITDB_ROOT_USERNAME",
+          "value": "tipi"
+        },
+        {
+          "key": "MONGO_INITDB_ROOT_PASSWORD",
+          "value": "${CODEX_DB_PASSWORD}"
+        }
+      ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

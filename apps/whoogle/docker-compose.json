@@ -5,10 +5,14 @@
       "image": "benbusby/whoogle-search:1.1.0",
       "isMain": true,
       "internalPort": 8255,
-      "environment": {
-        "EXPOSE_PORT": 8255
-      }
+      "environment": [
+        {
+          "key": "EXPOSE_PORT",
+          "value": 8255
+        }
+      ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

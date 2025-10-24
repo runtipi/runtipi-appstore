@@ -1,32 +1,67 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "joplin",
       "image": "joplin/server:3.4.3",
       "isMain": true,
       "internalPort": 22300,
-      "environment": {
-        "APP_PORT": "22300",
-        "APP_BASE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}/",
-        "DB_CLIENT": "pg",
-        "POSTGRES_PASSWORD": "${JOPLIN_DB_PASSWORD}",
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_DATABASE": "joplin",
-        "POSTGRES_PORT": "5432",
-        "POSTGRES_HOST": "db-joplin",
-        "MAX_TIME_DRIFT": "0"
-      },
+      "environment": [
+        {
+          "key": "APP_PORT",
+          "value": "22300"
+        },
+        {
+          "key": "APP_BASE_URL",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}/"
+        },
+        {
+          "key": "DB_CLIENT",
+          "value": "pg"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${JOPLIN_DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_DATABASE",
+          "value": "joplin"
+        },
+        {
+          "key": "POSTGRES_PORT",
+          "value": "5432"
+        },
+        {
+          "key": "POSTGRES_HOST",
+          "value": "db-joplin"
+        },
+        {
+          "key": "MAX_TIME_DRIFT",
+          "value": "0"
+        }
+      ],
       "dependsOn": ["db-joplin"]
     },
     {
       "name": "db-joplin",
       "image": "postgres:14.2",
-      "environment": {
-        "POSTGRES_PASSWORD": "${JOPLIN_DB_PASSWORD}",
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_DB": "joplin"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${JOPLIN_DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "joplin"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgres",
@@ -34,5 +69,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

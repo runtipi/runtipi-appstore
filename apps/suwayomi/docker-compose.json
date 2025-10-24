@@ -1,15 +1,20 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "suwayomi",
       "image": "ghcr.io/suwayomi/tachidesk:v2.1.1972",
       "isMain": true,
       "internalPort": 4567,
-      "environment": {
-        "TZ": "${TZ}",
-        "BIND_IP": "0.0.0.0"
-      },
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "BIND_IP",
+          "value": "0.0.0.0"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data",
@@ -17,5 +22,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

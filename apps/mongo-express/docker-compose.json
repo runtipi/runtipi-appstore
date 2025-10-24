@@ -5,15 +5,34 @@
       "image": "mongo-express:1.0.2",
       "isMain": true,
       "internalPort": 8081,
-      "environment": {
-        "ME_CONFIG_MONGODB_SERVER": "${ME_CONFIG_MONGODB_SERVERIP}",
-        "ME_CONFIG_MONGODB_ENABLE_ADMIN": "true",
-        "ME_CONFIG_MONGODB_ADMINUSERNAME": "${ME_CONFIG_MONGODB_ADMINUSERNAME}",
-        "ME_CONFIG_MONGODB_ADMINPASSWORD": "${ME_CONFIG_MONGODB_ADMINPASSWORD}",
-        "ME_CONFIG_BASICAUTH_USERNAME": "${ME_CONFIG_BASICAUTH_USERNAME}",
-        "ME_CONFIG_BASICAUTH_PASSWORD": "${ME_CONFIG_BASICAUTH_PASSWORD}"
-      }
+      "environment": [
+        {
+          "key": "ME_CONFIG_MONGODB_SERVER",
+          "value": "${ME_CONFIG_MONGODB_SERVERIP}"
+        },
+        {
+          "key": "ME_CONFIG_MONGODB_ENABLE_ADMIN",
+          "value": "true"
+        },
+        {
+          "key": "ME_CONFIG_MONGODB_ADMINUSERNAME",
+          "value": "${ME_CONFIG_MONGODB_ADMINUSERNAME}"
+        },
+        {
+          "key": "ME_CONFIG_MONGODB_ADMINPASSWORD",
+          "value": "${ME_CONFIG_MONGODB_ADMINPASSWORD}"
+        },
+        {
+          "key": "ME_CONFIG_BASICAUTH_USERNAME",
+          "value": "${ME_CONFIG_BASICAUTH_USERNAME}"
+        },
+        {
+          "key": "ME_CONFIG_BASICAUTH_PASSWORD",
+          "value": "${ME_CONFIG_BASICAUTH_PASSWORD}"
+        }
+      ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

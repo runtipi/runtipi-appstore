@@ -1,21 +1,44 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "planka",
       "image": "ghcr.io/plankanban/planka:1.26.3",
       "isMain": true,
       "internalPort": 1337,
-      "environment": {
-        "BASE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
-        "TRUST_PROXY": 1,
-        "DATABASE_URL": "postgresql://postgres@planka-db/planka",
-        "SECRET_KEY": "${PLANKA_SECRET_KEY}",
-        "DEFAULT_ADMIN_EMAIL": "${PLANKA_ADMIN_EMAIL}",
-        "DEFAULT_ADMIN_NAME": "${PLANKA_ADMIN_NAME}",
-        "DEFAULT_ADMIN_USERNAME": "${PLANKA_ADMIN_USERNAME}",
-        "DEFAULT_ADMIN_PASSWORD": "${PLANKA_ADMIN_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "BASE_URL",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+        },
+        {
+          "key": "TRUST_PROXY",
+          "value": 1
+        },
+        {
+          "key": "DATABASE_URL",
+          "value": "postgresql://postgres@planka-db/planka"
+        },
+        {
+          "key": "SECRET_KEY",
+          "value": "${PLANKA_SECRET_KEY}"
+        },
+        {
+          "key": "DEFAULT_ADMIN_EMAIL",
+          "value": "${PLANKA_ADMIN_EMAIL}"
+        },
+        {
+          "key": "DEFAULT_ADMIN_NAME",
+          "value": "${PLANKA_ADMIN_NAME}"
+        },
+        {
+          "key": "DEFAULT_ADMIN_USERNAME",
+          "value": "${PLANKA_ADMIN_USERNAME}"
+        },
+        {
+          "key": "DEFAULT_ADMIN_PASSWORD",
+          "value": "${PLANKA_ADMIN_PASSWORD}"
+        }
+      ],
       "dependsOn": {
         "planka-db": {
           "condition": "service_healthy"
@@ -39,10 +62,16 @@
     {
       "name": "planka-db",
       "image": "postgres:14-alpine",
-      "environment": {
-        "POSTGRES_DB": "planka",
-        "POSTGRES_HOST_AUTH_METHOD": "trust"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_DB",
+          "value": "planka"
+        },
+        {
+          "key": "POSTGRES_HOST_AUTH_METHOD",
+          "value": "trust"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgres",
@@ -55,5 +84,7 @@
         "test": "pg_isready -d planka -U postgres"
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

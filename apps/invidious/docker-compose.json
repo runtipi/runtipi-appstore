@@ -1,14 +1,16 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "invidious",
       "image": "quay.io/invidious/invidious:master",
       "isMain": true,
       "internalPort": 3000,
-      "environment": {
-        "INVIDIOUS_CONFIG": "db:\n  dbname: invidious\n  user: tipi\n  password: tipi\n  host: invidious-db\n  port: 5432\ncheck_tables: true\ninvidious_companion:\n- private_url: \"http://invidious-companion:8282/companion\"\ninvidious_companion_key: ${INVIDIOUS_COMPANION_KEY}\nhmac_key: ${INVIDIOUS_HMAC_KEY}\nuse_innertube_for_captions: true\ndomain: ${INVIDIOUS_DOMAIN}\nexternal_port: ${INVIDIOUS_EXTERNAL_PORT:-${APP_PORT}}\nhttps_only: ${INVIDIOUS_HTTPS_ONLY}"
-      },
+      "environment": [
+        {
+          "key": "INVIDIOUS_CONFIG",
+          "value": "db:\n  dbname: invidious\n  user: tipi\n  password: tipi\n  host: invidious-db\n  port: 5432\ncheck_tables: true\ninvidious_companion:\n- private_url: \"http://invidious-companion:8282/companion\"\ninvidious_companion_key: ${INVIDIOUS_COMPANION_KEY}\nhmac_key: ${INVIDIOUS_HMAC_KEY}\nuse_innertube_for_captions: true\ndomain: ${INVIDIOUS_DOMAIN}\nexternal_port: ${INVIDIOUS_EXTERNAL_PORT:-${APP_PORT}}\nhttps_only: ${INVIDIOUS_HTTPS_ONLY}"
+        }
+      ],
       "dependsOn": {
         "invidious-db": {
           "condition": "service_healthy"
@@ -24,20 +26,32 @@
     {
       "name": "invidious-companion",
       "image": "quay.io/invidious/invidious-companion:latest",
-      "environment": {
-        "SERVER_SECRET_KEY": "${INVIDIOUS_COMPANION_KEY}"
-      },
+      "environment": [
+        {
+          "key": "SERVER_SECRET_KEY",
+          "value": "${INVIDIOUS_COMPANION_KEY}"
+        }
+      ],
       "capDrop": ["ALL"],
       "securityOpt": ["no-new-privileges:true"]
     },
     {
       "name": "invidious-db",
       "image": "postgres:14",
-      "environment": {
-        "POSTGRES_DB": "invidious",
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_PASSWORD": "tipi"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_DB",
+          "value": "invidious"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "tipi"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgres",
@@ -67,5 +81,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

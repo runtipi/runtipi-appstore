@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "port": 9300,
   "id": "spacedrive",
-  "tipi_version": 7,
+  "tipi_version": 9,
   "version": "0.4.2",
   "categories": ["utilities"],
   "description": "Spacedrive is an open source cross-platform file explorer, powered by a virtual distributed filesystem written in Rust.",
@@ -34,5 +34,6 @@
   ],
   "supported_architectures": ["amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1733761264561
+  "updated_at": 1761338378512,
+  "min_tipi_version": "4.5.0"
 }

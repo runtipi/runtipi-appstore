@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "bewcloud",
@@ -8,23 +7,68 @@
       "isMain": true,
       "entrypoint": "bash",
       "command": "-c \"deno run --allow-net --allow-read --allow-env migrate-db.ts && deno run --allow-all main.ts\"",
-      "environment": {
-        "PORT": "8053",
-        "BASE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
-        "POSTGRESQL_HOST": "bewcloud-db",
-        "POSTGRESQL_USER": "bewcloud",
-        "POSTGRESQL_PASSWORD": "${DB_PASSWORD}",
-        "POSTGRESQL_DBNAME": "bewcloud",
-        "POSTGRESQL_PORT": "5432",
-        "JWT_SECRET": "${JWT_SECRET}",
-        "PASSWORD_SALT": "${PASSWORD_SALT}",
-        "BREVO_API_KEY": "${BREVO_API_KEY}",
-        "CONFIG_ALLOW_SIGNUPS": "${ALLOW_SIGNUPS}",
-        "CONFIG_ENABLED_APPS": "news,notes,photos",
-        "CONFIG_FILES_ROOT_PATH": "data-files",
-        "CONFIG_ENABLE_EMAILS": "${ENABLE_EMAIL}",
-        "CONFIG_ALLOWED_COOKIE_DOMAINS": "${INTERNAL_IP},bewcloud.${LOCAL_DOMAIN},${APP_HOST}"
-      },
+      "environment": [
+        {
+          "key": "PORT",
+          "value": "8053"
+        },
+        {
+          "key": "BASE_URL",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+        },
+        {
+          "key": "POSTGRESQL_HOST",
+          "value": "bewcloud-db"
+        },
+        {
+          "key": "POSTGRESQL_USER",
+          "value": "bewcloud"
+        },
+        {
+          "key": "POSTGRESQL_PASSWORD",
+          "value": "${DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRESQL_DBNAME",
+          "value": "bewcloud"
+        },
+        {
+          "key": "POSTGRESQL_PORT",
+          "value": "5432"
+        },
+        {
+          "key": "JWT_SECRET",
+          "value": "${JWT_SECRET}"
+        },
+        {
+          "key": "PASSWORD_SALT",
+          "value": "${PASSWORD_SALT}"
+        },
+        {
+          "key": "BREVO_API_KEY",
+          "value": "${BREVO_API_KEY}"
+        },
+        {
+          "key": "CONFIG_ALLOW_SIGNUPS",
+          "value": "${ALLOW_SIGNUPS}"
+        },
+        {
+          "key": "CONFIG_ENABLED_APPS",
+          "value": "news,notes,photos"
+        },
+        {
+          "key": "CONFIG_FILES_ROOT_PATH",
+          "value": "data-files"
+        },
+        {
+          "key": "CONFIG_ENABLE_EMAILS",
+          "value": "${ENABLE_EMAIL}"
+        },
+        {
+          "key": "CONFIG_ALLOWED_COOKIE_DOMAINS",
+          "value": "${INTERNAL_IP},bewcloud.${LOCAL_DOMAIN},${APP_HOST}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/bewcloud",
@@ -35,11 +79,20 @@
     {
       "name": "bewcloud-db",
       "image": "postgres:15",
-      "environment": {
-        "POSTGRES_USER": "bewcloud",
-        "POSTGRES_PASSWORD": "${DB_PASSWORD}",
-        "POSTGRES_DB": "bewcloud"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_USER",
+          "value": "bewcloud"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "bewcloud"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/bewcloud/db",
@@ -47,5 +100,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

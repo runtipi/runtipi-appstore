@@ -1,26 +1,64 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "flowise",
       "image": "flowiseai/flowise:3.0.8",
       "isMain": true,
       "internalPort": 8009,
-      "environment": {
-        "PORT": "8009",
-        "FLOWISE_USERNAME": "${FLOWISE_USERNAME}",
-        "FLOWISE_PASSWORD": "${FLOWISE_PASSWORD}",
-        "FLOWISE_SECRETKEY_OVERWRITE": "${FLOWISE_SECRETKEY_OVERWRITE}",
-        "LANGCHAIN_ENDPOINT": "${LANGCHAIN_ENDPOINT}",
-        "LANGCHAIN_API_KEY": "${LANGCHAIN_API_KEY}",
-        "LANGCHAIN_PROJECT": "${LANGCHAIN_PROJECT}",
-        "LANGCHAIN_TRACING_V2": "${LANGCHAIN_TRACING_V2}",
-        "DISABLE_FLOWISE_TELEMETRY": "${DISABLE_FLOWISE_TELEMETRY}",
-        "DATABASE_PATH": "/root/.flowise",
-        "APIKEY_PATH": "/root/.flowise",
-        "SECRETKEY_PATH": "/root/.flowise",
-        "LOG_PATH": "/root/.flowise/logs"
-      },
+      "environment": [
+        {
+          "key": "PORT",
+          "value": "8009"
+        },
+        {
+          "key": "FLOWISE_USERNAME",
+          "value": "${FLOWISE_USERNAME}"
+        },
+        {
+          "key": "FLOWISE_PASSWORD",
+          "value": "${FLOWISE_PASSWORD}"
+        },
+        {
+          "key": "FLOWISE_SECRETKEY_OVERWRITE",
+          "value": "${FLOWISE_SECRETKEY_OVERWRITE}"
+        },
+        {
+          "key": "LANGCHAIN_ENDPOINT",
+          "value": "${LANGCHAIN_ENDPOINT}"
+        },
+        {
+          "key": "LANGCHAIN_API_KEY",
+          "value": "${LANGCHAIN_API_KEY}"
+        },
+        {
+          "key": "LANGCHAIN_PROJECT",
+          "value": "${LANGCHAIN_PROJECT}"
+        },
+        {
+          "key": "LANGCHAIN_TRACING_V2",
+          "value": "${LANGCHAIN_TRACING_V2}"
+        },
+        {
+          "key": "DISABLE_FLOWISE_TELEMETRY",
+          "value": "${DISABLE_FLOWISE_TELEMETRY}"
+        },
+        {
+          "key": "DATABASE_PATH",
+          "value": "/root/.flowise"
+        },
+        {
+          "key": "APIKEY_PATH",
+          "value": "/root/.flowise"
+        },
+        {
+          "key": "SECRETKEY_PATH",
+          "value": "/root/.flowise"
+        },
+        {
+          "key": "LOG_PATH",
+          "value": "/root/.flowise/logs"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/flowise",
@@ -29,5 +67,7 @@
       ],
       "entrypoint": "/bin/sh -c \"sleep 3; flowise start\""
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

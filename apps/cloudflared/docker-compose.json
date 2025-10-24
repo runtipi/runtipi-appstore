@@ -12,11 +12,18 @@
           "containerPath": "/config"
         }
       ],
-      "environment": {
-        "BASIC_AUTH_USER": "${BASIC_AUTH_USER}",
-        "BASIC_AUTH_PASS": "${BASIC_AUTH_PASS}"
-      }
+      "environment": [
+        {
+          "key": "BASIC_AUTH_USER",
+          "value": "${BASIC_AUTH_USER}"
+        },
+        {
+          "key": "BASIC_AUTH_PASS",
+          "value": "${BASIC_AUTH_PASS}"
+        }
+      ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

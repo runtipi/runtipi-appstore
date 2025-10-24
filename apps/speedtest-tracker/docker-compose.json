@@ -1,27 +1,68 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "speedtest-tracker",
       "image": "lscr.io/linuxserver/speedtest-tracker:1.6.8",
       "isMain": true,
       "internalPort": 80,
-      "environment": {
-        "PUID": "1000",
-        "PGID": "1000",
-        "DB_CONNECTION": "pgsql",
-        "DB_HOST": "speedtest-tracker-db",
-        "DB_PORT": "5432",
-        "DB_DATABASE": "speedtest-tracker",
-        "DB_USERNAME": "tipi",
-        "DB_PASSWORD": "${SPEEDTEST_TRACKER_DB_PASSWORD}",
-        "SPEEDTEST_SCHEDULE": "${SPEEDTEST_SCHEDULE:-'30 * * * *'}",
-        "SPEEDTEST_SERVERS": "${SPEEDTEST_SERVERS:-''}",
-        "TZ": "${TZ}",
-        "APP_TIMEZONE": "${TZ}",
-        "DISPLAY_TIMEZONE": "${TZ}",
-        "APP_KEY": "${SPEEDTEST_APP_KEY}"
-      },
+      "environment": [
+        {
+          "key": "PUID",
+          "value": "1000"
+        },
+        {
+          "key": "PGID",
+          "value": "1000"
+        },
+        {
+          "key": "DB_CONNECTION",
+          "value": "pgsql"
+        },
+        {
+          "key": "DB_HOST",
+          "value": "speedtest-tracker-db"
+        },
+        {
+          "key": "DB_PORT",
+          "value": "5432"
+        },
+        {
+          "key": "DB_DATABASE",
+          "value": "speedtest-tracker"
+        },
+        {
+          "key": "DB_USERNAME",
+          "value": "tipi"
+        },
+        {
+          "key": "DB_PASSWORD",
+          "value": "${SPEEDTEST_TRACKER_DB_PASSWORD}"
+        },
+        {
+          "key": "SPEEDTEST_SCHEDULE",
+          "value": "${SPEEDTEST_SCHEDULE:-'30 * * * *'}"
+        },
+        {
+          "key": "SPEEDTEST_SERVERS",
+          "value": "${SPEEDTEST_SERVERS:-''}"
+        },
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "APP_TIMEZONE",
+          "value": "${TZ}"
+        },
+        {
+          "key": "DISPLAY_TIMEZONE",
+          "value": "${TZ}"
+        },
+        {
+          "key": "APP_KEY",
+          "value": "${SPEEDTEST_APP_KEY}"
+        }
+      ],
       "dependsOn": ["speedtest-tracker-db"],
       "volumes": [
         {
@@ -33,11 +74,20 @@
     {
       "name": "speedtest-tracker-db",
       "image": "postgres:15",
-      "environment": {
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_PASSWORD": "${SPEEDTEST_TRACKER_DB_PASSWORD}",
-        "POSTGRES_DB": "speedtest-tracker"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${SPEEDTEST_TRACKER_DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "speedtest-tracker"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgres",
@@ -50,5 +100,7 @@
         "test": "pg_isready -d $$POSTGRES_DB -U $$POSTGRES_USER"
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

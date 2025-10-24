@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "emqx",
@@ -24,12 +23,24 @@
           "containerPort": 8883
         }
       ],
-      "environment": {
-        "TZ": "${TZ}",
-        "EMQX_NODE_NAME": "emqx@emqx",
-        "EMQX_CLUSTER__DISCOVERY_STRATEGY": "static",
-        "EMQX_CLUSTER__STATIC__SEEDS": "[emqx@emqx,emqx@emqx-n2]"
-      },
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "EMQX_NODE_NAME",
+          "value": "emqx@emqx"
+        },
+        {
+          "key": "EMQX_CLUSTER__DISCOVERY_STRATEGY",
+          "value": "static"
+        },
+        {
+          "key": "EMQX_CLUSTER__STATIC__SEEDS",
+          "value": "[emqx@emqx,emqx@emqx-n2]"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/n1",
@@ -46,12 +57,24 @@
     {
       "name": "emqx-n2",
       "image": "emqx/emqx:6.0.0",
-      "environment": {
-        "TZ": "${TZ}",
-        "EMQX_NODE_NAME": "emqx@emqx-n2",
-        "EMQX_CLUSTER__DISCOVERY_STRATEGY": "static",
-        "EMQX_CLUSTER__STATIC__SEEDS": "[emqx@emqx,emqx@emqx-n2]"
-      },
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "EMQX_NODE_NAME",
+          "value": "emqx@emqx-n2"
+        },
+        {
+          "key": "EMQX_CLUSTER__DISCOVERY_STRATEGY",
+          "value": "static"
+        },
+        {
+          "key": "EMQX_CLUSTER__STATIC__SEEDS",
+          "value": "[emqx@emqx,emqx@emqx-n2]"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/n2",
@@ -65,5 +88,7 @@
         "test": "/opt/emqx/bin/emqx ctl status"
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

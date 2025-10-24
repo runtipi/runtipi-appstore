@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "id": "slskd",
   "description": "A modern client-server application for the Soulseek file-sharing network.",
-  "tipi_version": 16,
+  "tipi_version": 18,
   "version": "0.23.2",
   "categories": ["utilities"],
   "short_desc": "P2P downloads",
@@ -54,6 +54,7 @@
     }
   ],
   "created_at": 1691943801422,
-  "updated_at": 1755168687281,
-  "$schema": "../app-info-schema.json"
+  "updated_at": 1761338378510,
+  "$schema": "../app-info-schema.json",
+  "min_tipi_version": "4.5.0"
 }

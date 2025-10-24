@@ -6,7 +6,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "emulatorjs",
-  "tipi_version": 16,
+  "tipi_version": 18,
   "version": "1.9.2",
   "categories": ["gaming"],
   "description": "Self-hosted Javascript emulation for various system.",
@@ -16,5 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1736983395533
+  "updated_at": 1761338378463,
+  "min_tipi_version": "4.5.0"
 }

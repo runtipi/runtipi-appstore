@@ -1,18 +1,32 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "electrs-ui",
       "image": "ghcr.io/montejojorge/electrs-ui:v0.9.2",
       "isMain": true,
       "internalPort": 3006,
-      "environment": {
-        "BITCOIND_DIR": "/data/.bitcoin",
-        "ELECTRUM_LOCAL_DOMAIN": "runtipi.home",
-        "ELECTRUM_IP_ADDRESS": "${INTERNAL_IP}",
-        "ELECTRS_HOST": "electrs",
-        "BITCOIND_HOST": "${BITCOIND_HOST:-bitcoind}"
-      },
+      "environment": [
+        {
+          "key": "BITCOIND_DIR",
+          "value": "/data/.bitcoin"
+        },
+        {
+          "key": "ELECTRUM_LOCAL_DOMAIN",
+          "value": "runtipi.home"
+        },
+        {
+          "key": "ELECTRUM_IP_ADDRESS",
+          "value": "${INTERNAL_IP}"
+        },
+        {
+          "key": "ELECTRS_HOST",
+          "value": "electrs"
+        },
+        {
+          "key": "BITCOIND_HOST",
+          "value": "${BITCOIND_HOST:-bitcoind}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${BITCOIND_DIR:-${APP_DATA_DIR}/../bitcoind/data}",
@@ -32,14 +46,32 @@
         }
       ],
       "user": "0:0",
-      "environment": {
-        "ELECTRS_COOKIE_FILE": "/data/.bitcoin/.cookie",
-        "ELECTRS_DB_DIR": "/data/db",
-        "ELECTRS_ELECTRUM_RPC_ADDR": "0.0.0.0:50001",
-        "ELECTRS_LOG_FILTERS": "INFO",
-        "ELECTRS_DAEMON_RPC_ADDR": "${BITCOIND_HOST:-bitcoind}:8332",
-        "ELECTRS_DAEMON_P2P_ADDR": "${BITCOIND_HOST:-bitcoind}:8333"
-      },
+      "environment": [
+        {
+          "key": "ELECTRS_COOKIE_FILE",
+          "value": "/data/.bitcoin/.cookie"
+        },
+        {
+          "key": "ELECTRS_DB_DIR",
+          "value": "/data/db"
+        },
+        {
+          "key": "ELECTRS_ELECTRUM_RPC_ADDR",
+          "value": "0.0.0.0:50001"
+        },
+        {
+          "key": "ELECTRS_LOG_FILTERS",
+          "value": "INFO"
+        },
+        {
+          "key": "ELECTRS_DAEMON_RPC_ADDR",
+          "value": "${BITCOIND_HOST:-bitcoind}:8332"
+        },
+        {
+          "key": "ELECTRS_DAEMON_P2P_ADDR",
+          "value": "${BITCOIND_HOST:-bitcoind}:8333"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${BITCOIND_DIR:-${APP_DATA_DIR}/../bitcoind/data}",
@@ -53,5 +85,7 @@
       ],
       "stopGracePeriod": "15m"
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

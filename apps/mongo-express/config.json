@@ -9,7 +9,7 @@
   "port": 8087,
   "categories": ["development", "data"],
   "description": "A web-based MongoDB admin interface written with Node.js, Express, and Bootstrap3",
-  "tipi_version": 6,
+  "tipi_version": 8,
   "version": "1.0.2",
   "source": "https://github.com/mongo-express/mongo-express",
   "website": "https://www.mongodb.com/",
@@ -57,5 +57,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1733760942054
+  "updated_at": 1761338378485,
+  "min_tipi_version": "4.5.0"
 }

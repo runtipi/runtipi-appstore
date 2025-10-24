@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "whisparr",
@@ -7,12 +6,24 @@
       "isMain": true,
       "internalPort": 6969,
       "hostname": "${APP_ID}",
-      "environment": {
-        "PUID": "${WHISPARR_PUID-1000}",
-        "PGID": "${WHISPARR_PGID-1000}",
-        "UMASK": "${WHISPARR_UMASK-002}",
-        "TZ": "${TZ}"
-      },
+      "environment": [
+        {
+          "key": "PUID",
+          "value": "${WHISPARR_PUID-1000}"
+        },
+        {
+          "key": "PGID",
+          "value": "${WHISPARR_PGID-1000}"
+        },
+        {
+          "key": "UMASK",
+          "value": "${WHISPARR_UMASK-002}"
+        },
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "/etc/localtime",
@@ -41,5 +52,7 @@
         "test": "timeout 5s bash -c ':> /dev/tcp/127.0.0.1/6969' || exit 1"
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

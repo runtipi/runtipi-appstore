@@ -1,21 +1,44 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "tinyauth",
       "image": "ghcr.io/steveiliop56/tinyauth:v4.0.1",
       "internalPort": 3000,
       "isMain": true,
-      "environment": {
-        "APP_TITLE": "${TINYAUTH_APP_TITLE}",
-        "APP_URL": "${TINYAUTH_APP_URL}",
-        "USERS": "${TINYAUTH_USERS}",
-        "PROVIDERS_GITHUB_CLIENT_ID": "${TINYAUTH_GITHUB_CLIENT_ID}",
-        "PROVIDERS_GITHUB_CLIENT_SECRET": "${TINYAUTH_GITHUB_CLIENT_SECRET}",
-        "PROVIDERS_GOOGLE_CLIENT_ID": "${TINYAUTH_GOOGLE_CLIENT_ID}",
-        "PROVIDERS_GOOGLE_CLIENT_SECRET": "${TINYAUTH_GOOGLE_CLIENT_SECRET}",
-        "OAUTH_WHITELIST": "${TINYAUTH_OAUTH_WHITELIST}"
-      },
+      "environment": [
+        {
+          "key": "APP_TITLE",
+          "value": "${TINYAUTH_APP_TITLE}"
+        },
+        {
+          "key": "APP_URL",
+          "value": "${TINYAUTH_APP_URL}"
+        },
+        {
+          "key": "USERS",
+          "value": "${TINYAUTH_USERS}"
+        },
+        {
+          "key": "PROVIDERS_GITHUB_CLIENT_ID",
+          "value": "${TINYAUTH_GITHUB_CLIENT_ID}"
+        },
+        {
+          "key": "PROVIDERS_GITHUB_CLIENT_SECRET",
+          "value": "${TINYAUTH_GITHUB_CLIENT_SECRET}"
+        },
+        {
+          "key": "PROVIDERS_GOOGLE_CLIENT_ID",
+          "value": "${TINYAUTH_GOOGLE_CLIENT_ID}"
+        },
+        {
+          "key": "PROVIDERS_GOOGLE_CLIENT_SECRET",
+          "value": "${TINYAUTH_GOOGLE_CLIENT_SECRET}"
+        },
+        {
+          "key": "OAUTH_WHITELIST",
+          "value": "${TINYAUTH_OAUTH_WHITELIST}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data",
@@ -23,5 +46,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

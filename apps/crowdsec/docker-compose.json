@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "image": "crowdsecurity/crowdsec:v1.7.0",
@@ -43,18 +42,30 @@
           "readOnly": true
         }
       ],
-      "environment": {
-        "COLLECTIONS": "crowdsecurity/linux crowdsecurity/traefik crowdsecurity/http-cve crowdsecurity/whitelist-good-actors crowdsecurity/sshd",
-        "GID": "${GID-1000}"
-      }
+      "environment": [
+        {
+          "key": "COLLECTIONS",
+          "value": "crowdsecurity/linux crowdsecurity/traefik crowdsecurity/http-cve crowdsecurity/whitelist-good-actors crowdsecurity/sshd"
+        },
+        {
+          "key": "GID",
+          "value": "${GID-1000}"
+        }
+      ]
     },
     {
       "image": "fbonalair/traefik-crowdsec-bouncer:latest",
       "name": "crowdsec-bouncer-traefik",
-      "environment": {
-        "CROWDSEC_BOUNCER_API_KEY": "${CROWDSEC_BOUNCER_API_KEY}",
-        "CROWDSEC_AGENT_HOST": "crowdsec:8080"
-      },
+      "environment": [
+        {
+          "key": "CROWDSEC_BOUNCER_API_KEY",
+          "value": "${CROWDSEC_BOUNCER_API_KEY}"
+        },
+        {
+          "key": "CROWDSEC_AGENT_HOST",
+          "value": "crowdsec:8080"
+        }
+      ],
       "dependsOn": ["crowdsec"]
     },
     {
@@ -72,11 +83,19 @@
           "containerPath": "/metabase-data"
         }
       ],
-      "environment": {
-        "MB_DB_FILE": "/data/metabase.db",
-        "MGID": "${GID-1000}"
-      },
+      "environment": [
+        {
+          "key": "MB_DB_FILE",
+          "value": "/data/metabase.db"
+        },
+        {
+          "key": "MGID",
+          "value": "${GID-1000}"
+        }
+      ],
       "dependsOn": ["crowdsec"]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

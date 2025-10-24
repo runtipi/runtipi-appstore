@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "id": "duckdns",
   "description": "Duck DNS is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice",
-  "tipi_version": 3,
+  "tipi_version": 5,
   "no_gui": true,
   "version": "b14c520a-ls8",
   "categories": ["network"],
@@ -46,7 +46,8 @@
     }
   ],
   "created_at": 1691943801422,
-  "updated_at": 1740247420440,
+  "updated_at": 1761338378461,
   "$schema": "../app-info-schema.json",
-  "force_pull": false
+  "force_pull": false,
+  "min_tipi_version": "4.5.0"
 }

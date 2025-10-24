@@ -6,7 +6,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "bitmagnet",
-  "tipi_version": 26,
+  "tipi_version": 28,
   "version": "0.10.0",
   "categories": ["media"],
   "description": "A self-hosted BitTorrent indexer, DHT crawler, content classifier and torrent search engine with web UI, GraphQL API and Servarr stack integration.  ",
@@ -23,5 +23,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1741352424000
+  "updated_at": 1761338378448,
+  "min_tipi_version": "4.5.0"
 }

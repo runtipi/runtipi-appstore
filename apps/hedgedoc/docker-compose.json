@@ -1,16 +1,24 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "hedgedoc",
       "image": "quay.io/hedgedoc/hedgedoc:1.10.3",
       "isMain": true,
       "internalPort": 3000,
-      "environment": {
-        "CMD_DB_URL": "postgres://hedgedoc:${HEDGEDOC_DB_PASSWORD}@hedgedoc-db:5432/hedgedoc",
-        "CMD_DOMAIN": "${APP_DOMAIN}",
-        "CMD_URL_ADDPORT": "${HEDGEDOC_ADDPORT}"
-      },
+      "environment": [
+        {
+          "key": "CMD_DB_URL",
+          "value": "postgres://hedgedoc:${HEDGEDOC_DB_PASSWORD}@hedgedoc-db:5432/hedgedoc"
+        },
+        {
+          "key": "CMD_DOMAIN",
+          "value": "${APP_DOMAIN}"
+        },
+        {
+          "key": "CMD_URL_ADDPORT",
+          "value": "${HEDGEDOC_ADDPORT}"
+        }
+      ],
       "dependsOn": ["hedgedoc-db"],
       "volumes": [
         {
@@ -22,11 +30,20 @@
     {
       "name": "hedgedoc-db",
       "image": "postgres:13.4-alpine",
-      "environment": {
-        "POSTGRES_USER": "hedgedoc",
-        "POSTGRES_PASSWORD": "${HEDGEDOC_DB_PASSWORD}",
-        "POSTGRES_DB": "hedgedoc"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_USER",
+          "value": "hedgedoc"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${HEDGEDOC_DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "hedgedoc"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgres",
@@ -34,5 +51,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

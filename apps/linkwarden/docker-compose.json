@@ -5,12 +5,24 @@
       "image": "ghcr.io/linkwarden/linkwarden:v2.13.1",
       "isMain": true,
       "internalPort": 3000,
-      "environment": {
-        "DATABASE_URL": "postgresql://tipi:${LINKWARDEN_DB_PASSWORD}@linkwarden-db:5432/linkwarden",
-        "NEXTAUTH_SECRET": "${LINKWARDEN_NEXTAUTH_SECRET}",
-        "NEXTAUTH_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}/api/v1/auth",
-        "NEXT_PUBLIC_DISABLE_REGISTRATION": "${LINKWARDEN_NEXT_PUBLIC_DISABLE_REGISTRATION}"
-      },
+      "environment": [
+        {
+          "key": "DATABASE_URL",
+          "value": "postgresql://tipi:${LINKWARDEN_DB_PASSWORD}@linkwarden-db:5432/linkwarden"
+        },
+        {
+          "key": "NEXTAUTH_SECRET",
+          "value": "${LINKWARDEN_NEXTAUTH_SECRET}"
+        },
+        {
+          "key": "NEXTAUTH_URL",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}/api/v1/auth"
+        },
+        {
+          "key": "NEXT_PUBLIC_DISABLE_REGISTRATION",
+          "value": "${LINKWARDEN_NEXT_PUBLIC_DISABLE_REGISTRATION}"
+        }
+      ],
       "dependsOn": ["linkwarden-db"],
       "volumes": [
         {
@@ -22,11 +34,20 @@
     {
       "name": "linkwarden-db",
       "image": "postgres:16-alpine",
-      "environment": {
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_PASSWORD": "${LINKWARDEN_DB_PASSWORD}",
-        "POSTGRES_DB": "linkwarden"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${LINKWARDEN_DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "linkwarden"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgres",
@@ -35,5 +56,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

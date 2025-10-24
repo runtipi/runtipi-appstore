@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "port": 8255,
   "id": "whoogle",
-  "tipi_version": 10,
+  "tipi_version": 12,
   "version": "1.1.0",
   "categories": ["social"],
   "description": "Get Google search results, but without any ads, JavaScript, AMP links, cookies, or IP address tracking.",
@@ -16,5 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1759725441931
+  "updated_at": 1761338378523,
+  "min_tipi_version": "4.5.0"
 }

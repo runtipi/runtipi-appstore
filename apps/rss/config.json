@@ -6,7 +6,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "rss",
-  "tipi_version": 15,
+  "tipi_version": 17,
   "version": "1.6.1",
   "categories": ["utilities", "media"],
   "description": "A simple twitter-feed-style RSS aggregator written in PHP, Laravel, Inertia.js, Tailwind and Vue.js",
@@ -16,5 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1748547685073
+  "updated_at": 1761338378507,
+  "min_tipi_version": "4.5.0"
 }

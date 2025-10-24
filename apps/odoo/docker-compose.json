@@ -1,15 +1,23 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "odoodb",
       "image": "postgres:15",
       "user": "root",
-      "environment": {
-        "POSTGRES_USER": "odoo",
-        "POSTGRES_PASSWORD": "${ODOO_POSTGRES_PASSWORD}",
-        "POSTGRES_DB": "postgres"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_USER",
+          "value": "odoo"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${ODOO_POSTGRES_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "postgres"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgresql",
@@ -23,11 +31,20 @@
       "isMain": true,
       "internalPort": 8069,
       "user": "root",
-      "environment": {
-        "HOST": "odoodb",
-        "USER": "odoo",
-        "PASSWORD": "${ODOO_POSTGRES_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "HOST",
+          "value": "odoodb"
+        },
+        {
+          "key": "USER",
+          "value": "odoo"
+        },
+        {
+          "key": "PASSWORD",
+          "value": "${ODOO_POSTGRES_PASSWORD}"
+        }
+      ],
       "dependsOn": ["odoodb"],
       "volumes": [
         {
@@ -50,5 +67,7 @@
       "command": "--",
       "tty": true
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

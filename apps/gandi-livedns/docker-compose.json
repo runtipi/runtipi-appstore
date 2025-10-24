@@ -1,21 +1,49 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "gandi-livedns",
       "image": "jbbodart/gandi-livedns:latest",
       "isMain": true,
-      "environment": {
-        "GANDI_PAT": "${GANDI_LIVEDNS_PAT}",
-        "RECORD_LIST": "${GANDI_LIVEDNS_RECORD_LIST}",
-        "DOMAIN": "${GANDI_LIVEDNS_DOMAIN}",
-        "REFRESH_INTERVAL": "${GANDI_LIVEDNS_REFRESH_INTERVAL}",
-        "TTL": "${GANDI_LIVEDNS_TTL}",
-        "SET_IPV4": "${GANDI_LIVEDNS_SET_IPV4}",
-        "SET_IPV6": "${GANDI_LIVEDNS_SET_IPV6}",
-        "FORCE_IPV4": "${GANDI_LIVEDNS_FORCE_IPV4}",
-        "FORCE_IPV6": "${GANDI_LIVEDNS_FORCE_IPV6}"
-      }
+      "environment": [
+        {
+          "key": "GANDI_PAT",
+          "value": "${GANDI_LIVEDNS_PAT}"
+        },
+        {
+          "key": "RECORD_LIST",
+          "value": "${GANDI_LIVEDNS_RECORD_LIST}"
+        },
+        {
+          "key": "DOMAIN",
+          "value": "${GANDI_LIVEDNS_DOMAIN}"
+        },
+        {
+          "key": "REFRESH_INTERVAL",
+          "value": "${GANDI_LIVEDNS_REFRESH_INTERVAL}"
+        },
+        {
+          "key": "TTL",
+          "value": "${GANDI_LIVEDNS_TTL}"
+        },
+        {
+          "key": "SET_IPV4",
+          "value": "${GANDI_LIVEDNS_SET_IPV4}"
+        },
+        {
+          "key": "SET_IPV6",
+          "value": "${GANDI_LIVEDNS_SET_IPV6}"
+        },
+        {
+          "key": "FORCE_IPV4",
+          "value": "${GANDI_LIVEDNS_FORCE_IPV4}"
+        },
+        {
+          "key": "FORCE_IPV6",
+          "value": "${GANDI_LIVEDNS_FORCE_IPV6}"
+        }
+      ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

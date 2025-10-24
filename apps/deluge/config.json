@@ -6,7 +6,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "deluge",
-  "tipi_version": 7,
+  "tipi_version": 9,
   "version": "18.04.1",
   "categories": ["utilities"],
   "description": "Deluge is a lightweight, Free Software, cross-platform BitTorrent client.",
@@ -16,6 +16,7 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1740247420440,
-  "force_pull": false
+  "updated_at": 1761338378460,
+  "force_pull": false,
+  "min_tipi_version": "4.5.0"
 }

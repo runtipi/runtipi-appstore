@@ -1,16 +1,29 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "image": "ghcr.io/joshuaavalon/cloudflare-ddns:3.3.0",
       "name": "cloudflare-ddns",
       "isMain": true,
-      "environment": {
-        "CF_DNS__AUTH__SCOPED_TOKEN": "${CF_DNS__AUTH__SCOPED_TOKEN}",
-        "CF_DNS__DOMAINS_0__NAME": "${CF_DNS__DOMAINS_0__NAME}",
-        "CF_DNS__DOMAINS_0__PROXIED": "false",
-        "CF_DNS__LOG_TYPE": "json"
-      }
+      "environment": [
+        {
+          "key": "CF_DNS__AUTH__SCOPED_TOKEN",
+          "value": "${CF_DNS__AUTH__SCOPED_TOKEN}"
+        },
+        {
+          "key": "CF_DNS__DOMAINS_0__NAME",
+          "value": "${CF_DNS__DOMAINS_0__NAME}"
+        },
+        {
+          "key": "CF_DNS__DOMAINS_0__PROXIED",
+          "value": "false"
+        },
+        {
+          "key": "CF_DNS__LOG_TYPE",
+          "value": "json"
+        }
+      ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "port": 8098,
   "id": "sonarr",
-  "tipi_version": 22,
+  "tipi_version": 24,
   "version": "4.0.15",
   "categories": ["media", "utilities"],
   "description": "Sonarr is a PVR for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.",
@@ -16,5 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1752087816251
+  "updated_at": 1761338378511,
+  "min_tipi_version": "4.5.0"
 }

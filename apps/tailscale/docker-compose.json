@@ -1,21 +1,22 @@
 {
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
+  "schemaVersion": 2,
   "services": [
     {
       "name": "tailscale",
       "image": "tailscale/tailscale:v1.88.4",
       "isMain": true,
-      "environment": {
-        "TS_SERVE_CONFIG": "${TAILSCALE_SERVE_CONFIG}",
-        "TS_ACCEPT_DNS": "${TAILSCALE_ACCEPT_DNS-false}",
-        "TS_AUTH_ONCE": "${TAILSCALE_AUTH_ONCE-false}",
-        "TS_AUTHKEY": "${TAILSCALE_AUTHKEY}",
-        "TS_HOSTNAME": "${TAILSCALE_HOSTNAME-runtipi}",
-        "TS_ROUTES": "${TAILSCALE_ROUTES}",
-        "TS_EXTRA_ARGS": "${TAILSCALE_EXTRA_ARGS}",
-        "TS_USERSPACE": "${TAILSCALE_USERSPACE-true}",
-        "TS_STATE_DIR": "/var/lib/tailscale"
-      },
+      "environment": [
+        { "key": "TS_SERVE_CONFIG", "value": "${TAILSCALE_SERVE_CONFIG}" },
+        { "key": "TS_ACCEPT_DNS", "value": "${TAILSCALE_ACCEPT_DNS-false}" },
+        { "key": "TS_AUTH_ONCE", "value": "${TAILSCALE_AUTH_ONCE-false}" },
+        { "key": "TS_AUTHKEY", "value": "${TAILSCALE_AUTHKEY}" },
+        { "key": "TS_HOSTNAME", "value": "${TAILSCALE_HOSTNAME-runtipi}" },
+        { "key": "TS_ROUTES", "value": "${TAILSCALE_ROUTES}" },
+        { "key": "TS_EXTRA_ARGS", "value": "${TAILSCALE_EXTRA_ARGS}" },
+        { "key": "TS_USERSPACE", "value": "${TAILSCALE_USERSPACE-true}" },
+        { "key": "TS_STATE_DIR", "value": "/var/lib/tailscale" }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/state",

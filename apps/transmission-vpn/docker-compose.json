@@ -1,38 +1,112 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "transmission-vpn",
       "image": "haugene/transmission-openvpn:5.3.2",
       "isMain": true,
       "internalPort": 9091,
-      "environment": {
-        "PUID": "${TRANSMISSION_PUID-1000}",
-        "PGID": "${TRANSMISSION_PGID-1000}",
-        "TZ": "${TZ-Europe/Paris}",
-        "USER": "${TRANSMISSION_USERNAME}",
-        "PASS": "${TRANSMISSION_PASSWORD}",
-        "OPENVPN_PROVIDER": "${TRANSMISSION_OVPN_PROVIDER-NORDVPN}",
-        "OPENVPN_CONFIG": "${TRANSMISSION_OVPN_CONFIG}",
-        "OPENVPN_USERNAME": "${TRANSMISSION_OVPN_USERNAME}",
-        "OPENVPN_PASSWORD": "${TRANSMISSION_OVPN_PASSWORD}",
-        "OPENVPN_OPTS": "--inactive 3600 --ping 10 --ping-exit 60 --pull-filter ignore ping",
-        "LOCAL_NETWORK": "${TRANSMISSION_OVPN_LOCAL_NETWORK-10.0.0.0/8,172.16.0.0/12,192.168.0.0/16}",
-        "TRANSMISSION_WEB_UI": "${TRANSMISSION_WEBUI}",
-        "LOG_TO_STDOUT": "true",
-        "GLOBAL_APPLY_PERMISSIONS": "false",
-        "CREATE_TUN_DEVICE": "${TRANSMISSION_CREATE_TUN_DEVICE-false}",
-        "PEER_DNS": "${TRANSMISSION_PEER_DNS-false}",
-        "TRANSMISSION_DOWNLOAD_DIR": "/media/torrents/complete",
-        "TRANSMISSION_INCOMPLETE_DIR_ENABLED": "true",
-        "TRANSMISSION_INCOMPLETE_DIR": "/media/torrents/incomplete",
-        "TRANSMISSION_PREALLOCATION": "1",
-        "TRANSMISSION_DHT_ENABLED": "${TRANSMISSION_DHT_ENABLED-false}",
-        "TRANSMISSION_LPD_ENABLED": "${TRANSMISSION_LPD_ENABLED-false}",
-        "TRANSMISSION_PEX_ENABLED": "${TRANSMISSION_PEX_ENABLED-false}",
-        "TRANSMISSION_BLOCKLIST_ENABLED": "${TRANSMISSION_BLOCKLIST_ENABLED-true}",
-        "TRANSMISSION_BLOCKLIST_URL": "${TRANSMISSION_BLOCKLIST_URL-http://list.iblocklist.com/?list=bt_level1&fileformat=p2p&archiveformat=gz}"
-      },
+      "environment": [
+        {
+          "key": "PUID",
+          "value": "${TRANSMISSION_PUID-1000}"
+        },
+        {
+          "key": "PGID",
+          "value": "${TRANSMISSION_PGID-1000}"
+        },
+        {
+          "key": "TZ",
+          "value": "${TZ-Europe/Paris}"
+        },
+        {
+          "key": "USER",
+          "value": "${TRANSMISSION_USERNAME}"
+        },
+        {
+          "key": "PASS",
+          "value": "${TRANSMISSION_PASSWORD}"
+        },
+        {
+          "key": "OPENVPN_PROVIDER",
+          "value": "${TRANSMISSION_OVPN_PROVIDER-NORDVPN}"
+        },
+        {
+          "key": "OPENVPN_CONFIG",
+          "value": "${TRANSMISSION_OVPN_CONFIG}"
+        },
+        {
+          "key": "OPENVPN_USERNAME",
+          "value": "${TRANSMISSION_OVPN_USERNAME}"
+        },
+        {
+          "key": "OPENVPN_PASSWORD",
+          "value": "${TRANSMISSION_OVPN_PASSWORD}"
+        },
+        {
+          "key": "OPENVPN_OPTS",
+          "value": "--inactive 3600 --ping 10 --ping-exit 60 --pull-filter ignore ping"
+        },
+        {
+          "key": "LOCAL_NETWORK",
+          "value": "${TRANSMISSION_OVPN_LOCAL_NETWORK-10.0.0.0/8,172.16.0.0/12,192.168.0.0/16}"
+        },
+        {
+          "key": "TRANSMISSION_WEB_UI",
+          "value": "${TRANSMISSION_WEBUI}"
+        },
+        {
+          "key": "LOG_TO_STDOUT",
+          "value": "true"
+        },
+        {
+          "key": "GLOBAL_APPLY_PERMISSIONS",
+          "value": "false"
+        },
+        {
+          "key": "CREATE_TUN_DEVICE",
+          "value": "${TRANSMISSION_CREATE_TUN_DEVICE-false}"
+        },
+        {
+          "key": "PEER_DNS",
+          "value": "${TRANSMISSION_PEER_DNS-false}"
+        },
+        {
+          "key": "TRANSMISSION_DOWNLOAD_DIR",
+          "value": "/media/torrents/complete"
+        },
+        {
+          "key": "TRANSMISSION_INCOMPLETE_DIR_ENABLED",
+          "value": "true"
+        },
+        {
+          "key": "TRANSMISSION_INCOMPLETE_DIR",
+          "value": "/media/torrents/incomplete"
+        },
+        {
+          "key": "TRANSMISSION_PREALLOCATION",
+          "value": "1"
+        },
+        {
+          "key": "TRANSMISSION_DHT_ENABLED",
+          "value": "${TRANSMISSION_DHT_ENABLED-false}"
+        },
+        {
+          "key": "TRANSMISSION_LPD_ENABLED",
+          "value": "${TRANSMISSION_LPD_ENABLED-false}"
+        },
+        {
+          "key": "TRANSMISSION_PEX_ENABLED",
+          "value": "${TRANSMISSION_PEX_ENABLED-false}"
+        },
+        {
+          "key": "TRANSMISSION_BLOCKLIST_ENABLED",
+          "value": "${TRANSMISSION_BLOCKLIST_ENABLED-true}"
+        },
+        {
+          "key": "TRANSMISSION_BLOCKLIST_URL",
+          "value": "${TRANSMISSION_BLOCKLIST_URL-http://list.iblocklist.com/?list=bt_level1&fileformat=p2p&archiveformat=gz}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/config",
@@ -59,5 +133,7 @@
         }
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

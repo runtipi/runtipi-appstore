@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "sftpgo",
@@ -13,20 +12,56 @@
         }
       ],
       "user": "root",
-      "environment": {
-        "SFTPGO_HTTPD__BINDINGS__0__PORT": "${SFTPGO_BINDING_PORT-8080}",
-        "SFTPGO_GRACE_TIME": "${SFTPGO_GRACE_TIME-5}",
-        "SFTPGO_MINIO_SHA256_SIMD": "1",
-        "SFTPGO_DATA_PROVIDER__CREATE_DEFAULT_ADMIN": "${SFTPGO_CREATE_DEFAULT_ADMIN-1}",
-        "SFTPGO_DEFAULT_ADMIN_USERNAME": "${SFTPGO_ADMIN_USERNAME}",
-        "SFTPGO_DEFAULT_ADMIN_PASSWORD": "${SFTPGO_ADMIN_PASSWORD}",
-        "SFTPGO_DATA_PROVIDER__DRIVER": "postgresql",
-        "SFTPGO_DATA_PROVIDER__NAME": "sftpgo",
-        "SFTPGO_DATA_PROVIDER__HOST": "sftpgo-db",
-        "SFTPGO_DATA_PROVIDER__PORT": "5432",
-        "SFTPGO_DATA_PROVIDER__USERNAME": "sftpgo",
-        "SFTPGO_DATA_PROVIDER__PASSWORD": "${SFTPGO_DATABASE_PASSWORD-sftpgo}"
-      },
+      "environment": [
+        {
+          "key": "SFTPGO_HTTPD__BINDINGS__0__PORT",
+          "value": "${SFTPGO_BINDING_PORT-8080}"
+        },
+        {
+          "key": "SFTPGO_GRACE_TIME",
+          "value": "${SFTPGO_GRACE_TIME-5}"
+        },
+        {
+          "key": "SFTPGO_MINIO_SHA256_SIMD",
+          "value": "1"
+        },
+        {
+          "key": "SFTPGO_DATA_PROVIDER__CREATE_DEFAULT_ADMIN",
+          "value": "${SFTPGO_CREATE_DEFAULT_ADMIN-1}"
+        },
+        {
+          "key": "SFTPGO_DEFAULT_ADMIN_USERNAME",
+          "value": "${SFTPGO_ADMIN_USERNAME}"
+        },
+        {
+          "key": "SFTPGO_DEFAULT_ADMIN_PASSWORD",
+          "value": "${SFTPGO_ADMIN_PASSWORD}"
+        },
+        {
+          "key": "SFTPGO_DATA_PROVIDER__DRIVER",
+          "value": "postgresql"
+        },
+        {
+          "key": "SFTPGO_DATA_PROVIDER__NAME",
+          "value": "sftpgo"
+        },
+        {
+          "key": "SFTPGO_DATA_PROVIDER__HOST",
+          "value": "sftpgo-db"
+        },
+        {
+          "key": "SFTPGO_DATA_PROVIDER__PORT",
+          "value": "5432"
+        },
+        {
+          "key": "SFTPGO_DATA_PROVIDER__USERNAME",
+          "value": "sftpgo"
+        },
+        {
+          "key": "SFTPGO_DATA_PROVIDER__PASSWORD",
+          "value": "${SFTPGO_DATABASE_PASSWORD-sftpgo}"
+        }
+      ],
       "dependsOn": {
         "sftpgo-db": {
           "condition": "service_healthy"
@@ -57,12 +92,24 @@
     {
       "name": "sftpgo-db",
       "image": "postgres:17.2-alpine",
-      "environment": {
-        "POSTGRES_PASSWORD": "${SFTPGO_DATABASE_PASSWORD-sftpgo}",
-        "POSTGRES_USER": "sftpgo",
-        "POSTGRES_DB": "sftpgo",
-        "PGUSER": "sftpgo"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${SFTPGO_DATABASE_PASSWORD-sftpgo}"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "sftpgo"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "sftpgo"
+        },
+        {
+          "key": "PGUSER",
+          "value": "sftpgo"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/db",
@@ -76,5 +123,7 @@
         "test": "pg_isready -d sftpgo"
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

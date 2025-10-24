@@ -1,23 +1,52 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "n8n-1",
       "image": "n8nio/n8n:1.117.0",
       "isMain": true,
       "internalPort": 5678,
-      "environment": {
-        "N8N_EDITOR_BASE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
-        "N8N_SECURE_COOKIE": "false",
-        "WEBHOOK_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
-        "DB_TYPE": "postgresdb",
-        "DB_POSTGRESDB_HOST": "n8n-db",
-        "DB_POSTGRESDB_PORT": "5432",
-        "DB_POSTGRESDB_DATABASE": "n8n",
-        "DB_POSTGRESDB_USER": "n8n",
-        "DB_POSTGRESDB_PASSWORD": "${N8N_NR_DB_PASSWORD}",
-        "N8N_DEFAULT_BINARY_DATA_MODE": "filesystem"
-      },
+      "environment": [
+        {
+          "key": "N8N_EDITOR_BASE_URL",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+        },
+        {
+          "key": "N8N_SECURE_COOKIE",
+          "value": "false"
+        },
+        {
+          "key": "WEBHOOK_URL",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+        },
+        {
+          "key": "DB_TYPE",
+          "value": "postgresdb"
+        },
+        {
+          "key": "DB_POSTGRESDB_HOST",
+          "value": "n8n-db"
+        },
+        {
+          "key": "DB_POSTGRESDB_PORT",
+          "value": "5432"
+        },
+        {
+          "key": "DB_POSTGRESDB_DATABASE",
+          "value": "n8n"
+        },
+        {
+          "key": "DB_POSTGRESDB_USER",
+          "value": "n8n"
+        },
+        {
+          "key": "DB_POSTGRESDB_PASSWORD",
+          "value": "${N8N_NR_DB_PASSWORD}"
+        },
+        {
+          "key": "N8N_DEFAULT_BINARY_DATA_MODE",
+          "value": "filesystem"
+        }
+      ],
       "dependsOn": {
         "n8n-db": {
           "condition": "service_healthy"
@@ -33,13 +62,28 @@
     {
       "name": "n8n-db",
       "image": "postgres:11",
-      "environment": {
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_PASSWORD": "${N8N_DB_PASSWORD}",
-        "POSTGRES_DB": "n8n",
-        "POSTGRES_NON_ROOT_USER": "n8n",
-        "POSTGRES_NON_ROOT_PASSWORD": "${N8N_NR_DB_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${N8N_DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "n8n"
+        },
+        {
+          "key": "POSTGRES_NON_ROOT_USER",
+          "value": "n8n"
+        },
+        {
+          "key": "POSTGRES_NON_ROOT_PASSWORD",
+          "value": "${N8N_NR_DB_PASSWORD}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgres",
@@ -57,5 +101,7 @@
         "test": "pg_isready -h localhost -U $$POSTGRES_USER -d $$POSTGRES_DB"
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

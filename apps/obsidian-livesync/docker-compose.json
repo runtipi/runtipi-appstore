@@ -5,10 +5,16 @@
       "image": "couchdb:3.5.0",
       "isMain": true,
       "internalPort": 5984,
-      "environment": {
-        "COUCHDB_USER": "${OBSIDIAN_LIVESYNC_USER}",
-        "COUCHDB_PASSWORD": "${OBSIDIAN_LIVESYNC_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "COUCHDB_USER",
+          "value": "${OBSIDIAN_LIVESYNC_USER}"
+        },
+        {
+          "key": "COUCHDB_PASSWORD",
+          "value": "${OBSIDIAN_LIVESYNC_PASSWORD}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/couchdb",
@@ -21,5 +27,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

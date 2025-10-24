@@ -1,18 +1,32 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "plausible",
       "image": "plausible/analytics:v1.5.1",
       "isMain": true,
       "internalPort": 8000,
-      "environment": {
-        "BASE_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
-        "SECRET_KEY_BASE": "${PLAUSIBLE_SECRET_KEY_BASE}",
-        "DATABASE_URL": "postgres://tipi:${PLAUSIBLE_DB_PASSWORD}@plausible-db:5432/plausible-db",
-        "CLICKHOUSE_DATABASE_URL": "http://plausible-events-db:8123/plausible_events_db",
-        "DISABLE_REGISTRATION": "${PLAUSIBLE_DISABLE_REGISTRATION}"
-      },
+      "environment": [
+        {
+          "key": "BASE_URL",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+        },
+        {
+          "key": "SECRET_KEY_BASE",
+          "value": "${PLAUSIBLE_SECRET_KEY_BASE}"
+        },
+        {
+          "key": "DATABASE_URL",
+          "value": "postgres://tipi:${PLAUSIBLE_DB_PASSWORD}@plausible-db:5432/plausible-db"
+        },
+        {
+          "key": "CLICKHOUSE_DATABASE_URL",
+          "value": "http://plausible-events-db:8123/plausible_events_db"
+        },
+        {
+          "key": "DISABLE_REGISTRATION",
+          "value": "${PLAUSIBLE_DISABLE_REGISTRATION}"
+        }
+      ],
       "dependsOn": {
         "plausible-db": {
           "condition": "service_healthy"
@@ -26,11 +40,20 @@
     {
       "name": "plausible-db",
       "image": "postgres:14-alpine",
-      "environment": {
-        "POSTGRES_PASSWORD": "${PLAUSIBLE_DB_PASSWORD}",
-        "POSTGRES_USER": "tipi",
-        "POSTGRES_DB": "plausible-db"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${PLAUSIBLE_DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "plausible-db"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/database/",
@@ -63,5 +86,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

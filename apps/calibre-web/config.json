@@ -5,7 +5,7 @@
   "exposable": true,
   "dynamic_config": true,
   "port": 8100,
-  "tipi_version": 14,
+  "tipi_version": 16,
   "version": "0.6.25",
   "id": "calibre-web",
   "categories": ["books"],
@@ -16,5 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1756142132016
+  "updated_at": 1761338378451,
+  "min_tipi_version": "4.5.0"
 }

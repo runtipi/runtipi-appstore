@@ -1,29 +1,55 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "wikijs",
       "image": "ghcr.io/requarks/wiki:2.5.308",
       "isMain": true,
       "internalPort": 3000,
-      "environment": {
-        "DB_TYPE": "postgres",
-        "DB_HOST": "wikijs-db",
-        "DB_PORT": 5432,
-        "DB_USER": "wikijs",
-        "DB_PASS": "${WIKI_JS_DB_PASS}",
-        "DB_NAME": "wiki"
-      },
+      "environment": [
+        {
+          "key": "DB_TYPE",
+          "value": "postgres"
+        },
+        {
+          "key": "DB_HOST",
+          "value": "wikijs-db"
+        },
+        {
+          "key": "DB_PORT",
+          "value": 5432
+        },
+        {
+          "key": "DB_USER",
+          "value": "wikijs"
+        },
+        {
+          "key": "DB_PASS",
+          "value": "${WIKI_JS_DB_PASS}"
+        },
+        {
+          "key": "DB_NAME",
+          "value": "wiki"
+        }
+      ],
       "dependsOn": ["wikijs-db"]
     },
     {
       "name": "wikijs-db",
       "image": "postgres:11-alpine",
-      "environment": {
-        "POSTGRES_DB": "wiki",
-        "POSTGRES_PASSWORD": "${WIKI_JS_DB_PASS}",
-        "POSTGRES_USER": "wikijs"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_DB",
+          "value": "wiki"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${WIKI_JS_DB_PASS}"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "wikijs"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgres",
@@ -34,5 +60,7 @@
         "driver": "none"
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

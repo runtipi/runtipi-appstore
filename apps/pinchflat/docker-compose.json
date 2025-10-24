@@ -5,10 +5,16 @@
       "image": "keglin/pinchflat:v2025.6.6",
       "isMain": true,
       "internalPort": 8945,
-      "environment": {
-        "BASIC_AUTH_USERNAME": "${PINCHFLAT_BASIC_AUTH_USERNAME}",
-        "BASIC_AUTH_PASSWORD": "${PINCHFLAT_BASIC_AUTH_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "BASIC_AUTH_USERNAME",
+          "value": "${PINCHFLAT_BASIC_AUTH_USERNAME}"
+        },
+        {
+          "key": "BASIC_AUTH_PASSWORD",
+          "value": "${PINCHFLAT_BASIC_AUTH_PASSWORD}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "/etc/localtime",
@@ -26,5 +32,6 @@
       ]
     }
   ],
+  "schemaVersion": 2,
   "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

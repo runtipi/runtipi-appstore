@@ -1,36 +1,104 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "firefly-iii",
       "image": "fireflyiii/core:version-6.4.2",
       "isMain": true,
       "internalPort": 8080,
-      "environment": {
-        "APP_ENV": "local",
-        "APP_DEBUG": "false",
-        "SITE_OWNER": "${EMAIL}",
-        "APP_KEY": "${APP_KEY}",
-        "STATIC_CRON_TOKEN": "${STATIC_CRON_TOKEN}",
-        "TZ": "${TZ}",
-        "TRUSTED_PROXIES": "**",
-        "DB_CONNECTION": "mysql",
-        "DB_HOST": "firefly-iii-db",
-        "DB_PORT": "3306",
-        "DB_DATABASE": "firefly",
-        "DB_USERNAME": "firefly",
-        "DB_PASSWORD": "${MYSQL_PASSWORD}",
-        "COOKIE_PATH": "\"/\"",
-        "COOKIE_SECURE": "false",
-        "COOKIE_SAMESITE": "lax",
-        "APP_NAME": "FireflyIII",
-        "BROADCAST_DRIVER": "log",
-        "QUEUE_DRIVER": "sync",
-        "CACHE_PREFIX": "firefly",
-        "IS_HEROKU": "false",
-        "FIREFLY_III_LAYOUT": "v1",
-        "APP_URL": "http://localhost:${APP_PORT}"
-      },
+      "environment": [
+        {
+          "key": "APP_ENV",
+          "value": "local"
+        },
+        {
+          "key": "APP_DEBUG",
+          "value": "false"
+        },
+        {
+          "key": "SITE_OWNER",
+          "value": "${EMAIL}"
+        },
+        {
+          "key": "APP_KEY",
+          "value": "${APP_KEY}"
+        },
+        {
+          "key": "STATIC_CRON_TOKEN",
+          "value": "${STATIC_CRON_TOKEN}"
+        },
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "TRUSTED_PROXIES",
+          "value": "**"
+        },
+        {
+          "key": "DB_CONNECTION",
+          "value": "mysql"
+        },
+        {
+          "key": "DB_HOST",
+          "value": "firefly-iii-db"
+        },
+        {
+          "key": "DB_PORT",
+          "value": "3306"
+        },
+        {
+          "key": "DB_DATABASE",
+          "value": "firefly"
+        },
+        {
+          "key": "DB_USERNAME",
+          "value": "firefly"
+        },
+        {
+          "key": "DB_PASSWORD",
+          "value": "${MYSQL_PASSWORD}"
+        },
+        {
+          "key": "COOKIE_PATH",
+          "value": "\"/\""
+        },
+        {
+          "key": "COOKIE_SECURE",
+          "value": "false"
+        },
+        {
+          "key": "COOKIE_SAMESITE",
+          "value": "lax"
+        },
+        {
+          "key": "APP_NAME",
+          "value": "FireflyIII"
+        },
+        {
+          "key": "BROADCAST_DRIVER",
+          "value": "log"
+        },
+        {
+          "key": "QUEUE_DRIVER",
+          "value": "sync"
+        },
+        {
+          "key": "CACHE_PREFIX",
+          "value": "firefly"
+        },
+        {
+          "key": "IS_HEROKU",
+          "value": "false"
+        },
+        {
+          "key": "FIREFLY_III_LAYOUT",
+          "value": "v1"
+        },
+        {
+          "key": "APP_URL",
+          "value": "http://localhost:${APP_PORT}"
+        }
+      ],
       "dependsOn": ["firefly-iii-db"],
       "volumes": [
         {
@@ -43,12 +111,24 @@
       "name": "firefly-iii-db",
       "image": "mariadb",
       "hostname": "fireflyiii-db",
-      "environment": {
-        "MYSQL_RANDOM_ROOT_PASSWORD": "yes",
-        "MYSQL_USER": "firefly",
-        "MYSQL_PASSWORD": "${MYSQL_PASSWORD}",
-        "MYSQL_DATABASE": "firefly"
-      },
+      "environment": [
+        {
+          "key": "MYSQL_RANDOM_ROOT_PASSWORD",
+          "value": "yes"
+        },
+        {
+          "key": "MYSQL_USER",
+          "value": "firefly"
+        },
+        {
+          "key": "MYSQL_PASSWORD",
+          "value": "${MYSQL_PASSWORD}"
+        },
+        {
+          "key": "MYSQL_DATABASE",
+          "value": "firefly"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/db",
@@ -61,5 +141,7 @@
       "image": "alpine",
       "command": "sh -c \"echo \\\"0 3 * * * wget -qO- http://${APP_DOMAIN}/api/v1/cron/${STATIC_CRON_TOKEN}\\\" | crontab - && crond -f -L /dev/stdout\""
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

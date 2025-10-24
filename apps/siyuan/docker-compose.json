@@ -1,16 +1,24 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "siyuan",
       "image": "b3log/siyuan:v3.3.5",
       "isMain": true,
       "internalPort": 6806,
-      "environment": {
-        "TZ": "${TZ}",
-        "PUID": "1000",
-        "PGID": "1000"
-      },
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "PUID",
+          "value": "1000"
+        },
+        {
+          "key": "PGID",
+          "value": "1000"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/workspace",
@@ -19,5 +27,7 @@
       ],
       "command": ["--workspace=/siyuan/workspace/", "--accessAuthCode=${SIYUAN_ACCESS_AUTH_CODE}"]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

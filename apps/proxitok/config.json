@@ -8,7 +8,7 @@
   "id": "proxitok",
   "categories": ["social"],
   "description": "Open source alternative frontend for TikTok made using PHP",
-  "tipi_version": 8,
+  "tipi_version": 10,
   "version": "master",
   "short_desc": "Alternative frontend for TikTok",
   "author": "pablouser1",
@@ -16,6 +16,7 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1761144127100,
-  "force_pull": false
+  "updated_at": 1761338378504,
+  "force_pull": false,
+  "min_tipi_version": "4.5.0"
 }

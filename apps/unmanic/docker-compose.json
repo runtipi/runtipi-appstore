@@ -1,15 +1,20 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "unmanic",
       "image": "josh5/unmanic:staging",
       "isMain": true,
       "internalPort": 8888,
-      "environment": {
-        "PUID": "${TIPI_UID}",
-        "PGID": "${TIPI_GID}"
-      },
+      "environment": [
+        {
+          "key": "PUID",
+          "value": "${TIPI_UID}"
+        },
+        {
+          "key": "PGID",
+          "value": "${TIPI_GID}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/config",
@@ -26,5 +31,7 @@
       ],
       "privileged": true
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

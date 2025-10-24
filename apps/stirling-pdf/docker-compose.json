@@ -1,14 +1,16 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "stirling-pdf",
       "image": "stirlingtools/stirling-pdf:1.5.0",
       "isMain": true,
       "internalPort": 8080,
-      "environment": {
-        "DOCKER_ENABLE_SECURITY": "${STIRLING_PDF_DOCKER_ENABLE_SECURITY-false}"
-      },
+      "environment": [
+        {
+          "key": "DOCKER_ENABLE_SECURITY",
+          "value": "${STIRLING_PDF_DOCKER_ENABLE_SECURITY-false}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/trainingData",
@@ -29,5 +31,7 @@
       ],
       "privileged": true
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

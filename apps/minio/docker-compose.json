@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "minio",
@@ -12,12 +11,24 @@
           "containerPort": 9000
         }
       ],
-      "environment": {
-        "MINIO_ROOT_USER": "${MINIO_ROOT_USER}",
-        "MINIO_ROOT_PASSWORD": "${MINIO_ROOT_PASSWORD}",
-        "MINIO_BROWSER_REDIRECT_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
-        "MINIO_DOMAIN": "${APP_DOMAIN}"
-      },
+      "environment": [
+        {
+          "key": "MINIO_ROOT_USER",
+          "value": "${MINIO_ROOT_USER}"
+        },
+        {
+          "key": "MINIO_ROOT_PASSWORD",
+          "value": "${MINIO_ROOT_PASSWORD}"
+        },
+        {
+          "key": "MINIO_BROWSER_REDIRECT_URL",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
+        },
+        {
+          "key": "MINIO_DOMAIN",
+          "value": "${APP_DOMAIN}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/minio/data",
@@ -46,5 +57,7 @@
         "traefik.http.routers.{{RUNTIPI_APP_ID}}-api-local.tls": "true"
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

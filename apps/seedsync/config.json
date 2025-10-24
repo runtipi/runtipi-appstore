@@ -7,7 +7,7 @@
   "dynamic_config": true,
   "id": "seedsync",
   "description": "SeedSync is a tool to sync the files on a remote Linux server (like your seedbox, for example). It uses LFTP to transfer files fast!",
-  "tipi_version": 3,
+  "tipi_version": 5,
   "version": "0.8.6",
   "categories": ["utilities"],
   "short_desc": "SeedSync is a tool to sync the files on a remote Linux server.",
@@ -32,5 +32,6 @@
     }
   ],
   "created_at": 1691943801422,
-  "updated_at": 1736983794159
+  "updated_at": 1761338378509,
+  "min_tipi_version": "4.5.0"
 }

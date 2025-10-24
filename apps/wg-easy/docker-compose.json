@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "wg-easy",
@@ -13,12 +12,24 @@
           "udp": true
         }
       ],
-      "environment": {
-        "WG_HOST": "${WIREGUARD_HOST}",
-        "PASSWORD_HASH": "${WIREGUARD_PASSWORD_HASH}",
-        "WG_DEFAULT_DNS": "${WIREGUARD_DNS:-8.8.8.8}",
-        "WG_ALLOWED_IPS": "0.0.0.0/0, ::/0"
-      },
+      "environment": [
+        {
+          "key": "WG_HOST",
+          "value": "${WIREGUARD_HOST}"
+        },
+        {
+          "key": "PASSWORD_HASH",
+          "value": "${WIREGUARD_PASSWORD_HASH}"
+        },
+        {
+          "key": "WG_DEFAULT_DNS",
+          "value": "${WIREGUARD_DNS:-8.8.8.8}"
+        },
+        {
+          "key": "WG_ALLOWED_IPS",
+          "value": "0.0.0.0/0, ::/0"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data",
@@ -31,5 +42,7 @@
       },
       "capAdd": ["NET_ADMIN", "SYS_MODULE"]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

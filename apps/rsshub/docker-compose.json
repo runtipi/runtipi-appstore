@@ -1,17 +1,28 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "rsshub",
       "image": "diygod/rsshub:2025-04-17",
       "isMain": true,
       "internalPort": 1200,
-      "environment": {
-        "TZ": "${TZ}",
-        "NODE_ENV": "production",
-        "PUPPETEER_WS_ENDPOINT": "ws://rsshub-browserless:3000",
-        "REDIS_URL": "redis://rsshub-redis:6379/"
-      },
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "key": "PUPPETEER_WS_ENDPOINT",
+          "value": "ws://rsshub-browserless:3000"
+        },
+        {
+          "key": "REDIS_URL",
+          "value": "redis://rsshub-redis:6379/"
+        }
+      ],
       "dependsOn": ["redis", "browserless"]
     },
     {
@@ -34,5 +45,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

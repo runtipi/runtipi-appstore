@@ -1,5 +1,4 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "image": "ghcr.io/goauthentik/server:2025.8.4",
@@ -23,14 +22,32 @@
           "containerPort": 9443
         }
       ],
-      "environment": {
-        "AUTHENTIK_REDIS__HOST": "authentik-redis",
-        "AUTHENTIK_POSTGRESQL__HOST": "authentik-db",
-        "AUTHENTIK_POSTGRESQL__USER": "authentik",
-        "AUTHENTIK_POSTGRESQL__NAME": "authentik",
-        "AUTHENTIK_POSTGRESQL__PASSWORD": "${AUTHENTIK_DB_PASSWORD}",
-        "AUTHENTIK_SECRET_KEY": "${AUTHENTIK_SECRET_KEY}"
-      },
+      "environment": [
+        {
+          "key": "AUTHENTIK_REDIS__HOST",
+          "value": "authentik-redis"
+        },
+        {
+          "key": "AUTHENTIK_POSTGRESQL__HOST",
+          "value": "authentik-db"
+        },
+        {
+          "key": "AUTHENTIK_POSTGRESQL__USER",
+          "value": "authentik"
+        },
+        {
+          "key": "AUTHENTIK_POSTGRESQL__NAME",
+          "value": "authentik"
+        },
+        {
+          "key": "AUTHENTIK_POSTGRESQL__PASSWORD",
+          "value": "${AUTHENTIK_DB_PASSWORD}"
+        },
+        {
+          "key": "AUTHENTIK_SECRET_KEY",
+          "value": "${AUTHENTIK_SECRET_KEY}"
+        }
+      ],
       "dependsOn": ["authentik-db", "authentik-redis"]
     },
     {
@@ -56,14 +73,32 @@
           "containerPath": "/templates"
         }
       ],
-      "environment": {
-        "AUTHENTIK_REDIS__HOST": "authentik-redis",
-        "AUTHENTIK_POSTGRESQL__HOST": "authentik-db",
-        "AUTHENTIK_POSTGRESQL__USER": "authentik",
-        "AUTHENTIK_POSTGRESQL__NAME": "authentik",
-        "AUTHENTIK_POSTGRESQL__PASSWORD": "${AUTHENTIK_DB_PASSWORD}",
-        "AUTHENTIK_SECRET_KEY": "${AUTHENTIK_SECRET_KEY}"
-      },
+      "environment": [
+        {
+          "key": "AUTHENTIK_REDIS__HOST",
+          "value": "authentik-redis"
+        },
+        {
+          "key": "AUTHENTIK_POSTGRESQL__HOST",
+          "value": "authentik-db"
+        },
+        {
+          "key": "AUTHENTIK_POSTGRESQL__USER",
+          "value": "authentik"
+        },
+        {
+          "key": "AUTHENTIK_POSTGRESQL__NAME",
+          "value": "authentik"
+        },
+        {
+          "key": "AUTHENTIK_POSTGRESQL__PASSWORD",
+          "value": "${AUTHENTIK_DB_PASSWORD}"
+        },
+        {
+          "key": "AUTHENTIK_SECRET_KEY",
+          "value": "${AUTHENTIK_SECRET_KEY}"
+        }
+      ],
       "dependsOn": ["authentik-db", "authentik-redis"]
     },
     {
@@ -75,11 +110,20 @@
           "containerPath": "/var/lib/postgresql/data"
         }
       ],
-      "environment": {
-        "POSTGRES_PASSWORD": "${AUTHENTIK_DB_PASSWORD}",
-        "POSTGRES_USER": "authentik",
-        "POSTGRES_DB": "authentik"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${AUTHENTIK_DB_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "authentik"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "authentik"
+        }
+      ],
       "healthCheck": {
         "test": "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}",
         "interval": "30s",
@@ -106,5 +150,7 @@
         "startPeriod": "20s"
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

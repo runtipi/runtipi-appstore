@@ -1,15 +1,20 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "cheshire-cat-ai",
       "image": "ghcr.io/cheshire-cat-ai/core:1.9.2",
       "isMain": true,
       "internalPort": 80,
-      "environment": {
-        "PYTHONUNBUFFERED": "1",
-        "WATCHFILES_FORCE_POLLING": "true"
-      },
+      "environment": [
+        {
+          "key": "PYTHONUNBUFFERED",
+          "value": "1"
+        },
+        {
+          "key": "WATCHFILES_FORCE_POLLING",
+          "value": "true"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/static",
@@ -25,5 +30,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

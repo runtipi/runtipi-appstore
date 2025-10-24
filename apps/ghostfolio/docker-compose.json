@@ -1,25 +1,60 @@
 {
-  "$schema": "https://schemas.runtipi.io/dynamic-compose.json",
   "services": [
     {
       "name": "ghostfolio",
       "image": "ghostfolio/ghostfolio:2.210.1",
       "isMain": true,
       "internalPort": 3333,
-      "environment": {
-        "NODE_ENV": "production",
-        "HOST": "0.0.0.0",
-        "PORT": 3333,
-        "ACCESS_TOKEN_SALT": "$GHOSTFOLIO_ACCESS_TOKEN_SALT",
-        "DATABASE_URL": "postgresql://ghostfolio:${GHOSTFOLIO_DB_PASSWORD}@ghostfolio-db:5432/ghostfolio?sslmode=prefer",
-        "JWT_SECRET_KEY": "${GHOSTFOLIO_JWT_SECRET_KEY}",
-        "POSTGRES_DB": "ghostfolio",
-        "POSTGRES_USER": "ghostfolio",
-        "POSTGRES_PASSWORD": "${GHOSTFOLIO_DB_PASSWORD}",
-        "REDIS_HOST": "ghostfolio-redis",
-        "REDIS_PASSWORD": "${GHOSTFOLIO_REDIS_PASSWORD}",
-        "REDIS_PORT": 6379
-      },
+      "environment": [
+        {
+          "key": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "key": "HOST",
+          "value": "0.0.0.0"
+        },
+        {
+          "key": "PORT",
+          "value": 3333
+        },
+        {
+          "key": "ACCESS_TOKEN_SALT",
+          "value": "$GHOSTFOLIO_ACCESS_TOKEN_SALT"
+        },
+        {
+          "key": "DATABASE_URL",
+          "value": "postgresql://ghostfolio:${GHOSTFOLIO_DB_PASSWORD}@ghostfolio-db:5432/ghostfolio?sslmode=prefer"
+        },
+        {
+          "key": "JWT_SECRET_KEY",
+          "value": "${GHOSTFOLIO_JWT_SECRET_KEY}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "ghostfolio"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "ghostfolio"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${GHOSTFOLIO_DB_PASSWORD}"
+        },
+        {
+          "key": "REDIS_HOST",
+          "value": "ghostfolio-redis"
+        },
+        {
+          "key": "REDIS_PASSWORD",
+          "value": "${GHOSTFOLIO_REDIS_PASSWORD}"
+        },
+        {
+          "key": "REDIS_PORT",
+          "value": 6379
+        }
+      ],
       "dependsOn": {
         "ghostfolio-db": {
           "condition": "service_healthy"
@@ -32,12 +67,24 @@
     {
       "name": "ghostfolio-db",
       "image": "postgres:15.4-alpine",
-      "environment": {
-        "POSTGRES_DB": "ghostfolio",
-        "POSTGRES_USER": "ghostfolio",
-        "POSTGRES_PASSWORD": "${GHOSTFOLIO_DB_PASSWORD}",
-        "PGDATA": "/var/lib/postgresql/data"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_DB",
+          "value": "ghostfolio"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "ghostfolio"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${GHOSTFOLIO_DB_PASSWORD}"
+        },
+        {
+          "key": "PGDATA",
+          "value": "/var/lib/postgresql/data"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/db",
@@ -69,5 +116,7 @@
         "test": "redis-cli ping"
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/dynamic-compose.json"
 }

@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 2,
   "services": [
     {
       "image": "activepieces/activepieces:0.70.8",
@@ -13,36 +14,36 @@
           "condition": "service_healthy"
         }
       },
-      "environment": {
-        "AP_ENGINE_EXECUTABLE_PATH": "dist/packages/engine/main.js",
-        "AP_API_KEY": "${AP_API_KEY}",
-        "AP_ENCRYPTION_KEY": "${AP_ENCRYPTION_KEY}",
-        "AP_JWT_SECRET": "${AP_JWT_SECRET}",
-        "AP_ENVIRONMENT": "prod",
-        "AP_FRONTEND_URL": "${APP_PROTOCOL:-http}://${APP_DOMAIN}",
-        "AP_WEBHOOK_TIMEOUT_SECONDS": "30",
-        "AP_TRIGGER_DEFAULT_POLL_INTERVAL": "5",
-        "AP_POSTGRES_DATABASE": "activepieces",
-        "AP_POSTGRES_HOST": "activepieces-postgres",
-        "AP_POSTGRES_PORT": "5432",
-        "AP_POSTGRES_USERNAME": "tipi",
-        "AP_POSTGRES_PASSWORD": "${AP_POSTGRES_PASSWORD}",
-        "AP_EXECUTION_MODE": "UNSANDBOXED",
-        "AP_REDIS_HOST": "activepieces-redis",
-        "AP_REDIS_PORT": "6379",
-        "AP_SANDBOX_RUN_TIME_SECONDS": "600",
-        "AP_TELEMETRY_ENABLED": "true",
-        "AP_TEMPLATES_SOURCE_URL": "https://cloud.activepieces.com/api/v1/flow-templates"
-      }
+      "environment": [
+        { "key": "AP_ENGINE_EXECUTABLE_PATH", "value": "dist/packages/engine/main.js" },
+        { "key": "AP_API_KEY", "value": "${AP_API_KEY}" },
+        { "key": "AP_ENCRYPTION_KEY", "value": "${AP_ENCRYPTION_KEY}" },
+        { "key": "AP_JWT_SECRET", "value": "${AP_JWT_SECRET}" },
+        { "key": "AP_ENVIRONMENT", "value": "prod" },
+        { "key": "AP_FRONTEND_URL", "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}" },
+        { "key": "AP_WEBHOOK_TIMEOUT_SECONDS", "value": "30" },
+        { "key": "AP_TRIGGER_DEFAULT_POLL_INTERVAL", "value": "5" },
+        { "key": "AP_POSTGRES_DATABASE", "value": "activepieces" },
+        { "key": "AP_POSTGRES_HOST", "value": "activepieces-postgres" },
+        { "key": "AP_POSTGRES_PORT", "value": "5432" },
+        { "key": "AP_POSTGRES_USERNAME", "value": "tipi" },
+        { "key": "AP_POSTGRES_PASSWORD", "value": "${AP_POSTGRES_PASSWORD}" },
+        { "key": "AP_EXECUTION_MODE", "value": "UNSANDBOXED" },
+        { "key": "AP_REDIS_HOST", "value": "activepieces-redis" },
+        { "key": "AP_REDIS_PORT", "value": "6379" },
+        { "key": "AP_SANDBOX_RUN_TIME_SECONDS", "value": "600" },
+        { "key": "AP_TELEMETRY_ENABLED", "value": "true" },
+        { "key": "AP_TEMPLATES_SOURCE_URL", "value": "https://cloud.activepieces.com/api/v1/flow-templates" }
+      ]
     },
     {
       "image": "postgres:14",
       "name": "activepieces-postgres",
-      "environment": {
-        "POSTGRES_DB": "activepieces",
-        "POSTGRES_PASSWORD": "${AP_POSTGRES_PASSWORD}",
-        "POSTGRES_USER": "tipi"
-      },
+      "environment": [
+        { "key": "POSTGRES_DB", "value": "activepieces" },
+        { "key": "POSTGRES_PASSWORD", "value": "${AP_POSTGRES_PASSWORD}" },
+        { "key": "POSTGRES_USER", "value": "tipi" }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgres",

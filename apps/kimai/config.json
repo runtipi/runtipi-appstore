@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "id": "kimai",
   "description": "Kimai is a professional grade time-tracking application, free and open-source. It handles use-cases of freelancers as well as companies with dozens or hundreds of users.",
-  "tipi_version": 4,
+  "tipi_version": 6,
   "version": "fpm-2.19.1-prod",
   "categories": ["utilities"],
   "short_desc": "Open source time-tracker",
@@ -45,7 +45,8 @@
   ],
   "supported_architectures": ["amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1740247420440,
+  "updated_at": 1761338378476,
   "$schema": "../app-info-schema.json",
-  "force_pull": false
+  "force_pull": false,
+  "min_tipi_version": "4.5.0"
 }
