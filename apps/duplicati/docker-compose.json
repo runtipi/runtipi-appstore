@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "duplicati",
-      "image": "lscr.io/linuxserver/duplicati:2.1.0",
+      "image": "lscr.io/linuxserver/duplicati:2.2.0",
       "internalPort": 8200,
       "isMain": true,
       "volumes": [
