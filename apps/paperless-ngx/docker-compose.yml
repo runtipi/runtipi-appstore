@@ -82,7 +82,7 @@ services:
     labels:
       runtipi.managed: true
   tika:
-    image: ghcr.io/paperless-ngx/tika:latest
+    image: apache/tika:latest
     restart: unless-stopped
     networks:
       - tipi_main_network
