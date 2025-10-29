@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   nginx:
-    image: nginx:1.29.2
+    image: nginx:1.29.3
     container_name: nginx
     restart: unless-stopped
     ports:
