@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "services": [
     {
-      "image": "activepieces/activepieces:0.70.8",
+      "image": "activepieces/activepieces:0.71.0",
       "name": "activepieces",
       "internalPort": 80,
       "isMain": true,
