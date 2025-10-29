@@ -7,7 +7,7 @@
   "dynamic_config": true,
   "id": "sftpgo",
   "tipi_version": 15,
-  "version": "2.6.6-alpine",
+  "version": "2.7.0-alpine",
   "categories": ["utilities"],
   "description": "Fully featured and highly configurable SFTP server with optional HTTP/S, FTP/S and WebDAV support - S3, Google Cloud Storage, Azure Blob",
   "short_desc": "Fully featured and highly configurable SFTP server",
