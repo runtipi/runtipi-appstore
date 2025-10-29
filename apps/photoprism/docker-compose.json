@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "photoprism",
-      "image": "photoprism/photoprism:240420",
+      "image": "photoprism/photoprism:latest",
       "isMain": true,
       "internalPort": 2342,
       "environment": [
@@ -148,6 +148,17 @@
         }
       ],
       "command": "mysqld --innodb-buffer-pool-size=128M --transaction-isolation=READ-COMMITTED --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --max-connections=512 --innodb-rollback-on-timeout=OFF --innodb-lock-wait-timeout=120"
+    }
+  ],
+  "overrides": [
+    {
+      "architecture": "arm64",
+      "services": [
+        {
+          "name": "photoprism",
+          "image": "photoprism/photoprism:arm64"
+        }
+      ]
     }
   ],
   "schemaVersion": 2,
