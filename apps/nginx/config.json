@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "id": "nginx",
   "description": "Simple webserver to test your tipi install. An alternative to the hello-world app.",
-  "tipi_version": 9,
-  "version": "1.29.2",
+  "tipi_version": 10,
+  "version": "1.29.3",
   "categories": ["utilities"],
   "short_desc": "Open-source simple and fast web server.",
   "author": "nginx",
@@ -16,7 +16,7 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1761338378488,
+  "updated_at": 1761762143137,
   "$schema": "../app-info-schema.json",
   "min_tipi_version": "4.5.0"
 }
