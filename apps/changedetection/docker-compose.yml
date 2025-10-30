@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   changedetection:
-    image: ghcr.io/dgtlmoon/changedetection.io:0.50.35
+    image: ghcr.io/dgtlmoon/changedetection.io:0.50.38
     container_name: changedetection
     hostname: changedetection
     volumes:
