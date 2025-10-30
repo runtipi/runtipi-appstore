@@ -5,7 +5,5 @@ server:
   limiter: false # enable this when running the instance for a public usage on the internet
   public_instance: false # enable this when making instance available to the public
   image_proxy: true
-ui:
-  static_use_hash: true
 redis:
   url: redis://searxng-redis:6379/0
