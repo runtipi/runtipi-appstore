@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "semaphore",
-      "image": "semaphoreui/semaphore:v2.16.36",
+      "image": "semaphoreui/semaphore:v2.16.37",
       "isMain": true,
       "internalPort": 3000,
       "environment": [
