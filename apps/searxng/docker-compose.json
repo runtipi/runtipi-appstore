@@ -21,6 +21,17 @@
           "containerPath": "/etc/searxng"
         }
       ]
+    },
+    {
+      "name": "searxng-redis",
+      "image": "docker.io/valkey/valkey:8-alpine",
+      "command": "valkey-server --save 30 1 --loglevel warning",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/searxng-redis",
+          "containerPath": "/data"
+        }
+      ]
     }
   ],
   "schemaVersion": 2,
