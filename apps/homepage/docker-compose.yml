@@ -8,6 +8,8 @@ services:
       - ${APP_PORT}:3000
     volumes:
       - ${APP_DATA_DIR}/data/:/app/config
+    environment:
+      - HOMEPAGE_ALLOWED_HOSTS: ${APP_LOCAL_DOMAIN},${APP_DOMAIN},${APP_HOST}:${APP_PORT}
     networks:
       - tipi_main_network
     labels:
