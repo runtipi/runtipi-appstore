@@ -4,7 +4,8 @@
   "services": [
     {
       "name": "homepage",
-      "image": "ghcr.io/gethomepage/homepage:v0.10.9",
+      "image": "ghcr.io/gethomepage/homepage:v1.5.0",
+      "isMain": true,
       "internalPort": 3000,
       "volumes": [
         {
@@ -12,7 +13,12 @@
           "containerPath": "/app/config"
         }
       ],
-      "isMain": true
+      "environment": [
+        {
+          "key": "HOMEPAGE_ALLOWED_HOSTS",
+          "value": "${APP_DOMAIN},${APP_LOCAL_DOMAIN},${APP_HOST}:${APP_PORT}"
+        }
+      ]
     }
   ]
 }
