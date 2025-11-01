@@ -50,7 +50,8 @@
       ],
       "extraLabels": {
         "traefik.http.services.{{RUNTIPI_APP_ID}}.loadbalancer.server.scheme": "https",
-        "traefik.http.services.{{RUNTIPI_APP_ID}}.loadbalancer.serverstransport": "insecuretransport@file"
+        "traefik.http.services.{{RUNTIPI_APP_ID}}.loadbalancer.serverstransport": "insecuretransport@file",
+        "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto": "https"
       }
     }
   ],
