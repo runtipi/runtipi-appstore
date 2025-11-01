@@ -2,16 +2,29 @@
   "services": [
     {
       "name": "lobe-chat",
-      "image": "lobehub/lobe-chat:1.132.13",
+      "image": "lobehub/lobe-chat:1.142.8",
       "isMain": true,
       "internalPort": 3210,
-      "environment": {
-        "OPENAI_API_KEY": "${OPENAI_API_KEY}",
-        "OPENAI_PROXY_URL": "${OPEANAI_PROXY_URL}",
-        "CUSTOM_MODELS": "${CUSTOM_MODELS}",
-        "ACCESS_CODE": "${ACCESS_CODE}"
-      }
+      "environment": [
+        {
+          "key": "OPENAI_API_KEY",
+          "value": "${OPENAI_API_KEY}"
+        },
+        {
+          "key": "OPENAI_PROXY_URL",
+          "value": "${OPEANAI_PROXY_URL}"
+        },
+        {
+          "key": "CUSTOM_MODELS",
+          "value": "${CUSTOM_MODELS}"
+        },
+        {
+          "key": "ACCESS_CODE",
+          "value": "${ACCESS_CODE}"
+        }
+      ]
     }
   ],
-  "$schema": "../dynamic-compose-schema.json"
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

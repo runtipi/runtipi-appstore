@@ -1,9 +1,10 @@
 {
-  "$schema": "../dynamic-compose-schema.json",
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json",
   "services": [
     {
       "name": "stalwart-mail",
-      "image": "stalwartlabs/mail-server:v0.11.8",
+      "image": "ghcr.io/stalwartlabs/stalwart:v0.14.1",
       "isMain": true,
       "internalPort": 8080,
       "addPorts": [

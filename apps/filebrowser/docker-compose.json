@@ -5,10 +5,16 @@
       "image": "filebrowser/filebrowser:s6",
       "isMain": true,
       "internalPort": 80,
-      "environment": {
-        "PUID": "0",
-        "PGID": "0"
-      },
+      "environment": [
+        {
+          "key": "PUID",
+          "value": "0"
+        },
+        {
+          "key": "PGID",
+          "value": "0"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${ROOT_FOLDER_HOST}/app-data",
@@ -29,5 +35,6 @@
       ]
     }
   ],
-  "$schema": "../dynamic-compose-schema.json"
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

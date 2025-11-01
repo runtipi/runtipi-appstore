@@ -1,9 +1,10 @@
 {
-  "$schema": "../dynamic-compose-schema.json",
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json",
   "services": [
     {
       "name": "smallweb",
-      "image": "ghcr.io/pomdtr/smallweb:0.28.3",
+      "image": "ghcr.io/pomdtr/smallweb:0.28.4",
       "isMain": true,
       "internalPort": 7777,
       "volumes": [

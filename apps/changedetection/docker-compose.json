@@ -1,8 +1,10 @@
 {
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json",
   "services": [
     {
       "name": "changedetection",
-      "image": "ghcr.io/dgtlmoon/changedetection.io:0.50.14",
+      "image": "ghcr.io/dgtlmoon/changedetection.io:0.50.38",
       "isMain": true,
       "internalPort": 5000,
       "hostname": "changedetection",
@@ -13,6 +15,5 @@
         }
       ]
     }
-  ],
-  "$schema": "../dynamic-compose-schema.json"
+  ]
 }

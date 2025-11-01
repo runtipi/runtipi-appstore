@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "duplicati",
-  "tipi_version": 7,
-  "version": "2.1.0",
+  "tipi_version": 10,
+  "version": "2.2.0",
   "categories": ["data"],
   "description": "Duplicati is a free, open source, backup client that securely stores encrypted, incremental, compressed backups on cloud storage services and remote file servers.",
   "short_desc": "Store securely encrypted backups in the cloud!",
@@ -23,5 +23,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1732900997000
+  "updated_at": 1761367044403,
+  "min_tipi_version": "4.5.0"
 }

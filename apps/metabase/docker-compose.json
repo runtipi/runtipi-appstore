@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "metabase",
-      "image": "metabase/metabase:v0.56.7",
+      "image": "metabase/metabase:v0.56.12",
       "internalPort": 3000,
       "isMain": true,
       "volumes": [
@@ -15,12 +15,22 @@
           "containerPath": "/plugins"
         }
       ],
-      "environment": {
-        "MGID": "${GID-1000}",
-        "MB_DB_FILE": "/metabase-data/metabase.db",
-        "JAVA_TIMEZONE": "${TZ}"
-      }
+      "environment": [
+        {
+          "key": "MGID",
+          "value": "${GID-1000}"
+        },
+        {
+          "key": "MB_DB_FILE",
+          "value": "/metabase-data/metabase.db"
+        },
+        {
+          "key": "JAVA_TIMEZONE",
+          "value": "${TZ}"
+        }
+      ]
     }
   ],
-  "$schema": "../dynamic-compose-schema.json"
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

@@ -1,7 +1,7 @@
 services:
   smallweb:
     container_name: smallweb
-    image: ghcr.io/pomdtr/smallweb:0.28.3
+    image: ghcr.io/pomdtr/smallweb:0.28.4
     restart: unless-stopped
     ports:
       - ${APP_PORT}:7777

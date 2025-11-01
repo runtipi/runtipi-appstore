@@ -1,4 +1,6 @@
 {
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json",
   "services": [
     {
       "name": "pingvin-share",
@@ -16,6 +18,5 @@
         }
       ]
     }
-  ],
-  "$schema": "../dynamic-compose-schema.json"
+  ]
 }

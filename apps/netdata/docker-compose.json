@@ -1,9 +1,10 @@
 {
-  "$schema": "../dynamic-compose-schema.json",
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json",
   "services": [
     {
       "name": "netdata",
-      "image": "netdata/netdata:v2.6.3",
+      "image": "netdata/netdata:v2.7.3",
       "isMain": true,
       "internalPort": 19999,
       "pid": "host",

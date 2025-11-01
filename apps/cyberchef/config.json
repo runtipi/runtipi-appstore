@@ -9,11 +9,12 @@
   "port": 9080,
   "categories": ["utilities", "security"],
   "description": "CyberChef is a web app for encryption, encoding, compression, and data analysis.",
-  "tipi_version": 6,
+  "tipi_version": 8,
   "version": "10.19.4",
   "source": "https://github.com/gchq/CyberChef",
   "supported_architectures": ["amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1729872626158,
-  "$schema": "../app-info-schema.json"
+  "updated_at": 1761338378456,
+  "$schema": "../app-info-schema.json",
+  "min_tipi_version": "4.5.0"
 }

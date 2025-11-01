@@ -2,13 +2,19 @@
   "services": [
     {
       "name": "grampsweb",
-      "image": "ghcr.io/gramps-project/grampsweb:25.9.0",
+      "image": "ghcr.io/gramps-project/grampsweb:25.10.1",
       "isMain": true,
       "internalPort": 5000,
-      "environment": {
-        "GRAMPSWEB_TREE": "${GRAMPSWEB_TREE}",
-        "GUNICORN_NUM_WORKERS": "1"
-      },
+      "environment": [
+        {
+          "key": "GRAMPSWEB_TREE",
+          "value": "${GRAMPSWEB_TREE}"
+        },
+        {
+          "key": "GUNICORN_NUM_WORKERS",
+          "value": "1"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/users",
@@ -45,5 +51,6 @@
       ]
     }
   ],
-  "$schema": "../dynamic-compose-schema.json"
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

@@ -6,7 +6,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "librephotos",
-  "tipi_version": 16,
+  "tipi_version": 18,
   "version": "2023w48",
   "categories": ["photography"],
   "description": "Complete photo management service",
@@ -49,6 +49,7 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1740247420440,
-  "force_pull": false
+  "updated_at": 1761338378478,
+  "force_pull": false,
+  "min_tipi_version": "4.5.0"
 }

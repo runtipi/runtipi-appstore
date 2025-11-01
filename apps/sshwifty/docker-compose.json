@@ -1,9 +1,10 @@
 {
-  "$schema": "../dynamic-compose-schema.json",
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json",
   "services": [
     {
       "name": "sshwifty",
-      "image": "niruix/sshwifty:0.4.0-beta-release",
+      "image": "niruix/sshwifty:0.4.1-beta-release",
       "isMain": true,
       "internalPort": 8182,
       "privileged": true

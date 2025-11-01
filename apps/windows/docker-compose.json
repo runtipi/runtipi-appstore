@@ -1,9 +1,8 @@
 {
-  "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
       "name": "windows",
-      "image": "dockurr/windows:5.03",
+      "image": "dockurr/windows:5.12",
       "isMain": true,
       "internalPort": 8006,
       "addPorts": [
@@ -14,12 +13,24 @@
           "udp": true
         }
       ],
-      "environment": {
-        "RAM_SIZE": "${WINDOWS_RAM_GB}G",
-        "CPU_CORE": "${WINDOWS_CPU_CORES}",
-        "DISK_SIZE": "${WINDOWS_DISK_SIZE_GB}G",
-        "VERSION": "${WINDOWS_VERSION}"
-      },
+      "environment": [
+        {
+          "key": "RAM_SIZE",
+          "value": "${WINDOWS_RAM_GB}G"
+        },
+        {
+          "key": "CPU_CORE",
+          "value": "${WINDOWS_CPU_CORES}"
+        },
+        {
+          "key": "DISK_SIZE",
+          "value": "${WINDOWS_DISK_SIZE_GB}G"
+        },
+        {
+          "key": "VERSION",
+          "value": "${WINDOWS_VERSION}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/storage",
@@ -33,5 +44,7 @@
       "capAdd": ["NET_ADMIN"],
       "stopGracePeriod": "2m"
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

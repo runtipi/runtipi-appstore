@@ -6,7 +6,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "qdirstat",
-  "tipi_version": 2,
+  "tipi_version": 4,
   "version": "1.8.1-ls82",
   "categories": ["utilities"],
   "description": "QDirStat Qt-based directory statistics: KDirStat without any KDE -- from the author of the original KDirStat.",
@@ -16,5 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1736983733028
+  "updated_at": 1761338378504,
+  "min_tipi_version": "4.5.0"
 }

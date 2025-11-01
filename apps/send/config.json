@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "port": 8126,
   "id": "send",
-  "tipi_version": 5,
+  "tipi_version": 7,
   "version": "latest",
   "categories": ["utilities"],
   "description": "A file sharing experiment which allows you to send encrypted files to other users.",
@@ -16,6 +16,7 @@
   "form_fields": [],
   "supported_architectures": ["amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1740247068576,
-  "force_pull": true
+  "updated_at": 1761338378509,
+  "force_pull": true,
+  "min_tipi_version": "4.5.0"
 }

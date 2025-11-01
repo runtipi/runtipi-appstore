@@ -6,7 +6,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "kiwix-serve",
-  "tipi_version": 3,
+  "tipi_version": 5,
   "version": "3.7.0-2",
   "categories": ["media"],
   "description": "Kiwix Server is a web server for hosting .zim files",
@@ -17,5 +17,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1736983509966
+  "updated_at": 1761338378476,
+  "min_tipi_version": "4.5.0"
 }

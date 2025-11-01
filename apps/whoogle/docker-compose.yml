@@ -2,7 +2,7 @@ version: '3.7'
 services:
   whoogle:
     container_name: whoogle
-    image: benbusby/whoogle-search:0.9.4
+    image: benbusby/whoogle-search:1.1.0
     restart: unless-stopped
     networks:
       - tipi_main_network

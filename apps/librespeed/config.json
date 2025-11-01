@@ -7,7 +7,7 @@
   "port": 8084,
   "categories": ["network", "utilities"],
   "description": "This is a very lightweight speed test implemented in Javascript, using XMLHttpRequest and Web Workers.",
-  "tipi_version": 4,
+  "tipi_version": 6,
   "version": "5.4.20240804",
   "source": "https://github.com/librespeed/speedtest",
   "form_fields": [
@@ -24,6 +24,7 @@
   "dynamic_config": true,
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1724134338800,
-  "updated_at": 1730121256784,
-  "$schema": "../app-info-schema.json"
+  "updated_at": 1761338378478,
+  "$schema": "../app-info-schema.json",
+  "min_tipi_version": "4.5.0"
 }

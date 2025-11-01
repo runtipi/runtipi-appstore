@@ -1,25 +1,60 @@
 {
-  "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
       "name": "owncloud",
-      "image": "owncloud/server:10.15.3",
+      "image": "owncloud/server:10.16.0",
       "isMain": true,
       "internalPort": 8080,
-      "environment": {
-        "OWNCLOUD_DOMAIN": "${APP_DOMAIN}",
-        "OWNCLOUD_TRUSTED_DOMAINS": "${APP_DOMAIN}",
-        "OWNCLOUD_DB_TYPE": "mysql",
-        "OWNCLOUD_DB_NAME": "owncloud",
-        "OWNCLOUD_DB_USERNAME": "tipi",
-        "OWNCLOUD_DB_PASSWORD": "${OWNCLOUD_DB_PASSWORD}",
-        "OWNCLOUD_DB_HOST": "owncloud-db",
-        "OWNCLOUD_ADMIN_USERNAME": "${OWNCLOUD_USERNAME}",
-        "OWNCLOUD_ADMIN_PASSWORD": "${OWNCLOUD_PASSWORD}",
-        "OWNCLOUD_MYSQL_UTF8MB4": "true",
-        "OWNCLOUD_REDIS_ENABLED": "true",
-        "OWNCLOUD_REDIS_HOST": "owncloud-redis"
-      },
+      "environment": [
+        {
+          "key": "OWNCLOUD_DOMAIN",
+          "value": "${APP_DOMAIN}"
+        },
+        {
+          "key": "OWNCLOUD_TRUSTED_DOMAINS",
+          "value": "${APP_DOMAIN}"
+        },
+        {
+          "key": "OWNCLOUD_DB_TYPE",
+          "value": "mysql"
+        },
+        {
+          "key": "OWNCLOUD_DB_NAME",
+          "value": "owncloud"
+        },
+        {
+          "key": "OWNCLOUD_DB_USERNAME",
+          "value": "tipi"
+        },
+        {
+          "key": "OWNCLOUD_DB_PASSWORD",
+          "value": "${OWNCLOUD_DB_PASSWORD}"
+        },
+        {
+          "key": "OWNCLOUD_DB_HOST",
+          "value": "owncloud-db"
+        },
+        {
+          "key": "OWNCLOUD_ADMIN_USERNAME",
+          "value": "${OWNCLOUD_USERNAME}"
+        },
+        {
+          "key": "OWNCLOUD_ADMIN_PASSWORD",
+          "value": "${OWNCLOUD_PASSWORD}"
+        },
+        {
+          "key": "OWNCLOUD_MYSQL_UTF8MB4",
+          "value": "true"
+        },
+        {
+          "key": "OWNCLOUD_REDIS_ENABLED",
+          "value": "true"
+        },
+        {
+          "key": "OWNCLOUD_REDIS_HOST",
+          "value": "owncloud-redis"
+        }
+      ],
       "dependsOn": ["owncloud-db", "owncloud-redis"],
       "volumes": [
         {
@@ -37,12 +72,24 @@
     {
       "name": "owncloud-db",
       "image": "mariadb:10.6",
-      "environment": {
-        "MYSQL_ROOT_PASSWORD": "${OWNCLOUD_DB_PASSWORD}",
-        "MYSQL_USER": "tipi",
-        "MYSQL_PASSWORD": "${OWNCLOUD_DB_PASSWORD}",
-        "MYSQL_DATABASE": "owncloud"
-      },
+      "environment": [
+        {
+          "key": "MYSQL_ROOT_PASSWORD",
+          "value": "${OWNCLOUD_DB_PASSWORD}"
+        },
+        {
+          "key": "MYSQL_USER",
+          "value": "tipi"
+        },
+        {
+          "key": "MYSQL_PASSWORD",
+          "value": "${OWNCLOUD_DB_PASSWORD}"
+        },
+        {
+          "key": "MYSQL_DATABASE",
+          "value": "owncloud"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/mysql",
@@ -74,5 +121,7 @@
         "test": "redis-cli ping"
       }
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

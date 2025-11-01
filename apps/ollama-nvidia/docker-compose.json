@@ -1,9 +1,10 @@
 {
-  "$schema": "../dynamic-compose-schema.json",
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json",
   "services": [
     {
       "name": "ollama-nvidia",
-      "image": "ollama/ollama:0.11.10",
+      "image": "ollama/ollama:0.12.7",
       "isMain": true,
       "internalPort": 11434,
       "volumes": [

@@ -2,12 +2,15 @@
   "services": [
     {
       "name": "tasks-md",
-      "image": "baldissaramatheus/tasks.md:3.0.9",
+      "image": "baldissaramatheus/tasks.md:3.1.1",
       "isMain": true,
       "internalPort": 8080,
-      "environment": {
-        "TITLE": "${TASKS_MD_TITLE}"
-      },
+      "environment": [
+        {
+          "key": "TITLE",
+          "value": "${TASKS_MD_TITLE}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/files",
@@ -24,5 +27,6 @@
       ]
     }
   ],
-  "$schema": "../dynamic-compose-schema.json"
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

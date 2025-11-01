@@ -6,7 +6,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "jellyfin-vue",
-  "tipi_version": 4,
+  "tipi_version": 6,
   "version": "unstable.2024-10-14.a47a7d5",
   "categories": ["media"],
   "description": "A modern web client for Jellyfin based on Vue",
@@ -16,6 +16,7 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1740247420440,
-  "force_pull": false
+  "updated_at": 1761338378475,
+  "force_pull": false,
+  "min_tipi_version": "4.5.0"
 }

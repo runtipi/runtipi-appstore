@@ -1,9 +1,10 @@
 {
-  "$schema": "../dynamic-compose-schema.json",
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json",
   "services": [
     {
       "name": "uptime-kuma",
-      "image": "louislam/uptime-kuma:1",
+      "image": "louislam/uptime-kuma:2",
       "isMain": true,
       "internalPort": 3001,
       "volumes": [

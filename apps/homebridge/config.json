@@ -4,7 +4,7 @@
   "available": true,
   "dynamic_config": true,
   "port": 8581,
-  "tipi_version": 4,
+  "tipi_version": 6,
   "version": "2024-05-02",
   "id": "homebridge",
   "categories": ["automation"],
@@ -15,6 +15,7 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1740247420440,
-  "force_pull": false
+  "updated_at": 1761338378473,
+  "force_pull": false,
+  "min_tipi_version": "4.5.0"
 }

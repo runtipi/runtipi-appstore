@@ -6,7 +6,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "linkstack",
-  "tipi_version": 4,
+  "tipi_version": 6,
   "version": "latest",
   "categories": ["media"],
   "description": "LinkStack is a highly customizable link sharing platform with an intuitive, easy to use user interface",
@@ -16,5 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1740331663373
+  "updated_at": 1761338378479,
+  "min_tipi_version": "4.5.0"
 }

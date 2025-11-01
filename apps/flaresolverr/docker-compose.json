@@ -2,14 +2,21 @@
   "services": [
     {
       "name": "flaresolverr",
-      "image": "ghcr.io/flaresolverr/flaresolverr:v3.4.1",
+      "image": "ghcr.io/flaresolverr/flaresolverr:v3.4.3",
       "internalPort": 8191,
       "isMain": true,
-      "environment": {
-        "LOG_LEVEL": "${FLARESOLVERR_LOG_LEVEL-info}",
-        "TZ": "${TZ}"
-      }
+      "environment": [
+        {
+          "key": "LOG_LEVEL",
+          "value": "${FLARESOLVERR_LOG_LEVEL-info}"
+        },
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        }
+      ]
     }
   ],
-  "$schema": "../dynamic-compose-schema.json"
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

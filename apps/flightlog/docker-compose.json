@@ -2,12 +2,15 @@
   "services": [
     {
       "name": "flightlog",
-      "image": "perdian/flightlog:v2.1.6",
+      "image": "perdian/flightlog:v2.1.10",
       "isMain": true,
       "internalPort": 8080,
-      "environment": {
-        "FLIGHTLOG_SERVER_CONTEXT_PATH": "/"
-      },
+      "environment": [
+        {
+          "key": "FLIGHTLOG_SERVER_CONTEXT_PATH",
+          "value": "/"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/db",
@@ -16,5 +19,6 @@
       ]
     }
   ],
-  "$schema": "../dynamic-compose-schema.json"
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

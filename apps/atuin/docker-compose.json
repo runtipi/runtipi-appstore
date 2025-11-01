@@ -1,8 +1,9 @@
 {
-  "$schema": "../dynamic-compose-schema.json",
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json",
   "services": [
     {
-      "image": "ghcr.io/atuinsh/atuin:v18.8.0",
+      "image": "ghcr.io/atuinsh/atuin:v18.10.0",
       "name": "atuin",
       "internalPort": 8888,
       "isMain": true,
@@ -13,12 +14,12 @@
           "containerPath": "/config"
         }
       ],
-      "environment": {
-        "ATUIN_PORT": 8888,
-        "ATUIN_HOST": "0.0.0.0",
-        "ATUIN_OPEN_REGISTRATION": "${ATUIN_ALLOW_REGISTRATION}",
-        "ATUIN_DB_URI": "postgres://atuin:${ATUIN_DB_PASSWORD}@atuin-db/atuin"
-      }
+      "environment": [
+        { "key": "ATUIN_PORT", "value": 8888 },
+        { "key": "ATUIN_HOST", "value": "0.0.0.0" },
+        { "key": "ATUIN_OPEN_REGISTRATION", "value": "${ATUIN_ALLOW_REGISTRATION}" },
+        { "key": "ATUIN_DB_URI", "value": "postgres://atuin:${ATUIN_DB_PASSWORD}@atuin-db/atuin" }
+      ]
     },
     {
       "image": "postgres:14",
@@ -29,11 +30,11 @@
           "containerPath": "/var/lib/postgresql/data/"
         }
       ],
-      "environment": {
-        "POSTGRES_USER": "atuin",
-        "POSTGRES_PASSWORD": "${ATUIN_DB_PASSWORD}",
-        "POSTGRES_DB": "atuin"
-      }
+      "environment": [
+        { "key": "POSTGRES_USER", "value": "atuin" },
+        { "key": "POSTGRES_PASSWORD", "value": "${ATUIN_DB_PASSWORD}" },
+        { "key": "POSTGRES_DB", "value": "atuin" }
+      ]
     }
   ]
 }

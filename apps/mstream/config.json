@@ -6,7 +6,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "mstream",
-  "tipi_version": 3,
+  "tipi_version": 5,
   "version": "v5.12.2-ls190",
   "categories": ["music", "media"],
   "description": "mStream is a personal music streaming server. You can use mStream to stream your music from your home computer to any device, anywhere.",
@@ -16,5 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1733760955119
+  "updated_at": 1761338378486,
+  "min_tipi_version": "4.5.0"
 }

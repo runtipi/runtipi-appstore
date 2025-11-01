@@ -2,19 +2,43 @@
   "services": [
     {
       "name": "tandoor",
-      "image": "ghcr.io/tandoorrecipes/recipes:2.2.6",
+      "image": "ghcr.io/tandoorrecipes/recipes:2.3.3",
       "isMain": true,
-      "internalPort": 8080,
-      "environment": {
-        "SECRET_KEY": "${TANDOOR_SECRET_KEY}",
-        "DB_ENGINE": "django.db.backends.postgresql",
-        "GUNICORN_MEDIA": "1",
-        "POSTGRES_HOST": "tandoor-db",
-        "POSTGRES_PORT": "5432",
-        "POSTGRES_USER": "tandoor",
-        "POSTGRES_PASSWORD": "${TANDOOR_POSTGRESS_PASSWORD}",
-        "POSTGRES_DB": "tandoordb"
-      },
+      "internalPort": 80,
+      "environment": [
+        {
+          "key": "SECRET_KEY",
+          "value": "${TANDOOR_SECRET_KEY}"
+        },
+        {
+          "key": "DB_ENGINE",
+          "value": "django.db.backends.postgresql"
+        },
+        {
+          "key": "GUNICORN_MEDIA",
+          "value": "1"
+        },
+        {
+          "key": "POSTGRES_HOST",
+          "value": "tandoor-db"
+        },
+        {
+          "key": "POSTGRES_PORT",
+          "value": "5432"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tandoor"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${TANDOOR_POSTGRESS_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "tandoordb"
+        }
+      ],
       "dependsOn": {
         "tandoor-db": {
           "condition": "service_healthy"
@@ -35,18 +59,30 @@
         "timeout": "5s",
         "retries": 5,
         "startPeriod": "30s",
-        "test": "wget --no-verbose --tries=1 --spider http://localhost:8080"
+        "test": "wget --no-verbose --tries=1 --spider http://localhost:80"
       }
     },
     {
       "name": "tandoor-db",
       "image": "postgres:15-alpine",
-      "environment": {
-        "POSTGRES_PORT": "5432",
-        "POSTGRES_USER": "tandoor",
-        "POSTGRES_PASSWORD": "${TANDOOR_POSTGRESS_PASSWORD}",
-        "POSTGRES_DB": "tandoordb"
-      },
+      "environment": [
+        {
+          "key": "POSTGRES_PORT",
+          "value": "5432"
+        },
+        {
+          "key": "POSTGRES_USER",
+          "value": "tandoor"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${TANDOOR_POSTGRESS_PASSWORD}"
+        },
+        {
+          "key": "POSTGRES_DB",
+          "value": "tandoordb"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgresql",
@@ -58,9 +94,10 @@
         "timeout": "5s",
         "retries": 5,
         "startPeriod": "30s",
-        "test": "pg_isready -d tandoor"
+        "test": "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"
       }
     }
   ],
-  "$schema": "../dynamic-compose-schema.json"
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

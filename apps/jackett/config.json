@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "port": 8097,
   "id": "jackett",
-  "tipi_version": 82,
+  "tipi_version": 84,
   "version": "latest",
   "description": "Jackett works as a proxy server: it translates queries from apps (Sonarr, Radarr, SickRage, CouchPotato, Mylar3, Lidarr, DuckieTV, qBittorrent, Nefarious etc.) into tracker-site-specific http queries, parses the html or json response, and then sends results back to the requesting software. This allows for getting recent uploads (like RSS) and performing searches.",
   "short_desc": "API Support for your favorite torrent trackers ",
@@ -16,6 +16,7 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1740247068576,
-  "force_pull": true
+  "updated_at": 1761338378475,
+  "force_pull": true,
+  "min_tipi_version": "4.5.0"
 }

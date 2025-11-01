@@ -6,7 +6,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "chatgpt-ui",
-  "tipi_version": 14,
+  "tipi_version": 16,
   "version": "2.5.9",
   "categories": ["ai"],
   "description": "A ChatGPT web client that supports multiple users, multiple languages, and multiple database connections for persistent data storage",
@@ -45,5 +45,6 @@
     }
   ],
   "created_at": 1691943801422,
-  "updated_at": 1734908161108
+  "updated_at": 1761338378452,
+  "min_tipi_version": "4.5.0"
 }

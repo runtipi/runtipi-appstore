@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "cloudflared",
-      "image": "wisdomsky/cloudflared-web:2025.9.1",
+      "image": "wisdomsky/cloudflared-web:2025.10.0",
       "isMain": true,
       "internalPort": 14333,
       "networkMode": "host",
@@ -12,11 +12,18 @@
           "containerPath": "/config"
         }
       ],
-      "environment": {
-        "BASIC_AUTH_USER": "${BASIC_AUTH_USER}",
-        "BASIC_AUTH_PASS": "${BASIC_AUTH_PASS}"
-      }
+      "environment": [
+        {
+          "key": "BASIC_AUTH_USER",
+          "value": "${BASIC_AUTH_USER}"
+        },
+        {
+          "key": "BASIC_AUTH_PASS",
+          "value": "${BASIC_AUTH_PASS}"
+        }
+      ]
     }
   ],
-  "$schema": "../dynamic-compose-schema.json"
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

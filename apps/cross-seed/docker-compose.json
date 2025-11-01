@@ -1,15 +1,17 @@
 {
-  "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
       "name": "cross-seed",
-      "image": "ghcr.io/cross-seed/cross-seed:6.13.4",
+      "image": "ghcr.io/cross-seed/cross-seed:6.13.5",
       "isMain": true,
       "command": "daemon",
       "user": "1000:1000",
-      "environment": {
-        "TZ": "${TZ}"
-      },
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        }
+      ],
       "volumes": [
         {
           "containerPath": "/config",
@@ -25,5 +27,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

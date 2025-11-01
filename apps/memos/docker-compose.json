@@ -1,8 +1,10 @@
 {
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json",
   "services": [
     {
       "name": "memos",
-      "image": "neosmemo/memos:0.25.1",
+      "image": "neosmemo/memos:0.25.2",
       "isMain": true,
       "internalPort": 5230,
       "volumes": [
@@ -12,6 +14,5 @@
         }
       ]
     }
-  ],
-  "$schema": "../dynamic-compose-schema.json"
+  ]
 }

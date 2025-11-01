@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import { parseComposeJson } from "@runtipi/common/schemas";
 import jsyaml from "js-yaml";
 
 type FormField = {
@@ -73,6 +74,24 @@ describe("App configs", () => {
     const apps = getAppConfigs();
 
     expect(apps.length).toBeGreaterThan(0);
+  });
+
+  describe("Each app should be parsable by @runtipi/common", () => {
+    const apps = getAppConfigs();
+
+    for (const app of apps) {
+      const dockerComposeFile = fs.readFileSync(`./apps/${app.id}/docker-compose.json`).toString();
+      const composeJson = JSON.parse(dockerComposeFile);
+
+      test(app.id, () => {
+        try {
+          const res = parseComposeJson(composeJson);
+          expect(res).toBeDefined();
+        } catch (err) {
+          expect(err).toBeUndefined();
+        }
+      });
+    }
   });
 
   describe("Each app should have an id", () => {

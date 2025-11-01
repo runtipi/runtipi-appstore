@@ -5,7 +5,7 @@
   "exposable": true,
   "dynamic_config": true,
   "port": 8040,
-  "tipi_version": 6,
+  "tipi_version": 8,
   "version": "2201.1.0",
   "id": "booksonic",
   "categories": ["books", "media"],
@@ -16,5 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1723566283000
+  "updated_at": 1761338378449,
+  "min_tipi_version": "4.5.0"
 }

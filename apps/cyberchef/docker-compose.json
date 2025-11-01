@@ -5,10 +5,14 @@
       "image": "ghcr.io/gchq/cyberchef:10.19.4",
       "isMain": true,
       "internalPort": 80,
-      "environment": {
-        "TZ": "${TZ}"
-      }
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        }
+      ]
     }
   ],
-  "$schema": "../dynamic-compose-schema.json"
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

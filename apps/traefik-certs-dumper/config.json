@@ -7,7 +7,7 @@
   "no_gui": true,
   "port": 9999,
   "id": "traefik-certs-dumper",
-  "tipi_version": 2,
+  "tipi_version": 4,
   "version": "1.6.1",
   "categories": ["utilities", "security"],
   "description": "Dumps Let's Encrypt certificates of a specified domain which Traefik stores in acme.json.",
@@ -17,5 +17,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1740331818631
+  "updated_at": 1761338378516,
+  "min_tipi_version": "4.5.0"
 }

@@ -2,12 +2,15 @@
   "services": [
     {
       "name": "silverbullet",
-      "image": "zefhemel/silverbullet:2.0.0",
+      "image": "zefhemel/silverbullet:2.1.9",
       "isMain": true,
       "internalPort": 3000,
-      "environment": {
-        "SB_USER": "${SB_USER}:${SB_PASSWORD}"
-      },
+      "environment": [
+        {
+          "key": "SB_USER",
+          "value": "${SB_USER}:${SB_PASSWORD}"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "/etc/localtime",
@@ -21,5 +24,6 @@
       ]
     }
   ],
-  "$schema": "../dynamic-compose-schema.json"
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

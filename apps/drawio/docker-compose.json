@@ -1,9 +1,10 @@
 {
-  "$schema": "../dynamic-compose-schema.json",
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json",
   "services": [
     {
       "name": "drawio",
-      "image": "jgraph/drawio:28.2.3",
+      "image": "jgraph/drawio:28.2.8",
       "isMain": true,
       "internalPort": 8080,
       "tty": true,

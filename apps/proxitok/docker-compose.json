@@ -1,35 +1,50 @@
 {
-  "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
       "name": "proxitok",
       "image": "ghcr.io/pablouser1/proxitok:master",
       "isMain": true,
       "internalPort": 8080,
-      "environment": {
-        "LATTE_CACHE": "/cache",
-        "API_CACHE": "redis",
-        "REDIS_HOST": "proxitok-redis",
-        "REDIS_PORT": "6379",
-        "API_SIGNER": "remote",
-        "API_SIGNER_URL": "http://proxitok-signer:8080/signature"
-      },
-      "dependsOn": ["proxitok-redis", "proxitok-signer"],
+      "environment": [
+        {
+          "key": "LATTE_CACHE",
+          "value": "/cache"
+        },
+        {
+          "key": "API_CACHE",
+          "value": "redis"
+        },
+        {
+          "key": "REDIS_HOST",
+          "value": "proxitok-redis"
+        },
+        {
+          "key": "REDIS_PORT",
+          "value": "6379"
+        },
+        {
+          "key": "API_CHROMEDRIVER",
+          "value": "http://proxitok-chromedriver:9515"
+        }
+      ],
+      "dependsOn": ["proxitok-redis", "proxitok-chromedriver"],
       "volumes": [
         {
-          "hostPath": "proxitok-cache",
+          "hostPath": "${APP_DATA_DIR}/data/cache",
           "containerPath": "/cache"
         }
       ]
     },
     {
       "name": "proxitok-redis",
-      "image": "redis:7-alpine",
+      "image": "redis:7.4-alpine",
       "command": "redis-server --save 60 1 --loglevel warning"
     },
     {
-      "name": "proxitok-signer",
-      "image": "ghcr.io/pablouser1/signtok:master"
+      "name": "proxitok-chromedriver",
+      "image": "zenika/alpine-chrome:with-chromedriver"
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

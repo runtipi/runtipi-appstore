@@ -4,7 +4,7 @@
   "available": true,
   "exposable": true,
   "dynamic_config": true,
-  "tipi_version": 6,
+  "tipi_version": 8,
   "version": "4.0.3",
   "port": 8136,
   "id": "grocy",
@@ -16,5 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1734908283891
+  "updated_at": 1761338378470,
+  "min_tipi_version": "4.5.0"
 }

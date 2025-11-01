@@ -1,5 +1,4 @@
 {
-  "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
       "name": "plex",
@@ -7,12 +6,24 @@
       "isMain": true,
       "internalPort": 32400,
       "networkMode": "host",
-      "environment": {
-        "PUID": "1000",
-        "PGID": "1000",
-        "VERSION": "docker",
-        "ADVERTISE_IP": "${APP_PROTOCOL:-http}://${APP_DOMAIN}/"
-      },
+      "environment": [
+        {
+          "key": "PUID",
+          "value": "1000"
+        },
+        {
+          "key": "PGID",
+          "value": "1000"
+        },
+        {
+          "key": "VERSION",
+          "value": "docker"
+        },
+        {
+          "key": "ADVERTISE_IP",
+          "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}/"
+        }
+      ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/config",
@@ -28,5 +39,7 @@
         }
       ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

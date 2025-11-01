@@ -7,7 +7,7 @@
   "dynamic_config": true,
   "no_gui": true,
   "id": "obsidian-livesync",
-  "tipi_version": 3,
+  "tipi_version": 5,
   "version": "3.5.0",
   "categories": ["utilities"],
   "description": "LiveSync couchdb backend for Obsidian",
@@ -43,5 +43,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1748523398374
+  "updated_at": 1761338378490,
+  "min_tipi_version": "4.5.0"
 }

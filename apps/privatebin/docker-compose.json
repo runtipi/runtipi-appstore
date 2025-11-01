@@ -1,9 +1,10 @@
 {
-  "$schema": "../dynamic-compose-schema.json",
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json",
   "services": [
     {
       "name": "privatebin",
-      "image": "privatebin/nginx-fpm-alpine:1.7.8",
+      "image": "privatebin/nginx-fpm-alpine:2.0.2",
       "isMain": true,
       "internalPort": 8080,
       "volumes": [

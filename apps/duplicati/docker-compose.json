@@ -1,9 +1,8 @@
 {
-  "$schema": "../dynamic-compose-schema.json",
   "services": [
     {
       "name": "duplicati",
-      "image": "lscr.io/linuxserver/duplicati:2.1.0",
+      "image": "lscr.io/linuxserver/duplicati:2.2.0",
       "internalPort": 8200,
       "isMain": true,
       "volumes": [
@@ -20,12 +19,26 @@
           "containerPath": "/source"
         }
       ],
-      "environment": {
-        "PUID": "0",
-        "PGID": "0",
-        "TZ": "${TZ}",
-        "SETTINGS_ENCRYPTION_KEY": "${DUPLICATI_ENCRYPTION_KEY}"
-      }
+      "environment": [
+        {
+          "key": "PUID",
+          "value": "0"
+        },
+        {
+          "key": "PGID",
+          "value": "0"
+        },
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "SETTINGS_ENCRYPTION_KEY",
+          "value": "${DUPLICATI_ENCRYPTION_KEY}"
+        }
+      ]
     }
-  ]
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
 }

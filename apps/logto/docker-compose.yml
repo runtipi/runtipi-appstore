@@ -4,7 +4,7 @@ services:
     depends_on:
       logto-db:
         condition: service_healthy
-    image: svhd/logto:1.31.0
+    image: svhd/logto:1.32.0
     container_name: logto
     entrypoint:
       - sh
