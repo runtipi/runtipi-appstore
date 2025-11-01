@@ -49,7 +49,7 @@
         }
       ],
       "extraLabels": {
-        "traefik.http.services.{{RUNTIPI_APP_ID}}.loadbalancer.server.scheme": "http"
+        "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto": "https"
       }
     }
   ],
