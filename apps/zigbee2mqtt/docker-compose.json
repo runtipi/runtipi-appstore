@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "zigbee2mqtt",
-      "image": "koenkk/zigbee2mqtt:2.6.2",
+      "image": "koenkk/zigbee2mqtt:2.6.3",
       "isMain": true,
       "internalPort": 8080,
       "environment": [
