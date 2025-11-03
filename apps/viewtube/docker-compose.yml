@@ -1,5 +1,4 @@
 version: '3'
-
 services:
   viewtube:
     restart: unless-stopped
@@ -15,33 +14,26 @@ services:
       - VIEWTUBE_REDIS_HOST=viewtube-redis
       - VIEWTUBE_SECURE=true
       - VIEWTUBE_CORS_ORIGIN=${APP_PROTOCOL:-http}://${APP_DOMAIN}
-      # - VIEWTUBE_YOUTUBE_COOKIE=
-      # - VIEWTUBE_YOUTUBE_IDENTIFIER=
     ports:
       - ${APP_PORT}:8066
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.viewtube-web-redirect.redirectscheme.scheme: https
       traefik.http.services.viewtube.loadbalancer.server.port: 8066
-      # Web
       traefik.http.routers.viewtube-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.viewtube-insecure.entrypoints: web
       traefik.http.routers.viewtube-insecure.service: viewtube
       traefik.http.routers.viewtube-insecure.middlewares: viewtube-web-redirect
-      # Websecure
       traefik.http.routers.viewtube.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.viewtube.entrypoints: websecure
       traefik.http.routers.viewtube.service: viewtube
       traefik.http.routers.viewtube.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.viewtube-local-insecure.rule: Host(`viewtube.${LOCAL_DOMAIN}`)
       traefik.http.routers.viewtube-local-insecure.entrypoints: web
       traefik.http.routers.viewtube-local-insecure.service: viewtube
       traefik.http.routers.viewtube-local-insecure.middlewares: viewtube-web-redirect
-      # Local domain secure
       traefik.http.routers.viewtube-local.rule: Host(`viewtube.${LOCAL_DOMAIN}`)
       traefik.http.routers.viewtube-local.entrypoints: websecure
       traefik.http.routers.viewtube-local.service: viewtube
@@ -50,7 +42,7 @@ services:
   viewtube-mongodb:
     container_name: viewtube-mongodb
     restart: unless-stopped
-    image: mongo:5
+    image: mongo:8
     networks:
       - tipi_main_network
     volumes:
