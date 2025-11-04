@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "port": 8096,
   "id": "filebrowser",
-  "tipi_version": 8,
+  "tipi_version": 9,
   "version": "s6",
   "categories": ["utilities"],
   "description": "Reliable and Performant File Management Desktop Sync and File Sharing\n Default credentials: admin / admin",
