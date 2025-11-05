@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "metabase",
-      "image": "metabase/metabase:v0.56.12",
+      "image": "metabase/metabase:v0.56.13",
       "internalPort": 3000,
       "isMain": true,
       "volumes": [
