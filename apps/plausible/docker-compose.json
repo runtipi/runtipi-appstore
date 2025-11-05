@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "plausible",
-      "image": "plausible/analytics:v1.5.1",
+      "image": "plausible/analytics:v2.0.0",
       "isMain": true,
       "internalPort": 8000,
       "environment": [
