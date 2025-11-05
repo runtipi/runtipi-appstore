@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "slskd",
-      "image": "slskd/slskd:0.23.2",
+      "image": "slskd/slskd:0.24.0",
       "isMain": true,
       "internalPort": 5030,
       "environment": [
