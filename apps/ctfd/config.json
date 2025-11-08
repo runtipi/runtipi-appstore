@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "ctfd",
-  "tipi_version": 13,
-  "version": "3.8.0",
+  "tipi_version": 14,
+  "version": "3.8.1",
   "categories": ["utilities"],
   "description": "CTFd is a Capture The Flag framework focusing on ease of use and customizability.",
   "short_desc": "Cyber Security Training made simple.",
@@ -36,6 +36,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1761338378455,
+  "updated_at": 1762576588560,
   "min_tipi_version": "4.5.0"
 }
