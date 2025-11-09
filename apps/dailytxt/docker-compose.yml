@@ -5,22 +5,21 @@ services:
     container_name: dailytxt
     restart: unless-stopped
     environment:
-      - PORT=8765
       - SECRET_KEY=${DAILYTXT_SECRET_KEY}
       - ALLOW_REGISTRATION=${DAILYTXT_ALLOW_REGISTRATION}
+      - ADMIN_PASSWORD=${DAILYTXT_ADMIN_PASSWORD}
       - DATA_INDENT=2
-      - JWT_EXP_DAYS=60
-      - ENABLE_UPDATE_CHECK=True
+      - LOGOUT_AFTER_DAYS=60
     ports:
-      - ${APP_PORT}:8765
+      - ${APP_PORT}:80
     volumes:
-      - ${APP_DATA_DIR}/data/dailytxt:/app/data/
+      - ${APP_DATA_DIR}/data/dailytxt:/data/
     networks:
       - tipi_main_network
     labels:
       traefik.enable: true
       traefik.http.middlewares.dailytxt-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.dailytxt.loadbalancer.server.port: 8765
+      traefik.http.services.dailytxt.loadbalancer.server.port: 80
       traefik.http.routers.dailytxt-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.dailytxt-insecure.entrypoints: web
       traefik.http.routers.dailytxt-insecure.service: dailytxt

@@ -21,6 +21,11 @@
       "env_variable": "DAILYTXT_SECRET_KEY"
     },
     {
+      "type": "password",
+      "label": "Admin Password",
+      "env_variable": "DAILYTXT_ADMIN_PASSWORD"
+    },
+    {
       "type": "boolean",
       "label": "Allow User Registration",
       "hint": "Set it to true intially to create the first user.",
