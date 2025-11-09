@@ -2,14 +2,10 @@
   "services": [
     {
       "name": "dailytxt",
-      "image": "phitux/dailytxt:1.0.15",
+      "image": "phitux/dailytxt:2.0.1",
       "isMain": true,
-      "internalPort": 8765,
+      "internalPort": 80,
       "environment": [
-        {
-          "key": "PORT",
-          "value": "8765"
-        },
         {
           "key": "SECRET_KEY",
           "value": "${DAILYTXT_SECRET_KEY}"
@@ -23,18 +19,18 @@
           "value": "2"
         },
         {
-          "key": "JWT_EXP_DAYS",
+          "key": "LOGOUT_AFTER_DAYS",
           "value": "60"
         },
         {
-          "key": "ENABLE_UPDATE_CHECK",
-          "value": "True"
+          "key": "ADMIN_PASSWORD",
+          "value": "${DAILYTXT_ADMIN_PASSWORD}"
         }
       ],
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/dailytxt",
-          "containerPath": "/app/data/"
+          "containerPath": "/data/"
         }
       ]
     }
