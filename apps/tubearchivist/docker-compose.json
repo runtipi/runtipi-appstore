@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "tubearchivist",
-      "image": "bbilly1/tubearchivist:v0.5.7",
+      "image": "bbilly1/tubearchivist:v0.5.8",
       "isMain": true,
       "internalPort": 8000,
       "environment": [
