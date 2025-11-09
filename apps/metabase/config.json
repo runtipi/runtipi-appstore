@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "metabase",
-  "tipi_version": 53,
-  "version": "v0.56.13",
+  "tipi_version": 54,
+  "version": "v0.57.1",
   "categories": ["data", "utilities"],
   "description": "Metabase is the easy, open-source way for everyone in your company to ask questions and learn from data.",
   "short_desc": "The simplest, fastest way to get business intelligence and analytics to everyone in your company",
@@ -16,6 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1724831720870,
-  "updated_at": 1762377730188,
+  "updated_at": 1762663036130,
   "min_tipi_version": "4.5.0"
 }
