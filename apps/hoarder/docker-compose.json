@@ -60,7 +60,7 @@
     },
     {
       "name": "hoarder-meilisearch",
-      "image": "getmeili/meilisearch:v1.24",
+      "image": "getmeili/meilisearch:v1.25",
       "environment": [
         {
           "key": "MEILI_NO_ANALYTICS",
