@@ -2,7 +2,7 @@ version: '3.7'
 services:
   obsidian-livesync:
     container_name: obsidian-livesync
-    image: couchdb:3.5.0
+    image: couchdb:3.5.1
     ports:
       - ${OBSIDIAN_LIVESYNC_PORT:-${APP_PORT}}:5984
     environment:
