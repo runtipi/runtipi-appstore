@@ -1,7 +1,7 @@
 services:
   rallly:
     container_name: rallly
-    image: lukevella/rallly:4.4.1
+    image: lukevella/rallly:4.5.1
     restart: always
     depends_on:
       rallly_db:
