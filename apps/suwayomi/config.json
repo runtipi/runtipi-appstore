@@ -5,8 +5,8 @@
   "dynamic_config": true,
   "port": 4567,
   "id": "suwayomi",
-  "tipi_version": 32,
-  "version": "v2.1.2007",
+  "tipi_version": 33,
+  "version": "v2.1.2009",
   "categories": ["books", "media"],
   "description": "A free and open-source manga reader server that runs extensions",
   "short_desc": "An open-source manga reader server with bundled Web UI",
@@ -15,7 +15,7 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1762695482078,
+  "updated_at": 1763095149901,
   "$schema": "../app-info-schema.json",
   "min_tipi_version": "4.5.0"
 }
