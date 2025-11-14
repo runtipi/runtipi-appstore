@@ -1,11 +1,10 @@
 version: '3.7'
-
 services:
   zipline:
     container_name: zipline
-    image: ghcr.io/diced/zipline:3.7.13
+    image: ghcr.io/diced/zipline:4.3.2
     ports:
-      - '${APP_PORT}:3000'
+      - ${APP_PORT}:3000
     restart: unless-stopped
     environment:
       - CORE_RETURN_HTTPS=false
@@ -15,10 +14,10 @@ services:
       - CORE_DATABASE_URL=postgres://tipi:${ZIPLINE_DB_PASSWORD}@zipline-db/zipline
       - CORE_LOGGER=true
     volumes:
-      - '${APP_DATA_DIR}/data/uploads:/zipline/uploads'
-      - '${APP_DATA_DIR}/data/public:/zipline/public'
+      - ${APP_DATA_DIR}/data/uploads:/zipline/uploads
+      - ${APP_DATA_DIR}/data/public:/zipline/public
     depends_on:
-      - 'zipline-db'
+      - zipline-db
     labels:
       traefik.enable: ${APP_EXPOSED}
       traefik.http.routers.zipline.rule: Host(`${APP_DOMAIN}`)
@@ -35,7 +34,6 @@ services:
       runtipi.managed: true
     networks:
       - tipi_main_network
-
   zipline-db:
     container_name: zipline-db
     image: postgres:14
@@ -49,7 +47,9 @@ services:
     networks:
       - tipi_main_network
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      test:
+        - CMD-SHELL
+        - pg_isready -U postgres
       interval: 10s
       timeout: 5s
       retries: 5
