@@ -8,8 +8,8 @@
   "force_expose": true,
   "generate_vapid_keys": true,
   "id": "mastodon",
-  "tipi_version": 45,
-  "version": "4.5.0",
+  "tipi_version": 46,
+  "version": "4.5.1",
   "categories": ["social"],
   "description": "Your self-hosted, globally interconnected microblogging community",
   "short_desc": "Your self-hosted, globally interconnected microblogging community",
@@ -115,6 +115,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1762576666837,
+  "updated_at": 1763181459304,
   "min_tipi_version": "4.5.0"
 }
