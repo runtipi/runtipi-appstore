@@ -2,7 +2,7 @@
   "services": [
     {
       "image": "ghcr.io/goauthentik/server:2025.10.1",
-      "name": "authentik",
+      "name": "authentik-1",
       "internalPort": 9000,
       "isMain": true,
       "command": "server",
@@ -24,10 +24,6 @@
       ],
       "environment": [
         {
-          "key": "AUTHENTIK_REDIS__HOST",
-          "value": "authentik-redis"
-        },
-        {
           "key": "AUTHENTIK_POSTGRESQL__HOST",
           "value": "authentik-db"
         },
@@ -48,7 +44,7 @@
           "value": "${AUTHENTIK_SECRET_KEY}"
         }
       ],
-      "dependsOn": ["authentik-db", "authentik-redis"]
+      "dependsOn": ["authentik-db"]
     },
     {
       "image": "ghcr.io/goauthentik/server:2025.10.1",
@@ -75,10 +71,6 @@
       ],
       "environment": [
         {
-          "key": "AUTHENTIK_REDIS__HOST",
-          "value": "authentik-redis"
-        },
-        {
           "key": "AUTHENTIK_POSTGRESQL__HOST",
           "value": "authentik-db"
         },
@@ -99,10 +91,10 @@
           "value": "${AUTHENTIK_SECRET_KEY}"
         }
       ],
-      "dependsOn": ["authentik-db", "authentik-redis"]
+      "dependsOn": ["authentik-db"]
     },
     {
-      "image": "postgres:13-alpine",
+      "image": "postgres:18-alpine",
       "name": "authentik-db",
       "volumes": [
         {
@@ -128,24 +120,6 @@
         "test": "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}",
         "interval": "30s",
         "timeout": "5s",
-        "retries": 5,
-        "startPeriod": "20s"
-      }
-    },
-    {
-      "image": "redis:alpine",
-      "name": "authentik-redis",
-      "command": "--save 60 1 --loglevel warning",
-      "volumes": [
-        {
-          "hostPath": "${APP_DATA_DIR}/data/redis",
-          "containerPath": "/data"
-        }
-      ],
-      "healthCheck": {
-        "test": "redis-cli ping | grep PONG",
-        "interval": "30s",
-        "timeout": "3s",
         "retries": 5,
         "startPeriod": "20s"
       }
