@@ -2,7 +2,7 @@
   "services": [
     {
       "image": "ghcr.io/goauthentik/server:2025.10.1",
-      "name": "authentik-1",
+      "name": "authentik",
       "internalPort": 9000,
       "isMain": true,
       "command": "server",
