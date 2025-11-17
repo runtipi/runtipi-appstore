@@ -16,12 +16,6 @@
           "containerPath": "/templates"
         }
       ],
-      "addPorts": [
-        {
-          "hostPort": 9443,
-          "containerPort": 9443
-        }
-      ],
       "environment": [
         {
           "key": "AUTHENTIK_REDIS__HOST",
