@@ -1,6 +1,6 @@
 version: '3.7'
 services:
-  authentik:
+  authentik-1:
     image: ghcr.io/goauthentik/server:2025.10.1
     restart: unless-stopped
     command: server
