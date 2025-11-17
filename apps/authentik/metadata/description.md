@@ -36,11 +36,11 @@ services:
 7. Go to your Runtipi install folder `cd /path/to/runtipi`
 8. Backup the database :
 ``` bash
-docker exec authentik_migrated-authentik-db-1 pg_dumpall -U authentik > authentik-backup.sql
+docker exec authentik_migrated-authentik-db-1 pg_dump -U authentik -d authentik -cC > authentik-backup.sql
 ```
 8. Push the database dump into its new location :
 ``` bash
-cat authentik-backup.sql | docker exec -i authentik-new-db psql -U authentik
+cat authentik-backup.sql | docker exec -i authentik-1_migrated_authentik-db-1 psql -U authentik
 ```
 9. Copy the rest of the files to their new location :
 ``` bash
