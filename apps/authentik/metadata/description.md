@@ -1,3 +1,47 @@
+# Migration Notice
+
+November 2025
+
+This version of Authentik won't be updated anymore due to a necessary database upgrade.
+You can find the new version from the appstore and follow the steps below for the data migration.
+> Make sure to backup your data before proceding, you can make use of the integrated backups of Runtipi
+
+####From the Runtipi Web UI
+1. Install the new Authentik app but don't start it yet
+2. Stop it
+3. Click on the three dots and select `Reset app`
+4. Go Back to your old app
+5. Add this to you `user-configuration` :
+```
+services:
+  authentik-new-db:
+    image: postgres:18-alpine
+  volumes:
+    - ${APP_DATA_DIR}/../authentik-1/data/postgres:/var/lib/postgresql/data
+```
+6. Save and Restart the app
+
+#### From your Runtipi host terminal
+7. Go to your Runtipi install folder `cd /path/to/runtipi`
+8. Backup the database :
+``` bash
+docker exec authentik_migrated-authentik-db-1 pg_dumpall -U postgres > authentik-backup.sql
+```
+8. Push the database dump into its new location :
+``` bash
+cat authentik-backup.sql | docker exec -i authentik_migrated-authentik-new-db-1 psql -U postgres
+```
+9. Copy the rest of the files to their new location :
+``` bash
+cp -r app-data/migrated/authentik/data/authentik-certs app-data/migrated/authentik-1/data/
+cp -r app-data/migrated/authentik/data/authentik-custom-templates/ app-data/migrated/authentik-1/data/
+cp -r app-data/migrated/authentik/data/authentik-media/ app-data/migrated/authentik-1/data/
+```
+10. You can start your new app.
+
+11. Once everything is fine you can uninstall your old version and remove the database dump *(authentik-backup.sql)*
+
+
 ## Install Information
 
 *Initial Install May take a bit to start up!*
