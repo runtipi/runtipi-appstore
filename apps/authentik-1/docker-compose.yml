@@ -67,7 +67,7 @@ services:
       runtipi.managed: true
   authentik-db:
     container_name: authentik-db
-    image: postgres:16-alpine
+    image: postgres:18-alpine
     restart: unless-stopped
     healthcheck:
       test:
@@ -78,7 +78,7 @@ services:
       retries: 5
       timeout: 5s
     volumes:
-      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql
     environment:
       POSTGRES_PASSWORD: ${AUTHENTIK_DB_PASSWORD}
       POSTGRES_USER: authentik

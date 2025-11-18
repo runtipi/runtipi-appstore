@@ -1,6 +1,6 @@
-# Migration Notice
+# ⚠ Runtipi Migration Notice
 
-November 2025
+📅 November 2025
 
 This version of Authentik won't be updated anymore due to a necessary database upgrade.
 You can find the new version from the appstore and follow the steps below for the data migration.
@@ -11,7 +11,7 @@ You can find the new version from the appstore and follow the steps below for th
 2. Stop it
 3. Click on the three dots and select `Reset app`
 4. Add this to you `user-configuration` :
-```
+``` yaml
 services:
   authentik-new-db:
     networks: !reset []
@@ -23,7 +23,7 @@ services:
 6. Go to your Runtipi install folder `cd /path/to/runtipi`
 7. Copy all the files to their new location :
 ``` bash
-cp -r app-data/migrated/authentik/* app-data/migrated/authentik-1/
+cp -r app-data/migrated/authentik/. app-data/migrated/authentik-1/
 ```
 8. Remove the database directory in the new "app-data"
 ```

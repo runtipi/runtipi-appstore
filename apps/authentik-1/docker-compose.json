@@ -94,12 +94,12 @@
       "dependsOn": ["authentik-db"]
     },
     {
-      "image": "postgres:16-alpine",
       "name": "authentik-db",
+      "image": "postgres:18-alpine",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgres",
-          "containerPath": "/var/lib/postgresql/data"
+          "containerPath": "/var/lib/postgresql"
         }
       ],
       "environment": [
