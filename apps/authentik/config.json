@@ -7,7 +7,7 @@
   "dynamic_config": true,
   "deprecated": true,
   "id": "authentik",
-  "tipi_version": 64,
+  "tipi_version": 65,
   "version": "2025.8",
   "https": true,
   "categories": ["development"],
