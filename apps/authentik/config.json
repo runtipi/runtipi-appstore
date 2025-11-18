@@ -1,8 +1,8 @@
 {
   "$schema": "../app-info-schema.json",
   "name": "Authentik",
-  "port": 9000,
-  "available": false,
+  "port": 19000,
+  "available": true,
   "exposable": true,
   "dynamic_config": true,
   "deprecated": true,
