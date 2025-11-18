@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 8088,
   "id": "radarr",
-  "tipi_version": 38,
-  "version": "5.28.0",
+  "tipi_version": 39,
+  "version": "6.0.4",
   "categories": ["media", "utilities"],
   "description": "Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of existing files in the library when a better quality format becomes available. Note that only one type of a given movie is supported. If you want both an 4k version and 1080p version of a given movie you will need multiple instances.",
   "short_desc": "Movie collection manager for Usenet and BitTorrent users.",
@@ -16,6 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1761338378505,
+  "updated_at": 1763440935174,
   "min_tipi_version": "4.5.0"
 }
