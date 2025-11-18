@@ -8,15 +8,15 @@
   "port": 8562,
   "categories": ["utilities"],
   "description": "A dead simple static HOMepage for your servER to keep your services on hand, from a simple yaml configuration file.",
-  "tipi_version": 21,
-  "version": "v25.10.1",
+  "tipi_version": 22,
+  "version": "v25.11.1",
   "source": "https://github.com/bastienwirtz/homer",
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],
   "dynamic_config": true,
   "form_fields": [],
   "created_at": 1729171012912,
-  "updated_at": 1761338378474,
+  "updated_at": 1763440840199,
   "force_pull": false,
   "min_tipi_version": "4.5.0"
 }
