@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "onedev",
-  "tipi_version": 173,
-  "version": "13.0.10",
+  "tipi_version": 174,
+  "version": "13.1.0",
   "categories": ["development"],
   "description": "Self-hosted Git Server with Kanban and CI/CD",
   "short_desc": "Self-hosted Git Server with Kanban and CI/CD",
@@ -47,6 +47,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1761996840301,
+  "updated_at": 1763527291936,
   "min_tipi_version": "4.5.0"
 }
