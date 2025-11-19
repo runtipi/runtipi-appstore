@@ -103,7 +103,7 @@
     },
     {
       "name": "gotenberg",
-      "image": "gotenberg/gotenberg:8.24",
+      "image": "gotenberg/gotenberg:8.25",
       "command": ["gotenberg", "--chromium-disable-javascript=true", "--chromium-allow-list=file:///tmp/.*"]
     },
     {
