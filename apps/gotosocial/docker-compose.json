@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "gotosocial",
-      "image": "superseriousbusiness/gotosocial:0.20.1",
+      "image": "superseriousbusiness/gotosocial:0.20.2",
       "isMain": true,
       "internalPort": 8080,
       "user": "1000:1000",
