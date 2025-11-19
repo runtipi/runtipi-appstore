@@ -5,8 +5,8 @@
   "available": true,
   "dynamic_config": true,
   "id": "resilio-sync",
-  "tipi_version": 11,
-  "version": "3.1.0",
+  "tipi_version": 12,
+  "version": "3.1.2",
   "uid": 1000,
   "gid": 1000,
   "categories": ["data", "utilities"],
@@ -17,6 +17,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1761338378506,
+  "updated_at": 1763527270085,
   "min_tipi_version": "4.5.0"
 }
