@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "image": "ghcr.io/goauthentik/server:2025.10.1",
+      "image": "ghcr.io/goauthentik/server:2025.10.2",
       "name": "authentik",
       "internalPort": 9000,
       "isMain": true,
@@ -47,7 +47,7 @@
       "dependsOn": ["authentik-db"]
     },
     {
-      "image": "ghcr.io/goauthentik/server:2025.10.1",
+      "image": "ghcr.io/goauthentik/server:2025.10.2",
       "name": "authentik-worker",
       "command": "worker",
       "user": "root",
