@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "automerge": false,
-  "prHourlyLimit": 5,
+  "prHourlyLimit": 20,
   "extends": ["config:recommended"],
   "rebaseWhen": "conflicted",
   "enabledManagers": ["custom.regex"],
@@ -23,7 +23,11 @@
       "addLabels": ["automerge"]
     },
     {
-      "matchPackageNames": ["mariadb", "mysql", "monogdb", "postgres", "redis", "immich", "immich{-,}**"],
+      "matchPackageNames": ["mariadb", "mysql", "mongodb", "postgres", "redis"],
+      "enabled": false
+    },
+    {
+      "matchPackageNames": ["n8nio/n8n", "goauthentik/authentik"],
       "enabled": false
     }
   ],
