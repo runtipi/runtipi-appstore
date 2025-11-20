@@ -7,8 +7,8 @@
   "no_gui": true,
   "port": 8093,
   "id": "tailscale",
-  "tipi_version": 52,
-  "version": "v1.90.6",
+  "tipi_version": 53,
+  "version": "v1.90.8",
   "categories": ["network", "security"],
   "description": "Zero config VPN. Installs on any device in minutes, manages firewall rules for you, and works from anywhere.",
   "short_desc": "The easiest, most secure way to use WireGuard and 2FA.",
@@ -64,6 +64,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1761996920079,
+  "updated_at": 1763646831532,
   "min_tipi_version": "4.5.0"
 }
