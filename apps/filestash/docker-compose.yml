@@ -41,7 +41,7 @@ services:
       runtipi.managed: true
   filestash-onlyoffice:
     container_name: filestash_oods
-    image: onlyoffice/documentserver:7.5.1.1
+    image: onlyoffice/documentserver:9.1.0.1
     restart: unless-stopped
     security_opt:
       - seccomp:unconfined
