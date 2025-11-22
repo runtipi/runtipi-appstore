@@ -8,8 +8,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "2fauth",
-  "tipi_version": 29,
-  "version": "5.6.0",
+  "tipi_version": 30,
+  "version": "5.6.1",
   "categories": ["security"],
   "description": "A Web app to manage your Two-Factor Authentication (2FA) accounts and generate their security codes.",
   "short_desc": "Manage your Two-Factor Authentication codes.",
@@ -19,6 +19,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1761338378441,
+  "updated_at": 1763786229640,
   "min_tipi_version": "4.5.0"
 }
