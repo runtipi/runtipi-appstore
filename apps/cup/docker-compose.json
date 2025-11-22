@@ -4,7 +4,7 @@
   "services": [
     {
       "name": "cup",
-      "image": "ghcr.io/sergi0g/cup:v3.4.3",
+      "image": "ghcr.io/sergi0g/cup:v3.5.1",
       "command": "serve",
       "volumes": [
         {
