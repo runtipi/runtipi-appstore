@@ -1,7 +1,7 @@
 services:
   tinyauth:
     container_name: tinyauth
-    image: ghcr.io/steveiliop56/tinyauth:v4.0.1
+    image: ghcr.io/steveiliop56/tinyauth:v4.1.0
     restart: unless-stopped
     environment:
       - APP_TITLE=${TINYAUTH_APP_TITLE}
