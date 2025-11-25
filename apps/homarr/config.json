@@ -5,7 +5,7 @@
   "exposable": true,
   "dynamic_config": true,
   "deprecated": true,
-  "port": 8102,
+  "port": 18102,
   "id": "homarr",
   "tipi_version": 42,
   "version": "0.16.0",
