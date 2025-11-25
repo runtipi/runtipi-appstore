@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "grav",
-      "image": "lscr.io/linuxserver/grav:1.7.50",
+      "image": "lscr.io/linuxserver/grav:1.8.0",
       "isMain": true,
       "internalPort": 80,
       "environment": [
