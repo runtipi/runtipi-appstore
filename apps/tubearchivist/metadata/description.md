@@ -10,16 +10,6 @@
 * Play videos
 * Keep track of viewed and unviewed videos
 
-## If you have issues running Tube Archivist
-
-Please visit the following URL and ensure neither of the tips resolve the issue:
-
-https://github.com/tubearchivist/tubearchivist#potential-pitfalls
-
-If they do not, please open an app here and tag @sethforprivacy:
-
-https://github.com/meienberger/runtipi-appstore/issues
-
 ## Folder Info 
 
 | Root Folder                                | Container Folder |

@@ -70,10 +70,6 @@ services:
       - path.repo=/usr/share/elasticsearch/data/snapshot
     networks:
       - tipi_main_network
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
     volumes:
       - ${APP_DATA_DIR}/data/es:/usr/share/elasticsearch/data
     expose:
