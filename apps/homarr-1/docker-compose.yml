@@ -1,6 +1,6 @@
 services:
   homarr-1:
-    container_name: homarr
+    container_name: homarr-1
     image: ghcr.io/homarr-labs/homarr:v1.44.0
     restart: unless-stopped
     volumes:
