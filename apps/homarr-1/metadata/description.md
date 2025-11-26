@@ -1,21 +1,4 @@
-![](img/logo/2340450-2-title.png)
-
-<!-- Badges -->
-<p align="center">
-<img src="https://img.shields.io/github/stars/homarr-labs/homarr?label=%E2%AD%90%20Stars&style=flat-square?branch=master&kill_cache=1%22">
-<a href="https://github.com/homarr-labs/homarr/releases/latest">
-  <img alt="Latest Release (Semver)" src="https://img.shields.io/github/v/release/homarr-labs/homarr?label=%F0%9F%9A%80%20Release">
-</a>
-<a href="https://github.com/homarr-labs/homarr/actions/workflows/deployment-docker-image.yml">
-  <img title="Docker CI Status" src="https://github.com/homarr-labs/homarr/actions/workflows/deployment-docker-image.yml/badge.svg" alt="CI Status">
-</a>
-<a href="https://crowdin.com/project/homarr_labs">
-<img title="Translations" src="https://badges.crowdin.net/homarr_labs/localized.svg" />
-</a>
-<a href="https://discord.gg/aCsmEV5RgA">
-  <img title="Discord" src="https://discordapp.com/api/guilds/972958686051962910/widget.png?style=shield">
-</a>
-</p>
+![](https://raw.githubusercontent.com/homarr-labs/homarr/refs/heads/dev/docs/img/logo/2340450-2-title.png)
 
 <!-- Links -->
 <p align="center">
@@ -30,9 +13,9 @@
   </a>
 </p>
 
-![](img/screenshot.png)
+![](https://raw.githubusercontent.com/homarr-labs/homarr/refs/heads/dev/docs/img/screenshot.png)
 
-![](img/headers/features.png)
+![](https://raw.githubusercontent.com/homarr-labs/homarr/refs/heads/dev/docs/img/headers/features.png)
 
 - 🖌️ Highly customizable with an extensive drag and drop grid system
 - ✨ Integrates seamlessly with your favorite self-hosted applications
@@ -46,13 +29,7 @@
 - 🚀 Compatible with any major consumer hardware (x86, Raspberry Pi, old laptops, ...) and most OS (Windows, Linux, TrueNAS, Unraid)
 - 🖥️ Extensive Kubernetes support with Helm for efficient scaling & high reliability
 
-<br/>
-<br/>
-
-![](img/headers/integrations.png)
-
-<!-- AUTO_GENERATE_INTEGRATION_LIST_START -->
-
+![](https://raw.githubusercontent.com/homarr-labs/homarr/refs/heads/dev/docs/img/headers/integrations.png)
 <div align="center">
 <table>
 <tbody>
@@ -319,25 +296,7 @@
 </table>
 </div>
 
-<!-- AUTO_GENERATE_INTEGRATION_LIST_END -->
-
-<br/>
-<br/>
-
-![](img/headers/installation.png)
-
-<h2>
-<a href="https://homarr.dev/docs/category/installation-1/">
-  Please click here for official installation instructions
-</a>
-</h2>
-
-<br/>
-<br/>
-
-![](img/headers/contribute.png)
-
-<br/>
+# Help the project
 
 Homarr is a free-to-use open source project maintained by volunteers and developers from all over the world.
 We publish under the `Apache License 2.0` license which allows commercial usage.
@@ -345,18 +304,6 @@ We invest multiple hours daily in providing support, developing Homarr, integrat
 We also pay for licensing and server hosting fees.
 Please consider helping us cover these costs to enable the future development of Homarr. Thank you!
 
-<h2>
-<a href="https://opencollective.com/homarr">
-  Please click here to sponsor us at OpenCollective
-</a>
-</h2>
+You can also support us by helping with [translating the entire project](https://homarr.dev/docs/community/translations) to as many languages as possible or contributing directly to the code or documentation. Please read our [Contribution Guidelines](https://github.com/homarr-labs/homarr/blob/dev/CONTRIBUTING.md). All contributions, regardless of their size or scope, are welcome and highly appreciated! Thank you ❤️
 
-You can also support us by helping with [translating the entire project](https://homarr.dev/docs/community/translations) to as many languages as possible or contributing directly to the code or documentation. Please read our [Contribution Guidelines](/CONTRIBUTING.md). All contributions, regardless of their size or scope, are welcome and highly appreciated! Thank you ❤️
-
-## Sponsors
-
-Thanks to your generous sponsors, we can continue to build Homarr. Check them out for high-quality and easy-to-use development tools.
-Feel free to contact us at homarr-labs@proton.me if you wish to become a sponsor.
-
-[![Covered by Argos Visual Testing](https://argos-ci.com/badge-large.svg)](https://argos-ci.com?utm_source=%5Bhomarr%5D&utm_campaign=oss) \
-[![Supported by PikaPods](https://www.pikapods.com/static/run-button.svg)](https://www.pikapods.com/pods?run=homarr-v1)
+Click here to sponsor Homarr at [OpenCollective](https://opencollective.com/homarr)
