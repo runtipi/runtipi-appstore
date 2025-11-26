@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "your-spotify",
-      "image": "yooooomi/your_spotify_client:1.14.0",
+      "image": "yooooomi/your_spotify_client:1.15.0",
       "isMain": true,
       "internalPort": 3000,
       "environment": [
