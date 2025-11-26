@@ -8,6 +8,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - TZ=${TZ}
+      - SECRET_ENCRYPTION_KEY=${HOMARR_SECRET_ENCRYPTION_KEY}
     ports:
       - ${APP_PORT}:7575
     networks:
