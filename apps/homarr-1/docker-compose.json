@@ -1,0 +1,32 @@
+{
+  "services": [
+    {
+      "name": "homarr",
+      "image": "ghcr.io/homarr-labs/homarr:v1.44.0",
+      "isMain": true,
+      "internalPort": 7575,
+      "environment": [
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "SECRET_ENCRYPTION_KEY",
+          "value": "${HOMARR_SECRET_ENCRYPTION_KEY}"
+        }
+      ],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/appdata",
+          "containerPath": "/appdata"
+        },
+        {
+          "hostPath": "/var/run/docker.sock",
+          "containerPath": "/var/run/docker.sock"
+        }
+      ]
+    }
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
+}

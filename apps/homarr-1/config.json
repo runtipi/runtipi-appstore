@@ -1,23 +1,29 @@
 {
   "$schema": "../app-info-schema.json",
-  "name": "Homarr (v0)",
+  "name": "Homarr",
   "available": true,
   "exposable": true,
   "dynamic_config": true,
-  "deprecated": true,
-  "port": 18102,
-  "id": "homarr",
-  "tipi_version": 42,
-  "version": "0.16.0",
+  "port": 8102,
+  "id": "homarr-1",
+  "tipi_version": 1,
+  "version": "v1.44.0",
   "categories": ["utilities"],
   "description": "A homepage for your server.",
   "short_desc": "Homarr is a simple and lightweight homepage for your server, that helps you easily access all of your services in one place.",
-  "author": "ajnart",
-  "source": "https://github.com/ajnart/homarr",
+  "author": "homarr-labs",
+  "source": "https://github.com/homarr-labs/homarr",
   "website": "https://homarr.dev",
-  "form_fields": [],
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "HOMARR_SECRET_ENCRYPTION_KEY",
+      "min": 64,
+      "env_variable": "HOMARR_SECRET_ENCRYPTION_KEY"
+    }
+  ],
   "supported_architectures": ["arm64", "amd64"],
-  "created_at": 1691943801422,
-  "updated_at": 1763910000000,
+  "created_at": 1764103699999,
+  "updated_at": 1764103700000,
   "min_tipi_version": "4.5.0"
 }
