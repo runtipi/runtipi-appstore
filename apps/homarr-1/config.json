@@ -18,7 +18,7 @@
     {
       "type": "random",
       "label": "HOMARR_SECRET_ENCRYPTION_KEY",
-      "min": 32,
+      "min": 64,
       "env_variable": "HOMARR_SECRET_ENCRYPTION_KEY"
     }
   ],
