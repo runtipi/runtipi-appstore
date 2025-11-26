@@ -11,7 +11,7 @@
           "value": "${TZ}"
         },
         {
-          "key": "HOMARR_SECRET_ENCRYPTION_KEY",
+          "key": "SECRET_ENCRYPTION_KEY",
           "value": "${HOMARR_SECRET_ENCRYPTION_KEY}"
         }
       ],
