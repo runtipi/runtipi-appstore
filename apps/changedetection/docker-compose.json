@@ -4,7 +4,7 @@
   "services": [
     {
       "name": "changedetection",
-      "image": "ghcr.io/dgtlmoon/changedetection.io:0.51.3",
+      "image": "ghcr.io/dgtlmoon/changedetection.io:0.51.4",
       "isMain": true,
       "internalPort": 5000,
       "hostname": "changedetection",
