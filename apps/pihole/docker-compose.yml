@@ -2,7 +2,7 @@ version: '3.7'
 services:
   pihole:
     container_name: pihole
-    image: pihole/pihole:2025.11.0
+    image: pihole/pihole:2025.11.1
     restart: unless-stopped
     hostname: pihole
     dns:
