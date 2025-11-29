@@ -1,7 +1,17 @@
-# Odoo Overview
+# Odoo
 
 ## Introduction
 Odoo is an open-source business management software suite that encompasses a wide range of applications to streamline various business processes. Formerly known as OpenERP, Odoo provides a modular and integrated approach to manage different aspects of a business, including accounting, inventory, human resources, sales, and more.
+
+## Upgrade Notice
+When updating Odoo to a new major version you will have to upgrade your database.
+Odoo don't make this simple so Runtipi can't automate these steps.
+
+If you are not ready to upgrade yet, you can ignore the version.
+*Don't forget to backup your app*
+
+- Docs: https://www.odoo.com/documentation/master/administration/upgrade.html
+- Community Tool : https://github.com/OCA/OpenUpgrade
 
 ## Key Features
 
@@ -25,7 +35,7 @@ Odoo is an open-source business management software suite that encompasses a wid
 To get started with Odoo, follow these steps:
 
 1. **Installation:**
-   - Install Odoo on your tipi server.
+   - Install Odoo on your runtipi server.
 
 2. **Configuration:**
    - Configure Odoo settings according to your business requirements. This includes setting up users, company information, and modules.
