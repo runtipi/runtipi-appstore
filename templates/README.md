@@ -21,8 +21,8 @@ It contains all the apps that are available for download on [Runtipi](https://gi
 
 ## Apps available (<!appsCount>)
 
-| Name | Description |
-| ---- | ----------- |
+| App | Name | Description |
+| :-: | ---- | ----------- |
 <!appsList>
 
 ## Code requirements
