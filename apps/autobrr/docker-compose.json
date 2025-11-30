@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "image": "ghcr.io/autobrr/autobrr:v1.69.0",
+      "image": "ghcr.io/autobrr/autobrr:v1.70.0",
       "name": "autobrr",
       "internalPort": 7474,
       "isMain": true,
