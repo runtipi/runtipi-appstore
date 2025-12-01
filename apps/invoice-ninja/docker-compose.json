@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "invoice-ninja",
-      "image": "invoiceninja/invoiceninja:5.12.8",
+      "image": "invoiceninja/invoiceninja:5.12.36",
       "user": "1500:1500",
       "environment": [
         {
