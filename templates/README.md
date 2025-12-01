@@ -6,18 +6,19 @@ It contains all the apps that are available for download on [Runtipi](https://gi
 > [!NOTE]
 > This repository continues to receive updates; however, no new applications will be accepted. Please limit your pull requests to bug fixes. See [explanation](https://github.com/runtipi/runtipi/issues/2317#issuecomment-3217972183).
 
-## How to add an app
+## How to add addtionals apps
+
 - Use the `Add custom app` feature
 - Add a [community-maintained store](https://github.com/runtipi/runtipi/discussions/categories/app-stores)
 - Create [your own appstore](https://runtipi.io/docs/guides/create-your-own-app-store)
 
 ### Need help ?
-> [!TIP]
-> Don't forget to read the [docs](https://runtipi.io/docs)
 
-- [Create a discussion](https://github.com/runtipi/runtipi-appstore/discussions) 
+- [Create a discussion](https://github.com/runtipi/runtipi-appstore/discussions)
 - [Join the Discord](https://discord.gg/Bu9qEPnHsc)
 - [Join the Forum](https://forums.runtipi.io/)
+
+> *Don't forget to read the [docs](https://runtipi.io/docs)*
 
 ## Apps available (<!appsCount>)
 
