@@ -1,11 +1,32 @@
-# Tipi App Store ⛺
+# Runtipi App Store ⛺
 
-> [!WARNING]  
-> This repository is still being updated but no new apps will be accepted. Please only submit bug fix PRs here. If you need a particular app, look for community maintained stores or [create your own](https://runtipi.io/docs/guides/create-your-own-app-store). Read [this](https://github.com/runtipi/runtipi/issues/2317#issuecomment-3217972183) for more details.
+This is the official Runtipi App Store.
+It contains all the apps that are available for download on [Runtipi](https://github.com/runtipi/runtipi).
 
-This is the official repository for the Tipi App Store. It contains all the apps that are available for download on [Tipi](https://github.com/runtipi/runtipi).
+> [!NOTE]
+> This repository continues to receive updates; however, no new applications will be accepted. Please limit your pull requests to bug fixes. See [explanation](https://github.com/runtipi/runtipi/issues/2317#issuecomment-3217972183).
 
-## How to get started
+## How to add addtionals apps
+
+- Use the `Add custom app` feature
+- Add a [community-maintained store](https://github.com/runtipi/runtipi/discussions/categories/app-stores)
+- Create [your own appstore](https://runtipi.io/docs/guides/create-your-own-app-store)
+
+### Need help ?
+
+- [Create a discussion](https://github.com/runtipi/runtipi-appstore/discussions)
+- [Join the Discord](https://discord.gg/Bu9qEPnHsc)
+- [Join the Forum](https://forums.runtipi.io/)
+
+> *Don't forget to read the [docs](https://runtipi.io/docs)*
+
+## Apps available (<!appsCount>)
+
+| App | Name | Description |
+| :-: | ---- | ----------- |
+<!appsList>
+
+## Code requirements
 
 1. Install **[Node.js](https://nodejs.org/en)** on your machine
 2. Install **[pnpm](https://pnpm.io/installation)** package manager
@@ -13,17 +34,3 @@ This is the official repository for the Tipi App Store. It contains all the apps
 ```bash
 pnpm install
 ```
-
-## How to sumbit an app
-
-If you want to see new apps on Tipi you can either:
-
-- [Create a discussion](https://github.com/runtipi/runtipi-appstore/discussions) on this repository and members of the community will add it
-- [Join the Discord](https://discord.gg/Bu9qEPnHsc) members of the community will add it.
-- Fork this repo and create the necessary files for a Tipi app. Follow this [guide](https://www.runtipi.io/docs/contributing/adding-a-new-app)`
-
-## Apps available (<!appsCount>)
-
-| Name | Description | Port | Dynamic (<!dynamicConfigCount>) |
-| ---- | ----------- | ---- | -------------------------------------- |
-<!appsList>
