@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "recyclarr",
-      "image": "ghcr.io/recyclarr/recyclarr:7.4.1",
+      "image": "ghcr.io/recyclarr/recyclarr:7.5.2",
       "isMain": true,
       "user": "${TIPI_UID}:${TIPI_GID}",
       "environment": [
