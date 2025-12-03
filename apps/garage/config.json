@@ -26,12 +26,6 @@
       "label": "Garage metrics token",
       "min": 32,
       "env_variable": "GARAGE_METRICS_TOKEN"
-    },
-    {
-      "type": "random",
-      "label": "RPC secret",
-      "min": 32,
-      "env_variable": "GARAGE_RPC_SECRET"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],

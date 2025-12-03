@@ -14,10 +14,6 @@
       "internalPort": 3900,
       "addPorts": [
         {
-          "containerPort": 3901,
-          "hostPort": 3901
-        },
-        {
           "containerPort": 3902,
           "hostPort": 3902
         },
