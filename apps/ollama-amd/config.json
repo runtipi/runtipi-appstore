@@ -7,7 +7,7 @@
   "port": 11434,
   "id": "ollama-amd",
   "tipi_version": 84,
-  "version": "0.13.0",
+  "version": "0.13.1",
   "categories": ["ai"],
   "description": "Get up and running with Llama 3, Mistral, Gemma, and other large language models.",
   "short_desc": "LLMs inference server with OpenAI compatible API",
