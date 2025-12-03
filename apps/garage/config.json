@@ -1,0 +1,42 @@
+{
+  "name": "Garage",
+  "id": "garage",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "no_gui": true,
+  "port": 3900,
+  "short_desc": "S3-compatible distributed object storage service",
+  "description": "Open-source distributed object storage service tailored for self-hosting.",
+  "tipi_version": 1,
+  "version": "v2.1.0",
+  "categories": ["utilities", "data"],
+  "author": "https://deuxfleurs.fr/",
+  "source": "https://git.deuxfleurs.fr/Deuxfleurs/garage",
+  "website": "https://garagehq.deuxfleurs.fr",
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Garage admin token",
+      "min": 32,
+      "env_variable": "GARAGE_ADMIN_TOKEN"
+    },
+    {
+      "type": "random",
+      "label": "Garage metrics token",
+      "min": 32,
+      "env_variable": "GARAGE_METRICS_TOKEN"
+    },
+    {
+      "type": "random",
+      "label": "RPC secret",
+      "min": 32,
+      "env_variable": "GARAGE_RPC_SECRET"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1764801599999,
+  "updated_at": 1764801600000,
+  "$schema": "../app-info-schema.json",
+  "min_tipi_version": "4.5.0"
+}
