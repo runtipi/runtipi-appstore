@@ -2,7 +2,7 @@ version: '3.9'
 services:
   wordpress:
     container_name: wordpress
-    image: wordpress:6.8.3
+    image: wordpress:6.9.0
     environment:
       - WORDPRESS_DB_HOST=wordpress-db
       - WORDPRESS_DB_NAME=wordpress
