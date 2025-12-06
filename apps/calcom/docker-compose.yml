@@ -33,6 +33,7 @@ services:
       - EMAIL_SERVER_PASSWORD=${EMAIL_SERVER_PASSWORD}
       - EMAIL_SERVER_USER=${EMAIL_SERVER_USER}
       - NODE_ENV=production
+      - STRIPE_PRIVATE_KEY=""
     labels:
       traefik.enable: true
       traefik.http.middlewares.calcom-web-redirect.redirectscheme.scheme: https

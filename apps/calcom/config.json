@@ -110,7 +110,7 @@
   "version": "v5.9.8",
   "website": "https://cal.com/",
   "created_at": 1691943801422,
-  "updated_at": 1764823556028,
+  "updated_at": 1765033567172,
   "$schema": "../app-info-schema.json",
   "min_tipi_version": "4.5.0"
 }
