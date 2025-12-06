@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   sshwifty:
-    image: niruix/sshwifty:0.4.1
+    image: niruix/sshwifty:0.4.2
     restart: unless-stopped
     container_name: sshwifty
     privileged: true
