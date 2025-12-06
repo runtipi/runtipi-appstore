@@ -93,6 +93,10 @@
         {
           "key": "NODE_ENV",
           "value": "production"
+        },
+        {
+          "key": "STRIPE_PRIVATE_KEY",
+          "value": " "
         }
       ],
       "dependsOn": ["db-calcom"]
