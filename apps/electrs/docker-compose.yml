@@ -39,7 +39,7 @@ services:
       runtipi.managed: true
   electrs:
     container_name: electrs
-    image: getumbrel/electrs:v0.10.10
+    image: getumbrel/electrs:v0.11.0
     restart: unless-stopped
     stop_grace_period: 15m
     user: '0:0'
