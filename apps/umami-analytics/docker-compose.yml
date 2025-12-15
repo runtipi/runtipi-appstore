@@ -1,7 +1,7 @@
 services:
   umami-analytics:
     container_name: umami-analytics
-    image: ghcr.io/umami-software/umami:postgresql-v2.18.1
+    image: ghcr.io/umami-software/umami:3.0.3
     restart: unless-stopped
     ports:
       - ${APP_PORT}:3000
