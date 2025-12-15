@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "umami-analytics",
-      "image": "ghcr.io/umami-software/umami:postgresql-v2.18.1",
+      "image": "ghcr.io/umami-software/umami:postgresql-v3.0.3",
       "isMain": true,
       "internalPort": 3000,
       "environment": [
