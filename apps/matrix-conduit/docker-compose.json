@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "matrix-conduit",
-      "image": "matrixconduit/matrix-conduit:v0.10.9",
+      "image": "matrixconduit/matrix-conduit:v0.10.10",
       "isMain": true,
       "environment": [
         {
