@@ -18,7 +18,7 @@ It contains all the apps that are available for download on [Runtipi](https://gi
 - [Join the Discord](https://discord.gg/Bu9qEPnHsc)
 - [Join the Forum](https://forums.runtipi.io/)
 
-> *Don't forget to read the [docs](https://runtipi.io/docs)*
+> _Don't forget to read the [docs](https://runtipi.io/docs)_
 
 ## Apps available (267)
 
