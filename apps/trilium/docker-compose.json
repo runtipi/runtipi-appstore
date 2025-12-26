@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "trilium",
-      "image": "ghcr.io/triliumnext/trilium:v0.100.0",
+      "image": "ghcr.io/triliumnext/trilium:v0.101.0",
       "isMain": true,
       "internalPort": 8080,
       "environment": [
