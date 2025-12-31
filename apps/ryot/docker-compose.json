@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "ryot",
-      "image": "ghcr.io/ignisda/ryot:v2.24.2",
+      "image": "ghcr.io/ignisda/ryot:v10.0.2",
       "isMain": true,
       "internalPort": 8000,
       "environment": [
