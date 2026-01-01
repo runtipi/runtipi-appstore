@@ -87,7 +87,7 @@
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/postgres",
-          "containerPath": "/var/lib/postgresql/data"
+          "containerPath": "/var/lib/postgresql"
         },
         {
           "hostPath": "${APP_DATA_DIR}/data/init-data.sh",
