@@ -50,7 +50,7 @@ services:
       runtipi.managed: true
   n8n-db:
     container_name: n8n-2-db
-    image: postgres:18
+    image: postgres:17
     restart: unless-stopped
     networks:
       - tipi_main_network
