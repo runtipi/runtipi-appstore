@@ -61,7 +61,7 @@
     },
     {
       "name": "n8n-2-db",
-      "image": "postgres:17",
+      "image": "postgres:18",
       "environment": [
         {
           "key": "POSTGRES_USER",
