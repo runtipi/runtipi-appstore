@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 8102,
   "id": "homarr-1",
-  "tipi_version": 8,
-  "version": "v1.48.0",
+  "tipi_version": 9,
+  "version": "v1.49.0",
   "categories": ["utilities"],
   "description": "A homepage for your server.",
   "short_desc": "Homarr is a simple and lightweight homepage for your server, that helps you easily access all of your services in one place.",
@@ -24,6 +24,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1764103699999,
-  "updated_at": 1766897784432,
+  "updated_at": 1767415693029,
   "min_tipi_version": "4.5.0"
 }
