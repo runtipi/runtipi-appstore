@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "bazarr",
-      "image": "lscr.io/linuxserver/bazarr:1.5.3",
+      "image": "lscr.io/linuxserver/bazarr:1.5.4",
       "isMain": true,
       "internalPort": 6767,
       "environment": [
