@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "dashdot",
-      "image": "mauricenino/dashdot:6.2.0",
+      "image": "mauricenino/dashdot:6.2.4",
       "isMain": true,
       "internalPort": 3001,
       "environment": [
