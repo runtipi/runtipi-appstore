@@ -2,7 +2,7 @@ version: '3.7'
 services:
   wikijs:
     container_name: wikijs
-    image: ghcr.io/requarks/wiki:2.5.309
+    image: ghcr.io/requarks/wiki:2.5.310
     depends_on:
       - wikijs-db
     environment:
