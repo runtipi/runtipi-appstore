@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "wikijs",
-      "image": "ghcr.io/requarks/wiki:2.5.310",
+      "image": "ghcr.io/requarks/wiki:2.5.311",
       "isMain": true,
       "internalPort": 3000,
       "environment": [
