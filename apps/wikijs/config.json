@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "wikijs",
-  "tipi_version": 18,
-  "version": "2.5.310",
+  "tipi_version": 19,
+  "version": "2.5.311",
   "categories": ["media"],
   "description": "A modern, lightweight and powerful wiki app built on NodeJS ",
   "short_desc": "A modern and powerful wiki app built on Node.js",
@@ -24,6 +24,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1767848065712,
+  "updated_at": 1767934559657,
   "min_tipi_version": "4.5.0"
 }
