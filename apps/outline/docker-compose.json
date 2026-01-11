@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "outline",
-      "image": "outlinewiki/outline:1.1.0",
+      "image": "outlinewiki/outline:1.2.0",
       "environment": [
         {
           "key": "DATABASE_URL",
