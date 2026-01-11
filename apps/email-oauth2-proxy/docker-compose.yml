@@ -2,7 +2,7 @@ version: '3.9'
 services:
   email-oauth2-proxy:
     container_name: email-oauth2-proxy
-    image: ghcr.io/blacktirion/email-oauth2-proxy-docker:2025.10.09
+    image: ghcr.io/blacktirion/email-oauth2-proxy-docker:2026.01.06
     ports:
       - ${APP_PORT}:80
     restart: unless-stopped

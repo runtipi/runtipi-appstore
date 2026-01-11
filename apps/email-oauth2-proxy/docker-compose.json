@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "email-oauth2-proxy",
-      "image": "ghcr.io/blacktirion/email-oauth2-proxy-docker:2025.10.09",
+      "image": "ghcr.io/blacktirion/email-oauth2-proxy-docker:2026.01.06",
       "isMain": true,
       "internalPort": 80,
       "environment": [
