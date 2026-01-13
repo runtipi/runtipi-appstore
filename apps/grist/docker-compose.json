@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "grist",
-      "image": "gristlabs/grist:1.7.9",
+      "image": "gristlabs/grist:1.7.10",
       "isMain": true,
       "internalPort": 8484,
       "environment": [
