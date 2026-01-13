@@ -9,14 +9,14 @@
   "tipi_version": 6,
   "version": "latest",
   "categories": ["development"],
-  "description": "Useful tools for developer and people working in IT. ",
+  "description": "Useful tools for developer and people working in IT. Using the sharevb fork since https://github.com/CorentinTh/it-tools last update is from 2024.",
   "short_desc": "Collection of handy online tools for developers, with great UX.",
   "author": "CorentinTh",
-  "source": "https://github.com/CorentinTh/it-tools",
+  "source": "https://github.com/sharevb/it-tools",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1761338378475,
+  "updated_at": 1768296956726,
   "force_pull": true,
   "min_tipi_version": "4.5.0"
 }

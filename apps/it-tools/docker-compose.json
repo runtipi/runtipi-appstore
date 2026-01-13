@@ -4,9 +4,9 @@
   "services": [
     {
       "name": "it-tools",
-      "image": "corentinth/it-tools:latest",
+      "image": "ghcr.io/sharevb/it-tools:latest",
       "isMain": true,
-      "internalPort": 80
+      "internalPort": 8080
     }
   ]
 }
