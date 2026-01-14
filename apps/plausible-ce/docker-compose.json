@@ -152,7 +152,7 @@
     },
     {
       "name": "plausible-events-db",
-      "image": "clickhouse/clickhouse-server:25.12.2.54-alpine",
+      "image": "clickhouse/clickhouse-server:25.12.3.21-alpine",
       "environment": [
         {
           "key": "POSTGRES_DB",
