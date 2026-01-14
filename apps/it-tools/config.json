@@ -6,7 +6,7 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "it-tools",
-  "tipi_version": 6,
+  "tipi_version": 7,
   "version": "latest",
   "categories": ["development"],
   "description": "Useful tools for developer and people working in IT. Using the sharevb fork since https://github.com/CorentinTh/it-tools last update is from 2024.",
