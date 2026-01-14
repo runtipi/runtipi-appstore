@@ -35,7 +35,8 @@
     "lefthook": "^2.0.13",
     "semver": "^7.7.3",
     "ts-jest": "^29.4.6",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "yaml": "^2.8.2"
   },
   "config": {
     "commitizen": {
