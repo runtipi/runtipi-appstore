@@ -8,8 +8,8 @@
   "port": 8526,
   "categories": ["development"],
   "description": "Semaphore is a modern UI for Ansible, Terraform/OpenTofu, Bash and Pulumi. It lets you easily run Ansible playbooks, get notifications about fails, control access to deployment system.",
-  "tipi_version": 56,
-  "version": "v2.16.50",
+  "tipi_version": 57,
+  "version": "v2.16.51",
   "source": "https://github.com/semaphoreui/semaphore",
   "website": "https://semaphoreui.com",
   "exposable": true,
@@ -49,6 +49,6 @@
     }
   ],
   "created_at": 1691943801422,
-  "updated_at": 1768107523742,
+  "updated_at": 1768539361445,
   "min_tipi_version": "4.5.0"
 }
