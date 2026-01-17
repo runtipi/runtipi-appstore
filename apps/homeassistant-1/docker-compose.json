@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "homeassistant-1",
-      "image": "ghcr.io/home-assistant/home-assistant:2026.1.1",
+      "image": "ghcr.io/home-assistant/home-assistant:2026.1.2",
       "isMain": true,
       "internalPort": 8123,
       "environment": [
