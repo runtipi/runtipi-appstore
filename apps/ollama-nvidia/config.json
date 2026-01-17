@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 11435,
   "id": "ollama-nvidia",
-  "tipi_version": 87,
-  "version": "0.13.5",
+  "tipi_version": 88,
+  "version": "0.14.2",
   "categories": ["ai"],
   "description": "Get up and running with Llama 3, Mistral, Gemma, and other large language models.",
   "short_desc": "LLMs inference server with OpenAI compatible API",
@@ -17,6 +17,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1766119776497,
+  "updated_at": 1768669735773,
   "min_tipi_version": "4.5.0"
 }
