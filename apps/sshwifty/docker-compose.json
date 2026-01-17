@@ -4,7 +4,7 @@
   "services": [
     {
       "name": "sshwifty",
-      "image": "niruix/sshwifty:0.4.2-beta-release",
+      "image": "niruix/sshwifty:0.4.3-beta-release",
       "isMain": true,
       "internalPort": 8182,
       "privileged": true
