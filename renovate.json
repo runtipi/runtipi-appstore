@@ -27,7 +27,7 @@
       "enabled": false
     },
     {
-      "matchPackageNames": ["n8nio/n8n", "goauthentik/authentik"],
+      "matchPackageNames": ["n8nio/n8n"],
       "enabled": false
     }
   ],
