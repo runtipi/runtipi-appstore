@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "onedev",
-      "image": "1dev/server:14.0.7",
+      "image": "1dev/server:14.0.8",
       "isMain": true,
       "internalPort": 6610,
       "addPorts": [
