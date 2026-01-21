@@ -22,7 +22,7 @@
       "type": "text",
       "label": "Custom Bitcoin data folder location (for .cookie file)",
       "hint": "Default, tipi bitcoin folder",
-      "placeholder": "/home/user/runtipi/app-data/bitcoind/data",
+      "placeholder": "/home/<user>/runtipi/app-data/<appstore>/bitcoind/data",
       "required": true,
       "env_variable": "BITCOIND_DIR"
     },
