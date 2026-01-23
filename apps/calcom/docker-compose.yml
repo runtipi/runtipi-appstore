@@ -2,7 +2,7 @@ version: '3.8'
 services:
   calcom:
     container_name: calcom
-    image: calcom/cal.com:v6.1.2
+    image: calcom/cal.com:v6.1.3
     restart: unless-stopped
     ports:
       - ${APP_PORT}:3000
