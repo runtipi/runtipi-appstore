@@ -5,8 +5,8 @@
   "exposable": true,
   "dynamic_config": true,
   "port": 8150,
-  "tipi_version": 12,
-  "version": "version-1.8.4",
+  "tipi_version": 13,
+  "version": "version-2",
   "id": "firefly-iii-data-importer",
   "categories": ["finance"],
   "description": "",
@@ -37,6 +37,6 @@
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
   "updated_at": 1761338378465,
-  "force_pull": false,
+  "force_pull": true,
   "min_tipi_version": "4.5.0"
 }

@@ -15,3 +15,33 @@
 Do you want to learn more about how you can use Nextcloud to access, share, and protect your files, calendars, contacts, communication & more at home and in your organization? [**Learn about all our Features**](https://nextcloud.com/athome/).
 
 > Warning ⚠️: This is a simple nextcloud instance running only the nextcloud server and a postgres database. If you want features like cron and redis, please use the nextcloud app in the appstore.
+
+## ⛺ Runtipi Note - 2026
+The version of this app is currently not aligned with the latest avaible: 32.
+Since Nextcloud requires to be upgraded step-by-step (you can  only update to the next major and can't skip iterations),  we will be rolling out a major update version every month until we catch up with the latest version.
+
+### Tips
+- Remember to backup your data !
+- After an upgrade you should check the admin panel for warnings.
+- You can **ignore** an update if you are not ready. *(but don't delay it too much)*
+- If you missed an intermediate version you can use a "user-config" to catch up.
+
+### User-Config example
+here is an example to set nextcloud to version 30:
+``` yaml
+services:
+ nextcloud-mini:
+   image: nextcloud:30-apache
+```
+
+### Useful command
+In some cases (like restoring an old installation) you could meet an error mentionning files permissions.
+
+1. Access your Runtipi host command line
+2. Go to your Runtipi installation directory
+```bash
+cd runtipi
+```
+3. Fix the files ownership
+```bash
+chown -R www-data:www-data app-data/migrated/nextcloud-mini/data/nextcloud/
