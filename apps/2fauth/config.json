@@ -19,10 +19,10 @@
   "form_fields": [
     {
       "type": "random",
-      "label": "2FAUTH_APP_KEY",
+      "label": "TWOFAUTH_APP_KEY",
       "min": 32,
       "max": 32,
-      "env_variable": "2FAUTH_APP_KEY"
+      "env_variable": "TWOFAUTH_APP_KEY"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],
