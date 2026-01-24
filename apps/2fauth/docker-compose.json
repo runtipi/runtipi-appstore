@@ -4,7 +4,7 @@
   "services": [
     {
       "name": "2fauth",
-      "image": "2fauth/2fauth:5.6.1",
+      "image": "2fauth/2fauth:6.0.0",
       "internalPort": 8000,
       "isMain": true,
       "volumes": [
@@ -15,7 +15,9 @@
       ],
       "environment": [
         { "key": "ASSET_URL", "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}" },
-        { "key": "APP_URL", "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}" }
+        { "key": "APP_URL", "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}" },
+        { "key": "APP_KEY", "value": "${TWOFAUTH_APP_KEY}" },
+        { "key": "PREVIOUS_APP_KEY", "value": "APP_PREVIOUS_KEYS=SomeRandomStringOf32CharsExactly" }
       ]
     }
   ]
