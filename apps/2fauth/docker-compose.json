@@ -15,7 +15,8 @@
       ],
       "environment": [
         { "key": "ASSET_URL", "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}" },
-        { "key": "APP_URL", "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}" }
+        { "key": "APP_URL", "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}" },
+        { "key": "APP_KEY", "value": "${2FAUTH_APP_KEY}" }
       ]
     }
   ]

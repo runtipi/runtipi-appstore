@@ -16,7 +16,14 @@
   "author": "Bubka",
   "source": "https://github.com/Bubka/2FAuth",
   "website": "https://docs.2fauth.app/",
-  "form_fields": [],
+  "form_fields": [
+    {
+      "type": "random",
+      "min": 32,
+      "max": 32,
+      "env_variable": "2FAUTH_APP_KEY"
+    }
+  ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
   "updated_at": 1769248499558,

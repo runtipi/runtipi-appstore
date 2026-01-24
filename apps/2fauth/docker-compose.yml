@@ -9,6 +9,7 @@ services:
     environment:
       - ASSET_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
       - APP_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - APP_KEY=${2FAUTH_APP_KEY}
     networks:
       - tipi_main_network
     labels:
