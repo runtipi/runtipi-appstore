@@ -19,6 +19,7 @@
   "form_fields": [
     {
       "type": "random",
+      "label": "2FAUTH_APP_KEY",
       "min": 32,
       "max": 32,
       "env_variable": "2FAUTH_APP_KEY"
