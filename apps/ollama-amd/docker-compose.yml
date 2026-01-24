@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   ollama-amd:
-    image: ollama/ollama:0.14.2
+    image: ollama/ollama:0.14.3
     restart: unless-stopped
     container_name: ollama-amd
     environment:
