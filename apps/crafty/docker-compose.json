@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "image": "registry.gitlab.com/crafty-controller/crafty-4:4.8.0",
+      "image": "registry.gitlab.com/crafty-controller/crafty-4:4.9.0",
       "name": "crafty",
       "internalPort": 8443,
       "isMain": true,
