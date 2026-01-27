@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "halo",
-      "image": "halohub/halo:2.22.11",
+      "image": "halohub/halo:2.22.12",
       "isMain": true,
       "internalPort": 8090,
       "dependsOn": {
