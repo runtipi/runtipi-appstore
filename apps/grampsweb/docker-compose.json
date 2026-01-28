@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "grampsweb",
-      "image": "ghcr.io/gramps-project/grampsweb:25.12.0",
+      "image": "ghcr.io/gramps-project/grampsweb:26.1.0",
       "isMain": true,
       "internalPort": 5000,
       "environment": [
