@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "calcom",
-      "image": "calcom/cal.com:v6.1.4",
+      "image": "calcom/cal.com:v6.1.6",
       "isMain": true,
       "internalPort": 3000,
       "environment": [
