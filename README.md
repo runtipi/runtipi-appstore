@@ -18,7 +18,7 @@ It contains all the apps that are available for download on [Runtipi](https://gi
 - [Join the Discord](https://discord.gg/Bu9qEPnHsc)
 - [Join the Forum](https://forums.runtipi.io/)
 
-> *Don't forget to read the [docs](https://runtipi.io/docs)*
+> _Don't forget to read the [docs](https://runtipi.io/docs)_
 
 ## Apps available (267)
 
@@ -180,7 +180,7 @@ It contains all the apps that are available for download on [Runtipi](https://gi
 |           <img src="apps/mqttx/metadata/logo.jpg" width="32">           | [MQTTX](https://github.com/emqx/MQTTX/)                                      | MQTT websocket browser client tool                                                                                                                                  |
 |          <img src="apps/mstream/metadata/logo.jpg" width="32">          | [mStream Music](https://github.com/IrosTheBeggar/mStream)                    | The easiest music streaming server available                                                                                                                        |
 |          <img src="apps/mylar3/metadata/logo.jpg" width="32">           | [Mylar3](https://github.com/mylar3/mylar3)                                   | Mylar3 is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python.                                                             |
-|           <img src="apps/n8n-1/metadata/logo.jpg" width="32">           | [n8n](https://github.com/n8n-io/n8n)                                         | Workflow Automation Tool. Alternative to Zapier                                                                                                                     |
+|           <img src="apps/n8n-2/metadata/logo.jpg" width="32">           | [n8n v2](https://github.com/n8n-io/n8n)                                      | Workflow Automation Tool. Alternative to Zapier                                                                                                                     |
 |         <img src="apps/navidrome/metadata/logo.jpg" width="32">         | [Navidrome](https://github.com/navidrome/navidrome/)                         | A selfhosted music server                                                                                                                                           |
 |        <img src="apps/netbootxyz/metadata/logo.jpg" width="32">         | [Netboot.xyz](https://github.com/netbootxyz/netboot.xyz)                     | Your favorite operating systems in one place.                                                                                                                       |
 |          <img src="apps/netdata/metadata/logo.jpg" width="32">          | [Netdata](https://github.com/netdata/netdata)                                | Open-source, real-time, performance and health monitoring.                                                                                                          |
