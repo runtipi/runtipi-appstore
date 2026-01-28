@@ -71,7 +71,7 @@ services:
     labels:
       runtipi.managed: true
   gotenberg:
-    image: gotenberg/gotenberg:8.25
+    image: gotenberg/gotenberg:8.26
     restart: unless-stopped
     command:
       - gotenberg
