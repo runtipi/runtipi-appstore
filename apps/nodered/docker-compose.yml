@@ -2,7 +2,7 @@ version: '3.7'
 services:
   nodered:
     container_name: nodered
-    image: nodered/node-red:4.1.3
+    image: nodered/node-red:4.1.4
     restart: unless-stopped
     ports:
       - ${APP_PORT}:1880
