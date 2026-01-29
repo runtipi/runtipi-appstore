@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "cyberchef",
-      "image": "ghcr.io/gchq/cyberchef:10.19.4",
+      "image": "ghcr.io/gchq/cyberchef:10.20.0",
       "isMain": true,
       "internalPort": 80,
       "environment": [
