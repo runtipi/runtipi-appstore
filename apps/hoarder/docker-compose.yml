@@ -55,7 +55,7 @@ services:
     labels:
       runtipi.managed: true
   hoarder-meilisearch:
-    image: getmeili/meilisearch:v1.34
+    image: getmeili/meilisearch:v1.35
     container_name: hoarder-meilisearch
     restart: unless-stopped
     environment:
