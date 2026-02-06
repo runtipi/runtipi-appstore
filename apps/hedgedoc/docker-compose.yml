@@ -2,7 +2,7 @@ version: '3.7'
 services:
   hedgedoc:
     container_name: hedgedoc
-    image: quay.io/hedgedoc/hedgedoc:1.10.5
+    image: quay.io/hedgedoc/hedgedoc:1.10.6
     environment:
       - CMD_DB_URL=postgres://hedgedoc:${HEDGEDOC_DB_PASSWORD}@hedgedoc-db:5432/hedgedoc
       - CMD_DOMAIN=${APP_DOMAIN}
