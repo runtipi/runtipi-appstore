@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "glances",
-      "image": "nicolargo/glances:4.3.0.8-full",
+      "image": "nicolargo/glances:4.5.0.1-full",
       "isMain": true,
       "internalPort": 61208,
       "pid": "host",
