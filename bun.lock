@@ -15,7 +15,7 @@
         "@commitlint/cz-commitlint": "^20.4.1",
         "@types/jest": "^30.0.0",
         "@types/js-yaml": "^4.0.9",
-        "@types/node": "^25.2.1",
+        "@types/node": "^25.2.2",
         "@types/semver": "^7.7.1",
         "commitizen": "^4.3.1",
         "jest": "^30.2.0",
@@ -250,7 +250,7 @@
 
     "@types/js-yaml": ["@types/js-yaml@4.0.9", "", {}, "sha512-k4MGaQl5TGo/iipqb2UDG2UwjXziSWkh0uysQelTlJpX1qGlpUZYm8PnO4DxG1qBomtJUdYJ6qR6xdIah10JLg=="],
 
-    "@types/node": ["@types/node@25.2.1", "", { "dependencies": { "undici-types": "~7.16.0" } }, "sha512-CPrnr8voK8vC6eEtyRzvMpgp3VyVRhgclonE7qYi6P9sXwYb59ucfrnmFBTaP0yUi8Gk4yZg/LlTJULGxvTNsg=="],
+    "@types/node": ["@types/node@25.2.2", "", { "dependencies": { "undici-types": "~7.16.0" } }, "sha512-BkmoP5/FhRYek5izySdkOneRyXYN35I860MFAGupTdebyE66uZaR+bXLHq8k4DirE5DwQi3NuhvRU1jqTVwUrQ=="],
 
     "@types/semver": ["@types/semver@7.7.1", "", {}, "sha512-FmgJfu+MOcQ370SD0ev7EI8TlCAfKYU+B4m5T3yXc1CiRN94g/SZPtsCkk506aUDtlMnFZvasDwHHUcZUEaYuA=="],
 
