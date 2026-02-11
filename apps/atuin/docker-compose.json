@@ -7,7 +7,7 @@
       "name": "atuin",
       "internalPort": 8888,
       "isMain": true,
-      "command": "server start",
+      "command": "start",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/config",

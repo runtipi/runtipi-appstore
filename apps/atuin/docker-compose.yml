@@ -1,10 +1,10 @@
-version: '3.5'
+version: "3.5"
 services:
   atuin:
     container_name: atuin
     restart: unless-stopped
     image: ghcr.io/atuinsh/atuin:v18.12.0
-    command: server start
+    command: start
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
     ports:
