@@ -1,0 +1,63 @@
+From 21b4740c2d55715ac7a7270fa4ea9f233c65b5a9 Mon Sep 17 00:00:00 2001
+From: TheGuardianLight <64707127+TheGuardianLight@users.noreply.github.com>
+Date: Sat, 14 Feb 2026 14:26:03 +0000
+Subject: [PATCH] chore(dailytxt): update to v2.4.1
+
+---
+ apps/dailytxt/config.json         | 6 +++---
+ apps/dailytxt/docker-compose.json | 2 +-
+ apps/dailytxt/docker-compose.yml  | 2 +-
+ 3 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/apps/dailytxt/config.json b/apps/dailytxt/config.json
+index e9aa96d..68057c5 100644
+--- a/apps/dailytxt/config.json
++++ b/apps/dailytxt/config.json
+@@ -6,8 +6,8 @@
+   "exposable": true,
+   "dynamic_config": true,
+   "id": "dailytxt",
+-  "tipi_version": 14,
+-  "version": "2.3.0",
++  "tipi_version": 15,
++  "version": "2.4.1",
+   "categories": ["utilities"],
+   "description": "DailyTxT is an encrypted Diary Web-App to write down your stories of the day and to find them again easily.",
+   "short_desc": "Encrypted Diary Web-App",
+@@ -36,6 +36,6 @@
+   ],
+   "supported_architectures": ["arm64", "amd64"],
+   "created_at": 1691943801422,
+-  "updated_at": 1768712051673,
++  "updated_at": 1771076480951,
+   "min_tipi_version": "4.5.0"
+ }
+diff --git a/apps/dailytxt/docker-compose.json b/apps/dailytxt/docker-compose.json
+index d2afcf6..c999ce8 100644
+--- a/apps/dailytxt/docker-compose.json
++++ b/apps/dailytxt/docker-compose.json
+@@ -2,7 +2,7 @@
+   "services": [
+     {
+       "name": "dailytxt",
+-      "image": "phitux/dailytxt:2.3.0",
++      "image": "phitux/dailytxt:2.4.1",
+       "isMain": true,
+       "internalPort": 80,
+       "environment": [
+diff --git a/apps/dailytxt/docker-compose.yml b/apps/dailytxt/docker-compose.yml
+index 44d3bb2..2aef447 100644
+--- a/apps/dailytxt/docker-compose.yml
++++ b/apps/dailytxt/docker-compose.yml
+@@ -1,7 +1,7 @@
+ version: '3.7'
+ services:
+   dailytxt:
+-    image: phitux/dailytxt:2.3.0
++    image: phitux/dailytxt:2.4.1
+     container_name: dailytxt
+     restart: unless-stopped
+     environment:
+-- 
+2.52.0
+

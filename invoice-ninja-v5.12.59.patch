@@ -1,0 +1,62 @@
+From d47f5fef6b404b9cf3ab40ec8ac6e79f7f8da948 Mon Sep 17 00:00:00 2001
+From: TheGuardianLight <64707127+TheGuardianLight@users.noreply.github.com>
+Date: Sat, 14 Feb 2026 14:26:54 +0000
+Subject: [PATCH] chore(invoice-ninja): update to v5.12.59
+
+---
+ apps/invoice-ninja/config.json         | 6 +++---
+ apps/invoice-ninja/docker-compose.json | 2 +-
+ apps/invoice-ninja/docker-compose.yml  | 2 +-
+ 3 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/apps/invoice-ninja/config.json b/apps/invoice-ninja/config.json
+index 2c57cc8..5667f78 100644
+--- a/apps/invoice-ninja/config.json
++++ b/apps/invoice-ninja/config.json
+@@ -6,8 +6,8 @@
+   "exposable": true,
+   "dynamic_config": true,
+   "id": "invoice-ninja",
+-  "tipi_version": 107,
+-  "version": "5.12.55",
++  "tipi_version": 108,
++  "version": "5.12.59",
+   "categories": ["finance"],
+   "description": "Invoice Ninja is an invoicing application which makes sending invoices and receiving payments simple and easy. Our latest version is a clean slate rewrite of our popular invoicing application which builds on the existing feature set and adds a wide range of features and enhancements the community has asked for.",
+   "short_desc": "Invoices, Expenses and Tasks built with Laravel, Flutter and React.",
+@@ -47,6 +47,6 @@
+   ],
+   "supported_architectures": ["arm64", "amd64"],
+   "created_at": 1691943801422,
+-  "updated_at": 1770355933020,
++  "updated_at": 1771076480951,
+   "min_tipi_version": "4.5.0"
+ }
+diff --git a/apps/invoice-ninja/docker-compose.json b/apps/invoice-ninja/docker-compose.json
+index 8c77541..0d00d4d 100644
+--- a/apps/invoice-ninja/docker-compose.json
++++ b/apps/invoice-ninja/docker-compose.json
+@@ -2,7 +2,7 @@
+   "services": [
+     {
+       "name": "invoice-ninja",
+-      "image": "invoiceninja/invoiceninja:5.12.55",
++      "image": "invoiceninja/invoiceninja:5.12.59",
+       "user": "1500:1500",
+       "environment": [
+         {
+diff --git a/apps/invoice-ninja/docker-compose.yml b/apps/invoice-ninja/docker-compose.yml
+index 4f1af86..b044738 100644
+--- a/apps/invoice-ninja/docker-compose.yml
++++ b/apps/invoice-ninja/docker-compose.yml
+@@ -1,6 +1,6 @@
+ services:
+   invoice-ninja:
+-    image: invoiceninja/invoiceninja:5.12.55
++    image: invoiceninja/invoiceninja:5.12.59
+     container_name: invoice-ninja
+     restart: unless-stopped
+     user: '1500:1500'
+-- 
+2.52.0
+

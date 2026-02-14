@@ -34,7 +34,25 @@
 - Ready to create separate pull requests for each branch
 
 ## Next Steps
-To push these branches and create PRs, run:
+The branches have been created locally with the proper author information preserved. To create the two separate PRs, use one of these methods:
+
+### Method 1: Apply Patches (Recommended)
+Two patch files are included in this repository that preserve the commit author:
+
+```bash
+# For DailyTxT PR:
+git checkout -b dailytxt-v2.4.1 fda13b2
+git am < dailytxt-v2.4.1.patch
+git push origin dailytxt-v2.4.1
+
+# For Invoice Ninja PR:
+git checkout -b invoice-ninja-v5.12.59 fda13b2
+git am < invoice-ninja-v5.12.59.patch
+git push origin invoice-ninja-v5.12.59
+```
+
+### Method 2: Cherry-pick from Local Branches
+If the local branches are still available:
 
 ```bash
 # Push the DailyTxT branch
@@ -47,3 +65,10 @@ git push origin invoice-ninja-v5.12.59
 Then create two separate pull requests:
 1. From `dailytxt-v2.4.1` → `master` with title: "chore(dailytxt): update to v2.4.1"
 2. From `invoice-ninja-v5.12.59` → `master` with title: "chore(invoice-ninja): update to v5.12.59"
+
+### Verification
+Both commits preserve the original author:
+- Author: TheGuardianLight <64707127+TheGuardianLight@users.noreply.github.com>
+- Commit hashes: 
+  - DailyTxT: 21b4740c2d55715ac7a7270fa4ea9f233c65b5a9
+  - Invoice Ninja: d47f5fef6b404b9cf3ab40ec8ac6e79f7f8da948
