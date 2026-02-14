@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "planka",
-      "image": "ghcr.io/plankanban/planka:1.26.3",
+      "image": "ghcr.io/plankanban/planka:2.0.0",
       "isMain": true,
       "internalPort": 1337,
       "environment": [
