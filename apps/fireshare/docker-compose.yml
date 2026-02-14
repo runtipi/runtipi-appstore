@@ -2,7 +2,7 @@ version: '3'
 services:
   fireshare:
     container_name: fireshare
-    image: shaneisrael/fireshare:1.4.1
+    image: shaneisrael/fireshare:1.4.2
     ports:
       - ${APP_PORT}:80
     volumes:
