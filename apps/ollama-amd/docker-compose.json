@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "ollama-amd",
-      "image": "ollama/ollama:0.15.6-rocm",
+      "image": "ollama/ollama:0.16.1-rocm",
       "isMain": true,
       "internalPort": 11434,
       "environment": [
