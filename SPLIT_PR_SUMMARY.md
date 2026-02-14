@@ -32,3 +32,18 @@
 - The min_tipi_version remains at 4.5.0 (not updated to 4.7.2 as in original PR, per user request)
 - Each branch contains changes for only one app
 - Ready to create separate pull requests for each branch
+
+## Next Steps
+To push these branches and create PRs, run:
+
+```bash
+# Push the DailyTxT branch
+git push origin dailytxt-v2.4.1
+
+# Push the Invoice Ninja branch  
+git push origin invoice-ninja-v5.12.59
+```
+
+Then create two separate pull requests:
+1. From `dailytxt-v2.4.1` → `master` with title: "chore(dailytxt): update to v2.4.1"
+2. From `invoice-ninja-v5.12.59` → `master` with title: "chore(invoice-ninja): update to v5.12.59"
