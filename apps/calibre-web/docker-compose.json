@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "calibre-web",
-      "image": "lscr.io/linuxserver/calibre-web:0.6.26",
+      "image": "lscr.io/linuxserver/calibre-web:2021.12.16",
       "isMain": true,
       "internalPort": 8083,
       "environment": [

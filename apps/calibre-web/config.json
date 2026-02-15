@@ -5,8 +5,8 @@
   "exposable": true,
   "dynamic_config": true,
   "port": 8100,
-  "tipi_version": 17,
-  "version": "0.6.26",
+  "tipi_version": 18,
+  "version": "2021.12.16",
   "id": "calibre-web",
   "categories": ["books"],
   "description": "On the initial setup screen, enter /calibre as your calibre library location, check box Separate Book Files from Library, then enter /books. \n Default admin login: Username: admin Password: admin123",
@@ -16,6 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1770441361589,
+  "updated_at": 1771171069127,
   "min_tipi_version": "4.5.0"
 }
