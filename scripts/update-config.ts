@@ -39,7 +39,6 @@ const updateAppConfig = async (packageFile: string, newVersion: string) => {
     const packageRoot = path.dirname(packageFile);
     const configPath = path.join(packageRoot, "config.json");
     const dockerComposeYmlPath = path.join(packageRoot, "docker-compose.yml");
-    const dockerComposeJsonPath = path.join(packageRoot, "docker-compose.json");
 
     const config = await readJsonFile<AppInfo>(configPath);
     const dockerComposeYml = await readYamlFile<DockerComposeYml>(dockerComposeYmlPath);
