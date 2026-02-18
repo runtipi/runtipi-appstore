@@ -20,13 +20,6 @@ interface DockerComposeYml {
   [key: string]: unknown;
 }
 
-interface DockerComposeJson {
-  services: Array<{
-    image: string;
-    isMain: boolean;
-  }>;
-}
-
 export async function readYamlFile<T>(filepath: string): Promise<T | null> {
   try {
     const content = await fs.readFile(filepath, "utf-8");
@@ -50,7 +43,6 @@ const updateAppConfig = async (packageFile: string, newVersion: string) => {
 
     const config = await readJsonFile<AppInfo>(configPath);
     const dockerComposeYml = await readYamlFile<DockerComposeYml>(dockerComposeYmlPath);
-    const dockerComposeJson = await readJsonFile<DockerComposeJson>(dockerComposeJsonPath);
 
     if (dockerComposeYml) {
       dockerComposeYml.services = Object.fromEntries(
