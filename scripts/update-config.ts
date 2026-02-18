@@ -64,16 +64,7 @@ const updateAppConfig = async (packageFile: string, newVersion: string) => {
       );
     }
 
-    if (dockerComposeJson) {
-      for (const service of dockerComposeJson.services) {
-        if (service.image === `${packageName}:${newVersion}` && service.isMain) {
-          config.version = newVersion;
-        }
-      }
-    } else {
-      config.version = newVersion;
-    }
-
+    config.version = newVersion;
     config.tipi_version = config.tipi_version + 1;
     config.updated_at = Date.now();
 
