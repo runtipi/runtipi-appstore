@@ -1,0 +1,32 @@
+{
+  "services": [
+    {
+      "name": "seerr",
+      "image": "ghcr.io/seerr-team/seerr:v3.0.1",
+      "isMain": true,
+      "internalPort": 5055,
+      "environment": [
+        {
+          "key": "LOG_LEVEL",
+          "value": "debug"
+        },
+        {
+          "key": "TZ",
+          "value": "${TZ}"
+        },
+        {
+          "key": "PORT",
+          "value": "5055"
+        }
+      ],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/config",
+          "containerPath": "/app/config"
+        }
+      ]
+    }
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
+}

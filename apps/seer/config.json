@@ -1,0 +1,21 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "Seerr",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 5055,
+  "id": "seerr",
+  "tipi_version": 1,
+  "version": "3.0.1",
+  "categories": ["media", "utilities"],
+  "description": "Seerr is a free and open source software application for managing requests for your media library.",
+  "short_desc": "Managing requests for your media library",
+  "author": "Seerr-team",
+  "source": "https://github.com/seerr-team/seerr",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1771504444444,
+  "updated_at": 1771504444445,
+  "min_tipi_version": "4.5.0"
+}
