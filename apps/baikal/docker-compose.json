@@ -4,7 +4,7 @@
   "services": [
     {
       "name": "baikal",
-      "image": "ckulka/baikal:0.10.1-nginx",
+      "image": "ghcr.io/aalmenar/baikal:0.11.1",
       "isMain": true,
       "internalPort": 80,
       "volumes": [
