@@ -5,18 +5,16 @@ You can install **Seer** from the appstore and transfer your data easily with th
 ## Migration steps
 #### From the Runtipi Web UI
 1. Install the new app **Seer**
-2. Stop it
-3. Click on the three dots and select `Reset app`
-4. Keep it stopped until **step 7** 
+2. Stop it *(Keep it stopped until **step 5**)*
 
 #### From your Runtipi host terminal
-5. Go to your Runtipi install folder : `cd /path/to/runtipi`
-6. Copy all files to their new location :
+3. Go to your Runtipi install folder : `cd /path/to/runtipi`
+4. Copy all files to their new location :
 ``` bash
-cp -r app-data/migrated/overseer/data/config/. app-data/migrated/seer/config/
+cp -r app-data/migrated/overseerr/data/config/. app-data/migrated/seerr/data/config/
 ```
 #### Back to the Runtipi Web UI
-7. You can start Seer, migration will proceed automatically
+5. You can start Seer, migration will proceed automatically
 
 > Once everything is fine you can uninstall Overseer.
 
