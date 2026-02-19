@@ -1,3 +1,24 @@
+# Migration Notice - 2026
+*Jellyseer* merge with *Overseer* to become **Seer**
+You can install **Seer** from the appstore and transfer your data easily with the following steps.
+
+## Migration steps
+#### From the Runtipi Web UI
+1. Install the new app **Seer**
+2. Stop it *(Keep it stopped until **step 5**)*
+
+#### From your Runtipi host terminal
+3. Go to your Runtipi install folder : `cd /path/to/runtipi`
+4. Copy all files to their new location :
+``` bash
+cp -r app-data/migrated/jellyseerr/data/jellyseerr-config/. app-data/migrated/seerr/data/config/
+```
+#### Back to the Runtipi Web UI
+5. You can start Seer, migration will proceed automatically
+
+> Once everything is fine you can uninstall Jellyseer.
+
+# What is Jellyseer
 **Jellyseerr** is a free and open source software application for managing requests for your media library. It is a a fork of Overseerr built to bring support for Jellyfin & Emby media servers!
 
 _The original Overseerr team have been busy and Jellyfin/Emby support aren't on their roadmap, so we started this project as we wanted to bring the Overseerr experience to the Jellyfin/Emby Community!_

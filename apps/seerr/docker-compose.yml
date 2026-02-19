@@ -1,0 +1,37 @@
+version: '3'
+services:
+  seerr:
+    container_name: seerr
+    image: ghcr.io/seerr-team/seerr:v3.0.1
+    ports:
+      - ${APP_PORT}:5055
+    volumes:
+      - ${APP_DATA_DIR}/data/config:/app/config
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=${TZ}
+      - PORT=5055
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: true
+      traefik.http.middlewares.seerr-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.seerr.loadbalancer.server.port: 5055
+      traefik.http.routers.seerr-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.seerr-insecure.entrypoints: web
+      traefik.http.routers.seerr-insecure.service: seerr
+      traefik.http.routers.seerr-insecure.middlewares: seerr-web-redirect
+      traefik.http.routers.seerr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.seerr.entrypoints: websecure
+      traefik.http.routers.seerr.service: seerr
+      traefik.http.routers.seerr.tls.certresolver: myresolver
+      traefik.http.routers.seerr-local-insecure.rule: Host(`seerr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.seerr-local-insecure.entrypoints: web
+      traefik.http.routers.seerr-local-insecure.service: seerr
+      traefik.http.routers.seerr-local-insecure.middlewares: seerr-web-redirect
+      traefik.http.routers.seerr-local.rule: Host(`seerr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.seerr-local.entrypoints: websecure
+      traefik.http.routers.seerr-local.service: seerr
+      traefik.http.routers.seerr-local.tls: true
+      runtipi.managed: true
