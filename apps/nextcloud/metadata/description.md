@@ -40,7 +40,7 @@ php occ user:resetpassword username
 ![](https://raw.githubusercontent.com/nextcloud/screenshots/master/files/Files%20Sharing.png)
 
 # ⛺ Runtipi Note - 2026
-The version of this app is currently not aligned with the latest avaible: 32.
+The version of this app is currently not aligned with the latest avaible: 33.
 Since Nextcloud requires to be upgraded step-by-step (you can  only update to the next major and can't skip iterations),  we will be rolling out a major update version every month until we catch up with the latest version.
 
 ## Tips
@@ -58,14 +58,33 @@ services:
 ```
 
 ### Useful command
-In some cases (like restoring an old installation) you could meet an error mentionning files permissions.
+!!! **Make sure to know what you are doing and backup your data.** !!!
 
 1. Access your Runtipi host command line
 2. Go to your Runtipi installation directory
 ```bash
 cd runtipi
 ```
-3. Fix the files ownership
+
+#### Fix the files ownership
 ```bash
 chown -R www-data:www-data app-data/migrated/nextcloud/data/nextcloud/
+```
+
+#### Edit your configuration (be careful)
+This can be necessary in some use case *(maintenance mode, add a new domain...)*
+
+```bash
+nano app-data/migrated/nextcloud/data/nextcloud/config/config.php
+```
+
+#### Manual update
+```bash
+docker exec -it  nextcloud_migrated-nextcloud-1 php occ upgrade
+```
+
+#### Interact with database (advanced users)
+
+```bash
+docker exec -it nextcloud_migrated-nextcloud-db-1 psql -d nextcloud -U nextcloud
 ```
