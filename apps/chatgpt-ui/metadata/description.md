@@ -1,3 +1,11 @@
+# Deprecation Notice - 2026
+This app hasn't been update since 2023 and doesn't really fit to today standards. (see dev note below)
+ChatGPT UI is now deprecated and will be removed from the appstore soon.
+
+## Developer note
+⚠️ This project was originally designed for ChatGPT. However, with the booming development of Large Language Model (LLM) technologies, the current architecture can no longer meet the growing demands. Please check out my new project: [RiceBall - Private AI Knowledge Base & Agent Platform Built for Teams and Enterprises](https://github.com/riceball-ai/riceball) 🚀
+
+
 # Domain Info
 
 | Exposed Service      | Local Port | Exposed Domain      |

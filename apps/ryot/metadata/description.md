@@ -1,3 +1,16 @@
+# Runtipi deprecation notice - 2026
+RYOT has been made available in Runtipi very early in his development which implied multiple breaking major updates with manual steps required. 
+This prevented us to provide continuous updates since `v2` *(RYOT is already at `v10`)*.
+
+For security reasons, we can't keep an outdated app like this.
+
+If you want to continue using RYOT with Runtipi : 
+ - The latest version is available in this trusted appstore : https://github.com/steveiliop56/runtipi-appstore
+ - You can also create a custom app
+
+If you want to keep your old data, you can make use of the official migration guides :
+https://docs.ryot.io/migration.html
+
 ## Install Info
 
 If you want to setup Video Tracking, you need to set a Twitch Client ID and Secret. Please read the [Ryot Documentation](https://docs.ryot.io/guides/video-games) if you do not know how to get them.
