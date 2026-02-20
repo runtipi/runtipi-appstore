@@ -6,8 +6,8 @@
   "exposable": false,
   "dynamic_config": true,
   "id": "glances",
-  "tipi_version": 15,
-  "version": "4.5.0.4",
+  "tipi_version": 16,
+  "version": "4.5.0.5",
   "categories": ["utilities"],
   "description": "Glances is an open-source system cross-platform monitoring tool. It allows real-time monitoring of various aspects of your system such as CPU, memory, disk, network usage etc.",
   "short_desc": "An eye on your system",
@@ -17,7 +17,7 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1771046301964,
+  "updated_at": 1771565601085,
   "force_pull": false,
   "min_tipi_version": "4.5.0"
 }
