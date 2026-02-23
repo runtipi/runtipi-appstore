@@ -4,7 +4,7 @@
   "services": [
     {
       "name": "drawio",
-      "image": "jgraph/drawio:29.5.1",
+      "image": "jgraph/drawio:29.5.2",
       "isMain": true,
       "internalPort": 8080,
       "tty": true,
