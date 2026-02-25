@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "hedgedoc",
-      "image": "quay.io/hedgedoc/hedgedoc:1.10.6",
+      "image": "quay.io/hedgedoc/hedgedoc:1.10.7",
       "isMain": true,
       "internalPort": 3000,
       "environment": [
