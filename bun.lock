@@ -9,7 +9,7 @@
         "ajv": "^8.18.0",
       },
       "devDependencies": {
-        "@biomejs/biome": "^2.4.3",
+        "@biomejs/biome": "^2.4.4",
         "@commitlint/cli": "^20.4.2",
         "@commitlint/config-conventional": "^20.4.2",
         "@commitlint/cz-commitlint": "^20.4.1",
