@@ -5,10 +5,9 @@
   "available": true,
   "exposable": true,
   "dynamic_config": true,
-  "force_expose": true,
   "generate_vapid_keys": true,
   "id": "mastodon",
-  "tipi_version": 52,
+  "tipi_version": 53,
   "version": "4.5.7",
   "categories": ["social"],
   "description": "Your self-hosted, globally interconnected microblogging community",
@@ -49,7 +48,6 @@
       "label": "SMTP Host",
       "hint": "Your SMTP Server",
       "placeholder": "smtp.example.com",
-      "required": true,
       "env_variable": "MASTODON_SMTP_SERVER"
     },
     {
@@ -57,7 +55,6 @@
       "label": "SMTP Port",
       "hint": "Your SMTP Port",
       "placeholder": "25",
-      "required": true,
       "env_variable": "MASTODON_SMTP_PORT"
     },
     {
@@ -65,14 +62,12 @@
       "label": "SMTP Username",
       "hint": "Your SMTP Server User/Username",
       "placeholder": "noreply@example.com",
-      "required": true,
       "env_variable": "MASTODON_SMTP_LOGIN"
     },
     {
       "type": "password",
       "label": "SMTP Password",
       "hint": "Your SMTP Server Password",
-      "required": true,
       "env_variable": "MASTODON_SMTP_PASSWORD"
     },
     {
@@ -80,7 +75,6 @@
       "label": "SMTP From Address",
       "hint": "Make sure the Format is like noreply@example.com",
       "placeholder": "noreply@example.com",
-      "required": true,
       "env_variable": "MASTODON_SMTP_FROM_ADDRESS"
     },
     {
