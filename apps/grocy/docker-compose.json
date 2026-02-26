@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "grocy",
-      "image": "lscr.io/linuxserver/grocy:v4.0.3-ls215",
+      "image": "lscr.io/linuxserver/grocy:4.5.0",
       "isMain": true,
       "internalPort": 80,
       "environment": [
