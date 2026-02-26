@@ -1,20 +1,24 @@
 ## Installation Notice
 
-- *Mastodon is a heavy app, and may take a bit longer to fully start up.*
-- Must be on Tipi Version **1.4.0** for the expose app to work!
-
-#### Local Domain Varibale 
-- The local domain variable ca be the same as the exposed domain (Ex: social.example.com). But you could have the exposed domain as social.example.com and the username url as example.com.
+#### Local Domain Variable 
+- The local domain variable defines the instance name
+- It can be different from the exposed domain: you could have the exposed domain as social.example.com and the username url as example.com.
 
 ## Initial User Setup
 1. SSH into your Tipi Server
-2. Fill in your credentials (some_username,someone@example.org, some_very_good_password), then run the command: 
+2. Fill in your credentials (some_username, someone@example.org), then run the command: 
     ``` 
-    sudo docker exec -it -w /app/www mastodon bin/tootctl accounts create some_username --email someone@example.org --confirmed --role Owner 
+    sudo docker exec -it -w /app/www mastodon_migrated-mastodon-1 bin/tootctl accounts create some_username --email someone@example.org --confirmed --role Owner 
+    ```
+3. A randomly generated password will be shown in the terminal. *(change it as soon as possible)*
+4. You will need to approve your new admin account:
+    ``` 
+    sudo docker exec -it -w /app/www mastodon_migrated-mastodon-1 bin/tootctl accounts modify some_username --approve
     ```
 
-
 ---
+
+## Mastodon
 Mastodon is a **free, open-source social network server** based on ActivityPub where users can follow friends and discover new ones. On Mastodon, users can publish anything they want: links, pictures, text, video. All Mastodon servers are interoperable as a federated network (users on one server can seamlessly communicate with users from another one, including non-Mastodon software that implements ActivityPub!)
 
 Click below to **learn more** in a video:
