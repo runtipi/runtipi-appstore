@@ -10,7 +10,7 @@
   "version": "0.1.0",
   "categories": ["gaming"],
   "short_desc": "Gameboy in your browser",
-  "author": "meienberger",
+  "author": "nicotsx",
   "source": "https://github.com/nicotsx/nextgba",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
