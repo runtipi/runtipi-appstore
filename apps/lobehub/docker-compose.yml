@@ -1,0 +1,37 @@
+version: '3.9'
+services:
+  lobehub:
+    container_name: lobehub
+    image: lobehub/lobehub:2.1.33
+    environment:
+      - KEY_VAULTS_SECRET=${LOBEHUB_KEY_VAULTS_SECRET}
+      - AUTH_SECRET=${LOBEHUB_AUTH_SECRET}
+      - DATABASE_URL="postgresql://postgres:${LOBEHUB_DB_PASSWORD}@lobehub-postgres:5432/lobehub"*
+      - SEARXNG_URL=${LOBEHUB_SEARXNG_URL}
+      - REDIS_URL="redis://lobehub-redis:6379"
+    ports:
+      - ${APP_PORT}:3210
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: true
+      traefik.http.middlewares.lobehub-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.lobehub.loadbalancer.server.port: 3210
+      traefik.http.routers.lobehub-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.lobehub-insecure.entrypoints: web
+      traefik.http.routers.lobehub-insecure.service: lobehub
+      traefik.http.routers.lobehub-insecure.middlewares: lobehub-web-redirect
+      traefik.http.routers.lobehub.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.lobehub.entrypoints: websecure
+      traefik.http.routers.lobehub.service: lobehub
+      traefik.http.routers.lobehub.tls.certresolver: myresolver
+      traefik.http.routers.lobehub-local-insecure.rule: Host(`lobehub.${LOCAL_DOMAIN}`)
+      traefik.http.routers.lobehub-local-insecure.entrypoints: web
+      traefik.http.routers.lobehub-local-insecure.service: lobehub
+      traefik.http.routers.lobehub-local-insecure.middlewares: lobehub-web-redirect
+      traefik.http.routers.lobehub-local.rule: Host(`lobehub.${LOCAL_DOMAIN}`)
+      traefik.http.routers.lobehub-local.entrypoints: websecure
+      traefik.http.routers.lobehub-local.service: lobehub
+      traefik.http.routers.lobehub-local.tls: true
+      runtipi.managed: true

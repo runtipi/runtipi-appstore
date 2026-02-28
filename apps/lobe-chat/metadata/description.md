@@ -1,3 +1,7 @@
+# Deprecation Note - 2026
+LobeChat has evolved to become LobeHub, it is already available as a new app.
+LobeChat is now deprecated and will be removed soon.
+
 # Lobe Chat
 
 LobeChat is an open-source, high-performance chatbot framework that supports

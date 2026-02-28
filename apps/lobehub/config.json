@@ -1,0 +1,43 @@
+{
+  "name": "LobeHub",
+  "available": true,
+  "port": 3210,
+  "exposable": true,
+  "dynamic_config": true,
+  "id": "lobehub",
+  "description": "LobeChat is an open-source, high-performance chatbot framework that supports speech synthesis, multimodal, and extensible (Function Call) plugin system.",
+  "tipi_version": 551,
+  "version": "2.1.33",
+  "categories": ["ai"],
+  "short_desc": "LLM chatbot framework",
+  "author": "https://github.com/lobehub",
+  "source": "https://github.com/lobehub/lobehub",
+  "website": "https://lobehub.com",
+  "form_fields": [
+    {
+      "type": "url",
+      "label": "SearXNG URL",
+      "required": false,
+      "hint": "You can install SearXNG from the appstore",
+      "placeholder": "http://searxng:8080",
+      "env_variable": "LOBEHUB_SEARXNG_URL"
+    },
+    {
+      "type": "random",
+      "label": "LOBEHUB_KEY_VAULTS_SECRET",
+      "max": 64,
+      "env_variable": "LOBEHUB_KEY_VAULTS_SECRET"
+    },
+    {
+      "type": "random",
+      "label": "LOBEHUB_AUTH_SECRET",
+      "max": 64,
+      "env_variable": "LOBEHUB_AUTH_SECRET"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1772282555554,
+  "updated_at": 1772282555555,
+  "$schema": "../app-info-schema.json",
+  "min_tipi_version": "4.5.0"
+}

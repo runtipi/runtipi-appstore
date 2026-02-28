@@ -1,0 +1,64 @@
+{
+  "services": [
+    {
+      "name": "lobehub",
+      "image": "lobehub/lobehub:2.1.33",
+      "isMain": true,
+      "internalPort": 3210,
+      "environment": [
+        {
+          "key": "KEY_VAULTS_SECRET",
+          "value": "${LOBEHUB_KEY_VAULTS_SECRET}"
+        },
+        {
+          "key": "AUTH_SECRET",
+          "value": "${LOBEHUB_AUTH_SECRET}"
+        },
+        {
+          "key": "DATABASE_URL",
+          "value": "postgresql://postgres:${LOBEHUB_DB_PASSWORD}@lobehub-postgres:5432/lobehub"
+        },
+        {
+          "key": "SEARXNG_URL",
+          "value": "${LOBEHUB_SEARXNG_URL}"
+        },
+        {
+          "key": "REDIS_URL",
+          "value": "redis://lobehub-redis:6379"
+        }
+      ]
+    },
+    {
+      "name": "lobehub-postgres",
+      "image": "postgres:18-alpine",
+      "environment": [
+        {
+          "key": "POSTGRES_DB",
+          "value": "lobehub"
+        },
+        {
+          "key": "POSTGRES_PASSWORD",
+          "value": "${LOBEHUB_DB_PASSWORD}"
+        }
+      ],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/postgres",
+          "containerPath": "/var/lib/postgres"
+        }
+      ]
+    },
+    {
+      "name": "lobehub-redis",
+      "image": "redis:7-alpine",
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/redis",
+          "containerPath": "/data"
+        }
+      ]
+    }
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
+}
