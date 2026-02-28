@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 5055,
   "id": "seerr",
-  "tipi_version": 1,
-  "version": "3.0.1",
+  "tipi_version": 2,
+  "version": "v3.1.0",
   "categories": ["media", "utilities"],
   "description": "Seerr is a free and open source software application for managing requests for your media library.",
   "short_desc": "Managing requests for your media library",
@@ -16,6 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1771504444444,
-  "updated_at": 1771504444445,
+  "updated_at": 1772274313066,
   "min_tipi_version": "4.5.0"
 }

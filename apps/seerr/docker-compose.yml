@@ -2,7 +2,7 @@ version: '3'
 services:
   seerr:
     container_name: seerr
-    image: ghcr.io/seerr-team/seerr:v3.0.1
+    image: ghcr.io/seerr-team/seerr:v3.1.0
     ports:
       - ${APP_PORT}:5055
     volumes:
