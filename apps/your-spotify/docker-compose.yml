@@ -58,7 +58,7 @@ services:
       runtipi.managed: true
   your-spotify-db:
     container_name: your-spotify-db
-    image: mongo:4.4.30
+    image: mongo:8.2.5
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data/db:/data/db
