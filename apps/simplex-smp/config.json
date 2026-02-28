@@ -7,8 +7,8 @@
   "dynamic_config": true,
   "no_gui": true,
   "id": "simplex-smp",
-  "tipi_version": 40,
-  "version": "v6.4.5",
+  "tipi_version": 41,
+  "version": "v7.0.0",
   "categories": ["social"],
   "description": "A reference implementation of the SimpleX Messaging Protocol for simplex queues over public networks.",
   "short_desc": "A reference implementation of the SimpleX Messaging Protocol for simplex queues over public networks.",
@@ -26,6 +26,6 @@
   ],
   "supported_architectures": ["amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1761338378510,
+  "updated_at": 1772255301050,
   "min_tipi_version": "4.5.0"
 }
