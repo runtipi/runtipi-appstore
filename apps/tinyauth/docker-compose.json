@@ -2,40 +2,40 @@
   "services": [
     {
       "name": "tinyauth",
-      "image": "ghcr.io/steveiliop56/tinyauth:v4.1.0",
+      "image": "ghcr.io/steveiliop56/tinyauth:v5.0.0",
       "internalPort": 3000,
       "isMain": true,
       "environment": [
         {
-          "key": "APP_TITLE",
+          "key": "TINYAUTH_UI_TITLE",
           "value": "${TINYAUTH_APP_TITLE}"
         },
         {
-          "key": "APP_URL",
+          "key": "TINYAUTH_APPURL",
           "value": "${TINYAUTH_APP_URL}"
         },
         {
-          "key": "USERS",
+          "key": "TINYAUTH_AUTH_USERS",
           "value": "${TINYAUTH_USERS}"
         },
         {
-          "key": "PROVIDERS_GITHUB_CLIENT_ID",
+          "key": "TINYAUTH_OAUTH_PROVIDERS_GITHUB_CLIENTID",
           "value": "${TINYAUTH_GITHUB_CLIENT_ID}"
         },
         {
-          "key": "PROVIDERS_GITHUB_CLIENT_SECRET",
+          "key": "TINYAUTH_OAUTH_PROVIDERS_GITHUB_CLIENTSECRET",
           "value": "${TINYAUTH_GITHUB_CLIENT_SECRET}"
         },
         {
-          "key": "PROVIDERS_GOOGLE_CLIENT_ID",
+          "key": "TINYAUTH_OAUTH_PROVIDERS_GOOGLE_CLIENTID",
           "value": "${TINYAUTH_GOOGLE_CLIENT_ID}"
         },
         {
-          "key": "PROVIDERS_GOOGLE_CLIENT_SECRET",
+          "key": "TINYAUTH_OAUTH_PROVIDERS_GOOGLE_CLIENTSECRET",
           "value": "${TINYAUTH_GOOGLE_CLIENT_SECRET}"
         },
         {
-          "key": "OAUTH_WHITELIST",
+          "key": "TINYAUTH_OAUTH_WHITELIST",
           "value": "${TINYAUTH_OAUTH_WHITELIST}"
         }
       ],
