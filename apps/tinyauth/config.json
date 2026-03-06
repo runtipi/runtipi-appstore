@@ -8,14 +8,14 @@
   "port": 8357,
   "categories": ["security"],
   "description": "Tinyauth is a tiny OpenID Connect (OIDC) authentication and authorization server for your self-hosted applications.",
-  "tipi_version": 19,
-  "version": "v5.0.0",
+  "tipi_version": 20,
+  "version": "v5.0.1",
   "source": "https://github.com/steveiliop56/tinyauth",
   "website": "https://tinyauth.app",
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1742119744755,
-  "updated_at": 1772479994973,
+  "updated_at": 1772774220937,
   "dynamic_config": true,
   "form_fields": [
     {
