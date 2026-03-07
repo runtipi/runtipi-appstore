@@ -7,7 +7,7 @@
   "dynamic_config": true,
   "id": "homebox",
   "tipi_version": 34,
-  "version": "0.23.1",
+  "version": "0.24.0",
   "uid": 1000,
   "gid": 1000,
   "categories": ["utilities"],
