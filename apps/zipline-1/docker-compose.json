@@ -65,13 +65,7 @@
           "hostPath": "${APP_DATA_DIR}/data/postgres",
           "containerPath": "/var/lib/postgresql"
         }
-      ],
-      "healthCheck": {
-        "interval": "10s",
-        "timeout": "5s",
-        "retries": 5,
-        "test": "pg_isready -U tipi"
-      }
+      ]
     }
   ],
   "schemaVersion": 2,
