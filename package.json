@@ -7,6 +7,7 @@
     "commit": "git-cz",
     "lint": "biome check",
     "lint:ci": "biome ci --changed --error-on-warnings --no-errors-on-unmatched",
+    "test:codemod:native-docker": "node --test codemods/native-docker/tests/convert-native-docker.test.mjs",
     "test": "bun test && bun run scripts/validate-json.js",
     "prepare": "lefthook install"
   },

@@ -1,0 +1,42 @@
+version: "1"
+
+params:
+  schema:
+    root:
+      name: "Root directory"
+      description: "App store root directory. Defaults to the current working directory."
+      type: string
+      default: "."
+    apps_dir:
+      name: "Apps directory"
+      description: "Directory containing app folders, relative to root."
+      type: string
+      default: "apps"
+    app:
+      name: "Single app id"
+      description: "Convert one app id. Leave empty to convert every app in apps_dir."
+      type: string
+      default: ""
+    write:
+      name: "Write docker-compose.yml"
+      description: "Write converted YAML files. Defaults to dry-run mode."
+      type: string
+      default: "false"
+    force:
+      name: "Overwrite existing YAML"
+      description: "Overwrite docker-compose.yml if it already exists."
+      type: string
+      default: "false"
+    delete_json:
+      name: "Delete JSON"
+      description: "Delete docker-compose.json after a successful write."
+      type: string
+      default: "false"
+
+nodes:
+  - id: convert-native-docker
+    name: Convert docker-compose.json apps to native docker-compose.yml
+    type: automatic
+    steps:
+      - name: Convert compose files
+        run: node "$CODEMOD_PATH/scripts/convert-native-docker.mjs" --root "${{ params.root }}" --apps-dir "${{ params.apps_dir }}" --app "${{ params.app }}" --write "${{ params.write }}" --force "${{ params.force }}" --delete-json "${{ params.delete_json }}"

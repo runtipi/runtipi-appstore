@@ -11,6 +11,12 @@
       "managerFilePatterns": ["/^.*docker-compose\\.json$/"],
       "matchStrings": ["\"image\": \"(?<depName>.*?):(?<currentValue>.*?)\","],
       "datasourceTemplate": "docker"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/^.*docker-compose\\.ya?ml$/"],
+      "matchStrings": ["image:\\s+[\"']?(?<depName>.*?):(?<currentValue>[^\"'\\s]+)[\"']?"],
+      "datasourceTemplate": "docker"
     }
   ],
   "packageRules": [
