@@ -1,20 +1,4 @@
-# Migration Notice - 03/2026
-
-Zipline **v4** needs a manual migration, to make this happen you need to install the new Zipline app from the appstore and apply the provided migration steps.
-
-From the official website you will have all the details with images : *(ignore all steps related to docker commands)*
-> Follow steps **1** to **3**, then steps **6** to **15** 
-
-https://zipline.diced.sh/docs/migrate#migrate-from-v3
-
-# Zipline
-
 A ShareX/file upload server that is easy to use, packed with features, and with an easy setup!
-
-## Default credentials
-
-Username: administrator
-Password: password
 
 ## Features
 
