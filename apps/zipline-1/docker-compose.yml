@@ -49,7 +49,7 @@ services:
     networks:
       - tipi_main_network
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      test: ['CMD-SHELL', 'pg_isready -U tipi']
       interval: 10s
       timeout: 5s
       retries: 5

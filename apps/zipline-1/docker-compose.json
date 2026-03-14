@@ -70,7 +70,7 @@
         "interval": "10s",
         "timeout": "5s",
         "retries": 5,
-        "test": "pg_isready -U postgres"
+        "test": "pg_isready -U tipi"
       }
     }
   ],
