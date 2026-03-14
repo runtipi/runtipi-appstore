@@ -33,6 +33,12 @@
       "label": "LOBEHUB_AUTH_SECRET",
       "max": 64,
       "env_variable": "LOBEHUB_AUTH_SECRET"
+    },
+    {
+      "type": "random",
+      "label": "LOBEHUB_DB_PASSWORD",
+      "max": 64,
+      "env_variable": "LOBEHUB_DB_PASSWORD"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],

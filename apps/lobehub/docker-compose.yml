@@ -6,7 +6,7 @@ services:
     environment:
       - KEY_VAULTS_SECRET=${LOBEHUB_KEY_VAULTS_SECRET}
       - AUTH_SECRET=${LOBEHUB_AUTH_SECRET}
-      - DATABASE_URL="postgresql://postgres:${LOBEHUB_DB_PASSWORD}@lobehub-postgres:5432/lobehub"*
+      - DATABASE_URL="postgresql://postgres:${LOBEHUB_DB_PASSWORD}@lobehub-db:5432/lobehub"
       - SEARXNG_URL=${LOBEHUB_SEARXNG_URL}
       - REDIS_URL="redis://lobehub-redis:6379"
     ports:
@@ -34,4 +34,18 @@ services:
       traefik.http.routers.lobehub-local.entrypoints: websecure
       traefik.http.routers.lobehub-local.service: lobehub
       traefik.http.routers.lobehub-local.tls: true
+      runtipi.managed: true
+  lobehub-db:
+    container_name: lobehub-db
+    image: postgres:18
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    environment:
+      - POSTGRES_PASSWORD=${LOBEHUB_DB_PASSWORD}
+      - POSTGRES_DB=lobehub
+    volumes:
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql
+      - ${APP_DATA_DIR}/data/init-data.sh:/docker-entrypoint-initdb.d/init-data.sh
+    labels:
       runtipi.managed: true

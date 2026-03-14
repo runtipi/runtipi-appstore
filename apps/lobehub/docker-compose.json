@@ -16,7 +16,7 @@
         },
         {
           "key": "DATABASE_URL",
-          "value": "postgresql://postgres:${LOBEHUB_DB_PASSWORD}@lobehub-postgres:5432/lobehub"
+          "value": "postgresql://postgres:${LOBEHUB_DB_PASSWORD}@lobehub-db:5432/lobehub"
         },
         {
           "key": "SEARXNG_URL",
@@ -29,7 +29,7 @@
       ]
     },
     {
-      "name": "lobehub-postgres",
+      "name": "lobehub-db",
       "image": "postgres:18-alpine",
       "environment": [
         {
