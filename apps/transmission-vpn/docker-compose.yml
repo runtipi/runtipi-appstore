@@ -1,10 +1,10 @@
 services:
   transmission-vpn:
-    image: haugene/transmission-openvpn:5.3.2
+    image: haugene/transmission-openvpn:5.4.0
     container_name: transmission-vpn
     cap_add:
       - NET_ADMIN
-    devices: 
+    devices:
       - /dev/net/tun
     dns:
       - ${DNS_IP}
@@ -34,7 +34,6 @@ services:
       - TRANSMISSION_PEX_ENABLED=${TRANSMISSION_PEX_ENABLED-false}
       - TRANSMISSION_BLOCKLIST_ENABLED=${TRANSMISSION_BLOCKLIST_ENABLED-true}
       - TRANSMISSION_BLOCKLIST_URL=${TRANSMISSION_BLOCKLIST_URL-http://list.iblocklist.com/?list=bt_level1&fileformat=p2p&archiveformat=gz}
-
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
       - ${APP_DATA_DIR}/data/custom:/etc/openvpn/custom
@@ -44,34 +43,29 @@ services:
     restart: unless-stopped
     networks:
       - tipi_main_network
-    sysctls :
+    sysctls:
       - net.ipv6.conf.all.disable_ipv6=0
     logging:
       driver: json-file
       options:
         max-size: 10m
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.transmission-web-redirect.redirectscheme.scheme: https
       traefik.http.services.transmission.loadbalancer.server.scheme: http
       traefik.http.services.transmission.loadbalancer.server.port: 9091
-      # Web
       traefik.http.routers.transmission-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.transmission-insecure.entrypoints: web
       traefik.http.routers.transmission-insecure.service: transmission
       traefik.http.routers.transmission-insecure.middlewares: transmission-web-redirect
-      # Websecure
       traefik.http.routers.transmission.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.transmission.entrypoints: websecure
       traefik.http.routers.transmission.service: transmission
       traefik.http.routers.transmission.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.transmission-local-insecure.rule: Host(`transmission.${LOCAL_DOMAIN}`)
       traefik.http.routers.transmission-local-insecure.entrypoints: web
       traefik.http.routers.transmission-local-insecure.service: transmission
       traefik.http.routers.transmission-local-insecure.middlewares: transmission-web-redirect
-      # Local domain secure
       traefik.http.routers.transmission-local.rule: Host(`transmission.${LOCAL_DOMAIN}`)
       traefik.http.routers.transmission-local.entrypoints: websecure
       traefik.http.routers.transmission-local.service: transmission
