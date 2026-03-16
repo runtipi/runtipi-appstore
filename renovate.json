@@ -31,10 +31,6 @@
     {
       "matchPackageNames": ["mariadb", "mysql", "mongodb", "postgres", "redis"],
       "enabled": false
-    },
-    {
-      "matchPackageNames": ["n8nio/n8n"],
-      "enabled": false
     }
   ],
   "postUpgradeTasks": {
