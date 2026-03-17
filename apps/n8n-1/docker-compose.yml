@@ -73,7 +73,7 @@ services:
     labels:
       runtipi.managed: true
   n8n-init:
-    image: bash:5.2.37
+    image: bash:5.3.9
     command:
       - sh
       - '-c'
