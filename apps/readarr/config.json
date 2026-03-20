@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "port": 8112,
   "id": "readarr",
-  "tipi_version": 46,
+  "tipi_version": 47,
   "version": "0.4.19",
   "categories": ["books", "media"],
   "description": "",
@@ -16,6 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1761338378505,
+  "updated_at": 1774007252826,
   "min_tipi_version": "4.5.0"
 }
