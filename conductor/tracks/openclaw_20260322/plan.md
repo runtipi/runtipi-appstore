@@ -12,11 +12,11 @@
 - [x] Task: Add `apps/openclaw/metadata/description.md`
 - [x] Task: Conductor - User Manual Verification 'App Scaffolding' (Protocol in workflow.md)
 
-## Phase 3: Core Configuration
-- [ ] Task: Implement `apps/openclaw/config.json`
-- [ ] Task: Implement `apps/openclaw/docker-compose.yml`
-- [ ] Task: Implement `apps/openclaw/docker-compose.json`
-- [ ] Task: Conductor - User Manual Verification 'Core Configuration' (Protocol in workflow.md)
+## Phase 3: Core Configuration [checkpoint: 0917cd8]
+- [x] Task: Implement `apps/openclaw/config.json`
+- [x] Task: Implement `apps/openclaw/docker-compose.yml`
+- [x] Task: Implement `apps/openclaw/docker-compose.json`
+- [x] Task: Conductor - User Manual Verification 'Core Configuration' (Protocol in workflow.md)
 
 ## Phase 4: Validation and Testing
 - [ ] Task: Run project validation script `bun run scripts/validate-json.js`
