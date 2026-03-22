@@ -6,11 +6,11 @@
 - [x] Task: Draft detailed `description.md` based on provided short description
 - [x] Task: Conductor - User Manual Verification 'Research and Preparation' (Protocol in workflow.md)
 
-## Phase 2: App Scaffolding
-- [ ] Task: Create directory structure `apps/openclaw/metadata/`
-- [ ] Task: Add `apps/openclaw/metadata/logo.jpg`
-- [ ] Task: Add `apps/openclaw/metadata/description.md`
-- [ ] Task: Conductor - User Manual Verification 'App Scaffolding' (Protocol in workflow.md)
+## Phase 2: App Scaffolding [checkpoint: 0f9d472]
+- [x] Task: Create directory structure `apps/openclaw/metadata/`
+- [x] Task: Add `apps/openclaw/metadata/logo.jpg`
+- [x] Task: Add `apps/openclaw/metadata/description.md`
+- [x] Task: Conductor - User Manual Verification 'App Scaffolding' (Protocol in workflow.md)
 
 ## Phase 3: Core Configuration
 - [ ] Task: Implement `apps/openclaw/config.json`
