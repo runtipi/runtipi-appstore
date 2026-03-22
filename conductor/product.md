@@ -18,4 +18,4 @@ The Runtipi App Store is the official repository for applications available for 
 - **Unified Metadata Schema:** A standardized structure for all application metadata to ensure consistency across the store.
 
 ## Primary Objective (Current Session)
-- **Implement OpenClaw App:** Add `OpenClaw` to the Runtipi App Store, utilizing the `alpine/openclaw` Docker image and ensuring it meets all Runtipi app requirements (metadata, docker-compose, etc.).
+- [x] **Implement OpenClaw App:** Successfully added OpenClaw (personal AI assistant) to the store with full metadata and multi-provider support.
