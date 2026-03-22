@@ -18,7 +18,7 @@
 - [x] Task: Implement `apps/openclaw/docker-compose.json`
 - [x] Task: Conductor - User Manual Verification 'Core Configuration' (Protocol in workflow.md)
 
-## Phase 4: Validation and Testing
-- [ ] Task: Run project validation script `bun run scripts/validate-json.js`
-- [ ] Task: Run app-specific tests `bun test apps/__tests__/apps.test.ts`
-- [ ] Task: Conductor - User Manual Verification 'Validation and Testing' (Protocol in workflow.md)
+## Phase 4: Validation and Testing [checkpoint: 784fbab]
+- [x] Task: Run project validation script `bun run scripts/validate-json.js`
+- [x] Task: Run app-specific tests `bun test apps/__tests__/apps.test.ts`
+- [x] Task: Conductor - User Manual Verification 'Validation and Testing' (Protocol in workflow.md)
