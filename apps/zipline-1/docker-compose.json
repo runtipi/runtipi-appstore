@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "zipline",
-      "image": "ghcr.io/diced/zipline:4.4.2",
+      "image": "ghcr.io/diced/zipline:4.5.0",
       "isMain": true,
       "internalPort": 3000,
       "environment": [
