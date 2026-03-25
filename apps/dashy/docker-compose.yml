@@ -1,7 +1,7 @@
 services:
   dashy:
     container_name: dashy
-    image: ghcr.io/lissy93/dashy:3.1.12
+    image: ghcr.io/lissy93/dashy:3.1.13
     ports:
       - ${APP_PORT}:8080
     volumes:
