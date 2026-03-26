@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "transmission-vpn",
-      "image": "haugene/transmission-openvpn:5.4.0",
+      "image": "haugene/transmission-openvpn:5.4.1",
       "isMain": true,
       "internalPort": 9091,
       "environment": [
