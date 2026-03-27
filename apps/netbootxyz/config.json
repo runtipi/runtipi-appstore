@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "id": "netbootxyz",
   "description": "Your favorite operating systems in one place. A network-based bootable operating system installer based on iPXE.",
-  "tipi_version": 12,
+  "tipi_version": 13,
   "version": "0.7.6",
   "categories": ["utilities"],
   "short_desc": "Your favorite operating systems in one place.",
