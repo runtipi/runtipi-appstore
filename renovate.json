@@ -33,7 +33,7 @@
       "enabled": false
     },
     {
-      "matchPackageNames": ["n8nio/n8n"],
+      "matchPackageNames": ["ghcr.io/diced/zipline"],
       "enabled": false
     }
   ],
