@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json",
+  "schemaVersion": 2,
+  "services": [
+    {
+      "name": "openclaw",
+      "image": "alpine/openclaw:latest",
+      "internalPort": 18789,
+      "isMain": true,
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/config",
+          "containerPath": "/home/node/.openclaw"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/workspace",
+          "containerPath": "/home/node/.openclaw/workspace"
+        }
+      ],
+      "environment": [
+        { "key": "NODE_ENV", "value": "production" },
+        { "key": "ANTHROPIC_API_KEY", "value": "${ANTHROPIC_API_KEY}" },
+        { "key": "OPENAI_API_KEY", "value": "${OPENAI_API_KEY}" },
+        { "key": "GOOGLE_GENERATIVE_AI_API_KEY", "value": "${GOOGLE_GENERATIVE_AI_API_KEY}" },
+        { "key": "OLLAMA_HOST", "value": "${OLLAMA_HOST}" }
+      ]
+    }
+  ]
+}

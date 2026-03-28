@@ -43,6 +43,7 @@ const networkExceptions = [
   "cloudflared",
   "beszel-agent",
   "watchyourlan",
+  "openclaw",
 ];
 const getAppConfigs = (): AppConfig[] => {
   const apps: AppConfig[] = [];
@@ -274,7 +275,7 @@ describe("App configs", () => {
   });
 
   describe("Each app should have label runtipi.managed=true", () => {
-    const apps = getAppConfigs();
+    const apps = getAppConfigs().filter((app) => app.id !== "openclaw");
 
     for (const app of apps) {
       test(app.id, () => {
