@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 8194,
   "id": "kapowarr",
-  "tipi_version": 10,
-  "version": "v1.3.0",
+  "tipi_version": 12,
+  "version": "v1.3.1",
   "categories": ["media", "utilities"],
   "description": "Kapowarr is a software to build and manage a comic book library, fitting in the *arr suite of software.",
   "short_desc": "Kapowarr is a software to build and manage a comic book library, fitting in the *arr suite of software.",
@@ -16,6 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1772947080976,
+  "updated_at": 1774936636629,
   "min_tipi_version": "4.5.0"
 }
