@@ -33,7 +33,7 @@
     },
     {
       "name": "halodb",
-      "image": "postgres:latest",
+      "image": "postgres:15.4",
       "environment": [
         {
           "key": "POSTGRES_PASSWORD",
