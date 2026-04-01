@@ -1,0 +1,17 @@
+services:
+  openclaw:
+    image: 'alpine/openclaw:latest'
+    volumes:
+      - '${APP_DATA_DIR}/config:/home/node/.openclaw'
+      - '${APP_DATA_DIR}/workspace:/home/node/.openclaw/workspace'
+    environment:
+      - 'NODE_ENV=production'
+      - 'ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}'
+      - 'OPENAI_API_KEY=${OPENAI_API_KEY}'
+      - 'GOOGLE_GENERATIVE_AI_API_KEY=${GOOGLE_GENERATIVE_AI_API_KEY}'
+      - 'OLLAMA_HOST=${OLLAMA_HOST}'
+    x-runtipi:
+      internal_port: 18789
+      is_main: true
+x-runtipi:
+  schema_version: 2

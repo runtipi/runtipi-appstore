@@ -29,21 +29,6 @@ interface AppConfig {
   updated_at: number;
 }
 
-const networkExceptions = [
-  "matter-server",
-  "mdns-repeater",
-  "pihole",
-  "tailscale",
-  "homeassistant",
-  "plex",
-  "zerotier",
-  "gladys",
-  "scrypted",
-  "homebridge",
-  "cloudflared",
-  "beszel-agent",
-  "watchyourlan",
-];
 const getAppConfigs = (): AppConfig[] => {
   const apps: AppConfig[] = [];
 
