@@ -1,36 +1,14 @@
 services:
   2fauth:
-    image: 2fauth/2fauth:6.1.2
-    container_name: 2fauth
+    image: '2fauth/2fauth:6.1.2'
     volumes:
-      - ${APP_DATA_DIR}/data:/2fauth
-    ports:
-      - ${APP_PORT}:8000
+      - '${APP_DATA_DIR}/data:/2fauth'
     environment:
-      - ASSET_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
-      - APP_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
-      - APP_KEY=${TWOFAUTH_APP_KEY}
-      - APP_PREVIOUS_KEYS=SomeRandomStringOf32CharsExactly
-    networks:
-      - tipi_main_network
-    labels:
-      traefik.enable: true
-      traefik.http.middlewares.2fauth-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.2fauth.loadbalancer.server.port: 8000
-      traefik.http.routers.2fauth-insecure.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.2fauth-insecure.entrypoints: web
-      traefik.http.routers.2fauth-insecure.service: 2fauth
-      traefik.http.routers.2fauth-insecure.middlewares: 2fauth-web-redirect
-      traefik.http.routers.2fauth.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.2fauth.entrypoints: websecure
-      traefik.http.routers.2fauth.service: 2fauth
-      traefik.http.routers.2fauth.tls.certresolver: myresolver
-      traefik.http.routers.2fauth-local-insecure.rule: Host(`2fauth.${LOCAL_DOMAIN}`)
-      traefik.http.routers.2fauth-local-insecure.entrypoints: web
-      traefik.http.routers.2fauth-local-insecure.service: 2fauth
-      traefik.http.routers.2fauth-local-insecure.middlewares: 2fauth-web-redirect
-      traefik.http.routers.2fauth-local.rule: Host(`2fauth.${LOCAL_DOMAIN}`)
-      traefik.http.routers.2fauth-local.entrypoints: websecure
-      traefik.http.routers.2fauth-local.service: 2fauth
-      traefik.http.routers.2fauth-local.tls: true
-      runtipi.managed: true
+      - 'ASSET_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}'
+      - 'APP_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}'
+      - 'APP_KEY=${TWOFAUTH_APP_KEY}'
+    x-runtipi:
+      internal_port: 8000
+      is_main: true
+x-runtipi:
+  schema_version: 2
