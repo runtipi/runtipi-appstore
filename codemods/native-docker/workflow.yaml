@@ -38,5 +38,7 @@ nodes:
     name: Convert docker-compose.json apps to native docker-compose.yml
     type: automatic
     steps:
+      - name: Install runtime dependencies
+        run: cd "$CODEMOD_PATH" && npm install --omit=dev
       - name: Convert compose files
         run: node "$CODEMOD_PATH/scripts/convert-native-docker.mjs" --root "${{ params.root }}" --apps-dir "${{ params.apps_dir }}" --app "${{ params.app }}" --write "${{ params.write }}" --force "${{ params.force }}" --delete-json "${{ params.delete_json }}"
