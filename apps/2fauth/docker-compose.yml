@@ -1,12 +1,12 @@
 services:
   2fauth:
-    image: '2fauth/2fauth:6.1.2'
+    image: 2fauth/2fauth:6.1.3
     volumes:
-      - '${APP_DATA_DIR}/data:/2fauth'
+      - ${APP_DATA_DIR}/data:/2fauth
     environment:
-      - 'ASSET_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}'
-      - 'APP_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}'
-      - 'APP_KEY=${TWOFAUTH_APP_KEY}'
+      - ASSET_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - APP_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - APP_KEY=${TWOFAUTH_APP_KEY}
     x-runtipi:
       internal_port: 8000
       is_main: true
