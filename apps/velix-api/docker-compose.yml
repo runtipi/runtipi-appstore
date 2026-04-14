@@ -1,0 +1,69 @@
+version: "3.8"
+
+services:
+  velix-api:
+    image: ghcr.io/paulolinder/velix-api:0.1.0
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgres://postgres:${VELIX_DB_PASSWORD}@velix-api-db:5432/velix?sslmode=disable
+      REDIS_URL: redis://velix-api-redis:6379
+      JWT_SECRET: ${VELIX_JWT_SECRET}
+      HTTP_PORT: "8080"
+      APP_ENV: production
+      LOG_LEVEL: info
+      MEDIA_STORAGE_PATH: /data/media
+      ENGINE_STORE_PATH: /data/instances
+      ENGINE_AUTO_RECONNECT: "true"
+      ENGINE_MAX_INSTANCES: "200"
+      REGISTRATION_ENABLED: "true"
+    ports:
+      - "${APP_PORT}:8080"
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    depends_on:
+      velix-api-db:
+        condition: service_healthy
+      velix-api-redis:
+        condition: service_healthy
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.routers.velix-api.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.velix-api.entrypoints: websecure
+      traefik.http.routers.velix-api.tls.certresolver: myresolver
+      traefik.http.services.velix-api.loadbalancer.server.port: 8080
+      runtipi.managed: "true"
+
+  velix-api-db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: velix
+      POSTGRES_PASSWORD: ${VELIX_DB_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - tipi_main_network
+    labels:
+      runtipi.managed: "true"
+
+  velix-api-redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    networks:
+      - tipi_main_network
+    labels:
+      runtipi.managed: "true"

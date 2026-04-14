@@ -1,0 +1,35 @@
+{
+  "$schema": "../schema.json",
+  "name": "Velix API",
+  "id": "velix-api",
+  "available": true,
+  "port": 8080,
+  "description": "Self-hosted WhatsApp API built in Go. Connect multiple WhatsApp numbers, send and receive messages via REST, get real-time webhooks, and integrate with n8n and Chatwoot.",
+  "short_desc": "Self-hosted WhatsApp API with multi-instance support",
+  "author": "Paulo Linder",
+  "source": "https://github.com/paulolinder/velix-api",
+  "website": "https://velix.dev",
+  "categories": ["communication"],
+  "version": "0.1.0",
+  "tipi_version": 1,
+  "exposable": true,
+  "url_suffix": "",
+  "no_gui": false,
+  "supported_architectures": ["amd64", "arm64"],
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "JWT Secret",
+      "env_variable": "VELIX_JWT_SECRET",
+      "min": 64,
+      "max": 64
+    },
+    {
+      "type": "random",
+      "label": "Database Password",
+      "env_variable": "VELIX_DB_PASSWORD",
+      "min": 32,
+      "max": 32
+    }
+  ]
+}
