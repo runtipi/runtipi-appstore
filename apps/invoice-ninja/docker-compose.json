@@ -90,7 +90,7 @@
     },
     {
       "name": "invoice-ninja-web",
-      "image": "nginx:1.29",
+      "image": "nginx:1.30",
       "isMain": true,
       "internalPort": 80,
       "dependsOn": {
