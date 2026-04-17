@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "image": "mempool/frontend:v3.2.1",
+      "image": "mempool/frontend:v3.3.0",
       "name": "mempool",
       "internalPort": 8080,
       "isMain": true,
