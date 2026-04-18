@@ -1,3 +1,12 @@
+# Deprecation Notice - Migration to WG esay v15
+Wireguard-Easy v15 needs a completely fresh install of the app to work
+You can install the new version of the app right now on the app store.
+
+You will only need to download your config file and reimport it form the WebUI.
+Migration steps : https://wg-easy.github.io/wg-easy/v15.0/advanced/migrate/from-14-to-15/
+
+Don't forget to backup everything you need before proceeding.
+
 ## Installation Guide
 #### If you want to restrict WebUI access with a password (you should):
 - Choose a password
