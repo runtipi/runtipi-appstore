@@ -1,6 +1,6 @@
 services:
-  wg-easy:
-    container_name: wg-easy
+  wg-easy-1:
+    container_name: wg-easy-1
     image: ghcr.io/wg-easy/wg-easy:15
     restart: unless-stopped
     volumes:
@@ -24,27 +24,27 @@ services:
     labels:
       # Main
       traefik.enable: true
-      traefik.http.middlewares.wg-easy-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.wg-easy.loadbalancer.server.port: 51821
+      traefik.http.middlewares.wg-easy-1-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.wg-easy-1.loadbalancer.server.port: 51821
       # Web
-      traefik.http.routers.wg-easy-insecure.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.wg-easy-insecure.entrypoints: web
-      traefik.http.routers.wg-easy-insecure.service: wg-easy
-      traefik.http.routers.wg-easy-insecure.middlewares: wg-easy-web-redirect
+      traefik.http.routers.wg-easy-1-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wg-easy-1-insecure.entrypoints: web
+      traefik.http.routers.wg-easy-1-insecure.service: wg-easy-1
+      traefik.http.routers.wg-easy-1-insecure.middlewares: wg-easy-1-web-redirect
       # Websecure
-      traefik.http.routers.wg-easy.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.wg-easy.entrypoints: websecure
-      traefik.http.routers.wg-easy.service: wg-easy
-      traefik.http.routers.wg-easy.tls.certresolver: myresolver
+      traefik.http.routers.wg-easy-1.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wg-easy-1.entrypoints: websecure
+      traefik.http.routers.wg-easy-1.service: wg-easy-1
+      traefik.http.routers.wg-easy-1.tls.certresolver: myresolver
       # Local domain
-      traefik.http.routers.wg-easy-local-insecure.rule: Host(`wg-easy.${LOCAL_DOMAIN}`)
-      traefik.http.routers.wg-easy-local-insecure.entrypoints: web
-      traefik.http.routers.wg-easy-local-insecure.service: wg-easy
-      traefik.http.routers.wg-easy-local-insecure.middlewares: wg-easy-web-redirect
+      traefik.http.routers.wg-easy-1-local-insecure.rule: Host(`wg-easy.${LOCAL_DOMAIN}`)
+      traefik.http.routers.wg-easy-1-local-insecure.entrypoints: web
+      traefik.http.routers.wg-easy-1-local-insecure.service: wg-easy-1
+      traefik.http.routers.wg-easy-1-local-insecure.middlewares: wg-easy-1-web-redirect
       # Local domain secure
-      traefik.http.routers.wg-easy-local.rule: Host(`wg-easy.${LOCAL_DOMAIN}`)
-      traefik.http.routers.wg-easy-local.entrypoints: websecure
-      traefik.http.routers.wg-easy-local.service: wg-easy
-      traefik.http.routers.wg-easy-local.tls: true
+      traefik.http.routers.wg-easy-1-local.rule: Host(`wg-easy.${LOCAL_DOMAIN}`)
+      traefik.http.routers.wg-easy-1-local.entrypoints: websecure
+      traefik.http.routers.wg-easy-1-local.service: wg-easy-1
+      traefik.http.routers.wg-easy-1-local.tls: true
       # Runtipi managed
       runtipi.managed: true
