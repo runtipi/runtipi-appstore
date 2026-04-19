@@ -7,6 +7,7 @@
 | /runtipi/app-data/fireshare/data/fireshare_data      | /data            |
 | /runtipi/app-data/fireshare/data/fireshare_processed | /processed       |
 | /runtipi/media/data/videos/fireshare_videos          | /videos          |
+| /runtipi/media/data/images/fireshare_images          | /images          |
 
 ---
 

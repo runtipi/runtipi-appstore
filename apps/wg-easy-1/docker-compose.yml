@@ -1,0 +1,50 @@
+services:
+  wg-easy-1:
+    container_name: wg-easy-1
+    image: ghcr.io/wg-easy/wg-easy:15
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/data:/etc/wireguard
+    ports:
+      - 51820:51820/udp
+      - ${APP_PORT}:51821/tcp
+    environment:
+      - WG_HOST=${WIREGUARD_HOST}
+      - PASSWORD_HASH=${WIREGUARD_PASSWORD_HASH}
+      - WG_DEFAULT_DNS=${WIREGUARD_DNS:-8.8.8.8}
+      - WG_ALLOWED_IPS=0.0.0.0/0, ::/0
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+      - net.ipv4.ip_forward=1
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      traefik.http.middlewares.wg-easy-1-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.wg-easy-1.loadbalancer.server.port: 51821
+      # Web
+      traefik.http.routers.wg-easy-1-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wg-easy-1-insecure.entrypoints: web
+      traefik.http.routers.wg-easy-1-insecure.service: wg-easy-1
+      traefik.http.routers.wg-easy-1-insecure.middlewares: wg-easy-1-web-redirect
+      # Websecure
+      traefik.http.routers.wg-easy-1.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.wg-easy-1.entrypoints: websecure
+      traefik.http.routers.wg-easy-1.service: wg-easy-1
+      traefik.http.routers.wg-easy-1.tls.certresolver: myresolver
+      # Local domain
+      traefik.http.routers.wg-easy-1-local-insecure.rule: Host(`wg-easy.${LOCAL_DOMAIN}`)
+      traefik.http.routers.wg-easy-1-local-insecure.entrypoints: web
+      traefik.http.routers.wg-easy-1-local-insecure.service: wg-easy-1
+      traefik.http.routers.wg-easy-1-local-insecure.middlewares: wg-easy-1-web-redirect
+      # Local domain secure
+      traefik.http.routers.wg-easy-1-local.rule: Host(`wg-easy.${LOCAL_DOMAIN}`)
+      traefik.http.routers.wg-easy-1-local.entrypoints: websecure
+      traefik.http.routers.wg-easy-1-local.service: wg-easy-1
+      traefik.http.routers.wg-easy-1-local.tls: true
+      # Runtipi managed
+      runtipi.managed: true
