@@ -43,6 +43,10 @@
         {
           "hostPath": "${ROOT_FOLDER_HOST}/media/data/videos/fireshare_videos",
           "containerPath": "/videos"
+        },
+        {
+          "hostPath": "${ROOT_FOLDER_HOST}/media/data/images/fireshare_images",
+          "containerPath": "/images"
         }
       ]
     }
