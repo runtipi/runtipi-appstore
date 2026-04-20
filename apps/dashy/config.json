@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "dashy",
-  "tipi_version": 42,
-  "version": "3.3.0",
+  "tipi_version": 44,
+  "version": "3.3.1",
   "categories": ["utilities"],
   "description": "A self-hostable personal dashboard built for you. Includes status-checking, widgets, themes, icon packs, a UI editor and tons more!",
   "short_desc": "A self-hostable personal dashboard built for you.",
@@ -16,6 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1776406675372,
+  "updated_at": 1776666572627,
   "min_tipi_version": "4.5.0"
 }
