@@ -1,6 +1,6 @@
 services:
   activepieces:
-    image: activepieces/activepieces:0.81.4
+    image: activepieces/activepieces:0.82.0
     environment:
       - AP_ENGINE_EXECUTABLE_PATH=dist/packages/engine/main.js
       - AP_API_KEY=${AP_API_KEY}
