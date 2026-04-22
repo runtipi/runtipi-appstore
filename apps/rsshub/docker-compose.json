@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "rsshub",
-      "image": "diygod/rsshub:2025-04-17",
+      "image": "diygod/rsshub:2026-04-17",
       "isMain": true,
       "internalPort": 1200,
       "environment": [
