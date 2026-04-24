@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "komga",
-      "image": "ghcr.io/gotson/komga:1.24.3",
+      "image": "ghcr.io/gotson/komga:1.24.4",
       "isMain": true,
       "internalPort": 25600,
       "environment": [
