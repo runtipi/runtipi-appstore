@@ -43,6 +43,60 @@ function isStringNumberOrUndefined(value) {
   return value === undefined || typeof value === "string" || typeof value === "number";
 }
 
+function formatPublishedPort(port) {
+  const interfacePrefix = port.interface ? `${port.interface}:` : "";
+  const basePort = `${interfacePrefix}${port.hostPort}:${port.containerPort}`;
+  const protocols = [];
+
+  if (port.tcp !== false) {
+    protocols.push("tcp");
+  }
+
+  if (port.udp === true) {
+    protocols.push("udp");
+  }
+
+  return protocols.map((protocol) => `${basePort}/${protocol}`);
+}
+
+function convertAddPorts(addPorts) {
+  if (!Array.isArray(addPorts)) {
+    return undefined;
+  }
+
+  return addPorts.flatMap((port) => {
+    if (!isPlainObject(port) || port.hostPort === undefined || port.containerPort === undefined) {
+      return [];
+    }
+
+    return formatPublishedPort(port);
+  });
+}
+
+function preservePortProtocols(converted, document) {
+  if (!Array.isArray(document?.services) || !isPlainObject(converted.services)) {
+    return converted;
+  }
+
+  for (const service of document.services) {
+    if (!isPlainObject(service) || typeof service.name !== "string") {
+      continue;
+    }
+
+    const ports = convertAddPorts(service.addPorts);
+    if (ports === undefined) {
+      continue;
+    }
+
+    const convertedService = converted.services[service.name];
+    if (isPlainObject(convertedService)) {
+      convertedService.ports = ports;
+    }
+  }
+
+  return converted;
+}
+
 function pushError(errors, path, message) {
   errors.push(`${path}: ${message}`);
 }
@@ -287,7 +341,7 @@ export function renderYaml(value, indent = 0) {
 }
 
 export function convertComposeJsonDocument(document) {
-  const converted = convertLegacyToYaml(document);
+  const converted = preservePortProtocols(convertLegacyToYaml(document), document);
   const existingXRuntipi = isPlainObject(converted["x-runtipi"]) ? converted["x-runtipi"] : {};
 
   return stripUndefinedDeep({

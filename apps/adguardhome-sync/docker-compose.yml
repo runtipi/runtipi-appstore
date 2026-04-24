@@ -1,33 +1,11 @@
 services:
   adguardhome-sync:
-    container_name: adguardhome-sync
-    image: ghcr.io/bakito/adguardhome-sync:v0.9.0
-    restart: unless-stopped
-    command: run --config /config/adguardhome-sync.yaml
+    image: 'ghcr.io/bakito/adguardhome-sync:v0.9.0'
+    command: 'run --config /config/adguardhome-sync.yaml'
     volumes:
-      - ${APP_DATA_DIR}/data/adguardhome-sync.yaml:/config/adguardhome-sync.yaml
-    ports:
-      - ${APP_PORT}:8080
-    networks:
-      - tipi_main_network
-    labels:
-      traefik.enable: true
-      traefik.http.middlewares.adguardhome-sync-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.adguardhome-sync.loadbalancer.server.port: 8080
-      traefik.http.routers.adguardhome-sync-insecure.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.adguardhome-sync-insecure.entrypoints: web
-      traefik.http.routers.adguardhome-sync-insecure.service: adguardhome-sync
-      traefik.http.routers.adguardhome-sync-insecure.middlewares: adguardhome-sync-web-redirect
-      traefik.http.routers.adguardhome-sync.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.adguardhome-sync.entrypoints: websecure
-      traefik.http.routers.adguardhome-sync.service: adguardhome-sync
-      traefik.http.routers.adguardhome-sync.tls.certresolver: myresolver
-      traefik.http.routers.adguardhome-sync-local-insecure.rule: Host(`adguardhome-sync.${LOCAL_DOMAIN}`)
-      traefik.http.routers.adguardhome-sync-local-insecure.entrypoints: web
-      traefik.http.routers.adguardhome-sync-local-insecure.service: adguardhome-sync
-      traefik.http.routers.adguardhome-sync-local-insecure.middlewares: adguardhome-sync-web-redirect
-      traefik.http.routers.adguardhome-sync-local.rule: Host(`adguardhome-sync.${LOCAL_DOMAIN}`)
-      traefik.http.routers.adguardhome-sync-local.entrypoints: websecure
-      traefik.http.routers.adguardhome-sync-local.service: adguardhome-sync
-      traefik.http.routers.adguardhome-sync-local.tls: true
-      runtipi.managed: true
+      - '${APP_DATA_DIR}/data/adguardhome-sync.yaml:/config/adguardhome-sync.yaml'
+    x-runtipi:
+      internal_port: 8080
+      is_main: true
+x-runtipi:
+  schema_version: 2

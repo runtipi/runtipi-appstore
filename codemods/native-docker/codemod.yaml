@@ -1,7 +1,7 @@
 schema_version: "1.0"
 
 name: "@runtipi/native-docker"
-version: "0.1.5"
+version: "0.1.6"
 description: "Convert Runtipi docker-compose.json apps to docker-compose.yml with x-runtipi metadata"
 author: "Runtipi App Store Maintainers <contact@runtipi.io>"
 license: "MIT"
