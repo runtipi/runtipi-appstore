@@ -45,7 +45,7 @@ Since Nextcloud requires to be upgraded step-by-step (you can  only update to th
 
 ## Tips
 - Remember to backup your data !
-- After an upgrade you should check the admin panel for warnings.
+- After an upgrade to a major version of Nextcloud you should check the admin panel for warnings.
 - You can **ignore** an update if you are not ready. *(but don't delay it too much)*
 - If you missed an intermediate version you can use a "user-config" to catch up.
 
