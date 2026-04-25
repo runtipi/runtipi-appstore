@@ -16,15 +16,11 @@ Do you want to learn more about how you can use Nextcloud to access, share, and 
 
 > Warning ⚠️: This is a simple nextcloud instance running only the nextcloud server and a postgres database. If you want features like cron and redis, please use the nextcloud app in the appstore.
 
-## ⛺ Runtipi Note - 2026
-The version of this app is currently not aligned with the latest avaible: 33.
-Since Nextcloud requires to be upgraded step-by-step (you can  only update to the next major and can't skip iterations),  we will be rolling out a major update version every month until we catch up with the latest version.
-
 ### Tips
 - Remember to backup your data !
-- After an upgrade you should check the admin panel for warnings.
+- After an upgrade to a major version of Nextcloud you should check the admin panel for warnings.
 - You can **ignore** an update if you are not ready. *(but don't delay it too much)*
-- If you missed an intermediate version you can use a "user-config" to catch up.
+- If you missed an intermediate version you can use a "user-config" to catch up. *(you can only update to the next major and can't skip iterations)*
 
 ### User-Config example
 here is an example to set nextcloud to version 30:
