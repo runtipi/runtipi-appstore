@@ -1,36 +1,13 @@
-version: '3'
 services:
   autobrr:
-    container_name: autobrr
-    image: ghcr.io/autobrr/autobrr:v1.76.0
-    restart: unless-stopped
-    ports:
-      - ${APP_PORT}:7474
-    volumes:
-      - ${APP_DATA_DIR}/data/autobrr:/config
+    image: 'ghcr.io/autobrr/autobrr:v1.76.0'
     user: '1000:1000'
+    volumes:
+      - '${APP_DATA_DIR}/data/autobrr:/config'
     environment:
-      - TZ=${TZ}
-    networks:
-      - tipi_main_network
-    labels:
-      traefik.enable: true
-      traefik.http.middlewares.autobrr-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.autobrr.loadbalancer.server.port: 7474
-      traefik.http.routers.autobrr-insecure.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.autobrr-insecure.entrypoints: web
-      traefik.http.routers.autobrr-insecure.service: autobrr
-      traefik.http.routers.autobrr-insecure.middlewares: autobrr-web-redirect
-      traefik.http.routers.autobrr.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.autobrr.entrypoints: websecure
-      traefik.http.routers.autobrr.service: autobrr
-      traefik.http.routers.autobrr.tls.certresolver: myresolver
-      traefik.http.routers.autobrr-local-insecure.rule: Host(`autobrr.${LOCAL_DOMAIN}`)
-      traefik.http.routers.autobrr-local-insecure.entrypoints: web
-      traefik.http.routers.autobrr-local-insecure.service: autobrr
-      traefik.http.routers.autobrr-local-insecure.middlewares: autobrr-web-redirect
-      traefik.http.routers.autobrr-local.rule: Host(`autobrr.${LOCAL_DOMAIN}`)
-      traefik.http.routers.autobrr-local.entrypoints: websecure
-      traefik.http.routers.autobrr-local.service: autobrr
-      traefik.http.routers.autobrr-local.tls: true
-      runtipi.managed: true
+      - 'TZ=${TZ}'
+    x-runtipi:
+      internal_port: 7474
+      is_main: true
+x-runtipi:
+  schema_version: 2
