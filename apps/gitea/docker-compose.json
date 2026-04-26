@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "gitea",
-      "image": "gitea/gitea:1.26.0",
+      "image": "gitea/gitea:1.26.1",
       "environment": [
         {
           "key": "USER_UID",
