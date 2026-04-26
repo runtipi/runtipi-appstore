@@ -24,7 +24,7 @@
         },
         {
           "key": "DATABASE_URL",
-          "value": "postgresql://ghostfolio:${GHOSTFOLIO_DB_PASSWORD}@ghostfolio-db:5432/ghostfolio?sslmode=prefer"
+          "value": "postgresql://ghostfolio:${GHOSTFOLIO_DB_PASSWORD}@ghostfolio-db:5432/ghostfolio"
         },
         {
           "key": "JWT_SECRET_KEY",

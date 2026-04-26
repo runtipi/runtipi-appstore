@@ -11,7 +11,7 @@ services:
       HOST: 0.0.0.0
       PORT: 3333
       ACCESS_TOKEN_SALT: $GHOSTFOLIO_ACCESS_TOKEN_SALT
-      DATABASE_URL: postgresql://ghostfolio:${GHOSTFOLIO_DB_PASSWORD}@ghostfolio-db:5432/ghostfolio?sslmode=prefer
+      DATABASE_URL: postgresql://ghostfolio:${GHOSTFOLIO_DB_PASSWORD}@ghostfolio-db:5432/ghostfolio
       JWT_SECRET_KEY: ${GHOSTFOLIO_JWT_SECRET_KEY}
       POSTGRES_DB: ghostfolio
       POSTGRES_USER: ghostfolio
