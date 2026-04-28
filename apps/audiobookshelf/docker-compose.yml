@@ -1,11 +1,11 @@
 services:
   audiobookshelf:
-    image: 'ghcr.io/advplyr/audiobookshelf:2.33.2'
+    image: ghcr.io/advplyr/audiobookshelf:2.34.0
     volumes:
-      - '${ROOT_FOLDER_HOST}/media/data/books/spoken:/audiobooks'
-      - '${ROOT_FOLDER_HOST}/media/data/podcasts:/podcasts'
-      - '${APP_DATA_DIR}/data/config:/config'
-      - '${APP_DATA_DIR}/data/metadata:/metadata'
+      - ${ROOT_FOLDER_HOST}/media/data/books/spoken:/audiobooks
+      - ${ROOT_FOLDER_HOST}/media/data/podcasts:/podcasts
+      - ${APP_DATA_DIR}/data/config:/config
+      - ${APP_DATA_DIR}/data/metadata:/metadata
     x-runtipi:
       internal_port: 80
       is_main: true
