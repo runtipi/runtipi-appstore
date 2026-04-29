@@ -1,24 +1,24 @@
 services:
   atuin:
-    image: 'ghcr.io/atuinsh/atuin:18.15.2'
-    command: 'start'
+    image: ghcr.io/atuinsh/atuin:18.16.0
+    command: start
     volumes:
-      - '${APP_DATA_DIR}/data/config:/config'
+      - ${APP_DATA_DIR}/data/config:/config
     environment:
-      - 'ATUIN_PORT=8888'
-      - 'ATUIN_HOST=0.0.0.0'
-      - 'ATUIN_OPEN_REGISTRATION=${ATUIN_ALLOW_REGISTRATION}'
-      - 'ATUIN_DB_URI=postgres://atuin:${ATUIN_DB_PASSWORD}@atuin-db/atuin'
+      - ATUIN_PORT=8888
+      - ATUIN_HOST=0.0.0.0
+      - ATUIN_OPEN_REGISTRATION=${ATUIN_ALLOW_REGISTRATION}
+      - ATUIN_DB_URI=postgres://atuin:${ATUIN_DB_PASSWORD}@atuin-db/atuin
     x-runtipi:
       internal_port: 8888
       is_main: true
   atuin-db:
-    image: 'postgres:14'
+    image: postgres:14
     volumes:
-      - '${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data/'
+      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data/
     environment:
-      - 'POSTGRES_USER=atuin'
-      - 'POSTGRES_PASSWORD=${ATUIN_DB_PASSWORD}'
-      - 'POSTGRES_DB=atuin'
+      - POSTGRES_USER=atuin
+      - POSTGRES_PASSWORD=${ATUIN_DB_PASSWORD}
+      - POSTGRES_DB=atuin
 x-runtipi:
   schema_version: 2
