@@ -3,7 +3,7 @@
   "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json",
   "services": [
     {
-      "image": "qmcgaw/ddns-updater:v2.9.0",
+      "image": "qmcgaw/ddns-updater:v2.10.0",
       "name": "ddns-updater",
       "internalPort": 8000,
       "isMain": true,
