@@ -1,11 +1,11 @@
 services:
   autobrr:
-    image: 'ghcr.io/autobrr/autobrr:v1.76.0'
+    image: ghcr.io/autobrr/autobrr:v1.77.0
     user: '1000:1000'
     volumes:
-      - '${APP_DATA_DIR}/data/autobrr:/config'
+      - ${APP_DATA_DIR}/data/autobrr:/config
     environment:
-      - 'TZ=${TZ}'
+      - TZ=${TZ}
     x-runtipi:
       internal_port: 7474
       is_main: true
