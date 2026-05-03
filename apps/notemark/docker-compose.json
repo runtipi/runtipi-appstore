@@ -6,7 +6,7 @@
     },
     {
       "name": "notemark-backend",
-      "image": "ghcr.io/enchant97/note-mark-backend:0.19.3",
+      "image": "ghcr.io/enchant97/note-mark-backend:0.19.4",
       "environment": [
         {
           "key": "JWT_SECRET",
