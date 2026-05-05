@@ -1,8 +1,8 @@
 services:
   actual-budget:
-    image: 'actualbudget/actual-server:26.4.0'
+    image: actualbudget/actual-server:26.5.0
     volumes:
-      - '${APP_DATA_DIR}/data:/data'
+      - ${APP_DATA_DIR}/data:/data
     x-runtipi:
       internal_port: 5006
       is_main: true
