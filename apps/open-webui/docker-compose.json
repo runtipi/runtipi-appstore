@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "image": "ghcr.io/open-webui/open-webui:v0.9.2",
+      "image": "ghcr.io/open-webui/open-webui:v0.9.5",
       "name": "open-webui",
       "internalPort": 8080,
       "isMain": true,
