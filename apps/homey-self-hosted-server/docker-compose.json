@@ -1,0 +1,19 @@
+{
+  "services": {
+    "homey-shs": {
+      "image": "ghcr.io/athombv/homey-shs:latest",
+      "restart": "unless-stopped",
+      "network_mode": "host",
+      "privileged": true,
+      "volumes": [
+        "${APP_DATA_DIR}/data:/homey/user"
+      ],
+      "x-runtipi": {
+        "is_main": true
+      }
+    }
+  },
+  "x-runtipi": {
+    "schema_version": 2
+  }
+}

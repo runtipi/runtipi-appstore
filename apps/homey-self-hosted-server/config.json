@@ -1,0 +1,24 @@
+{
+  "name": "Homey Self-Hosted Server",
+  "id": "homey-self-hosted-server",
+  "available": true,
+  "short_desc": "Run homey self-hosted server on your own host.",
+  "author": "Athom B.V.",
+  "port": 4859,
+  "categories": [
+    "automation"
+  ],
+  "description": "Self-hosted Homey server for local smart home automation.",
+  "tipi_version": 2,
+  "version": "latest",
+  "source": "https://support.homey.app/hc/en-us/articles/24010537261980-How-to-install-Homey-Self-Hosted-Server-with-Docker-on-Linux",
+  "exposable": false,
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "created_at": 1778495895001,
+  "updated_at": 1778495895001,
+  "dynamic_config": true,
+  "form_fields": []
+}
