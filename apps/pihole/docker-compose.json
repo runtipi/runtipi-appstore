@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "pihole",
-      "image": "pihole/pihole:2026.04.1",
+      "image": "pihole/pihole:2026.05.0",
       "isMain": true,
       "internalPort": 80,
       "addPorts": [
