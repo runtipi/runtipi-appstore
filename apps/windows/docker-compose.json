@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "windows",
-      "image": "dockurr/windows:5.14",
+      "image": "dockurr/windows:5.15",
       "isMain": true,
       "internalPort": 8006,
       "addPorts": [
