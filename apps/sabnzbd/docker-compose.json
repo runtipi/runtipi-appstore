@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "sabnzbd",
-      "image": "lscr.io/linuxserver/sabnzbd:5.0.1",
+      "image": "lscr.io/linuxserver/sabnzbd:5.0.3",
       "isMain": true,
       "internalPort": 8080,
       "environment": [
