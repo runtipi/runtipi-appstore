@@ -37,7 +37,7 @@
     },
     {
       "name": "electrs",
-      "image": "getumbrel/electrs:v0.11.0",
+      "image": "getumbrel/electrs:v0.11.1",
       "isMain": true,
       "addPorts": [
         {
