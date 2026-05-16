@@ -4,7 +4,7 @@
   "services": [
     {
       "name": "nginx",
-      "image": "nginx:1.30.0",
+      "image": "nginx:1.31.0",
       "isMain": true,
       "internalPort": 80
     }
