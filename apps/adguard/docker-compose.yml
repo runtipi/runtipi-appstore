@@ -1,14 +1,14 @@
 services:
   adguard:
-    image: 'adguard/adguardhome:v0.107.74'
+    image: adguard/adguardhome:v0.107.75
     ports:
-      - '${NETWORK_INTERFACE:-0.0.0.0}:53:53/tcp'
-      - '${NETWORK_INTERFACE:-0.0.0.0}:53:53/udp'
-      - '${NETWORK_INTERFACE:-0.0.0.0}:853:853/tcp'
-      - '${NETWORK_INTERFACE:-0.0.0.0}:853:853/udp'
+      - ${NETWORK_INTERFACE:-0.0.0.0}:53:53/tcp
+      - ${NETWORK_INTERFACE:-0.0.0.0}:53:53/udp
+      - ${NETWORK_INTERFACE:-0.0.0.0}:853:853/tcp
+      - ${NETWORK_INTERFACE:-0.0.0.0}:853:853/udp
     volumes:
-      - '${APP_DATA_DIR}/data/work:/opt/adguardhome/work'
-      - '${APP_DATA_DIR}/data/conf:/opt/adguardhome/conf'
+      - ${APP_DATA_DIR}/data/work:/opt/adguardhome/work
+      - ${APP_DATA_DIR}/data/conf:/opt/adguardhome/conf
     x-runtipi:
       internal_port: 80
       is_main: true
