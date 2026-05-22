@@ -1,6 +1,6 @@
 services:
   adguard:
-    image: adguard/adguardhome:v0.107.75
+    image: adguard/adguardhome:v0.107.76
     ports:
       - ${NETWORK_INTERFACE:-0.0.0.0}:53:53/tcp
       - ${NETWORK_INTERFACE:-0.0.0.0}:53:53/udp
