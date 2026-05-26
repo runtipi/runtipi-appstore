@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   rss:
-    image: codeberg.org/danb/rss:v2.0.0
+    image: codeberg.org/danb/rss:v2.1.0
     container_name: rss
     environment:
       - APP_NAME=Tipi-RSS
