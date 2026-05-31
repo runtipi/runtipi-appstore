@@ -3,7 +3,7 @@
   "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json",
   "services": [
     {
-      "image": "glanceapp/glance:v0.8.4",
+      "image": "glanceapp/glance:v0.8.5",
       "name": "glance",
       "internalPort": 8080,
       "isMain": true,
