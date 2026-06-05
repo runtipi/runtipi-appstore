@@ -7,7 +7,7 @@
   "port": 8567,
   "id": "notemark",
   "tipi_version": 55,
-  "version": "0.19.4",
+  "version": "0.19.5",
   "categories": ["utilities"],
   "description": "Note Mark is a lighting fast and minimal web-based Markdown notes app.",
   "short_desc": "Lighting fast web-based Markdown notes app.",
