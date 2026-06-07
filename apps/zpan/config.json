@@ -7,7 +7,7 @@
   "port": 40222,
   "id": "zpan",
   "tipi_version": 1,
-  "version": "2.7.1",
+  "version": "2.7.2",
   "categories": ["data"],
   "description": "ZPan is open-source file hosting for S3-compatible storage, covering web drive, file sharing, image hosting, WebDAV, and remote-download workflows.",
   "short_desc": "Open-source file hosting for S3-compatible storage",
