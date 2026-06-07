@@ -1,0 +1,31 @@
+{
+  "$schema": "../app-info-schema.json",
+  "dynamic_config": true,
+  "name": "ZPan",
+  "available": true,
+  "exposable": true,
+  "port": 40222,
+  "id": "zpan",
+  "tipi_version": 1,
+  "version": "2.7.1",
+  "categories": ["data"],
+  "description": "ZPan is open-source file hosting for S3-compatible storage, covering web drive, file sharing, image hosting, WebDAV, and remote-download workflows.",
+  "short_desc": "Open-source file hosting for S3-compatible storage",
+  "author": "saltbo",
+  "website": "https://github.com/saltbo/zpan",
+  "source": "https://github.com/saltbo/zpan",
+  "form_fields": [
+    {
+      "type": "number",
+      "label": "Downloader BitTorrent Port",
+      "env_variable": "ZPAN_BT_PORT",
+      "default": 46881,
+      "required": true
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1780804640000,
+  "updated_at": 1780804640000,
+  "force_pull": true,
+  "min_tipi_version": "4.7.0"
+}

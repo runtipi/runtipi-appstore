@@ -1,0 +1,39 @@
+services:
+  zpan:
+    image: ghcr.io/saltbo/zpan:2.7.1
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    environment:
+      - BETTER_AUTH_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - DATABASE_URL=/data/zpan.db
+      - PORT=8222
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8222/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 10s
+    x-runtipi:
+      internal_port: 8222
+      is_main: true
+
+  downloader:
+    image: ghcr.io/saltbo/zpan:2.7.1-cli
+    command: ["--config", "/data/config.yaml", "downloader", "up"]
+    ports:
+      - ${ZPAN_BT_PORT}:6881/tcp
+      - ${ZPAN_BT_PORT}:6881/udp
+    volumes:
+      - ${APP_DATA_DIR}/downloader:/data
+    environment:
+      - ZPAN_SERVER_URL=http://zpan:8222
+      - ZPAN_DOWNLOADER_ENGINE=auto
+      - ZPAN_DOWNLOADER_DOWNLOAD_DIR=/data/downloads
+      - ZPAN_DOWNLOADER_STATE_DIR=/data/state
+      - ZPAN_DOWNLOADER_BT_LISTEN_PORT=6881
+      - ZPAN_DOWNLOADER_SEED_CACHE_LIMIT=10GB
+    depends_on:
+      zpan:
+        condition: service_healthy
+x-runtipi:
+  schema_version: 2
