@@ -34,7 +34,7 @@
     "jest": "^30.4.2",
     "js-yaml": "^4.2.0",
     "lefthook": "^2.1.9",
-    "semver": "^7.8.2",
+    "semver": "^7.8.3",
     "ts-jest": "^29.4.11",
     "typescript": "^6.0.3"
   },
