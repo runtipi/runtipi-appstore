@@ -30,7 +30,7 @@
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^25.9.1",
     "@types/semver": "^7.7.1",
-    "commitizen": "^4.3.1",
+    "commitizen": "^4.3.2",
     "jest": "^30.4.2",
     "js-yaml": "^4.2.0",
     "lefthook": "^2.1.9",
