@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "nextcloud-mini",
-      "image": "nextcloud:33-apache",
+      "image": "nextcloud:34-apache",
       "internalPort": 80,
       "isMain": true,
       "volumes": [
