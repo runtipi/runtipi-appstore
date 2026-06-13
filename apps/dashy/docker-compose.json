@@ -4,7 +4,7 @@
   "services": [
     {
       "name": "dashy",
-      "image": "ghcr.io/lissy93/dashy:4.2.7",
+      "image": "ghcr.io/lissy93/dashy:4.3.3",
       "isMain": true,
       "internalPort": 8080,
       "volumes": [
