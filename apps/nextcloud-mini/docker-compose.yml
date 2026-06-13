@@ -1,7 +1,7 @@
 services:
   nextcloud-mini:
     container_name: nextcloud-mini
-    image: nextcloud:33-apache
+    image: nextcloud:34.0.0
     restart: unless-stopped
     ports:
       - ${APP_PORT}:80
