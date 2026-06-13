@@ -1,6 +1,6 @@
 services:
   authentik-1:
-    image: ghcr.io/goauthentik/server:2026.5.2
+    image: ghcr.io/goauthentik/server:2026.5.3
     command: server
     ports:
       - 9443:9443/tcp
@@ -19,7 +19,7 @@ services:
       internal_port: 9000
       is_main: true
   authentik-worker:
-    image: ghcr.io/goauthentik/server:2026.5.2
+    image: ghcr.io/goauthentik/server:2026.5.3
     command: worker
     user: root
     volumes:
