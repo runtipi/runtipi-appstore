@@ -29,7 +29,6 @@
       "type": "random",
       "label": "HBOX_AUTH_API_KEY_PEPPER",
       "min": 32,
-      "required": true,
       "env_variable": "HBOX_AUTH_API_KEY_PEPPER"
     }
   ],
