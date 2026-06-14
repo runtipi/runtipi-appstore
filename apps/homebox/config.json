@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "homebox",
-  "tipi_version": 38,
-  "version": "0.25.0",
+  "tipi_version": 40,
+  "version": "0.26.2",
   "uid": 1000,
   "gid": 1000,
   "categories": ["utilities"],
@@ -24,10 +24,16 @@
       "placeholder": "false",
       "required": true,
       "env_variable": "HBOX_OPTIONS_ALLOW_REGISTRATION"
+    },
+    {
+      "type": "random",
+      "label": "HBOX_AUTH_API_KEY_PEPPER",
+      "min": 32,
+      "env_variable": "HBOX_AUTH_API_KEY_PEPPER"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1776320235397,
+  "updated_at": 1781425742750,
   "min_tipi_version": "4.5.0"
 }
