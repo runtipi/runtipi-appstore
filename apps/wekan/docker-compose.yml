@@ -42,7 +42,7 @@ services:
       runtipi.managed: true
   wekan-db:
     container_name: wekan-db
-    image: mongo:6
+    image: mongo:8
     restart: unless-stopped
     command: mongod --logpath /dev/null --oplogSize 128 --quiet
     volumes:

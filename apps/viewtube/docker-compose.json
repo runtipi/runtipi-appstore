@@ -33,7 +33,7 @@
     },
     {
       "name": "viewtube-mongodb",
-      "image": "mongo:5",
+      "image": "mongo:8",
       "volumes": [
         {
           "hostPath": "${APP_DATA_DIR}/data/db",
