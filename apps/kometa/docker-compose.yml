@@ -1,6 +1,6 @@
 services:
   kometa:
-    image: ghcr.io/linuxserver/kometa:2.3.1
+    image: ghcr.io/linuxserver/kometa:2.4.3
     container_name: kometa
     restart: unless-stopped
     environment:
