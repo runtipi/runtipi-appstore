@@ -4,8 +4,8 @@
   "available": true,
   "exposable": true,
   "dynamic_config": true,
-  "tipi_version": 61,
-  "version": "v0.16.10",
+  "tipi_version": 63,
+  "version": "v0.16.11",
   "port": 8677,
   "id": "stalwart-mail",
   "categories": ["media", "network", "utilities"],
@@ -27,6 +27,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1782123458769,
+  "updated_at": 1782545342312,
   "min_tipi_version": "4.5.0"
 }
