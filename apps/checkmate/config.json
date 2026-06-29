@@ -1,0 +1,20 @@
+{
+  "name": "Checkmate",
+  "id": "checkmate",
+  "available": true,
+  "short_desc": "Open-source uptime and infrastructure monitoring",
+  "author": "Bluewave Labs",
+  "port": 8088,
+  "categories": ["monitoring", "utilities"],
+  "description": "Open-source uptime, website, SSL, port, ping, Docker and infrastructure monitoring.",
+  "tipi_version": 1,
+  "version": "latest",
+  "source": "https://github.com/bluewave-labs/checkmate",
+  "website": "https://checkmate.so",
+  "exposable": true,
+  "dynamic_config": true,
+  "form_fields": [],
+  "supported_architectures": ["amd64", "arm64"],
+  "created_at": 1782777600000,
+  "updated_at": 1782777600000
+}
