@@ -1,12 +1,12 @@
-# ⚠️ Long-term deprecation Notice
+# ⚠️ Deprecation Notice - 2026
 
-The team behind Minio decided to stop providing [Docker images](https://github.com/minio/minio/issues/21647#issuecomment-3439134621) for the Community Edition.
-This follows a removing of the GUI a few version earlier.
+The team behind Minio decided to archive the repository.
+This follows a decision to  stop providing [Docker images](https://github.com/minio/minio/issues/21647#issuecomment-3439134621) for the Community Edition subsequent GUI removal a few version earlier.
+All of this happened without a real communication for developers.
+In this regard we can't provide any support.
 
-In this regard we can't provide support.
-This app will now use a [community build](https://github.com/golithus/minio-builds) with the `latest` tag.
-
-In this state we can't recommand using Minio and we encourage you to look for an alternative.
+Since we can't recommand using Minio, we choosed to deprecate it.
+But we decided to add a new app for S3 storage : Garage
 
 # Minio - Open Source Object Storage
 
