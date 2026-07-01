@@ -1,0 +1,36 @@
+services:
+  client:
+    image: ghcr.io/bluewave-labs/checkmate-client:latest
+    restart: unless-stopped
+    depends_on:
+      - server
+    environment:
+      UPTIME_APP_API_BASE_URL: ${APP_PROTOCOL:-http}://${APP_DOMAIN}/api/v1
+      UPTIME_APP_CLIENT_HOST: ${APP_PROTOCOL:-http}://${APP_DOMAIN}
+    x-runtipi:
+      is_main: true
+      internal_port: 80
+
+  server:
+    image: ghcr.io/bluewave-labs/checkmate-backend:latest
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    environment:
+      DB_CONNECTION_STRING: mongodb://mongo:27017/uptime_db
+      CLIENT_HOST: ${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      JWT_SECRET: ${CHECKMATE_JWT_SECRET:-change_this_secret}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    x-runtipi:
+      internal_port: 52345
+
+  mongo:
+    image: ghcr.io/bluewave-labs/checkmate-mongo:latest
+    restart: unless-stopped
+    command: ["mongod", "--quiet", "--bind_ip_all"]
+    volumes:
+      - ${APP_DATA_DIR}/mongo:/data/db
+
+x-runtipi:
+  schema_version: 2
