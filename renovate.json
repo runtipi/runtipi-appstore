@@ -33,7 +33,7 @@
       "enabled": false
     },
     {
-      "matchPackageNames": ["ghcr.io/diced/zipline"],
+      "matchPackageNames": ["nextcloud"],
       "enabled": false
     }
   ],
