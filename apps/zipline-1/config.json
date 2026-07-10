@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "zipline-1",
-  "tipi_version": 3,
-  "version": "4.5.0",
+  "tipi_version": 5,
+  "version": "4.6.4",
   "categories": ["media"],
   "description": "A ShareX/file upload server that is easy to use, packed with features, and with an easy setup!  ",
   "short_desc": "A ShareX/file upload server that is easy to use, packed with features, and with an easy setup!  ",
@@ -30,6 +30,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1774245117459,
+  "updated_at": 1783685915030,
   "min_tipi_version": "4.5.0"
 }
