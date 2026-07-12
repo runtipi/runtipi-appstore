@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "wg-easy",
-      "image": "ghcr.io/wg-easy/wg-easy:15",
+      "image": "ghcr.io/wg-easy/wg-easy:15.3.0",
       "isMain": true,
       "internalPort": 51821,
       "addPorts": [
@@ -14,20 +14,12 @@
       ],
       "environment": [
         {
-          "key": "WG_HOST",
-          "value": "${WIREGUARD_HOST}"
+          "key": "INSECURE",
+          "value": "${WIREGUARD_INSECURE}"
         },
         {
-          "key": "PASSWORD_HASH",
-          "value": "${WIREGUARD_PASSWORD_HASH}"
-        },
-        {
-          "key": "WG_DEFAULT_DNS",
-          "value": "${WIREGUARD_DNS:-8.8.8.8}"
-        },
-        {
-          "key": "WG_ALLOWED_IPS",
-          "value": "0.0.0.0/0, ::/0"
+          "key": "DISABLE_IPV6",
+          "value": "${WIREGUARD_DISABLE_IPV6}"
         }
       ],
       "volumes": [
