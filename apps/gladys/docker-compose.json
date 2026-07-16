@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "gladys",
-      "image": "gladysassistant/gladys:v4.81.0",
+      "image": "gladysassistant/gladys:v4.82.0",
       "isMain": true,
       "networkMode": "host",
       "environment": [
