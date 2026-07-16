@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 32400,
   "id": "plex",
-  "tipi_version": 49,
-  "version": "1.43.2",
+  "tipi_version": 51,
+  "version": "1.43.3",
   "url_suffix": "/web",
   "categories": ["media"],
   "description": "",
@@ -17,6 +17,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1779350907092,
+  "updated_at": 1784183692713,
   "min_tipi_version": "4.5.0"
 }
