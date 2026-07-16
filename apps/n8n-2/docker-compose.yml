@@ -1,7 +1,7 @@
 services:
   n8n-2:
     container_name: n8n-2
-    image: n8nio/n8n:2.30.3
+    image: n8nio/n8n:2.31.1
     restart: unless-stopped
     ports:
       - ${APP_PORT}:5678
