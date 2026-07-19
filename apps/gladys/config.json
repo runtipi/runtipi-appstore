@@ -6,8 +6,8 @@
   "exposable": false,
   "dynamic_config": true,
   "id": "gladys",
-  "tipi_version": 100,
-  "version": "v4.82.0",
+  "tipi_version": 102,
+  "version": "v4.83.0",
   "categories": ["automation"],
   "description": "A privacy-first, open-source home assistant",
   "short_desc": "A privacy-first, open-source home assistant",
@@ -17,6 +17,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1783755260165,
+  "updated_at": 1784443711562,
   "min_tipi_version": "4.5.0"
 }
