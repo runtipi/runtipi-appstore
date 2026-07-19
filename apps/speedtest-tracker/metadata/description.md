@@ -45,13 +45,6 @@ base64:5gExIXkD//VXbU/8wZ8xcF2uTHnvrDd6QTrTDZPWDdQ=
 
 ***
 
-### SPEEDTEST_TRACKER_DB_PASSWORD
-
-If you use PostgreSQL for Speedtest Tracker, this is the password for the database user. It should be a strong random value.
-
-If you use SQLite instead, this variable is not required. SQLite is supported by Speedtest Tracker as one of its database drivers.
-
-***
 
 ### SPEEDTEST_SCHEDULE
 
