@@ -1,50 +1,72 @@
 # Speedtest Tracker
 
-Speedtest Tracker is a self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.
+Speedtest Tracker is a self-hosted internet performance monitoring application that runs regular tests against Ookla's Speedtest service and stores the results over time. It helps you build a history of your connection quality so you can detect slowdowns, outages, or periods where your ISP is not delivering the expected speeds.
 
 ## About
 
-![v0.20.6 Speedtest Tracker Dashboard](https://F3367574858-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2Fvtb3s6TB12XY9iIx8YyJ%4Fuploads%2Fgit-blob-2896fa80b8d3f90cc8c4c495b8b9793af5f62244%2Fimage%20(2).png?alt=media&width=768&dpr=4&quality=100&sign=d549885e&sv=1)
+![Speedtest Tracker Dashboard](https://F3367574858-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2Fvtb3s6TB12XY9iIx8YyJ%2Fuploads%2Fgit-blob-2896fa80b8d3f90cc8c4c495b8b9793af5f62244%2Fimage%20(2).png?alt=media&width=768&dpr=4&quality=100&sign=d549885e&sv=1)
 
 A self-hosted app to check your internet speed using Ookla's Speedtest service and track its history. Built using Laravel and the Speedtest CLI.
 
-The main use case for Speedtest Tracker is to build a history of your internet's performance so that you can be informed when you're not receiving your ISP's advertised rates.
 
-_...also some of us just like a lot of data._
-
-These docs are up-to-date for version: `v0.21.2`
+Official documentation is available here: [https://docs.speedtest-tracker.dev/](https://docs.speedtest-tracker.dev/)
 
 ## Configuration
 
 ### Authentication
 
-Speedtest Tracker uses Filament for the admin panel. During the install process an admin account is created for you.
+During the first start of the application, a default admin account is created.
 
-Default User Account
 | Username | Password |
 | --- | --- |
-| `admin@example.com`| `password` |
+| `admin@example.com` | `password` |
 
----
+These default credentials should be changed after the first login.
 
-### SPEEDTEST_TRACKER_DB_PASSWORD
-
-This is the password for the PostgreSQL database used by Speedtest Tracker. It's automatically generated and should be a secure, random string of at least 32 characters.
+***
 
 ### SPEEDTEST_APP_KEY
 
-This is the application key used by Laravel for encryption and other security features. You can retrieve one at the [Speedtest Tracker](https://speedtest-tracker.dev) site.
+This is the Laravel application key used by Speedtest Tracker to encrypt and decrypt sensitive data such as sessions and other internal application data. It is required for the application to start correctly. If the key is missing, malformed, or has the wrong length, the app may fail with a `500` error such as `Unsupported cipher or incorrect key length`.
 
-### SPEEDTEST_SCHEDULE (cron format)
+**Important:** this value must be a valid Base64 application key prefixed with `base64:`. Do not use a custom string, do not shorten it, and do not force a fixed character count.
 
-This field allows you to set the schedule for running speed tests. It uses cron syntax. The default value is `30 * * * *`, which runs a test every 30 minutes. You can adjust this to your preferred frequency. [Crontab Guru](https://crontab.guru) is a good resource.
+Generate it with one of these commands:
 
-### SPEEDTEST_SERVERS (comma-separated IDs)
+```bash
+echo "base64:$(openssl rand -base64 32 2>/dev/null)"
+```
 
-Specify Speedtest servers to use for your tests. Enter one or more server IDs, separated by commas. To find server IDs, you can use the following method:
+Example:
 
-1. Open your web browser and navigate to [Speedtest.net's Servers page](https://www.speedtest.net/speedtest-servers.php)
-2. This page will display a list of Speedtest servers along with their IDs, names, sponsors, and locations.
-3. Find the server(s) you want to use and note down their IDs.
-4. Enter these IDs in the Speedtest Servers field, separated by commas (e.g., "1234,5678,9012").
+```text
+base64:5gExIXkD//VXbU/8wZ8xcF2uTHnvrDd6QTrTDZPWDdQ=
+```
 
+***
+
+
+### SPEEDTEST_SCHEDULE
+
+This field defines how often Speedtest Tracker runs tests. It uses standard cron syntax. The default value `30 * * * *` runs a test once every hour at minute 30.
+
+Examples:
+- `*/30 * * * *` = every 30 minutes
+- `0 * * * *` = every hour
+- `0 */6 * * *` = every 6 hours
+
+A helpful reference is [Crontab Guru](https://crontab.guru).
+
+***
+
+### SPEEDTEST_SERVERS
+
+This optional field allows you to force one or more specific Speedtest server IDs, separated by commas. If left empty, Speedtest Tracker will automatically select a server.
+
+To find server IDs, you can use either of these official/public endpoints:
+
+1. Open [https://www.speedtest.net/api/js/servers](https://www.speedtest.net/api/js/servers) to browse the server list referenced in the Speedtest Tracker documentation.
+2. Or open [https://www.speedtest.net/speedtest-servers-static.php](https://www.speedtest.net/speedtest-servers-static.php), which exposes a public XML list of servers and their attributes including `id`.
+3. Search for a server near your location or preferred provider.
+4. Copy the server `id` value.
+5. Enter one or more IDs separated by commas, for example: `1234,5678,9012`.
