@@ -1,6 +1,6 @@
 services:
   openclaw:
-    image: 'alpine/openclaw:latest'
+    image: 'ghcr.io/openclaw/openclaw:latest'
     volumes:
       - '${APP_DATA_DIR}/config:/home/node/.openclaw'
       - '${APP_DATA_DIR}/workspace:/home/node/.openclaw/workspace'
