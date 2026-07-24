@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "kometa",
-      "image": "ghcr.io/linuxserver/kometa:2.4.4",
+      "image": "ghcr.io/linuxserver/kometa:2.4.5",
       "isMain": true,
       "environment": [
         {
