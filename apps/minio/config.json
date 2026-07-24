@@ -5,14 +5,14 @@
   "dynamic_config": true,
   "port": 8001,
   "id": "minio",
-  "description": "MinIO is a high-performance, S3 compatible object store. It is built for large scale AI/ML, data lake and database workloads.",
-  "tipi_version": 8,
-  "version": "latest",
+  "description": "MinIO is a high-performance, S3 compatible object store. It is built for large scale AI/ML, data lake and database workloads. (Pigsty fork)",
+  "tipi_version": 9,
+  "version": "RELEASE.2026-06-18T00-00-00Z",
   "categories": ["development"],
   "short_desc": "High Performance Object Storage.",
-  "author": "MinIO, Inc",
-  "source": "https://github.com/minio/minio",
-  "website": "https://min.io",
+  "author": "Pigsty",
+  "source": "https://github.com/pgsty/minio",
+  "website": "https://silo.pigsty.io/",
   "form_fields": [
     {
       "type": "text",
@@ -37,8 +37,8 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1761338378483,
+  "updated_at": 1781985995976,
   "$schema": "../app-info-schema.json",
-  "force_pull": true,
+  "force_pull": false,
   "min_tipi_version": "4.5.0"
 }
