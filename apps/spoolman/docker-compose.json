@@ -9,14 +9,6 @@
         {
           "key": "TZ",
           "value": "${TZ}"
-        },
-        {
-          "key": "PUID",
-          "value": "0"
-        },
-        {
-          "key": "PGID",
-          "value": "0"
         }
       ],
       "volumes": [
