@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "image": "ghcr.io/mealie-recipes/mealie:v3.20.1",
+      "image": "ghcr.io/mealie-recipes/mealie:v3.21.0",
       "name": "mealie-1",
       "internalPort": 9000,
       "isMain": true,
