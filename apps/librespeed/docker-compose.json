@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "librespeed",
-      "image": "lscr.io/linuxserver/librespeed:6.1.0",
+      "image": "lscr.io/linuxserver/librespeed:6.2.0",
       "isMain": true,
       "internalPort": 80,
       "environment": [
