@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "fireshare",
-      "image": "shaneisrael/fireshare:1.7.3",
+      "image": "shaneisrael/fireshare:1.7.4",
       "isMain": true,
       "internalPort": 80,
       "environment": [
