@@ -2,7 +2,7 @@ version: '3.7'
 services:
   zipline-1:
     container_name: zipline-1
-    image: ghcr.io/diced/zipline:4.6.4
+    image: ghcr.io/diced/zipline:4.6.5
     ports:
       - ${APP_PORT}:3000
     restart: unless-stopped
