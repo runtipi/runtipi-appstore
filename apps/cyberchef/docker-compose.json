@@ -4,7 +4,7 @@
       "name": "cyberchef",
       "image": "ghcr.io/gchq/cyberchef:11.3.0",
       "isMain": true,
-      "internalPort": 80,
+      "internalPort": 8080,
       "environment": [
         {
           "key": "TZ",
