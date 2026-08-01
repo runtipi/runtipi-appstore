@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "port": 8012,
   "id": "paperless-ngx",
-  "tipi_version": 127,
+  "tipi_version": 128,
   "version": "3.0.4",
   "categories": ["utilities"],
   "description": "Paperless-ngx is a community-supported open-source document management system that transforms your physical documents into a searchable online archive so you can keep, well, less paper.",
@@ -34,24 +34,22 @@
     },
     {
       "label": "Enable Tika",
-      "type": "text",
-      "hint": "Do you want to enable a Tika server for parsing and converting 'Office' documents (such as '.doc', '.xlsx' and '.odt')",
-      "required": true,
-      "options": [
-        {
-          "label": "Yes",
-          "value": "1"
-        },
-        {
-          "label": "No",
-          "value": "2"
-        }
-      ],
+      "type": "boolean",
+      "hint": "allow parsing and converting 'Office' documents (such as '.doc', '.xlsx' and '.odt')",
+      "required": false,
       "env_variable": "PAPERLESS_TIKA_ENABLED"
+    },
+    {
+      "label": "App Secret Key",
+      "type": "random",
+      "min": 64,
+      "max": 64,
+      "required": false,
+      "env_variable": "PAPERLESS_SECRET_KEY"
     }
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1785368511115,
+  "updated_at": 1785578906992,
   "min_tipi_version": "4.5.0"
 }

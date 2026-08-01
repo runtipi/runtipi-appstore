@@ -27,6 +27,10 @@
           "value": "${PAPERLESS_TIKA_ENABLED}"
         },
         {
+          "key": "PAPERLESS_SECRET_KEY",
+          "value": "${PAPERLESS_SECRET_KEY}"
+        },
+        {
           "key": "PAPERLESS_TIKA_GOTENBERG_ENDPOINT",
           "value": "http://gotenberg:3000"
         },
@@ -44,7 +48,7 @@
         },
         {
           "key": "PAPERLESS_CSRF_TRUSTED_ORIGINS",
-          "value": "https://${APP_ID}.${LOCAL_DOMAIN},https://${APP_DOMAIN},http://${INTERNAL_IP}:${APP_PORT}"
+          "value": "https://${APP_LOCAL_DOMAIN},https://${APP_DOMAIN},http://${INTERNAL_IP}:${APP_PORT}"
         }
       ],
       "dependsOn": ["db", "broker"],
