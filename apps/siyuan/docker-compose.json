@@ -25,7 +25,7 @@
           "containerPath": "/siyuan/workspace/"
         }
       ],
-      "command": ["--workspace=/siyuan/workspace/", "--accessAuthCode=${SIYUAN_ACCESS_AUTH_CODE}"]
+      "command": ["serve", "--workspace=/siyuan/workspace/", "--accessAuthCode=${SIYUAN_ACCESS_AUTH_CODE}"]
     }
   ],
   "schemaVersion": 2,
