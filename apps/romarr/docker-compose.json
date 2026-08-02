@@ -2,9 +2,9 @@
   "services": [
     {
       "name": "romarr",
-      "image": "ghcr.io/blizzhacker/romarr:0.6.1",
+      "image": "ghcr.io/blizzhacker/romarr:0.7.0",
       "isMain": true,
-      "internalPort": 7878,
+      "internalPort": 6868,
       "environment": [
         { "key": "PUID", "value": "1000" },
         { "key": "PGID", "value": "1000" },
