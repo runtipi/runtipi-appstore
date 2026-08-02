@@ -1,0 +1,85 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "ROMarr",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 8118,
+  "id": "romarr",
+  "tipi_version": 1,
+  "version": "0.6.1",
+  "categories": ["media", "utilities"],
+  "description": "Request a title and ROMarr searches your indexers through Prowlarr, hands the winner to your download client, and files the ROM into your game library where it can actually be played. If you run Radarr for films and Sonarr for TV, this is the missing one. ROMarr is not tied to one library: RomM, Gaseous and Retrom are all supported and chosen with a single setting, and a folder mode writes a plain directory tree laid out by platform, which is what Batocera, RetroPie, EmulationStation, ES-DE, EmuDeck, Pegasus, Lakka, muOS and LaunchBox all read. Releases are scored with their reasoning shown, so a wrong pick is a click to correct rather than a bug report. Unofficial; not affiliated with RomM, Gaseous or Retrom.",
+  "short_desc": "The *arr for games. Finds ROMs through Prowlarr and files them into your library.",
+  "author": "Move Weight Foundation",
+  "source": "https://github.com/BlizzHacker/romarr",
+  "website": "https://foundation.moveweight.com",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Prowlarr URL",
+      "hint": "How ROMarr finds releases, for example http://192.168.1.10:9696",
+      "required": true,
+      "env_variable": "PROWLARR_URL"
+    },
+    {
+      "type": "password",
+      "label": "Prowlarr API key",
+      "hint": "Prowlarr, Settings, General, API Key",
+      "required": true,
+      "env_variable": "PROWLARR_API_KEY"
+    },
+    {
+      "type": "text",
+      "label": "Library kind",
+      "hint": "romm, gaseous, retrom or folder",
+      "required": true,
+      "default": "romm",
+      "env_variable": "LIBRARY_KIND"
+    },
+    {
+      "type": "text",
+      "label": "Library URL",
+      "hint": "Your library server, for example http://192.168.1.10:8080. Leave empty for folder mode.",
+      "required": false,
+      "env_variable": "LIBRARY_URL"
+    },
+    {
+      "type": "text",
+      "label": "Library username",
+      "hint": "Use a dedicated account, not your admin one. Leave empty for folder mode.",
+      "required": false,
+      "env_variable": "LIBRARY_USERNAME"
+    },
+    {
+      "type": "password",
+      "label": "Library password",
+      "hint": "Leave empty for folder mode.",
+      "required": false,
+      "env_variable": "LIBRARY_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "qBittorrent URL",
+      "hint": "At least one download client is required, for example http://192.168.1.10:8080",
+      "required": false,
+      "env_variable": "QBITTORRENT_URL"
+    },
+    {
+      "type": "text",
+      "label": "qBittorrent username",
+      "required": false,
+      "env_variable": "QBITTORRENT_USER"
+    },
+    {
+      "type": "password",
+      "label": "qBittorrent password",
+      "required": false,
+      "env_variable": "QBITTORRENT_PASS"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1785542400000,
+  "updated_at": 1785542400000,
+  "min_tipi_version": "4.5.0"
+}
