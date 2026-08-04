@@ -1,0 +1,32 @@
+# dynamic_config is false: Runtipi uses this compose file as-is.
+# Host networking is required - the dynamic compose format cannot express it.
+services:
+  mynes:
+    container_name: mynes
+    image: fxerkan/my_network_scanner:1.3.0
+    restart: unless-stopped
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    environment:
+      - MYNES_PORT=${APP_PORT:-5883}
+      - MYNES_PASSWORD=${MYNES_PASSWORD:-}
+      - MYNES_MQTT_HOST=${MYNES_MQTT_HOST:-}
+      - MYNES_HA_URL=${MYNES_HA_URL:-}
+      - MYNES_HA_TOKEN=${MYNES_HA_TOKEN:-}
+    volumes:
+      - ${APP_DATA_DIR}/data/app:/app/data
+      - ${APP_DATA_DIR}/data/config:/app/config
+    labels:
+      traefik.enable: ${APP_EXPOSED}
+      traefik.http.middlewares.mynes-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.mynes.loadbalancer.server.port: 5883
+      traefik.http.routers.mynes-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mynes-insecure.entrypoints: web
+      traefik.http.routers.mynes-insecure.service: mynes
+      traefik.http.routers.mynes-insecure.middlewares: mynes-web-redirect
+      traefik.http.routers.mynes.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.mynes.entrypoints: websecure
+      traefik.http.routers.mynes.service: mynes
+      traefik.http.routers.mynes.tls.certresolver: myresolver

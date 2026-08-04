@@ -1,0 +1,54 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "MyNeS",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": false,
+  "port": 5883,
+  "id": "mynes",
+  "tipi_version": 1,
+  "version": "1.3.0",
+  "categories": [
+    "network",
+    "utilities"
+  ],
+  "description": "MyNeS discovers, identifies and monitors every device on your home network, including the ones an IP scan cannot see. It speaks ARP, mDNS/Bonjour, SSDP/UPnP, Matter, Bluetooth LE and MQTT, so Zigbee2MQTT bulbs, Z-Wave JS sensors, BLE trackers and Tasmota nodes show up alongside your laptops and NAS. Vendor lookup over a 1000+ entry OUI database, topology and graph views, scan history, rule-based alerts by Web Push / webhook / e-mail, and two-way Home Assistant integration. Runs on the host network so ARP and mDNS/SSDP discovery actually work. No cloud, no account, no telemetry.",
+  "short_desc": "Discover, identify and monitor every device on your LAN - Wi-Fi, Zigbee, Z-Wave, BLE and Matter.",
+  "author": "fxerkan",
+  "source": "https://github.com/fxerkan/my_network_scanner",
+  "website": "https://github.com/fxerkan/my_network_scanner",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "Master password (encrypts stored device credentials, auto-generated if empty)",
+      "required": false,
+      "env_variable": "MYNES_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "MQTT broker host (optional - reveals Zigbee/Z-Wave/Tasmota devices)",
+      "required": false,
+      "env_variable": "MYNES_MQTT_HOST"
+    },
+    {
+      "type": "text",
+      "label": "Home Assistant URL (optional)",
+      "required": false,
+      "env_variable": "MYNES_HA_URL"
+    },
+    {
+      "type": "password",
+      "label": "Home Assistant long-lived access token (optional)",
+      "required": false,
+      "env_variable": "MYNES_HA_TOKEN"
+    }
+  ],
+  "supported_architectures": [
+    "arm64",
+    "amd64"
+  ],
+  "created_at": 1785801600000,
+  "updated_at": 1785801600000,
+  "force_pull": false,
+  "min_tipi_version": "4.5.0"
+}
