@@ -1,0 +1,41 @@
+version: '3.7'
+services:
+  sportarr:
+    image: sportarr/sportarr:4.1.0.1110
+    container_name: sportarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+    dns:
+      - ${DNS_IP}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${APP_DATA_DIR}/data:/config
+      - ${ROOT_FOLDER_HOST}/media:/media
+    ports:
+      - ${APP_PORT}:1867
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: true
+      traefik.http.middlewares.sportarr-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.sportarr.loadbalancer.server.port: 1867
+      traefik.http.routers.sportarr-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.sportarr-insecure.entrypoints: web
+      traefik.http.routers.sportarr-insecure.service: sportarr
+      traefik.http.routers.sportarr-insecure.middlewares: sportarr-web-redirect
+      traefik.http.routers.sportarr.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.sportarr.entrypoints: websecure
+      traefik.http.routers.sportarr.service: sportarr
+      traefik.http.routers.sportarr.tls.certresolver: myresolver
+      traefik.http.routers.sportarr-local-insecure.rule: Host(`sportarr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.sportarr-local-insecure.entrypoints: web
+      traefik.http.routers.sportarr-local-insecure.service: sportarr
+      traefik.http.routers.sportarr-local-insecure.middlewares: sportarr-web-redirect
+      traefik.http.routers.sportarr-local.rule: Host(`sportarr.${LOCAL_DOMAIN}`)
+      traefik.http.routers.sportarr-local.entrypoints: websecure
+      traefik.http.routers.sportarr-local.service: sportarr
+      traefik.http.routers.sportarr-local.tls: true
+      runtipi.managed: true

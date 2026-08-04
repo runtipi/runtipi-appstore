@@ -1,0 +1,21 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "Sportarr",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 1867,
+  "id": "sportarr",
+  "tipi_version": 1,
+  "version": "4.1.0.1110",
+  "categories": ["media", "utilities"],
+  "description": "Sportarr is an event manager for sports fans. It monitors leagues and events, grabs broadcasts via Usenet and BitTorrent, then sorts and renames them into a season/episode layout media servers like Plex, Emby and Jellyfin understand. Quality profiles, calendar, DVR-style IPTV recording and automatic upgrades included.",
+  "short_desc": "Sports event manager for Usenet and BitTorrent",
+  "author": "Sportarr",
+  "source": "https://github.com/Sportarr/Sportarr",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1785813569169,
+  "updated_at": 1785902844425,
+  "min_tipi_version": "4.5.0"
+}
