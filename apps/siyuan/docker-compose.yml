@@ -3,6 +3,7 @@ services:
     image: b3log/siyuan:v3.7.3
     container_name: siyuan
     command:
+      - serve
       - '--workspace=/siyuan/workspace/'
       - '--accessAuthCode=${SIYUAN_ACCESS_AUTH_CODE}'
     user: '1000:1000'
