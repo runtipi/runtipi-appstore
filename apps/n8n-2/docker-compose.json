@@ -15,7 +15,7 @@
           "value": "false"
         },
         {
-          "key": "WEBHOOK_URL",
+          "key": "N8N_WEBHOOK_URL",
           "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
         },
         {
