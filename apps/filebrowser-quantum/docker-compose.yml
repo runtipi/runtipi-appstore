@@ -1,0 +1,13 @@
+x-runtipi:
+  schema_version: 2
+services:
+  filebrowser-quantum:
+    image: gtstef/filebrowser:2-beta
+    volumes:
+      - ${ROOT_FOLDER_HOST}/media:/runtipi/media
+      - ${ROOT_FOLDER_HOST}/app-data:/runtipi/app-data
+      - ${ROOT_FOLDER_HOST}/user-config:/runtipi/user-config
+      - ${APP_DATA_DIR}/data:/home/filebrowser/data
+    x-runtipi:
+      internal_port: 80
+      is_main: true
