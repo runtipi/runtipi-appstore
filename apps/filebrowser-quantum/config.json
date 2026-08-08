@@ -1,0 +1,23 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "File Browser Quantum",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 18196,
+  "id": "filebrowser-quantum",
+  "tipi_version": 1,
+  "version": "2-beta",
+  "categories": ["utilities"],
+  "description": "Web-based file manager",
+  "short_desc": "Access your homeserver files from your browser",
+  "author": "filebrowser.org",
+  "website": "https://filebrowserquantum.com",
+  "source": "https://github.com/gtsteffaniak/filebrowser",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1786190003065,
+  "updated_at": 1786190003066,
+  "force_pull": true,
+  "min_tipi_version": "4.5.0"
+}

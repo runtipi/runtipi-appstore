@@ -1,3 +1,8 @@
+# Deprecation Notice August 2026
+Filebrowser development and maintenance has officially stopped and the repository is archived on 2026-09-01, more info here : https://hacdias.com/2026/07/28/filebrowser/
+
+We are now deprecating it and encourage you to use the newly available app : **Filebrowser Quantum**
+
 ## Access your homeserver files from your browser
 
 filebrowser provides a file managing interface within a specified directory and it can be used to upload, delete, preview, rename and edit your files. It allows the creation of multiple users and each user can have its own directory. It can be used as a standalone app.
