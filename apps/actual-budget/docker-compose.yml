@@ -1,6 +1,6 @@
 services:
   actual-budget:
-    image: actualbudget/actual-server:26.8.0
+    image: actualbudget/actual-server:26.8.1
     volumes:
       - ${APP_DATA_DIR}/data:/data
     x-runtipi:
