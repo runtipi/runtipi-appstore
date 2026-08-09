@@ -1,5 +1,5 @@
 services:
-  grav:
+  grav-2:
     image: lscr.io/linuxserver/grav:2.0.17
     ports:
       - ${APP_PORT}:80
