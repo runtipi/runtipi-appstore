@@ -5,6 +5,8 @@ A web app to manage your Two-Factor Authentication (2FA) accounts and generate t
 [**2FAuth Demo**](https://demo.2fauth.app/)  
 Credentials (login - password) : *demo@2fauth.app* - *demo*
 
+> Encountered an issue after an update ? Check the end of this readme.
+
 ## Purpose
 
 2FAuth is a web based self-hosted alternative to One Time Passcode (OTP) generators like Google Authenticator, designed for both mobile and desktop.
@@ -51,3 +53,12 @@ Sensitive data stored in the database can be encrypted to protect them against d
 ### RFC compliance
 
 2FAuth generates OTP according to RFC 4226 (HOTP Algorithm) and RFC 6238 (TOTP Algorithm) thanks to [Spomky-Labs/OTPHP](https://github.com/Spomky-Labs/otphp) php library.
+
+---
+
+### v8 update
+You may face an error message when updating 2fauth to v8, you can execute the following command :
+```
+docker exec -it 2fauth_migrated-2fauth-1 php artisan 2fauth:fix-passport-key-permissions
+```
+More information on the official migration guide : https://docs.2fauth.app/getting-started/upgrade/upgrading-to-v8
