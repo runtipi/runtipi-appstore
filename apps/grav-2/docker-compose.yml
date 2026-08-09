@@ -1,0 +1,16 @@
+services:
+  grav-2:
+    image: lscr.io/linuxserver/grav:2.0.17
+    ports:
+      - ${APP_PORT}:80
+    volumes:
+      - ${APP_DATA_DIR}/data/grav-comfig:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TZ}
+    x-runtipi:
+      internal_port: 80
+      is_main: true
+x-runtipi:
+  schema_version: 2
