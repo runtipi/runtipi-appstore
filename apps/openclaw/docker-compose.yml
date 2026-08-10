@@ -8,8 +8,7 @@ services:
       - 'NODE_ENV=production'
       - 'ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}'
       - 'OPENAI_API_KEY=${OPENAI_API_KEY}'
-      # Maps to common Google SDK env var names (Vercel AI SDK, native Google SDK, LangChain/LiteLLM)
-      - 'GOOGLE_GENERATIVE_AI_API_KEY=${GOOGLE_GENERATIVE_AI_API_KEY}'
+      # Maps Runtipi UI key (${GOOGLE_GENERATIVE_AI_API_KEY}) to OpenClaw primary (GEMINI_API_KEY) and fallback/plugin (GOOGLE_API_KEY) env vars
       - 'GEMINI_API_KEY=${GOOGLE_GENERATIVE_AI_API_KEY}'
       - 'GOOGLE_API_KEY=${GOOGLE_GENERATIVE_AI_API_KEY}'
       - 'OLLAMA_HOST=${OLLAMA_HOST}'
