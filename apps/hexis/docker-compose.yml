@@ -1,0 +1,50 @@
+services:
+  hexis:
+    image: 'ghcr.io/bevel-software/hexis:0.1.0'
+    environment:
+      - 'NODE_ENV=production'
+      - 'PORT=3001'
+      - 'ADMIN_EMAIL=${HEXIS_ADMIN_EMAIL}'
+      - 'ADMIN_PASSWORD=${HEXIS_ADMIN_PASSWORD}'
+      - 'JWT_SECRET=${HEXIS_JWT_SECRET}'
+      - 'SECRETS_ENC_KEY=${HEXIS_SECRETS_ENC_KEY}'
+      - 'DATABASE_URL=postgresql://tipi:${HEXIS_DB_PASSWORD}@hexis-postgres:5432/hexis'
+      - 'PUBLIC_BACKEND_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}'
+      - 'PUBLIC_FRONTEND_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}'
+      - 'TRUST_PROXY=1'
+    volumes:
+      - '${APP_DATA_DIR}/data/workspaces:/app/apps/server/workspaces'
+      - '${APP_DATA_DIR}/data/backups:/app/apps/server/backups'
+      - '${APP_DATA_DIR}/data/tool-chain-spills:/app/apps/server/tool-chain-spills'
+    depends_on:
+      hexis-postgres:
+        condition: 'service_healthy'
+    healthcheck:
+      test: ['CMD', 'node', '-e', "fetch('http://localhost:3001/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: '10s'
+      timeout: '5s'
+      retries: 6
+      start_period: '90s'
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '50m'
+        max-file: '3'
+    x-runtipi:
+      internal_port: 3001
+      is_main: true
+  hexis-postgres:
+    image: 'postgres:17-alpine'
+    environment:
+      - 'POSTGRES_USER=tipi'
+      - 'POSTGRES_PASSWORD=${HEXIS_DB_PASSWORD}'
+      - 'POSTGRES_DB=hexis'
+    volumes:
+      - '${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data'
+    healthcheck:
+      test: 'pg_isready -U tipi -d hexis'
+      interval: '10s'
+      timeout: '5s'
+      retries: 5
+x-runtipi:
+  schema_version: 2
