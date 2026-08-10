@@ -1,0 +1,56 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "Hexis",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 8611,
+  "id": "hexis",
+  "tipi_version": 1,
+  "version": "0.1.0",
+  "categories": ["ai"],
+  "description": "Hexis is a self-hosted, git-backed workspace for AI agent skills, tools and team knowledge. Everything lives in a git repository you own, on any git host. A built-in remote MCP server (OAuth 2.1) lets Claude Code, ChatGPT, Cursor or any MCP-capable agent connect with a single key and see exactly what each role allows. Changes to protected branches land through change requests with owner approval, and the rules apply to agents exactly as they apply to people.",
+  "short_desc": "Git-backed workspace for AI agent skills, tools and knowledge over MCP",
+  "author": "Bevel-Software",
+  "source": "https://github.com/Bevel-Software/Hexis",
+  "form_fields": [
+    {
+      "env_variable": "HEXIS_ADMIN_EMAIL",
+      "label": "Admin email",
+      "pattern_error": "Invalid email",
+      "regex": "^[\\w\\-\\.]+@([\\w-]+\\.)+[\\w-]{2,}$",
+      "required": true,
+      "type": "text"
+    },
+    {
+      "env_variable": "HEXIS_ADMIN_PASSWORD",
+      "label": "Admin password",
+      "required": true,
+      "type": "password",
+      "min": 8,
+      "max": 128
+    },
+    {
+      "env_variable": "HEXIS_JWT_SECRET",
+      "label": "JWT secret (auto-generated)",
+      "type": "random",
+      "min": 64
+    },
+    {
+      "env_variable": "HEXIS_SECRETS_ENC_KEY",
+      "label": "Secrets encryption key (auto-generated)",
+      "type": "random",
+      "min": 64
+    },
+    {
+      "env_variable": "HEXIS_DB_PASSWORD",
+      "label": "Postgres password (auto-generated)",
+      "type": "random",
+      "min": 32
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1786384530000,
+  "updated_at": 1786384530000,
+  "min_tipi_version": "4.7.0"
+}
