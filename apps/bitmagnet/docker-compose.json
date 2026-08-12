@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "image": "ghcr.io/bitmagnet-io/bitmagnet:v0.10.0",
+      "image": "ghcr.io/bitmagnet-io/bitmagnet:v0.10.1",
       "name": "bitmagnet",
       "internalPort": 3333,
       "isMain": true,
