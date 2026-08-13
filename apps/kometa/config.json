@@ -7,8 +7,8 @@
   "no_gui": true,
   "port": 9996,
   "id": "kometa",
-  "tipi_version": 19,
-  "version": "2.4.6",
+  "tipi_version": 21,
+  "version": "2.4.7",
   "categories": ["utilities", "media"],
   "author": "Kometa-Team",
   "description": "Update metadata information for items in plex as well as automatically build collections and playlists.",
@@ -17,6 +17,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1785566657927,
+  "updated_at": 1786600356852,
   "min_tipi_version": "4.5.0"
 }
