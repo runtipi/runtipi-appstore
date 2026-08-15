@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "tinyauth",
-      "image": "ghcr.io/steveiliop56/tinyauth:v5.0.7",
+      "image": "ghcr.io/tinyauthapp/tinyauth:v5.1.3",
       "internalPort": 3000,
       "isMain": true,
       "environment": [
