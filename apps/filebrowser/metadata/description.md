@@ -1,7 +1,7 @@
 # Deprecation Notice August 2026
 Filebrowser development and maintenance has officially stopped and the repository is archived on 2026-09-01, more info here : https://hacdias.com/2026/07/28/filebrowser/
 
-We are now deprecating it and encourage you to use the newly available app : **Filebrowser Quantum**
+We are now deprecating it and encourage you to use the newly available app : **[Filebrowser Quantum](./filebrowser-quantum)**
 
 ## Access your homeserver files from your browser
 

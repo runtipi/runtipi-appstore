@@ -6,7 +6,7 @@ An easy way to access and manage your files from the web . It has a modern respo
 
 ## First start
 Default credentials are `admin:admin`.
-You **should absololutely** change this password, you can also add new users from the settings.
+You **should absolutely** change this password, you can also add new users from the settings.
 
 ### Documentation
 
