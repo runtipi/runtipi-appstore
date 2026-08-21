@@ -1,3 +1,12 @@
+# Deprecation Notice
+Whoogle is no longer functional, the app is now deprecated and will be soon removed from the appstore.
+
+See more details on the project page: https://github.com/benbusby/whoogle-search#whoogle-has-reached-the-end-of-the-road--24-jul-2026
+
+If you are looking for an alternative, you can try [SearXNG](./searxng)
+
+## Whoogle
+
 Get Google search results, but without any ads, JavaScript, AMP links, cookies, or IP address tracking. Easily deployable in one click as a Docker app, and customizable with a single config file. Quick and simple to implement as a primary search engine replacement on both desktop and mobile.
 
 ## Features
