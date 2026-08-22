@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "port": 8107,
   "id": "vaultwarden",
-  "tipi_version": 51,
+  "tipi_version": 52,
   "version": "1.37.1",
   "categories": ["utilities"],
   "description": "Alternative implementation of the Bitwarden server API written in Rust and compatible with upstream Bitwarden clients, perfect for self-hosted deployment where running the official resource-heavy service might not be ideal.",
@@ -17,7 +17,8 @@
     {
       "type": "password",
       "label": "Admin Panel Password",
-      "max": 128,
+      "hint": "Check the app description for more details",
+      "max": 150,
       "min": 12,
       "required": true,
       "env_variable": "VAULTWARDEN_ADMIN_PASSWORD"
@@ -25,6 +26,6 @@
   ],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1785369552644,
+  "updated_at": 1787438363200,
   "min_tipi_version": "4.5.0"
 }
