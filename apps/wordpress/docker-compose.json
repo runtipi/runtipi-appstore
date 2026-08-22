@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "wordpress",
-      "image": "wordpress:7.0.4",
+      "image": "wordpress:7.1.0",
       "isMain": true,
       "internalPort": 80,
       "environment": [
