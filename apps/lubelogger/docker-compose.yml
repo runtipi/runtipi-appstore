@@ -1,6 +1,6 @@
 services:
   lubelogger:
-    image: ghcr.io/hargata/lubelogger:v1.7.0
+    image: ghcr.io/hargata/lubelogger:v1.7.1
     container_name: lubelogger
     environment:
       - TZ=${TZ}
