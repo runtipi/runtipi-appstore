@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "wekan",
-      "image": "ghcr.io/wekan/wekan:v10.92",
+      "image": "ghcr.io/wekan/wekan:v11.07",
       "isMain": true,
       "internalPort": 8080,
       "environment": [
