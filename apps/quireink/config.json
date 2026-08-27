@@ -1,0 +1,21 @@
+{
+  "$schema": "../app-info-schema.json",
+  "dynamic_config": true,
+  "name": "Quire Ink",
+  "available": true,
+  "exposable": true,
+  "port": 8377,
+  "id": "quireink",
+  "tipi_version": 1,
+  "version": "2.2.1",
+  "categories": ["social"],
+  "description": "A self-hosted blog platform in one container: a real editor over Markdown (tables, footnotes, mathematics), scheduled publishing, newsletters over your own SMTP, comments with a built-in spam gate, cookie-free analytics, full-text search, and a book reading mode. Importers bring a WordPress, Ghost, Substack or Medium blog across with redirects and images. An AI agent can write and steward the blog over MCP. Readers download 3.9-10.4 KB of JavaScript and nothing from any third party. Everything lives in two SQLite files and one uploads folder.",
+  "short_desc": "A blog you host yourself, and an AI agent can run it for you",
+  "author": "Quire Ink",
+  "source": "https://github.com/joiha-steven/quireink",
+  "website": "https://quireink.com",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1787839165441,
+  "updated_at": 1787839165441
+}

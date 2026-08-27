@@ -1,0 +1,13 @@
+services:
+  quireink:
+    image: quireink/quireink:2.2.1
+    volumes:
+      - ${APP_DATA_DIR}/data:/var/lib/quire/data
+      - ${APP_DATA_DIR}/uploads:/var/lib/quire/uploads
+    environment:
+      SITE_URL: ${APP_PROTOCOL:-http}://${APP_DOMAIN}
+    x-runtipi:
+      internal_port: 3000
+      is_main: true
+x-runtipi:
+  schema_version: 2
