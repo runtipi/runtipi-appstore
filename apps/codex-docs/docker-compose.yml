@@ -1,9 +1,8 @@
-version: "3.2"
-
+version: '3.2'
 services:
   codex-docs:
     container_name: codex-docs
-    image: ghcr.io/codex-team/codex.docs:v2.2
+    image: ghcr.io/codex-team/codex.docs:v2.3
     ports:
       - ${APP_PORT}:3000
     restart: unless-stopped
@@ -19,26 +18,21 @@ services:
     networks:
       - tipi_main_network
     labels:
-      # Main
       traefik.enable: true
       traefik.http.middlewares.codex-docs-web-redirect.redirectscheme.scheme: https
       traefik.http.services.codex-docs.loadbalancer.server.port: 3000
-      # Web
       traefik.http.routers.codex-docs-insecure.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.codex-docs-insecure.entrypoints: web
       traefik.http.routers.codex-docs-insecure.service: codex-docs
       traefik.http.routers.codex-docs-insecure.middlewares: codex-docs-web-redirect
-      # Websecure
       traefik.http.routers.codex-docs.rule: Host(`${APP_DOMAIN}`)
       traefik.http.routers.codex-docs.entrypoints: websecure
       traefik.http.routers.codex-docs.service: codex-docs
       traefik.http.routers.codex-docs.tls.certresolver: myresolver
-      # Local domain
       traefik.http.routers.codex-docs-local-insecure.rule: Host(`codex-docs.${LOCAL_DOMAIN}`)
       traefik.http.routers.codex-docs-local-insecure.entrypoints: web
       traefik.http.routers.codex-docs-local-insecure.service: codex-docs
       traefik.http.routers.codex-docs-local-insecure.middlewares: codex-docs-web-redirect
-      # Local domain secure
       traefik.http.routers.codex-docs-local.rule: Host(`codex-docs.${LOCAL_DOMAIN}`)
       traefik.http.routers.codex-docs-local.entrypoints: websecure
       traefik.http.routers.codex-docs-local.service: codex-docs
