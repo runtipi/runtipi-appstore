@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "gotify",
-      "image": "gotify/server:3.0.0",
+      "image": "gotify/server:3.1.0",
       "isMain": true,
       "internalPort": 80,
       "environment": [
