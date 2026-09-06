@@ -1,0 +1,30 @@
+services:
+  libredb-studio:
+    container_name: libredb-studio
+    image: libredb/libredb-studio:0.13.7
+    restart: unless-stopped
+    ports:
+      - ${APP_PORT}:3000
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: true
+      traefik.http.middlewares.libredb-studio-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.libredb-studio.loadbalancer.server.port: 3000
+      traefik.http.routers.libredb-studio-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.libredb-studio-insecure.entrypoints: web
+      traefik.http.routers.libredb-studio-insecure.service: libredb-studio
+      traefik.http.routers.libredb-studio-insecure.middlewares: libredb-studio-web-redirect
+      traefik.http.routers.libredb-studio.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.libredb-studio.entrypoints: websecure
+      traefik.http.routers.libredb-studio.service: libredb-studio
+      traefik.http.routers.libredb-studio.tls.certresolver: myresolver
+      traefik.http.routers.libredb-studio-local-insecure.rule: Host(`libredb-studio.${LOCAL_DOMAIN}`)
+      traefik.http.routers.libredb-studio-local-insecure.entrypoints: web
+      traefik.http.routers.libredb-studio-local-insecure.service: libredb-studio
+      traefik.http.routers.libredb-studio-local-insecure.middlewares: libredb-studio-web-redirect
+      traefik.http.routers.libredb-studio-local.rule: Host(`libredb-studio.${LOCAL_DOMAIN}`)
+      traefik.http.routers.libredb-studio-local.entrypoints: websecure
+      traefik.http.routers.libredb-studio-local.service: libredb-studio
+      traefik.http.routers.libredb-studio-local.tls: true
+      runtipi.managed: true

@@ -1,0 +1,22 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "LibreDB Studio",
+  "port": 8547,
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "id": "libredb-studio",
+  "tipi_version": 1,
+  "version": "0.13.7",
+  "categories": ["data", "development", "utilities"],
+  "description": "LibreDB Studio is a self-hosted, browser-based database IDE and client for 16 engines including PostgreSQL, MySQL, Oracle, SQL Server, MongoDB, Redis, ClickHouse and Elasticsearch. The MIT build includes SSO (OIDC), RBAC, query audit logs, ER diagrams, EXPLAIN visualization and schema comparison.",
+  "short_desc": "Self-hosted, browser-based database IDE for 16 engines",
+  "author": "LibreDB",
+  "source": "https://github.com/libredb/libredb-studio",
+  "website": "https://libredb.org",
+  "form_fields": [],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1788702971893,
+  "updated_at": 1788702971893,
+  "min_tipi_version": "4.5.0"
+}

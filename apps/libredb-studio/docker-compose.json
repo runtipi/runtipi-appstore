@@ -1,0 +1,12 @@
+{
+  "services": [
+    {
+      "name": "libredb-studio",
+      "image": "libredb/libredb-studio:0.13.7",
+      "internalPort": 3000,
+      "isMain": true
+    }
+  ],
+  "schemaVersion": 2,
+  "$schema": "https://schemas.runtipi.io/v2/dynamic-compose.json"
+}
