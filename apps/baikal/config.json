@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 6556,
   "id": "baikal",
-  "tipi_version": 9,
-  "version": "0.11.1",
+  "tipi_version": 10,
+  "version": "0.12.1",
   "categories": ["data", "utilities"],
   "description": "Baïkal is a Calendar + Contacts server",
   "short_desc": "Calendar + Contacts server",
@@ -16,6 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1777475409637,
+  "updated_at": 1788597003986,
   "min_tipi_version": "4.7.0"
 }
