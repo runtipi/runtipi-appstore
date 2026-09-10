@@ -14,7 +14,7 @@
   "author": "Miguel Ribeiro",
   "source": "https://github.com/ellite/Wallos",
   "form_fields": [],
-  "supported_architectures": ["amd64"],
+  "supported_architectures": ["amd64", "arm64"],
   "created_at": 1691943801422,
   "updated_at": 1788596945406,
   "min_tipi_version": "4.5.0"
