@@ -39,9 +39,8 @@ php occ user:resetpassword username
 
 ![](https://raw.githubusercontent.com/nextcloud/screenshots/master/files/Files%20Sharing.png)
 
-# ⛺ Runtipi Note - 2026
-The version of this app is currently not aligned with the latest avaible: 33.
-Since Nextcloud requires to be upgraded step-by-step (you can  only update to the next major and can't skip iterations),  we will be rolling out a major update version every month until we catch up with the latest version.
+## Upgrade Note
+Nextcloud requires to be upgraded step-by-step, you can  only update to the next major and can't skip iterations
 
 ## Tips
 - Remember to backup your data !
