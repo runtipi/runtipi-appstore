@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "nocodb",
-      "image": "nocodb/nocodb:2026.08.2",
+      "image": "nocodb/nocodb:2026.09.0",
       "isMain": true,
       "internalPort": 8080,
       "environment": [
