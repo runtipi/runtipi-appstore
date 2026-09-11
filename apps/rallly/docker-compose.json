@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "rallly",
-      "image": "lukevella/rallly:4.14.0",
+      "image": "lukevella/rallly:4.15.0",
       "isMain": true,
       "internalPort": 3000,
       "environment": [
