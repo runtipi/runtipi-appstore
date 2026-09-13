@@ -1,0 +1,93 @@
+services:
+  garage:
+    image: dxflrs/garage:v2.1.0
+    container_name: garage
+    restart: unless-stopped
+    environment:
+      - GARAGE_ADMIN_TOKEN=${GARAGE_ADMIN_TOKEN}
+    ports:
+      - ${APP_PORT}:3900
+      - 3901:3901
+      - 3902:3902
+      - 3903:3903
+    volumes:
+      - ${APP_DATA_DIR}/garage/garage.toml:/etc/garage.toml
+      - ${APP_DATA_DIR}/data/meta:/var/lib/garage/meta
+      - ${APP_DATA_DIR}/data/data:/var/lib/garage/data
+    networks:
+      - tipi_main_network
+    labels:
+      # Main
+      traefik.enable: true
+      # S3 API
+      traefik.http.middlewares.garage-s3-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.garage-s3.loadbalancer.server.port: 3900
+      # Web API
+      traefik.http.middlewares.garage-web-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.garage-web.loadbalancer.server.port: 3902
+      # Garage API
+      traefik.http.middlewares.garage-api-web-redirect.redirectscheme.scheme: https
+      traefik.http.services.garage-api.loadbalancer.server.port: 3903
+      # Web - S3
+      traefik.http.routers.garage-s3-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.garage-s3-insecure.entrypoints: web
+      traefik.http.routers.garage-s3-insecure.service: garage-s3
+      traefik.http.routers.garage-s3-insecure.middlewares: garage-s3-web-redirect
+      # Web - Web
+      traefik.http.routers.garage-web-insecure.rule: Host(`web.${APP_DOMAIN}`)
+      traefik.http.routers.garage-web-insecure.entrypoints: web
+      traefik.http.routers.garage-web-insecure.service: garage-web
+      traefik.http.routers.garage-web-insecure.middlewares: garage-web-web-redirect
+      # Web - Garage API
+      traefik.http.routers.garage-api-insecure.rule: Host(`api.${APP_DOMAIN}`)
+      traefik.http.routers.garage-api-insecure.entrypoints: web
+      traefik.http.routers.garage-api-insecure.service: garage-api
+      traefik.http.routers.garage-api-insecure.middlewares: garage-api-web-redirect
+      # Websecure - S3
+      traefik.http.routers.garage-s3.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.garage-s3.entrypoints: websecure
+      traefik.http.routers.garage-s3.service: garage-s3
+      traefik.http.routers.garage-s3.tls.certresolver: myresolver
+      # Web - Web
+      traefik.http.routers.garage-web.rule: Host(`web.${MINIO_API_URL}`)
+      traefik.http.routers.garage-web.entrypoints: websecure
+      traefik.http.routers.garage-web.service: garage-web
+      traefik.http.routers.garage-web.tls.certresolver: myresolver
+      # Websecure - Garage API
+      traefik.http.routers.garage-api.rule: Host(`api.${MINIO_API_URL}`)
+      traefik.http.routers.garage-api.entrypoints: websecure
+      traefik.http.routers.garage-api.service: garage-api
+      traefik.http.routers.garage-api.tls.certresolver: myresolver
+      # Local domain - S3
+      traefik.http.routers.garage-s3-local-insecure.rule: Host(`garage.${LOCAL_DOMAIN}`)
+      traefik.http.routers.garage-s3-local-insecure.entrypoints: web
+      traefik.http.routers.garage-s3-local-insecure.service: garage-s3
+      traefik.http.routers.garage-s3-local-insecure.middlewares: garage-s3-web-redirect
+      # Local domain - Web
+      traefik.http.routers.garage-web-local-insecure.rule: Host(`web.garage.${LOCAL_DOMAIN}`)
+      traefik.http.routers.garage-web-local-insecure.entrypoints: web
+      traefik.http.routers.garage-web-local-insecure.service: garage-web
+      traefik.http.routers.garage-web-local-insecure.middlewares: garage-web-web-redirect
+      # Local domain - Garage API
+      traefik.http.routers.garage-api-local-insecure.rule: Host(`api.garage.${LOCAL_DOMAIN}`)
+      traefik.http.routers.garage-api-local-insecure.entrypoints: web
+      traefik.http.routers.garage-api-local-insecure.service: garage-api
+      traefik.http.routers.garage-api-local-insecure.middlewares: garage-api-web-redirect
+      # Local domain secure - S3
+      traefik.http.routers.garage-s3-local.rule: Host(`garage.${LOCAL_DOMAIN}`)
+      traefik.http.routers.garage-s3-local.entrypoints: websecure
+      traefik.http.routers.garage-s3-local.service: garage-s3
+      traefik.http.routers.garage-s3-local.tls: true
+      # Local domain secure - Web
+      traefik.http.routers.garage-web-local.rule: Host(`web.garage.${LOCAL_DOMAIN}`)
+      traefik.http.routers.garage-web-local.entrypoints: websecure
+      traefik.http.routers.garage-web-local.service: garage-web
+      traefik.http.routers.garage-web-local.tls: true  
+      # Local domain secure - API
+      traefik.http.routers.garage-api-local.rule: Host(`api.garage.${LOCAL_DOMAIN}`)
+      traefik.http.routers.garage-api-local.entrypoints: websecure
+      traefik.http.routers.garage-api-local.service: garage-api
+      traefik.http.routers.garage-api-local.tls: true
+      # Runtipi managed
+      runtipi.managed: true
+
