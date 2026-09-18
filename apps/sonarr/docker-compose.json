@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "sonarr",
-      "image": "lscr.io/linuxserver/sonarr:4.0.19",
+      "image": "lscr.io/linuxserver/sonarr:4.0.20",
       "isMain": true,
       "internalPort": 8989,
       "environment": [
