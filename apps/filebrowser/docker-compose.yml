@@ -2,7 +2,7 @@ version: "3.7"
 services:
   filebrowser:
     container_name: filebrowser
-    image: filebrowser/filebrowser:s6
+    image: filebrowser/filebrowser:v2.63.23
     ports:
       - ${APP_PORT}:80
     volumes:

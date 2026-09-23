@@ -1,3 +1,10 @@
+# V2 Migration
+Grav cannot be upgraded directly to v2, in consequence this version of the app is deprecated. You can already install Grav V2 from the appstore.
+
+Check the official Grav website for all the informations you need : https://getgrav.org/migrate-to-2
+
+# Description
+
 Grav is a **Fast**, **Simple**, and **Flexible**, file-based Web-platform. There is **Zero** installation required. Just extract the ZIP archive, and you are already up and running. It follows similar principles to other flat-file CMS platforms, but has a different design philosophy than most. Grav comes with a powerful **Package Management System** to allow for simple installation and upgrading of plugins and themes, as well as simple updating of Grav itself.
 
 The underlying architecture of Grav is designed to use well-established and _best-in-class_ technologies to ensure that Grav is simple to use and easy to extend. Some of these key technologies include:

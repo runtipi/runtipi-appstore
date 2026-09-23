@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "image": "ghcr.io/codex-team/codex.docs:v2.2",
+      "image": "ghcr.io/codex-team/codex.docs:v2.3",
       "name": "codex-docs",
       "internalPort": 3000,
       "isMain": true,

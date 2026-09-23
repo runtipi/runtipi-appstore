@@ -1,6 +1,6 @@
 services:
   write-freely:
-    image: nephatrine/write-freely:0.16
+    image: nephatrine/write-freely:0.17
     container_name: write-freely
     environment:
       TZ: ${TZ}

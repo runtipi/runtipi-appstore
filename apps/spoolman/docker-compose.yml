@@ -2,7 +2,7 @@ version: '3.8'
 services:
   spoolman:
     container_name: spoolman
-    image: ghcr.io/donkie/spoolman:0.24.0
+    image: ghcr.io/donkie/spoolman:0.26.1
     restart: unless-stopped
     volumes:
       - ${APP_DATA_DIR}/data:/home/app/.local/share/spoolman
@@ -10,8 +10,6 @@ services:
       - ${APP_PORT}:8000
     environment:
       - TZ=${TZ}
-      - PUID=0
-      - PGID=0
     networks:
       - tipi_main_network
     labels:

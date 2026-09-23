@@ -2,21 +2,13 @@
   "services": [
     {
       "name": "spoolman",
-      "image": "ghcr.io/donkie/spoolman:0.24.0",
+      "image": "ghcr.io/donkie/spoolman:0.26.1",
       "isMain": true,
       "internalPort": 8000,
       "environment": [
         {
           "key": "TZ",
           "value": "${TZ}"
-        },
-        {
-          "key": "PUID",
-          "value": "0"
-        },
-        {
-          "key": "PGID",
-          "value": "0"
         }
       ],
       "volumes": [

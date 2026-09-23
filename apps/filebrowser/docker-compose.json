@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "filebrowser",
-      "image": "filebrowser/filebrowser:s6",
+      "image": "filebrowser/filebrowser:v2.63.23",
       "isMain": true,
       "internalPort": 80,
       "environment": [

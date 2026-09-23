@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "n8n-2",
-      "image": "n8nio/n8n:2.31.3",
+      "image": "n8nio/n8n:2.41.0",
       "isMain": true,
       "internalPort": 5678,
       "environment": [
@@ -15,7 +15,7 @@
           "value": "false"
         },
         {
-          "key": "WEBHOOK_URL",
+          "key": "N8N_WEBHOOK_URL",
           "value": "${APP_PROTOCOL:-http}://${APP_DOMAIN}"
         },
         {

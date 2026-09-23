@@ -1,6 +1,6 @@
 services:
   hoarder:
-    image: ghcr.io/hoarder-app/hoarder:0.32.0
+    image: ghcr.io/hoarder-app/hoarder:0.33.2
     container_name: hoarder
     restart: unless-stopped
     volumes:
@@ -40,27 +40,27 @@ services:
       traefik.http.routers.hoarder-local.tls: true
       runtipi.managed: true
   hoarder-chrome:
-    image: gcr.io/zenika-hub/alpine-chrome:124
+    image: ghcr.io/karakeep-app/karakeep-chrome:release
     container_name: hoarder-chrome
     restart: unless-stopped
     command:
-      - '--no-sandbox'
       - '--disable-gpu'
       - '--disable-dev-shm-usage'
-      - '--remote-debugging-address=0.0.0.0'
-      - '--remote-debugging-port=9222'
       - '--hide-scrollbars'
+      - '--disable-blink-features=AutomationControlled'
+      - '--window-size=1440,900'
     networks:
       - tipi_main_network
     labels:
       runtipi.managed: true
   hoarder-meilisearch:
-    image: getmeili/meilisearch:v1.49
+    image: getmeili/meilisearch:v1.54
     container_name: hoarder-meilisearch
     restart: unless-stopped
     environment:
       - MEILI_NO_ANALYTICS=true
       - MEILI_MASTER_KEY=${MEILI_MASTER_KEY}
+      - MEILI_UPGRADE_DB=true
     volumes:
       - ${APP_DATA_DIR}/data/melli_data:/meili_data
     networks:

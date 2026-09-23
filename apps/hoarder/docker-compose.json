@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "hoarder",
-      "image": "ghcr.io/hoarder-app/hoarder:0.32.0",
+      "image": "ghcr.io/hoarder-app/hoarder:0.33.2",
       "isMain": true,
       "internalPort": 3000,
       "environment": [
@@ -48,19 +48,18 @@
     },
     {
       "name": "hoarder-chrome",
-      "image": "gcr.io/zenika-hub/alpine-chrome:124",
+      "image": "ghcr.io/karakeep-app/karakeep-chrome:release",
       "command": [
-        "--no-sandbox",
         "--disable-gpu",
         "--disable-dev-shm-usage",
-        "--remote-debugging-address=0.0.0.0",
-        "--remote-debugging-port=9222",
-        "--hide-scrollbars"
+        "--hide-scrollbars",
+        "--disable-blink-features=AutomationControlled",
+        "--window-size=1440,900"
       ]
     },
     {
       "name": "hoarder-meilisearch",
-      "image": "getmeili/meilisearch:v1.49",
+      "image": "getmeili/meilisearch:v1.54",
       "environment": [
         {
           "key": "MEILI_NO_ANALYTICS",
@@ -69,6 +68,10 @@
         {
           "key": "MEILI_MASTER_KEY",
           "value": "${MEILI_MASTER_KEY}"
+        },
+        {
+          "key": "MEILI_UPGRADE_DB",
+          "value": "true"
         }
       ],
       "volumes": [
