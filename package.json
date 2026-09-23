@@ -25,7 +25,7 @@
     "@biomejs/biome": "^2.5.14",
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.2",
-    "@commitlint/cz-commitlint": "^21.2.2",
+    "@commitlint/cz-commitlint": "^21.2.3",
     "@types/jest": "^30.0.0",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^26.6.2",
