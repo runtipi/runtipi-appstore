@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "bookstack",
-      "image": "lscr.io/linuxserver/bookstack:26.05.20260608",
+      "image": "lscr.io/linuxserver/bookstack:26.09.20260929",
       "internalPort": 80,
       "isMain": true,
       "dependsOn": ["bookstack-db"],
