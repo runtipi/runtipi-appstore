@@ -27,7 +27,7 @@
     },
     {
       "name": "odoo",
-      "image": "odoo:19",
+      "image": "odoo:20",
       "isMain": true,
       "internalPort": 8069,
       "user": "root",
