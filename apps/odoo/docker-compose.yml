@@ -16,7 +16,7 @@ services:
       runtipi.managed: true
   odoo:
     container_name: odoo
-    image: odoo:19
+    image: odoo:20
     user: root
     depends_on:
       - odoodb
