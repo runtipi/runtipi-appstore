@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 2,
+  "services": [
+    {
+      "name": "garage",
+      "image": "dxflrs/garage:v2.1.0",
+      "isMain": true,
+      "environment": [
+        {
+          "key": "GARAGE_ADMIN_TOKEN",
+          "value": "${GARAGE_ADMIN_TOKEN}"
+        }
+      ],
+      "internalPort": 3900,
+      "addPorts": [
+        {
+          "containerPort": 3902,
+          "hostPort": 3902
+        },
+        {
+          "containerPort": 3903,
+          "hostPort": 3903
+        }
+      ],
+      "volumes": [
+        {
+          "hostPath": "${APP_DATA_DIR}/data/garage.toml",
+          "containerPath": "/etc/garage.toml"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/meta",
+          "containerPath": "/var/lib/garage/meta"
+        },
+        {
+          "hostPath": "${APP_DATA_DIR}/data/data",
+          "containerPath": "/var/lib/garage/data"
+        }
+      ],
+      "extraLabels": {
+        "traefik.http.middlewares.{{RUNTIPI_APP_ID}}-api-web-redirect.redirectscheme.scheme": "https",
+        "traefik.http.services.{{RUNTIPI_APP_ID}}-api.loadbalancer.server.port": "9003",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-api-insecure.rule": "Host(`${GARAGE_API_URL}`)",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-api-insecure.entrypoints": "web",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-api-insecure.service": "{{RUNTIPI_APP_ID}}-api",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-api-insecure.middlewares": "{{RUNTIPI_APP_ID}}-api-web-redirect",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-api.rule": "Host(`${GARAGE_API_URL}`)",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-api.entrypoints": "websecure",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-api.service": "{{RUNTIPI_APP_ID}}-api",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-api.tls.certresolver": "myresolver",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-api-local-insecure.rule": "Host(`{{RUNTIPI_APP_ID}}-api.${LOCAL_DOMAIN}`)",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-api-local-insecure.entrypoints": "web",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-api-local-insecure.service": "{{RUNTIPI_APP_ID}}-api",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-api-local-insecure.middlewares": "{{RUNTIPI_APP_ID}}-api-web-redirect",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-api-local.rule": "Host(`{{RUNTIPI_APP_ID}}-api.${LOCAL_DOMAIN}`)",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-api-local.entrypoints": "websecure",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-api-local.service": "{{RUNTIPI_APP_ID}}-api",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-api-local.tls": "true",
+        "traefik.http.middlewares.{{RUNTIPI_APP_ID}}-web-web-redirect.redirectscheme.scheme": "https",
+        "traefik.http.services.{{RUNTIPI_APP_ID}}-web.loadbalancer.server.port": "9002",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-web-insecure.rule": "Host(`${GARAGE_WEB_BUCKET_URL}`)",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-web-insecure.entrypoints": "web",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-web-insecure.service": "{{RUNTIPI_APP_ID}}-web",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-web-insecure.middlewares": "{{RUNTIPI_APP_ID}}-web-web-redirect",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-web.rule": "Host(`${GARAGE_WEB_BUCKET_URL}`)",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-web.entrypoints": "websecure",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-web.service": "{{RUNTIPI_APP_ID}}-web",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-web.tls.certresolver": "myresolver",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-web-local-insecure.rule": "Host(`{{RUNTIPI_APP_ID}}-web.${LOCAL_DOMAIN}`)",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-web-local-insecure.entrypoints": "web",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-web-local-insecure.service": "{{RUNTIPI_APP_ID}}-web",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-web-local-insecure.middlewares": "{{RUNTIPI_APP_ID}}-web-web-redirect",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-web-local.rule": "Host(`{{RUNTIPI_APP_ID}}-web.${LOCAL_DOMAIN}`)",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-web-local.entrypoints": "websecure",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-web-local.service": "{{RUNTIPI_APP_ID}}-web",
+        "traefik.http.routers.{{RUNTIPI_APP_ID}}-web-local.tls": "true"
+      }
+    }
+  ]
+}
