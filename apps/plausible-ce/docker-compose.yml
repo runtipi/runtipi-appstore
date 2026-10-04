@@ -75,7 +75,7 @@ services:
       runtipi.managed: true
   plausible-events-db:
     container_name: plausible-events-db
-    image: clickhouse/clickhouse-server:26.9.7.9
+    image: clickhouse/clickhouse-server:26.9.10.4
     restart: unless-stopped
     networks:
       - tipi_main_network
