@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "suwayomi",
-      "image": "ghcr.io/suwayomi/tachidesk:v2.4.2378",
+      "image": "ghcr.io/suwayomi/tachidesk:v2.4.2379",
       "isMain": true,
       "internalPort": 4567,
       "environment": [
