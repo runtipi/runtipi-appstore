@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   gitea:
-    image: gitea/gitea:28.0.0
+    image: gitea/gitea:28.1.0
     container_name: gitea
     environment:
       - USER_UID=1000
