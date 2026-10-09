@@ -2,7 +2,7 @@ x-runtipi:
   schema_version: 2
 services:
   filebrowser-quantum:
-    image: gtstef/filebrowser:2-beta
+    image: gtstef/filebrowser:2.0-stable
     volumes:
       - ${ROOT_FOLDER_HOST}/media:/runtipi/media
       - ${ROOT_FOLDER_HOST}/app-data:/runtipi/app-data
