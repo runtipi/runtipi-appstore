@@ -6,8 +6,8 @@
   "dynamic_config": true,
   "port": 18196,
   "id": "filebrowser-quantum",
-  "tipi_version": 1,
-  "version": "2-beta",
+  "tipi_version": 2,
+  "version": "2.0-stable",
   "categories": ["utilities"],
   "description": "Web-based file manager",
   "short_desc": "Access your homeserver files from your browser",
@@ -17,7 +17,7 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1786190003065,
-  "updated_at": 1786190003066,
+  "updated_at": 1786190003067,
   "force_pull": true,
   "min_tipi_version": "4.8.0"
 }
