@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "homarr",
-      "image": "ghcr.io/homarr-labs/homarr:v2.2.0",
+      "image": "ghcr.io/homarr-labs/homarr:v2.3.0",
       "isMain": true,
       "internalPort": 7575,
       "environment": [
