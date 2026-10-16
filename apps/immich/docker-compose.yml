@@ -75,7 +75,7 @@ services:
       runtipi.managed: true
   immich-db:
     container_name: immich-db
-    image: ghcr.io/immich-app/postgres:14-vectorchord0.3.0-pgvectors0.2.0
+    image: ghcr.io/immich-app/postgres:16
     environment:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_USER: tipi
