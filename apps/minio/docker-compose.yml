@@ -1,7 +1,7 @@
 services:
   minio:
     container_name: minio
-    image: ghcr.io/golithus/minio:latest
+    image: pgsty/minio:RELEASE.2026-06-18T00-00-00Z
     restart: unless-stopped
     environment:
       - MINIO_ROOT_USER=${MINIO_ROOT_USER}
