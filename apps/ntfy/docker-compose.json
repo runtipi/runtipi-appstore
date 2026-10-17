@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "ntfy",
-      "image": "binwiederhier/ntfy:v2.30.0",
+      "image": "binwiederhier/ntfy:v2.31.1",
       "isMain": true,
       "internalPort": 80,
       "environment": [
