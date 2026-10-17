@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   halo:
-    image: halohub/halo:2.26.1
+    image: halohub/halo:2.27.0
     container_name: halo
     restart: unless-stopped
     depends_on:
