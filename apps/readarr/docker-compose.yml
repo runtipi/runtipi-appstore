@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   readarr:
-    image: lscr.io/linuxserver/readarr:0.4.19
+    image: lscr.io/linuxserver/readarr:1.0.1126
     container_name: readarr
     environment:
       - PUID=1000
