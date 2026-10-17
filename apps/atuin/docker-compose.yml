@@ -1,6 +1,6 @@
 services:
   atuin:
-    image: ghcr.io/atuinsh/atuin:18.23.0
+    image: ghcr.io/atuinsh/atuin:18.24.1
     command: start
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
