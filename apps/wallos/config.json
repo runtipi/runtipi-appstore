@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "wallos",
-  "tipi_version": 164,
-  "version": "5.8.3",
+  "tipi_version": 166,
+  "version": "5.10.0",
   "categories": ["finance"],
   "description": "Open-Source Personal Subscription Tracker",
   "short_desc": "Open-Source Personal Subscription Tracker",
@@ -16,6 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["amd64", "arm64"],
   "created_at": 1691943801422,
-  "updated_at": 1791103547296,
+  "updated_at": 1792314463681,
   "min_tipi_version": "4.5.0"
 }
