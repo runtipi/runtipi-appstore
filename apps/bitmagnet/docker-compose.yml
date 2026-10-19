@@ -1,91 +1,53 @@
-version: '3.7'
 services:
   bitmagnet:
-    image: ghcr.io/bitmagnet-io/bitmagnet:v0.10.1
-    restart: unless-stopped
+    image: 'ghcr.io/bitmagnet-io/bitmagnet:v0.10.1'
     command:
-      - worker
-      - run
+      - 'worker'
+      - 'run'
       - '--keys=http_server'
       - '--keys=queue_server'
       - '--keys=dht_crawler'
-    container_name: bitmagnet
-    environment:
-      - POSTGRES_HOST=bitmagnet-db
-      - POSTGRES_NAME=bitmagnet
-      - POSTGRES_USER=tipi
-      - POSTGRES_PASSWORD=${BITMAGNENT_DB_PASSWORD}
-      - REDIS_ADDR=bitmagnet-redis:6379
     ports:
-      - ${APP_PORT}:3333
-      - 3334:3334/tcp
-      - 3334:3334/udp
+      - '3334:3334/tcp'
+      - '3334:3334/udp'
+    environment:
+      - 'POSTGRES_HOST=bitmagnet-db'
+      - 'POSTGRES_NAME=bitmagnet'
+      - 'POSTGRES_USER=tipi'
+      - 'POSTGRES_PASSWORD=${BITMAGNENT_DB_PASSWORD}'
+      - 'REDIS_ADDR=bitmagnet-redis:6379'
     depends_on:
       bitmagnet-db:
-        condition: service_healthy
+        condition: 'service_healthy'
       bitmagnet-redis:
-        condition: service_started
-    networks:
-      - tipi_main_network
-    labels:
-      traefik.enable: true
-      traefik.http.middlewares.bitmagnet-web-redirect.redirectscheme.scheme: https
-      traefik.http.services.bitmagnet.loadbalancer.server.port: 3333
-      traefik.http.routers.bitmagnet-insecure.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.bitmagnet-insecure.entrypoints: web
-      traefik.http.routers.bitmagnet-insecure.service: bitmagnet
-      traefik.http.routers.bitmagnet-insecure.middlewares: bitmagnet-web-redirect
-      traefik.http.routers.bitmagnet.rule: Host(`${APP_DOMAIN}`)
-      traefik.http.routers.bitmagnet.entrypoints: websecure
-      traefik.http.routers.bitmagnet.service: bitmagnet
-      traefik.http.routers.bitmagnet.tls.certresolver: myresolver
-      traefik.http.routers.bitmagnet-local-insecure.rule: Host(`bitmagnet.${LOCAL_DOMAIN}`)
-      traefik.http.routers.bitmagnet-local-insecure.entrypoints: web
-      traefik.http.routers.bitmagnet-local-insecure.service: bitmagnet
-      traefik.http.routers.bitmagnet-local-insecure.middlewares: bitmagnet-web-redirect
-      traefik.http.routers.bitmagnet-local.rule: Host(`bitmagnet.${LOCAL_DOMAIN}`)
-      traefik.http.routers.bitmagnet-local.entrypoints: websecure
-      traefik.http.routers.bitmagnet-local.service: bitmagnet
-      traefik.http.routers.bitmagnet-local.tls: true
-      runtipi.managed: true
+        condition: 'service_started'
+    x-runtipi:
+      internal_port: 3333
+      is_main: true
   bitmagnet-db:
-    container_name: bitmagnet-db
-    image: postgres:17-alpine
-    restart: unless-stopped
-    healthcheck:
-      test:
-        - CMD-SHELL
-        - pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}
-      start_period: 20s
-      interval: 30s
-      retries: 5
-      timeout: 5s
+    image: 'postgres:17-alpine'
     volumes:
-      - ${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data
+      - '${APP_DATA_DIR}/data/postgres:/var/lib/postgresql/data'
     environment:
-      POSTGRES_PASSWORD: ${BITMAGNENT_DB_PASSWORD}
-      POSTGRES_USER: tipi
-      POSTGRES_DB: bitmagnet
-    networks:
-      - tipi_main_network
-    labels:
-      runtipi.managed: true
-  bitmagnet-redis:
-    image: redis:alpine
-    command: '--save 60 1 --loglevel warning'
-    container_name: bitmagnet-redis
-    restart: unless-stopped
+      - 'POSTGRES_PASSWORD=${BITMAGNENT_DB_PASSWORD}'
+      - 'POSTGRES_USER=tipi'
+      - 'POSTGRES_DB=bitmagnet'
     healthcheck:
-      test:
-        - CMD-SHELL
-        - redis-cli ping | grep PONG
-      start_period: 20s
-      interval: 30s
+      test: 'pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}'
+      interval: '30s'
+      timeout: '5s'
       retries: 5
-      timeout: 3s
+      start_period: '20s'
+  bitmagnet-redis:
+    image: 'redis:alpine'
+    command: '--save 60 1 --loglevel warning'
     volumes:
-      - ${APP_DATA_DIR}/data/redis:/data
-    networks:
-      - tipi_main_network
-    labels:
-      runtipi.managed: true
+      - '${APP_DATA_DIR}/data/redis:/data'
+    healthcheck:
+      test: 'redis-cli ping | grep PONG'
+      interval: '30s'
+      timeout: '3s'
+      retries: 5
+      start_period: '20s'
+x-runtipi:
+  schema_version: 2
