@@ -1,8 +1,8 @@
 services:
   budibase:
-    image: 'budibase/budibase:v3.49.0'
+    image: budibase/budibase:v3.50.0
     volumes:
-      - '${APP_DATA_DIR}:/data'
+      - ${APP_DATA_DIR}:/data
     x-runtipi:
       internal_port: 80
       is_main: true
