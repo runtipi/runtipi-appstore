@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "qbittorrent",
-      "image": "lscr.io/linuxserver/qbittorrent:5.2.4",
+      "image": "lscr.io/linuxserver/qbittorrent:5.3.0",
       "isMain": true,
       "internalPort": "${APP_PORT}",
       "addPorts": [

@@ -6,7 +6,7 @@
   "dynamic_config": true,
   "port": 8128,
   "id": "immich",
-  "tipi_version": 236,
+  "tipi_version": 237,
   "version": "v3.3.4",
   "categories": ["data", "photography"],
   "description": "Photo and video backup solution directly from your mobile phone.",
