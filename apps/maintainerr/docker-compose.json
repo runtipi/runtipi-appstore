@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "maintainerr",
-      "image": "ghcr.io/maintainerr/maintainerr:3.30.2",
+      "image": "ghcr.io/maintainerr/maintainerr:3.31.0",
       "isMain": true,
       "internalPort": 6246,
       "environment": [
