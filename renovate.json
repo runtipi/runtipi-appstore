@@ -33,7 +33,7 @@
       "enabled": false
     },
     {
-      "matchPackageNames": ["nextcloud, lscr.io/linuxserver/grav"],
+      "matchPackageNames": ["getumbrel/electrs, lscr.io/linuxserver/grav"],
       "enabled": false
     }
   ],
