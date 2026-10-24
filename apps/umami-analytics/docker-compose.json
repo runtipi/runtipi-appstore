@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "umami-analytics",
-      "image": "ghcr.io/umami-software/umami:3.4.0",
+      "image": "ghcr.io/umami-software/umami:3.4.1",
       "isMain": true,
       "internalPort": 3000,
       "environment": [
