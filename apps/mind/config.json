@@ -6,8 +6,8 @@
   "exposable": true,
   "dynamic_config": true,
   "id": "mind",
-  "tipi_version": 14,
-  "version": "v1.5.0",
+  "tipi_version": 16,
+  "version": "v1.5.1",
   "categories": ["utilities"],
   "description": "A simple self hosted reminder platform that uses push to send notifications to your device. Set the reminder and forget about it!",
   "short_desc": "A simple self hosted reminder platform that uses push to send notifications to your device.",
@@ -16,6 +16,6 @@
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
-  "updated_at": 1792574972124,
+  "updated_at": 1792839905196,
   "min_tipi_version": "4.5.0"
 }
