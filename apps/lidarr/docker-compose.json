@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "lidarr",
-      "image": "ghcr.io/linuxserver/lidarr:3.1.0",
+      "image": "ghcr.io/linuxserver/lidarr:3.1.6",
       "isMain": true,
       "internalPort": 8686,
       "environment": [
