@@ -1,9 +1,9 @@
 services:
   changedetection:
-    image: 'ghcr.io/dgtlmoon/changedetection.io:0.60.9'
-    hostname: 'changedetection'
+    image: ghcr.io/dgtlmoon/changedetection.io:0.60.10
+    hostname: changedetection
     volumes:
-      - '${APP_DATA_DIR}/data:/datastore'
+      - ${APP_DATA_DIR}/data:/datastore
     x-runtipi:
       internal_port: 5000
       is_main: true
