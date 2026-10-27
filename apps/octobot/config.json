@@ -12,6 +12,7 @@
   "short_desc": "Octobot is a powerful open-source cryptocurrency trading robot.",
   "author": "https://github.com/Drakkar-Software/",
   "source": "https://github.com/Drakkar-Software/OctoBot",
+  "website": "https://www.octobot.cloud",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,

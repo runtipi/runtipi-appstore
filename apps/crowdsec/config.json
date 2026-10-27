@@ -13,6 +13,7 @@
   "short_desc": "Participative security solution offering crowdsourced protection against malicious IPs and access to the most advanced real-world CTI.",
   "author": "crowdsecurity",
   "source": "https://github.com/crowdsecurity/crowdsec",
+  "website": "https://docs.crowdsec.net/",
   "form_fields": [
     {
       "type": "password",

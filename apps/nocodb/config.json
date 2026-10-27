@@ -13,6 +13,7 @@
   "short_desc": "Open Source Airtable Alternative",
   "author": "https://github.com/nocodb",
   "source": "https://github.com/nocodb/nocodb",
+  "website": "https://nocodb.com/",
   "form_fields": [
     {
       "type": "random",

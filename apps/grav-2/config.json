@@ -13,6 +13,7 @@
   "short_desc": "Fast, Simple, and Flexible, file-based Web-platform.",
   "author": "Grav",
   "source": "https://github.com/getgrav/grav",
+  "website": "https://getgrav.org/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1786273886044,

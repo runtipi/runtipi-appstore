@@ -13,6 +13,7 @@
   "short_desc": "A self-hosted BitTorrent indexer.",
   "author": "bitmagnet-io",
   "source": "https://github.com/bitmagnet-io/bitmagnet",
+  "website": "https://bitmagnet.io/",
   "form_fields": [
     {
       "type": "random",

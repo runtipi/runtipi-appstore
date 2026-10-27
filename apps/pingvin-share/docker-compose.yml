@@ -2,7 +2,7 @@ version: '3.9'
 services:
   pingvin-share:
     container_name: pingvin-share
-    image: stonith404/pingvin-share:v1.13.0
+    image: ghcr.io/smp46/pingvin-share-x:v2.1.0
     restart: unless-stopped
     ports:
       - ${APP_PORT}:3000

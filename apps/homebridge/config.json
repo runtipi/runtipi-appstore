@@ -12,6 +12,7 @@
   "short_desc": "HomeKit support for the impatient.  ",
   "author": "ArneNaessens",
   "source": "https://github.com/homebridge/homebridge",
+  "website": "https://homebridge.io/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,

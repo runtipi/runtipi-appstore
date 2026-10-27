@@ -13,6 +13,7 @@
   "short_desc": "Document Management System (DMS)",
   "author": "Daniel Quinn, Jonas Winkler, and the Paperless-ngx team",
   "source": "https://github.com/paperless-ngx/paperless-ngx",
+  "website": "http://docs.paperless-ngx.com/",
   "form_fields": [
     {
       "type": "text",

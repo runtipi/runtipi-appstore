@@ -13,6 +13,7 @@
   "short_desc": "AI-Powered Photos App for the Decentralized Web. We are on a mission to protect your freedom and privacy.",
   "author": "PhotoPrism",
   "source": "https://github.com/photoprism/photoprism",
+  "website": "https://www.photoprism.app/",
   "form_fields": [
     {
       "type": "password",

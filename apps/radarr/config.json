@@ -13,6 +13,7 @@
   "short_desc": "Movie collection manager for Usenet and BitTorrent users.",
   "author": "radarr.video",
   "source": "https://github.com/Radarr/Radarr",
+  "website": "https://radarr.video/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,

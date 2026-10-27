@@ -11,6 +11,7 @@
   "tipi_version": 59,
   "version": "0.21.1",
   "source": "https://github.com/henrygd/beszel",
+  "website": "https://beszel.dev/",
   "exposable": true,
   "dynamic_config": true,
   "supported_architectures": ["arm64", "amd64"],

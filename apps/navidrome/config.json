@@ -12,6 +12,7 @@
   "short_desc": "A selfhosted music server",
   "author": "https://github.com/Bvoxl",
   "source": "https://github.com/navidrome/navidrome/",
+  "website": "https://www.navidrome.org/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,

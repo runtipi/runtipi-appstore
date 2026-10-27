@@ -12,7 +12,8 @@
   "description": "Locally hosted web application that allows you to perform various operations on PDF files.",
   "short_desc": "Powerful locally hosted web based PDF manipulation tool.",
   "author": "Frooodle",
-  "source": "https://github.com/Frooodle/Stirling-PDF/",
+  "source": "https://github.com/Stirling-Tools/Stirling-PDF",
+  "website": "https://stirling.com/",
   "form_fields": [
     {
       "type": "boolean",

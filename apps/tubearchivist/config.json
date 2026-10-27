@@ -13,6 +13,7 @@
   "short_desc": "Your self-hosted YouTube media server",
   "author": "bbilly1",
   "source": "https://github.com/tubearchivist/tubearchivist",
+  "website": "https://www.tubearchivist.com/",
   "form_fields": [
     {
       "type": "text",

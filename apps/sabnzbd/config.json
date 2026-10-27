@@ -13,6 +13,7 @@
   "short_desc": "Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can",
   "author": "Sabnzbd",
   "source": "https://github.com/sabnzbd/sabnzbd",
+  "website": "https://sabnzbd.org/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,

@@ -16,6 +16,7 @@
   "short_desc": "Fast, easy, and free BitTorrent client",
   "author": "Transmission Project",
   "source": "https://github.com/transmission/transmission",
+  "website": "https://transmissionbt.com/",
   "form_fields": [
     {
       "type": "text",

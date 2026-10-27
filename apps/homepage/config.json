@@ -12,6 +12,7 @@
   "short_desc": "A highly customizable homepage",
   "author": "gethomepage",
   "source": "https://github.com/gethomepage/homepage",
+  "website": "https://gethomepage.dev/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "dynamic_config": true,

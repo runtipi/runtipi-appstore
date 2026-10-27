@@ -14,6 +14,7 @@
   "short_desc": "Update your Gandi DNS zone records with your WAN IP",
   "author": "jbbodart",
   "source": "https://github.com/jbbodart/gandi-livedns",
+  "website": "http://doc.livedns.gandi.net/",
   "form_fields": [
     {
       "type": "text",

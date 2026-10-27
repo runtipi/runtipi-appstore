@@ -13,6 +13,7 @@
   "short_desc": "Dozzle is a small web based app to monitor Docker logs",
   "author": "Amir Raminfar",
   "source": "https://github.com/amir20/dozzle",
+  "website": "https://dozzle.dev/",
   "form_fields": [
     {
       "type": "text",

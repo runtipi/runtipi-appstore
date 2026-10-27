@@ -1,7 +1,7 @@
 {
   "$schema": "../app-info-schema.json",
   "dynamic_config": true,
-  "name": "Actual Budget",
+  "name": "Actual",
   "available": true,
   "exposable": true,
   "port": 8011,
@@ -13,6 +13,7 @@
   "short_desc": "Local-first OpenSource Budget tool",
   "author": "Shift Reset LLC",
   "source": "https://github.com/actualbudget/actual",
+  "website": "https://actualbudget.org/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,

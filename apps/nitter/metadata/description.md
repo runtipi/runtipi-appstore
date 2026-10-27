@@ -1,3 +1,7 @@
+# Deprecation Notice
+Nitter has been officially archived on July 20 2026. (see details here: https://nitter.net/)
+This app will be remove from the appstore before the end of the year.
+
 ## Alternative Twitter front-end 
 
 A free and open source alternative Twitter front-end focused on privacy and performance. Inspired by the [Invidious](https://github.com/iv-org/invidious) project.

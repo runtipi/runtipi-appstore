@@ -13,6 +13,7 @@
   "short_desc": "Control your ESP8266/ESP32.",
   "author": "ESP Home",
   "source": "https://github.com/esphome/esphome",
+  "website": "https://esphome.io/",
   "form_fields": [
     {
       "type": "text",

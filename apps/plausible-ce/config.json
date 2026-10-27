@@ -14,6 +14,7 @@
   "short_desc": "Simple, open-source, lightweight (< 1 KB) and privacy-friendly web analytics alternative to Google Analytics.",
   "author": "Plausible",
   "source": "https://github.com/plausible/community-edition",
+  "website": "https://plausible.io/blog/community-edition",
   "form_fields": [
     {
       "type": "random",

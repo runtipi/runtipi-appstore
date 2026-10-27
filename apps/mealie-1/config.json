@@ -13,6 +13,7 @@
   "author": "hay-kot",
   "categories": [],
   "source": "https://github.com/hay-kot/mealie",
+  "website": "https://docs.mealie.io/",
   "form_fields": [
     {
       "type": "boolean",

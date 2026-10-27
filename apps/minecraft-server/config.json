@@ -14,6 +14,7 @@
   "short_desc": "Run a minecraft server",
   "author": "Geoff Bourne",
   "source": "https://github.com/itzg/docker-minecraft-server",
+  "website": "https://docker-minecraft-server.readthedocs.io/en/latest/",
   "form_fields": [
     {
       "type": "text",

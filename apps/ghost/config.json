@@ -12,6 +12,7 @@
   "short_desc": "Ghost - Turn your audience into a business.",
   "author": "TryGhost",
   "source": "https://github.com/TryGhost/Ghost",
+  "website": "https://ghost.org",
   "form_fields": [
     {
       "type": "random",

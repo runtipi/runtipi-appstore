@@ -14,6 +14,7 @@
   "short_desc": "High performance home video integration and automation platform",
   "author": "Koush",
   "source": "https://github.com/koush/scrypted",
+  "website": "https://www.scrypted.app/",
   "form_fields": [
     {
       "type": "random",

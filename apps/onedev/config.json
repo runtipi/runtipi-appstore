@@ -11,8 +11,9 @@
   "categories": ["development"],
   "description": "Self-hosted Git Server with Kanban and CI/CD",
   "short_desc": "Self-hosted Git Server with Kanban and CI/CD",
-  "author": "https://code.onedev.io/",
+  "author": "OneDev",
   "source": "https://code.onedev.io/onedev/server",
+  "website": "https://code.onedev.io/",
   "form_fields": [
     {
       "type": "random",

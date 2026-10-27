@@ -13,10 +13,11 @@
   "short_desc": "Collection of handy online tools for developers, with great UX.",
   "author": "CorentinTh",
   "source": "https://github.com/CorentinTh/it-tools",
+  "website": "https://it-tools.tech/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
   "updated_at": 1761338378475,
-  "force_pull": true,
+  "force_pull": false,
   "min_tipi_version": "4.5.0"
 }

@@ -13,6 +13,7 @@
   "short_desc": "A media server for your home collection",
   "author": "jellyfin.org",
   "source": "https://github.com/jellyfin/jellyfin",
+  "website": "https://jellyfin.org/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,

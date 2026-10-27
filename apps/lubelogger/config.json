@@ -13,6 +13,7 @@
   "short_desc": "Vehicle Maintenance and Fuel Mileage Tracker.",
   "author": "hargata",
   "source": "https://github.com/hargata/lubelog",
+  "website": "https://lubelogger.com/",
   "form_fields": [
     {
       "type": "text",

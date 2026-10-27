@@ -13,6 +13,7 @@
   "short_desc": "Store securely encrypted backups in the cloud!",
   "author": "https://github.com/duplicati",
   "source": "https://github.com/linuxserver/docker-duplicati",
+  "website": "https://duplicati.com",
   "form_fields": [
     {
       "label": "Encryption Key",

@@ -11,6 +11,7 @@
   "tipi_version": 7,
   "version": "latest",
   "source": "https://github.com/OliveTin/OliveTin",
+  "website": "https://www.olivetin.app/",
   "exposable": true,
   "dynamic_config": true,
   "supported_architectures": ["arm64", "amd64"],

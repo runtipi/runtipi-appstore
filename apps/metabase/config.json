@@ -13,6 +13,7 @@
   "short_desc": "The simplest, fastest way to get business intelligence and analytics to everyone in your company",
   "author": "metabase",
   "source": "https://github.com/metabase/metabase",
+  "website": "https://metabase.com/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1724831720870,

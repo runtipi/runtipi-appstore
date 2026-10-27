@@ -12,6 +12,7 @@
   "short_desc": "Maintainerr will manage the storage space on your plex server, launching automated actions to delete your files.",
   "author": "jorenn92",
   "source": "https://github.com/Maintainerr/Maintainerr",
+  "website": "https://maintainerr.info/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,

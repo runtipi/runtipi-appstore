@@ -13,6 +13,7 @@
   "short_desc": "Open-Source, customizable, and privacy-focused kanban",
   "author": "Lauri Ojansivu",
   "source": "https://github.com/wekan/wekan",
+  "website": "https://wekan.fi/",
   "form_fields": [
     {
       "type": "email",

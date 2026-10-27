@@ -13,6 +13,7 @@
   "short_desc": "Open source home automation that puts local control and privacy first",
   "author": "Home Assistant",
   "source": "https://github.com/home-assistant/core",
+  "website": "https://www.home-assistant.io/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,
