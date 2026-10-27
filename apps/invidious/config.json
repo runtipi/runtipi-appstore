@@ -13,6 +13,7 @@
   "short_desc": "An alternative front-end to YouTube",
   "author": "iv-org",
   "source": "https://github.com/iv-org/invidious",
+  "website": "https://invidious.io/",
   "form_fields": [
     {
       "type": "random",

@@ -13,6 +13,7 @@
   "short_desc": "Ambient sounds for focus and calm.",
   "author": "remvze",
   "source": "https://github.com/remvze/moodist",
+  "website": "https://moodist.mvze.net/",
   "form_fields": [],
   "supported_architectures": ["amd64"],
   "created_at": 1691943801422,

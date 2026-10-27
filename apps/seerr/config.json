@@ -13,6 +13,7 @@
   "short_desc": "Managing requests for your media library",
   "author": "Seerr-team",
   "source": "https://github.com/seerr-team/seerr",
+  "website": "https://docs.seerr.dev/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1771504444444,

@@ -13,7 +13,7 @@
   "short_desc": "Recipe collection manager.",
   "author": "Tandoor Recipes",
   "source": "https://github.com/TandoorRecipes/recipes",
-  "website": "https://tandoor.dev/",
+  "website": "https://docs.tandoor.dev/",
   "form_fields": [
     {
       "type": "random",

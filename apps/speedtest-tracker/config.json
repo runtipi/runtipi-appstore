@@ -13,6 +13,7 @@
   "short_desc": "Internet performance tracking application.",
   "author": "alexjustesen",
   "source": "https://github.com/alexjustesen/speedtest-tracker",
+  "website": "https://docs.speedtest-tracker.dev/",
   "form_fields": [
     {
       "type": "random",

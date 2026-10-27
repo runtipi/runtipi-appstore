@@ -13,6 +13,7 @@
   "short_desc": "Deluge is a lightweight, Free Software, cross-platform BitTorrent client.",
   "author": "https://github.com/deluge-torrent",
   "source": "https://github.com/linuxserver/docker-deluge",
+  "website": "https://www.deluge-torrent.org/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,

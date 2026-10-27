@@ -14,6 +14,7 @@
   "short_desc": "The authentication glue you need.",
   "author": "goauthentik",
   "source": "https://github.com/goauthentik/authentik",
+  "website": "https://goauthentik.io/",
   "form_fields": [
     {
       "type": "random",

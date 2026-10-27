@@ -13,6 +13,7 @@
   "short_desc": "BitTorrent client with VPN support.",
   "author": "haugene",
   "source": "https://github.com/haugene/docker-transmission-openvpn",
+  "website": "https://haugene.github.io/docker-transmission-openvpn/",
   "form_fields": [
     {
       "type": "number",

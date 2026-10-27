@@ -13,6 +13,7 @@
   "short_desc": "Productivity platform that keeps you in control",
   "author": "Nextcloud GmbH",
   "source": "https://github.com/nextcloud/server",
+  "website": "https://nextcloud.com",
   "form_fields": [
     {
       "type": "text",

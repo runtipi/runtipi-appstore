@@ -13,6 +13,7 @@
   "short_desc": "Self-hosted social media management. Schedule and organize your social content. ",
   "author": "Inovector",
   "source": "https://github.com/inovector/mixpost",
+  "website": "https://mixpost.app/",
   "form_fields": [
     {
       "type": "random",

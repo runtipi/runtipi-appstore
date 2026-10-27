@@ -1,3 +1,7 @@
+# Deprecation Notice
+Serge hasn't been updated for a long time and has been officially archived on July 20 2026.
+This app will be remove from the appstore before the end of the year.
+
 # Serge - LLaMA made easy 🦙
 
 Serge is a chat interface crafted with [llama.cpp](https://github.com/ggerganov/llama.cpp) for running Alpaca models. No API keys, entirely self-hosted!

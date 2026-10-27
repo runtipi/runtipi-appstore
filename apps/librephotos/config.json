@@ -13,6 +13,7 @@
   "short_desc": "Complete photo management service",
   "author": "Niaz Faridani-Rad",
   "source": "https://github.com/LibrePhotos/librephotos",
+  "website": "https://docs.librephotos.com/",
   "form_fields": [
     {
       "type": "email",

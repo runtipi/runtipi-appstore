@@ -116,7 +116,7 @@
   "supported_architectures": ["amd64"],
   "tipi_version": 152,
   "version": "v6.2.0",
-  "website": "https://cal.com/",
+  "website": "https://www.cal.diy/",
   "created_at": 1691943801422,
   "updated_at": 1792686946825,
   "$schema": "../app-info-schema.json",

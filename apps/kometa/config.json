@@ -14,6 +14,7 @@
   "description": "Update metadata information for items in plex as well as automatically build collections and playlists.",
   "short_desc": "Overlays, Collections & Playlists for Plex.",
   "source": "https://github.com/Kometa-Team/Kometa",
+  "website": "https://kometa.wiki",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,

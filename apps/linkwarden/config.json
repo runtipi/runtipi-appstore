@@ -13,6 +13,7 @@
   "short_desc": "A self-hosted, open-source collaborative bookmark manager",
   "author": "Linkwarden",
   "source": "https://github.com/linkwarden/linkwarden",
+  "website": "https://docs.linkwarden.app/",
   "form_fields": [
     {
       "type": "random",

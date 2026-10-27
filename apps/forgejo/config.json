@@ -13,6 +13,7 @@
   "short_desc": "Beyond coding. We forge. · Lightweight and performant · Guaranteed 100% Free Software",
   "author": "forgejo",
   "source": "https://codeberg.org/forgejo/forgejo/",
+  "website": "https://forgejo.org/",
   "form_fields": [
     {
       "type": "random",

@@ -13,6 +13,7 @@
   "short_desc": "Open Source Wealth Management Software.",
   "author": "dtslvr",
   "source": "https://github.com/ghostfolio/ghostfolio",
+  "website": "https://ghostfol.io",
   "form_fields": [
     {
       "type": "random",

@@ -11,6 +11,7 @@
   "tipi_version": 25,
   "version": "v3.6.0",
   "source": "https://github.com/sergi0g/cup",
+  "website": "https://cup.sergi0g.dev/",
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],
   "form_fields": [],

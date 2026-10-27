@@ -13,6 +13,7 @@
   "short_desc": "A Personal Relationship Management tool to help you document your social life.",
   "author": "monicahq",
   "source": "https://github.com/monicahq/monica",
+  "website": "https://monicahq.com/",
   "form_fields": [
     {
       "type": "random",

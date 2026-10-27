@@ -12,6 +12,7 @@
   "short_desc": "Open-source business management software with modular applications for streamlined operations.",
   "author": "armandgillot",
   "source": "https://github.com/odoo/odoo",
+  "website": "https://www.odoo.com/",
   "form_fields": [
     {
       "type": "random",

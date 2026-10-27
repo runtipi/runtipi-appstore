@@ -15,7 +15,8 @@
   "description": "Fast, fun, ActivityPub server, powered by Go.",
   "short_desc": "Fast, fun, ActivityPub server, powered by Go.",
   "author": "superseriousbusiness",
-  "source": "https://github.com/superseriousbusiness/gotosocial",
+  "website": "https://gotosocial.org/",
+  "source": "https://codeberg.org/superseriousbusiness/gotosocial",
   "form_fields": [
     {
       "type": "random",

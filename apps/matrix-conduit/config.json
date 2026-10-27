@@ -15,7 +15,7 @@
   "short_desc": "Conduit is a simple, fast and reliable chat server written in Rust",
   "author": "Timo Kösters",
   "source": "https://gitlab.com/famedly/conduit",
-  "website": "https://matrix.org/docs/projects/server/conduit",
+  "website": "https://docs.conduit.rs/",
   "form_fields": [
     {
       "type": "boolean",

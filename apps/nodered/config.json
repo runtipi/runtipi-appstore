@@ -13,6 +13,7 @@
   "short_desc": "Low-code programming for event-driven applications",
   "author": "node-red",
   "source": "https://github.com/node-red/node-red",
+  "website": "https://nodered.org/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,

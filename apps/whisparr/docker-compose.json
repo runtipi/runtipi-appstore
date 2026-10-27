@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "whisparr",
-      "image": "ghcr.io/hotio/whisparr:nightly-2.0.0.548",
+      "image": "ghcr.io/hotio/whisparr:latest",
       "isMain": true,
       "internalPort": 6969,
       "hostname": "${APP_ID}",

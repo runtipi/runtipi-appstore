@@ -13,6 +13,7 @@
   "short_desc": "VPN server for your homeserver.",
   "author": "WeeJeWel",
   "source": "https://github.com/wg-easy/wg-easy",
+  "website": "https://wg-easy.github.io/wg-easy/latest/",
   "form_fields": [
     {
       "type": "boolean",

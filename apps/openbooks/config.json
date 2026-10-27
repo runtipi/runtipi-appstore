@@ -14,6 +14,7 @@
   "short_desc": "Search and Download eBooks",
   "author": "https://github.com/evan-buss",
   "source": "https://github.com/evan-buss/openbooks",
+  "website": "https://evan-buss.github.io/openbooks/",
   "form_fields": [
     {
       "type": "text",

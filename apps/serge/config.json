@@ -3,6 +3,7 @@
   "name": "Serge",
   "available": true,
   "exposable": true,
+  "deprecated": true,
   "dynamic_config": true,
   "port": 8008,
   "id": "serge",

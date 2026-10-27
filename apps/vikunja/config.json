@@ -12,7 +12,7 @@
   "description": "The Todo-app to organize your life.",
   "short_desc": "The Todo-app to organize your life.",
   "author": "kolaente",
-  "source": "https://kolaente.dev/vikunja",
+  "source": "https://github.com/go-vikunja/vikunja",
   "website": "https://vikunja.io",
   "form_fields": [
     {

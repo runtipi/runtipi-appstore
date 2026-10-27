@@ -13,6 +13,7 @@
   "short_desc": "Docker compose.yaml stack-oriented manager.",
   "author": "Louis Lam",
   "source": "https://github.com/louislam/dockge",
+  "website": "https://dockge.kuma.pet/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,

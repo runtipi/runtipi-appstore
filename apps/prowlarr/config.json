@@ -13,6 +13,7 @@
   "short_desc": "A torrent/usenet indexer manager/proxy",
   "author": "Prowlarr",
   "source": "https://github.com/Prowlarr/Prowlarr/",
+  "website": "https://prowlarr.com/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,

@@ -13,6 +13,7 @@
   "short_desc": "Open-Source Personal Subscription Tracker",
   "author": "Miguel Ribeiro",
   "source": "https://github.com/ellite/Wallos",
+  "website": "https://wallosapp.com/",
   "form_fields": [],
   "supported_architectures": ["amd64", "arm64"],
   "created_at": 1691943801422,

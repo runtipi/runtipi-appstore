@@ -13,6 +13,7 @@
   "short_desc": "Fast, easy, and free BitTorrent client",
   "author": "qBittorrent project",
   "source": "https://github.com/qbittorrent/qBittorrent",
+  "website": "https://www.qbittorrent.org/",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1691943801422,

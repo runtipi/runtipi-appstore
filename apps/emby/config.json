@@ -12,7 +12,7 @@
   "description": "Emby is a media server designed to organize, play, and stream audio and video to a variety of devices",
   "short_desc": "A media server for your home collection",
   "author": "emby.media",
-  "source": "https://emby.media",
+  "source": "https://github.com/MediaBrowser/Emby",
   "website": "https://emby.media",
   "form_fields": [],
   "supported_architectures": ["arm64", "amd64"],
