@@ -1,6 +1,6 @@
 services:
   2fauth:
-    image: 2fauth/2fauth:8.0.3
+    image: 2fauth/2fauth:9.0.0
     volumes:
       - ${APP_DATA_DIR}/data:/2fauth
     environment:
