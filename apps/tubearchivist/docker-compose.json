@@ -15,14 +15,6 @@
           "value": "redis://tubearchivist-redis:6379"
         },
         {
-          "key": "HOST_UID",
-          "value": "1000"
-        },
-        {
-          "key": "HOST_GID",
-          "value": "1000"
-        },
-        {
           "key": "TA_USERNAME",
           "value": "${TA_USER}"
         },
