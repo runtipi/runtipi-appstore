@@ -5,6 +5,7 @@
       "image": "bbilly1/tubearchivist:v0.6.0",
       "isMain": true,
       "internalPort": 8000,
+      "user": "1000:1000",
       "environment": [
         {
           "key": "ES_URL",
