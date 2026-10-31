@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   stalwart-mail:
-    image: ghcr.io/stalwartlabs/stalwart:v0.16.27
+    image: ghcr.io/stalwartlabs/stalwart:v1.0.1
     container_name: stalwart-mail
     volumes:
       - ${APP_DATA_DIR}/data:/opt/stalwart-mail
