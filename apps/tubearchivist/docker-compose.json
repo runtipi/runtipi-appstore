@@ -5,6 +5,7 @@
       "image": "bbilly1/tubearchivist:v0.6.0",
       "isMain": true,
       "internalPort": 8000,
+      "user": "1000:1000",
       "environment": [
         {
           "key": "ES_URL",
@@ -56,7 +57,7 @@
     },
     {
       "name": "tubearchivist-es",
-      "image": "elasticsearch:8.17.2",
+      "image": "elasticsearch:8.19.0",
       "environment": [
         {
           "key": "xpack.security.enabled",
