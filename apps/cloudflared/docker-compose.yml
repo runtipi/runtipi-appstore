@@ -9,6 +9,6 @@ services:
       - ${APP_DATA_DIR}/data/cloudflared/config:/config
     environment:
       BASIC_AUTH_USER: ${BASIC_AUTH_USER}
-      BASIC_AUTH_PASS: ${BASIC_AUTH_PASS}
+      BASIC_AUTH_PASS: ${BASIC_AUTH_PASSWORD}
     labels:
       runtipi.managed: true

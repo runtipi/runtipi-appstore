@@ -19,7 +19,7 @@
         },
         {
           "key": "BASIC_AUTH_PASS",
-          "value": "${BASIC_AUTH_PASS}"
+          "value": "${BASIC_AUTH_PASSWORD}"
         }
       ]
     }
