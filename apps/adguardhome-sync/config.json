@@ -8,8 +8,8 @@
   "port": 8436,
   "categories": ["network", "utilities"],
   "description": "Synchronize AdGuardHome config to replica instances",
-  "tipi_version": 26,
-  "version": "v0.9.5",
+  "tipi_version": 27,
+  "version": "v0.9.6",
   "source": "https://github.com/bakito/adguardhome-sync",
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],
@@ -39,6 +39,6 @@
     }
   ],
   "created_at": 1730236492823,
-  "updated_at": 1792839826212,
+  "updated_at": 1793707235321,
   "min_tipi_version": "4.7.0"
 }
