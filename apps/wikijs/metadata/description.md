@@ -1,20 +1,17 @@
-[![Wiki.js](https://camo.githubusercontent.com/620ef2ce5831c2e1a03aaa55721d0eb9be6c5fb678a284a9dd5ad4976413974f/68747470733a2f2f7374617469632e7265717561726b732e696f2f6c6f676f2f77696b696a732d66756c6c2e737667)](https://camo.githubusercontent.com/620ef2ce5831c2e1a03aaa55721d0eb9be6c5fb678a284a9dd5ad4976413974f/68747470733a2f2f7374617469632e7265717561726b732e696f2f6c6f676f2f77696b696a732d66756c6c2e737667)
+# ⛺ Migration Required
+This version of Wiki.js is deprecated.
+You can now migrate easily to v3 following these steps:
+1. From your existing installation:
+    - Go to the **Administration panel** -> `Utilities` -> `Export for wiki.js 3.x`
+    - From there you can "Create a package" which will be a backup of your wiki.js instance
+    - Download the package when ready
+2. Install the new [wiki-js app](./wiki-js)
+3. From the newly installed wiki.js go to the **Administration panel** -> `Utilities` -> `Import from Wiki.js 2.x` 
 
-##### [](https://github.com/requarks/wiki/blob/main/README.md#a-modern-lightweight-and-powerful-wiki-app-built-on-nodejs)A modern, lightweight and powerful wiki app built on NodeJS
+> Read the details on the official website: https://docs.js.wiki/setup/upgrade
 
-- **[Official Website](https://js.wiki/)**
-- **[Documentation](https://docs.requarks.io/)**
-- [Requirements](https://docs.requarks.io/install/requirements)
-- [Installation](https://docs.requarks.io/install)
-- [Demo](https://docs.requarks.io/demo)
-- [Changelog](https://github.com/requarks/wiki/releases)
-- [Feature Requests](https://feedback.js.wiki/wiki)
-- [Chat with us on Slack](https://wiki.requarks.io/slack)
-- [Translations](https://docs.requarks.io/dev/translations) _(We need your help!)_
-- [E2E Testing Results](https://dashboard.cypress.io/projects/r7qxah/runs)
-- [Special Thanks](https://github.com/requarks/wiki/blob/main/README.md#special-thanks)
-- [Contribute](https://github.com/requarks/wiki/blob/main/README.md#contributors)
+### Need more help ?
 
-[Follow our Twitter feed](https://twitter.com/requarks) to learn about upcoming updates and new releases!
-
-## [](https://github.com/requarks/wiki/blob/main/README.md#donate)
+- [Ask on Github](https://github.com/runtipi/runtipi-appstore/discussions)
+- [Ask on Discord](https://discord.gg/Bu9qEPnHsc)
+- [Ask on the Forum](https://forums.runtipi.io/)
