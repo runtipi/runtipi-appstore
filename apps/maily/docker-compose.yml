@@ -3,7 +3,7 @@ version: "3"
 services:
   maily:
     container_name: maily
-    image: ghcr.io/stormsia/maily:0.8.0
+    image: ghcr.io/stormsia/maily:latest
     ports:
       - ${APP_PORT}:8477
     volumes:

@@ -4,7 +4,7 @@
   "services": [
     {
       "name": "maily",
-      "image": "ghcr.io/stormsia/maily:0.8.0",
+      "image": "ghcr.io/stormsia/maily:latest",
       "isMain": true,
       "internalPort": 8477,
       "environment": [
