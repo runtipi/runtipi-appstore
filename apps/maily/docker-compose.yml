@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+  maily:
+    container_name: maily
+    image: ghcr.io/stormsia/maily:latest
+    ports:
+      - ${APP_PORT}:8477
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+    environment:
+      - MAILY_HOST=0.0.0.0
+      - MAILY_PORT=8477
+      - MAILY_API_KEY=${MAILY_API_KEY}
+      - MAILY_DATABASE_URL=sqlite+aiosqlite:////data/maily.db
+      - MAILY_SECRET_KEY_PATH=/data/maily.key
+    restart: unless-stopped
+    networks:
+      - tipi_main_network
+    labels:
+      traefik.enable: true
+      traefik.http.middlewares.maily-web-redirect.redirectscheme.scheme: https
+      traefik.http.middlewares.maily-web-redirect.redirectscheme.permanent: true
+      traefik.http.services.maily.loadbalancer.server.port: 8477
+      traefik.http.routers.maily-insecure.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.maily-insecure.entrypoints: web
+      traefik.http.routers.maily-insecure.service: maily
+      traefik.http.routers.maily-insecure.middlewares: maily-web-redirect
+      traefik.http.routers.maily.rule: Host(`${APP_DOMAIN}`)
+      traefik.http.routers.maily.entrypoints: websecure
+      traefik.http.routers.maily.service: maily
+      traefik.http.routers.maily.tls.certresolver: myresolver
+      traefik.http.routers.maily-local-insecure.rule: Host(`maily.${LOCAL_DOMAIN}`)
+      traefik.http.routers.maily-local-insecure.entrypoints: web
+      traefik.http.routers.maily-local-insecure.service: maily
+      traefik.http.routers.maily-local-insecure.middlewares: maily-web-redirect
+      traefik.http.routers.maily-local.rule: Host(`maily.${LOCAL_DOMAIN}`)
+      traefik.http.routers.maily-local.entrypoints: websecure
+      traefik.http.routers.maily-local.service: maily
+      traefik.http.routers.maily-local.tls: true
+      runtipi.managed: true
