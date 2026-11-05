@@ -7,7 +7,7 @@
   "dynamic_config": true,
   "id": "maily",
   "tipi_version": 1,
-  "version": "latest",
+  "version": "0.8.0",
   "categories": ["utilities", "development"],
   "description": "The Universal Temporary Email Gateway & REST API Platform with OTP verification extraction and dark-mode web console.",
   "short_desc": "Universal Temporary Email Gateway & REST API Platform with OTP extraction.",
