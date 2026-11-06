@@ -1,0 +1,32 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "Maily",
+  "port": 8477,
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "id": "maily",
+  "tipi_version": 1,
+  "version": "0.8.0",
+  "categories": ["utilities", "development"],
+  "description": "The Universal Temporary Email Gateway & REST API Platform with OTP verification extraction and dark-mode web console.",
+  "short_desc": "Universal Temporary Email Gateway & REST API Platform with OTP extraction.",
+  "author": "stormsia",
+  "source": "https://github.com/stormsia/maily",
+  "website": "https://stormsia.github.io/maily/",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "Maily Master API Key",
+      "max": 128,
+      "min": 8,
+      "required": true,
+      "env_variable": "MAILY_API_KEY"
+    }
+  ],
+  "supported_architectures": ["arm64", "amd64"],
+  "created_at": 1730784000000,
+  "updated_at": 1730784000000,
+  "force_pull": false,
+  "min_tipi_version": "4.5.0"
+}
