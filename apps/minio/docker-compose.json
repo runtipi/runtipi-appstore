@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "minio",
-      "image": "ghcr.io/golithus/minio:latest",
+      "image": "pgsty/silo:latest",
       "isMain": true,
       "internalPort": 9001,
       "addPorts": [
