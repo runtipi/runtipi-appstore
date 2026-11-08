@@ -57,7 +57,7 @@
     },
     {
       "name": "tubearchivist-es",
-      "image": "elasticsearch:8.19.0",
+      "image": "elasticsearch:9.5.5",
       "environment": [
         {
           "key": "xpack.security.enabled",
