@@ -1,6 +1,6 @@
 services:
   changedetection:
-    image: ghcr.io/dgtlmoon/changedetection.io:0.70.2
+    image: ghcr.io/dgtlmoon/changedetection.io:0.70.3
     hostname: changedetection
     volumes:
       - ${APP_DATA_DIR}/data:/datastore
