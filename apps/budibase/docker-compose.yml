@@ -1,6 +1,6 @@
 services:
   budibase:
-    image: budibase/budibase:v3.50.0
+    image: budibase/budibase:v3.51.0
     volumes:
       - ${APP_DATA_DIR}:/data
     x-runtipi:
