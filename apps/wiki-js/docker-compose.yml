@@ -2,7 +2,7 @@ x-runtipi:
   schema_version: 2
 services:
   wiki-js:
-    image: ghcr.io/requarks/wiki:3.3.0
+    image: ghcr.io/requarks/wiki:3.3.1
     x-runtipi:
       internal_port: 3000
       is_main: true
