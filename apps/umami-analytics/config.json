@@ -8,14 +8,14 @@
   "port": 8153,
   "categories": ["utilities"],
   "description": "Umami is an open-source, privacy-focused web analytics tool that serves as an alternative to Google Analytics. It provides essential insights into website traffic, user behavior, and performance, all while prioritizing data privacy.",
-  "tipi_version": 17,
-  "version": "3.4.1",
+  "tipi_version": 19,
+  "version": "3.5.0",
   "source": "https://github.com/umami-software/umami",
   "website": "https://umami.is",
   "exposable": true,
   "supported_architectures": ["arm64", "amd64"],
   "created_at": 1741025885292,
-  "updated_at": 1792832215563,
+  "updated_at": 1794572339514,
   "dynamic_config": true,
   "form_fields": [
     {
