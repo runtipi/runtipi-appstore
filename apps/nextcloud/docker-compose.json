@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "nextcloud",
-      "image": "nextcloud:35.0.2",
+      "image": "nextcloud:35.0.3",
       "isMain": true,
       "internalPort": 80,
       "environment": [
