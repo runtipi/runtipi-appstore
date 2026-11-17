@@ -1,12 +1,14 @@
 services:
   plausible-ce:
     container_name: plausible-ce
-    image: ghcr.io/plausible/community-edition:v2.1.5
+    image: ghcr.io/plausible/community-edition:v3.2.1
     restart: unless-stopped
     command: sh -c "sleep 10 && /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh run"
     depends_on:
-      - plausible-db
-      - plausible-events-db
+      plausible-db:
+        condition: service_healthy
+      plausible-events-db:
+        condition: service_healthy
     ports:
       - ${APP_PORT}:8000
     environment:
@@ -71,6 +73,10 @@ services:
       - POSTGRES_PASSWORD=${PLAUSIBLE_DB_PASSWORD}
       - POSTGRES_USER=tipi
       - POSTGRES_DB=plausible-db
+    healthcheck:
+      test: pg_isready -d plausible-db -U tipi
+      timeout: 5s
+      retries: 3
     labels:
       runtipi.managed: true
   plausible-events-db:
@@ -88,5 +94,12 @@ services:
       nofile:
         soft: 262144
         hard: 262144
+    environment:
+      - CLICKHOUSE_SKIP_USER_SETUP=1
+    healthcheck:
+      test: wget --no-verbose --tries=1 -O - http://127.0.0.1:8123/ping || exit 1
+      timeout: 5s
+      retries: 5
+      start_period: 1m
     labels:
       runtipi.managed: true
