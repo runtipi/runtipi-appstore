@@ -23,6 +23,7 @@ We are dedicated to making web analytics more privacy-friendly. Our mission is t
 
 # Upgrade
 - Manual Steps REQUIRED: From v1.x to 2.x: https://github.com/plausible/analytics/releases/tag/v2.0.0
+- From v2.x to v3.x: back up the app first. Plausible runs irreversible database migrations on its first start and cannot be downgraded afterwards. See the [v3.0.0 release notes](https://github.com/plausible/analytics/releases/tag/v3.0.0) for breaking changes.
 
 ## Why Plausible?
 

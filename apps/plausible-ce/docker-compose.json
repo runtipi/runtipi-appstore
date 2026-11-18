@@ -2,7 +2,7 @@
   "services": [
     {
       "name": "plausible-ce",
-      "image": "ghcr.io/plausible/community-edition:v2.1.5",
+      "image": "ghcr.io/plausible/community-edition:v3.2.1",
       "command": "sh -c 'sleep 10 && /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh run'",
       "internalPort": 8000,
       "isMain": true,
@@ -117,7 +117,7 @@
           "condition": "service_healthy"
         },
         "plausible-events-db": {
-          "condition": "service_started"
+          "condition": "service_healthy"
         }
       }
     },
@@ -155,6 +155,10 @@
       "image": "clickhouse/clickhouse-server:26.10.4.207-alpine",
       "environment": [
         {
+          "key": "CLICKHOUSE_SKIP_USER_SETUP",
+          "value": "1"
+        },
+        {
           "key": "POSTGRES_DB",
           "value": "plausible-db"
         },
@@ -186,7 +190,13 @@
           "containerPath": "/etc/clickhouse-server/users.d/logging.xml",
           "readOnly": true
         }
-      ]
+      ],
+      "healthCheck": {
+        "test": "wget --no-verbose --tries=1 -O - http://127.0.0.1:8123/ping || exit 1",
+        "timeout": "5s",
+        "retries": 5,
+        "startPeriod": "1m"
+      }
     }
   ],
   "schemaVersion": 2,
