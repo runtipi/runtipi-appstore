@@ -7,7 +7,7 @@
   "dynamic_config": true,
   "id": "eclipse-mosquitto",
   "tipi_version": 12,
-  "version": "2.0.22",
+  "version": "2.0.23",
   "categories": ["utilities", "automation"],
   "description": "Eclipse Mosquitto is an open source message broker that implements the MQTT protocol.",
   "short_desc": "The MQTT protocol provides a lightweight method of carrying out messaging using a publish/subscribe model.",
