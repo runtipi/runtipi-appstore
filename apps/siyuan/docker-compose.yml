@@ -1,6 +1,6 @@
 services:
   siyuan:
-    image: b3log/siyuan:v3.8.11
+    image: b3log/siyuan:v3.8.12
     container_name: siyuan
     command:
       - serve
