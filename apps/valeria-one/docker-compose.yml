@@ -1,6 +1,6 @@
 services:
   valeria-one:
-    image: ghcr.io/valeriaone/valeria-one:0.67.0
+    image: ghcr.io/valeriaone/valeria-one:latest
     command: ["sh", "-c", "alembic upgrade head && exec uvicorn valeria_one.api:app --host 0.0.0.0 --port 8000 --proxy-headers --forwarded-allow-ips '*'"]
     environment:
       - VO_DATABASE_URL=postgresql+psycopg://vo:${VO_DB_PASSWORD}@valeria-one-db:5432/valeria_one
@@ -15,7 +15,7 @@ services:
       is_main: true
 
   valeria-one-jobs:
-    image: ghcr.io/valeriaone/valeria-one:0.67.0
+    image: ghcr.io/valeriaone/valeria-one:latest
     command: ["python", "-m", "valeria_one.jobs", "loop"]
     environment:
       - VO_DATABASE_URL=postgresql+psycopg://vo:${VO_DB_PASSWORD}@valeria-one-db:5432/valeria_one
