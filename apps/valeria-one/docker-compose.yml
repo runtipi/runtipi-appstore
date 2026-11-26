@@ -1,0 +1,37 @@
+services:
+  valeria-one:
+    image: ghcr.io/valeriaone/valeria-one:0.67.0
+    command: ["sh", "-c", "alembic upgrade head && exec uvicorn valeria_one.api:app --host 0.0.0.0 --port 8000 --proxy-headers --forwarded-allow-ips '*'"]
+    environment:
+      - VO_DATABASE_URL=postgresql+psycopg://vo:${VO_DB_PASSWORD}@valeria-one-db:5432/valeria_one
+      - VO_SECRET_KEY=${VO_SECRET_KEY}
+      - VO_PUBLIC_URL=${APP_PROTOCOL:-http}://${APP_DOMAIN}
+      - VO_SIGNUP=closed
+    depends_on:
+      - valeria-one-db
+    restart: unless-stopped
+    x-runtipi:
+      internal_port: 8000
+      is_main: true
+
+  valeria-one-jobs:
+    image: ghcr.io/valeriaone/valeria-one:0.67.0
+    command: ["python", "-m", "valeria_one.jobs", "loop"]
+    environment:
+      - VO_DATABASE_URL=postgresql+psycopg://vo:${VO_DB_PASSWORD}@valeria-one-db:5432/valeria_one
+    depends_on:
+      - valeria-one
+    restart: unless-stopped
+
+  valeria-one-db:
+    image: postgres:16
+    environment:
+      - POSTGRES_USER=vo
+      - POSTGRES_PASSWORD=${VO_DB_PASSWORD}
+      - POSTGRES_DB=valeria_one
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data
+    restart: unless-stopped
+
+x-runtipi:
+  schema_version: 2

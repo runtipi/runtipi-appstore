@@ -1,0 +1,35 @@
+{
+  "$schema": "../app-info-schema.json",
+  "name": "Valeria One",
+  "id": "valeria-one",
+  "available": true,
+  "exposable": true,
+  "dynamic_config": true,
+  "port": 8571,
+  "tipi_version": 1,
+  "version": "0.67.0",
+  "categories": ["utilities"],
+  "description": "Valeria One is a self-hosted business back office in one app: a website with an online store and bookings, a CRM with follow-ups and NPS, invoicing (including Mexican CFDI 4.0), gift cards, and an AI website assistant that streams its answers and can speak. AI, messaging and payments use your own provider accounts, so it runs with no third-party service required. After first start, create your admin account from the Server page or the setup link (see the project README).",
+  "short_desc": "Open-source back office for any business: website, store, CRM, invoicing and an AI assistant.",
+  "author": "valAI",
+  "source": "https://github.com/valeriaone/valeria-one",
+  "website": "https://valeriaone.valai.mx",
+  "supported_architectures": ["amd64", "arm64"],
+  "form_fields": [
+    {
+      "type": "random",
+      "label": "Secret key",
+      "min": 48,
+      "max": 48,
+      "env_variable": "VO_SECRET_KEY"
+    },
+    {
+      "type": "random",
+      "label": "Database password",
+      "min": 24,
+      "max": 24,
+      "env_variable": "VO_DB_PASSWORD"
+    }
+  ],
+  "min_tipi_version": "4.0.0"
+}
